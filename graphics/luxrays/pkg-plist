@@ -1,0 +1,68 @@
+lib/libluxrays.a
+include/luxrays/utils/sdl/data/rgbD65_32.h
+include/luxrays/utils/sdl/data/rgbE_32.h
+include/luxrays/utils/sdl/data/sun_spect.h
+include/luxrays/utils/sdl/data/xyzbasis.h
+@dirrm include/luxrays/utils/sdl/data
+include/luxrays/utils/sdl/camera.h
+include/luxrays/utils/sdl/extmeshcache.h
+include/luxrays/utils/sdl/light.h
+include/luxrays/utils/sdl/material.h
+include/luxrays/utils/sdl/mc.h
+include/luxrays/utils/sdl/scene.h
+include/luxrays/utils/sdl/sdl.h
+include/luxrays/utils/sdl/spd.h
+include/luxrays/utils/sdl/texmap.h
+@dirrm include/luxrays/utils/sdl
+include/luxrays/utils/plymesh/LICENSE
+include/luxrays/utils/plymesh/rply.h
+@dirrm include/luxrays/utils/plymesh
+include/luxrays/utils/ocl/utils.h
+@dirrm include/luxrays/utils/ocl
+include/luxrays/utils/film/film.h
+include/luxrays/utils/film/nativefilm.h
+include/luxrays/utils/film/pixeldevicefilm.h
+@dirrm include/luxrays/utils/film
+include/luxrays/utils/core/atomic.h
+include/luxrays/utils/core/exttrianglemesh.h
+include/luxrays/utils/core/randomgen.h
+include/luxrays/utils/core/spectrum.h
+@dirrm include/luxrays/utils/core
+include/luxrays/utils/properties.h
+@dirrm include/luxrays/utils
+include/luxrays/kernels/kernels.h
+@dirrm include/luxrays/kernels
+include/luxrays/core/pixel/filter.h
+include/luxrays/core/pixel/framebuffer.h
+include/luxrays/core/pixel/samplebuffer.h
+include/luxrays/core/pixel/spectrum.h
+@dirrm include/luxrays/core/pixel
+include/luxrays/core/geometry/bbox.h
+include/luxrays/core/geometry/bsphere.h
+include/luxrays/core/geometry/matrix4x4.h
+include/luxrays/core/geometry/normal.h
+include/luxrays/core/geometry/point.h
+include/luxrays/core/geometry/ray.h
+include/luxrays/core/geometry/raybuffer.h
+include/luxrays/core/geometry/transform.h
+include/luxrays/core/geometry/triangle.h
+include/luxrays/core/geometry/uv.h
+include/luxrays/core/geometry/vector.h
+include/luxrays/core/geometry/vector_normal.h
+@dirrm include/luxrays/core/geometry
+include/luxrays/core/acceleretor.h
+include/luxrays/core/context.h
+include/luxrays/core/dataset.h
+include/luxrays/core/device.h
+include/luxrays/core/intersectiondevice.h
+include/luxrays/core/pixeldevice.h
+include/luxrays/core/trianglemesh.h
+include/luxrays/core/utils.h
+include/luxrays/core/virtualdevice.h
+@dirrm include/luxrays/core
+include/luxrays/accelerators/bvhaccel.h
+include/luxrays/accelerators/mqbvhaccel.h
+include/luxrays/accelerators/qbvhaccel.h
+@dirrm include/luxrays/accelerators
+include/luxrays/cfg.h
+include/luxrays/luxrays.h

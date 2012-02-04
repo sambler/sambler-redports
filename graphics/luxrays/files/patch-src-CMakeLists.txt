@@ -1,0 +1,11 @@
+--- src/CMakeLists.txt.orig
++++ src/CMakeLists.txt
+@@ -294,6 +294,8 @@
+ 
+ add_library(luxrays STATIC ${LuxRays_SRCS} ${LuxRays_HEADERS})
+ 
++install(TARGETS luxrays DESTINATION ${TARGETROOT}/lib)
++
+ ###########################################################################
+ #
+ # Predefines

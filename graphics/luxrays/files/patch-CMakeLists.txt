@@ -1,0 +1,9 @@
+--- CMakeLists.txt.orig
++++ CMakeLists.txt
+@@ -144,3 +144,6 @@
+ #
+ ###########################################################################
+ INCLUDE(AssembleBinDirs)
++
++install(DIRECTORY include/luxrays DESTINATION ${TARGETROOT}/include)
++
