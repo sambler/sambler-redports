@@ -66,3 +66,4 @@ include/luxrays/accelerators/qbvhaccel.h
 @dirrm include/luxrays/accelerators
 include/luxrays/cfg.h
 include/luxrays/luxrays.h
+@dirrm include/luxrays
