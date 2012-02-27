@@ -6,14 +6,14 @@
 #
 
 PORTNAME=	luxrays
-PORTVERSION=	0.9.0.20120102
+PORTVERSION=	0.9.0.20120225
 CATEGORIES=	graphics
 MASTER_SITES=	http://src.luxrender.net/luxrays/archive/ \
 				http://bitbucket.org/luxrender/luxrays/get/
 DISTNAME=	${HG_NODEID}
 DIST_SUBDIR=	${PORTNAME}
 
-MAINTAINER=
+MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	Library part of the LuxRender system
 
 LICENSE=	GPLv3
@@ -24,8 +24,8 @@ LIB_DEPENDS=	boost_thread.4:${PORTSDIR}/devel/boost-libs \
 
 # libexecinfo for backtrace - seems popular port so depend it instead of patching out
 
-# recent snapshot - 2012-01-02
-HG_NODEID=	392039ecdeab
+# recent snapshot - 2012-02-25
+HG_NODEID=	ebf26469123e
 
 USE_BZIP2=	yes
 USE_CMAKE=	yes
