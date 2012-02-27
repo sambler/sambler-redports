@@ -29,8 +29,11 @@ HG_NODEID=	ebf26469123e
 
 USE_BZIP2=	yes
 USE_CMAKE=	yes
+USE_GCC=	4.6+
 CMAKE_VERBOSE=	yes
 CMAKE_OUTSOURCE=	yes
+USE_GL=		gl glut glew
+
 # no opencl support on freebsd??
 CMAKE_ARGS=	-DLUXRAYS_DISABLE_OPENCL:BOOL=ON
 .if defined(PREFIX) && ${PREFIX} != ""
