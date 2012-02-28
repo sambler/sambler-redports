@@ -29,7 +29,9 @@ HG_NODEID=	ebf26469123e
 
 USE_BZIP2=	yes
 USE_CMAKE=	yes
+.if !${CC:T:Mclang}
 USE_GCC=	4.6+
+.endif
 CMAKE_VERBOSE=	yes
 CMAKE_OUTSOURCE=	yes
 USE_GL=		gl glut glew
