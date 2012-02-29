@@ -32,6 +32,7 @@ HG_NODEID=	b19211ffa68c
 USE_BZIP2=	yes
 USE_BISON=	build
 USE_CMAKE=	yes
+USE_GL=		gl
 CMAKE_VERBOSE=	yes
 CMAKE_OUTSOURCE=	yes
 CMAKE_ARGS=	-DLUXRAYS_DISABLE_OPENCL:BOOL=ON
@@ -70,6 +71,12 @@ post-patch:
 # Prevent appending `64' suffix to `lib' directory on amd64
 # do not install vendor .desktop file
 	@${REINPLACE_CMD} -e '/LIB_SUFFIX 64/d ; /luxrender\.desktop/d' ${WRKSRC}/CMakeLists.txt
+
+.if ${CC:T:Mclang}
+# remove some flags that clang doesn't use
+# just removes warnings
+	@${REINPLACE_CMD} -e '/-mfpmath=sse/d ; /-ftree-vectorize/d' ${WRKSRC}/CMakeLists.txt
+.endif
 
 .include <bsd.port.pre.mk>
 

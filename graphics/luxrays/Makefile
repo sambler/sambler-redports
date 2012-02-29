@@ -58,8 +58,12 @@ OPTIONS=	SSSE3 "Enable SSSE3 optimisation"   on
 CFLAGS+=	-Wall -msse -msse2 -msse3 -fPIC -O0 -g
 CXXFLAGS+=	-Wall -msse -msse2 -msse3 -fPIC -O0 -g
 .else
-CFLAGS+=	-DNDEBUG -Wall -fPIC -O3 -ftree-vectorize -msse -msse2 -msse3 -fvariable-expansion-in-unroller
-CXXFLAGS+=	-DNDEBUG -Wall -fPIC -O3 -ftree-vectorize -msse -msse2 -msse3 -fvariable-expansion-in-unroller
+CFLAGS+=	-DNDEBUG -Wall -fPIC -O3 -msse -msse2 -msse3 -fvariable-expansion-in-unroller
+CXXFLAGS+=	-DNDEBUG -Wall -fPIC -O3 -msse -msse2 -msse3 -fvariable-expansion-in-unroller
+.if !${CC:T:Mclang}
+CFLAGS+=	-ftree-vectorize 
+CXXFLAGS+=	-ftree-vectorize 
+.endif
 .endif
 
 .if defined(WITH_SSSE3)
