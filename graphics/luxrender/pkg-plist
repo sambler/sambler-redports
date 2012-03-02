@@ -1,8 +1,8 @@
 bin/luxconsole
 bin/luxmerger
+bin/luxrender
 include/luxrender/api.h
 @dirrm include/luxrender
-lib/liblux.a
 lib/pylux.so
 lib/pyluxconsole.py
 share/pixmaps/luxrender.svg

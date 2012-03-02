@@ -1,5 +1,5 @@
---- samples/smallluxgpu/smalllux.h.orig
-+++ samples/smallluxgpu/smalllux.h
+--- ./samples/smallluxgpu/smalllux.h.orig	2012-02-26 09:20:53.000000000 +1030
++++ ./samples/smallluxgpu/smalllux.h	2012-03-02 13:59:29.000000000 +1030
 @@ -27,13 +27,13 @@
  #include <fstream>
  #include <iostream>
