@@ -1,0 +1,38 @@
+--- ./configure.orig	2009-02-11 12:13:40.000000000 +1030
++++ ./configure	2012-03-07 07:33:48.000000000 +1030
+@@ -3497,7 +3497,7 @@
+ case $host_os in *\ *) host_os=`echo "$host_os" | sed 's/ /-/g'`;; esac
+ 
+ 
+-enable_win32_dll=yes
++enable_win32_dll=no
+ 
+ case $host in
+ *-*-cygwin* | *-*-mingw* | *-*-pw32* | *-cegcc*)
+@@ -15903,23 +15903,9 @@
+ use_msvc=no
+ 
+ 
+-case "$CXX" in
+-		cl*|CL*)
+-		CXXFLAGS="-nologo -W1 -EHsc -DWIN32"
+-		if test x"$enable_shared" = "xyes"; then
+-		    LIBEXT=".dll";
+-		    LIBFLAGS="-DLL -INCREMENTAL:NO"
+-			CXXFLAGS="$CXXFLAGS -D_WINDLL"
+-		else
+-		    LIBEXT=".lib";
+-		    LIBFLAGS="-lib"
+-		fi
+-		RANLIB="echo"
+-		use_msvc=yes
+-		;;
+-	*)
+-		;;
+-esac
++LIBEXT=".lib";
++LIBFLAGS="-lib"
++RANLIB="echo"
+  if test x"$use_msvc" = "xyes"; then
+   USE_MSVC_TRUE=
+   USE_MSVC_FALSE='#'
