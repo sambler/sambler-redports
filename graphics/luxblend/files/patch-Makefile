@@ -1,0 +1,6 @@
+--- /dev/null
++++ Makefile
+@@ -0,0 +0,3 @@
++# blank makefile
++all:
++install:

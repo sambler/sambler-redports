@@ -1,0 +1,124 @@
+share/blender/scripts/addons/luxrender/core/__init__.py
+@dirrm share/blender/scripts/addons/luxrender/core
+share/blender/scripts/addons/luxrender/export/__init__.py
+share/blender/scripts/addons/luxrender/export/geometry.py
+share/blender/scripts/addons/luxrender/export/lights.py
+share/blender/scripts/addons/luxrender/export/materials.py
+share/blender/scripts/addons/luxrender/export/preview_scene.py
+share/blender/scripts/addons/luxrender/export/scene.py
+share/blender/scripts/addons/luxrender/export/volumes.py
+@dirrm share/blender/scripts/addons/luxrender/export/
+share/blender/scripts/addons/luxrender/operators/__init__.py
+share/blender/scripts/addons/luxrender/operators/lrmdb.py
+share/blender/scripts/addons/luxrender/operators/lrmdb_lib.py
+@dirrm share/blender/scripts/addons/luxrender/operators/
+share/blender/scripts/addons/luxrender/outputs/__init__.py
+share/blender/scripts/addons/luxrender/outputs/file_api.py
+share/blender/scripts/addons/luxrender/outputs/lbm2_api.py
+share/blender/scripts/addons/luxrender/outputs/lxm_api.py
+share/blender/scripts/addons/luxrender/outputs/pure_api.py
+@dirrm share/blender/scripts/addons/luxrender/outputs/
+share/blender/scripts/addons/luxrender/properties/__init__.py
+share/blender/scripts/addons/luxrender/properties/accelerator.py
+share/blender/scripts/addons/luxrender/properties/camera.py
+share/blender/scripts/addons/luxrender/properties/engine.py
+share/blender/scripts/addons/luxrender/properties/filter.py
+share/blender/scripts/addons/luxrender/properties/integrator.py
+share/blender/scripts/addons/luxrender/properties/ior_data.py
+share/blender/scripts/addons/luxrender/properties/lamp.py
+share/blender/scripts/addons/luxrender/properties/lampspectrum_data.py
+share/blender/scripts/addons/luxrender/properties/material.py
+share/blender/scripts/addons/luxrender/properties/mesh.py
+share/blender/scripts/addons/luxrender/properties/object.py
+share/blender/scripts/addons/luxrender/properties/rendermode.py
+share/blender/scripts/addons/luxrender/properties/sampler.py
+share/blender/scripts/addons/luxrender/properties/texture.py
+share/blender/scripts/addons/luxrender/properties/world.py
+@dirrm share/blender/scripts/addons/luxrender/properties/
+share/blender/scripts/addons/luxrender/ui/materials/__init__.py
+share/blender/scripts/addons/luxrender/ui/materials/carpaint.py
+share/blender/scripts/addons/luxrender/ui/materials/compositing.py
+share/blender/scripts/addons/luxrender/ui/materials/glass.py
+share/blender/scripts/addons/luxrender/ui/materials/glass2.py
+share/blender/scripts/addons/luxrender/ui/materials/glossy.py
+share/blender/scripts/addons/luxrender/ui/materials/glossy_lossy.py
+share/blender/scripts/addons/luxrender/ui/materials/glossycoating.py
+share/blender/scripts/addons/luxrender/ui/materials/glossytranslucent.py
+share/blender/scripts/addons/luxrender/ui/materials/layered.py
+share/blender/scripts/addons/luxrender/ui/materials/main.py
+share/blender/scripts/addons/luxrender/ui/materials/matte.py
+share/blender/scripts/addons/luxrender/ui/materials/mattetranslucent.py
+share/blender/scripts/addons/luxrender/ui/materials/metal.py
+share/blender/scripts/addons/luxrender/ui/materials/metal2.py
+share/blender/scripts/addons/luxrender/ui/materials/mirror.py
+share/blender/scripts/addons/luxrender/ui/materials/mix.py
+share/blender/scripts/addons/luxrender/ui/materials/null.py
+share/blender/scripts/addons/luxrender/ui/materials/roughglass.py
+share/blender/scripts/addons/luxrender/ui/materials/scatter.py
+share/blender/scripts/addons/luxrender/ui/materials/shinymetal.py
+share/blender/scripts/addons/luxrender/ui/materials/velvet.py
+@dirrm share/blender/scripts/addons/luxrender/ui/materials/
+share/blender/scripts/addons/luxrender/ui/textures/__init__.py
+share/blender/scripts/addons/luxrender/ui/textures/band.py
+share/blender/scripts/addons/luxrender/ui/textures/bilerp.py
+share/blender/scripts/addons/luxrender/ui/textures/blackbody.py
+share/blender/scripts/addons/luxrender/ui/textures/blender.py
+share/blender/scripts/addons/luxrender/ui/textures/brick.py
+share/blender/scripts/addons/luxrender/ui/textures/cauchy.py
+share/blender/scripts/addons/luxrender/ui/textures/checkerboard.py
+share/blender/scripts/addons/luxrender/ui/textures/colordepth.py
+share/blender/scripts/addons/luxrender/ui/textures/constant.py
+share/blender/scripts/addons/luxrender/ui/textures/dots.py
+share/blender/scripts/addons/luxrender/ui/textures/equalenergy.py
+share/blender/scripts/addons/luxrender/ui/textures/fbm.py
+share/blender/scripts/addons/luxrender/ui/textures/fresnelcolor.py
+share/blender/scripts/addons/luxrender/ui/textures/fresnelname.py
+share/blender/scripts/addons/luxrender/ui/textures/gaussian.py
+share/blender/scripts/addons/luxrender/ui/textures/harlequin.py
+share/blender/scripts/addons/luxrender/ui/textures/imagemap.py
+share/blender/scripts/addons/luxrender/ui/textures/lampspectrum.py
+share/blender/scripts/addons/luxrender/ui/textures/luxpop.py
+share/blender/scripts/addons/luxrender/ui/textures/main.py
+share/blender/scripts/addons/luxrender/ui/textures/mapping.py
+share/blender/scripts/addons/luxrender/ui/textures/marble.py
+share/blender/scripts/addons/luxrender/ui/textures/mix.py
+share/blender/scripts/addons/luxrender/ui/textures/multimix.py
+share/blender/scripts/addons/luxrender/ui/textures/normalmap.py
+share/blender/scripts/addons/luxrender/ui/textures/scale.py
+share/blender/scripts/addons/luxrender/ui/textures/sellmeier.py
+share/blender/scripts/addons/luxrender/ui/textures/sopra.py
+share/blender/scripts/addons/luxrender/ui/textures/tabulateddata.py
+share/blender/scripts/addons/luxrender/ui/textures/transform.py
+share/blender/scripts/addons/luxrender/ui/textures/uv.py
+share/blender/scripts/addons/luxrender/ui/textures/uvmask.py
+share/blender/scripts/addons/luxrender/ui/textures/windy.py
+share/blender/scripts/addons/luxrender/ui/textures/wrinkled.py
+@dirrm share/blender/scripts/addons/luxrender/ui/textures/
+share/blender/scripts/addons/luxrender/ui/__init__.py
+share/blender/scripts/addons/luxrender/ui/camera.py
+share/blender/scripts/addons/luxrender/ui/image.py
+share/blender/scripts/addons/luxrender/ui/lamps.py
+share/blender/scripts/addons/luxrender/ui/mesh.py
+share/blender/scripts/addons/luxrender/ui/object.py
+share/blender/scripts/addons/luxrender/ui/render_panels.py
+share/blender/scripts/addons/luxrender/ui/world.py
+@dirrm share/blender/scripts/addons/luxrender/ui/
+share/blender/scripts/addons/luxrender/util/__init__.py
+@dirrm share/blender/scripts/addons/luxrender/util/
+share/blender/scripts/addons/luxrender/__init__.py
+share/blender/scripts/addons/luxrender/pylux.so
+@dirrm share/blender/scripts/addons/luxrender/
+share/blender/scripts/presets/luxrender/engine/Animation_-_Bidirectional.py
+share/blender/scripts/presets/luxrender/engine/Animation_-_Photon_Mapping.py
+share/blender/scripts/presets/luxrender/engine/Animation_-_SPPM.py
+share/blender/scripts/presets/luxrender/engine/Direct_lighting_preview_-_No_GI_.py
+share/blender/scripts/presets/luxrender/engine/Global_illumination_preview.py
+share/blender/scripts/presets/luxrender/engine/Metropolis_light_transport_(unbiased - recommended).py
+share/blender/scripts/presets/luxrender/engine/OpenCL_MLT+Bidirectional.py
+share/blender/scripts/presets/luxrender/engine/OpenCL_path_tracing_(unbiased).py
+share/blender/scripts/presets/luxrender/engine/Path_Photon.py
+share/blender/scripts/presets/luxrender/engine/Photon_mapping_(caustics_off).py
+share/blender/scripts/presets/luxrender/engine/Photon_mapping_(caustics_on).py
+share/blender/scripts/presets/luxrender/engine/SPPM.py
+@dirrm share/blender/scripts/presets/luxrender/engine/
+@dirrm share/blender/scripts/presets/luxrender/
