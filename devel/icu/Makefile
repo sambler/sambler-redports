@@ -7,7 +7,7 @@
 
 PORTNAME=	icu
 PORTVERSION=	4.8.1.1
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	devel
 MASTER_SITES=	http://download.icu-project.org/files/icu4c/${PORTVERSION}/ \
 		SF/${PORTNAME}/ICU4C/${PORTVERSION}/
@@ -37,6 +37,12 @@ CONFIGURE_ARGS+=	--with-data-packaging=library \
 			--enable-static
 
 MAKE_JOBS_SAFE=	yes
+
+# workaround -- i386/clang combo fails to build
+# clang in 9-stable-i386 does compile but fails tests
+.if ${CC:T:Mclang} && ${ARCH:T:Mi386}
+USE_GCC=	4.6+
+.endif
 
 USE_GMAKE=		yes
 INSTALL_TARGET=		install install-manx
