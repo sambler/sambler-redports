@@ -38,12 +38,6 @@ CONFIGURE_ARGS+=	--with-data-packaging=library \
 
 MAKE_JOBS_SAFE=	yes
 
-# workaround -- i386/clang combo fails to build
-# clang in 9-stable-i386 does compile but fails tests
-.if ${CC:T:Mclang} && ${ARCH:T:Mi386}
-USE_GCC=	4.6+
-.endif
-
 USE_GMAKE=		yes
 INSTALL_TARGET=		install install-manx
 
@@ -69,6 +63,12 @@ ICUMINOR=	0
 PLIST_SUB+=	ICUMAJOR=${ICUMAJOR} ICUMINOR=${ICUMINOR} ICUVER=${PORTVERSION}
 
 .include <bsd.port.pre.mk>
+
+.if ${CC:T} == "clang" && ${ARCH} == "i386"
+# workaround -- i386/clang combo fails to build
+# clang in 9-stable-i386 does compile but fails tests
+USE_GCC=	4.6+
+.endif
 
 .if defined(WITHOUT_THREADS)
 CONFIGURE_ARGS+=	--enable-threads=no

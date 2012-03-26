@@ -21,6 +21,8 @@ MAKE_JOBS_SAFE=	yes
 USE_GNOME=	pkgconfig gnomehack
 USE_LDCONFIG=	yes
 
+.include <bsd.port.pre.mk>
+
 .if ${ARCH} == i386
 CFLAGS+= -march=pentium2
 .endif
@@ -29,4 +31,4 @@ CONFIGURE_ENV?=	HAVE_LATEX=${FALSE} HAVE_DVIPDFM=${FALSE} \
 		HAVE_DOXYGEN=${FALSE} HAVE_DOT=${FALSE}
 CPPFLAGS+=	-I${LOCALBASE}/include
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
