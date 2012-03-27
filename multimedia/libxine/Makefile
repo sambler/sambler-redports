@@ -7,6 +7,7 @@
 
 PORTNAME=	xine
 PORTVERSION=	1.2.1
+PORTREVISION=	1
 CATEGORIES=	multimedia ipv6
 MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}-lib/${PORTVERSION}
 PKGNAMEPREFIX=	lib
@@ -255,6 +256,11 @@ post-patch:
 		${WRKSRC}/src/input/libdvdnav/dvd_input.c
 	@${REINPLACE_CMD} -e "s|#define _ATOM QT_ATOM('', '', '', '')||" \
 		${WRKSRC}/src/demuxers/demux_qt.c
+.if ${CC:T} == "clang" && ${ARCH} == "i386" && ${OSVERSION} >= 900000
+# clang/i386 fails this hack removes "clobbers must be last on the x87 stack" error
+# makes function revert to non-asm version
+	@${REINPLACE_CMD} -E -e 's|ifdef HAVE_MMX|if 0|g' ${WRKSRC}/src/post/goom/ifs.c
+.endif
 
 pre-configure:
 	@${REINPLACE_CMD} -e \
