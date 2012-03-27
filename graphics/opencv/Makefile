@@ -7,7 +7,7 @@
 
 PORTNAME?=	opencv
 PORTVERSION=	2.3.1
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	graphics
 MASTER_SITES=	SF/${PORTNAME}library/${PORTNAME}-unix/${PORTVERSION}
 DISTNAME=	OpenCV-${DISTVERSION}a
@@ -24,6 +24,16 @@ MAKE_JOBS_SAFE=	yes
 USE_BZIP2=	yes
 USE_CMAKE=	yes
 USE_LDCONFIG=	yes
+
+.if ${CC:T} == "clang"
+## workaround for 9-STABLE 10-CURRENT not building with clang
+## 9-RELEASE does compile with clang but not being that picky right now
+## GCC46 also fails
+#USE_GCC=	4.2
+CC=gcc
+CXX=g++
+CPP=cpp
+.endif
 
 WRKSRC=		${WRKDIR}/OpenCV-${DISTVERSION}
 
