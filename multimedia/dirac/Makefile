@@ -23,7 +23,7 @@ USE_LDCONFIG=	yes
 
 .include <bsd.port.pre.mk>
 
-.if ${ARCH} == i386
+.if ${ARCH} == "i386"
 CFLAGS+= -march=pentium2
 .endif
 
