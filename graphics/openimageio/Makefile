@@ -21,16 +21,17 @@ LICENSE=	BSD
 
 LIB_DEPENDS=	openjpeg:${PORTSDIR}/graphics/openjpeg \
 				opencv_legacy.2:${PORTSDIR}/graphics/opencv \
-				boost_thread.4:${PORTSDIR}/devel/boost-libs
+				boost_thread.4:${PORTSDIR}/devel/boost-libs \
+				IlmImf.6:${PORTSDIR}/graphics/OpenEXR \
+				tbb.4:${PORTSDIR}/devel/tbb
 
 USE_CMAKE=	yes
 CMAKE_VERBOSE=	yes
 CMAKE_OUTSOURCE=	yes
 CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 			-DLINKSTATIC:BOOL=OFF \
-			-DUSE_TBB:BOOL=OFF
-# TBB included is too old - maybe patch for port version?
-
+			-DUSE_TBB:BOOL=ON
+LDFLAGS+=	-ltbb
 WRKSRC=		${WRKDIR}/OpenImageIO-oiio-1595432/src
 MAKE_JOBS_SAFE=	yes
 
@@ -39,7 +40,15 @@ OPTIONS=	OPENGL "Include OpenGL support" on \
 			QT "Include QT Support" on \
 			NOTHREADS "Disable thread support" off
 
-#.include <bsd.port.options.mk>
+.include <bsd.port.options.mk>
+
+.if ${ARCH} == "i386" || ${OSVERSION} < 803000
+USE_GCC=	4.6+
+.endif
+
+.if ${OSVERSION} < 800000
+BROKEN=	Requires 8.0 or higher
+.endif
 
 .if defined(WITH_OPENGL)
 CMAKE_ARGS+=	-DUSE_OPENGL:BOOL=ON
@@ -69,7 +78,4 @@ CMAKE_ARGS+=	-DNOTHREADS:BOOL=ON
 CMAKE_ARGS+=	-DNOTHREADS:BOOL=OFF
 .endif
 
-#.include <bsd.port.pre.mk>
-
-#.include <bsd.port.post.mk>
 .include <bsd.port.mk>
