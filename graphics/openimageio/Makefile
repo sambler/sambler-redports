@@ -15,8 +15,6 @@ DIST_SUBDIR=	${PORTNAME}
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	OpenImageIO graphics library
 
-FETCH_ARGS=	-pRr
-
 LICENSE=	BSD
 
 LIB_DEPENDS=	openjpeg:${PORTSDIR}/graphics/openjpeg \
@@ -25,6 +23,7 @@ LIB_DEPENDS=	openjpeg:${PORTSDIR}/graphics/openjpeg \
 				IlmImf.6:${PORTSDIR}/graphics/OpenEXR \
 				tbb.4:${PORTSDIR}/devel/tbb
 
+FETCH_ARGS=	-pRr
 USE_CMAKE=	yes
 CMAKE_VERBOSE=	yes
 CMAKE_OUTSOURCE=	yes
@@ -32,6 +31,7 @@ CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 			-DLINKSTATIC:BOOL=OFF \
 			-DUSE_TBB:BOOL=ON
 LDFLAGS+=	-ltbb
+USE_LDCONFIG=	yes
 WRKSRC=		${WRKDIR}/OpenImageIO-oiio-1595432/src
 MAKE_JOBS_SAFE=	yes
 
@@ -77,5 +77,8 @@ CMAKE_ARGS+=	-DNOTHREADS:BOOL=ON
 .else
 CMAKE_ARGS+=	-DNOTHREADS:BOOL=OFF
 .endif
+
+post-install:
+		cd ${PREFIX}/lib && ${LN} -sf libOpenImageIO.so.1.0 libOpenImageIO.so.1
 
 .include <bsd.port.mk>
