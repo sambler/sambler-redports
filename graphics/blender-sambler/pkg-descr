@@ -1,0 +1,5 @@
+blender-sambler is a branch of blender for testing new development
+that has yet to be accepted into trunk.
+By default most available options are activated.
+
+WWW: http://github.com/sambler/myblender
