@@ -9,7 +9,8 @@ PORTNAME=	openimageio
 PORTVERSION=	1.0.2
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/OpenImageIO/oiio/tarball/
-DISTFILES=	Release-${PORTVERSION}
+DISTNAME=	Release-${PORTVERSION}
+EXTRACT_SUFX=
 DIST_SUBDIR=	${PORTNAME}
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -40,16 +41,6 @@ OPTIONS=	OPENGL "Include OpenGL support" on \
 			QT "Include QT Support" on \
 			NOTHREADS "Disable thread support" off
 
-.include <bsd.port.options.mk>
-
-.if ${ARCH} == "i386" || ${OSVERSION} < 803000
-USE_GCC=	4.6+
-.endif
-
-.if ${OSVERSION} < 800000
-BROKEN=	Requires 8.0 or higher
-.endif
-
 .if defined(WITH_OPENGL)
 CMAKE_ARGS+=	-DUSE_OPENGL:BOOL=ON
 USE_GL=		gl
@@ -67,7 +58,6 @@ CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF
 .if defined(WITH_QT)
 CMAKE_ARGS+=	-DUSE_QT:BOOL=ON
 USE_QT_VER=	4
-QT_COMPONENTS=	moc_build corelib 
 .else
 CMAKE_ARGS+=	-DUSE_QT:BOOL=OFF
 .endif
@@ -78,7 +68,17 @@ CMAKE_ARGS+=	-DNOTHREADS:BOOL=ON
 CMAKE_ARGS+=	-DNOTHREADS:BOOL=OFF
 .endif
 
+.include <bsd.port.pre.mk>
+
+.if ${ARCH} == "i386" || ${OSVERSION} < 803000
+USE_GCC=	4.6+
+.endif
+
+.if ${OSVERSION} < 800000
+IGNORE=	requires FreeBSD 8.0 or higher
+.endif
+
 post-install:
 		cd ${PREFIX}/lib && ${LN} -sf libOpenImageIO.so.1.0 libOpenImageIO.so.1
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
