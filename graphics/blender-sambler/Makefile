@@ -104,7 +104,9 @@ OUTDIR=		${INSTALL_WRKSRC}/bin/${PORTVERSION}
 LANG=		ar bg ca cs de el es es_ES fa fi fr id it ja ky ne pl pt \
 		ru sr sr@latin sv zh_CN zh_TW
 
-OPTIONS=	HEADLESS	"Disable user interface" off
+OPTIONS=	CC_GCC46	"Build with gcc46" on
+OPTIONS+=	CC_CLANG	"Build with clang" off
+OPTIONS+=	HEADLESS	"Disable user interface" off
 OPTIONS+=	SECURITY	"Disable scripts auto-run" on
 OPTIONS+=	PLAYER		"Build blender player" off
 OPTIONS+=	JACK		"Audio support using JackAudio" off
@@ -114,15 +116,29 @@ OPTIONS+=	NLS			"Include translations" on
 
 .include <bsd.port.pre.mk>
 
-.if ${CC:T} == "clang"
+.if defined(WITH_CC_GCC46) && defined(WITH_CC_CLANG)
+IGNORE=	conflicting options (CC_CLANG and CC_GCC46)
+.endif
+
+.if defined(WITH_CC_CLANG)
+CC=clang
+CXX=clang++
 CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=OFF
+
+.if ${OSVERSION} < 900033
+BUILD_DEPENDS+=clang:${PORTSDIR}/lang/clang
+.endif
+
 .if ${ARCH} == "i386"
 # this is needed for linking with openimageio
 LDFLAGS+=	-L${LOCALBASE}/lib/gcc46 -rpath ${LOCALBASE}/lib/gcc46
 .endif
-.else
+
+.endif # WITH_CC_CLANG
+
+.if defined(WITH_CC_GCC46)
 CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=ON
-USE_GCC=		4.6+
+USE_GCC?=		4.6+
 LDFLAGS+=	-rpath ${LOCALBASE}/lib/gcc46
 .endif
 
@@ -181,14 +197,14 @@ CMAKE_ARGS+=	-DWITH_INPUT_NDOF:BOOL=ON
 CMAKE_ARGS+=	-DWITH_INPUT_NDOF:BOOL=OFF
 .endif
 
-.if defined(WITH_NLS)
+.if defined(WITHOUT_NLS)
+CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
+PLIST_SUB+=	NLS="@comment "
+.else
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=ON
 PLIST_SUB+=	NLS=""
 USE_GETTEXT=	yes
 USE_ICONV=		yes
-.else
-CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
-PLIST_SUB+=	NLS="@comment "
 .endif
 
 post-extract:
