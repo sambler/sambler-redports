@@ -3,6 +3,7 @@ bin/idiff
 bin/igrep
 bin/iinfo
 bin/iprocess
+bin/iv
 bin/maketx
 bin/oiiotool
 include/OpenImageIO/tbb/machine/ibm_aix51.h

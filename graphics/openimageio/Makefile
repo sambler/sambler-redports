@@ -22,7 +22,9 @@ LIB_DEPENDS=	openjpeg:${PORTSDIR}/graphics/openjpeg \
 				opencv_legacy.2:${PORTSDIR}/graphics/opencv \
 				boost_thread.4:${PORTSDIR}/devel/boost-libs \
 				IlmImf.6:${PORTSDIR}/graphics/OpenEXR \
-				tbb.4:${PORTSDIR}/devel/tbb
+				tbb.4:${PORTSDIR}/devel/tbb \
+				webp:${PORTSDIR}/graphics/webp \
+				hdf5:${PORTSDIR}/science/hdf5
 
 FETCH_ARGS=	-pRr
 USE_CMAKE=	yes
@@ -36,39 +38,11 @@ USE_LDCONFIG=	yes
 WRKSRC=		${WRKDIR}/OpenImageIO-oiio-1595432/src
 MAKE_JOBS_SAFE=	yes
 
-OPTIONS=	OPENGL "Include OpenGL support" on \
+OPTIONS=	VIEWER "Include Image Viewer" on \
 			PYTHON "Python bindings"  on \
-			QT "Include QT Support" on \
 			NOTHREADS "Disable thread support" off
 
-.if defined(WITH_OPENGL)
-CMAKE_ARGS+=	-DUSE_OPENGL:BOOL=ON
-USE_GL=		gl
-.else
-CMAKE_ARGS+=	-DUSE_OPENGL:BOOL=OFF
-.endif
-
-.if defined(WITH_PYTHON)
-CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON
-USE_PYTHON=	2.6+
-.else
-CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF
-.endif
-
-.if defined(WITH_QT)
-CMAKE_ARGS+=	-DUSE_QT:BOOL=ON
-USE_QT_VER=	4
-.else
-CMAKE_ARGS+=	-DUSE_QT:BOOL=OFF
-.endif
-
-.if defined(WITH_NOTHREADS)
-CMAKE_ARGS+=	-DNOTHREADS:BOOL=ON
-.else
-CMAKE_ARGS+=	-DNOTHREADS:BOOL=OFF
-.endif
-
-.include <bsd.port.pre.mk>
+.include <bsd.port.options.mk>
 
 .if ${ARCH} == "i386" || ${OSVERSION} < 803000
 USE_GCC=	4.6+
@@ -78,7 +52,29 @@ USE_GCC=	4.6+
 IGNORE=	requires FreeBSD 8.0 or higher
 .endif
 
+.if defined(WITH_VIEWER)
+CMAKE_ARGS+=	-DUSE_QT:BOOL=ON -DUSE_OPENGL:BOOL=ON
+USE_GL=		glew
+USE_QT_VER=	4
+QT_COMPONENTS+=	opengl moc_build qmake_build rcc_build uic_build
+.else
+CMAKE_ARGS+=	-DUSE_QT:BOOL=OFF -DUSE_OPENGL:BOOL=OFF
+.endif
+
+.if defined(WITH_PYTHON)
+CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON
+USE_PYTHON=	2.6+
+.else
+CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF
+.endif
+
+.if defined(WITH_NOTHREADS)
+CMAKE_ARGS+=	-DNOTHREADS:BOOL=ON
+.else
+CMAKE_ARGS+=	-DNOTHREADS:BOOL=OFF
+.endif
+
 post-install:
 		cd ${PREFIX}/lib && ${LN} -sf libOpenImageIO.so.1.0 libOpenImageIO.so.1
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
