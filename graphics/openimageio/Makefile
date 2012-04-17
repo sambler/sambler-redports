@@ -57,15 +57,20 @@ CMAKE_ARGS+=	-DUSE_QT:BOOL=ON -DUSE_OPENGL:BOOL=ON
 USE_GL=		glew
 USE_QT_VER=	4
 QT_COMPONENTS+=	opengl moc_build qmake_build rcc_build uic_build
+CMAKE_ENV+=	QTDIR=${QT_PREFIX} QT_INCLUDES=${QT_INCDIR}
+PLIST_SUB+=	IMAGEVIEWER=""
 .else
 CMAKE_ARGS+=	-DUSE_QT:BOOL=OFF -DUSE_OPENGL:BOOL=OFF
+PLIST_SUB+=	IMAGEVIEWER="@comment "
 .endif
 
 .if defined(WITH_PYTHON)
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON
 USE_PYTHON=	2.6+
+LIB_DEPENDS+=	boost_python:${PORTSDIR}/devel/boost-python-libs
 .else
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF
+PLIST_SUB+=	PYTHON_BIND="@comment "
 .endif
 
 .if defined(WITH_NOTHREADS)
@@ -73,6 +78,10 @@ CMAKE_ARGS+=	-DNOTHREADS:BOOL=ON
 .else
 CMAKE_ARGS+=	-DNOTHREADS:BOOL=OFF
 .endif
+
+post-patch:
+	@${REINPLACE_CMD} 's|lib/python|lib/${PYTHON_VERSION}|' \
+		${WRKSRC}/CMakeLists.txt
 
 post-install:
 		cd ${PREFIX}/lib && ${LN} -sf libOpenImageIO.so.1.0 libOpenImageIO.so.1

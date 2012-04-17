@@ -3,7 +3,7 @@ bin/idiff
 bin/igrep
 bin/iinfo
 bin/iprocess
-bin/iv
+%%IMAGEVIEWER%%bin/iv
 bin/maketx
 bin/oiiotool
 include/OpenImageIO/tbb/machine/ibm_aix51.h
@@ -64,6 +64,7 @@ lib/libOpenImageIO.so
 lib/libOpenImageIO.so.1
 lib/libOpenImageIO.so.1.0
 lib/libOpenImageIO.so.1.0.2
+%%PYTHON_BIND%%%%PYTHON_SITELIBDIR%%/OpenImageIO.so
 share/doc/openimageio/openimageio.pdf
 share/doc/openimageio/LICENSE
 share/doc/openimageio/CHANGES
