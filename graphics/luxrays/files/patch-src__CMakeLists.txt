@@ -1,5 +1,5 @@
 --- ./src/CMakeLists.txt.orig	2012-02-26 09:20:53.000000000 +1030
-+++ ./src/CMakeLists.txt	2012-03-02 13:59:29.000000000 +1030
++++ ./src/CMakeLists.txt	2012-03-10 23:02:33.000000000 +1030
 @@ -294,6 +294,8 @@
  
  add_library(luxrays STATIC ${LuxRays_SRCS} ${LuxRays_HEADERS})

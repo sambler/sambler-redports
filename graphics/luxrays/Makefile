@@ -6,7 +6,7 @@
 #
 
 PORTNAME=	luxrays
-PORTVERSION=	0.9.0.20120225
+PORTVERSION=	1.0.0.RC1.20120419
 CATEGORIES=	graphics
 MASTER_SITES=	http://src.luxrender.net/luxrays/archive/ \
 				http://bitbucket.org/luxrender/luxrays/get/
@@ -24,12 +24,12 @@ LIB_DEPENDS=	boost_thread.4:${PORTSDIR}/devel/boost-libs \
 
 # libexecinfo for backtrace - seems popular port so depend it instead of patching out
 
-# recent snapshot - 2012-02-25
-HG_NODEID=	ebf26469123e
+# recent snapshot - 2012-04-19
+HG_NODEID=	4388acb777de
 
 USE_BZIP2=	yes
 USE_CMAKE=	yes
-.if !${CC:T:Mclang}
+.if ${CC:T} != "clang"
 USE_GCC=	4.6+
 .endif
 CMAKE_VERBOSE=	yes
@@ -54,17 +54,8 @@ OPTIONS=	SSSE3 "Enable SSSE3 optimisation"   on
 # luxrays standard setup has dev specified optimisations
 # this change is to allow build on x86 machines without ssse3
 # this replaces settings removed by patch-cmake-PlatformSpecific.cmake
-.if defined(WITH_DEBUG)
-CFLAGS+=	-Wall -msse -msse2 -msse3 -fPIC -O0 -g
-CXXFLAGS+=	-Wall -msse -msse2 -msse3 -fPIC -O0 -g
-.else
-CFLAGS+=	-DNDEBUG -Wall -fPIC -O3 -msse -msse2 -msse3 -fvariable-expansion-in-unroller
-CXXFLAGS+=	-DNDEBUG -Wall -fPIC -O3 -msse -msse2 -msse3 -fvariable-expansion-in-unroller
-.if !${CC:T:Mclang}
-CFLAGS+=	-ftree-vectorize 
-CXXFLAGS+=	-ftree-vectorize 
-.endif
-.endif
+CFLAGS+=	-fPIC -msse -msse2 -msse3
+CXXFLAGS+=	-fPIC -msse -msse2 -msse3
 
 .if defined(WITH_SSSE3)
 CFLAGS+=	-mssse3
@@ -77,6 +68,11 @@ post-patch:
 # cmake is set to copy entire folder - remove patched orig
 # - instead of adjusting cmake to list files
 	@${RM} -f ${WRKSRC}/include/luxrays/core/utils.h.orig
+.if ${CC:T} == "clang"
+# remove some flags that clang doesn't use
+# just removes warnings
+	@${REINPLACE_CMD} -e 's|-ftree-vectorize||g' ${WRKSRC}/cmake/PlatformSpecific.cmake
+.endif
 
 .include <bsd.port.pre.mk>
 

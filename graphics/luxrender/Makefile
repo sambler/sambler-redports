@@ -6,7 +6,7 @@
 #
 
 PORTNAME=	luxrender
-PORTVERSION=	0.9.0.20120227
+PORTVERSION=	1.0.0.RC1.20120418
 CATEGORIES=	graphics
 MASTER_SITES=	http://src.luxrender.net/lux/archive/ \
 				http://bitbucket.org/luxrender/lux/get/
@@ -26,8 +26,8 @@ LIB_DEPENDS=	boost_thread.4:${PORTSDIR}/devel/boost-libs \
 				boost_python.4:${PORTSDIR}/devel/boost-python-libs \
 				IlmImf.6:${PORTSDIR}/graphics/OpenEXR
 
-# recent snapshot - 2012-02-27
-HG_NODEID=	b19211ffa68c
+# recent snapshot - 2012-04-18
+HG_NODEID=	d6255950ebd0
 
 USE_BZIP2=	yes
 USE_BISON=	build
@@ -72,7 +72,7 @@ post-patch:
 # do not install vendor .desktop file
 	@${REINPLACE_CMD} -e '/LIB_SUFFIX 64/d ; /luxrender\.desktop/d' ${WRKSRC}/CMakeLists.txt
 
-.if ${CC:T:Mclang}
+.if ${CC:T} == "clang"
 # remove some flags that clang doesn't use
 # just removes warnings
 	@${REINPLACE_CMD} -e '/-mfpmath=sse/d ; /-ftree-vectorize/d' ${WRKSRC}/CMakeLists.txt
