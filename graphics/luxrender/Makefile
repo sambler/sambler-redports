@@ -44,6 +44,9 @@ CMAKE_ARGS+=	-DTARGETROOT:STRING=${LOCALBASE}
 .endif
 WRKSRC=		${WRKDIR}/lux-${HG_NODEID}
 MAKE_JOBS_SAFE=	yes
+CFLAGS+=	-mmmx -msse3
+CXXFLAGS+=	-mmmx -msse3
+LDFLAGS+=	-lIlmImf
 
 OPTIONS=	DOCS "Build API docs"                 off
 
@@ -66,6 +69,10 @@ CMAKE_ARGS+=	-DLUX_DOCUMENTATION=OFF
 
 USE_QT_VER=	4
 QT_COMPONENTS=	moc_build qmake_build rcc_build uic_build corelib gui
+
+.if ${CC:T} != "clang"
+USE_GCC=	4.6+
+.endif
 
 post-patch:
 # Prevent appending `64' suffix to `lib' directory on amd64

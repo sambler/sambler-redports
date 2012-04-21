@@ -54,8 +54,8 @@ OPTIONS=	SSSE3 "Enable SSSE3 optimisation"   on
 # luxrays standard setup has dev specified optimisations
 # this change is to allow build on x86 machines without ssse3
 # this replaces settings removed by patch-cmake-PlatformSpecific.cmake
-CFLAGS+=	-fPIC -msse -msse2 -msse3
-CXXFLAGS+=	-fPIC -msse -msse2 -msse3
+CFLAGS+=	-fPIC -mmmx -msse3
+CXXFLAGS+=	-fPIC -mmmx -msse3
 
 .if defined(WITH_SSSE3)
 CFLAGS+=	-mssse3
