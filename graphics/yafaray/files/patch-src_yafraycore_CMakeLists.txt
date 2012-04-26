@@ -1,0 +1,11 @@
+--- src/yafraycore/CMakeLists.txt.orig	2012-04-25 04:04:05.000000000 +0930
++++ src/yafraycore/CMakeLists.txt	2012-04-25 21:03:10.000000000 +0930
+@@ -13,7 +13,7 @@
+ add_library(yafaraycore SHARED ${YF_CORE_SOURCES})
+ 
+ if (UNIX)
+-	set (DLLOAD_LIB "dl" )
++	#set (DLLOAD_LIB "dl" )
+ else (UNIX)
+ 	set (DLLOAD_LIB "")
+ endif (UNIX)
