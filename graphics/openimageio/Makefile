@@ -6,7 +6,7 @@
 #
 
 PORTNAME=	openimageio
-PORTVERSION=	1.0.2
+PORTVERSION=	1.0.3
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/OpenImageIO/oiio/tarball/
 DISTNAME=	Release-${PORTVERSION}
@@ -35,7 +35,7 @@ CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DUSE_TBB:BOOL=ON
 LDFLAGS+=	-ltbb
 USE_LDCONFIG=	yes
-WRKSRC=		${WRKDIR}/OpenImageIO-oiio-1595432/src
+WRKSRC=		${WRKDIR}/OpenImageIO-oiio-2388ebf/src
 MAKE_JOBS_SAFE=	yes
 
 OPTIONS=	IMAGEVIEWER "Build image viewer" on \
@@ -87,6 +87,6 @@ IGNORE=	requires FreeBSD 8.0 or higher
 .endif
 
 post-install:
-		cd ${PREFIX}/lib && ${LN} -sf libOpenImageIO.so.1.0 libOpenImageIO.so.1
+	cd ${PREFIX}/lib && ${LN} -sf libOpenImageIO.so.1.0 libOpenImageIO.so.1
 
 .include <bsd.port.post.mk>
