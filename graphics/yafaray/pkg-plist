@@ -2,7 +2,6 @@ bin/yafaray-xml
 lib/libyafaraycore.so
 lib/libyafarayplugin.so
 lib/libyafarayqt.so
-lib/yafaray
 lib/yafaray/libgradientback.so
 lib/yafaray/libtextureback.so
 lib/yafaray/libsunsky.so
