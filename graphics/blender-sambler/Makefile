@@ -5,7 +5,7 @@
 # $FreeBSD$
 
 PORTNAME=	blender-sambler
-PORTVERSION=	2.62
+PORTVERSION=	2.63
 PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
@@ -42,7 +42,7 @@ CONFLICTS=	blender-2.*
 USE_CMAKE=	yes
 CMAKE_OUTSOURCE=	yes
 MAKE_JOBS_SAFE=	yes
-WRKSRC=		${WRKDIR}/sambler-myblender-3b3d047
+WRKSRC=		${WRKDIR}/sambler-myblender-f08913c
 
 USE_PYTHON=	3.2
 WANT_GNOME=	yes
@@ -81,8 +81,8 @@ MAN1=		blender.1
 
 OUTDIR=		${INSTALL_WRKSRC}/bin/${PORTVERSION}
 
-LANG=		ar bg ca cs de el es es_ES fa fi fr id it ja ky ne pl pt \
-		ru sr sr@latin sv zh_CN zh_TW
+LANG=		ar bg ca cs de el es es_ES fa fi fr hr id it ja ky ne pl pt \
+		ru sr sr@latin sv tr uk zh_CN zh_TW
 
 OPTIONS=	CC_GCC46	"Build with gcc46" on
 OPTIONS+=	CC_CLANG	"Build with clang" off

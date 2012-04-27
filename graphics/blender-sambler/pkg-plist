@@ -325,6 +325,12 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/system_demo_mode/demo_mode.py
 %%DATADIR%%/scripts/addons/system_property_chart.py
 %%DATADIR%%/scripts/addons/texture_paint_layer_manager.py
+%%DATADIR%%/scripts/addons_contrib/add_curve_objects/__init__.py
+%%DATADIR%%/scripts/addons_contrib/add_curve_objects/add_curve_rectangle_259.py
+%%DATADIR%%/scripts/addons_contrib/add_curve_objects/add_curve_spirals.py
+%%DATADIR%%/scripts/addons_contrib/add_curve_objects/cotejrp1_particle_tracer.py
+%%DATADIR%%/scripts/addons_contrib/add_curve_objects/cotejrp1_string_it.py
+%%DATADIR%%/scripts/addons_contrib/add_curve_objects/curve_simplify.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_beam_builder.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope/oscurart_chain_maker.py
@@ -439,32 +445,38 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/io_scene_open_street_map.py
 %%DATADIR%%/scripts/addons_contrib/io_sequencer_edl/import_edl.py
 %%DATADIR%%/scripts/addons_contrib/lamp_geographical_sun.py
+%%DATADIR%%/scripts/addons_contrib/mesh_bevel_round.py
 %%DATADIR%%/scripts/addons_contrib/mesh_edge_intersection_tools.py
+%%DATADIR%%/scripts/addons_contrib/mesh_face_info_select.py
 %%DATADIR%%/scripts/addons_contrib/mesh_inset_extrude.py
 %%DATADIR%%/scripts/addons_contrib/mesh_looptools.py
+%%DATADIR%%/scripts/addons_contrib/mesh_mextrude.py
 %%DATADIR%%/scripts/addons_contrib/mesh_normal_smooth.py
 %%DATADIR%%/scripts/addons_contrib/mesh_seam_from_uv_isles.py
 %%DATADIR%%/scripts/addons_contrib/mesh_select_vertex_groups.py
+%%DATADIR%%/scripts/addons_contrib/mesh_show_vgroup_weights.py
 %%DATADIR%%/scripts/addons_contrib/mesh_solidify_wireframe.py
 %%DATADIR%%/scripts/addons_contrib/mesh_vertex_slide.py
 %%DATADIR%%/scripts/addons_contrib/object_batch_rename_datablocks.py
 %%DATADIR%%/scripts/addons_contrib/object_drop_to_ground.py
 %%DATADIR%%/scripts/addons_contrib/object_edit_linked.py
 %%DATADIR%%/scripts/addons_contrib/object_laplace_lightning.py
+%%DATADIR%%/scripts/addons_contrib/object_mangle_tools.py
+%%DATADIR%%/scripts/addons_contrib/object_render_wire.py
 %%DATADIR%%/scripts/addons_contrib/oscurart_futurism.py
 %%DATADIR%%/scripts/addons_contrib/oscurart_mesh_thread.py
 %%DATADIR%%/scripts/addons_contrib/oscurart_tools.py
 %%DATADIR%%/scripts/addons_contrib/particle_hair_lab.py
-%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/default_theme.xml
-%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/theme_3ds_max.xml
-%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/theme_blender_25x.xml
-%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/theme_maya.xml
-%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/theme_modo.xml
-%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/theme_pinkified.xml
-%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/theme_softblend.xml
-%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/theme_softdefault.xml
-%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/theme_toxic.xml
-%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/theme_zbrush.xml
+%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/3ds_max.xml
+%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/default.xml
+%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/maya.xml
+%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/modo.xml
+%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/pinkified.xml
+%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/softblend.xml
+%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/softdefault.xml
+%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/toxic.xml
+%%DATADIR%%/scripts/addons_contrib/presets/interface_theme/zbrush.xml
+%%DATADIR%%/scripts/addons_contrib/presets/keyconfig/blender_2012_experimental.py
 %%DATADIR%%/scripts/addons_contrib/render_clay.py
 %%DATADIR%%/scripts/addons_contrib/render_time.py
 %%DATADIR%%/scripts/addons_contrib/render_to_print.py
@@ -480,6 +492,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/space_view3d_paint_bprojection.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_simple_align.py
 %%DATADIR%%/scripts/addons_contrib/system_keyboard_svg.py
+%%DATADIR%%/scripts/addons_contrib/system_project_folder.py
 %%DATADIR%%/scripts/addons_contrib/text_editor_pasteall.py
 %%DATADIR%%/scripts/addons_contrib/text_intellisense.py
 %%DATADIR%%/scripts/addons_contrib/wetted_mesh.py
@@ -556,6 +569,9 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/presets/ffmpeg/h264.py
 %%DATADIR%%/scripts/presets/ffmpeg/theora.py
 %%DATADIR%%/scripts/presets/ffmpeg/xvid.py
+%%DATADIR%%/scripts/presets/fluid/oil.py
+%%DATADIR%%/scripts/presets/fluid/honey.py
+%%DATADIR%%/scripts/presets/fluid/water.py
 %%DATADIR%%/scripts/presets/framerate/23.98.py
 %%DATADIR%%/scripts/presets/framerate/24.py
 %%DATADIR%%/scripts/presets/framerate/25.py
@@ -704,7 +720,8 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/templates/gamelogic.py
 %%DATADIR%%/scripts/templates/gamelogic_module.py
 %%DATADIR%%/scripts/templates/gamelogic_simple.py
-%%DATADIR%%/scripts/templates/operator_export.py
+%%DATADIR%%/scripts/templates/operator_file_export.py
+%%DATADIR%%/scripts/templates/operator_file_import.py
 %%DATADIR%%/scripts/templates/operator_mesh_add.py
 %%DATADIR%%/scripts/templates/operator_modal.py
 %%DATADIR%%/scripts/templates/operator_modal_draw.py
@@ -726,6 +743,7 @@ share/pixmaps/blender.svg
 %%NLS%%%%DATADIR%%/datafiles/locale/fa/LC_MESSAGES/blender.mo
 %%NLS%%%%DATADIR%%/datafiles/locale/fi/LC_MESSAGES/blender.mo
 %%NLS%%%%DATADIR%%/datafiles/locale/fr/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/hr/LC_MESSAGES/blender.mo
 %%NLS%%%%DATADIR%%/datafiles/locale/id/LC_MESSAGES/blender.mo
 %%NLS%%%%DATADIR%%/datafiles/locale/it/LC_MESSAGES/blender.mo
 %%NLS%%%%DATADIR%%/datafiles/locale/ja/LC_MESSAGES/blender.mo
@@ -737,6 +755,8 @@ share/pixmaps/blender.svg
 %%NLS%%%%DATADIR%%/datafiles/locale/sr/LC_MESSAGES/blender.mo
 %%NLS%%%%DATADIR%%/datafiles/locale/sr@latin/LC_MESSAGES/blender.mo
 %%NLS%%%%DATADIR%%/datafiles/locale/sv/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/tr/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/uk/LC_MESSAGES/blender.mo
 %%NLS%%%%DATADIR%%/datafiles/locale/zh_CN/LC_MESSAGES/blender.mo
 %%NLS%%%%DATADIR%%/datafiles/locale/zh_TW/LC_MESSAGES/blender.mo
 @dirrm %%DATADIR%%/scripts/templates
@@ -753,6 +773,7 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/presets/interface_theme
 @dirrm %%DATADIR%%/scripts/presets/interaction
 @dirrm %%DATADIR%%/scripts/presets/framerate
+@dirrm %%DATADIR%%/scripts/presets/fluid
 @dirrm %%DATADIR%%/scripts/presets/ffmpeg
 @dirrm %%DATADIR%%/scripts/presets/cycles/integrator
 @dirrm %%DATADIR%%/scripts/presets/cycles
@@ -763,6 +784,7 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/modules/bpy_extras
 @dirrm %%DATADIR%%/scripts/modules/bpy
 @dirrm %%DATADIR%%/scripts/modules
+@dirrm %%DATADIR%%/scripts/addons_contrib/presets/keyconfig
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets/interface_theme
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_sequencer_edl
@@ -789,6 +811,7 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_stairs
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope
+@dirrm %%DATADIR%%/scripts/addons_contrib/add_curve_objects
 @dirrm %%DATADIR%%/scripts/addons_contrib
 @dirrm %%DATADIR%%/scripts/addons/system_demo_mode
 @dirrm %%DATADIR%%/scripts/addons/space_view3d_math_vis
@@ -847,6 +870,10 @@ share/pixmaps/blender.svg
 %%NLS%%@dirrm %%DATADIR%%/datafiles/locale/zh_TW
 %%NLS%%@dirrm %%DATADIR%%/datafiles/locale/zh_CN/LC_MESSAGES
 %%NLS%%@dirrm %%DATADIR%%/datafiles/locale/zh_CN
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/uk/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/uk
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/tr/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/tr
 %%NLS%%@dirrm %%DATADIR%%/datafiles/locale/sv/LC_MESSAGES
 %%NLS%%@dirrm %%DATADIR%%/datafiles/locale/sv
 %%NLS%%@dirrm %%DATADIR%%/datafiles/locale/sr@latin/LC_MESSAGES
@@ -869,6 +896,8 @@ share/pixmaps/blender.svg
 %%NLS%%@dirrm %%DATADIR%%/datafiles/locale/it
 %%NLS%%@dirrm %%DATADIR%%/datafiles/locale/id/LC_MESSAGES
 %%NLS%%@dirrm %%DATADIR%%/datafiles/locale/id
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/hr/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/hr
 %%NLS%%@dirrm %%DATADIR%%/datafiles/locale/fr/LC_MESSAGES
 %%NLS%%@dirrm %%DATADIR%%/datafiles/locale/fr
 %%NLS%%@dirrm %%DATADIR%%/datafiles/locale/fi/LC_MESSAGES
