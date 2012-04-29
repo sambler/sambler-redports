@@ -32,6 +32,7 @@ CMAKE_VERBOSE=	yes
 CMAKE_OUTSOURCE=	yes
 CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DLINKSTATIC:BOOL=OFF \
+		-DUSE_PYTHON:BOOL=OFF \
 		-DUSE_TBB:BOOL=ON
 LDFLAGS+=	-ltbb
 USE_LDCONFIG=	yes
@@ -39,12 +40,7 @@ WRKSRC=		${WRKDIR}/OpenImageIO-oiio-2388ebf/src
 MAKE_JOBS_SAFE=	yes
 
 OPTIONS=	IMAGEVIEWER "Build image viewer" on \
-		PYTHON "Python bindings"  on \
 		NOTHREADS "Disable thread support" off
-
-post-patch:
-	@${REINPLACE_CMD} 's|lib/python|lib/${PYTHON_VERSION}|' \
-		${WRKSRC}/CMakeLists.txt
 
 .include <bsd.port.options.mk>
 
@@ -58,16 +54,6 @@ PLIST_SUB+=	IMAGEVIEWER=""
 .else
 CMAKE_ARGS+=	-DUSE_OPENGL:BOOL=OFF -DUSE_QT:BOOL=OFF
 PLIST_SUB+=	IMAGEVIEWER="@comment "
-.endif
-
-.if defined(WITH_PYTHON)
-CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON
-USE_PYTHON=	2.6+
-LIB_DEPENDS+=	boost_python:${PORTSDIR}/devel/boost-python-libs
-PLIST_SUB+=	PYTHON_BIND=""
-.else
-CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF
-PLIST_SUB+=	PYTHON_BIND="@comment "
 .endif
 
 .if defined(WITH_NOTHREADS)
