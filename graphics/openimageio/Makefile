@@ -2,15 +2,16 @@
 # Date created:			21 March 2012
 # Whom:					Shane Ambler
 #
-# $FreeBSD: ports/graphics/openimageio/Makefile,v 1.1 2012/04/17 16:04:19 pawel Exp $
+# $FreeBSD: ports/graphics/openimageio/Makefile,v 1.3 2012/05/01 16:44:41 sunpoet Exp $
 #
 
 PORTNAME=	openimageio
 PORTVERSION=	1.0.3
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/OpenImageIO/oiio/tarball/
 DISTNAME=	Release-${PORTVERSION}
-EXTRACT_SUFX=
+EXTRACT_SUFX=	# empty
 DIST_SUBDIR=	${PORTNAME}
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -18,13 +19,13 @@ COMMENT=	OpenImageIO graphics library
 
 LICENSE=	BSD
 
-LIB_DEPENDS=	openjpeg:${PORTSDIR}/graphics/openjpeg \
-		opencv_legacy.2:${PORTSDIR}/graphics/opencv \
+LIB_DEPENDS=	IlmImf.6:${PORTSDIR}/graphics/OpenEXR \
 		boost_thread.4:${PORTSDIR}/devel/boost-libs \
-		IlmImf.6:${PORTSDIR}/graphics/OpenEXR \
+		hdf5:${PORTSDIR}/science/hdf5 \
+		opencv_legacy.2:${PORTSDIR}/graphics/opencv \
+		openjpeg:${PORTSDIR}/graphics/openjpeg \
 		tbb.4:${PORTSDIR}/devel/tbb \
-		webp.2:${PORTSDIR}/graphics/webp \
-		hdf5:${PORTSDIR}/science/hdf5
+		webp.2:${PORTSDIR}/graphics/webp
 
 FETCH_ARGS=	-pRr
 USE_CMAKE=	yes
@@ -43,6 +44,10 @@ OPTIONS=	IMAGEVIEWER "Build image viewer" on \
 		NOTHREADS "Disable thread support" off
 
 .include <bsd.port.options.mk>
+
+.if defined(NOPORTDOCS)
+CMAKE_ARGS+=	-DINSTALL_DOCS:BOOL=OFF
+.endif
 
 .if defined(WITH_IMAGEVIEWER)
 USE_GL=		glew
