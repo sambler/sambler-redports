@@ -4,9 +4,9 @@
    @brief Public API classes for reading, writing, caching, and filtering Ptex files.
  */
  
-+#include "fmath.h"
++#include <math.h>
 +
-+#if !defined(log2)
++#if (defined(__FreeBSD__) && (__FreeBSD_version < 803000))
 +
 +inline double log2(double x) {return log(x)*(double)1.4426950408889634;}
 +
