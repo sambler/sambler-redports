@@ -6,8 +6,7 @@
 #
 
 PORTNAME=	openimageio
-PORTVERSION=	1.0.3
-PORTREVISION=	1
+PORTVERSION=	1.0.4
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/OpenImageIO/oiio/tarball/
 DISTNAME=	Release-${PORTVERSION}
@@ -37,7 +36,7 @@ CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DUSE_TBB:BOOL=ON
 LDFLAGS+=	-ltbb
 USE_LDCONFIG=	yes
-WRKSRC=		${WRKDIR}/OpenImageIO-oiio-2388ebf/src
+WRKSRC=		${WRKDIR}/OpenImageIO-oiio-d94a4e4/src
 MAKE_JOBS_SAFE=	yes
 
 OPTIONS=	IMAGEVIEWER "Build image viewer" on \

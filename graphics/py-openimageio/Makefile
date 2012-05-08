@@ -6,7 +6,7 @@
 #
 
 PORTNAME=	openimageio
-PORTVERSION=	1.0.3
+PORTVERSION=	1.0.4
 CATEGORIES=	graphics multimedia python
 MASTER_SITES=	https://github.com/OpenImageIO/oiio/tarball/
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -36,7 +36,7 @@ LDFLAGS+=	-ltbb
 MAKE_JOBS_SAFE=	yes
 USE_LDCONFIG=	yes
 USE_PYTHON=	2.6+
-WRKSRC=		${WRKDIR}/OpenImageIO-oiio-2388ebf/src
+WRKSRC=		${WRKDIR}/OpenImageIO-oiio-d94a4e4/src
 
 PLIST_FILES=	%%PYTHON_SITELIBDIR%%/OpenImageIO.so
 
