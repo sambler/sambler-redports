@@ -31,9 +31,12 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/add_mesh_extra_objects/add_mesh_extra_objects.py
 %%DATADIR%%/scripts/addons/add_mesh_extra_objects/add_mesh_gears.py
 %%DATADIR%%/scripts/addons/add_mesh_extra_objects/add_mesh_gemstones.py
+%%DATADIR%%/scripts/addons/add_mesh_extra_objects/add_mesh_honeycomb.py
 %%DATADIR%%/scripts/addons/add_mesh_extra_objects/add_mesh_polysphere.py
 %%DATADIR%%/scripts/addons/add_mesh_extra_objects/add_mesh_pyramid.py
 %%DATADIR%%/scripts/addons/add_mesh_extra_objects/add_mesh_supertoroid.py
+%%DATADIR%%/scripts/addons/add_mesh_extra_objects/add_mesh_teapot.py
+%%DATADIR%%/scripts/addons/add_mesh_extra_objects/add_mesh_torusknot.py
 %%DATADIR%%/scripts/addons/add_mesh_extra_objects/add_mesh_twisted_torus.py
 %%DATADIR%%/scripts/addons/add_mesh_pipe_joint.py
 %%DATADIR%%/scripts/addons/add_mesh_solid.py
@@ -115,6 +118,7 @@ share/pixmaps/blender.svg
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_object.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_passes.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_path.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_projection.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_qbvh.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_random.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_shader.h
@@ -206,6 +210,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/mesh_inset/model.py
 %%DATADIR%%/scripts/addons/mesh_inset/offset.py
 %%DATADIR%%/scripts/addons/mesh_inset/triquad.py
+%%DATADIR%%/scripts/addons/mesh_looptools.py
 %%DATADIR%%/scripts/addons/mesh_relax.py
 %%DATADIR%%/scripts/addons/mocap/__init__.py
 %%DATADIR%%/scripts/addons/mocap/mocap_constraints.py
@@ -335,6 +340,8 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope/oscurart_chain_maker.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope/oscurart_rope_maker.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_clusters/__init__.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_clusters/add_mesh_cluster.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_column.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks/add_mesh_rocks.xml
@@ -354,6 +361,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/add_mesh_walls/Blocks.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_walls/Wallfactory.py
 %%DATADIR%%/scripts/addons_contrib/advanced_smooth.py
+%%DATADIR%%/scripts/addons_contrib/anim_selection_sets.py
 %%DATADIR%%/scripts/addons_contrib/animation_motion_trail.py
 %%DATADIR%%/scripts/addons_contrib/breakpoint.py
 %%DATADIR%%/scripts/addons_contrib/btrace/__init__.py
@@ -443,25 +451,28 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/ms3d_spec.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/ms3d_utils.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_open_street_map.py
+%%DATADIR%%/scripts/addons_contrib/io_scene_x/__init__.py
+%%DATADIR%%/scripts/addons_contrib/io_scene_x/export_x.py
 %%DATADIR%%/scripts/addons_contrib/io_sequencer_edl/import_edl.py
 %%DATADIR%%/scripts/addons_contrib/lamp_geographical_sun.py
 %%DATADIR%%/scripts/addons_contrib/mesh_bevel_round.py
+%%DATADIR%%/scripts/addons_contrib/mesh_discombobulator.py
 %%DATADIR%%/scripts/addons_contrib/mesh_edge_intersection_tools.py
+%%DATADIR%%/scripts/addons_contrib/mesh_edgetools.py
+%%DATADIR%%/scripts/addons_contrib/mesh_extrude_along_curve.py
 %%DATADIR%%/scripts/addons_contrib/mesh_face_info_select.py
-%%DATADIR%%/scripts/addons_contrib/mesh_inset_extrude.py
-%%DATADIR%%/scripts/addons_contrib/mesh_looptools.py
-%%DATADIR%%/scripts/addons_contrib/mesh_mextrude.py
+%%DATADIR%%/scripts/addons_contrib/mesh_mextrude_plus.py
 %%DATADIR%%/scripts/addons_contrib/mesh_normal_smooth.py
-%%DATADIR%%/scripts/addons_contrib/mesh_seam_from_uv_isles.py
 %%DATADIR%%/scripts/addons_contrib/mesh_select_vertex_groups.py
 %%DATADIR%%/scripts/addons_contrib/mesh_show_vgroup_weights.py
-%%DATADIR%%/scripts/addons_contrib/mesh_solidify_wireframe.py
+%%DATADIR%%/scripts/addons_contrib/mesh_vertex_chamfer.py
 %%DATADIR%%/scripts/addons_contrib/mesh_vertex_slide.py
 %%DATADIR%%/scripts/addons_contrib/object_batch_rename_datablocks.py
 %%DATADIR%%/scripts/addons_contrib/object_drop_to_ground.py
 %%DATADIR%%/scripts/addons_contrib/object_edit_linked.py
 %%DATADIR%%/scripts/addons_contrib/object_laplace_lightning.py
 %%DATADIR%%/scripts/addons_contrib/object_mangle_tools.py
+%%DATADIR%%/scripts/addons_contrib/object_powerlib.py
 %%DATADIR%%/scripts/addons_contrib/object_render_wire.py
 %%DATADIR%%/scripts/addons_contrib/oscurart_futurism.py
 %%DATADIR%%/scripts/addons_contrib/oscurart_mesh_thread.py
@@ -482,6 +493,8 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/render_to_print.py
 %%DATADIR%%/scripts/addons_contrib/rig_face_bone_tool.py
 %%DATADIR%%/scripts/addons_contrib/seminumerical.py
+%%DATADIR%%/scripts/addons_contrib/sequencer_tools/__init__.py
+%%DATADIR%%/scripts/addons_contrib/sequencer_tools/export_strips.py
 %%DATADIR%%/scripts/addons_contrib/SliceIntersect.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_add_surround_cameras.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_enhanced_3d_cursor.py
@@ -589,6 +602,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/presets/interface_theme/hexagon.xml
 %%DATADIR%%/scripts/presets/interface_theme/ubuntu_ambiance.xml
 %%DATADIR%%/scripts/presets/keyconfig/maya.py
+%%DATADIR%%/scripts/presets/operator/wm.collada_export/second_life.py
 %%DATADIR%%/scripts/presets/render/DVCPRO_HD_1080p.py
 %%DATADIR%%/scripts/presets/render/DVCPRO_HD_720p.py
 %%DATADIR%%/scripts/presets/render/HDTV_1080p.py
@@ -636,6 +650,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/presets/tracking_camera/Red_One_4K.py
 %%DATADIR%%/scripts/presets/tracking_camera/Sony_A55.py
 %%DATADIR%%/scripts/presets/tracking_settings/blurry_footage.py
+%%DATADIR%%/scripts/presets/tracking_settings/blurry_movie.py
 %%DATADIR%%/scripts/presets/tracking_settings/default.py
 %%DATADIR%%/scripts/presets/tracking_settings/fast_motion.py
 %%DATADIR%%/scripts/presets/tracking_track_color/default.py
@@ -769,6 +784,8 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/presets/sunsky
 @dirrm %%DATADIR%%/scripts/presets/sss
 @dirrm %%DATADIR%%/scripts/presets/render
+@dirrm %%DATADIR%%/scripts/presets/operator/wm.collada_export
+@dirrm %%DATADIR%%/scripts/presets/operator
 @dirrm %%DATADIR%%/scripts/presets/keyconfig
 @dirrm %%DATADIR%%/scripts/presets/interface_theme
 @dirrm %%DATADIR%%/scripts/presets/interaction
@@ -784,10 +801,12 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/modules/bpy_extras
 @dirrm %%DATADIR%%/scripts/modules/bpy
 @dirrm %%DATADIR%%/scripts/modules
+@dirrm %%DATADIR%%/scripts/addons_contrib/sequencer_tools
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets/keyconfig
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets/interface_theme
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_sequencer_edl
+@dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_x
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_ms3d
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_cod
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_points_pcd
@@ -810,6 +829,7 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_walls
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_stairs
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks
+@dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_clusters
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_curve_objects
 @dirrm %%DATADIR%%/scripts/addons_contrib
