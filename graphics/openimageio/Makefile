@@ -2,11 +2,11 @@
 # Date created:			21 March 2012
 # Whom:					Shane Ambler
 #
-# $FreeBSD: ports/graphics/openimageio/Makefile,v 1.3 2012/05/01 16:44:41 sunpoet Exp $
+# $FreeBSD: ports/graphics/openimageio/Makefile,v 1.5 2012/06/06 06:43:56 miwi Exp $
 #
 
 PORTNAME=	openimageio
-PORTVERSION=	1.0.4
+PORTVERSION=	1.0.5
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/OpenImageIO/oiio/tarball/
 DISTNAME=	Release-${PORTVERSION}
@@ -36,7 +36,7 @@ CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DUSE_TBB:BOOL=ON
 LDFLAGS+=	-ltbb
 USE_LDCONFIG=	yes
-WRKSRC=		${WRKDIR}/OpenImageIO-oiio-d94a4e4/src
+WRKSRC=		${WRKDIR}/OpenImageIO-oiio-2939154/src
 MAKE_JOBS_SAFE=	yes
 
 OPTIONS=	IMAGEVIEWER "Build image viewer" on \
@@ -50,8 +50,7 @@ CMAKE_ARGS+=	-DINSTALL_DOCS:BOOL=OFF
 
 .if defined(WITH_IMAGEVIEWER)
 USE_GL=		glew
-USE_QT_VER=	4
-QT_COMPONENTS=	corelib gui opengl qmake_build moc_build rcc_build uic_build
+USE_QT4=	corelib gui opengl qmake_build moc_build rcc_build uic_build
 CMAKE_ARGS+=	-DUSE_QT:BOOL=ON -DUSE_OPENGL:BOOL=ON
 CMAKE_ENV+=	QTDIR=${QT_PREFIX} QT_INCLUDES=${QT_INCDIR}
 PLIST_SUB+=	IMAGEVIEWER=""
