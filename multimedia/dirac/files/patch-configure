@@ -1,5 +1,5 @@
---- ./configure.orig	2009-02-11 12:13:40.000000000 +1030
-+++ ./configure	2012-03-07 07:33:48.000000000 +1030
+--- configure.orig	2012-06-08 20:47:50.897828593 +0930
++++ configure	2012-06-08 20:52:37.349826765 +0930
 @@ -3497,7 +3497,7 @@
  case $host_os in *\ *) host_os=`echo "$host_os" | sed 's/ /-/g'`;; esac
  
@@ -9,9 +9,13 @@
  
  case $host in
  *-*-cygwin* | *-*-mingw* | *-*-pw32* | *-cegcc*)
-@@ -15903,23 +15903,9 @@
+@@ -15902,24 +15902,10 @@
+ 
  use_msvc=no
  
++LIBEXT=".lib";
++LIBFLAGS="-lib"
++RANLIB="echo"
  
 -case "$CXX" in
 -		cl*|CL*)
@@ -30,9 +34,69 @@
 -	*)
 -		;;
 -esac
-+LIBEXT=".lib";
-+LIBFLAGS="-lib"
-+RANLIB="echo"
   if test x"$use_msvc" = "xyes"; then
    USE_MSVC_TRUE=
    USE_MSVC_FALSE='#'
+@@ -19855,61 +19841,6 @@
+     else
+ 	:
+     fi
+-		TRY_CFLAGS="$OPT_CFLAGS -Wall"
+-		{ $as_echo "$as_me:$LINENO: checking if $CXX supports $TRY_CFLAGS $CXXFLAGS flags" >&5
+-$as_echo_n "checking if $CXX supports $TRY_CFLAGS $CXXFLAGS flags... " >&6; }
+-	SAVE_CXXFLAGS="$CXXFLAGS"
+-	CXXFLAGS="$TRY_CFLAGS $CXXFLAGS"
+-	cat >conftest.$ac_ext <<_ACEOF
+-/* confdefs.h.  */
+-_ACEOF
+-cat confdefs.h >>conftest.$ac_ext
+-cat >>conftest.$ac_ext <<_ACEOF
+-/* end confdefs.h.  */
+-
+-int
+-main ()
+-{
+-
+-  ;
+-  return 0;
+-}
+-_ACEOF
+-rm -f conftest.$ac_objext
+-if { (ac_try="$ac_compile"
+-case "(($ac_try" in
+-  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+-  *) ac_try_echo=$ac_try;;
+-esac
+-eval ac_try_echo="\"\$as_me:$LINENO: $ac_try_echo\""
+-$as_echo "$ac_try_echo") >&5
+-  (eval "$ac_compile") 2>conftest.er1
+-  ac_status=$?
+-  grep -v '^ *+' conftest.er1 >conftest.err
+-  rm -f conftest.er1
+-  cat conftest.err >&5
+-  $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
+-  (exit $ac_status); } && {
+-	 test -z "$ac_cxx_werror_flag" ||
+-	 test ! -s conftest.err
+-       } && test -s conftest.$ac_objext; then
+-  ac_cv_try_cxxflags_ok=yes
+-else
+-  $as_echo "$as_me: failed program was:" >&5
+-sed 's/^/| /' conftest.$ac_ext >&5
+-
+-	ac_cv_try_cxxflags_ok=no
+-fi
+-
+-rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+-	CXXFLAGS="$SAVE_CXXFLAGS"
+-	{ $as_echo "$as_me:$LINENO: result: $ac_cv_try_cxxflags_ok" >&5
+-$as_echo "$ac_cv_try_cxxflags_ok" >&6; }
+-	if test x"$ac_cv_try_cxxflags_ok" = x"yes"; then
+-	OPT_CFLAGS="$TRY_CFLAGS"
+-    else
+-	:
+-    fi
+ 		TRY_CFLAGS="$OPT_CFLAGS -Werror"
+ 		{ $as_echo "$as_me:$LINENO: checking if $CXX supports $TRY_CFLAGS $CXXFLAGS flags" >&5
+ $as_echo_n "checking if $CXX supports $TRY_CFLAGS $CXXFLAGS flags... " >&6; }
+
