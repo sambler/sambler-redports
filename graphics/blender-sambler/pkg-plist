@@ -42,7 +42,6 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/add_mesh_solid.py
 %%DATADIR%%/scripts/addons/animation_add_corrective_shape_key.py
 %%DATADIR%%/scripts/addons/animation_animall.py
-%%DATADIR%%/scripts/addons/animation_rotobezier.py
 %%DATADIR%%/scripts/addons/curve_simplify.py
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/readme.txt
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/Blender.txt
@@ -224,6 +223,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/modules/extensions_framework/validate.py
 %%DATADIR%%/scripts/addons/modules/geometry_utils.py
 %%DATADIR%%/scripts/addons/modules/misc_utils.py
+%%DATADIR%%/scripts/addons/modules/rna_wiki_reference.py
 %%DATADIR%%/scripts/addons/modules/selection_utils.py
 %%DATADIR%%/scripts/addons/modules/ui_utils.py
 %%DATADIR%%/scripts/addons/netrender/__init__.py

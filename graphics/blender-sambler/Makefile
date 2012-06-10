@@ -6,7 +6,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.63
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 				https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -24,7 +24,7 @@ COMMENT=	3D modeling/rendering/animation/gaming package
 LICENSE=	GPLv2
 
 LIB_DEPENDS=	jpeg.11:${PORTSDIR}/graphics/jpeg
-LIB_DEPENDS+=	png.6:${PORTSDIR}/graphics/png
+LIB_DEPENDS+=	png15:${PORTSDIR}/graphics/png
 LIB_DEPENDS+=	freetype.9:${PORTSDIR}/print/freetype2
 LIB_DEPENDS+=	avutil.1:${PORTSDIR}/multimedia/ffmpeg
 LIB_DEPENDS+=	fftw3:${PORTSDIR}/math/fftw3
@@ -42,7 +42,7 @@ CONFLICTS=	blender-2.*
 USE_CMAKE=	yes
 CMAKE_OUTSOURCE=	yes
 MAKE_JOBS_SAFE=	yes
-WRKSRC=		${WRKDIR}/sambler-myblender-5126c36
+WRKSRC=		${WRKDIR}/sambler-myblender-334ff6b
 
 USE_PYTHON=	3.2
 WANT_GNOME=	yes
