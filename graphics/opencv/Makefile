@@ -2,7 +2,7 @@
 # Date created:                05 March 2005
 # Whom:                        Marc Abramowitz (http://marc.abramowitz.info)
 #
-# $FreeBSD: ports/graphics/opencv/Makefile,v 1.37 2012/02/26 15:22:32 nox Exp $
+# $FreeBSD: ports/graphics/opencv/Makefile,v 1.39 2012/06/06 06:43:56 miwi Exp $
 #
 
 PORTNAME?=	opencv
@@ -121,15 +121,14 @@ CMAKE_ARGS+=	-DWITH_OPENEXR:BOOL=Off
 .endif
 
 .if !defined(WITHOUT_PNG)
-LIB_DEPENDS+=	png.6:${PORTSDIR}/graphics/png
+LIB_DEPENDS+=	png15:${PORTSDIR}/graphics/png
 CMAKE_ARGS+=	-DWITH_PNG:BOOL=On
 .else
 CMAKE_ARGS+=	-DWITH_PNG:BOOL=Off
 .endif
 
 .if defined(WITH_QT4)
-USE_QT_VER= 	4
-QT_COMPONENTS+=	opengl moc_build qmake_build rcc_build uic_build
+USE_QT4+=	opengl moc_build qmake_build rcc_build uic_build
 CMAKE_ARGS+=	-DWITH_QT:BOOL=On -DWITH_QT_OPENGL:BOOL=On
 .else
 CMAKE_ARGS+=	-DWITH_QT:BOOL=Off
