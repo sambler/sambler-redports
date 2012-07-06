@@ -6,7 +6,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.63
-PORTREVISION=	4
+PORTREVISION=	6
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 				https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -23,17 +23,17 @@ COMMENT=	3D modeling/rendering/animation/gaming package
 
 LICENSE=	GPLv2
 
-LIB_DEPENDS=	jpeg.11:${PORTSDIR}/graphics/jpeg
+LIB_DEPENDS=	jpeg:${PORTSDIR}/graphics/jpeg
 LIB_DEPENDS+=	png15:${PORTSDIR}/graphics/png
-LIB_DEPENDS+=	freetype.9:${PORTSDIR}/print/freetype2
-LIB_DEPENDS+=	avutil.1:${PORTSDIR}/multimedia/ffmpeg
+LIB_DEPENDS+=	freetype:${PORTSDIR}/print/freetype2
+LIB_DEPENDS+=	avutil:${PORTSDIR}/multimedia/ffmpeg
 LIB_DEPENDS+=	fftw3:${PORTSDIR}/math/fftw3
-LIB_DEPENDS+=	IlmImf.6:${PORTSDIR}/graphics/OpenEXR
-LIB_DEPENDS+=	openjpeg.2:${PORTSDIR}/graphics/openjpeg
-LIB_DEPENDS+=	samplerate.1:${PORTSDIR}/audio/libsamplerate
-LIB_DEPENDS+=	sndfile.1:${PORTSDIR}/audio/libsndfile
-LIB_DEPENDS+=	tiff.4:${PORTSDIR}/graphics/tiff
-LIB_DEPENDS+=	boost_thread.4:${PORTSDIR}/devel/boost-libs
+LIB_DEPENDS+=	IlmImf:${PORTSDIR}/graphics/OpenEXR
+LIB_DEPENDS+=	openjpeg:${PORTSDIR}/graphics/openjpeg
+LIB_DEPENDS+=	samplerate:${PORTSDIR}/audio/libsamplerate
+LIB_DEPENDS+=	sndfile:${PORTSDIR}/audio/libsndfile
+LIB_DEPENDS+=	tiff:${PORTSDIR}/graphics/tiff
+LIB_DEPENDS+=	boost_thread:${PORTSDIR}/devel/boost-libs
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 
 FETCH_ARGS=	-pRr
@@ -42,7 +42,7 @@ CONFLICTS=	blender-2.*
 USE_CMAKE=	yes
 CMAKE_OUTSOURCE=	yes
 MAKE_JOBS_SAFE=	yes
-WRKSRC=		${WRKDIR}/sambler-myblender-334ff6b
+WRKSRC=		${WRKDIR}/sambler-myblender-f662310
 
 USE_PYTHON=	3.2
 WANT_GNOME=	yes
@@ -84,25 +84,28 @@ OUTDIR=		${INSTALL_WRKSRC}/bin/${PORTVERSION}
 LANG=		ar bg ca cs de el es es_ES fa fi fr hr id it ja ky ne pl pt \
 		ru sr sr@latin sv tr uk zh_CN zh_TW
 
-OPTIONS=	CC_GCC46	"Build with gcc46" on
-OPTIONS+=	CC_CLANG	"Build with clang" off
-OPTIONS+=	HEADLESS	"Disable user interface" off
-OPTIONS+=	SECURITY	"Disable scripts auto-run" on
-OPTIONS+=	PLAYER		"Build blender player" off
-OPTIONS+=	JACK		"Audio support using JackAudio" off
-#OPTIONS+=	COLLADA		"Include collada import" off
-#OPTIONS+=	NDOF		"NDOF Support" off
-OPTIONS+=	NLS			"Include translations" on
+OPTIONS_DEFINE=	CC_GCC46 CC_CLANG HEADLESS SECURITY PLAYER JACK NLS
+## COLLADA NDOF
+OPTIONS_SINGLE=	COMPILER
+OPTIONS_SINGLE_COMPILER=	CC_GCC46 CC_CLANG
+OPTIONS_DEFAULT=	CC_GCC46 SECURITY NLS
 
-.include <bsd.port.pre.mk>
+CC_GCC46_DESC=	"Build with gcc46"
+CC_CLANG_DESC=	"Build with clang"
+HEADLESS_DESC=	"Disable user interface"
+SECURITY_DESC=	"Disable scripts auto-run"
+PLAYER_DESC=	"Build blender player"
+JACK_DESC=	"Audio support using JackAudio"
+#COLLADA_DESC=	"Include collada import"
+#NDOF_DESC=	"NDOF Support"
+NLS_DESC=	"Include translations"
 
-.if defined(WITH_CC_GCC46) && defined(WITH_CC_CLANG)
-IGNORE=	conflicting options (CC_CLANG and CC_GCC46)
-.endif
+.include <bsd.port.options.mk>
 
-.if defined(WITH_CC_CLANG)
+.if ${PORT_OPTIONS:MCC_CLANG}
 CC=clang
 CXX=clang++
+CPP=clang-cpp
 CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=OFF
 
 .if ${OSVERSION} < 900033
@@ -114,9 +117,9 @@ BUILD_DEPENDS+=	clang:${PORTSDIR}/lang/clang
 LDFLAGS+=	-L${LOCALBASE}/lib/gcc46 -rpath ${LOCALBASE}/lib/gcc46
 .endif
 
-.endif # WITH_CC_CLANG
+.endif # CC_CLANG
 
-.if defined(WITH_CC_GCC46)
+.if ${PORT_OPTIONS:MCC_GCC46}
 CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=ON
 USE_GCC?=		4.6+
 LDFLAGS+=	-rpath ${LOCALBASE}/lib/gcc46
@@ -126,7 +129,7 @@ LDFLAGS+=	-rpath ${LOCALBASE}/lib/gcc46
 CMAKE_ARGS+=	-DWITH_CYCLES:BOOL=ON
 CMAKE_ARGS+=	-DWITH_CYCLES_CUDA_BINARIES:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_CYCLES_TEST:BOOL=OFF
-LIB_DEPENDS+=	OpenImageIO.1:${PORTSDIR}/graphics/openimageio
+LIB_DEPENDS+=	OpenImageIO:${PORTSDIR}/graphics/openimageio
 PLIST_SUB+=	CYCLES=""
 .else
 # openimageio doesn't build on 7.x so can't enable cycles
@@ -136,19 +139,19 @@ CMAKE_ARGS+=	-DWITH_CYCLES_TEST:BOOL=OFF
 PLIST_SUB+=	CYCLES="@comment "
 .endif
 
-.if defined(WITH_HEADLESS)
+.if ${PORT_OPTIONS:MHEADLESS}
 CMAKE_ARGS+=	-DWITH_HEADLESS:BOOL=ON
 .else
 CMAKE_ARGS+=	-DWITH_HEADLESS:BOOL=OFF
 .endif
 
-.if defined(WITH_SECURITY)
+.if ${PORT_OPTIONS:MSECURITY}
 CMAKE_ARGS+=	-DWITH_PYTHON_SECURITY:BOOL=ON
 .else
 CMAKE_ARGS+=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 .endif
 
-.if defined(WITH_PLAYER)
+.if ${PORT_OPTIONS:MPLAYER}
 CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=ON
 PLIST_SUB+=	PLAYER=""
 .else
@@ -156,35 +159,35 @@ CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=OFF
 PLIST_SUB+=	PLAYER="@comment "
 .endif
 
-.if defined(WITH_JACK)
-LIB_DEPENDS+=	jack.0:${PORTSDIR}/audio/jack
+.if ${PORT_OPTIONS:MJACK}
+LIB_DEPENDS+=	jack:${PORTSDIR}/audio/jack
 CMAKE_ARGS+=	-DWITH_JACK:BOOL=ON
 .else
 CMAKE_ARGS+=	-DWITH_JACK:BOOL=OFF
 .endif
 
-.if defined(WITH_COLLADA)
+.if ${PORT_OPTIONS:MCOLLADA}
 CMAKE_ARGS+=	-DWITH_OPENCOLLADA:BOOL=ON
 # add collada lib to ports
 .else
 CMAKE_ARGS+=	-DWITH_OPENCOLLADA:BOOL=OFF
 .endif
 
-.if defined(WITH_NDOF)
+.if ${PORT_OPTIONS:MNDOF}
 CMAKE_ARGS+=	-DWITH_INPUT_NDOF:BOOL=ON
 # add ndof lib to ports
 .else
 CMAKE_ARGS+=	-DWITH_INPUT_NDOF:BOOL=OFF
 .endif
 
-.if defined(WITHOUT_NLS)
-CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
-PLIST_SUB+=	NLS="@comment "
-.else
+.if ${PORT_OPTIONS:MNLS}
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=ON
 PLIST_SUB+=	NLS=""
 USE_GETTEXT=	yes
 USE_ICONV=		yes
+.else
+CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
+PLIST_SUB+=	NLS="@comment "
 .endif
 
 post-extract:
@@ -203,7 +206,7 @@ post-install:
 	@${INSTALL_SCRIPT} ${INSTALL_WRKSRC}/bin/blender-thumbnailer.py \
 		${PREFIX}/bin/blender-thumbnailer.py
 
-.if defined(WITH_PLAYER)
+.if ${PORT_OPTIONS:MPLAYER}
 	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${PREFIX}/bin/blenderplayer
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blenderplayer \
 		${PREFIX}/bin/blenderplayer-bin
@@ -213,7 +216,7 @@ post-install:
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
 		${PREFIX}/share/pixmaps/blender.svg
 
-.if defined(WITH_NLS)
+.if ${PORT_OPTIONS:MNLS}
 .for ii in ${LANG}
 	@${MKDIR} ${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES
 	@${INSTALL_DATA} \
@@ -232,4 +235,4 @@ post-install:
 		${DESKTOPDIR}
 	@-update-desktop-database -q
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

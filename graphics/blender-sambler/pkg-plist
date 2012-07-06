@@ -275,6 +275,9 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/object_fracture/data.blend
 %%DATADIR%%/scripts/addons/object_fracture/fracture_ops.py
 %%DATADIR%%/scripts/addons/object_fracture/fracture_setup.py
+%%DATADIR%%/scripts/addons/object_fracture_cell/__init__.py
+%%DATADIR%%/scripts/addons/object_fracture_cell/fracture_cell_setup.py
+%%DATADIR%%/scripts/addons/object_fracture_cell/fracture_cell_calc.py
 %%DATADIR%%/scripts/addons/object_grease_scatter.py
 %%DATADIR%%/scripts/addons/paint_palette.py
 %%DATADIR%%/scripts/addons/render_copy_settings/__init__.py
@@ -449,6 +452,8 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/ms3d_export.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/ms3d_import.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/ms3d_spec.py
+%%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/ms3d_strings.py
+%%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/ms3d_ui.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/ms3d_utils.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_open_street_map.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_x/__init__.py
@@ -461,7 +466,9 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/mesh_edgetools.py
 %%DATADIR%%/scripts/addons_contrib/mesh_extrude_along_curve.py
 %%DATADIR%%/scripts/addons_contrib/mesh_face_info_select.py
-%%DATADIR%%/scripts/addons_contrib/mesh_mextrude_plus.py
+%%DATADIR%%/scripts/addons_contrib/mesh_multi_extrude/__init__.py
+%%DATADIR%%/scripts/addons_contrib/mesh_multi_extrude/mesh_bump.py
+%%DATADIR%%/scripts/addons_contrib/mesh_multi_extrude/mesh_extras.py
 %%DATADIR%%/scripts/addons_contrib/mesh_normal_smooth.py
 %%DATADIR%%/scripts/addons_contrib/mesh_select_vertex_groups.py
 %%DATADIR%%/scripts/addons_contrib/mesh_show_vgroup_weights.py
@@ -499,6 +506,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/space_view3d_add_surround_cameras.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_enhanced_3d_cursor.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_game_props_visualiser.py
+%%DATADIR%%/scripts/addons_contrib/space_view3d_library_hide.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_manipulator_Menu.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_multiselect_menu.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_objects_panel.py
@@ -512,6 +520,23 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/modules/addon_utils.py
 %%DATADIR%%/scripts/modules/animsys_refactor.py
 %%DATADIR%%/scripts/modules/blend_render_info.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/__init__.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/bl_process_msg.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/check_po.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/clean_po.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/import_po_from_branches.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/merge_po.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/rtl_preprocess.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/settings.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/spell_check_utils.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/update_branches.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/update_mo.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/update_po.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/update_pot.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/update_msg.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/update_trunk.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/user_settings.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/utils.py
 %%DATADIR%%/scripts/modules/bpy/__init__.py
 %%DATADIR%%/scripts/modules/bpy/ops.py
 %%DATADIR%%/scripts/modules/bpy/path.py
@@ -602,7 +627,8 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/presets/interface_theme/hexagon.xml
 %%DATADIR%%/scripts/presets/interface_theme/ubuntu_ambiance.xml
 %%DATADIR%%/scripts/presets/keyconfig/maya.py
-%%DATADIR%%/scripts/presets/operator/wm.collada_export/second_life.py
+%%DATADIR%%/scripts/presets/operator/wm.collada_export/second_life_rigged.py
+%%DATADIR%%/scripts/presets/operator/wm.collada_export/second_life_static.py
 %%DATADIR%%/scripts/presets/render/DVCPRO_HD_1080p.py
 %%DATADIR%%/scripts/presets/render/DVCPRO_HD_720p.py
 %%DATADIR%%/scripts/presets/render/HDTV_1080p.py
@@ -742,6 +768,8 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/templates/operator_modal_draw.py
 %%DATADIR%%/scripts/templates/operator_modal_timer.py
 %%DATADIR%%/scripts/templates/operator_modal_view3d.py
+%%DATADIR%%/scripts/templates/operator_modal_view3d_raycast.py
+%%DATADIR%%/scripts/templates/operator_node.py
 %%DATADIR%%/scripts/templates/operator_simple.py
 %%DATADIR%%/scripts/templates/operator_uv.py
 %%DATADIR%%/scripts/templates/ui_menu.py
@@ -800,11 +828,13 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/modules/console
 @dirrm %%DATADIR%%/scripts/modules/bpy_extras
 @dirrm %%DATADIR%%/scripts/modules/bpy
+@dirrm %%DATADIR%%/scripts/modules/bl_i18n_utils
 @dirrm %%DATADIR%%/scripts/modules
 @dirrm %%DATADIR%%/scripts/addons_contrib/sequencer_tools
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets/keyconfig
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets/interface_theme
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets
+@dirrm %%DATADIR%%/scripts/addons_contrib/mesh_multi_extrude
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_sequencer_edl
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_x
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_ms3d
@@ -845,6 +875,7 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons/rigify
 @dirrm %%DATADIR%%/scripts/addons/render_povray
 @dirrm %%DATADIR%%/scripts/addons/render_copy_settings
+@dirrm %%DATADIR%%/scripts/addons/object_fracture_cell
 @dirrm %%DATADIR%%/scripts/addons/object_fracture
 @dirrm %%DATADIR%%/scripts/addons/netrender/js
 @dirrm %%DATADIR%%/scripts/addons/netrender/css/images
