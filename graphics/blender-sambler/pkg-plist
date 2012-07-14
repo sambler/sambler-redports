@@ -158,6 +158,27 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/io_curve_svg/svg_colors.py
 %%DATADIR%%/scripts/addons/io_export_after_effects.py
 %%DATADIR%%/scripts/addons/io_export_directx_x.py
+%%DATADIR%%/scripts/addons/io_export_dxf/__init__.py
+%%DATADIR%%/scripts/addons/io_export_dxf/draw_blenders
+%%DATADIR%%/scripts/addons/io_export_dxf/draw_blenders/__init__.py
+%%DATADIR%%/scripts/addons/io_export_dxf/export_dxf.py
+%%DATADIR%%/scripts/addons/io_export_dxf/model
+%%DATADIR%%/scripts/addons/io_export_dxf/model/__init__.py
+%%DATADIR%%/scripts/addons/io_export_dxf/model/dxfLibrary.py
+%%DATADIR%%/scripts/addons/io_export_dxf/model/migiusModel.py
+%%DATADIR%%/scripts/addons/io_export_dxf/model/model.py
+%%DATADIR%%/scripts/addons/io_export_dxf/operator.py
+%%DATADIR%%/scripts/addons/io_export_dxf/primitive_exporters
+%%DATADIR%%/scripts/addons/io_export_dxf/primitive_exporters/__init__.py
+%%DATADIR%%/scripts/addons/io_export_dxf/primitive_exporters/base_exporter.py
+%%DATADIR%%/scripts/addons/io_export_dxf/primitive_exporters/camera_exporter.py
+%%DATADIR%%/scripts/addons/io_export_dxf/primitive_exporters/curve_exporter.py
+%%DATADIR%%/scripts/addons/io_export_dxf/primitive_exporters/empty_exporter.py
+%%DATADIR%%/scripts/addons/io_export_dxf/primitive_exporters/insert_exporter.py
+%%DATADIR%%/scripts/addons/io_export_dxf/primitive_exporters/lamp_exporter.py
+%%DATADIR%%/scripts/addons/io_export_dxf/primitive_exporters/mesh_exporter.py
+%%DATADIR%%/scripts/addons/io_export_dxf/primitive_exporters/text_exporter.py
+%%DATADIR%%/scripts/addons/io_export_dxf/primitive_exporters/viewborder_exporter.py
 %%DATADIR%%/scripts/addons/io_export_pc2.py
 %%DATADIR%%/scripts/addons/io_export_unreal_psk_psa.py
 %%DATADIR%%/scripts/addons/io_import_gimp_image_to_scene.py
@@ -288,7 +309,15 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/render_povray/render.py
 %%DATADIR%%/scripts/addons/render_povray/ui.py
 %%DATADIR%%/scripts/addons/render_povray/update_files.py
-%%DATADIR%%/scripts/addons/render_renderfarmfi.py
+%%DATADIR%%/scripts/addons/render_renderfarmfi/__init__.py
+%%DATADIR%%/scripts/addons/render_renderfarmfi/exceptions.py
+%%DATADIR%%/scripts/addons/render_renderfarmfi/operators.py
+%%DATADIR%%/scripts/addons/render_renderfarmfi/ore_session.py
+%%DATADIR%%/scripts/addons/render_renderfarmfi/panels.py
+%%DATADIR%%/scripts/addons/render_renderfarmfi/prepare.py
+%%DATADIR%%/scripts/addons/render_renderfarmfi/rpc.py
+%%DATADIR%%/scripts/addons/render_renderfarmfi/upload.py
+%%DATADIR%%/scripts/addons/render_renderfarmfi/utils.py
 %%DATADIR%%/scripts/addons/rigify/CREDITS
 %%DATADIR%%/scripts/addons/rigify/README
 %%DATADIR%%/scripts/addons/rigify/__init__.py
@@ -333,6 +362,8 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/system_demo_mode/demo_mode.py
 %%DATADIR%%/scripts/addons/system_property_chart.py
 %%DATADIR%%/scripts/addons/texture_paint_layer_manager.py
+%%DATADIR%%/scripts/addons/ui_translate/__init__.py
+%%DATADIR%%/scripts/addons/ui_translate/utils.py
 %%DATADIR%%/scripts/addons_contrib/add_curve_objects/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_curve_objects/add_curve_rectangle_259.py
 %%DATADIR%%/scripts/addons_contrib/add_curve_objects/add_curve_spirals.py
@@ -410,24 +441,6 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/io_directx_bel/import_x.py
 %%DATADIR%%/scripts/addons_contrib/io_directx_bel/README
 %%DATADIR%%/scripts/addons_contrib/io_directx_bel/templates_x.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/__init__.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/draw_blenders/__init__.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/export_dxf.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/model/__init__.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/model/dxfLibrary.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/model/migiusModel.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/model/model.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/operator.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/primitive_exporters/__init__.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/primitive_exporters/base_exporter.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/primitive_exporters/camera_exporter.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/primitive_exporters/curve_exporter.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/primitive_exporters/empty_exporter.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/primitive_exporters/insert_exporter.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/primitive_exporters/lamp_exporter.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/primitive_exporters/mesh_exporter.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/primitive_exporters/text_exporter.py
-%%DATADIR%%/scripts/addons_contrib/io_export_dxf/primitive_exporters/viewborder_exporter.py
 %%DATADIR%%/scripts/addons_contrib/io_export_marmalade.py
 %%DATADIR%%/scripts/addons_contrib/io_export_md3.py
 %%DATADIR%%/scripts/addons_contrib/io_import_BrushSet.py
@@ -469,6 +482,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/mesh_multi_extrude/__init__.py
 %%DATADIR%%/scripts/addons_contrib/mesh_multi_extrude/mesh_bump.py
 %%DATADIR%%/scripts/addons_contrib/mesh_multi_extrude/mesh_extras.py
+%%DATADIR%%/scripts/addons_contrib/mesh_multi_extrude/mesh_mextrude_plus.py
 %%DATADIR%%/scripts/addons_contrib/mesh_normal_smooth.py
 %%DATADIR%%/scripts/addons_contrib/mesh_select_vertex_groups.py
 %%DATADIR%%/scripts/addons_contrib/mesh_show_vgroup_weights.py
@@ -863,6 +877,7 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_curve_objects
 @dirrm %%DATADIR%%/scripts/addons_contrib
+@dirrm %%DATADIR%%/scripts/addons/ui_translate
 @dirrm %%DATADIR%%/scripts/addons/system_demo_mode
 @dirrm %%DATADIR%%/scripts/addons/space_view3d_math_vis
 @dirrm %%DATADIR%%/scripts/addons/rigify/rigs/misc
@@ -873,6 +888,7 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons/rigify/rigs
 @dirrm %%DATADIR%%/scripts/addons/rigify/metarigs
 @dirrm %%DATADIR%%/scripts/addons/rigify
+@dirrm %%DATADIR%%/scripts/addons/render_renderfarmfi
 @dirrm %%DATADIR%%/scripts/addons/render_povray
 @dirrm %%DATADIR%%/scripts/addons/render_copy_settings
 @dirrm %%DATADIR%%/scripts/addons/object_fracture_cell
@@ -898,6 +914,7 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons/io_mesh_raw
 @dirrm %%DATADIR%%/scripts/addons/io_mesh_ply
 @dirrm %%DATADIR%%/scripts/addons/io_mesh_pdb
+@dirrm %%DATADIR%%/scripts/addons/io_export_dxf
 @dirrm %%DATADIR%%/scripts/addons/io_curve_svg
 @dirrm %%DATADIR%%/scripts/addons/io_convert_image_to_mesh_img
 @dirrm %%DATADIR%%/scripts/addons/io_coat3D
