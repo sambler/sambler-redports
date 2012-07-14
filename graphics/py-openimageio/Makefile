@@ -2,11 +2,11 @@
 # Date created:			28 April 2012
 # Whom:					Shane Ambler
 #
-# $FreeBSD: ports/graphics/py-openimageio/Makefile,v 1.1 2012/05/01 16:45:36 sunpoet Exp $
+# $FreeBSD: ports/graphics/py-openimageio/Makefile,v 1.2 2012/06/27 08:38:02 sunpoet Exp $
 #
 
 PORTNAME=	openimageio
-PORTVERSION=	1.0.6
+PORTVERSION=	1.0.7
 CATEGORIES=	graphics multimedia python
 MASTER_SITES=	https://github.com/OpenImageIO/oiio/tarball/
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -19,7 +19,7 @@ COMMENT=	OpenImageIO python bindings
 
 LICENSE=	BSD
 
-LIB_DEPENDS=	OpenImageIO.1:${PORTSDIR}/graphics/openimageio \
+LIB_DEPENDS=	OpenImageIO:${PORTSDIR}/graphics/openimageio \
 		boost_python:${PORTSDIR}/devel/boost-python-libs
 
 FETCH_ARGS=	-pRr
@@ -36,7 +36,7 @@ LDFLAGS+=	-ltbb
 MAKE_JOBS_SAFE=	yes
 USE_LDCONFIG=	yes
 USE_PYTHON=	2.6+
-WRKSRC=		${WRKDIR}/OpenImageIO-oiio-f0a566a/src
+WRKSRC=		${WRKDIR}/OpenImageIO-oiio-e9fa4c7/src
 
 PLIST_FILES=	%%PYTHON_SITELIBDIR%%/OpenImageIO.so
 

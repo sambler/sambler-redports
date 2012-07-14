@@ -2,11 +2,11 @@
 # Date created:			21 March 2012
 # Whom:					Shane Ambler
 #
-# $FreeBSD: ports/graphics/openimageio/Makefile,v 1.5 2012/06/06 06:43:56 miwi Exp $
+# $FreeBSD: ports/graphics/openimageio/Makefile,v 1.6 2012/06/26 11:38:56 madpilot Exp $
 #
 
 PORTNAME=	openimageio
-PORTVERSION=	1.0.6
+PORTVERSION=	1.0.7
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/OpenImageIO/oiio/tarball/
 DISTNAME=	Release-${PORTVERSION}
@@ -18,13 +18,16 @@ COMMENT=	OpenImageIO graphics library
 
 LICENSE=	BSD
 
-LIB_DEPENDS=	IlmImf.6:${PORTSDIR}/graphics/OpenEXR \
-		boost_thread.4:${PORTSDIR}/devel/boost-libs \
+LIB_DEPENDS=	IlmImf:${PORTSDIR}/graphics/OpenEXR \
+		boost_thread:${PORTSDIR}/devel/boost-libs \
 		hdf5:${PORTSDIR}/science/hdf5 \
-		opencv_legacy.2:${PORTSDIR}/graphics/opencv \
+		opencv_legacy:${PORTSDIR}/graphics/opencv \
 		openjpeg:${PORTSDIR}/graphics/openjpeg \
-		tbb.4:${PORTSDIR}/devel/tbb \
-		webp.2:${PORTSDIR}/graphics/webp
+		tbb:${PORTSDIR}/devel/tbb \
+		webp:${PORTSDIR}/graphics/webp
+
+# fbm also installs bin/idiff
+CONFLICTS=	fbm-[0-9]*
 
 FETCH_ARGS=	-pRr
 USE_CMAKE=	yes
@@ -36,19 +39,23 @@ CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DUSE_TBB:BOOL=ON
 LDFLAGS+=	-ltbb
 USE_LDCONFIG=	yes
-WRKSRC=		${WRKDIR}/OpenImageIO-oiio-f0a566a/src
+WRKSRC=		${WRKDIR}/OpenImageIO-oiio-e9fa4c7/src
 MAKE_JOBS_SAFE=	yes
 
-OPTIONS=	IMAGEVIEWER "Build image viewer" on \
-		NOTHREADS "Disable thread support" off
+OPTIONS_DEFINE=		IMAGEVIEWER THREADS
+OPTIONS_DEFAULT=	IMAGEVIEWER THREADS
+
+IMAGEVIEWER_DESC=	Build image viewer
 
 .include <bsd.port.options.mk>
 
-.if defined(NOPORTDOCS)
+.if ${PORT_OPTIONS:MDOCS}
+CMAKE_ARGS+=	-DINSTALL_DOCS:BOOL=ON
+.else
 CMAKE_ARGS+=	-DINSTALL_DOCS:BOOL=OFF
 .endif
 
-.if defined(WITH_IMAGEVIEWER)
+.if ${PORT_OPTIONS:MIMAGEVIEWER}
 USE_GL=		glew
 USE_QT4=	corelib gui opengl qmake_build moc_build rcc_build uic_build
 CMAKE_ARGS+=	-DUSE_QT:BOOL=ON -DUSE_OPENGL:BOOL=ON
@@ -59,7 +66,7 @@ CMAKE_ARGS+=	-DUSE_OPENGL:BOOL=OFF -DUSE_QT:BOOL=OFF
 PLIST_SUB+=	IMAGEVIEWER="@comment "
 .endif
 
-.if defined(WITH_NOTHREADS)
+.if ${PORT_OPTIONS:MTHREADS}
 CMAKE_ARGS+=	-DNOTHREADS:BOOL=ON
 .else
 CMAKE_ARGS+=	-DNOTHREADS:BOOL=OFF
