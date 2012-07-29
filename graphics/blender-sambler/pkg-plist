@@ -732,6 +732,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/startup/bl_ui/properties_data_speaker.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_game.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_material.py
+%%DATADIR%%/scripts/startup/bl_ui/properties_mask_common.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_object.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_object_constraint.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_paint_common.py
@@ -855,10 +856,6 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_cod
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_points_pcd
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_mesh_xyz
-@dirrm %%DATADIR%%/scripts/addons_contrib/io_export_dxf/primitive_exporters
-@dirrm %%DATADIR%%/scripts/addons_contrib/io_export_dxf/model
-@dirrm %%DATADIR%%/scripts/addons_contrib/io_export_dxf/draw_blenders
-@dirrm %%DATADIR%%/scripts/addons_contrib/io_export_dxf
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_directx_bel/bel
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_directx_bel
 @dirrm %%DATADIR%%/scripts/addons_contrib/gyes
@@ -914,6 +911,9 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons/io_mesh_raw
 @dirrm %%DATADIR%%/scripts/addons/io_mesh_ply
 @dirrm %%DATADIR%%/scripts/addons/io_mesh_pdb
+@dirrm %%DATADIR%%/scripts/addons/io_export_dxf/primitive_exporters
+@dirrm %%DATADIR%%/scripts/addons/io_export_dxf/model
+@dirrm %%DATADIR%%/scripts/addons/io_export_dxf/draw_blenders
 @dirrm %%DATADIR%%/scripts/addons/io_export_dxf
 @dirrm %%DATADIR%%/scripts/addons/io_curve_svg
 @dirrm %%DATADIR%%/scripts/addons/io_convert_image_to_mesh_img

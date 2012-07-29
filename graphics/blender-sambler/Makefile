@@ -6,7 +6,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.63
-PORTREVISION=	7
+PORTREVISION=	8
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 				https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -42,7 +42,7 @@ CONFLICTS=	blender-2.*
 USE_CMAKE=	yes
 CMAKE_OUTSOURCE=	yes
 MAKE_JOBS_SAFE=	yes
-WRKSRC=		${WRKDIR}/sambler-myblender-8612519
+WRKSRC=		${WRKDIR}/sambler-myblender-44095f4
 
 USE_PYTHON=	3.2
 WANT_GNOME=	yes
