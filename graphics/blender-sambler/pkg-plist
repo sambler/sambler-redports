@@ -159,16 +159,13 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/io_export_after_effects.py
 %%DATADIR%%/scripts/addons/io_export_directx_x.py
 %%DATADIR%%/scripts/addons/io_export_dxf/__init__.py
-%%DATADIR%%/scripts/addons/io_export_dxf/draw_blenders
 %%DATADIR%%/scripts/addons/io_export_dxf/draw_blenders/__init__.py
 %%DATADIR%%/scripts/addons/io_export_dxf/export_dxf.py
-%%DATADIR%%/scripts/addons/io_export_dxf/model
 %%DATADIR%%/scripts/addons/io_export_dxf/model/__init__.py
 %%DATADIR%%/scripts/addons/io_export_dxf/model/dxfLibrary.py
 %%DATADIR%%/scripts/addons/io_export_dxf/model/migiusModel.py
 %%DATADIR%%/scripts/addons/io_export_dxf/model/model.py
 %%DATADIR%%/scripts/addons/io_export_dxf/operator.py
-%%DATADIR%%/scripts/addons/io_export_dxf/primitive_exporters
 %%DATADIR%%/scripts/addons/io_export_dxf/primitive_exporters/__init__.py
 %%DATADIR%%/scripts/addons/io_export_dxf/primitive_exporters/base_exporter.py
 %%DATADIR%%/scripts/addons/io_export_dxf/primitive_exporters/camera_exporter.py
@@ -394,7 +391,6 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/add_mesh_walls/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_walls/Blocks.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_walls/Wallfactory.py
-%%DATADIR%%/scripts/addons_contrib/advanced_smooth.py
 %%DATADIR%%/scripts/addons_contrib/anim_selection_sets.py
 %%DATADIR%%/scripts/addons_contrib/animation_motion_trail.py
 %%DATADIR%%/scripts/addons_contrib/breakpoint.py
@@ -474,6 +470,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/io_sequencer_edl/import_edl.py
 %%DATADIR%%/scripts/addons_contrib/lamp_geographical_sun.py
 %%DATADIR%%/scripts/addons_contrib/mesh_bevel_round.py
+%%DATADIR%%/scripts/addons_contrib/mesh_copy_uvs_from_joined.py
 %%DATADIR%%/scripts/addons_contrib/mesh_discombobulator.py
 %%DATADIR%%/scripts/addons_contrib/mesh_edge_intersection_tools.py
 %%DATADIR%%/scripts/addons_contrib/mesh_edgetools.py
@@ -513,10 +510,8 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/render_time.py
 %%DATADIR%%/scripts/addons_contrib/render_to_print.py
 %%DATADIR%%/scripts/addons_contrib/rig_face_bone_tool.py
-%%DATADIR%%/scripts/addons_contrib/seminumerical.py
 %%DATADIR%%/scripts/addons_contrib/sequencer_tools/__init__.py
 %%DATADIR%%/scripts/addons_contrib/sequencer_tools/export_strips.py
-%%DATADIR%%/scripts/addons_contrib/SliceIntersect.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_add_surround_cameras.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_enhanced_3d_cursor.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_game_props_visualiser.py
@@ -690,9 +685,9 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/presets/tracking_camera/Red_One_4K.py
 %%DATADIR%%/scripts/presets/tracking_camera/Sony_A55.py
 %%DATADIR%%/scripts/presets/tracking_settings/blurry_footage.py
-%%DATADIR%%/scripts/presets/tracking_settings/blurry_movie.py
 %%DATADIR%%/scripts/presets/tracking_settings/default.py
 %%DATADIR%%/scripts/presets/tracking_settings/fast_motion.py
+%%DATADIR%%/scripts/presets/tracking_settings/planar.py
 %%DATADIR%%/scripts/presets/tracking_track_color/default.py
 %%DATADIR%%/scripts/presets/tracking_track_color/far_plane.py
 %%DATADIR%%/scripts/presets/tracking_track_color/near_plane.py
@@ -704,6 +699,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/startup/bl_operators/console.py
 %%DATADIR%%/scripts/startup/bl_operators/image.py
 %%DATADIR%%/scripts/startup/bl_operators/mesh.py
+%%DATADIR%%/scripts/startup/bl_operators/node.py
 %%DATADIR%%/scripts/startup/bl_operators/object.py
 %%DATADIR%%/scripts/startup/bl_operators/object_align.py
 %%DATADIR%%/scripts/startup/bl_operators/object_quick_effects.py
@@ -789,6 +785,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/templates/operator_uv.py
 %%DATADIR%%/scripts/templates/ui_menu.py
 %%DATADIR%%/scripts/templates/ui_menu_simple.py
+%%DATADIR%%/scripts/templates/ui_panel.py
 %%DATADIR%%/scripts/templates/ui_panel_simple.py
 %%NLS%%%%DATADIR%%/datafiles/locale/ar/LC_MESSAGES/blender.mo
 %%NLS%%%%DATADIR%%/datafiles/locale/bg/LC_MESSAGES/blender.mo
