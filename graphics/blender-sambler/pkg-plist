@@ -5,7 +5,10 @@ bin/blender-bin
 bin/blender-thumbnailer.py
 share/applications/blender.desktop
 share/pixmaps/blender.svg
-%%DATADIR%%/scripts/addons/add_curve_aceous_galore.py
+%%DATADIR%%/scripts/addons/add_curve_extra_objects/__init__.py
+%%DATADIR%%/scripts/addons/add_curve_extra_objects/add_curve_aceous_galore.py
+%%DATADIR%%/scripts/addons/add_curve_extra_objects/add_curve_spirals.py
+%%DATADIR%%/scripts/addons/add_curve_extra_objects/add_curve_torus_knots.py
 %%DATADIR%%/scripts/addons/add_curve_ivygen.py
 %%DATADIR%%/scripts/addons/add_curve_sapling/__init__.py
 %%DATADIR%%/scripts/addons/add_curve_sapling/presets/black_tupelo.py
@@ -13,7 +16,6 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/add_curve_sapling/presets/quaking_aspen.py
 %%DATADIR%%/scripts/addons/add_curve_sapling/presets/weeping_willow.py
 %%DATADIR%%/scripts/addons/add_curve_sapling/utils.py
-%%DATADIR%%/scripts/addons/add_curve_torus_knots.py
 %%DATADIR%%/scripts/addons/add_mesh_BoltFactory/Boltfactory.py
 %%DATADIR%%/scripts/addons/add_mesh_BoltFactory/__init__.py
 %%DATADIR%%/scripts/addons/add_mesh_BoltFactory/createMesh.py
@@ -64,6 +66,7 @@ share/pixmaps/blender.svg
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/emissive.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_attribute.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_brick.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_bsdf.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_camera.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_closure.h
@@ -100,6 +103,7 @@ share/pixmaps/blender.svg
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel.cu
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_accumulate.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_attribute.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_bvh.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_camera.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_compat_cpu.h
@@ -206,8 +210,6 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/io_scene_3ds/import_3ds.py
 %%DATADIR%%/scripts/addons/io_scene_fbx/__init__.py
 %%DATADIR%%/scripts/addons/io_scene_fbx/export_fbx.py
-%%DATADIR%%/scripts/addons/io_scene_m3/__init__.py
-%%DATADIR%%/scripts/addons/io_scene_m3/import_m3.py
 %%DATADIR%%/scripts/addons/io_scene_map/__init__.py
 %%DATADIR%%/scripts/addons/io_scene_map/export_map.py
 %%DATADIR%%/scripts/addons/io_scene_obj/__init__.py
@@ -361,12 +363,6 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/texture_paint_layer_manager.py
 %%DATADIR%%/scripts/addons/ui_translate/__init__.py
 %%DATADIR%%/scripts/addons/ui_translate/utils.py
-%%DATADIR%%/scripts/addons_contrib/add_curve_objects/__init__.py
-%%DATADIR%%/scripts/addons_contrib/add_curve_objects/add_curve_rectangle_259.py
-%%DATADIR%%/scripts/addons_contrib/add_curve_objects/add_curve_spirals.py
-%%DATADIR%%/scripts/addons_contrib/add_curve_objects/cotejrp1_particle_tracer.py
-%%DATADIR%%/scripts/addons_contrib/add_curve_objects/cotejrp1_string_it.py
-%%DATADIR%%/scripts/addons_contrib/add_curve_objects/curve_simplify.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_beam_builder.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope/oscurart_chain_maker.py
@@ -456,6 +452,8 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/io_scene_cod/export_xmodel.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_cod/import_xanim.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_cod/import_xmodel.py
+%%DATADIR%%/scripts/addons_contrib/io_scene_m3/__init__.py
+%%DATADIR%%/scripts/addons_contrib/io_scene_m3/import_m3.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/__README__.txt
 %%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/ms3d_export.py
@@ -476,6 +474,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/mesh_edgetools.py
 %%DATADIR%%/scripts/addons_contrib/mesh_extrude_along_curve.py
 %%DATADIR%%/scripts/addons_contrib/mesh_face_info_select.py
+%%DATADIR%%/scripts/addons_contrib/mesh_insert_edge_ring.py
 %%DATADIR%%/scripts/addons_contrib/mesh_multi_extrude/__init__.py
 %%DATADIR%%/scripts/addons_contrib/mesh_multi_extrude/mesh_bump.py
 %%DATADIR%%/scripts/addons_contrib/mesh_multi_extrude/mesh_extras.py
@@ -506,6 +505,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/presets/interface_theme/toxic.xml
 %%DATADIR%%/scripts/addons_contrib/presets/interface_theme/zbrush.xml
 %%DATADIR%%/scripts/addons_contrib/presets/keyconfig/blender_2012_experimental.py
+%%DATADIR%%/scripts/addons_contrib/render_auto_save.py
 %%DATADIR%%/scripts/addons_contrib/render_clay.py
 %%DATADIR%%/scripts/addons_contrib/render_time.py
 %%DATADIR%%/scripts/addons_contrib/render_to_print.py
@@ -520,11 +520,14 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/space_view3d_multiselect_menu.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_objects_panel.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_paint_bprojection.py
+%%DATADIR%%/scripts/addons_contrib/space_view3d_quickPrefs.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_simple_align.py
 %%DATADIR%%/scripts/addons_contrib/system_keyboard_svg.py
 %%DATADIR%%/scripts/addons_contrib/system_project_folder.py
 %%DATADIR%%/scripts/addons_contrib/text_editor_pasteall.py
 %%DATADIR%%/scripts/addons_contrib/text_intellisense.py
+%%DATADIR%%/scripts/addons_contrib/ui_layer_manager.py
+%%DATADIR%%/scripts/addons_contrib/uv_bake_texture_to_vcols.py
 %%DATADIR%%/scripts/addons_contrib/wetted_mesh.py
 %%DATADIR%%/scripts/modules/addon_utils.py
 %%DATADIR%%/scripts/modules/animsys_refactor.py
@@ -850,6 +853,7 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_sequencer_edl
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_x
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_ms3d
+@dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_m3
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_cod
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_points_pcd
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_mesh_xyz
@@ -869,7 +873,6 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_clusters
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope
-@dirrm %%DATADIR%%/scripts/addons_contrib/add_curve_objects
 @dirrm %%DATADIR%%/scripts/addons_contrib
 @dirrm %%DATADIR%%/scripts/addons/ui_translate
 @dirrm %%DATADIR%%/scripts/addons/system_demo_mode
@@ -900,7 +903,6 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons/io_scene_x3d
 @dirrm %%DATADIR%%/scripts/addons/io_scene_obj
 @dirrm %%DATADIR%%/scripts/addons/io_scene_map
-@dirrm %%DATADIR%%/scripts/addons/io_scene_m3
 @dirrm %%DATADIR%%/scripts/addons/io_scene_fbx
 @dirrm %%DATADIR%%/scripts/addons/io_scene_3ds
 @dirrm %%DATADIR%%/scripts/addons/io_mesh_uv_layout
@@ -928,6 +930,7 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons/add_mesh_BoltFactory
 @dirrm %%DATADIR%%/scripts/addons/add_curve_sapling/presets
 @dirrm %%DATADIR%%/scripts/addons/add_curve_sapling
+@dirrm %%DATADIR%%/scripts/addons/add_curve_extra_objects
 @dirrm %%DATADIR%%/scripts/addons
 @dirrm %%DATADIR%%/scripts
 @dirrmtry share/applications
