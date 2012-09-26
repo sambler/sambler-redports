@@ -22,9 +22,9 @@ BUILD_DEPENDS=	${LOCALBASE}/lib/libfreeimage.a:${PORTSDIR}/graphics/freeimage \
 				${LOCALBASE}/lib/libluxrays.a:${PORTSDIR}/graphics/luxrays \
 				bison:${PORTSDIR}/devel/bison \
 				flex:${PORTSDIR}/textproc/flex
-LIB_DEPENDS=	boost_thread.4:${PORTSDIR}/devel/boost-libs \
-				boost_python.4:${PORTSDIR}/devel/boost-python-libs \
-				IlmImf.6:${PORTSDIR}/graphics/OpenEXR
+LIB_DEPENDS=	boost_thread:${PORTSDIR}/devel/boost-libs \
+				boost_python:${PORTSDIR}/devel/boost-python-libs \
+				IlmImf:${PORTSDIR}/graphics/OpenEXR
 
 # recent snapshot - 2012-04-18
 HG_NODEID=	d6255950ebd0
@@ -33,6 +33,8 @@ USE_BZIP2=	yes
 USE_BISON=	build
 USE_CMAKE=	yes
 USE_GL=		gl
+USE_QT_VER=	4
+QT_COMPONENTS=	moc_build qmake_build rcc_build uic_build corelib gui
 CMAKE_VERBOSE=	yes
 CMAKE_OUTSOURCE=	yes
 CMAKE_ARGS=	-DLUXRAYS_DISABLE_OPENCL:BOOL=ON
@@ -48,7 +50,10 @@ CFLAGS+=	-mmmx -msse3
 CXXFLAGS+=	-mmmx -msse3
 LDFLAGS+=	-lIlmImf
 
-OPTIONS=	DOCS "Build API docs"                 off
+OPTIONS_DEFINE=	APIDOCS
+OPTIONS_DEFAULT=	APIDOCS
+
+APIDOCS_DESC=	"Build API docs"
 
 # There no longer appears to be a configure option to prevent the qt gui building
 # QT4	"Build Qt4 GUI executable"          on \
@@ -59,16 +64,13 @@ OPTIONS=	DOCS "Build API docs"                 off
 
 .include <bsd.port.options.mk>
 
-.if defined(WITH_DOCS)
+.if ${PORT_OPTIONS:MAPIDOCS}
 PLIST_SUB+=	LUXDOCS=""
 CMAKE_ARGS+=	-DLUX_DOCUMENTATION=ON
 .else
 PLIST_SUB+=	LUXDOCS="@comment "
 CMAKE_ARGS+=	-DLUX_DOCUMENTATION=OFF
 .endif
-
-USE_QT_VER=	4
-QT_COMPONENTS=	moc_build qmake_build rcc_build uic_build corelib gui
 
 .if ${CC:T} != "clang"
 USE_GCC=	4.6+
