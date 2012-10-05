@@ -1,6 +1,6 @@
 # New ports collection makefile for:	OpenImageIO
 # Date created:			21 March 2012
-# Whom:					Shane Ambler
+# Whom:					Shane Ambler#
 #
 # $FreeBSD: ports/graphics/openimageio/Makefile,v 1.7 2012/09/17 05:24:02 rm Exp $
 #

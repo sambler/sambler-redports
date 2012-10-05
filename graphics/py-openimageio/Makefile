@@ -1,6 +1,6 @@
 # New ports collection makefile for:	py-openimageio
 # Date created:			28 April 2012
-# Whom:					Shane Ambler
+# Whom:					Shane Ambler#
 #
 # $FreeBSD: ports/graphics/py-openimageio/Makefile,v 1.3 2012/09/17 05:24:02 rm Exp $
 #
