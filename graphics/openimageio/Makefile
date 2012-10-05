@@ -2,11 +2,12 @@
 # Date created:			21 March 2012
 # Whom:					Shane Ambler
 #
-# $FreeBSD: ports/graphics/openimageio/Makefile,v 1.6 2012/06/26 11:38:56 madpilot Exp $
+# $FreeBSD: ports/graphics/openimageio/Makefile,v 1.7 2012/09/17 05:24:02 rm Exp $
 #
 
 PORTNAME=	openimageio
-PORTVERSION=	1.0.8
+PORTVERSION=	1.0.9
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/OpenImageIO/oiio/tarball/
 DISTNAME=	Release-${PORTVERSION}
@@ -39,11 +40,11 @@ CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DUSE_TBB:BOOL=ON
 LDFLAGS+=	-ltbb
 USE_LDCONFIG=	yes
-WRKSRC=		${WRKDIR}/OpenImageIO-oiio-d075f3d/src
+WRKSRC=		${WRKDIR}/OpenImageIO-oiio-0d48631/src
 MAKE_JOBS_SAFE=	yes
 
-OPTIONS_DEFINE=		IMAGEVIEWER THREADS
-OPTIONS_DEFAULT=	IMAGEVIEWER THREADS
+OPTIONS_DEFINE=		DOCS IMAGEVIEWER THREADS
+OPTIONS_DEFAULT=	DOCS IMAGEVIEWER THREADS
 
 IMAGEVIEWER_DESC=	Build image viewer
 
@@ -74,8 +75,9 @@ CMAKE_ARGS+=	-DNOTHREADS:BOOL=OFF
 
 .include <bsd.port.pre.mk>
 
-.if ${ARCH} == "i386" || ${OSVERSION} < 803000
-USE_GCC=	4.6+
+.if ${ARCH} == "i386" && ${CC} != "clang"
+# gcc > 4.2 builds a corrupted i386 binary
+USE_GCC=	4.2
 .endif
 
 .if ${OSVERSION} < 800000

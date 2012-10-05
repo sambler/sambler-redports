@@ -363,7 +363,11 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/texture_paint_layer_manager.py
 %%DATADIR%%/scripts/addons/ui_translate/__init__.py
 %%DATADIR%%/scripts/addons/ui_translate/utils.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_beam_builder.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_cad_objects/__init__.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_cad_objects/add_mesh_balcony.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_cad_objects/add_mesh_beam_builder.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_cad_objects/add_mesh_sove.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_cad_objects/add_mesh_window.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope/oscurart_chain_maker.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope/oscurart_rope_maker.py
@@ -387,6 +391,12 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/add_mesh_walls/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_walls/Blocks.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_walls/Wallfactory.py
+%%DATADIR%%/scripts/addons_contrib/add_scene_elements/__init__.py
+%%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_camera.py
+%%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_lighting.py
+%%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_materials.py
+%%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_objects_cycles.py
+%%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_objects.py
 %%DATADIR%%/scripts/addons_contrib/anim_selection_sets.py
 %%DATADIR%%/scripts/addons_contrib/animation_motion_trail.py
 %%DATADIR%%/scripts/addons_contrib/breakpoint.py
@@ -467,22 +477,26 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/io_scene_x/export_x.py
 %%DATADIR%%/scripts/addons_contrib/io_sequencer_edl/import_edl.py
 %%DATADIR%%/scripts/addons_contrib/lamp_geographical_sun.py
-%%DATADIR%%/scripts/addons_contrib/mesh_bevel_round.py
 %%DATADIR%%/scripts/addons_contrib/mesh_copy_uvs_from_joined.py
 %%DATADIR%%/scripts/addons_contrib/mesh_discombobulator.py
 %%DATADIR%%/scripts/addons_contrib/mesh_edge_intersection_tools.py
 %%DATADIR%%/scripts/addons_contrib/mesh_edgetools.py
+%%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/__init__.py
+%%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/face_inset_fillet.py
+%%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_bevel_round.py
+%%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_bevel_witold.py
+%%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_bump.py
+%%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_extras.py
+%%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_filletplus.py
+%%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_mextrude_plus.py
+%%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_normal_smooth.py
+%%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_polyredux.py
+%%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_vertex_chamfer.py
 %%DATADIR%%/scripts/addons_contrib/mesh_extrude_along_curve.py
 %%DATADIR%%/scripts/addons_contrib/mesh_face_info_select.py
 %%DATADIR%%/scripts/addons_contrib/mesh_insert_edge_ring.py
-%%DATADIR%%/scripts/addons_contrib/mesh_multi_extrude/__init__.py
-%%DATADIR%%/scripts/addons_contrib/mesh_multi_extrude/mesh_bump.py
-%%DATADIR%%/scripts/addons_contrib/mesh_multi_extrude/mesh_extras.py
-%%DATADIR%%/scripts/addons_contrib/mesh_multi_extrude/mesh_mextrude_plus.py
-%%DATADIR%%/scripts/addons_contrib/mesh_normal_smooth.py
 %%DATADIR%%/scripts/addons_contrib/mesh_select_vertex_groups.py
 %%DATADIR%%/scripts/addons_contrib/mesh_show_vgroup_weights.py
-%%DATADIR%%/scripts/addons_contrib/mesh_vertex_chamfer.py
 %%DATADIR%%/scripts/addons_contrib/mesh_vertex_slide.py
 %%DATADIR%%/scripts/addons_contrib/object_batch_rename_datablocks.py
 %%DATADIR%%/scripts/addons_contrib/object_drop_to_ground.py
@@ -510,6 +524,12 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/render_time.py
 %%DATADIR%%/scripts/addons_contrib/render_to_print.py
 %%DATADIR%%/scripts/addons_contrib/rig_face_bone_tool.py
+%%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/__init__.py
+%%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/functions.py
+%%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/operators_extra_actions.py
+%%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/operators_recursive.py
+%%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/ui.py
+%%DATADIR%%/scripts/addons_contrib/sequencer_jumptocut.py
 %%DATADIR%%/scripts/addons_contrib/sequencer_tools/__init__.py
 %%DATADIR%%/scripts/addons_contrib/sequencer_tools/export_strips.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_add_surround_cameras.py
@@ -846,10 +866,11 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/modules/bl_i18n_utils
 @dirrm %%DATADIR%%/scripts/modules
 @dirrm %%DATADIR%%/scripts/addons_contrib/sequencer_tools
+@dirrm %%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets/keyconfig
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets/interface_theme
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets
-@dirrm %%DATADIR%%/scripts/addons_contrib/mesh_multi_extrude
+@dirrm %%DATADIR%%/scripts/addons_contrib/mesh_extra_tools
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_sequencer_edl
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_x
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_ms3d
@@ -868,11 +889,13 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons_contrib/cursor_control
 @dirrm %%DATADIR%%/scripts/addons_contrib/cmu_mocap_browser
 @dirrm %%DATADIR%%/scripts/addons_contrib/btrace
+@dirrm %%DATADIR%%/scripts/addons_contrib/add_scene_elements
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_walls
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_stairs
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_clusters
 @dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope
+@dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_cad_objects
 @dirrm %%DATADIR%%/scripts/addons_contrib
 @dirrm %%DATADIR%%/scripts/addons/ui_translate
 @dirrm %%DATADIR%%/scripts/addons/system_demo_mode

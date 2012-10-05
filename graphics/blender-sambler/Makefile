@@ -5,8 +5,8 @@
 # $FreeBSD$
 
 PORTNAME=	blender-sambler
-PORTVERSION=	2.63
-PORTREVISION=	10
+PORTVERSION=	2.64
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 				https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -48,7 +48,7 @@ CONFLICTS=	blender-2.*
 USE_CMAKE=	yes
 CMAKE_OUTSOURCE=	yes
 MAKE_JOBS_SAFE=	yes
-WRKSRC=		${WRKDIR}/sambler-myblender-014bb91
+WRKSRC=		${WRKDIR}/sambler-myblender-ccf1329
 
 USE_PYTHON=	3.2
 WANT_GNOME=	yes
@@ -118,11 +118,6 @@ CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=OFF
 
 .if ${OSVERSION} < 900033
 BUILD_DEPENDS+=	clang:${PORTSDIR}/lang/clang
-.endif
-
-.if ${ARCH} == "i386" || ${OSVERSION} < 803000
-# this is needed for linking with openimageio
-LDFLAGS+=	-L${LOCALBASE}/lib/gcc46 -rpath ${LOCALBASE}/lib/gcc46
 .endif
 
 .endif # CC_CLANG

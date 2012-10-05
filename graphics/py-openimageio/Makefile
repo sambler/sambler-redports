@@ -2,11 +2,12 @@
 # Date created:			28 April 2012
 # Whom:					Shane Ambler
 #
-# $FreeBSD: ports/graphics/py-openimageio/Makefile,v 1.2 2012/06/27 08:38:02 sunpoet Exp $
+# $FreeBSD: ports/graphics/py-openimageio/Makefile,v 1.3 2012/09/17 05:24:02 rm Exp $
 #
 
 PORTNAME=	openimageio
-PORTVERSION=	1.0.8
+PORTVERSION=	1.0.9
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia python
 MASTER_SITES=	https://github.com/OpenImageIO/oiio/tarball/
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -36,14 +37,15 @@ LDFLAGS+=	-ltbb
 MAKE_JOBS_SAFE=	yes
 USE_LDCONFIG=	yes
 USE_PYTHON=	2.6+
-WRKSRC=		${WRKDIR}/OpenImageIO-oiio-d075f3d/src
+WRKSRC=		${WRKDIR}/OpenImageIO-oiio-0d48631/src
 
 PLIST_FILES=	%%PYTHON_SITELIBDIR%%/OpenImageIO.so
 
 .include <bsd.port.pre.mk>
 
-.if ${ARCH} == "i386" || ${OSVERSION} < 803000
-USE_GCC=	4.6+
+.if ${ARCH} == "i386" && ${CC} != "clang"
+# gcc > 4.2 builds a corrupted i386 binary
+USE_GCC=	4.2
 .endif
 
 .if ${OSVERSION} < 800000
