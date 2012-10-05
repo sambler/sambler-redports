@@ -1,6 +1,6 @@
 # New ports collection makefile for:    blender-sambler
 # Date created:         2 April 2012
-# Whom:                 Shane Ambler
+# Whom:                 Shane Ambler#
 #
 # $FreeBSD$
 
