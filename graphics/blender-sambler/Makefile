@@ -1,21 +1,21 @@
 # New ports collection makefile for:    blender-sambler
 # Date created:         2 April 2012
-# Whom:                 Shane Ambler#
+# Whom:                 Shane Ambler
 #
 # $FreeBSD$
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.64
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
-				https://github.com/sambler/myblendertranslations/tarball/:trans \
-				https://github.com/sambler/myblenderaddons/tarball/:addons \
-				https://github.com/sambler/myblendercontrib/tarball/:contrib
+		https://github.com/sambler/myblendertranslations/tarball/:trans \
+		https://github.com/sambler/myblenderaddons/tarball/:addons \
+		https://github.com/sambler/myblendercontrib/tarball/:contrib
 DISTFILES=	sambler-${PORTVERSION}.${PORTREVISION}:base \
-			translate-${PORTVERSION}.${PORTREVISION}:trans \
-			addons-${PORTVERSION}.${PORTREVISION}:addons \
-			contrib-${PORTVERSION}.${PORTREVISION}:contrib
+		translate-${PORTVERSION}.${PORTREVISION}:trans \
+		addons-${PORTVERSION}.${PORTREVISION}:addons \
+		contrib-${PORTVERSION}.${PORTREVISION}:contrib
 DIST_SUBDIR=	${PORTNAME}
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -48,7 +48,7 @@ CONFLICTS=	blender-2.*
 USE_CMAKE=	yes
 CMAKE_OUTSOURCE=	yes
 MAKE_JOBS_SAFE=	yes
-WRKSRC=		${WRKDIR}/sambler-myblender-ccf1329
+WRKSRC=		${WRKDIR}/sambler-myblender-e341ce9
 
 USE_PYTHON=	3.2
 WANT_GNOME=	yes
@@ -89,7 +89,7 @@ MAN1=		blender.1
 
 OUTDIR=		${INSTALL_WRKSRC}/bin/${PORTVERSION}
 
-LANG=		ar bg ca cs de el es es_ES fa fi fr hr id it ja ky ne pl pt \
+LANG=		ar cs de es es_ES fa fr hr id it ja ky pt \
 		ru sr sr@latin sv tr uk zh_CN zh_TW
 
 OPTIONS_DEFINE=	HEADLESS SECURITY PLAYER JACK NLS
@@ -124,7 +124,7 @@ BUILD_DEPENDS+=	clang:${PORTSDIR}/lang/clang
 
 .if ${PORT_OPTIONS:MCC_GCC46}
 CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=ON
-USE_GCC?=		4.6+
+USE_GCC=	4.6+
 LDFLAGS+=	-rpath ${LOCALBASE}/lib/gcc46
 .endif
 
@@ -189,7 +189,7 @@ CMAKE_ARGS+=	-DWITH_INPUT_NDOF:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=ON
 PLIST_SUB+=	NLS=""
 USE_GETTEXT=	yes
-USE_ICONV=		yes
+USE_ICONV=	yes
 .else
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
 PLIST_SUB+=	NLS="@comment "

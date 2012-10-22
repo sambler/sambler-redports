@@ -5,6 +5,27 @@ bin/blender-bin
 bin/blender-thumbnailer.py
 share/applications/blender.desktop
 share/pixmaps/blender.svg
+%%NLS%%%%DATADIR%%/datafiles/locale/ar/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/cs/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/de/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/es_ES/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/es/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/fa/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/fr/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/hr/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/id/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/it/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/ja/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/ky/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/pt/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/ru/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/sr@latin/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/sr/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/sv/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/tr/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/uk/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/zh_CN/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%/datafiles/locale/zh_TW/LC_MESSAGES/blender.mo
 %%DATADIR%%/scripts/addons/add_curve_extra_objects/__init__.py
 %%DATADIR%%/scripts/addons/add_curve_extra_objects/add_curve_aceous_galore.py
 %%DATADIR%%/scripts/addons/add_curve_extra_objects/add_curve_spirals.py
@@ -16,8 +37,9 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/add_curve_sapling/presets/quaking_aspen.py
 %%DATADIR%%/scripts/addons/add_curve_sapling/presets/weeping_willow.py
 %%DATADIR%%/scripts/addons/add_curve_sapling/utils.py
-%%DATADIR%%/scripts/addons/add_mesh_BoltFactory/Boltfactory.py
+%%DATADIR%%/scripts/addons/add_mesh_ant_landscape.py
 %%DATADIR%%/scripts/addons/add_mesh_BoltFactory/__init__.py
+%%DATADIR%%/scripts/addons/add_mesh_BoltFactory/Boltfactory.py
 %%DATADIR%%/scripts/addons/add_mesh_BoltFactory/createMesh.py
 %%DATADIR%%/scripts/addons/add_mesh_BoltFactory/preset_utils.py
 %%DATADIR%%/scripts/addons/add_mesh_BoltFactory/presets/M10.py
@@ -27,7 +49,6 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/add_mesh_BoltFactory/presets/M5.py
 %%DATADIR%%/scripts/addons/add_mesh_BoltFactory/presets/M6.py
 %%DATADIR%%/scripts/addons/add_mesh_BoltFactory/presets/M8.py
-%%DATADIR%%/scripts/addons/add_mesh_ant_landscape.py
 %%DATADIR%%/scripts/addons/add_mesh_extra_objects/__init__.py
 %%DATADIR%%/scripts/addons/add_mesh_extra_objects/add_mesh_3d_function_surface.py
 %%DATADIR%%/scripts/addons/add_mesh_extra_objects/add_mesh_extra_objects.py
@@ -45,37 +66,59 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/animation_add_corrective_shape_key.py
 %%DATADIR%%/scripts/addons/animation_animall.py
 %%DATADIR%%/scripts/addons/curve_simplify.py
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/readme.txt
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/Blender.txt
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/GPL.txt
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/ILM.txt
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/NVidia.txt
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/OSL.txt
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/Sobol.txt
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/Apache_2.0.txt
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/volume.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_ashikhmin_velvet.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_diffuse.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_oren_nayar.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_microfacet.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_reflection.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_refraction.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_transparent.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_ward.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_westin.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/emissive.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/__init__.py
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/engine.py
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/enums.py
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_westin.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_refraction.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_microfacet.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/volume.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_ashikhmin_velvet.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_oren_nayar.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_transparent.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_diffuse.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_reflection.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/emissive.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_ward.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_accumulate.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_attribute.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_bvh.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_camera.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_compat_cpu.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_compat_cuda.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_compat_opencl.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_differential.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_displace.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_emission.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_film.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_globals.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_light.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_math.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_montecarlo.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_object.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_passes.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_path.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_projection.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_random.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_shader.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_textures.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_triangle.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_types.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel.cl
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel.cu
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_attribute.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_brick.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_brightness.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_bsdf.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_camera.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_checker.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_closure.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_convert.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_checker.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_displace.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_fresnel.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_gamma.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_brightness.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_geometry.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_gradient.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_hsv.h
@@ -99,46 +142,22 @@ share/pixmaps/blender.svg
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_value.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_voronoi.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_wave.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel.cu
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_accumulate.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_attribute.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_bvh.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_camera.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_compat_cpu.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_compat_cuda.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_compat_opencl.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_differential.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_displace.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_emission.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_film.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_globals.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_light.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_math.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_mbvh.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_montecarlo.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_object.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_passes.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_path.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_projection.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_qbvh.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_random.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_shader.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_textures.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_triangle.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_types.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/util_color.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/util_math.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/util_transform.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel.cl
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/util_types.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/enums.py
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/Apache_2.0.txt
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/Blender.txt
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/GPL.txt
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/ILM.txt
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/NVidia.txt
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/OSL.txt
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/readme.txt
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/Sobol.txt
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/presets.py
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/__init__.py
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/ui.py
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/properties.py
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/engine.py
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/ui.py
 %%DATADIR%%/scripts/addons/development_api_navigator.py
 %%DATADIR%%/scripts/addons/development_icon_get.py
 %%DATADIR%%/scripts/addons/game_engine_save_as_runtime.py
@@ -271,12 +290,12 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/netrender/js/jquery-ui.js
 %%DATADIR%%/scripts/addons/netrender/js/jquery.js
 %%DATADIR%%/scripts/addons/netrender/js/jquery.themes.js
+%%DATADIR%%/scripts/addons/netrender/js/netrender_balance.js
 %%DATADIR%%/scripts/addons/netrender/js/netrender-action.js
 %%DATADIR%%/scripts/addons/netrender/js/netrender-widget.js
 %%DATADIR%%/scripts/addons/netrender/js/netrender.js
-%%DATADIR%%/scripts/addons/netrender/js/netrender_balance.js
-%%DATADIR%%/scripts/addons/netrender/master.py
 %%DATADIR%%/scripts/addons/netrender/master_html.py
+%%DATADIR%%/scripts/addons/netrender/master.py
 %%DATADIR%%/scripts/addons/netrender/model.py
 %%DATADIR%%/scripts/addons/netrender/netrender.css
 %%DATADIR%%/scripts/addons/netrender/netrender.js
@@ -291,13 +310,13 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/object_add_chain.py
 %%DATADIR%%/scripts/addons/object_animrenderbake.py
 %%DATADIR%%/scripts/addons/object_cloud_gen.py
+%%DATADIR%%/scripts/addons/object_fracture_cell/__init__.py
+%%DATADIR%%/scripts/addons/object_fracture_cell/fracture_cell_calc.py
+%%DATADIR%%/scripts/addons/object_fracture_cell/fracture_cell_setup.py
 %%DATADIR%%/scripts/addons/object_fracture/__init__.py
 %%DATADIR%%/scripts/addons/object_fracture/data.blend
 %%DATADIR%%/scripts/addons/object_fracture/fracture_ops.py
 %%DATADIR%%/scripts/addons/object_fracture/fracture_setup.py
-%%DATADIR%%/scripts/addons/object_fracture_cell/__init__.py
-%%DATADIR%%/scripts/addons/object_fracture_cell/fracture_cell_setup.py
-%%DATADIR%%/scripts/addons/object_fracture_cell/fracture_cell_calc.py
 %%DATADIR%%/scripts/addons/object_grease_scatter.py
 %%DATADIR%%/scripts/addons/paint_palette.py
 %%DATADIR%%/scripts/addons/render_copy_settings/__init__.py
@@ -317,18 +336,18 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/render_renderfarmfi/rpc.py
 %%DATADIR%%/scripts/addons/render_renderfarmfi/upload.py
 %%DATADIR%%/scripts/addons/render_renderfarmfi/utils.py
-%%DATADIR%%/scripts/addons/rigify/CREDITS
-%%DATADIR%%/scripts/addons/rigify/README
 %%DATADIR%%/scripts/addons/rigify/__init__.py
+%%DATADIR%%/scripts/addons/rigify/CREDITS
 %%DATADIR%%/scripts/addons/rigify/generate.py
 %%DATADIR%%/scripts/addons/rigify/metarig_menu.py
 %%DATADIR%%/scripts/addons/rigify/metarigs/__init__.py
 %%DATADIR%%/scripts/addons/rigify/metarigs/human.py
+%%DATADIR%%/scripts/addons/rigify/README
 %%DATADIR%%/scripts/addons/rigify/rig_ui_template.py
 %%DATADIR%%/scripts/addons/rigify/rigs/__init__.py
 %%DATADIR%%/scripts/addons/rigify/rigs/basic/__init__.py
-%%DATADIR%%/scripts/addons/rigify/rigs/basic/copy.py
 %%DATADIR%%/scripts/addons/rigify/rigs/basic/copy_chain.py
+%%DATADIR%%/scripts/addons/rigify/rigs/basic/copy.py
 %%DATADIR%%/scripts/addons/rigify/rigs/biped/__init__.py
 %%DATADIR%%/scripts/addons/rigify/rigs/biped/arm/__init__.py
 %%DATADIR%%/scripts/addons/rigify/rigs/biped/arm/deform.py
@@ -363,34 +382,31 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/texture_paint_layer_manager.py
 %%DATADIR%%/scripts/addons/ui_translate/__init__.py
 %%DATADIR%%/scripts/addons/ui_translate/utils.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_cad_objects/__init__.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_cad_objects/add_mesh_balcony.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_cad_objects/add_mesh_beam_builder.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_cad_objects/add_mesh_sove.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_cad_objects/add_mesh_window.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/__init__.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/add_mesh_balcony.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/add_mesh_beam_builder.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/add_mesh_sove.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/add_mesh_window.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/Blocks.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/general.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/post.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/rail.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/retainer.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/stairbuilder.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/stringer.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/tread.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/Wallfactory.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope/oscurart_chain_maker.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope/oscurart_rope_maker.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_clusters/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_clusters/add_mesh_cluster.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_column.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks/add_mesh_rocks.xml
 %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks/factory.xml
 %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks/rockgen.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks/settings.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks/utils.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_stairs/__init__.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_stairs/general.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_stairs/post.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_stairs/rail.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_stairs/retainer.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_stairs/stairbuilder.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_stairs/stringer.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_stairs/tread.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_walls/__init__.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_walls/Blocks.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_walls/Wallfactory.py
 %%DATADIR%%/scripts/addons_contrib/add_scene_elements/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_camera.py
 %%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_lighting.py
@@ -449,9 +465,11 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/io_import_fbx.py
 %%DATADIR%%/scripts/addons_contrib/io_import_lipSync_Importer.py
 %%DATADIR%%/scripts/addons_contrib/io_import_LRO_Lola_MGS_Mola_img.py
+%%DATADIR%%/scripts/addons_contrib/io_import_sound_to_anim.py
 %%DATADIR%%/scripts/addons_contrib/io_import_voodoo_camera.py
 %%DATADIR%%/scripts/addons_contrib/io_mesh_xyz/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_mesh_xyz/atom_info.dat
+%%DATADIR%%/scripts/addons_contrib/io_mesh_xyz/export_xyz.py
 %%DATADIR%%/scripts/addons_contrib/io_mesh_xyz/import_xyz.py
 %%DATADIR%%/scripts/addons_contrib/io_points_pcd/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_points_pcd/pcd_utils.py
@@ -494,11 +512,25 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_vertex_chamfer.py
 %%DATADIR%%/scripts/addons_contrib/mesh_extrude_along_curve.py
 %%DATADIR%%/scripts/addons_contrib/mesh_face_info_select.py
+%%DATADIR%%/scripts/addons_contrib/mesh_fiber.py
 %%DATADIR%%/scripts/addons_contrib/mesh_insert_edge_ring.py
+%%DATADIR%%/scripts/addons_contrib/mesh_select_tools/__init__.py
+%%DATADIR%%/scripts/addons_contrib/mesh_select_tools/mesh_extras.py
+%%DATADIR%%/scripts/addons_contrib/mesh_select_tools/mesh_index_select.py
+%%DATADIR%%/scripts/addons_contrib/mesh_select_tools/mesh_info_select.py
+%%DATADIR%%/scripts/addons_contrib/mesh_select_tools/mesh_select_by_direction.py
+%%DATADIR%%/scripts/addons_contrib/mesh_select_tools/mesh_select_by_edge_length.py
+%%DATADIR%%/scripts/addons_contrib/mesh_select_tools/mesh_select_by_pi.py
+%%DATADIR%%/scripts/addons_contrib/mesh_select_tools/mesh_select_by_type.py
+%%DATADIR%%/scripts/addons_contrib/mesh_select_tools/mesh_select_checkered.py
+%%DATADIR%%/scripts/addons_contrib/mesh_select_tools/mesh_select_connected_faces.py
+%%DATADIR%%/scripts/addons_contrib/mesh_select_tools/mesh_select_innermost.py
+%%DATADIR%%/scripts/addons_contrib/mesh_select_tools/mesh_selection_topokit.py
 %%DATADIR%%/scripts/addons_contrib/mesh_select_vertex_groups.py
 %%DATADIR%%/scripts/addons_contrib/mesh_show_vgroup_weights.py
 %%DATADIR%%/scripts/addons_contrib/mesh_vertex_slide.py
 %%DATADIR%%/scripts/addons_contrib/object_batch_rename_datablocks.py
+%%DATADIR%%/scripts/addons_contrib/object_creaprim.py
 %%DATADIR%%/scripts/addons_contrib/object_drop_to_ground.py
 %%DATADIR%%/scripts/addons_contrib/object_edit_linked.py
 %%DATADIR%%/scripts/addons_contrib/object_laplace_lightning.py
@@ -525,6 +557,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/render_to_print.py
 %%DATADIR%%/scripts/addons_contrib/rig_face_bone_tool.py
 %%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/__init__.py
+%%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/exiftool.py
 %%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/functions.py
 %%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/operators_extra_actions.py
 %%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/operators_recursive.py
@@ -551,7 +584,6 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/wetted_mesh.py
 %%DATADIR%%/scripts/modules/addon_utils.py
 %%DATADIR%%/scripts/modules/animsys_refactor.py
-%%DATADIR%%/scripts/modules/blend_render_info.py
 %%DATADIR%%/scripts/modules/bl_i18n_utils/__init__.py
 %%DATADIR%%/scripts/modules/bl_i18n_utils/bl_process_msg.py
 %%DATADIR%%/scripts/modules/bl_i18n_utils/check_po.py
@@ -563,16 +595,13 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/modules/bl_i18n_utils/spell_check_utils.py
 %%DATADIR%%/scripts/modules/bl_i18n_utils/update_branches.py
 %%DATADIR%%/scripts/modules/bl_i18n_utils/update_mo.py
+%%DATADIR%%/scripts/modules/bl_i18n_utils/update_msg.py
 %%DATADIR%%/scripts/modules/bl_i18n_utils/update_po.py
 %%DATADIR%%/scripts/modules/bl_i18n_utils/update_pot.py
-%%DATADIR%%/scripts/modules/bl_i18n_utils/update_msg.py
 %%DATADIR%%/scripts/modules/bl_i18n_utils/update_trunk.py
 %%DATADIR%%/scripts/modules/bl_i18n_utils/user_settings.py
 %%DATADIR%%/scripts/modules/bl_i18n_utils/utils.py
-%%DATADIR%%/scripts/modules/bpy/__init__.py
-%%DATADIR%%/scripts/modules/bpy/ops.py
-%%DATADIR%%/scripts/modules/bpy/path.py
-%%DATADIR%%/scripts/modules/bpy/utils.py
+%%DATADIR%%/scripts/modules/blend_render_info.py
 %%DATADIR%%/scripts/modules/bpy_extras/__init__.py
 %%DATADIR%%/scripts/modules/bpy_extras/anim_utils.py
 %%DATADIR%%/scripts/modules/bpy_extras/image_utils.py
@@ -582,15 +611,19 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/modules/bpy_extras/object_utils.py
 %%DATADIR%%/scripts/modules/bpy_extras/view3d_utils.py
 %%DATADIR%%/scripts/modules/bpy_types.py
-%%DATADIR%%/scripts/modules/bpyml.py
+%%DATADIR%%/scripts/modules/bpy/__init__.py
+%%DATADIR%%/scripts/modules/bpy/ops.py
+%%DATADIR%%/scripts/modules/bpy/path.py
+%%DATADIR%%/scripts/modules/bpy/utils.py
 %%DATADIR%%/scripts/modules/bpyml_ui.py
+%%DATADIR%%/scripts/modules/bpyml.py
+%%DATADIR%%/scripts/modules/console_python.py
+%%DATADIR%%/scripts/modules/console_shell.py
 %%DATADIR%%/scripts/modules/console/__init__.py
 %%DATADIR%%/scripts/modules/console/complete_calltip.py
 %%DATADIR%%/scripts/modules/console/complete_import.py
 %%DATADIR%%/scripts/modules/console/complete_namespace.py
 %%DATADIR%%/scripts/modules/console/intellisense.py
-%%DATADIR%%/scripts/modules/console_python.py
-%%DATADIR%%/scripts/modules/console_shell.py
 %%DATADIR%%/scripts/modules/graphviz_export.py
 %%DATADIR%%/scripts/modules/keyingsets_utils.py
 %%DATADIR%%/scripts/modules/rna_info.py
@@ -608,6 +641,8 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/presets/camera/Canon_600D.py
 %%DATADIR%%/scripts/presets/camera/Canon_60D.py
 %%DATADIR%%/scripts/presets/camera/Canon_7D.py
+%%DATADIR%%/scripts/presets/camera/full_frame_35mm_film.py
+%%DATADIR%%/scripts/presets/camera/micro_four_thirds.py
 %%DATADIR%%/scripts/presets/camera/Nikon_D300S.py
 %%DATADIR%%/scripts/presets/camera/Nikon_D3100.py
 %%DATADIR%%/scripts/presets/camera/Nikon_D3S.py
@@ -620,8 +655,6 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/presets/camera/Red_One_3K.py
 %%DATADIR%%/scripts/presets/camera/Red_One_4K.py
 %%DATADIR%%/scripts/presets/camera/Sony_A55.py
-%%DATADIR%%/scripts/presets/camera/full_frame_35mm_film.py
-%%DATADIR%%/scripts/presets/camera/micro_four_thirds.py
 %%DATADIR%%/scripts/presets/camera/super_16_film.py
 %%DATADIR%%/scripts/presets/camera/super_35_film.py
 %%DATADIR%%/scripts/presets/cloth/cotton.py
@@ -634,13 +667,13 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/presets/cycles/integrator/limited_global_illumination.py
 %%DATADIR%%/scripts/presets/ffmpeg/DV.py
 %%DATADIR%%/scripts/presets/ffmpeg/DVD.py
-%%DATADIR%%/scripts/presets/ffmpeg/SVCD.py
-%%DATADIR%%/scripts/presets/ffmpeg/VCD.py
 %%DATADIR%%/scripts/presets/ffmpeg/h264.py
+%%DATADIR%%/scripts/presets/ffmpeg/SVCD.py
 %%DATADIR%%/scripts/presets/ffmpeg/theora.py
+%%DATADIR%%/scripts/presets/ffmpeg/VCD.py
 %%DATADIR%%/scripts/presets/ffmpeg/xvid.py
-%%DATADIR%%/scripts/presets/fluid/oil.py
 %%DATADIR%%/scripts/presets/fluid/honey.py
+%%DATADIR%%/scripts/presets/fluid/oil.py
 %%DATADIR%%/scripts/presets/fluid/water.py
 %%DATADIR%%/scripts/presets/framerate/23.98.py
 %%DATADIR%%/scripts/presets/framerate/24.py
@@ -723,10 +756,10 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/startup/bl_operators/image.py
 %%DATADIR%%/scripts/startup/bl_operators/mesh.py
 %%DATADIR%%/scripts/startup/bl_operators/node.py
-%%DATADIR%%/scripts/startup/bl_operators/object.py
 %%DATADIR%%/scripts/startup/bl_operators/object_align.py
 %%DATADIR%%/scripts/startup/bl_operators/object_quick_effects.py
 %%DATADIR%%/scripts/startup/bl_operators/object_randomize_transform.py
+%%DATADIR%%/scripts/startup/bl_operators/object.py
 %%DATADIR%%/scripts/startup/bl_operators/presets.py
 %%DATADIR%%/scripts/startup/bl_operators/screen_play_rendered_anim.py
 %%DATADIR%%/scripts/startup/bl_operators/sequencer.py
@@ -750,10 +783,10 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/startup/bl_ui/properties_data_modifier.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_data_speaker.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_game.py
-%%DATADIR%%/scripts/startup/bl_ui/properties_material.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_mask_common.py
-%%DATADIR%%/scripts/startup/bl_ui/properties_object.py
+%%DATADIR%%/scripts/startup/bl_ui/properties_material.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_object_constraint.py
+%%DATADIR%%/scripts/startup/bl_ui/properties_object.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_paint_common.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_particle.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_physics_cloth.py
@@ -781,10 +814,10 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/startup/bl_ui/space_sequencer.py
 %%DATADIR%%/scripts/startup/bl_ui/space_text.py
 %%DATADIR%%/scripts/startup/bl_ui/space_time.py
-%%DATADIR%%/scripts/startup/bl_ui/space_userpref.py
 %%DATADIR%%/scripts/startup/bl_ui/space_userpref_keymap.py
-%%DATADIR%%/scripts/startup/bl_ui/space_view3d.py
+%%DATADIR%%/scripts/startup/bl_ui/space_userpref.py
 %%DATADIR%%/scripts/startup/bl_ui/space_view3d_toolbar.py
+%%DATADIR%%/scripts/startup/bl_ui/space_view3d.py
 %%DATADIR%%/scripts/startup/keyingsets_builtins.py
 %%DATADIR%%/scripts/templates/addon_add_object.py
 %%DATADIR%%/scripts/templates/background_job.py
@@ -792,51 +825,69 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/templates/bmesh_simple.py
 %%DATADIR%%/scripts/templates/builtin_keyingset.py
 %%DATADIR%%/scripts/templates/driver_functions.py
-%%DATADIR%%/scripts/templates/gamelogic.py
 %%DATADIR%%/scripts/templates/gamelogic_module.py
 %%DATADIR%%/scripts/templates/gamelogic_simple.py
+%%DATADIR%%/scripts/templates/gamelogic.py
 %%DATADIR%%/scripts/templates/operator_file_export.py
 %%DATADIR%%/scripts/templates/operator_file_import.py
 %%DATADIR%%/scripts/templates/operator_mesh_add.py
-%%DATADIR%%/scripts/templates/operator_modal.py
 %%DATADIR%%/scripts/templates/operator_modal_draw.py
 %%DATADIR%%/scripts/templates/operator_modal_timer.py
-%%DATADIR%%/scripts/templates/operator_modal_view3d.py
 %%DATADIR%%/scripts/templates/operator_modal_view3d_raycast.py
+%%DATADIR%%/scripts/templates/operator_modal_view3d.py
+%%DATADIR%%/scripts/templates/operator_modal.py
 %%DATADIR%%/scripts/templates/operator_node.py
 %%DATADIR%%/scripts/templates/operator_simple.py
 %%DATADIR%%/scripts/templates/operator_uv.py
-%%DATADIR%%/scripts/templates/ui_menu.py
+%%DATADIR%%/scripts/templates/script_stub.py
 %%DATADIR%%/scripts/templates/ui_menu_simple.py
-%%DATADIR%%/scripts/templates/ui_panel.py
+%%DATADIR%%/scripts/templates/ui_menu.py
 %%DATADIR%%/scripts/templates/ui_panel_simple.py
-%%NLS%%%%DATADIR%%/datafiles/locale/ar/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/bg/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/ca/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/cs/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/de/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/el/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/es/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/es_ES/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/fa/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/fi/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/fr/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/hr/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/id/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/it/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/ja/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/ky/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/ne/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/pl/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/pt/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/ru/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/sr/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/sr@latin/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/sv/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/tr/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/uk/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/zh_CN/LC_MESSAGES/blender.mo
-%%NLS%%%%DATADIR%%/datafiles/locale/zh_TW/LC_MESSAGES/blender.mo
+%%DATADIR%%/scripts/templates/ui_panel.py
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/zh_TW/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/zh_TW
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/zh_CN/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/zh_CN
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/uk/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/uk
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/tr/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/tr
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/sv/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/sv
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/sr@latin/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/sr@latin
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/sr/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/sr
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ru/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ru
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/pt/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/pt
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ky/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ky
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ja/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ja
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/it/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/it
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/id/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/id
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/hr/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/hr
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/fr/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/fr
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/fa/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/fa
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/es/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/es_ES/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/es_ES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/es
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/de/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/de
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/cs/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/cs
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ar/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ar
+%%NLS%%@dirrm %%DATADIR%%/datafiles/locale
+@dirrm %%DATADIR%%/datafiles
 @dirrm %%DATADIR%%/scripts/templates
 @dirrm %%DATADIR%%/scripts/startup/bl_ui
 @dirrm %%DATADIR%%/scripts/startup/bl_operators
@@ -865,38 +916,6 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/modules/bpy
 @dirrm %%DATADIR%%/scripts/modules/bl_i18n_utils
 @dirrm %%DATADIR%%/scripts/modules
-@dirrm %%DATADIR%%/scripts/addons_contrib/sequencer_tools
-@dirrm %%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions
-@dirrm %%DATADIR%%/scripts/addons_contrib/presets/keyconfig
-@dirrm %%DATADIR%%/scripts/addons_contrib/presets/interface_theme
-@dirrm %%DATADIR%%/scripts/addons_contrib/presets
-@dirrm %%DATADIR%%/scripts/addons_contrib/mesh_extra_tools
-@dirrm %%DATADIR%%/scripts/addons_contrib/io_sequencer_edl
-@dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_x
-@dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_ms3d
-@dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_m3
-@dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_cod
-@dirrm %%DATADIR%%/scripts/addons_contrib/io_points_pcd
-@dirrm %%DATADIR%%/scripts/addons_contrib/io_mesh_xyz
-@dirrm %%DATADIR%%/scripts/addons_contrib/io_directx_bel/bel
-@dirrm %%DATADIR%%/scripts/addons_contrib/io_directx_bel
-@dirrm %%DATADIR%%/scripts/addons_contrib/gyes
-@dirrm %%DATADIR%%/scripts/addons_contrib/gpencil_retopo
-@dirrm %%DATADIR%%/scripts/addons_contrib/geodesic_domes/tmp
-@dirrm %%DATADIR%%/scripts/addons_contrib/geodesic_domes
-@dirrm %%DATADIR%%/scripts/addons_contrib/game_engine_ragdolls_kit/templates
-@dirrm %%DATADIR%%/scripts/addons_contrib/game_engine_ragdolls_kit
-@dirrm %%DATADIR%%/scripts/addons_contrib/cursor_control
-@dirrm %%DATADIR%%/scripts/addons_contrib/cmu_mocap_browser
-@dirrm %%DATADIR%%/scripts/addons_contrib/btrace
-@dirrm %%DATADIR%%/scripts/addons_contrib/add_scene_elements
-@dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_walls
-@dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_stairs
-@dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks
-@dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_clusters
-@dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope
-@dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_cad_objects
-@dirrm %%DATADIR%%/scripts/addons_contrib
 @dirrm %%DATADIR%%/scripts/addons/ui_translate
 @dirrm %%DATADIR%%/scripts/addons/system_demo_mode
 @dirrm %%DATADIR%%/scripts/addons/space_view3d_math_vis
@@ -944,9 +963,41 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons/io_anim_c3d
 @dirrm %%DATADIR%%/scripts/addons/io_anim_bvh
 @dirrm %%DATADIR%%/scripts/addons/io_anim_acclaim
-%%CYCLES%%@dirrm %%DATADIR%%/scripts/addons/cycles/kernel/svm
-%%CYCLES%%@dirrm %%DATADIR%%/scripts/addons/cycles/kernel
+@dirrm %%DATADIR%%/scripts/addons_contrib/sequencer_tools
+@dirrm %%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions
+@dirrm %%DATADIR%%/scripts/addons_contrib/presets/keyconfig
+@dirrm %%DATADIR%%/scripts/addons_contrib/presets/interface_theme
+@dirrm %%DATADIR%%/scripts/addons_contrib/presets
+@dirrm %%DATADIR%%/scripts/addons_contrib/mesh_select_tools
+@dirrm %%DATADIR%%/scripts/addons_contrib/mesh_extra_tools
+@dirrm %%DATADIR%%/scripts/addons_contrib/io_sequencer_edl
+@dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_x
+@dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_ms3d
+@dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_m3
+@dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_cod
+@dirrm %%DATADIR%%/scripts/addons_contrib/io_points_pcd
+@dirrm %%DATADIR%%/scripts/addons_contrib/io_mesh_xyz
+@dirrm %%DATADIR%%/scripts/addons_contrib/io_directx_bel/bel
+@dirrm %%DATADIR%%/scripts/addons_contrib/io_directx_bel
+@dirrm %%DATADIR%%/scripts/addons_contrib/gyes
+@dirrm %%DATADIR%%/scripts/addons_contrib/gpencil_retopo
+@dirrm %%DATADIR%%/scripts/addons_contrib/geodesic_domes/tmp
+@dirrm %%DATADIR%%/scripts/addons_contrib/geodesic_domes
+@dirrm %%DATADIR%%/scripts/addons_contrib/game_engine_ragdolls_kit/templates
+@dirrm %%DATADIR%%/scripts/addons_contrib/game_engine_ragdolls_kit
+@dirrm %%DATADIR%%/scripts/addons_contrib/cursor_control
+@dirrm %%DATADIR%%/scripts/addons_contrib/cmu_mocap_browser
+@dirrm %%DATADIR%%/scripts/addons_contrib/btrace
+@dirrm %%DATADIR%%/scripts/addons_contrib/add_scene_elements
+@dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks
+@dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_clusters
+@dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope
+@dirrm %%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects
+@dirrm %%DATADIR%%/scripts/addons_contrib
 %%CYCLES%%@dirrm %%DATADIR%%/scripts/addons/cycles/license
+%%CYCLES%%@dirrm %%DATADIR%%/scripts/addons/cycles/kernel/svm
+%%CYCLES%%@dirrm %%DATADIR%%/scripts/addons/cycles/kernel/closure
+%%CYCLES%%@dirrm %%DATADIR%%/scripts/addons/cycles/kernel
 %%CYCLES%%@dirrm %%DATADIR%%/scripts/addons/cycles
 @dirrm %%DATADIR%%/scripts/addons/add_mesh_extra_objects
 @dirrm %%DATADIR%%/scripts/addons/add_mesh_BoltFactory/presets
@@ -957,60 +1008,4 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons
 @dirrm %%DATADIR%%/scripts
 @dirrmtry share/applications
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/zh_TW/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/zh_TW
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/zh_CN/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/zh_CN
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/uk/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/uk
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/tr/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/tr
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/sv/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/sv
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/sr@latin/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/sr@latin
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/sr/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/sr
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ru/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ru
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/pt/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/pt
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/pl/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/pl
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ne/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ne
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ky/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ky
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ja/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ja
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/it/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/it
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/id/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/id
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/hr/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/hr
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/fr/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/fr
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/fi/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/fi
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/fa/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/fa
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/es_ES/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/es_ES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/es/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/es
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/el/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/el
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/de/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/de
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/cs/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/cs
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ca/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ca
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/bg/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/bg
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ar/LC_MESSAGES
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale/ar
-%%NLS%%@dirrm %%DATADIR%%/datafiles/locale
-@dirrm %%DATADIR%%/datafiles
 @dirrm %%DATADIR%%
