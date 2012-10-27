@@ -45,4 +45,10 @@ BUILD_DEPENDS+=	clang:${PORTSDIR}/lang/clang
 CFLAGS+=	-march=i586
 .endif
 
+post-install:
+.for LNAME in oslcomp oslexec oslquery testshade
+	cd ${PREFIX}/lib && ${MV} -f lib${LNAME}.so lib${LNAME}.so.1
+	cd ${PREFIX}/lib && ${LN} -sf lib${LNAME}.so.1 lib${LNAME}.so
+.endfor
+
 .include <bsd.port.post.mk>
