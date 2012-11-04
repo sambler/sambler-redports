@@ -18,12 +18,12 @@ LIB_DEPENDS+=	OpenImageIO:${PORTSDIR}/graphics/openimageio
 RUN_DEPENDS=	llvm>=3.1:${PORTSDIR}/devel/llvm
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	imageworks
+GH_ACCOUNT=	sambler
 GH_PROJECT=	OpenShadingLanguage
-GH_TAGNAME=	Release-${PORTVERSION}
-GH_COMMIT=	b0673b8
+GH_TAGNAME=	blender-r51838
+GH_COMMIT=	ee10fca
 
-WRKSRC+=	${WRKDIR}/imageworks-OpenShadingLanguage-${GH_COMMIT}/src
+WRKSRC+=	${WRKDIR}/OpenShadingLanguage-${GH_TAGNAME}/src
 
 USE_CMAKE=	yes
 CMAKE_VERBOSE=	yes
