@@ -6,7 +6,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.64
-PORTREVISION=	3
+PORTREVISION=	5
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -40,9 +40,30 @@ RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 # PYTHON_SITELIBDIR most likely points to python2.7/site-packages
 # we specifically want a 3.2 version installed
 RUN_DEPENDS+=	${LOCALBASE}/lib/python3.2/site-packages/numpy/__init__.py:${PORTSDIR}/math/py-numpy32
+CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.2/site-packages
 .endif
 
-GH_COMMIT=	8d83a66
+#USE_GITHUB=	yes
+#GH_ACCOUNT=	sambler:base \
+#		sambler:addons \
+#		sambler:contrib \
+#		sambler:trans
+#GH_PROJECT=	myblender
+#GH_PROJECT=	myblender:base \
+#		myblenderaddons:addons \
+#		myblendercontrib:contrib \
+#		myblendertranslations:trans
+#GH_TAGNAME=	sambler-${PORTVERSION}.${PORTREVISION}
+#GH_TAGNAME=	sambler-${PORTVERSION}.${PORTREVISION}:base \
+#		addons-${PORTVERSION}.${PORTREVISION}:addons \
+#		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
+#		translate-${PORTVERSION}.${PORTREVISION}:trans
+GH_COMMIT=	3f6ecd2
+
+#curl -L https://api.github.com/repos/sambler/myblender/tarball/sambler-2.64.2
+#curl -L https://api.github.com/repos/sambler/myblender/tarball/sambler-2.64.2 > blender-sambler-2.64.2.tgz
+
+#wget -O blender-sambler-2.64.2.tgz https://api.github.com/repos/sambler/myblender/tarball/sambler-2.64.2
 
 FETCH_ARGS=     -pRr
 CONFLICTS=	blender-2.*
@@ -53,6 +74,8 @@ MAKE_JOBS_SAFE=	yes
 WRKSRC=         ${WRKDIR}/sambler-myblender-${GH_COMMIT}
 
 USE_PYTHON=	3.2
+# blender looks for py3.3 by default - we need to specify 3.2 for now
+CMAKE_ARGS+=	-DPYTHON_VERSION:STRING=3.2
 WANT_GNOME=	yes
 USE_GNOME=	desktopfileutils
 USE_OPENAL=	al alut
@@ -122,10 +145,6 @@ CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=OFF
 .if ${OSVERSION} < 900033
 BUILD_DEPENDS+=	clang:${PORTSDIR}/lang/clang
 .endif
-.if ${PORT_OPTIONS:MOSL}
-# clang needs this to find boost libs
-LDFLAGS+=	-L/usr/local/lib
-.endif
 .endif # CC_CLANG
 
 .if ${PORT_OPTIONS:MCC_GCC46}
@@ -142,11 +161,11 @@ LIB_DEPENDS+=	OpenImageIO:${PORTSDIR}/graphics/openimageio
 PLIST_SUB+=	CYCLES=""
 
 .if ${PORT_OPTIONS:MOSL}
+.if exists(${PORTSDIR}/devel/boost-python3-libs)
+LIB_DEPENDS+=	boost_python3:${PORTSDIR}/devel/boost-python3-libs
+.endif
 LIB_DEPENDS+=	oslcomp:${PORTSDIR}/graphics/openshadinglanguage
 CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=ON
-CMAKE_ARGS+=	-DLLVM_DIRECTORY:STRING=/usr/local
-CMAKE_ARGS+=	-DCYCLES_OSL:STRING=/usr/local
-LDFLAGS+=	-lboost_filesystem -lboost_thread
 PLIST_SUB+=	OSL=""
 .else
 CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=OFF

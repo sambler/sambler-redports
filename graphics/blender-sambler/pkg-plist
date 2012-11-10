@@ -69,18 +69,19 @@ share/pixmaps/blender.svg
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/__init__.py
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/engine.py
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/enums.py
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_westin.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_refraction.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_microfacet.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/volume.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_ashikhmin_velvet.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_oren_nayar.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_transparent.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_diffuse.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_microfacet.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_oren_nayar.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_phong_ramp.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_reflection.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/emissive.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_refraction.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_transparent.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_ward.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf_westin.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/bsdf.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/emissive.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/volume.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_accumulate.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_attribute.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_bvh.h
@@ -155,9 +156,11 @@ share/pixmaps/blender.svg
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/OSL.txt
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/readme.txt
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/license/Sobol.txt
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/osl.py
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/presets.py
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/properties.py
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_add_closure.oso
+%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_ambient_occlusion.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_attribute.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_background.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_brick_texture.oso
@@ -165,6 +168,7 @@ share/pixmaps/blender.svg
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_bump.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_camera.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_checker_texture.oso
+%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_color.h
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_combine_rgb.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_convert_from_color.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_convert_from_float.oso
@@ -175,6 +179,7 @@ share/pixmaps/blender.svg
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_diffuse_bsdf.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_emission.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_environment_texture.oso
+%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_fresnel.h
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_fresnel.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_gamma.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_geometry.oso
@@ -196,15 +201,19 @@ share/pixmaps/blender.svg
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_musgrave_texture.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_noise_texture.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_normal.oso
+%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_normal_map.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_object_info.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_output_displacement.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_output_surface.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_output_volume.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_particle_info.oso
+%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_refraction_bsdf.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_rgb_ramp.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_separate_rgb.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_set_normal.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_sky_texture.oso
+%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_tangent.oso
+%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_texture.h
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_texture_coordinate.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_translucent_bsdf.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_transparent_bsdf.oso
@@ -214,6 +223,8 @@ share/pixmaps/blender.svg
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_voronoi_texture.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_ward_bsdf.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_wave_texture.oso
+%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/oslutil.h
+%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/stdosl.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/ui.py
 %%DATADIR%%/scripts/addons/development_api_navigator.py
 %%DATADIR%%/scripts/addons/development_icon_get.py
@@ -505,6 +516,8 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/gyes/__init__.py
 %%DATADIR%%/scripts/addons_contrib/gyes/random_material_generator.py
 %%DATADIR%%/scripts/addons_contrib/gyes/random_texture_generator.py
+%%DATADIR%%/scripts/addons_contrib/io_atomblend_utilities/__init__.py
+%%DATADIR%%/scripts/addons_contrib/io_atomblend_utilities/io_atomblend_utilities.py
 %%DATADIR%%/scripts/addons_contrib/io_directx_bel/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_directx_bel/bel/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_directx_bel/bel/fs.py
@@ -558,7 +571,6 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/mesh_edgetools.py
 %%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/__init__.py
 %%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/face_inset_fillet.py
-%%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_bevel_round.py
 %%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_bevel_witold.py
 %%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_bump.py
 %%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_extras.py
@@ -1037,6 +1049,7 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_mesh_xyz
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_directx_bel/bel
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_directx_bel
+@dirrm %%DATADIR%%/scripts/addons_contrib/io_atomblend_utilities
 @dirrm %%DATADIR%%/scripts/addons_contrib/gyes
 @dirrm %%DATADIR%%/scripts/addons_contrib/gpencil_retopo
 @dirrm %%DATADIR%%/scripts/addons_contrib/geodesic_domes/tmp
