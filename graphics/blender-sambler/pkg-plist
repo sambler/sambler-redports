@@ -65,6 +65,8 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/add_mesh_solid.py
 %%DATADIR%%/scripts/addons/animation_add_corrective_shape_key.py
 %%DATADIR%%/scripts/addons/animation_animall.py
+%%DATADIR%%/scripts/addons/compositing_film_response/__init__.py
+%%DATADIR%%/scripts/addons/compositing_film_response/film_response_curves.py
 %%DATADIR%%/scripts/addons/curve_simplify.py
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/__init__.py
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/engine.py
@@ -274,7 +276,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/io_import_scene_dxf.py
 %%DATADIR%%/scripts/addons/io_import_scene_lwo.py
 %%DATADIR%%/scripts/addons/io_import_scene_mhx.py
-%%DATADIR%%/scripts/addons/io_import_scene_unreal_psk.py
+%%DATADIR%%/scripts/addons/io_import_scene_unreal_psa_psk.py
 %%DATADIR%%/scripts/addons/io_mesh_pdb/__init__.py
 %%DATADIR%%/scripts/addons/io_mesh_pdb/atom_info.dat
 %%DATADIR%%/scripts/addons/io_mesh_pdb/export_pdb.py
@@ -450,6 +452,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons/texture_paint_layer_manager.py
 %%DATADIR%%/scripts/addons/ui_translate/__init__.py
 %%DATADIR%%/scripts/addons/ui_translate/utils.py
+%%DATADIR%%/scripts/addons/uv_bake_texture_to_vcols.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/add_mesh_balcony.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/add_mesh_beam_builder.py
@@ -475,6 +478,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks/rockgen.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks/settings.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_rocks/utils.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_symmetrical_empty.py
 %%DATADIR%%/scripts/addons_contrib/add_scene_elements/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_camera.py
 %%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_lighting.py
@@ -482,6 +486,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_objects_cycles.py
 %%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_objects.py
 %%DATADIR%%/scripts/addons_contrib/anim_selection_sets.py
+%%DATADIR%%/scripts/addons_contrib/animation_freens_tools.py
 %%DATADIR%%/scripts/addons_contrib/animation_motion_trail.py
 %%DATADIR%%/scripts/addons_contrib/breakpoint.py
 %%DATADIR%%/scripts/addons_contrib/btrace/__init__.py
@@ -537,6 +542,8 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/io_import_LRO_Lola_MGS_Mola_img.py
 %%DATADIR%%/scripts/addons_contrib/io_import_sound_to_anim.py
 %%DATADIR%%/scripts/addons_contrib/io_import_voodoo_camera.py
+%%DATADIR%%/scripts/addons_contrib/io_mesh_gwyddion/__init__.py
+%%DATADIR%%/scripts/addons_contrib/io_mesh_gwyddion/import_gwyddion.py
 %%DATADIR%%/scripts/addons_contrib/io_mesh_xyz/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_mesh_xyz/atom_info.dat
 %%DATADIR%%/scripts/addons_contrib/io_mesh_xyz/export_xyz.py
@@ -598,6 +605,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/mesh_select_vertex_groups.py
 %%DATADIR%%/scripts/addons_contrib/mesh_show_vgroup_weights.py
 %%DATADIR%%/scripts/addons_contrib/mesh_vertex_slide.py
+%%DATADIR%%/scripts/addons_contrib/meshlint.py
 %%DATADIR%%/scripts/addons_contrib/object_batch_rename_datablocks.py
 %%DATADIR%%/scripts/addons_contrib/object_creaprim.py
 %%DATADIR%%/scripts/addons_contrib/object_drop_to_ground.py
@@ -606,6 +614,100 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/object_mangle_tools.py
 %%DATADIR%%/scripts/addons_contrib/object_powerlib.py
 %%DATADIR%%/scripts/addons_contrib/object_render_wire.py
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/__init__.py
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/car-paint/dull_coral.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/car-paint/dull_coral.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/car-paint/dull_olive.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/car-paint/dull_olive.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/car-paint/flaky_green.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/car-paint/flaky_green.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/car-paint/flaky_purple.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/car-paint/flaky_purple.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/car-paint/flaky_tangelo.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/car-paint/flaky_tangelo.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/car-paint/glossy_yellow.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/car-paint/glossy_yellow.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/car-paint/metallic_blue.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/car-paint/metallic_blue.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/effects/blaster_bolt_red.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/effects/blaster_bolt_red.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/effects/fake_shading.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/effects/fake_shading.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/effects/invisible_light.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/effects/invisible_light.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/effects/simulated_sss.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/effects/simulated_sss.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/effects/volumetric_light.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/effects/volumetric_light.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/food/gummy_worm.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/food/gummy_worm.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/food/milk_chocolate.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/food/milk_chocolate.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/food/raspberry.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/food/raspberry.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/glass/absorption.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/glass/absorption.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/glass/iridescent.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/glass/iridescent.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/glass/lalique.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/glass/lalique.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/glass/soda_lime_common.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/glass/soda_lime_common.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/index.xml
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/liquids/cranberry_juice.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/liquids/cranberry_juice.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/liquids/slime.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/liquids/slime.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/liquids/soap_bubble.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/liquids/soap_bubble.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/metals/bronze_ancient.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/metals/bronze_ancient.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/metals/fools_gold.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/metals/fools_gold.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/metals/galvanized_steel.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/metals/galvanized_steel.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/nature/forest.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/nature/forest.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/nature/lava.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/nature/lava.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/nature/pearl.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/nature/pearl.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/plastics/toy_brick_red.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/plastics/toy_brick_red.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/skin/pox.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/skin/pox.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/stones/diamond.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/stones/diamond.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/stones/malachite.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/stones/malachite.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/stones/polished_haematite.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/stones/polished_haematite.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/synthetic/carbon_fiber_glossy.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/synthetic/carbon_fiber_glossy.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/synthetic/carbon_fiber.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/synthetic/carbon_fiber.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/synthetic/polystyrene_foam.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/synthetic/polystyrene_foam.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/synthetic/rubber.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/synthetic/rubber.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/textiles/denim.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/textiles/denim.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/textiles/velvet_edged.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/textiles/velvet_edged.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/textiles/weave_test.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/textiles/weave_test.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/textiles/woven_wool.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/textiles/woven_wool.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/wood/polished_walnut.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/wood/polished_walnut.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/wood/rough_pine.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/wood/rough_pine.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/wood/rough_walnut.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/wood/rough_walnut.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/mat_lib_preview_image.jpg
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/my-materials/read-me.txt
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/peter.cassetta.info/release/cycles/revision_data.ini
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/peter.cassetta.info/testing/cycles/revision_data.ini
 %%DATADIR%%/scripts/addons_contrib/oscurart_futurism.py
 %%DATADIR%%/scripts/addons_contrib/oscurart_mesh_thread.py
 %%DATADIR%%/scripts/addons_contrib/oscurart_tools.py
@@ -644,12 +746,12 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/addons_contrib/space_view3d_paint_bprojection.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_quickPrefs.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_simple_align.py
+%%DATADIR%%/scripts/addons_contrib/system_cycles_material_text_node.py
 %%DATADIR%%/scripts/addons_contrib/system_keyboard_svg.py
 %%DATADIR%%/scripts/addons_contrib/system_project_folder.py
 %%DATADIR%%/scripts/addons_contrib/text_editor_pasteall.py
 %%DATADIR%%/scripts/addons_contrib/text_intellisense.py
 %%DATADIR%%/scripts/addons_contrib/ui_layer_manager.py
-%%DATADIR%%/scripts/addons_contrib/uv_bake_texture_to_vcols.py
 %%DATADIR%%/scripts/addons_contrib/wetted_mesh.py
 %%DATADIR%%/scripts/modules/addon_utils.py
 %%DATADIR%%/scripts/modules/animsys_refactor.py
@@ -735,6 +837,8 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/presets/cycles/integrator/direct_light.py
 %%DATADIR%%/scripts/presets/cycles/integrator/full_global_illumination.py
 %%DATADIR%%/scripts/presets/cycles/integrator/limited_global_illumination.py
+%%DATADIR%%/scripts/presets/ffmpeg/11SecondClub-H264.py
+%%DATADIR%%/scripts/presets/ffmpeg/11SecondClub-mp4.py
 %%DATADIR%%/scripts/presets/ffmpeg/DV.py
 %%DATADIR%%/scripts/presets/ffmpeg/DVD.py
 %%DATADIR%%/scripts/presets/ffmpeg/h264.py
@@ -764,6 +868,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/presets/keyconfig/maya.py
 %%DATADIR%%/scripts/presets/operator/wm.collada_export/second_life_rigged.py
 %%DATADIR%%/scripts/presets/operator/wm.collada_export/second_life_static.py
+%%DATADIR%%/scripts/presets/render/11SecondClub.py
 %%DATADIR%%/scripts/presets/render/DVCPRO_HD_1080p.py
 %%DATADIR%%/scripts/presets/render/DVCPRO_HD_720p.py
 %%DATADIR%%/scripts/presets/render/HDTV_1080p.py
@@ -893,6 +998,7 @@ share/pixmaps/blender.svg
 %%DATADIR%%/scripts/templates/background_job.py
 %%DATADIR%%/scripts/templates/batch_export.py
 %%DATADIR%%/scripts/templates/bmesh_simple.py
+%%DATADIR%%/scripts/templates/bmesh_simple_editmode.py
 %%DATADIR%%/scripts/templates/builtin_keyingset.py
 %%DATADIR%%/scripts/templates/driver_functions.py
 %%DATADIR%%/scripts/templates/gamelogic_module.py
@@ -1033,11 +1139,35 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons/io_anim_c3d
 @dirrm %%DATADIR%%/scripts/addons/io_anim_bvh
 @dirrm %%DATADIR%%/scripts/addons/io_anim_acclaim
+@dirrm %%DATADIR%%/scripts/addons/compositing_film_response
 @dirrm %%DATADIR%%/scripts/addons_contrib/sequencer_tools
 @dirrm %%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets/keyconfig
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets/interface_theme
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/peter.cassetta.info/testing/cycles
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/peter.cassetta.info/testing
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/peter.cassetta.info/release/cycles
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/peter.cassetta.info/release
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/peter.cassetta.info
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/my-materials
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/wood
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/textiles
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/synthetic
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/stones
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/skin
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/plastics
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/nature
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/metals
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/liquids
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/glass
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/food
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/effects
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/car-paint
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library
+@dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib
 @dirrm %%DATADIR%%/scripts/addons_contrib/mesh_select_tools
 @dirrm %%DATADIR%%/scripts/addons_contrib/mesh_extra_tools
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_sequencer_edl
@@ -1047,6 +1177,7 @@ share/pixmaps/blender.svg
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_cod
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_points_pcd
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_mesh_xyz
+@dirrm %%DATADIR%%/scripts/addons_contrib/io_mesh_gwyddion
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_directx_bel/bel
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_directx_bel
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_atomblend_utilities
