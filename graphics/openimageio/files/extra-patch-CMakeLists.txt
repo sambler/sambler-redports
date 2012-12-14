@@ -1,9 +1,10 @@
---- CMakeLists.txt.orig	2012-04-29 13:51:22.000000000 +0930
-+++ CMakeLists.txt	2012-04-29 13:51:42.000000000 +0930
-@@ -179,46 +179,6 @@
- endif (MSVC)
+--- ./CMakeLists.txt.orig	2012-11-11 18:38:49.980294043 +1030
++++ ./CMakeLists.txt	2012-11-11 18:39:47.515297055 +1030
+@@ -234,46 +234,6 @@
+ # their add_test commands will not register.
+ include (CTest)
  
- 
+-
 -# Tell CMake to process the sub-directories
 -add_subdirectory (libOpenImageIO)
 -
@@ -11,7 +12,6 @@
 -add_subdirectory (idiff)
 -add_subdirectory (igrep)
 -add_subdirectory (iinfo)
--add_subdirectory (iprocess)
 -add_subdirectory (maketx)
 -add_subdirectory (oiiotool)
 -add_subdirectory (testtex)
