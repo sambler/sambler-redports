@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openshadinglanguage
-PORTVERSION=	1.2.0
+PORTVERSION=	1.3.0
 CATEGORIES=	graphics devel
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -20,17 +20,17 @@ RUN_DEPENDS=	llvm>=3.1:${PORTSDIR}/devel/llvm
 USE_GITHUB=	yes
 GH_ACCOUNT=	sambler
 GH_PROJECT=	OpenShadingLanguage
-GH_TAGNAME=	blender-r51838
-GH_COMMIT=	ee10fca
+GH_TAGNAME=	osl-20121201
+GH_COMMIT=	647d6b9
 
-WRKSRC+=	${WRKDIR}/OpenShadingLanguage-${GH_TAGNAME}/src
+WRKSRC+=	${WRKDIR}/sambler-OpenShadingLanguage-${GH_COMMIT}/src
 
 USE_CMAKE=	yes
 CMAKE_VERBOSE=	yes
 CMAKE_OUTSOURCE=	yes
-CMAKE_ARGS=	-DFLEX_EXECUTABLE:STRING=/usr/local/bin/flex
+CMAKE_ARGS=	-DFLEX_EXECUTABLE:STRING=${LOCALBASE}/bin/flex
 CMAKE_ARGS+=	-DUSE_TBB:BOOL=OFF
-CXXFLAGS+=	-I/usr/local/include/flex
+CXXFLAGS+=	-I${LOCALBASE}/include/flex
 USE_LDCONFIG=	yes
 USE_BISON=	build
 MAKE_JOBS_SAFE=	yes
