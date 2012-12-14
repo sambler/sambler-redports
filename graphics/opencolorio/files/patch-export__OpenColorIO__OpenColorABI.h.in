@@ -1,5 +1,5 @@
---- export/OpenColorIO/OpenColorABI.h.in.orig	2012-09-17 14:13:30.299501867 +0930
-+++ export/OpenColorIO/OpenColorABI.h.in	2012-09-17 14:13:36.793503619 +0930
+--- ./export/OpenColorIO/OpenColorABI.h.in.orig	2012-04-18 09:38:16.000000000 +0930
++++ ./export/OpenColorIO/OpenColorABI.h.in	2012-10-08 00:20:27.665351115 +1030
 @@ -82,8 +82,13 @@
      #endif
      #define OCIOHIDDEN

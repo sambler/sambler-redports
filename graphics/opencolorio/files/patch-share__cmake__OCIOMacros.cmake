@@ -1,5 +1,5 @@
---- share/cmake/OCIOMacros.cmake.orig	2012-09-23 08:22:50.284500079 +0930
-+++ share/cmake/OCIOMacros.cmake	2012-09-23 08:23:01.717501340 +0930
+--- ./share/cmake/OCIOMacros.cmake.orig	2012-04-18 09:38:16.000000000 +0930
++++ ./share/cmake/OCIOMacros.cmake	2012-10-08 00:20:27.666350767 +1030
 @@ -294,7 +294,7 @@
  MACRO(ExtractRstCPP INFILE OUTFILE)
     add_custom_command(
