@@ -1,0 +1,274 @@
+bin/blender-249
+bin/blender-bin-249
+%%PLAYER%%bin/blenderplayer-249
+%%PLAYER%%bin/blenderplayer-bin-249
+%%DATADIR%%-249/.Blanguages
+%%DATADIR%%-249/.bfont.ttf
+%%NLS%%%%DATADIR%%-249/datafiles/locale/ar/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/bg/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/ca/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/cs/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/de/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/el/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/es/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/fi/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/fr/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/hr_HR/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/hr/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/it/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/ja/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/ko/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/nl/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/pl/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/pt_BR/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/ro/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/ru/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/sr@Latn/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/sr/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/sv/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/uk/LC_MESSAGES/blender.mo
+%%NLS%%%%DATADIR%%-249/datafiles/locale/zh_CN/LC_MESSAGES/blender.mo
+%%DATADIR%%-249/scripts/3ds_export.py
+%%DATADIR%%-249/scripts/3ds_import.py
+%%DATADIR%%-249/scripts/ac3d_export.py
+%%DATADIR%%-249/scripts/ac3d_import.py
+%%DATADIR%%-249/scripts/add_mesh_empty.py
+%%DATADIR%%-249/scripts/add_mesh_torus.py
+%%DATADIR%%-249/scripts/animation_bake_constraints.py
+%%DATADIR%%-249/scripts/animation_clean.py
+%%DATADIR%%-249/scripts/animation_trajectory.py
+%%DATADIR%%-249/scripts/armature_symmetry.py
+%%DATADIR%%-249/scripts/Axiscopy.py
+%%DATADIR%%-249/scripts/bevel_center.py
+%%DATADIR%%-249/scripts/blenderLipSynchro.py
+%%DATADIR%%-249/scripts/bpydata/config/readme.txt
+%%DATADIR%%-249/scripts/bpydata/KUlang.txt
+%%DATADIR%%-249/scripts/bpydata/readme.txt
+%%DATADIR%%-249/scripts/bpymodules/blend2renderinfo.py
+%%DATADIR%%-249/scripts/bpymodules/BPyAddMesh.py
+%%DATADIR%%-249/scripts/bpymodules/BPyArmature.py
+%%DATADIR%%-249/scripts/bpymodules/BPyBlender.py
+%%DATADIR%%-249/scripts/bpymodules/BPyCurve.py
+%%DATADIR%%-249/scripts/bpymodules/BPyImage.py
+%%DATADIR%%-249/scripts/bpymodules/BPyMathutils.py
+%%DATADIR%%-249/scripts/bpymodules/BPyMesh_redux.py
+%%DATADIR%%-249/scripts/bpymodules/BPyMesh.py
+%%DATADIR%%-249/scripts/bpymodules/BPyMessages.py
+%%DATADIR%%-249/scripts/bpymodules/BPyNMesh.py
+%%DATADIR%%-249/scripts/bpymodules/BPyObject.py
+%%DATADIR%%-249/scripts/bpymodules/BPyRegistry.py
+%%DATADIR%%-249/scripts/bpymodules/BPyRender.py
+%%DATADIR%%-249/scripts/bpymodules/BPySys.py
+%%DATADIR%%-249/scripts/bpymodules/BPyTextPlugin.py
+%%DATADIR%%-249/scripts/bpymodules/BPyWindow.py
+%%DATADIR%%-249/scripts/bpymodules/colladaImEx/__init__.py
+%%DATADIR%%-249/scripts/bpymodules/colladaImEx/collada.py
+%%DATADIR%%-249/scripts/bpymodules/colladaImEx/cstartup.py
+%%DATADIR%%-249/scripts/bpymodules/colladaImEx/cutils.py
+%%DATADIR%%-249/scripts/bpymodules/colladaImEx/helperObjects.py
+%%DATADIR%%-249/scripts/bpymodules/colladaImEx/logo.png
+%%DATADIR%%-249/scripts/bpymodules/colladaImEx/translator.py
+%%DATADIR%%-249/scripts/bpymodules/colladaImEx/xmlUtils.py
+%%DATADIR%%-249/scripts/bpymodules/defaultdoodads.py
+%%DATADIR%%-249/scripts/bpymodules/dxfColorMap.py
+%%DATADIR%%-249/scripts/bpymodules/dxfLibrary.py
+%%DATADIR%%-249/scripts/bpymodules/dxfReader.py
+%%DATADIR%%-249/scripts/bpymodules/mesh_gradient.py
+%%DATADIR%%-249/scripts/bpymodules/meshtools.py
+%%DATADIR%%-249/scripts/bpymodules/paths_ai2obj.py
+%%DATADIR%%-249/scripts/bpymodules/paths_eps2obj.py
+%%DATADIR%%-249/scripts/bpymodules/paths_gimp2obj.py
+%%DATADIR%%-249/scripts/bpymodules/paths_svg2obj.py
+%%DATADIR%%-249/scripts/bvh_import.py
+%%DATADIR%%-249/scripts/c3d_import.py
+%%DATADIR%%-249/scripts/camera_changer.py
+%%DATADIR%%-249/scripts/collada_export.py
+%%DATADIR%%-249/scripts/collada_import.py
+%%DATADIR%%-249/scripts/colladaExport14.py
+%%DATADIR%%-249/scripts/colladaImport14.py
+%%DATADIR%%-249/scripts/config.py
+%%DATADIR%%-249/scripts/console.py
+%%DATADIR%%-249/scripts/DirectX8Exporter.py
+%%DATADIR%%-249/scripts/DirectX8Importer.py
+%%DATADIR%%-249/scripts/discombobulator.py
+%%DATADIR%%-249/scripts/envelope_symmetry.py
+%%DATADIR%%-249/scripts/export_dxf.py
+%%DATADIR%%-249/scripts/export_fbx.py
+%%DATADIR%%-249/scripts/export_lightwave_motion.py
+%%DATADIR%%-249/scripts/export_m3g.py
+%%DATADIR%%-249/scripts/export_map.py
+%%DATADIR%%-249/scripts/export_mdd.py
+%%DATADIR%%-249/scripts/export_obj.py
+%%DATADIR%%-249/scripts/export-iv-0.1.py
+%%DATADIR%%-249/scripts/faceselect_same_weights.py
+%%DATADIR%%-249/scripts/flt_defaultp.py
+%%DATADIR%%-249/scripts/flt_dofedit.py
+%%DATADIR%%-249/scripts/flt_export.py
+%%DATADIR%%-249/scripts/flt_filewalker.py
+%%DATADIR%%-249/scripts/flt_import.py
+%%DATADIR%%-249/scripts/flt_lodedit.py
+%%DATADIR%%-249/scripts/flt_palettemanager.py
+%%DATADIR%%-249/scripts/flt_properties.py
+%%DATADIR%%-249/scripts/flt_toolbar.py
+%%DATADIR%%-249/scripts/help_bpy_api.py
+%%DATADIR%%-249/scripts/help_browser.py
+%%DATADIR%%-249/scripts/help_getting_started.py
+%%DATADIR%%-249/scripts/help_manual.py
+%%DATADIR%%-249/scripts/help_release_notes.py
+%%DATADIR%%-249/scripts/help_tutorials.py
+%%DATADIR%%-249/scripts/help_web_blender.py
+%%DATADIR%%-249/scripts/help_web_devcomm.py
+%%DATADIR%%-249/scripts/help_web_eshop.py
+%%DATADIR%%-249/scripts/help_web_usercomm.py
+%%DATADIR%%-249/scripts/hotkeys.py
+%%DATADIR%%-249/scripts/IDPropBrowser.py
+%%DATADIR%%-249/scripts/image_2d_cutout.py
+%%DATADIR%%-249/scripts/image_auto_layout.py
+%%DATADIR%%-249/scripts/image_billboard.py
+%%DATADIR%%-249/scripts/image_edit.py
+%%DATADIR%%-249/scripts/import_dxf.py
+%%DATADIR%%-249/scripts/import_edl.py
+%%DATADIR%%-249/scripts/import_lightwave_motion.py
+%%DATADIR%%-249/scripts/import_mdd.py
+%%DATADIR%%-249/scripts/import_obj.py
+%%DATADIR%%-249/scripts/import_web3d.py
+%%DATADIR%%-249/scripts/lightwave_export.py
+%%DATADIR%%-249/scripts/lightwave_import.py
+%%DATADIR%%-249/scripts/md2_export.py
+%%DATADIR%%-249/scripts/md2_import.py
+%%DATADIR%%-249/scripts/mesh_boneweight_copy.py
+%%DATADIR%%-249/scripts/mesh_cleanup.py
+%%DATADIR%%-249/scripts/mesh_edges2curves.py
+%%DATADIR%%-249/scripts/mesh_mirror_tool.py
+%%DATADIR%%-249/scripts/mesh_poly_reduce_grid.py
+%%DATADIR%%-249/scripts/mesh_poly_reduce.py
+%%DATADIR%%-249/scripts/mesh_skin.py
+%%DATADIR%%-249/scripts/mesh_solidify.py
+%%DATADIR%%-249/scripts/mesh_unfolder.py
+%%DATADIR%%-249/scripts/mesh_wire.py
+%%DATADIR%%-249/scripts/ms3d_import_ascii.py
+%%DATADIR%%-249/scripts/ms3d_import.py
+%%DATADIR%%-249/scripts/obdatacopier.py
+%%DATADIR%%-249/scripts/object_active_to_other.py
+%%DATADIR%%-249/scripts/object_apply_def.py
+%%DATADIR%%-249/scripts/object_batch_name_edit.py
+%%DATADIR%%-249/scripts/object_cookie_cutter.py
+%%DATADIR%%-249/scripts/object_drop.py
+%%DATADIR%%-249/scripts/object_find.py
+%%DATADIR%%-249/scripts/object_random_loc_sz_rot.py
+%%DATADIR%%-249/scripts/object_sel2dupgroup.py
+%%DATADIR%%-249/scripts/object_timeofs_follow_act.py
+%%DATADIR%%-249/scripts/off_export.py
+%%DATADIR%%-249/scripts/off_import.py
+%%DATADIR%%-249/scripts/paths_import.py
+%%DATADIR%%-249/scripts/ply_export.py
+%%DATADIR%%-249/scripts/ply_import.py
+%%DATADIR%%-249/scripts/raw_export.py
+%%DATADIR%%-249/scripts/raw_import.py
+%%DATADIR%%-249/scripts/renameobjectbyblock.py
+%%DATADIR%%-249/scripts/render_save_layers.py
+%%DATADIR%%-249/scripts/rvk1_torvk2.py
+%%DATADIR%%-249/scripts/save_theme.py
+%%DATADIR%%-249/scripts/scripttemplate_background_job.py
+%%DATADIR%%-249/scripts/scripttemplate_camera_object.py
+%%DATADIR%%-249/scripts/scripttemplate_gamelogic_basic.py
+%%DATADIR%%-249/scripts/scripttemplate_gamelogic_module.py
+%%DATADIR%%-249/scripts/scripttemplate_gamelogic.py
+%%DATADIR%%-249/scripts/scripttemplate_ipo_gen.py
+%%DATADIR%%-249/scripts/scripttemplate_mesh_edit.py
+%%DATADIR%%-249/scripts/scripttemplate_metaball_create.py
+%%DATADIR%%-249/scripts/scripttemplate_object_edit.py
+%%DATADIR%%-249/scripts/scripttemplate_pyconstraint.py
+%%DATADIR%%-249/scripts/scripttemplate_text_plugin.py
+%%DATADIR%%-249/scripts/slp_import.py
+%%DATADIR%%-249/scripts/sysinfo.py
+%%DATADIR%%-249/scripts/textplugin_convert_ge.py
+%%DATADIR%%-249/scripts/textplugin_functiondocs.py
+%%DATADIR%%-249/scripts/textplugin_imports.py
+%%DATADIR%%-249/scripts/textplugin_membersuggest.py
+%%DATADIR%%-249/scripts/textplugin_outliner.py
+%%DATADIR%%-249/scripts/textplugin_suggest.py
+%%DATADIR%%-249/scripts/textplugin_templates.py
+%%DATADIR%%-249/scripts/unweld.py
+%%DATADIR%%-249/scripts/uv_export.py
+%%DATADIR%%-249/scripts/uv_seams_from_islands.py
+%%DATADIR%%-249/scripts/uvcalc_follow_active_coords.py
+%%DATADIR%%-249/scripts/uvcalc_lightmap.py
+%%DATADIR%%-249/scripts/uvcalc_quad_clickproj.py
+%%DATADIR%%-249/scripts/uvcalc_smart_project.py
+%%DATADIR%%-249/scripts/uvcopy.py
+%%DATADIR%%-249/scripts/vertexpaint_from_material.py
+%%DATADIR%%-249/scripts/vertexpaint_gradient.py
+%%DATADIR%%-249/scripts/vertexpaint_selfshadow_ao.py
+%%DATADIR%%-249/scripts/vrml97_export.py
+%%DATADIR%%-249/scripts/weightpaint_average.py
+%%DATADIR%%-249/scripts/weightpaint_clean.py
+%%DATADIR%%-249/scripts/weightpaint_copy.py
+%%DATADIR%%-249/scripts/weightpaint_envelope_assign.py
+%%DATADIR%%-249/scripts/weightpaint_gradient.py
+%%DATADIR%%-249/scripts/weightpaint_grow_shrink.py
+%%DATADIR%%-249/scripts/weightpaint_invert.py
+%%DATADIR%%-249/scripts/weightpaint_normalize.py
+%%DATADIR%%-249/scripts/widgetwizard.py
+%%DATADIR%%-249/scripts/wizard_bolt_factory.py
+%%DATADIR%%-249/scripts/wizard_curve2tree.py
+%%DATADIR%%-249/scripts/wizard_landscape_ant.py
+%%DATADIR%%-249/scripts/x3d_export.py
+%%DATADIR%%-249/scripts/xsi_export.py
+@dirrm %%DATADIR%%-249/scripts/bpymodules/colladaImEx
+@dirrm %%DATADIR%%-249/scripts/bpymodules
+@dirrm %%DATADIR%%-249/scripts/bpydata/config
+@dirrm %%DATADIR%%-249/scripts/bpydata
+@dirrm %%DATADIR%%-249/scripts
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/zh_CN/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/zh_CN
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/uk/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/uk
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/sv/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/sv
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/sr/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/sr@Latn/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/sr@Latn
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/sr
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/ru/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/ru
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/ro/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/ro
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/pt_BR/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/pt_BR
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/pl/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/pl
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/nl/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/nl
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/ko/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/ko
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/ja/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/ja
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/it/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/it
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/hr/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/hr_HR/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/hr_HR
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/hr
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/fr/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/fr
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/fi/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/fi
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/es/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/es
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/el/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/el
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/de/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/de
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/cs/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/cs
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/ca/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/ca
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/bg/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/bg
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/ar/LC_MESSAGES
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale/ar
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles/locale
+%%NLS%%@dirrm %%DATADIR%%-249/datafiles
+@dirrm %%DATADIR%%-249
+
