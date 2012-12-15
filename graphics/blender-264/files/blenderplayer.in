@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export BLENDER_SYSTEM_SCRIPTS=%%DATADIR%%-264/scripts
+export BLENDER_SYSTEM_DATAFILES=%%DATADIR%%-264/datafiles
+
+exec %%PREFIX%%/bin/blenderplayer-bin-264 "$@"
