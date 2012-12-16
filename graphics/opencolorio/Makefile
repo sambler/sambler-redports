@@ -2,8 +2,8 @@
 # $FreeBSD: ports/graphics/opencolorio/Makefile,v 1.2 2012/11/17 05:58:15 svnexp Exp $
 
 PORTNAME?=	opencolorio
-PORTVERSION=	1.0.7
-PORTREVISION?=	1
+PORTVERSION=	1.0.8
+PORTREVISION?=	0
 CATEGORIES=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
@@ -15,7 +15,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
 GH_PROJECT=	OpenColorIO
 GH_TAGNAME=	v${PORTVERSION}
-GH_COMMIT=	b3cb224
+GH_COMMIT=	8883824
 
 .if !defined(OCIO_TOOLS)
 USE_PYTHON=	2.6+

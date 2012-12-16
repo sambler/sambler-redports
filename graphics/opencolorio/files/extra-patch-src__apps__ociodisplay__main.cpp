@@ -1,11 +1,10 @@
---- ./src/apps/ociodisplay/main.cpp.orig	2012-11-18 13:44:55.706022772 +1030
-+++ ./src/apps/ociodisplay/main.cpp	2012-11-18 13:50:56.826023344 +1030
-@@ -53,7 +53,7 @@
- 
- #include <OpenImageIO/imageio.h>
+--- src/apps/ociodisplay/main.cpp.orig	2012-12-16 13:56:24.758422542 +1030
++++ src/apps/ociodisplay/main.cpp	2012-12-16 13:56:56.003376824 +1030
+@@ -54,6 +54,7 @@
  #include <OpenImageIO/typedesc.h>
--namespace OIIO = OIIO_NAMESPACE;
-+OIIO_NAMESPACE_USING;
+ #if (OIIO_VERSION < 10100)
+ namespace OIIO = OIIO_NAMESPACE;
++OIIO_NAMESPACE_USING
+ #endif
  
  GLint g_win = 0;
- int g_winWidth = 0;
