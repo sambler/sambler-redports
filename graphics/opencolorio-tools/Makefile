@@ -1,5 +1,5 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
-# $FreeBSD: ports/graphics/opencolorio/Makefile,v 1.1 2012/09/19 15:19:59 pawel Exp $
+# $FreeBSD: ports/graphics/opencolorio-tools/Makefile,v 1.1 2012/12/20 10:45:19 svnexp Exp $
 
 PORTNAME=	opencolorio
 PORTREVISION=	0
@@ -7,7 +7,7 @@ PKGNAMESUFFIX=	-tools
 
 COMMENT=	Tools to work with OpenColorIO profiles
 
-LICENSE?=	BSD
+LICENSE=	BSD
 
 LIB_DEPENDS=	OpenImageIO:${PORTSDIR}/graphics/openimageio \
 		OpenColorIO:${PORTSDIR}/graphics/opencolorio

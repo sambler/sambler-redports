@@ -123,12 +123,6 @@ share/ocio/setup_ocio.sh
 %%PORTDOCS%%@dirrm %%DOCSDIR%%/developers/api
 %%PORTDOCS%%@dirrm %%DOCSDIR%%/developers
 %%PORTDOCS%%@dirrm %%DOCSDIR%%/configurations
-%%PORTDOCS%%@dirrm %%DOCSDIR%%/.doctrees/userguide
-%%PORTDOCS%%@dirrm %%DOCSDIR%%/.doctrees/developers/bindings
-%%PORTDOCS%%@dirrm %%DOCSDIR%%/.doctrees/developers/api
-%%PORTDOCS%%@dirrm %%DOCSDIR%%/.doctrees/developers
-%%PORTDOCS%%@dirrm %%DOCSDIR%%/.doctrees/configurations
-%%PORTDOCS%%@dirrm %%DOCSDIR%%/.doctrees
 %%PORTDOCS%%@dirrm %%DOCSDIR%%/_static
 %%PORTDOCS%%@dirrm %%DOCSDIR%%/_sources/userguide
 %%PORTDOCS%%@dirrm %%DOCSDIR%%/_sources/developers/bindings

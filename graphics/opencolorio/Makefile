@@ -1,5 +1,5 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
-# $FreeBSD: ports/graphics/opencolorio/Makefile,v 1.2 2012/11/17 05:58:15 svnexp Exp $
+# $FreeBSD: ports/graphics/opencolorio/Makefile,v 1.3 2012/12/20 10:41:40 svnexp Exp $
 
 PORTNAME?=	opencolorio
 PORTVERSION=	1.0.8
@@ -21,6 +21,7 @@ GH_COMMIT=	8883824
 USE_PYTHON=	2.6+
 USE_LDCONFIG=	yes
 .endif
+
 USE_CMAKE=	yes
 CMAKE_VERBOSE=	yes
 CMAKE_OUTSOURCE=	yes
@@ -36,7 +37,7 @@ PLIST=		${PKGDIR}/pkg-plist${PKGNAMESUFFIX}
 
 .if !defined(OCIO_TOOLS)
 OPTIONS_DEFINE=		DOCS SSE
-OPTIONS_DEFAULT=	SSE
+OPTIONS_DEFAULT=	DOCS SSE
 .endif
 
 .include <bsd.port.options.mk>
@@ -59,6 +60,12 @@ CMAKE_ARGS+=	-DOCIO_USE_SSE:BOOL=OFF
 # workaround for pr/165968
 # may need to test osversion after fix is applied
 CFLAGS+=	-march=pentium2
+.endif
+
+post-patch:
+.if defined(OCIO_TOOLS)
+	@${FIND} ${WRKSRC}/src/apps -name "main.cpp" -exec \
+		${REINPLACE_CMD} -e 's|namespace OIIO|//namespace OIIO|g' "{}" \;
 .endif
 
 .include <bsd.port.post.mk>

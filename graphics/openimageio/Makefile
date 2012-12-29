@@ -1,5 +1,5 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
-# $FreeBSD: ports/graphics/openimageio/Makefile,v 1.7 2012/09/17 05:24:02 rm Exp $
+# $FreeBSD: ports/graphics/openimageio/Makefile,v 1.10 2012/12/20 10:53:37 svnexp Exp $
 
 PORTNAME?=	openimageio
 PORTVERSION=	1.1.2
@@ -33,7 +33,6 @@ CMAKE_OUTSOURCE=	yes
 CMAKE_ARGS?=	-DBUILDSTATIC:BOOL=OFF \
 		-DLINKSTATIC:BOOL=OFF \
 		-DNOTHREADS:BOOL=OFF \
-		-DUSE_PYTHON:BOOL=OFF \
 		-DUSE_TBB:BOOL=OFF
 
 USE_LDCONFIG=	yes
@@ -43,8 +42,10 @@ MAKE_JOBS_SAFE=	yes
 .if defined(OIIO_PYBIND)
 EXTRA_PATCHES=	${FILESDIR}/extra-patch-CMakeLists.txt
 PLIST=		${PKGDIR}/pkg-plist-pybind
+CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON
 .else
 PLIST=		${PKGDIR}/pkg-plist
+CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF
 .endif
 
 .if !defined(OIIO_PYBIND)
