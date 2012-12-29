@@ -1,9 +1,5 @@
-# Ports collection makefile for:  boost-python-libs
-# Date Created:			  18 March 2009
-# Whom:				  Alexander Churanov <churanov.port.maintainer@gmail.com>
-#
-# $FreeBSD: ports/devel/boost-python-libs/Makefile,v 1.12 2012/05/16 16:07:24 makc Exp $
-#
+# Created by: Shane Ambler <FreeBSD@Shaneware.biz>
+# $FreeBSD$
 
 PORTNAME=	boost-python3-libs
 COMMENT=	Framework for interfacing Python and C++
@@ -11,13 +7,13 @@ COMMENT=	Framework for interfacing Python and C++
 CONFLICTS=	boost-python-libs*
 
 USE_BZIP2=	yes
-USE_PYTHON=	3.2
+USE_PYTHON=	3.3
 
 OPTIONS=	VERBOSE_BUILD	"Show compiler messages"	off \
 		DEBUG		"Build debugging symbols"	off \
 		OPTIMIZED_CFLAGS "Enable -O3 optimization"	off
 
-CXXFLAGS+=	-I${PREFIX}/include/python3.2mu
+CXXFLAGS+=	-I${PYTHON_INCLUDEDIR}
 
 .include <bsd.port.pre.mk>
 .include "${PORTSDIR}/devel/boost-all/common.mk"
