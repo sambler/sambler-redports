@@ -1,12 +1,8 @@
-# New ports collection makefile for:	numpy
-# Date created:				24 July 2006
-# Whom:					Tony Maher
-#
-# $FreeBSD: ports/math/py-numpy/Makefile,v 1.38 2012/01/26 00:52:43 scheidell Exp $
-#
+# Created by: Shane Ambler <FreeBSD@Shaneware.biz>
+# $FreeBSD$
 
 PORTNAME=	numpy32
-PORTVERSION=	1.6.1
+PORTVERSION=	1.6.2
 PORTREVISION=	1
 PORTEPOCH=	1
 CATEGORIES=	math python
@@ -21,19 +17,25 @@ EXTRACT_ONLY=	numpy-${PORTVERSION:S/r/rc/}${EXTRACT_SUFX}
 MAINTAINER=	llwang@infor.org
 COMMENT=	The New Numeric Extension to Python
 
+LICENSE=	BSD
+
 RUN_DEPENDS=	nosetests:${PORTSDIR}/devel/py-nose
 
-OPTIONS=	ATLAS "Use optimized blas library" Off
+OPTIONS_DEFINE=	ATLAS SUITESPARSE
+OPTIONS_DEFAULT=	SUITESPARSE
+ATLAS_DESC=	Use optimized blas library
+SUITESPARSE_DESC=	Use AMD and UMFPACK in SuiteSparse
 
 USE_FORTRAN=	yes
 USE_PYTHON=	3.2
 USE_PYDISTUTILS=yes
-MAN1=		f2py.1
+MAN1=		f2py32.1
 NO_CHECKSUM=	yes
 
 LATEST_LINK=	py-${PORTNAME}
 WRKSRC=	${WRKDIR}/numpy-${PORTVERSION}
-PYDISTUTILS_EGGINFO=	numpy-${PYDISTUTILS_PKGVERSION:C/[^A-Za-z0-9.]+/_/g}-py${PYTHON_VER}.egg-info
+
+PYDISTUTILS_NOEGGINFO= yes
 
 .include <bsd.port.pre.mk>
 
@@ -54,7 +56,7 @@ FP_ARCH=	${ARCH}
 DISTFILES+=	${FP_ARCH}/fenv.c?p=203441:fp ${FP_ARCH}/fenv.h?p=203441:fp
 .endif
 
-.if defined(WITH_ATLAS)
+.if ${PORT_OPTIONS:MATLAS}
 LIB_DEPENDS+=	atlas.2:${PORTSDIR}/math/atlas
 .if !exists(${LOCALBASE}/lib/libalapack.a)
 IGNORE=	atlas needs to be built with WITH_STATIC for numpy to function properly
@@ -64,7 +66,7 @@ LIB_DEPENDS+=	lapack.4:${PORTSDIR}/math/lapack \
 		blas.2:${PORTSDIR}/math/blas
 .endif
 
-.if exists(${LOCALBASE}/lib/libumfpack.so.1)
+.if ${PORT_OPTIONS:MSUITESPARSE}
 LIB_DEPENDS+=	umfpack.1:${PORTSDIR}/math/suitesparse
 .endif
 
@@ -91,17 +93,17 @@ pre-configure:
 		${PATCH} ${PATCH_DIST_ARGS} < ${FILESDIR}/fenv.patch; \
  	fi
 .endif
-.ifdef WITH_ATLAS
-	@${REINPLACE_CMD} -e "s+%%GCCLIBDIR%%+$$(${GCCLIBDIR_CMDS})+" \
-	    -e "s+%%LOCALBASE%%+${LOCALBASE}+g" \
-	    -e "s+%%ATLASLIBS%%+alapack, f77blas, cblas, atlas+" \
-		${WRKSRC}/site.cfg
+.if ${PORT_OPTIONS:MATLAS}
+	@${REINPLACE_CMD} -e "s+%%ATLASLIBS%%+alapack, f77blas, cblas, atlas+" ${WRKSRC}/site.cfg
 .else
+	@${REINPLACE_CMD} -e "s+%%ATLASLIBS%%+lapack, blas+" ${WRKSRC}/site.cfg
+.endif
+.if !${PORT_OPTIONS:MSUITESPARSE}
+	@${REINPLACE_CMD} -e "s+:%%LOCALBASE%%/include/suitesparse++" ${WRKSRC}/site.cfg
+.endif
 	@${REINPLACE_CMD} -e "s+%%GCCLIBDIR%%+$$(${GCCLIBDIR_CMDS})+" \
 	    -e "s+%%LOCALBASE%%+${LOCALBASE}+g" \
-	    -e "s+%%ATLASLIBS%%+lapack, blas+" \
 		 ${WRKSRC}/site.cfg
-.endif
 	@${REINPLACE_CMD} -e "s+%%GCCLIBDIR%%+$$(${GCCLIBDIR_CMDS})+" ${WRKSRC}/numpy/distutils/system_info.py
 
 pre-install:
@@ -112,7 +114,7 @@ pre-install:
 .endif
 
 post-install:
-	${INSTALL_MAN} ${WRKSRC}/numpy/f2py/f2py.1 ${MAN1PREFIX}/man/man1
+	${INSTALL_MAN} ${WRKSRC}/numpy/f2py/f2py.1 ${MAN1PREFIX}/man/man1/f2py32.1
 .if !defined(NOPORTDOCS)
 	@${MKDIR} ${DOCSDIR}
 	${INSTALL_DATA} ${WRKDIR}/numpy-ref.pdf ${DOCSDIR}

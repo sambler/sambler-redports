@@ -1,4 +1,4 @@
-bin/f2py
+bin/f2py32
 %%PYTHON_SITELIBDIR%%/numpy/__config__.py
 %%PYTHON_SITELIBDIR%%/numpy/__pycache__/__config__.cpython-32.pyc
 %%PYTHON_SITELIBDIR%%/numpy/__pycache__/__config__.cpython-32.pyo
@@ -914,6 +914,7 @@ bin/f2py
 %%PYTHON_SITELIBDIR%%/numpy/polynomial/tests/test_legendre.py
 %%PYTHON_SITELIBDIR%%/numpy/polynomial/tests/test_polynomial.py
 %%PYTHON_SITELIBDIR%%/numpy/polynomial/tests/test_polyutils.py
+%%PYTHON_SITELIBDIR%%/numpy/polynomial/tests/test_printing.py
 %%PYTHON_SITELIBDIR%%/numpy/random/__init__.py
 %%PYTHON_SITELIBDIR%%/numpy/random/__pycache__/__init__.cpython-32.pyc
 %%PYTHON_SITELIBDIR%%/numpy/random/__pycache__/__init__.cpython-32.pyo
