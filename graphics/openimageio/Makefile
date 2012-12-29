@@ -13,7 +13,7 @@ LICENSE?=	BSD
 
 LIB_DEPENDS?=	IlmImf:${PORTSDIR}/graphics/OpenEXR \
 		boost_thread:${PORTSDIR}/devel/boost-libs \
-		hdf5:${PORTSDIR}/science/hdf5 \
+		hdf5:${PORTSDIR}/science/hdf5-18 \
 		opencv_legacy:${PORTSDIR}/graphics/opencv \
 		openjpeg:${PORTSDIR}/graphics/openjpeg \
 		webp:${PORTSDIR}/graphics/webp
