@@ -1,12 +1,9 @@
-# New ports collection makefile for:    blender-sambler
-# Date created:         2 April 2012
-# Whom:                 Shane Ambler
-#
+# Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.65
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -58,19 +55,16 @@ CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.2/site-packages
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	15cd81f
+GH_COMMIT=	ba0594c
 
 FETCH_ARGS=     -pRr
-CONFLICTS=	blender-2.*
 
 USE_CMAKE=	yes
 CMAKE_OUTSOURCE=	yes
 MAKE_JOBS_SAFE=	yes
 WRKSRC=         ${WRKDIR}/sambler-myblender-${GH_COMMIT}
 
-USE_PYTHON=	3.2
-# blender looks for py3.3 by default - we need to specify 3.2 for now
-CMAKE_ARGS+=	-DPYTHON_VERSION:STRING=3.2
+USE_PYTHON=	3.3
 WANT_GNOME=	yes
 USE_GNOME=	desktopfileutils
 USE_OPENAL=	al alut
@@ -235,22 +229,22 @@ post-extract:
 	@${MV} ${WRKDIR}/sambler-myblendercontrib-*/* ${WRKSRC}/release/scripts/addons_contrib/
 
 post-install:
-	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${PREFIX}/bin/blender
+	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${PREFIX}/bin/blender-sambler
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
-		${PREFIX}/bin/blender-bin
+		${PREFIX}/bin/blender-bin-sambler
 	@${MKDIR} ${DATADIR}
 	@${INSTALL_SCRIPT} ${INSTALL_WRKSRC}/bin/blender-thumbnailer.py \
-		${PREFIX}/bin/blender-thumbnailer.py
+		${PREFIX}/bin/blender-thumbnailer-sambler.py
 
 .if ${PORT_OPTIONS:MPLAYER}
-	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${PREFIX}/bin/blenderplayer
+	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${PREFIX}/bin/blenderplayer-sambler
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blenderplayer \
-		${PREFIX}/bin/blenderplayer-bin
+		${PREFIX}/bin/blenderplayer-bin-sambler
 .endif
 
-	@${CP} -R ${OUTDIR}/scripts ${DATADIR}
+	@${CP} -R ${OUTDIR}/scripts ${DATADIR}/
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
-		${PREFIX}/share/pixmaps/blender.svg
+		${PREFIX}/share/pixmaps/blender-sambler.svg
 
 .if ${PORT_OPTIONS:MNLS}
 .for ii in ${LANG}
@@ -268,7 +262,7 @@ post-install:
 
 	@${MKDIR} ${DESKTOPDIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.desktop \
-		${DESKTOPDIR}
+		${DESKTOPDIR}/blender-sambler.desktop
 	@-update-desktop-database -q
 
 .include <bsd.port.mk>

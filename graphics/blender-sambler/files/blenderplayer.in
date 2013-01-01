@@ -1,7 +1,7 @@
 #!/bin/sh
 
-export BLENDER_SYSTEM_SCRIPTS=%%DATADIR%%/scripts
-export BLENDER_SYSTEM_DATAFILES=%%DATADIR%%/datafiles
+export BLENDER_SYSTEM_SCRIPTS=%%DATADIR%%-sambler/scripts
+export BLENDER_SYSTEM_DATAFILES=%%DATADIR%%-sambler/datafiles
 
 if [ -L ${HOME}/.blender ]; then
 	echo "A symbolic link for ~/.blender was detected."
@@ -10,4 +10,4 @@ if [ -L ${HOME}/.blender ]; then
 	exit 1
 fi
 
-exec %%PREFIX%%/bin/blenderplayer-bin "$@"
+exec %%PREFIX%%/bin/blenderplayer-bin-sambler "$@"
