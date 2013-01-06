@@ -1,14 +1,14 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
-PORTNAME=	blender
+PORTNAME=	blender-262
 PORTVERSION=	2.62
 PORTREVISION=	0
-UNIQUENAME=	blender-2.62
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
 		http://public.planetmirror.com/pub/blender/source/
+DISTFILES=	blender-2.62.tar.gz
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	3D modeling/rendering/animation/gaming package
@@ -37,6 +37,7 @@ CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.2/site-packages
 USE_CMAKE=	yes
 CMAKE_OUTSOURCE=	yes
 MAKE_JOBS_SAFE=	yes
+WRKSRC=		${WRKDIR}/blender-2.62
 
 USE_PYTHON=	3.2
 WANT_GNOME=	yes
@@ -90,22 +91,6 @@ NLS_DESC=	"Include translations"
 
 .include <bsd.port.options.mk>
 
-.if ${OSVERSION} >= 800000
-CMAKE_ARGS+=	-DWITH_CYCLES:BOOL=ON
-CMAKE_ARGS+=	-DWITH_CYCLES_CUDA_BINARIES:BOOL=OFF
-CMAKE_ARGS+=	-DWITH_CYCLES_TEST:BOOL=OFF
-LIB_DEPENDS+=	OpenImageIO:${PORTSDIR}/graphics/openimageio
-PLIST_SUB+=	CYCLES=""
-
-.else # ${OSVERSION} 
-# openimageio doesn't build on 7.x so can't enable cycles
-CMAKE_ARGS+=	-DWITH_CYCLES:BOOL=OFF
-CMAKE_ARGS+=	-DWITH_CYCLES_CUDA_BINARIES:BOOL=OFF
-CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=OFF
-CMAKE_ARGS+=	-DWITH_CYCLES_TEST:BOOL=OFF
-PLIST_SUB+=	CYCLES="@comment "
-.endif # ${OSVERSION}
-
 .if ${PORT_OPTIONS:MHEADLESS}
 CMAKE_ARGS+=	-DWITH_HEADLESS:BOOL=ON
 .else
@@ -147,9 +132,9 @@ post-install:
 	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${PREFIX}/bin/blender-262
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
 		${PREFIX}/bin/blender-bin-262
-	@${MKDIR} ${DATADIR}-262
+	@${MKDIR} ${DATADIR}
 	@${INSTALL_SCRIPT} ${INSTALL_WRKSRC}/bin/blender-thumbnailer.py \
-		${PREFIX}/bin/blender-thumbnailer.py
+		${PREFIX}/bin/blender-thumbnailer-262.py
 
 .if ${PORT_OPTIONS:MPLAYER}
 	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${PREFIX}/bin/blenderplayer-262
@@ -157,22 +142,22 @@ post-install:
 		${PREFIX}/bin/blenderplayer-bin-262
 .endif
 
-	@${CP} -R ${OUTDIR}/scripts ${DATADIR}-262
+	@${CP} -R ${OUTDIR}/scripts ${DATADIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
-		${PREFIX}/share/pixmaps/blender.svg
+		${PREFIX}/share/pixmaps/blender-262.svg
 
 .if ${PORT_OPTIONS:MNLS}
 .for ii in ${LANG}
-	@${MKDIR} ${DATADIR}-262/datafiles/locale/${ii}/LC_MESSAGES
+	@${MKDIR} ${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES
 	@${INSTALL_DATA} \
 		${OUTDIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo \
-		${DATADIR}-262/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
+		${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
 .endfor
 .endif
 
 	@${MKDIR} ${DESKTOPDIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.desktop \
-		${DESKTOPDIR}/blender.desktop
+		${DESKTOPDIR}/blender-262.desktop
 	@-update-desktop-database -q
 
 .include <bsd.port.mk>
