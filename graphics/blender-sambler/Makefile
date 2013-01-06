@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.65
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -33,11 +33,11 @@ LIB_DEPENDS+=	fftw3:${PORTSDIR}/math/fftw3
 LIB_DEPENDS+=	avutil:${PORTSDIR}/multimedia/ffmpeg
 LIB_DEPENDS+=	freetype:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
-.if exists(${PORTSDIR}/math/py-numpy32)
+.if exists(${PORTSDIR}/math/py-numpy33)
 # PYTHON_SITELIBDIR most likely points to python2.7/site-packages
-# we specifically want a 3.2 version installed
-RUN_DEPENDS+=	${LOCALBASE}/lib/python3.2/site-packages/numpy/__init__.py:${PORTSDIR}/math/py-numpy32
-CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.2/site-packages
+# we specifically want a 3.3 version installed
+RUN_DEPENDS+=	${LOCALBASE}/lib/python3.3/site-packages/numpy/__init__.py:${PORTSDIR}/math/py-numpy33
+CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.3/site-packages
 .endif
 
 #USE_GITHUB=	yes
@@ -55,7 +55,7 @@ CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.2/site-packages
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	ba0594c
+GH_COMMIT=	0f1f622
 
 FETCH_ARGS=     -pRr
 
@@ -242,7 +242,7 @@ post-install:
 		${PREFIX}/bin/blenderplayer-bin-sambler
 .endif
 
-	@${CP} -R ${OUTDIR}/scripts ${DATADIR}/
+	@${CP} -R ${OUTDIR}/scripts ${DATADIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
 		${PREFIX}/share/pixmaps/blender-sambler.svg
 

@@ -87,12 +87,12 @@ share/pixmaps/blender-sambler.svg
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/emissive.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/closure/volume.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_accumulate.h
-%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_attribute.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_bvh.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_camera.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_compat_cpu.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_compat_cuda.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_compat_opencl.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_curve.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_differential.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_displace.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_emission.h
@@ -104,6 +104,7 @@ share/pixmaps/blender-sambler.svg
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_object.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_passes.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_path.h
+%%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_primitive.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_projection.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_random.h
 %%CYCLES%%%%DATADIR%%/scripts/addons/cycles/kernel/kernel_shader.h
@@ -311,6 +312,9 @@ share/pixmaps/blender-sambler.svg
 %%DATADIR%%/scripts/addons/io_scene_x3d/__init__.py
 %%DATADIR%%/scripts/addons/io_scene_x3d/export_x3d.py
 %%DATADIR%%/scripts/addons/io_scene_x3d/import_x3d.py
+%%DATADIR%%/scripts/addons/io_sequencer_edl/__init__.py
+%%DATADIR%%/scripts/addons/io_sequencer_edl/parse_edl.py
+%%DATADIR%%/scripts/addons/io_sequencer_edl/import_edl.py
 %%DATADIR%%/scripts/addons/io_shape_mdd/__init__.py
 %%DATADIR%%/scripts/addons/io_shape_mdd/export_mdd.py
 %%DATADIR%%/scripts/addons/io_shape_mdd/import_mdd.py
@@ -573,7 +577,6 @@ share/pixmaps/blender-sambler.svg
 %%DATADIR%%/scripts/addons_contrib/io_scene_open_street_map.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_x/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_x/export_x.py
-%%DATADIR%%/scripts/addons_contrib/io_sequencer_edl/import_edl.py
 %%DATADIR%%/scripts/addons_contrib/lamp_geographical_sun.py
 %%DATADIR%%/scripts/addons_contrib/mesh_copy_uvs_from_joined.py
 %%DATADIR%%/scripts/addons_contrib/mesh_discombobulator.py
@@ -755,7 +758,6 @@ share/pixmaps/blender-sambler.svg
 %%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/exiftool.py
 %%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/functions.py
 %%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/operators_extra_actions.py
-%%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/operators_recursive.py
 %%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/ui.py
 %%DATADIR%%/scripts/addons_contrib/sequencer_jumptocut.py
 %%DATADIR%%/scripts/addons_contrib/sequencer_tools/__init__.py
@@ -1044,6 +1046,7 @@ share/pixmaps/blender-sambler.svg
 %%DATADIR%%/scripts/templates_py/operator_simple.py
 %%DATADIR%%/scripts/templates_py/operator_uv.py
 %%DATADIR%%/scripts/templates_py/script_stub.py
+%%DATADIR%%/scripts/templates_py/ui_list.py
 %%DATADIR%%/scripts/templates_py/ui_menu_simple.py
 %%DATADIR%%/scripts/templates_py/ui_menu.py
 %%DATADIR%%/scripts/templates_py/ui_panel_simple.py
@@ -1147,6 +1150,7 @@ share/pixmaps/blender-sambler.svg
 @dirrm %%DATADIR%%/scripts/addons/mesh_inset
 @dirrm %%DATADIR%%/scripts/addons/light_field_tools
 @dirrm %%DATADIR%%/scripts/addons/io_shape_mdd
+@dirrm %%DATADIR%%/scripts/addons/io_sequencer_edl
 @dirrm %%DATADIR%%/scripts/addons/io_scene_x3d
 @dirrm %%DATADIR%%/scripts/addons/io_scene_obj
 @dirrm %%DATADIR%%/scripts/addons/io_scene_map
