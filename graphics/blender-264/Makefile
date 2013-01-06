@@ -1,14 +1,14 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
-PORTNAME=	blender
+PORTNAME=	blender-264
 PORTVERSION=	2.64a
 PORTREVISION=	0
-UNIQUENAME=	blender-2.64
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
 		http://public.planetmirror.com/pub/blender/source/
+DISTFILES=	blender-2.64a.tar.gz
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	3D modeling/rendering/animation/gaming package
@@ -38,6 +38,7 @@ CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.2/site-packages
 USE_CMAKE=	yes
 CMAKE_OUTSOURCE=	yes
 MAKE_JOBS_SAFE=	yes
+WRKSRC=		${WRKDIR}/blender-2.64a
 
 USE_PYTHON=	3.2
 WANT_GNOME=	yes
@@ -167,9 +168,9 @@ post-install:
 	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${PREFIX}/bin/blender-264
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
 		${PREFIX}/bin/blender-bin-264
-	@${MKDIR} ${DATADIR}-264
+	@${MKDIR} ${DATADIR}
 	@${INSTALL_SCRIPT} ${INSTALL_WRKSRC}/bin/blender-thumbnailer.py \
-		${PREFIX}/bin/blender-thumbnailer.py
+		${PREFIX}/bin/blender-thumbnailer-264.py
 
 .if ${PORT_OPTIONS:MPLAYER}
 	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${PREFIX}/bin/blenderplayer-264
@@ -177,22 +178,22 @@ post-install:
 		${PREFIX}/bin/blenderplayer-bin-264
 .endif
 
-	@${CP} -R ${OUTDIR}/scripts ${DATADIR}-264
+	@${CP} -R ${OUTDIR}/scripts ${DATADIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
-		${PREFIX}/share/pixmaps/blender.svg
+		${PREFIX}/share/pixmaps/blender-264.svg
 
 .if ${PORT_OPTIONS:MNLS}
 .for ii in ${LANG}
-	@${MKDIR} ${DATADIR}-264/datafiles/locale/${ii}/LC_MESSAGES
+	@${MKDIR} ${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES
 	@${INSTALL_DATA} \
 		${OUTDIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo \
-		${DATADIR}-264/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
+		${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
 .endfor
 .endif
 
 	@${MKDIR} ${DESKTOPDIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.desktop \
-		${DESKTOPDIR}/blender.desktop
+		${DESKTOPDIR}/blender-264.desktop
 	@-update-desktop-database -q
 
 .include <bsd.port.mk>
