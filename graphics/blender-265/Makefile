@@ -1,14 +1,13 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
-PORTNAME=	blender
-PORTVERSION=	2.65
-PORTREVISION=	0
-UNIQUENAME=	blender-2.65
+PORTNAME=	blender-265
+PORTVERSION=	2.65a
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
 		http://public.planetmirror.com/pub/blender/source/
+DISTFILES=	blender-2.65a.tar.gz
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	3D modeling/rendering/animation/gaming package
@@ -28,20 +27,19 @@ LIB_DEPENDS+=	fftw3:${PORTSDIR}/math/fftw3
 LIB_DEPENDS+=	avutil:${PORTSDIR}/multimedia/ffmpeg
 LIB_DEPENDS+=	freetype:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
-.if exists(${PORTSDIR}/math/py-numpy32)
+.if exists(${PORTSDIR}/math/py-numpy33)
 # PYTHON_SITELIBDIR most likely points to python2.7/site-packages
-# we specifically want a 3.2 version installed
-RUN_DEPENDS+=	${LOCALBASE}/lib/python3.2/site-packages/numpy/__init__.py:${PORTSDIR}/math/py-numpy32
-CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.2/site-packages
+# we specifically want a 3.3 version installed
+RUN_DEPENDS+=	${LOCALBASE}/lib/python3.3/site-packages/numpy/__init__.py:${PORTSDIR}/math/py-numpy33
+CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.3/site-packages
 .endif
 
 USE_CMAKE=	yes
 CMAKE_OUTSOURCE=	yes
 MAKE_JOBS_SAFE=	yes
+WRKSRC=		${WRKDIR}/blender-2.65a
 
-USE_PYTHON=	3.2
-# blender looks for py3.3 by default - we need to specify 3.2 for now
-CMAKE_ARGS+=	-DPYTHON_VERSION:STRING=3.2
+USE_PYTHON=	3.3
 WANT_GNOME=	yes
 USE_GNOME=	desktopfileutils
 USE_OPENAL=	al alut
@@ -183,9 +181,9 @@ post-install:
 	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${PREFIX}/bin/blender-265
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
 		${PREFIX}/bin/blender-bin-265
-	@${MKDIR} ${DATADIR}-265
+	@${MKDIR} ${DATADIR}
 	@${INSTALL_SCRIPT} ${INSTALL_WRKSRC}/bin/blender-thumbnailer.py \
-		${PREFIX}/bin/blender-thumbnailer.py
+		${PREFIX}/bin/blender-thumbnailer-265.py
 
 .if ${PORT_OPTIONS:MPLAYER}
 	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${PREFIX}/bin/blenderplayer-265
@@ -193,22 +191,22 @@ post-install:
 		${PREFIX}/bin/blenderplayer-bin-265
 .endif
 
-	@${CP} -R ${OUTDIR}/scripts ${DATADIR}-265/
+	@${CP} -R ${OUTDIR}/scripts ${DATADIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
-		${PREFIX}/share/pixmaps/blender.svg
+		${PREFIX}/share/pixmaps/blender-265.svg
 
 .if ${PORT_OPTIONS:MNLS}
 .for ii in ${LANG}
-	@${MKDIR} ${DATADIR}-265/datafiles/locale/${ii}/LC_MESSAGES
+	@${MKDIR} ${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES
 	@${INSTALL_DATA} \
 		${OUTDIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo \
-		${DATADIR}-265/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
+		${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
 .endfor
 .endif
 
 	@${MKDIR} ${DESKTOPDIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.desktop \
-		${DESKTOPDIR}/blender.desktop
+		${DESKTOPDIR}/blender-265.desktop
 	@-update-desktop-database -q
 
 .include <bsd.port.mk>
