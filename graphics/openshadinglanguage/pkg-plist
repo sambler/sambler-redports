@@ -28,7 +28,7 @@ lib/libtestshade.so.1
 %%DATADIR%%/CHANGES
 %%DATADIR%%/INSTALL
 %%DATADIR%%/LICENSE
-%%DATADIR%%/README
+%%DATADIR%%/README.md
 %%DATADIR%%/osl-languagespec.pdf
 %%DATADIR%%/shaders/emitter.osl
 %%DATADIR%%/shaders/emitter.oso

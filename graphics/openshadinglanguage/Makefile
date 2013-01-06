@@ -10,26 +10,26 @@ COMMENT=	Advanced shading language for production GI renderers
 
 LICENSE=	BSD
 
-BUILD_DEPENDS=	llvm>=3.1:${PORTSDIR}/devel/llvm
-BUILD_DEPENDS+=	flex>=2.5.37:${PORTSDIR}/textproc/flex
-LIB_DEPENDS=	boost_thread:${PORTSDIR}/devel/boost-libs
-LIB_DEPENDS+=	IlmImf:${PORTSDIR}/graphics/OpenEXR
-LIB_DEPENDS+=	OpenImageIO:${PORTSDIR}/graphics/openimageio
+BUILD_DEPENDS=	llvm>=3.1:${PORTSDIR}/devel/llvm \
+		flex>=2.5.37:${PORTSDIR}/textproc/flex
+LIB_DEPENDS=	boost_thread:${PORTSDIR}/devel/boost-libs \
+		IlmImf:${PORTSDIR}/graphics/OpenEXR \
+		OpenImageIO:${PORTSDIR}/graphics/openimageio
 RUN_DEPENDS=	llvm>=3.1:${PORTSDIR}/devel/llvm
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	sambler
 GH_PROJECT=	OpenShadingLanguage
-GH_TAGNAME=	osl-20121201
-GH_COMMIT=	647d6b9
+GH_TAGNAME=	osl-20130106
+GH_COMMIT=	3c69652
 
 WRKSRC+=	${WRKDIR}/sambler-OpenShadingLanguage-${GH_COMMIT}/src
 
 USE_CMAKE=	yes
 CMAKE_VERBOSE=	yes
 CMAKE_OUTSOURCE=	yes
-CMAKE_ARGS=	-DFLEX_EXECUTABLE:STRING=${LOCALBASE}/bin/flex
-CMAKE_ARGS+=	-DUSE_TBB:BOOL=OFF
+CMAKE_ARGS=	-DFLEX_EXECUTABLE:STRING=${LOCALBASE}/bin/flex \
+		-DUSE_TBB:BOOL=OFF
 CXXFLAGS+=	-I${LOCALBASE}/include/flex
 USE_LDCONFIG=	yes
 USE_BISON=	build
