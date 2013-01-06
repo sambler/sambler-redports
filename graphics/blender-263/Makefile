@@ -1,14 +1,14 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
-PORTNAME=	blender
+PORTNAME=	blender-263
 PORTVERSION=	2.63a
 PORTREVISION=	0
-UNIQUENAME=	blender-2.63
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
 		http://public.planetmirror.com/pub/blender/source/
+DISTFILES=	blender-2.63a.tar.gz
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	3D modeling/rendering/animation/gaming package
@@ -37,6 +37,7 @@ CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.2/site-packages
 USE_CMAKE=	yes
 CMAKE_OUTSOURCE=	yes
 MAKE_JOBS_SAFE=	yes
+WRKSRC=		${WRKDIR}/blender-2.63a
 
 USE_PYTHON=	3.2
 WANT_GNOME=	yes
@@ -62,7 +63,7 @@ CMAKE_ARGS+=	-DWITH_MOD_OCEANSIM:BOOL=ON -DWITH_MOD_REMESH:BOOL=ON
 CMAKE_ARGS+=	-DWITH_MOD_SMOKE:BOOL=ON -DWITH_OPENAL:BOOL=ON
 CMAKE_ARGS+=	-DWITH_OPENCOLLADA:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_INPUT_NDOF:BOOL=OFF -DWITH_PYTHON:BOOL=ON
-CMAKE_ARGS+=	-DWITH_PYTHON_INSTALL:BOOL=ON -DWITH_PYTHON_MODULE:BOOL=OFF
+CMAKE_ARGS+=	-DWITH_PYTHON_INSTALL:BOOL=OFF -DWITH_PYTHON_MODULE:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_PYTHON_SAFETY:BOOL=OFF 
 CMAKE_ARGS+=	-DWITH_RAYOPTIMIZATION:BOOL=ON -DWITH_SDL:BOOL=ON
 CMAKE_ARGS+=	-DWITH_X11_XF86VMODE:BOOL=ON -DWITH_X11_XINPUT:BOOL=ON
@@ -163,9 +164,9 @@ post-install:
 	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${PREFIX}/bin/blender-263
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
 		${PREFIX}/bin/blender-bin-263
-	@${MKDIR} ${DATADIR}-263
+	@${MKDIR} ${DATADIR}
 	@${INSTALL_SCRIPT} ${INSTALL_WRKSRC}/bin/blender-thumbnailer.py \
-		${PREFIX}/bin/blender-thumbnailer.py
+		${PREFIX}/bin/blender-thumbnailer-263.py
 
 .if ${PORT_OPTIONS:MPLAYER}
 	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${PREFIX}/bin/blenderplayer-263
@@ -173,22 +174,22 @@ post-install:
 		${PREFIX}/bin/blenderplayer-bin-263
 .endif
 
-	@${CP} -R ${OUTDIR}/scripts ${DATADIR}-263
+	@${CP} -R ${OUTDIR}/scripts ${DATADIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
-		${PREFIX}/share/pixmaps/blender.svg
+		${PREFIX}/share/pixmaps/blender-263.svg
 
 .if ${PORT_OPTIONS:MNLS}
 .for ii in ${LANG}
-	@${MKDIR} ${DATADIR}-263/datafiles/locale/${ii}/LC_MESSAGES
+	@${MKDIR} ${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES
 	@${INSTALL_DATA} \
 		${OUTDIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo \
-		${DATADIR}-263/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
+		${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
 .endfor
 .endif
 
 	@${MKDIR} ${DESKTOPDIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.desktop \
-		${DESKTOPDIR}/blender.desktop
+		${DESKTOPDIR}/blender-263.desktop
 	@-update-desktop-database -q
 
 .include <bsd.port.mk>
