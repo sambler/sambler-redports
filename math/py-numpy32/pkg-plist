@@ -1,4 +1,5 @@
 bin/f2py32
+%%PYTHON_SITELIBDIR%%/numpy-1.6.2-py3.2.egg-info
 %%PYTHON_SITELIBDIR%%/numpy/__config__.py
 %%PYTHON_SITELIBDIR%%/numpy/__pycache__/__config__.cpython-32.pyc
 %%PYTHON_SITELIBDIR%%/numpy/__pycache__/__config__.cpython-32.pyo
