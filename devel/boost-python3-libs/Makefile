@@ -7,6 +7,7 @@ COMMENT=	Framework for interfacing Python and C++
 CONFLICTS=	boost-python-libs*
 
 USE_BZIP2=	yes
+USE_GCC=	4.6+
 USE_PYTHON=	3.3
 
 OPTIONS=	VERBOSE_BUILD	"Show compiler messages"	off \
