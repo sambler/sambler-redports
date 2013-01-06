@@ -1,13 +1,14 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
-PORTNAME=	blender
+PORTNAME=	blender-249
 PORTVERSION=	2.49b
 PORTREVISION=	0
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
 		http://public.planetmirror.com/pub/blender/source/
+DISTFILES=	blender-2.49b.tar.gz
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	3D modeling/rendering/animation/gaming package
@@ -27,6 +28,7 @@ LIB_DEPENDS+=   ftgl.2:${PORTSDIR}/graphics/ftgl
 USE_CMAKE=	yes
 CMAKE_OUTSOURCE=	yes
 MAKE_JOBS_SAFE=	yes
+WRKSRC=		${WRKDIR}/blender-2.49b
 
 USE_PYTHON=	2.7
 WANT_GNOME=	yes
@@ -37,20 +39,13 @@ USE_GL=		gl glu glew
 USE_GCC=	4.6+
 LDFLAGS+=	-lX11 -lopenjpeg -lGLEW
 
-CMAKE_ARGS+=	-DWITH_BULLET=ON
-CMAKE_ARGS+=	-DWITH_DDS=ON
-CMAKE_ARGS+=	-DWITH_ELBEEM=ON
-CMAKE_ARGS+=	-DWITH_FFMPEG=ON
+CMAKE_ARGS+=	-DWITH_BULLET=ON -DWITH_DDS=ON
+CMAKE_ARGS+=	-DWITH_ELBEEM=ON -DWITH_FFMPEG=ON
 CMAKE_ARGS+=	-DWITH_GAMEENGINE=OFF
-CMAKE_ARGS+=	-DWITH_INTERNATIONAL=ON
-CMAKE_ARGS+=	-DWITH_KETSJI=ON
-CMAKE_ARGS+=	-DWITH_OPENAL=ON
-CMAKE_ARGS+=	-DWITH_OPENEXR=ON
-CMAKE_ARGS+=	-DWITH_OPENJPEG=ON
-CMAKE_ARGS+=	-DWITH_OPENMP=ON
-CMAKE_ARGS+=	-DWITH_QUICKTIME=OFF
-CMAKE_ARGS+=	-DWITH_VERSE=OFF
-CMAKE_ARGS+=	-DWITH_WEBPLUGIN=OFF
+CMAKE_ARGS+=	-DWITH_KETSJI=ON -DWITH_OPENAL=ON
+CMAKE_ARGS+=	-DWITH_OPENEXR=ON -DWITH_OPENJPEG=ON
+CMAKE_ARGS+=	-DWITH_OPENMP=ON -DWITH_QUICKTIME=OFF
+CMAKE_ARGS+=	-DWITH_VERSE=OFF -DWITH_WEBPLUGIN=OFF
 
 SUB_FILES=	blender 
 #blenderplayer
@@ -82,6 +77,7 @@ CMAKE_ARGS+=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 .endif
 
 .if ${PORT_OPTIONS:MPLAYER}
+BROKEN= blender-249 player not currently working
 CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=ON
 PLIST_SUB+=	PLAYER=""
 .else
@@ -103,7 +99,7 @@ do-install:
 	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${PREFIX}/bin/blender-249
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
 		${PREFIX}/bin/blender-bin-249
-	@${MKDIR} ${DATADIR}-249
+	@${MKDIR} ${DATADIR}
 
 .if ${PORT_OPTIONS:MPLAYER}
 	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${PREFIX}/bin/blenderplayer-249
@@ -111,16 +107,16 @@ do-install:
 		${PREFIX}/bin/blenderplayer-bin-249
 .endif
 
-	@${CP} -R ${WRKSRC}/release/scripts ${DATADIR}-249
-	@${INSTALL_DATA} ${WRKSRC}/bin/.blender/.Blanguages ${DATADIR}-249
-	@${INSTALL_DATA} ${WRKSRC}/bin/.blender/.bfont.ttf ${DATADIR}-249
+	@${CP} -R ${WRKSRC}/release/scripts ${DATADIR}
+	@${INSTALL_DATA} ${WRKSRC}/bin/.blender/.Blanguages ${DATADIR}
+	@${INSTALL_DATA} ${WRKSRC}/bin/.blender/.bfont.ttf ${DATADIR}
 
 .if ${PORT_OPTIONS:MNLS}
 .for ii in ${LANG}
-	@${MKDIR} ${DATADIR}-249/datafiles/locale/${ii}/LC_MESSAGES
+	@${MKDIR} ${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES
 	@${INSTALL_DATA} \
 		${WRKSRC}/bin/.blender/locale/${ii}/LC_MESSAGES/blender.mo \
-		${DATADIR}-249/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
+		${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
 .endfor
 .endif
 
