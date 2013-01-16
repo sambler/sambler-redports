@@ -1,5 +1,5 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
-# $FreeBSD: ports/graphics/opencolorio/Makefile,v 1.3 2012/12/20 10:41:40 svnexp Exp $
+# $FreeBSD$
 
 PORTNAME?=	opencolorio
 PORTVERSION=	1.0.8

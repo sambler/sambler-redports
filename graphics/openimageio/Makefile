@@ -1,5 +1,5 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
-# $FreeBSD: ports/graphics/openimageio/Makefile,v 1.10 2012/12/20 10:53:37 svnexp Exp $
+# $FreeBSD$
 
 PORTNAME?=	openimageio
 PORTVERSION=	1.1.2

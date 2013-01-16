@@ -1,5 +1,5 @@
 # Created by: Shane Ambler
-# $FreeBSD: ports/graphics/py-openimageio/Makefile,v 1.5 2012/12/20 10:53:38 svnexp Exp $
+# $FreeBSD$
 
 PORTNAME=	openimageio
 CATEGORIES=	graphics multimedia python
