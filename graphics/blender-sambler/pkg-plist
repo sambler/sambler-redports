@@ -526,9 +526,6 @@ share/pixmaps/blender-sambler.svg
 %%DATADIR%%/scripts/addons_contrib/geodesic_domes/vefm_259.py
 %%DATADIR%%/scripts/addons_contrib/gpencil_retopo/__init__.py
 %%DATADIR%%/scripts/addons_contrib/gpencil_retopo/retopo.py
-%%DATADIR%%/scripts/addons_contrib/gyes/__init__.py
-%%DATADIR%%/scripts/addons_contrib/gyes/random_material_generator.py
-%%DATADIR%%/scripts/addons_contrib/gyes/random_texture_generator.py
 %%DATADIR%%/scripts/addons_contrib/io_atomblend_utilities/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_atomblend_utilities/io_atomblend_utilities.py
 %%DATADIR%%/scripts/addons_contrib/io_directx_bel/__init__.py
@@ -594,7 +591,6 @@ share/pixmaps/blender-sambler.svg
 %%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_vertex_chamfer.py
 %%DATADIR%%/scripts/addons_contrib/mesh_extrude_along_curve.py
 %%DATADIR%%/scripts/addons_contrib/mesh_face_info_select.py
-%%DATADIR%%/scripts/addons_contrib/mesh_fiber.py
 %%DATADIR%%/scripts/addons_contrib/mesh_insert_edge_ring.py
 %%DATADIR%%/scripts/addons_contrib/mesh_select_tools/__init__.py
 %%DATADIR%%/scripts/addons_contrib/mesh_select_tools/mesh_extras.py
@@ -1211,7 +1207,6 @@ share/pixmaps/blender-sambler.svg
 @dirrm %%DATADIR%%/scripts/addons_contrib/node_categories
 @dirrm %%DATADIR%%/scripts/addons_contrib/mesh_select_tools
 @dirrm %%DATADIR%%/scripts/addons_contrib/mesh_extra_tools
-@dirrm %%DATADIR%%/scripts/addons_contrib/io_sequencer_edl
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_x
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_ms3d
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_scene_m3
@@ -1222,7 +1217,6 @@ share/pixmaps/blender-sambler.svg
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_directx_bel/bel
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_directx_bel
 @dirrm %%DATADIR%%/scripts/addons_contrib/io_atomblend_utilities
-@dirrm %%DATADIR%%/scripts/addons_contrib/gyes
 @dirrm %%DATADIR%%/scripts/addons_contrib/gpencil_retopo
 @dirrm %%DATADIR%%/scripts/addons_contrib/geodesic_domes/tmp
 @dirrm %%DATADIR%%/scripts/addons_contrib/geodesic_domes
