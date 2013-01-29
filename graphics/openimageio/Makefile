@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME?=	openimageio
-PORTVERSION=	1.1.2
+PORTVERSION=	1.1.3
 PORTREVISION?=	0
 CATEGORIES?=	graphics multimedia
 
@@ -22,7 +22,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
 GH_TAGNAME=	Release-${PORTVERSION}
-GH_COMMIT=	db9df57
+GH_COMMIT=	77be26d
 
 # fbm also installs bin/idiff
 CONFLICTS=	fbm-[0-9]*
@@ -83,11 +83,6 @@ CMAKE_ARGS+=	-DUSE_OCIO:BOOL=OFF
 .endif
 
 .include <bsd.port.pre.mk>
-
-.if ${ARCH} == "i386"
-# for gcc atomics we need to have an arch > i486
-CFLAGS+=	-march=i586
-.endif
 
 .if ${OSVERSION} < 800000
 IGNORE=	requires FreeBSD 8.0 or higher
