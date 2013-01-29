@@ -306,6 +306,13 @@ share/pixmaps/blender-sambler.svg
 %%DATADIR%%/scripts/addons/io_scene_fbx/export_fbx.py
 %%DATADIR%%/scripts/addons/io_scene_map/__init__.py
 %%DATADIR%%/scripts/addons/io_scene_map/export_map.py
+%%DATADIR%%/scripts/addons/io_scene_ms3d/__init__.py
+%%DATADIR%%/scripts/addons/io_scene_ms3d/ms3d_export.py
+%%DATADIR%%/scripts/addons/io_scene_ms3d/ms3d_import.py
+%%DATADIR%%/scripts/addons/io_scene_ms3d/ms3d_spec.py
+%%DATADIR%%/scripts/addons/io_scene_ms3d/ms3d_strings.py
+%%DATADIR%%/scripts/addons/io_scene_ms3d/ms3d_ui.py
+%%DATADIR%%/scripts/addons/io_scene_ms3d/ms3d_utils.py
 %%DATADIR%%/scripts/addons/io_scene_obj/__init__.py
 %%DATADIR%%/scripts/addons/io_scene_obj/export_obj.py
 %%DATADIR%%/scripts/addons/io_scene_obj/import_obj.py
@@ -401,6 +408,7 @@ share/pixmaps/blender-sambler.svg
 %%DATADIR%%/scripts/addons/render_copy_settings/operator.py
 %%DATADIR%%/scripts/addons/render_copy_settings/panel.py
 %%DATADIR%%/scripts/addons/render_copy_settings/presets.py
+%%DATADIR%%/scripts/addons/render_copy_settings/translations.py
 %%DATADIR%%/scripts/addons/render_povray/__init__.py
 %%DATADIR%%/scripts/addons/render_povray/render.py
 %%DATADIR%%/scripts/addons/render_povray/ui.py
@@ -564,13 +572,6 @@ share/pixmaps/blender-sambler.svg
 %%DATADIR%%/scripts/addons_contrib/io_scene_cod/import_xmodel.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_m3/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_m3/import_m3.py
-%%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/__init__.py
-%%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/ms3d_export.py
-%%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/ms3d_import.py
-%%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/ms3d_spec.py
-%%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/ms3d_strings.py
-%%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/ms3d_ui.py
-%%DATADIR%%/scripts/addons_contrib/io_scene_ms3d/ms3d_utils.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_open_street_map.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_x/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_x/export_x.py
@@ -590,6 +591,7 @@ share/pixmaps/blender-sambler.svg
 %%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_polyredux.py
 %%DATADIR%%/scripts/addons_contrib/mesh_extra_tools/mesh_vertex_chamfer.py
 %%DATADIR%%/scripts/addons_contrib/mesh_extrude_along_curve.py
+%%DATADIR%%/scripts/addons_contrib/mesh_f2.py
 %%DATADIR%%/scripts/addons_contrib/mesh_face_info_select.py
 %%DATADIR%%/scripts/addons_contrib/mesh_insert_edge_ring.py
 %%DATADIR%%/scripts/addons_contrib/mesh_select_tools/__init__.py
@@ -733,7 +735,13 @@ share/pixmaps/blender-sambler.svg
 %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/peter.cassetta.info/testing/cycles/revision_data.ini
 %%DATADIR%%/scripts/addons_contrib/oscurart_futurism.py
 %%DATADIR%%/scripts/addons_contrib/oscurart_mesh_thread.py
-%%DATADIR%%/scripts/addons_contrib/oscurart_tools.py
+%%DATADIR%%/scripts/addons_contrib/oscurart_tools/__init__.py
+%%DATADIR%%/scripts/addons_contrib/oscurart_tools/oscurart_files.py
+%%DATADIR%%/scripts/addons_contrib/oscurart_tools/oscurart_meshes.py
+%%DATADIR%%/scripts/addons_contrib/oscurart_tools/oscurart_objects.py
+%%DATADIR%%/scripts/addons_contrib/oscurart_tools/oscurart_overrides.py
+%%DATADIR%%/scripts/addons_contrib/oscurart_tools/oscurart_render.py
+%%DATADIR%%/scripts/addons_contrib/oscurart_tools/oscurart_shapes.py
 %%DATADIR%%/scripts/addons_contrib/particle_hair_lab.py
 %%DATADIR%%/scripts/addons_contrib/presets/interface_theme/3ds_max.xml
 %%DATADIR%%/scripts/addons_contrib/presets/interface_theme/default.xml
@@ -899,6 +907,12 @@ share/pixmaps/blender-sambler.svg
 %%DATADIR%%/scripts/presets/render/HDV_1080p.py
 %%DATADIR%%/scripts/presets/render/HDV_NTSC_1080p.py
 %%DATADIR%%/scripts/presets/render/HDV_PAL_1080p.py
+%%DATADIR%%/scripts/presets/render/ipad-mini.py
+%%DATADIR%%/scripts/presets/render/ipad.py
+%%DATADIR%%/scripts/presets/render/ipad3.py
+%%DATADIR%%/scripts/presets/render/iphone.py
+%%DATADIR%%/scripts/presets/render/iphone4.py
+%%DATADIR%%/scripts/presets/render/iphone5.py
 %%DATADIR%%/scripts/presets/render/TV_NTSC_16_colon_9.py
 %%DATADIR%%/scripts/presets/render/TV_NTSC_4_colon_3.py
 %%DATADIR%%/scripts/presets/render/TV_PAL_16_colon_9.py
@@ -959,6 +973,7 @@ share/pixmaps/blender-sambler.svg
 %%DATADIR%%/scripts/startup/bl_operators/object_randomize_transform.py
 %%DATADIR%%/scripts/startup/bl_operators/object.py
 %%DATADIR%%/scripts/startup/bl_operators/presets.py
+%%DATADIR%%/scripts/startup/bl_operators/rigidbody.py
 %%DATADIR%%/scripts/startup/bl_operators/screen_play_rendered_anim.py
 %%DATADIR%%/scripts/startup/bl_operators/sequencer.py
 %%DATADIR%%/scripts/startup/bl_operators/uvcalc_follow_active.py
@@ -992,6 +1007,8 @@ share/pixmaps/blender-sambler.svg
 %%DATADIR%%/scripts/startup/bl_ui/properties_physics_dynamicpaint.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_physics_field.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_physics_fluid.py
+%%DATADIR%%/scripts/startup/bl_ui/properties_physics_rigidbody_constraint.py
+%%DATADIR%%/scripts/startup/bl_ui/properties_physics_rigidbody.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_physics_smoke.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_physics_softbody.py
 %%DATADIR%%/scripts/startup/bl_ui/properties_render.py
@@ -1150,6 +1167,7 @@ share/pixmaps/blender-sambler.svg
 @dirrm %%DATADIR%%/scripts/addons/io_scene_x3d
 @dirrm %%DATADIR%%/scripts/addons/io_scene_obj
 @dirrm %%DATADIR%%/scripts/addons/io_scene_map
+@dirrm %%DATADIR%%/scripts/addons/io_scene_ms3d
 @dirrm %%DATADIR%%/scripts/addons/io_scene_fbx
 @dirrm %%DATADIR%%/scripts/addons/io_scene_3ds
 @dirrm %%DATADIR%%/scripts/addons/io_mesh_uv_layout
@@ -1180,6 +1198,7 @@ share/pixmaps/blender-sambler.svg
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets/keyconfig
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets/interface_theme
 @dirrm %%DATADIR%%/scripts/addons_contrib/presets
+@dirrm %%DATADIR%%/scripts/addons_contrib/oscurart_tools
 @dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/peter.cassetta.info/testing/cycles
 @dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/peter.cassetta.info/testing
 @dirrm %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/peter.cassetta.info/release/cycles
