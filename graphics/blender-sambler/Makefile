@@ -64,6 +64,7 @@ USE_CMAKE=	yes
 CMAKE_OUTSOURCE=	yes
 MAKE_JOBS_SAFE=	yes
 WRKSRC=         ${WRKDIR}/sambler-myblender-${GH_COMMIT}
+OUTDIR=		${INSTALL_WRKSRC}/bin/2.65
 
 USE_PYTHON=	3.3
 WANT_GNOME=	yes
@@ -104,9 +105,6 @@ SUB_FILES=	blender blenderplayer
 MAN1=		blender.1
 
 OUTDIR=		${INSTALL_WRKSRC}/bin/${PORTVERSION}
-
-LANG=		ar cs de es es_ES fa fr hr id it ja ky pt \
-		ru sr sr@latin sv tr uk zh_CN zh_TW
 
 OPTIONS_DEFINE=	HEADLESS SECURITY PLAYER JACK NLS OSL
 ## COLLADA NDOF
@@ -238,24 +236,38 @@ post-install:
 	@${MKDIR} ${DATADIR}
 	@${INSTALL_SCRIPT} ${INSTALL_WRKSRC}/bin/blender-thumbnailer.py \
 		${PREFIX}/bin/blender-thumbnailer-sambler.py
+	@${ECHO} bin/blender-sambler >> ${TMPPLIST}
+	@${ECHO} bin/blender-bin-sambler >> ${TMPPLIST}
+	@${ECHO} bin/blender-thumbnailer-sambler.py >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MPLAYER}
 	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${PREFIX}/bin/blenderplayer-sambler
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blenderplayer \
 		${PREFIX}/bin/blenderplayer-bin-sambler
+	@${ECHO} bin/blenderplayer-sambler >> ${TMPPLIST}
+	@${ECHO} bin/blenderplayer-bin-sambler >> ${TMPPLIST}
 .endif
 
 	@${CP} -R ${OUTDIR}/scripts ${DATADIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
 		${PREFIX}/share/pixmaps/blender-sambler.svg
+	@(cd ${OUTDIR}; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@${ECHO} share/pixmaps/${PORTNAME}.svg >> ${TMPPLIST}
+
+	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/colormanagement ${DATADIR}
+	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+
+	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/fonts ${DATADIR}
+	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MNLS}
-.for ii in ${LANG}
-	@${MKDIR} ${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES
-	@${INSTALL_DATA} \
-		${OUTDIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo \
-		${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
-.endfor
+	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/locale ${DATADIR}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 .endif
 
 .if !defined(NO_INSTALL_MANPAGES)
@@ -265,7 +277,11 @@ post-install:
 
 	@${MKDIR} ${DESKTOPDIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.desktop \
-		${DESKTOPDIR}/blender-sambler.desktop
+		${DESKTOPDIR}/${PORTNAME}.desktop
 	@-update-desktop-database -q
+	@${ECHO} share/applications/${PORTNAME}.desktop >> ${TMPPLIST}
+
+	@${ECHO} @dirrm ${DATADIR_REL}/datafiles >> ${TMPPLIST}
+	@${ECHO} @dirrm ${DATADIR_REL} >> ${TMPPLIST}
 
 .include <bsd.port.mk>
