@@ -25,10 +25,7 @@ CMAKE_ARGS=	-DOCIO_BUILD_APPS:BOOL=ON \
 USE_GL=		glew glut
 LDFLAGS+=	-L${LOCALBASE}/lib
 
-EXTRA_PATCHES=	${FILESDIR}/extra-patch-CMakeLists.txt \
-		${FILESDIR}/extra-patch-src__apps__ocioconvert__main.cpp \
-		${FILESDIR}/extra-patch-src__apps__ociodisplay__main.cpp \
-		${FILESDIR}/extra-patch-src__apps__ociolutimage__main.cpp
+EXTRA_PATCHES=	${FILESDIR}/extra-patch-CMakeLists.txt
 
 OCIO_TOOLS=	yes
 

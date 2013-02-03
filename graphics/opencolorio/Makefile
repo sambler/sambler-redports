@@ -56,9 +56,9 @@ CMAKE_ARGS+=	-DOCIO_USE_SSE:BOOL=OFF
 
 .include <bsd.port.pre.mk>
 
-.if ${CC:T} == "clang" && ${ARCH} == "i386"
+.if ${CC:T} == "clang" && ${ARCH} == "i386" && ${OSVERSION} < 901000
 # workaround for pr/165968
-# may need to test osversion after fix is applied
+# was fixed in 9-STABLE before 9.1-RELEASE but not passed into 9-RELEASE
 CFLAGS+=	-march=pentium2
 .endif
 
