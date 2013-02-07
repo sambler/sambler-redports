@@ -23,7 +23,7 @@ GH_PROJECT=	OpenShadingLanguage
 GH_TAGNAME=	osl-20130106
 GH_COMMIT=	3c69652
 
-WRKSRC+=	${WRKDIR}/sambler-OpenShadingLanguage-${GH_COMMIT}/src
+WRKSRC=		${WRKDIR}/sambler-OpenShadingLanguage-${GH_COMMIT}/src
 
 USE_CMAKE=	yes
 CMAKE_VERBOSE=	yes
