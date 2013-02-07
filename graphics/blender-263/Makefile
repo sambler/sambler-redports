@@ -112,7 +112,6 @@ CMAKE_ARGS+=	-DWITH_CYCLES:BOOL=ON
 CMAKE_ARGS+=	-DWITH_CYCLES_CUDA_BINARIES:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_CYCLES_TEST:BOOL=OFF
 LIB_DEPENDS+=	OpenImageIO:${PORTSDIR}/graphics/openimageio
-PLIST_SUB+=	CYCLES=""
 
 .else # ${OSVERSION} 
 # openimageio doesn't build on 7.x so can't enable cycles
@@ -120,7 +119,6 @@ CMAKE_ARGS+=	-DWITH_CYCLES:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_CYCLES_CUDA_BINARIES:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_CYCLES_TEST:BOOL=OFF
-PLIST_SUB+=	CYCLES="@comment "
 .endif # ${OSVERSION}
 
 .if ${PORT_OPTIONS:MHEADLESS}
@@ -137,10 +135,8 @@ CMAKE_ARGS+=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 
 .if ${PORT_OPTIONS:MPLAYER}
 CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=ON
-PLIST_SUB+=	PLAYER=""
 .else
 CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=OFF
-PLIST_SUB+=	PLAYER="@comment "
 .endif
 
 .if ${PORT_OPTIONS:MJACK}
@@ -152,12 +148,10 @@ CMAKE_ARGS+=	-DWITH_JACK:BOOL=OFF
 
 .if ${PORT_OPTIONS:MNLS}
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=ON
-PLIST_SUB+=	NLS=""
 USE_GETTEXT=	yes
 USE_ICONV=	yes
 .else
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
-PLIST_SUB+=	NLS="@comment "
 .endif
 
 post-install:
@@ -167,29 +161,47 @@ post-install:
 	@${MKDIR} ${DATADIR}
 	@${INSTALL_SCRIPT} ${INSTALL_WRKSRC}/bin/blender-thumbnailer.py \
 		${PREFIX}/bin/blender-thumbnailer-263.py
+	@${ECHO} bin/blender-263 >> ${TMPPLIST}
+	@${ECHO} bin/blender-bin-263 >> ${TMPPLIST}
+	@${ECHO} bin/blender-thumbnailer-263.py >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MPLAYER}
 	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${PREFIX}/bin/blenderplayer-263
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blenderplayer \
 		${PREFIX}/bin/blenderplayer-bin-263
+	@${ECHO} bin/blenderplayer-263 >> ${TMPPLIST}
+	@${ECHO} bin/blenderplayer-bin-263 >> ${TMPPLIST}
 .endif
 
 	@${CP} -R ${OUTDIR}/scripts ${DATADIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
 		${PREFIX}/share/pixmaps/blender-263.svg
+	@(cd ${OUTDIR}; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@${ECHO} share/pixmaps/blender-263.svg >> ${TMPPLIST}
+
+	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/colormanagement ${DATADIR}
+	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+
+	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/fonts ${DATADIR}
+	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MNLS}
-.for ii in ${LANG}
-	@${MKDIR} ${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES
-	@${INSTALL_DATA} \
-		${OUTDIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo \
-		${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
-.endfor
+	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/locale ${DATADIR}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 .endif
 
 	@${MKDIR} ${DESKTOPDIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.desktop \
 		${DESKTOPDIR}/blender-263.desktop
 	@-update-desktop-database -q
+	@${ECHO} share/applications/blender-263.desktop >> ${TMPPLIST}
+
+	@${ECHO} @dirrm ${DATADIR_REL}/datafiles >> ${TMPPLIST}
+	@${ECHO} @dirrm ${DATADIR_REL} >> ${TMPPLIST}
 
 .include <bsd.port.mk>

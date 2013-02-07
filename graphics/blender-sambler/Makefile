@@ -146,19 +146,15 @@ LDFLAGS+=	-rpath ${LOCALBASE}/lib/gcc46
 CMAKE_ARGS+=	-DWITH_CYCLES:BOOL=ON
 CMAKE_ARGS+=	-DWITH_CYCLES_TEST:BOOL=OFF
 LIB_DEPENDS+=	OpenImageIO:${PORTSDIR}/graphics/openimageio
-PLIST_SUB+=	CYCLES=""
 
 .if ${PORT_OPTIONS:MOSL}
-.if exists(${PORTSDIR}/devel/boost-python3-libs)
-LIB_DEPENDS+=	boost_python3:${PORTSDIR}/devel/boost-python3-libs
-.endif
 LIB_DEPENDS+=	oslcomp:${PORTSDIR}/graphics/openshadinglanguage
 CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=ON
 CMAKE_ARGS+=	-DCYCLES_OSL:STRING="/usr/local"
-PLIST_SUB+=	OSL=""
+## oslc used during make fails if LC_ALL is not set to either C or POSIX
+MAKE_ENV+=	LC_ALL="C"
 .else
 CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=OFF
-PLIST_SUB+=	OSL="@comment "
 .endif # OSL
 
 .else # ${OSVERSION} 
@@ -166,8 +162,6 @@ PLIST_SUB+=	OSL="@comment "
 CMAKE_ARGS+=	-DWITH_CYCLES:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_CYCLES_TEST:BOOL=OFF
-PLIST_SUB+=	CYCLES="@comment "
-PLIST_SUB+=	OSL="@comment "
 .endif # ${OSVERSION}
 
 .if ${PORT_OPTIONS:MHEADLESS}
@@ -184,10 +178,8 @@ CMAKE_ARGS+=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 
 .if ${PORT_OPTIONS:MPLAYER}
 CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=ON
-PLIST_SUB+=	PLAYER=""
 .else
 CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=OFF
-PLIST_SUB+=	PLAYER="@comment "
 .endif
 
 .if ${PORT_OPTIONS:MJACK}
@@ -199,26 +191,24 @@ CMAKE_ARGS+=	-DWITH_JACK:BOOL=OFF
 
 .if ${PORT_OPTIONS:MCOLLADA}
 CMAKE_ARGS+=	-DWITH_OPENCOLLADA:BOOL=ON
-# add collada lib to ports
+# TODO: add collada lib to ports
 .else
 CMAKE_ARGS+=	-DWITH_OPENCOLLADA:BOOL=OFF
 .endif
 
 .if ${PORT_OPTIONS:MNDOF}
 CMAKE_ARGS+=	-DWITH_INPUT_NDOF:BOOL=ON
-# add ndof lib to ports
+# TODO: add ndof lib to ports
 .else
 CMAKE_ARGS+=	-DWITH_INPUT_NDOF:BOOL=OFF
 .endif
 
 .if ${PORT_OPTIONS:MNLS}
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=ON
-PLIST_SUB+=	NLS=""
 USE_GETTEXT=	yes
 USE_ICONV=	yes
 .else
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
-PLIST_SUB+=	NLS="@comment "
 .endif
 
 post-extract:
@@ -268,11 +258,6 @@ post-install:
 	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
 	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
 	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
-.endif
-
-.if !defined(NO_INSTALL_MANPAGES)
-	@${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender.1 \
-		${MAN1PREFIX}/man/man1
 .endif
 
 	@${MKDIR} ${DESKTOPDIR}

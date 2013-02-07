@@ -171,29 +171,48 @@ post-install:
 	@${MKDIR} ${DATADIR}
 	@${INSTALL_SCRIPT} ${INSTALL_WRKSRC}/bin/blender-thumbnailer.py \
 		${PREFIX}/bin/blender-thumbnailer-264.py
+	@${ECHO} bin/blender-264 >> ${TMPPLIST}
+	@${ECHO} bin/blender-bin-264 >> ${TMPPLIST}
+	@${ECHO} bin/blender-thumbnailer-264.py >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MPLAYER}
 	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${PREFIX}/bin/blenderplayer-264
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blenderplayer \
 		${PREFIX}/bin/blenderplayer-bin-264
+	@${ECHO} bin/blenderplayer-264 >> ${TMPPLIST}
+	@${ECHO} bin/blenderplayer-bin-264 >> ${TMPPLIST}
 .endif
 
 	@${CP} -R ${OUTDIR}/scripts ${DATADIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
 		${PREFIX}/share/pixmaps/blender-264.svg
+	@(cd ${OUTDIR}; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@${ECHO} share/pixmaps/blender-264.svg >> ${TMPPLIST}
+
+	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/colormanagement ${DATADIR}
+	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+
+	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/fonts ${DATADIR}
+	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MNLS}
-.for ii in ${LANG}
-	@${MKDIR} ${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES
-	@${INSTALL_DATA} \
-		${OUTDIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo \
-		${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
-.endfor
+	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/locale ${DATADIR}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 .endif
 
 	@${MKDIR} ${DESKTOPDIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.desktop \
 		${DESKTOPDIR}/blender-264.desktop
 	@-update-desktop-database -q
+	@${ECHO} share/applications/blender-264.desktop >> ${TMPPLIST}
 
+	@${ECHO} @dirrm ${DATADIR_REL}/datafiles >> ${TMPPLIST}
+	@${ECHO} @dirrm ${DATADIR_REL} >> ${TMPPLIST}
+
+.include <bsd.port.mk>
 .include <bsd.port.mk>

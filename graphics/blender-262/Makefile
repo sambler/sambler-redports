@@ -105,10 +105,8 @@ CMAKE_ARGS+=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 
 .if ${PORT_OPTIONS:MPLAYER}
 CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=ON
-PLIST_SUB+=	PLAYER=""
 .else
 CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=OFF
-PLIST_SUB+=	PLAYER="@comment "
 .endif
 
 .if ${PORT_OPTIONS:MJACK}
@@ -120,12 +118,10 @@ CMAKE_ARGS+=	-DWITH_JACK:BOOL=OFF
 
 .if ${PORT_OPTIONS:MNLS}
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=ON
-PLIST_SUB+=	NLS=""
 USE_GETTEXT=	yes
 USE_ICONV=	yes
 .else
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
-PLIST_SUB+=	NLS="@comment "
 .endif
 
 post-install:
@@ -135,29 +131,47 @@ post-install:
 	@${MKDIR} ${DATADIR}
 	@${INSTALL_SCRIPT} ${INSTALL_WRKSRC}/bin/blender-thumbnailer.py \
 		${PREFIX}/bin/blender-thumbnailer-262.py
+	@${ECHO} bin/blender-262 >> ${TMPPLIST}
+	@${ECHO} bin/blender-bin-262 >> ${TMPPLIST}
+	@${ECHO} bin/blender-thumbnailer-262.py >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MPLAYER}
 	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${PREFIX}/bin/blenderplayer-262
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blenderplayer \
 		${PREFIX}/bin/blenderplayer-bin-262
+	@${ECHO} bin/blenderplayer-262 >> ${TMPPLIST}
+	@${ECHO} bin/blenderplayer-bin-262 >> ${TMPPLIST}
 .endif
 
 	@${CP} -R ${OUTDIR}/scripts ${DATADIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
 		${PREFIX}/share/pixmaps/blender-262.svg
+	@(cd ${OUTDIR}; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@${ECHO} share/pixmaps/blender-262.svg >> ${TMPPLIST}
+
+	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/colormanagement ${DATADIR}
+	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+
+	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/fonts ${DATADIR}
+	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MNLS}
-.for ii in ${LANG}
-	@${MKDIR} ${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES
-	@${INSTALL_DATA} \
-		${OUTDIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo \
-		${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
-.endfor
+	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/locale ${DATADIR}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 .endif
 
 	@${MKDIR} ${DESKTOPDIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.desktop \
 		${DESKTOPDIR}/blender-262.desktop
 	@-update-desktop-database -q
+	@${ECHO} share/applications/blender-262.desktop >> ${TMPPLIST}
+
+	@${ECHO} @dirrm ${DATADIR_REL}/datafiles >> ${TMPPLIST}
+	@${ECHO} @dirrm ${DATADIR_REL} >> ${TMPPLIST}
 
 .include <bsd.port.mk>
