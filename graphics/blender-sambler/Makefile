@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.65
-PORTREVISION=	5
+PORTREVISION=	6
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -56,15 +56,17 @@ CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.3/site-packages
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	3bad4a7
+GH_COMMIT=	153c8d2
 
 FETCH_ARGS=	-pRr
 
 USE_CMAKE=	yes
 CMAKE_OUTSOURCE=	yes
 MAKE_JOBS_SAFE=	yes
-WRKSRC=         ${WRKDIR}/sambler-myblender-${GH_COMMIT}
+WRKSRC=		${WRKDIR}/sambler-myblender-${GH_COMMIT}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.65
+
+SUB_FILES=	blender blenderplayer
 
 USE_PYTHON=	3.3
 WANT_GNOME=	yes
@@ -100,11 +102,6 @@ CMAKE_ARGS+=	-DWITH_RAYOPTIMIZATION:BOOL=ON -DWITH_SDL:BOOL=ON
 CMAKE_ARGS+=	-DWITH_SYSTEM_BULLET:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_SYSTEM_GLEW:BOOL=ON -DWITH_SYSTEM_OPENJPEG:BOOL=ON
 CMAKE_ARGS+=	-DWITH_X11_XF86VMODE:BOOL=ON -DWITH_X11_XINPUT:BOOL=ON
-
-SUB_FILES=	blender blenderplayer
-MAN1=		blender.1
-
-OUTDIR=		${INSTALL_WRKSRC}/bin/${PORTVERSION}
 
 OPTIONS_DEFINE=	HEADLESS SECURITY PLAYER JACK NLS OSL
 ## COLLADA NDOF
@@ -243,7 +240,7 @@ post-install:
 		${PREFIX}/share/pixmaps/blender-sambler.svg
 	@(cd ${OUTDIR}; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
 	@(cd ${OUTDIR}; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
-	@${ECHO} share/pixmaps/${PORTNAME}.svg >> ${TMPPLIST}
+	@${ECHO} share/pixmaps/blender-sambler.svg >> ${TMPPLIST}
 
 	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/colormanagement ${DATADIR}
 	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
