@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	numpy33
-PORTVERSION=	1.7.0rc1
+PORTVERSION=	1.7.0rc2
 PORTREVISION=	0
 CATEGORIES=	math python
 MASTER_SITES=	http://docs.scipy.org/doc/${DISTNAME:C/\..$/.0/}/:doc \
