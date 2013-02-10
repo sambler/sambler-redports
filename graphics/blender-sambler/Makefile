@@ -148,8 +148,6 @@ LIB_DEPENDS+=	OpenImageIO:${PORTSDIR}/graphics/openimageio
 LIB_DEPENDS+=	oslcomp:${PORTSDIR}/graphics/openshadinglanguage
 CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=ON
 CMAKE_ARGS+=	-DCYCLES_OSL:STRING="/usr/local"
-## oslc used during make fails if LC_ALL is not set to either C or POSIX
-MAKE_ENV+=	LC_ALL="C"
 .else
 CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=OFF
 .endif # OSL
