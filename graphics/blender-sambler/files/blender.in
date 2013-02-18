@@ -3,7 +3,4 @@
 export BLENDER_SYSTEM_SCRIPTS=%%DATADIR%%/scripts
 export BLENDER_SYSTEM_DATAFILES=%%DATADIR%%/datafiles
 
-# osl compiling fails if LC_ALL is not set to C or POSIX
-export LC_ALL=C
-
 exec %%PREFIX%%/bin/blender-bin-sambler "$@"
