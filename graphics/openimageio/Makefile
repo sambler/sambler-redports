@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME?=	openimageio
-PORTVERSION=	1.1.3
+PORTVERSION=	1.1.6
 PORTREVISION?=	0
 CATEGORIES?=	graphics multimedia
 
@@ -22,7 +22,8 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
 GH_TAGNAME=	Release-${PORTVERSION}
-GH_COMMIT=	77be26d
+GH_COMMIT=	5fcd523
+WRKSRC=		${WRKDIR}/OpenImageIO-oiio-${GH_COMMIT}/src
 
 # fbm also installs bin/idiff
 CONFLICTS=	fbm-[0-9]*
@@ -36,7 +37,6 @@ CMAKE_ARGS?=	-DBUILDSTATIC:BOOL=OFF \
 		-DUSE_TBB:BOOL=OFF
 
 USE_LDCONFIG=	yes
-WRKSRC=		${WRKDIR}/OpenImageIO-oiio-${GH_COMMIT}/src
 MAKE_JOBS_SAFE=	yes
 
 .if defined(OIIO_PYBIND)
@@ -53,7 +53,7 @@ OPTIONS_DEFINE=		DOCS IMAGEVIEWER OCIO
 OPTIONS_DEFAULT=	DOCS IMAGEVIEWER OCIO
 
 IMAGEVIEWER_DESC=	Build image viewer
-OCIO_DESC=	Colour management support
+OCIO_DESC=		Colour management support
 .endif
 
 .include <bsd.port.options.mk>
