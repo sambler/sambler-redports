@@ -1,5 +1,5 @@
 bin/f2py32
-%%PYTHON_SITELIBDIR%%/numpy-1.6.2-py3.2.egg-info
+%%PYTHON_SITELIBDIR%%/numpy-1.7.0-py3.2.egg-info
 %%PYTHON_SITELIBDIR%%/numpy/__config__.py
 %%PYTHON_SITELIBDIR%%/numpy/__pycache__/__config__.cpython-32.pyc
 %%PYTHON_SITELIBDIR%%/numpy/__pycache__/__config__.cpython-32.pyo
@@ -31,13 +31,13 @@ bin/f2py32
 %%PYTHON_SITELIBDIR%%/numpy/core/__pycache__/__init__.cpython-32.pyc
 %%PYTHON_SITELIBDIR%%/numpy/core/__pycache__/__init__.cpython-32.pyo
 %%PYTHON_SITELIBDIR%%/numpy/core/_dotblas.so
+%%PYTHON_SITELIBDIR%%/numpy/core/_dummy.so
 %%PYTHON_SITELIBDIR%%/numpy/core/_internal.py
 %%PYTHON_SITELIBDIR%%/numpy/core/__pycache__/_internal.cpython-32.pyc
 %%PYTHON_SITELIBDIR%%/numpy/core/__pycache__/_internal.cpython-32.pyo
-%%PYTHON_SITELIBDIR%%/numpy/core/_mx_datetime_parser.py
-%%PYTHON_SITELIBDIR%%/numpy/core/__pycache__/_mx_datetime_parser.cpython-32.pyc
-%%PYTHON_SITELIBDIR%%/numpy/core/__pycache__/_mx_datetime_parser.cpython-32.pyo
-%%PYTHON_SITELIBDIR%%/numpy/core/_sort.so
+%%PYTHON_SITELIBDIR%%/numpy/core/_methods.py
+%%PYTHON_SITELIBDIR%%/numpy/core/__pycache__/_methods.cpython-32.pyo
+%%PYTHON_SITELIBDIR%%/numpy/core/__pycache__/_methods.cpython-32.pyc
 %%PYTHON_SITELIBDIR%%/numpy/core/arrayprint.py
 %%PYTHON_SITELIBDIR%%/numpy/core/__pycache__/arrayprint.cpython-32.pyc
 %%PYTHON_SITELIBDIR%%/numpy/core/__pycache__/arrayprint.cpython-32.pyo
@@ -72,9 +72,11 @@ bin/f2py32
 %%PYTHON_SITELIBDIR%%/numpy/core/include/numpy/npy_3kcompat.h
 %%PYTHON_SITELIBDIR%%/numpy/core/include/numpy/npy_common.h
 %%PYTHON_SITELIBDIR%%/numpy/core/include/numpy/npy_cpu.h
+%%PYTHON_SITELIBDIR%%/numpy/core/include/numpy/npy_deprecated_api.h
 %%PYTHON_SITELIBDIR%%/numpy/core/include/numpy/npy_endian.h
 %%PYTHON_SITELIBDIR%%/numpy/core/include/numpy/npy_interrupt.h
 %%PYTHON_SITELIBDIR%%/numpy/core/include/numpy/npy_math.h
+%%PYTHON_SITELIBDIR%%/numpy/core/include/numpy/npy_no_deprecated_api.h
 %%PYTHON_SITELIBDIR%%/numpy/core/include/numpy/npy_os.h
 %%PYTHON_SITELIBDIR%%/numpy/core/include/numpy/numpyconfig.h
 %%PYTHON_SITELIBDIR%%/numpy/core/include/numpy/old_defines.h
@@ -134,10 +136,13 @@ bin/f2py32
 %%PYTHON_SITELIBDIR%%/numpy/core/tests/test_function_base.py
 %%PYTHON_SITELIBDIR%%/numpy/core/tests/test_getlimits.py
 %%PYTHON_SITELIBDIR%%/numpy/core/tests/test_half.py
-%%PYTHON_SITELIBDIR%%/numpy/core/tests/test_iterator.py
+%%PYTHON_SITELIBDIR%%/numpy/core/tests/test_indexerrors.py
+%%PYTHON_SITELIBDIR%%/numpy/core/tests/test_indexing.py
 %%PYTHON_SITELIBDIR%%/numpy/core/tests/test_machar.py
 %%PYTHON_SITELIBDIR%%/numpy/core/tests/test_memmap.py
 %%PYTHON_SITELIBDIR%%/numpy/core/tests/test_multiarray.py
+%%PYTHON_SITELIBDIR%%/numpy/core/tests/test_multiarray_assignment.py
+%%PYTHON_SITELIBDIR%%/numpy/core/tests/test_nditer.py
 %%PYTHON_SITELIBDIR%%/numpy/core/tests/test_numeric.py
 %%PYTHON_SITELIBDIR%%/numpy/core/tests/test_numerictypes.py
 %%PYTHON_SITELIBDIR%%/numpy/core/tests/test_print.py
@@ -588,6 +593,9 @@ bin/f2py32
 %%PYTHON_SITELIBDIR%%/numpy/lib/_iotools.py
 %%PYTHON_SITELIBDIR%%/numpy/lib/__pycache__/_iotools.cpython-32.pyc
 %%PYTHON_SITELIBDIR%%/numpy/lib/__pycache__/_iotools.cpython-32.pyo
+%%PYTHON_SITELIBDIR%%/numpy/lib/arraypad.py
+%%PYTHON_SITELIBDIR%%/numpy/lib/__pycache__/arraypad.cpython-32.pyc
+%%PYTHON_SITELIBDIR%%/numpy/lib/__pycache__/arraypad.cpython-32.pyo
 %%PYTHON_SITELIBDIR%%/numpy/lib/arraysetops.py
 %%PYTHON_SITELIBDIR%%/numpy/lib/__pycache__/arraysetops.cpython-32.pyc
 %%PYTHON_SITELIBDIR%%/numpy/lib/__pycache__/arraysetops.cpython-32.pyo
@@ -635,6 +643,7 @@ bin/f2py32
 %%PYTHON_SITELIBDIR%%/numpy/lib/__pycache__/stride_tricks.cpython-32.pyo
 %%PYTHON_SITELIBDIR%%/numpy/lib/tests/test__datasource.py
 %%PYTHON_SITELIBDIR%%/numpy/lib/tests/test__iotools.py
+%%PYTHON_SITELIBDIR%%/numpy/lib/tests/test_arraypad.py
 %%PYTHON_SITELIBDIR%%/numpy/lib/tests/test_arraysetops.py
 %%PYTHON_SITELIBDIR%%/numpy/lib/tests/test_arrayterator.py
 %%PYTHON_SITELIBDIR%%/numpy/lib/tests/test_financial.py
@@ -909,6 +918,7 @@ bin/f2py32
 %%PYTHON_SITELIBDIR%%/numpy/polynomial/__pycache__/setup.cpython-32.pyc
 %%PYTHON_SITELIBDIR%%/numpy/polynomial/__pycache__/setup.cpython-32.pyo
 %%PYTHON_SITELIBDIR%%/numpy/polynomial/tests/test_chebyshev.py
+%%PYTHON_SITELIBDIR%%/numpy/polynomial/tests/test_classes.py
 %%PYTHON_SITELIBDIR%%/numpy/polynomial/tests/test_hermite.py
 %%PYTHON_SITELIBDIR%%/numpy/polynomial/tests/test_hermite_e.py
 %%PYTHON_SITELIBDIR%%/numpy/polynomial/tests/test_laguerre.py
@@ -966,6 +976,7 @@ bin/f2py32
 %%PYTHON_SITELIBDIR%%/numpy/testing/__pycache__/setupscons.cpython-32.pyc
 %%PYTHON_SITELIBDIR%%/numpy/testing/__pycache__/setupscons.cpython-32.pyo
 %%PYTHON_SITELIBDIR%%/numpy/testing/tests/test_decorators.py
+%%PYTHON_SITELIBDIR%%/numpy/testing/tests/test_doctesting.py
 %%PYTHON_SITELIBDIR%%/numpy/testing/tests/test_utils.py
 %%PYTHON_SITELIBDIR%%/numpy/testing/utils.py
 %%PYTHON_SITELIBDIR%%/numpy/testing/__pycache__/utils.cpython-32.pyc
