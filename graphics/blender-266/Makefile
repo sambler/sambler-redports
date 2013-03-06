@@ -2,13 +2,13 @@
 # $FreeBSD$
 
 PORTNAME=	blender-266
-PORTVERSION=	2.66
+PORTVERSION=	2.66a
 PORTREVISION=	0
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
 		http://public.planetmirror.com/pub/blender/source/
-DISTFILES=	blender-2.66.tar.gz
+DISTFILES=	blender-2.66a.tar.gz
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	3D modeling/rendering/animation/gaming package
@@ -38,7 +38,7 @@ CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.3/site-packages
 USE_CMAKE=	yes
 CMAKE_OUTSOURCE=	yes
 MAKE_JOBS_SAFE=	yes
-WRKSRC=		${WRKDIR}/blender-2.66
+WRKSRC=		${WRKDIR}/blender-2.66a
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.66
 
 USE_PYTHON=	3.3
