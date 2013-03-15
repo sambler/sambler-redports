@@ -31,7 +31,7 @@ LIB_DEPENDS+=	openjpeg:${PORTSDIR}/graphics/openjpeg
 LIB_DEPENDS+=	png15:${PORTSDIR}/graphics/png
 LIB_DEPENDS+=	tiff:${PORTSDIR}/graphics/tiff
 LIB_DEPENDS+=	fftw3:${PORTSDIR}/math/fftw3
-LIB_DEPENDS+=	avutil:${PORTSDIR}/multimedia/ffmpeg
+LIB_DEPENDS+=	avutil1:${PORTSDIR}/multimedia/ffmpeg1
 LIB_DEPENDS+=	freetype:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 .if exists(${PORTSDIR}/math/py-numpy33)
@@ -75,6 +75,12 @@ USE_OPENAL=	al alut
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu
 USE_GL=		glew
+# adjust for ffmpeg1
+CFLAGS+=	-I/usr/local/include/ffmpeg1
+CXXFLAGS+=	-I/usr/local/include/ffmpeg1
+LDFLAGS+=	-L/usr/local/lib/ffmpeg1
+CMAKE_ARGS+=	-DFFMPEG_LIBRARIES:STRING="avformat1;avcodec1;avutil1;avdevice1;swscale1"
+
 LDFLAGS+=	-L${LOCALBASE}/lib -lexecinfo
 
 CMAKE_ARGS+=	-DWITH_BUILDINFO:BOOL=ON -DWITH_AUDASPACE:BOOL=ON
