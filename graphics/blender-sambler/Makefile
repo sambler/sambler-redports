@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.66
-PORTREVISION=	5
+PORTREVISION=	6
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -56,7 +56,7 @@ CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.3/site-packages
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	da32926
+GH_COMMIT=	c8750a1
 
 FETCH_ARGS=	-pRr
 
@@ -188,6 +188,7 @@ CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=OFF
 .if ${PORT_OPTIONS:MJACK}
 LIB_DEPENDS+=	jack:${PORTSDIR}/audio/jack
 CMAKE_ARGS+=	-DWITH_JACK:BOOL=ON
+CMAKE_ARGS+=	-DWITH_JACK_DYNLOAD:BOOL=ON
 .else
 CMAKE_ARGS+=	-DWITH_JACK:BOOL=OFF
 .endif
