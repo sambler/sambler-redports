@@ -1,0 +1,23 @@
+--- CMakeLists.txt.orig	2013-05-05 21:26:19.888110003 +0930
++++ CMakeLists.txt	2013-05-05 21:27:16.285108937 +0930
+@@ -88,10 +88,7 @@
+ ENDIF()
+ 
+ #SET(CMAKE_CXX_FLAGS "-fno-implement-inlines -finline-small-functions -findirect-inlining -fpartial-inlining")
+-SET(CMAKE_CXX_FLAGS "-O2 -fno-implement-inlines")
+-SET(CMAKE_CXX_FLAGS_RELEASE "")
+-SET(CMAKE_CXX_FLAGS_DEBUG "-g ")#-Winline")
+-
++SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-implement-inlines")
+ 
+ IF(APPLE)
+ 	#Compile for 32bit and 64bit intel macs
+@@ -159,7 +156,7 @@
+ FIND_HELPER(LIBSNDFILE sndfile sndfile.h sndfile)
+ FIND_HELPER(ALSA alsa alsa/asoundlib.h asound )
+ FIND_LADSPA(LADSPA ladspa.h noise)
+-FIND_HELPER(OSS oss sys/soundcard.h OSSlib )
++FIND_HELPER(OSS oss sys/soundcard.h c )
+ FIND_HELPER(JACK jack jack/jack.h jack)
+ FIND_HELPER(JACKSESSION jack jack/session.h jack)
+ IF(APPLE)
