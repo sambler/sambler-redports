@@ -12,6 +12,8 @@ COMMENT=	An advanced drum machine
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
+CONFLICTS=	hydrogen-devel-0.*
+
 LIB_DEPENDS+=	sndfile:${PORTSDIR}/audio/libsndfile \
 		tar:${PORTSDIR}/devel/libtar \
 		lrdf:${PORTSDIR}/textproc/liblrdf

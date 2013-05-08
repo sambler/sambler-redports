@@ -1,7 +1,7 @@
-# Created by: Jean-Yves Lefort <jylefort@brutele.be>
+# Created by: Shane Ambler <FreeBSD@ShaneWare.Biz>
 # $FreeBSD$
 
-PORTNAME=	hydrogen
+PORTNAME=	hydrogen-devel
 PORTVERSION=	0.9.6b3
 CATEGORIES=	audio
 MASTER_SITES=	GH
@@ -12,17 +12,10 @@ COMMENT=	An advanced drum machine
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
+CONFLICTS=	hydrogen-0.*
+
 LIB_DEPENDS+=	sndfile:${PORTSDIR}/audio/libsndfile \
 		tar:${PORTSDIR}/devel/libtar
-
-MAJORVERSION=	0.9.6
-USE_QT4=	corelib gui qmake_build linguist_build moc_build network \
-		qt3support rcc_build sql uic_build xml
-USES=		cmake:outsource pkgconfig
-CMAKE_ARGS+=	-DTHREADS_HAVE_PTHREAD_ARG:BOOL=ON
-USE_LDCONFIG=	yes
-USE_GCC=	4.6+
-MAKE_JOBS_SAFE=	yes
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hydrogen-music
@@ -30,9 +23,18 @@ GH_PROJECT=	hydrogen
 GH_TAGNAME=	0.9.6-beta3
 GH_COMMIT=	97e8352
 
+MAJORVERSION=	0.9.6
+USE_QT4=	corelib gui qmake_build linguist_build moc_build network \
+		qt3support rcc_build sql uic_build xml
+USES=		cmake:outsource pkgconfig
+CMAKE_ARGS+=	-DTHREADS_HAVE_PTHREAD_ARG:BOOL=ON
+USE_LDCONFIG=	yes
+MAKE_JOBS_SAFE=	yes
+CXXFLAGS+=	-I${LOCALBASE}/include/portaudio2 -I${LOCALBASE}/include
+LDFLAGS+=	-L${LOCALBASE}/lib/portaudio2 -L${LOCALBASE}/lib
+
 OPTIONS_DEFINE=		JACK ALSA PORTAUDIO OSS LIBARCHIVE LASH LADSPA RDF
-#OPTIONS_DEFAULT=	JACK OSS RDF
-OPTIONS_DEFAULT=	JACK ALSA PORTAUDIO OSS LIBARCHIVE LASH LADSPA RDF
+OPTIONS_DEFAULT=	JACK OSS RDF
 
 LIBARCHIVE_DESC=	LibArchive support
 RUBBERBAND_DESC=	Rubberband for time stretching
@@ -86,9 +88,6 @@ CMAKE_ARGS+=	-DWANT_OSS:BOOL=OFF
 
 .if ${PORT_OPTIONS:MPORTAUDIO}
 LIB_DEPENDS+=	portaudio.2:${PORTSDIR}/audio/portaudio2
-CXXFLAGS+=	-I${LOCALBASE}/include/portaudio2
-LDFLAGS+=	-L${LOCALBASE}/lib/portaudio2
-
 CMAKE_ARGS+=	-DWANT_PORTAUDIO:BOOL=ON
 .else
 CMAKE_ARGS+=	-DWANT_PORTAUDIO:BOOL=OFF
@@ -103,12 +102,12 @@ CMAKE_ARGS+=	-DWANT_LRDF:BOOL=ON
 CMAKE_ARGS+=	-DWANT_LRDF:BOOL=OFF
 .endif
 
-# using librubberband is experimental
+# using librubberband is experimental and current versions have bad timing
 # installing the rubberband cli tool still works as before
 .if ${PORT_OPTIONS:MRUBBERBAND}
 LIB_DEPENDS+=	rubberband:${PORTSDIR}/audio/rubberband
 CMAKE_ARGS+=	-DWANT_RUBBERBAND:BOOL=ON
-CMAKE_ARGS+=	-DRUBBERBAND_INCLUDE_DIR:STRING=/usr/local/include/rubberband
+CMAKE_ARGS+=	-DRUBBERBAND_INCLUDE_DIR:STRING=${LOCALBASE}/include/rubberband
 .else
 CMAKE_ARGS+=	-DWANT_RUBBERBAND:BOOL=OFF
 .endif
