@@ -35,8 +35,7 @@ RUN_DEPENDS+=	${LOCALBASE}/lib/python3.3/site-packages/numpy/__init__.py:${PORTS
 CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.3/site-packages
 .endif
 
-USE_CMAKE=	yes
-CMAKE_OUTSOURCE=	yes
+USES=		cmake:outsource
 MAKE_JOBS_SAFE=	yes
 WRKSRC=		${WRKDIR}/blender-2.65a
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.65

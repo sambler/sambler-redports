@@ -25,8 +25,7 @@ LIB_DEPENDS+=	openjpeg:${PORTSDIR}/graphics/openjpeg
 LIB_DEPENDS+=	freetype:${PORTSDIR}/print/freetype2
 LIB_DEPENDS+=   ftgl.2:${PORTSDIR}/graphics/ftgl
 
-USE_CMAKE=	yes
-CMAKE_OUTSOURCE=	yes
+USES=		cmake:outsource
 MAKE_JOBS_SAFE=	yes
 WRKSRC=		${WRKDIR}/blender-2.49b
 
