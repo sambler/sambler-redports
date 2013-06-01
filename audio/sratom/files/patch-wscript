@@ -1,0 +1,11 @@
+--- wscript.orig	2013-05-21 00:23:18.999051161 +0930
++++ wscript	2013-05-21 00:23:32.725743930 +0930
+@@ -46,7 +46,7 @@
+                       define_name='HAVE_GCOV',
+                       mandatory=False)
+ 
+-    autowaf.check_pkg(conf, 'lv2', uselib_store='LV2',
++    autowaf.check_pkg(conf, 'lv2core', uselib_store='LV2',
+                       atleast_version='1.0.0', mandatory=True)
+     autowaf.check_pkg(conf, 'serd-0', uselib_store='SERD',
+                       atleast_version='0.14.0', mandatory=True)
