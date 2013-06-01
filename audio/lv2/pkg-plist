@@ -1,0 +1,178 @@
+include/lv2.h
+include/lv2/lv2plug.in/ns/ext/atom
+include/lv2/lv2plug.in/ns/ext/buf-size
+include/lv2/lv2plug.in/ns/ext/data-access
+include/lv2/lv2plug.in/ns/ext/dynmanifest
+include/lv2/lv2plug.in/ns/ext/event
+include/lv2/lv2plug.in/ns/ext/instance-access
+include/lv2/lv2plug.in/ns/ext/log
+include/lv2/lv2plug.in/ns/ext/midi
+include/lv2/lv2plug.in/ns/ext/morph
+include/lv2/lv2plug.in/ns/ext/options
+include/lv2/lv2plug.in/ns/ext/parameters
+include/lv2/lv2plug.in/ns/ext/patch
+include/lv2/lv2plug.in/ns/ext/port-groups
+include/lv2/lv2plug.in/ns/ext/port-props
+include/lv2/lv2plug.in/ns/ext/presets
+include/lv2/lv2plug.in/ns/ext/resize-port
+include/lv2/lv2plug.in/ns/ext/state
+include/lv2/lv2plug.in/ns/ext/time
+include/lv2/lv2plug.in/ns/ext/uri-map
+include/lv2/lv2plug.in/ns/ext/urid
+include/lv2/lv2plug.in/ns/ext/worker
+include/lv2/lv2plug.in/ns/extensions/ui
+include/lv2/lv2plug.in/ns/extensions/units
+include/lv2/lv2plug.in/ns/lv2core
+lib/lv2/atom.lv2/atom-test.c
+lib/lv2/atom.lv2/atom.h
+lib/lv2/atom.lv2/atom.ttl
+lib/lv2/atom.lv2/forge.h
+lib/lv2/atom.lv2/lv2-atom.doap.ttl
+lib/lv2/atom.lv2/manifest.ttl
+lib/lv2/atom.lv2/util.h
+lib/lv2/buf-size.lv2/buf-size.h
+lib/lv2/buf-size.lv2/buf-size.ttl
+lib/lv2/buf-size.lv2/lv2-buf-size.doap.ttl
+lib/lv2/buf-size.lv2/manifest.ttl
+lib/lv2/data-access.lv2/data-access.h
+lib/lv2/data-access.lv2/data-access.ttl
+lib/lv2/data-access.lv2/lv2-data-access.doap.ttl
+lib/lv2/data-access.lv2/manifest.ttl
+lib/lv2/dynmanifest.lv2/dynmanifest.h
+lib/lv2/dynmanifest.lv2/dynmanifest.ttl
+lib/lv2/dynmanifest.lv2/lv2-dynmanifest.doap.ttl
+lib/lv2/dynmanifest.lv2/manifest.ttl
+lib/lv2/eg-amp.lv2/amp.so
+lib/lv2/eg-amp.lv2/amp.ttl
+lib/lv2/eg-amp.lv2/manifest.ttl
+lib/lv2/eg-metro.lv2/manifest.ttl
+lib/lv2/eg-metro.lv2/metro.so
+lib/lv2/eg-metro.lv2/metro.ttl
+lib/lv2/eg-midigate.lv2/manifest.ttl
+lib/lv2/eg-midigate.lv2/midigate.so
+lib/lv2/eg-midigate.lv2/midigate.ttl
+lib/lv2/eg-sampler.lv2/click.wav
+lib/lv2/eg-sampler.lv2/manifest.ttl
+lib/lv2/eg-sampler.lv2/sampler_ui.so
+lib/lv2/eg-sampler.lv2/sampler.so
+lib/lv2/eg-sampler.lv2/sampler.ttl
+lib/lv2/event.lv2/event-helpers.h
+lib/lv2/event.lv2/event.h
+lib/lv2/event.lv2/event.ttl
+lib/lv2/event.lv2/lv2-event.doap.ttl
+lib/lv2/event.lv2/manifest.ttl
+lib/lv2/instance-access.lv2/instance-access.h
+lib/lv2/instance-access.lv2/instance-access.ttl
+lib/lv2/instance-access.lv2/lv2-instance-access.doap.ttl
+lib/lv2/instance-access.lv2/manifest.ttl
+lib/lv2/log.lv2/log.h
+lib/lv2/log.lv2/log.ttl
+lib/lv2/log.lv2/logger.h
+lib/lv2/log.lv2/lv2-log.doap.ttl
+lib/lv2/log.lv2/manifest.ttl
+lib/lv2/lv2core.lv2/lv2.h
+lib/lv2/lv2core.lv2/lv2core.doap.ttl
+lib/lv2/lv2core.lv2/lv2core.ttl
+lib/lv2/lv2core.lv2/manifest.ttl
+lib/lv2/midi.lv2/lv2-midi.doap.ttl
+lib/lv2/midi.lv2/manifest.ttl
+lib/lv2/midi.lv2/midi.h
+lib/lv2/midi.lv2/midi.ttl
+lib/lv2/morph.lv2/lv2-morph.doap.ttl
+lib/lv2/morph.lv2/manifest.ttl
+lib/lv2/morph.lv2/morph.h
+lib/lv2/morph.lv2/morph.ttl
+lib/lv2/options.lv2/lv2-options.doap.ttl
+lib/lv2/options.lv2/manifest.ttl
+lib/lv2/options.lv2/options.h
+lib/lv2/options.lv2/options.ttl
+lib/lv2/parameters.lv2/lv2-parameters.doap.ttl
+lib/lv2/parameters.lv2/manifest.ttl
+lib/lv2/parameters.lv2/parameters.h
+lib/lv2/parameters.lv2/parameters.ttl
+lib/lv2/patch.lv2/lv2-patch.doap.ttl
+lib/lv2/patch.lv2/manifest.ttl
+lib/lv2/patch.lv2/patch.h
+lib/lv2/patch.lv2/patch.ttl
+lib/lv2/port-groups.lv2/lv2-port-groups.doap.ttl
+lib/lv2/port-groups.lv2/manifest.ttl
+lib/lv2/port-groups.lv2/port-groups.h
+lib/lv2/port-groups.lv2/port-groups.ttl
+lib/lv2/port-props.lv2/lv2-port-props.doap.ttl
+lib/lv2/port-props.lv2/manifest.ttl
+lib/lv2/port-props.lv2/port-props.h
+lib/lv2/port-props.lv2/port-props.ttl
+lib/lv2/presets.lv2/lv2-presets.doap.ttl
+lib/lv2/presets.lv2/manifest.ttl
+lib/lv2/presets.lv2/presets.h
+lib/lv2/presets.lv2/presets.ttl
+lib/lv2/resize-port.lv2/lv2-resize-port.doap.ttl
+lib/lv2/resize-port.lv2/manifest.ttl
+lib/lv2/resize-port.lv2/resize-port.h
+lib/lv2/resize-port.lv2/resize-port.ttl
+lib/lv2/state.lv2/lv2-state.doap.ttl
+lib/lv2/state.lv2/manifest.ttl
+lib/lv2/state.lv2/state.h
+lib/lv2/state.lv2/state.ttl
+lib/lv2/time.lv2/lv2-time.doap.ttl
+lib/lv2/time.lv2/manifest.ttl
+lib/lv2/time.lv2/time.h
+lib/lv2/time.lv2/time.ttl
+lib/lv2/ui.lv2/lv2-ui.doap.ttl
+lib/lv2/ui.lv2/manifest.ttl
+lib/lv2/ui.lv2/ui.h
+lib/lv2/ui.lv2/ui.ttl
+lib/lv2/units.lv2/lv2-units.doap.ttl
+lib/lv2/units.lv2/manifest.ttl
+lib/lv2/units.lv2/units.h
+lib/lv2/units.lv2/units.ttl
+lib/lv2/uri-map.lv2/lv2-uri-map.doap.ttl
+lib/lv2/uri-map.lv2/manifest.ttl
+lib/lv2/uri-map.lv2/uri-map.h
+lib/lv2/uri-map.lv2/uri-map.ttl
+lib/lv2/urid.lv2/lv2-urid.doap.ttl
+lib/lv2/urid.lv2/manifest.ttl
+lib/lv2/urid.lv2/urid.h
+lib/lv2/urid.lv2/urid.ttl
+lib/lv2/worker.lv2/lv2-worker.doap.ttl
+lib/lv2/worker.lv2/manifest.ttl
+lib/lv2/worker.lv2/worker.h
+lib/lv2/worker.lv2/worker.ttl
+lib/pkgconfig/lv2.pc
+lib/pkgconfig/lv2core.pc
+@dirrmtry lib/pkgconfig
+@dirrm lib/lv2/worker.lv2
+@dirrm lib/lv2/urid.lv2
+@dirrm lib/lv2/uri-map.lv2
+@dirrm lib/lv2/units.lv2
+@dirrm lib/lv2/ui.lv2
+@dirrm lib/lv2/time.lv2
+@dirrm lib/lv2/state.lv2
+@dirrm lib/lv2/resize-port.lv2
+@dirrm lib/lv2/presets.lv2
+@dirrm lib/lv2/port-props.lv2
+@dirrm lib/lv2/port-groups.lv2
+@dirrm lib/lv2/patch.lv2
+@dirrm lib/lv2/parameters.lv2
+@dirrm lib/lv2/options.lv2
+@dirrm lib/lv2/morph.lv2
+@dirrm lib/lv2/midi.lv2
+@dirrm lib/lv2/lv2core.lv2
+@dirrm lib/lv2/log.lv2
+@dirrm lib/lv2/instance-access.lv2
+@dirrm lib/lv2/event.lv2
+@dirrm lib/lv2/eg-sampler.lv2
+@dirrm lib/lv2/eg-midigate.lv2
+@dirrm lib/lv2/eg-metro.lv2
+@dirrm lib/lv2/eg-amp.lv2
+@dirrm lib/lv2/dynmanifest.lv2
+@dirrm lib/lv2/data-access.lv2
+@dirrm lib/lv2/buf-size.lv2
+@dirrm lib/lv2/atom.lv2
+@dirrm lib/lv2
+@dirrm include/lv2/lv2plug.in/ns/extensions
+@dirrm include/lv2/lv2plug.in/ns/ext
+@dirrm include/lv2/lv2plug.in/ns
+@dirrm include/lv2/lv2plug.in
+@dirrm include/lv2
+

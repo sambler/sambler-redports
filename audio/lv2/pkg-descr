@@ -1,0 +1,5 @@
+LV2 is a portable plugin standard for audio systems, similar in scope
+to ​LADSPA, VST, AU, and others. It defines a C API for code and a format
+for data files which collectively describe a plugin.
+
+www: http://lv2plug.in/
