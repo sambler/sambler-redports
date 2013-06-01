@@ -1,0 +1,16 @@
+bin/lilv-bench
+bin/lv2bench
+bin/lv2info
+bin/lv2ls
+etc/bash_completion.d/lilv
+include/lilv-0/lilv/lilvmm.hpp
+include/lilv-0/lilv/lilv.h
+lib/liblilv-0.so
+lib/liblilv-0.so.0
+lib/liblilv-0.so.0.16.0
+lib/pkgconfig/lilv-0.pc
+@dirrmtry lib/pkgconfig
+@dirrm include/lilv-0/lilv
+@dirrm include/lilv-0
+@dirrm etc/bash_completion.d
+
