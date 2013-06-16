@@ -22,7 +22,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
 GH_PROJECT=	OpenShadingLanguage
 GH_TAGNAME=	Release-${PORTVERSION}
-GH_COMMIT=	12efa45
+GH_COMMIT=	0ae2fe3
 
 WRKSRC=		${WRKDIR}/imageworks-OpenShadingLanguage-${GH_COMMIT}/src
 

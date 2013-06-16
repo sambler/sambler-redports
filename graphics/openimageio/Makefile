@@ -22,7 +22,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
 GH_TAGNAME=	Release-${PORTVERSION}
-GH_COMMIT=	c330781
+GH_COMMIT=	c092151
 WRKSRC=		${WRKDIR}/OpenImageIO-oiio-${GH_COMMIT}/src
 
 # fbm also installs bin/idiff
