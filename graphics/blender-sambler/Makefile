@@ -24,6 +24,7 @@ LIB_DEPENDS=	samplerate:${PORTSDIR}/audio/libsamplerate
 LIB_DEPENDS+=	sndfile:${PORTSDIR}/audio/libsndfile
 LIB_DEPENDS+=	boost_thread:${PORTSDIR}/devel/boost-libs
 LIB_DEPENDS+=	execinfo:${PORTSDIR}/devel/libexecinfo
+LIB_DEPENDS+=	unwind:${PORTSDIR}/devel/libunwind
 LIB_DEPENDS+=	jpeg:${PORTSDIR}/graphics/jpeg
 LIB_DEPENDS+=	OpenColorIO:${PORTSDIR}/graphics/opencolorio
 LIB_DEPENDS+=	OpenImageIO:${PORTSDIR}/graphics/openimageio
