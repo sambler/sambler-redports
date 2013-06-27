@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openshadinglanguage
-PORTVERSION=	1.3.1
-PORTREVISION=	0
+PORTVERSION=	1.3.2
 CATEGORIES=	graphics devel
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -22,7 +21,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
 GH_PROJECT=	OpenShadingLanguage
 GH_TAGNAME=	Release-${PORTVERSION}
-GH_COMMIT=	0ae2fe3
+GH_COMMIT=	b9d569d
 
 WRKSRC=		${WRKDIR}/imageworks-OpenShadingLanguage-${GH_COMMIT}/src
 
@@ -37,10 +36,6 @@ MAKE_JOBS_SAFE=	yes
 
 .if ${OSVERSION} < 900000
 BUILD_DEPENDS+=	clang:${PORTSDIR}/lang/clang
-.endif
-
-.if ${ARCH} == i386
-CFLAGS+=	-march=i586
 .endif
 
 post-install:
