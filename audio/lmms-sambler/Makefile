@@ -34,7 +34,10 @@ USE_BZIP2=	yes
 USE_XORG=	xft
 USE_QT4=	corelib gui xml moc_build uic_build rcc_build qmake_build
 USES=		cmake pkgconfig
-USE_GCC=	any
+# gcc46 fails with libc++ runtime linking issues
+USE_GCC=	4.2
+# gcc42 doesn't know avx
+SKIP_AVX=	yes
 CPUTYPE=	nocona
 CMAKE_ARGS=	-DWANT_ALSA:BOOL=OFF \
 		-DWANT_CALF:BOOL=ON \
