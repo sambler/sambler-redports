@@ -138,9 +138,214 @@ lib/lv2/worker.lv2/lv2-worker.doap.ttl
 lib/lv2/worker.lv2/manifest.ttl
 lib/lv2/worker.lv2/worker.h
 lib/lv2/worker.lv2/worker.ttl
-lib/pkgconfig/lv2.pc
-lib/pkgconfig/lv2core.pc
-@dirrmtry lib/pkgconfig
+libdata/pkgconfig/lv2.pc
+libdata/pkgconfig/lv2core.pc
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/aux/style.css
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/annotated.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/atom_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/bc_s.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/bdwn.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/buf-size_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/classes.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/closed.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/data-access_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_0c67ad77cf323cda9472f01984b0bff6.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_11d31b7976d07084a8a45b0c4d1023fe.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_1f80e3d5df47d5911d6c1d20a53587ab.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_24fb2a3342947f50f4c39cad64832759.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_329827108aa8e8ab9a89a2acf9c173b5.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_3a157c6bceae960df865400f2801ff12.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_3ee6c3bfb3b84fdf52c682e95726dd1c.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_459d45ae7318223a699a49bb6a6e9ea2.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_4cd62029dc744cb61a17459632baf71a.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_52b9a18dfe12108ab7e487c971d9ee54.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_656797cf811db4345b62564545cb7427.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_770c4aedbd7740d58e351518231926a6.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_77f8990775177b41e0801ff6619bd1e3.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_7decd38949e830925328b98f73cbdde6.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_83079f6c5ca3676b9c28f64768cffd8c.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_94dd4133184b499141f131ce0335b6e6.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_9dfa4512adfbe5d287b41baac26c8268.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_a9744e44f0e8c76dcd527220d55d26a3.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_b38b6fc31d37dd5df2c37f5a01f1f966.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_bd50568ed9fda99d760f9f551abea978.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_c3136d3e0aac39f7e42825204f17c07f.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_c5b2356ba020bd06de3aeaa14fcf996d.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_cb583e175923a01c2a9c05f80b15557c.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_ddecfed9a695901c38274d63b2176f91.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dir_f9ef86c5b5b900caa8d36e150c1fc902.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/doxy-style.css
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/doxygen.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dynmanifest_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/dynsections.js
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/event_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/event-helpers_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/files.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/forge_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ftv2blank.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ftv2cl.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ftv2doc.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ftv2folderclosed.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ftv2folderopen.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ftv2lastnode.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ftv2link.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ftv2mlastnode.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ftv2mnode.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ftv2mo.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ftv2node.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ftv2ns.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ftv2plastnode.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ftv2pnode.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ftv2splitbar.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ftv2vertline.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/functions_vars.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/functions.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/globals_0x6e.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/globals_defs_0x6e.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/globals_defs.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/globals_enum.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/globals_eval.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/globals_func.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/globals_type.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/globals_vars.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/globals.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/index.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/instance-access_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/jquery.js
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/log_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/lv2_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/mainpage_8dox.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/midi_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/morph_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/nav_f.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/nav_g.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/nav_h.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/open.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/options_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/patch_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/port-groups_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/resize-port_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/state_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Double.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Event.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Float.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Forge__Frame.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Forge.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Int.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Literal__Body.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Literal.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Long.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Object__Body.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Object__Query.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Object.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Property__Body.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Property.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Sequence__Body.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Sequence.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__String.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Tuple.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__URID.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Vector__Body.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom__Vector.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Atom.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Descriptor.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Event__Buffer.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Event__Feature.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Event__Iterator.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Event.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Extension__Data__Feature.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Feature.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Lib__Descriptor.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Log__Log.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Options__Interface.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Options__Option.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Resize__Port__Resize.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__State__Interface.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__State__Make__Path.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__State__Map__Path.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__URI__Map__Feature.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__URID__Map.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__URID__Unmap.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Worker__Interface.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2__Worker__Schedule.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2UI__Descriptor.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2UI__Peak__Data.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2UI__Port__Map.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2UI__Port__Subscribe.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2UI__Resize.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/structLV2UI__Touch.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/sync_off.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/sync_on.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/tab_a.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/tab_b.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/tab_h.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/tab_s.png
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/tabs.css
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/time_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/ui_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/uri-map_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/urid_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/util_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/doc/html/worker_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/atom/atom.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/buf-size/buf-size.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/data-access/data-access.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/dynmanifest/dynmanifest.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/event/event.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/instance-access/instance-access.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/log/log.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/midi/midi.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/morph/morph.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/options/options.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/parameters/parameters.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/patch/patch.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/port-groups/port-groups.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/port-props/port-props.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/presets/presets.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/resize-port/resize-port.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/state/state.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/time/time.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/uri-map/uri-map.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/urid/urid.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/ext/worker/worker.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/extensions/ui/ui.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/extensions/units/units.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/index.html
+%%PORTDOCS%%%%DOCSDIR%%/lv2/lv2plug.in/ns/lv2core/lv2core.html
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/lv2core
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/extensions/units
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/extensions/ui
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/extensions
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/worker
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/urid
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/uri-map
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/time
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/state
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/resize-port
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/presets
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/port-props
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/port-groups
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/patch
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/parameters
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/options
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/morph
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/midi
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/log
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/instance-access
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/event
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/dynmanifest
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/data-access
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/buf-size
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext/atom
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns/ext
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/ns
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/doc/html
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/doc
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in/aux
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2/lv2plug.in
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/lv2
+%%PORTDOCS%%@dirrm %%DOCSDIR%%
+@dirrmtry libdata/pkgconfig
 @dirrm lib/lv2/worker.lv2
 @dirrm lib/lv2/urid.lv2
 @dirrm lib/lv2/uri-map.lv2
@@ -175,4 +380,3 @@ lib/pkgconfig/lv2core.pc
 @dirrm include/lv2/lv2plug.in/ns
 @dirrm include/lv2/lv2plug.in
 @dirrm include/lv2
-

@@ -28,14 +28,14 @@ OPTIONS_DEFINE=		DOCS
 .if ${PORT_OPTIONS:MDOCS}
 BUILD_DEPENDS=	doxygen:${PORTSDIR}/devel/doxygen
 BUILD_DEPENDS+=	dot:${PORTSDIR}/graphics/graphviz
-DOCOPTION=	--docs
+BUILD_DEPENDS+=	${PYTHON_SITELIBDIR}/rdflib/__init__.py:${PORTSDIR}/textproc/py-rdflib
+DOCOPTION=	--docs --docdir=${DOCSDIR}
 .else
 DOCOPTION=
 .endif
 
 CONFIGURE_ENV+= CC="${CC}"
 CONFIGURE_ENV+= CXX="${CXX}"
-CONFIGURE_ENV+= PKG_CONFIG_PATH="${LOCALBASE}/lib/pkgconfig:${LOCALBASE}/libdata/pkgconfig"
 
 do-configure:
 	@cd ${WRKSRC} && ${CONFIGURE_ENV} ${PYTHON_CMD} waf configure \
@@ -43,6 +43,11 @@ do-configure:
 
 do-build:
 	@cd ${WRKSRC} && ${PYTHON_CMD} waf
+
+pre-install:
+	@${FIND} ${WRKSRC} -name autowaf.py -or -name TaskGen.py \
+		-or -name wscript | ${XARGS} ${REINPLACE_CMD} \
+		-e "s|pkgconfig|../libdata/pkgconfig|"
 
 do-install:
 	@cd ${WRKSRC} && ${PYTHON_CMD} waf install
