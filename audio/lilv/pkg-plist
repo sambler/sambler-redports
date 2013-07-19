@@ -8,9 +8,11 @@ include/lilv-0/lilv/lilv.h
 lib/liblilv-0.so
 lib/liblilv-0.so.0
 lib/liblilv-0.so.0.16.0
-lib/pkgconfig/lilv-0.pc
-@dirrmtry lib/pkgconfig
+libdata/pkgconfig/lilv-0.pc
+%%PORTDOCS%%%%DOCSDIR%%/index.html
+%%PORTDOCS%%%%DOCSDIR%%/style.css
+%%PORTDOCS%%@dirrm %%DOCSDIR%%
+@dirrmtry libdata/pkgconfig
 @dirrm include/lilv-0/lilv
 @dirrm include/lilv-0
-@dirrm etc/bash_completion.d
-
+@dirrmtry etc/bash_completion.d
