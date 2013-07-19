@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-262
 PORTVERSION=	2.62
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -76,11 +76,8 @@ SUB_FILES=	blender blenderplayer
 
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.62
 
-LANG=		ar bg ca cs de el es es_ES es_MX fa fi fr id it ja ky ne pl \
-		pt_BR ru sr sr@latin sv zh_CN zh_TW
-
 OPTIONS_DEFINE=	HEADLESS SECURITY PLAYER JACK NLS
-OPTIONS_DEFAULT=	SECURITY PLAYER NLS
+OPTIONS_DEFAULT=	SECURITY PLAYER NLS JACK
 
 HEADLESS_DESC=	"Disable user interface"
 SECURITY_DESC=	"Disable scripts auto-run"
