@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	blender-sambler
-PORTVERSION=	2.67
-PORTREVISION=	6
+PORTVERSION=	2.68
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -58,20 +58,19 @@ CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.3/site-packages
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	17f10fe
+GH_COMMIT=	733d3fd
 
 FETCH_ARGS=	-pRr
 
-USES=		cmake:outsource
+USES=		cmake:outsource desktop-file-utils
 MAKE_JOBS_SAFE=	yes
 WRKSRC=		${WRKDIR}/sambler-myblender-${GH_COMMIT}
-OUTDIR=		${INSTALL_WRKSRC}/bin/2.67
+OUTDIR=		${INSTALL_WRKSRC}/bin/2.68
 
 SUB_FILES=	blender blenderplayer
 
 USE_PYTHON=	3.3
 WANT_GNOME=	yes
-USE_GNOME=	desktopfileutils
 USE_OPENAL=	al alut
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu
