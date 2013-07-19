@@ -41,10 +41,9 @@ do-build:
 	@cd ${WRKSRC} && ${PYTHON_CMD} waf
 
 pre-install:
-	@${FIND} ${WRKSRC} -name autowaf.py | ${XARGS} ${REINPLACE_CMD} -e \
-		"s|pkgconfig|../libdata/pkgconfig|"
-	@${FIND} ${WRKSRC} -name TaskGen.py | ${XARGS} ${REINPLACE_CMD} -e \
-		"s|pkgconfig|../libdata/pkgconfig|"
+	@${FIND} ${WRKSRC} -name autowaf.py -or -name TaskGen.py | \
+		${XARGS} ${REINPLACE_CMD} -e "s|pkgconfig|../libdata/pkgconfig|" \
+		-e "s|%s-%d'%(name.lower(),major),outdir,'html||"
 
 do-install:
 	@cd ${WRKSRC} && ${PYTHON_CMD} waf install
