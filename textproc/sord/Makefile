@@ -26,14 +26,14 @@ OPTIONS_DEFINE=		DOCS
 .if ${PORT_OPTIONS:MDOCS}
 BUILD_DEPENDS=	doxygen:${PORTSDIR}/devel/doxygen
 BUILD_DEPENDS+=	dot:${PORTSDIR}/graphics/graphviz
-DOCOPTION=	--docs
+DOCOPTION=	--docs --docdir=${DOCSDIR}
+MAN3=		sord.3
 .else
 DOCOPTION=
 .endif
 
 CONFIGURE_ENV+= CC="${CC}"
 CONFIGURE_ENV+= CXX="${CXX}"
-#CONFIGURE_ENV+= PKG_CONFIG_PATH="${LOCALBASE}/lib/pkgconfig:${LOCALBASE}/libdata/pkgconfig"
 
 do-configure:
 	@cd ${WRKSRC} && ${CONFIGURE_ENV} ${PYTHON_CMD} waf configure \
@@ -43,10 +43,9 @@ do-build:
 	@cd ${WRKSRC} && ${PYTHON_CMD} waf
 
 pre-install:
-	@${FIND} ${WRKSRC} -name autowaf.py | ${XARGS} ${REINPLACE_CMD} -e \
-		"s|pkgconfig|../libdata/pkgconfig|"
-	@${FIND} ${WRKSRC} -name TaskGen.py | ${XARGS} ${REINPLACE_CMD} -e \
-		"s|pkgconfig|../libdata/pkgconfig|"
+	@${FIND} ${WRKSRC} -name autowaf.py -or -name TaskGen.py | \
+		${XARGS} ${REINPLACE_CMD} -e "s|pkgconfig|../libdata/pkgconfig|" \
+		-e "s|%s-%d'%(name.lower(),major),outdir,'html||"
 
 do-install:
 	@cd ${WRKSRC} && ${PYTHON_CMD} waf install

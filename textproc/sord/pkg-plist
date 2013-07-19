@@ -5,8 +5,9 @@ include/sord-0/sord/sordmm.hpp
 lib/libsord-0.so
 lib/libsord-0.so.0
 lib/libsord-0.so.0.12.0
-lib/pkgconfig/sord-0.pc
+libdata/pkgconfig/sord-0.pc
+%%PORTDOCS%%%%DOCSDIR%%/index.html
+%%PORTDOCS%%%%DOCSDIR%%/style.css
+%%PORTDOCS%%@dirrm %%DOCSDIR%%
 @dirrm include/sord-0/sord
 @dirrm include/sord-0
-@dirrmtry lib/pkgconfig
-
