@@ -2,8 +2,10 @@ include/sratom-0/sratom/sratom.h
 lib/libsratom-0.so
 lib/libsratom-0.so.0
 lib/libsratom-0.so.0.4.2
-lib/pkgconfig/sratom-0.pc
-@dirrmtry lib/pkgconfig
+libdata/pkgconfig/sratom-0.pc
+%%PORTDOCS%%%%DOCSDIR%%/index.html
+%%PORTDOCS%%%%DOCSDIR%%/style.css
+%%PORTDOCS%%@dirrm %%DOCSDIR%%
+@dirrmtry libdata/pkgconfig
 @dirrm include/sratom-0/sratom
 @dirrm include/sratom-0
-
