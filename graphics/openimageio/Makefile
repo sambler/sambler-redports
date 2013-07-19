@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME?=	openimageio
-PORTVERSION=	1.1.13
+PORTVERSION=	1.2.0
 PORTREVISION?=	0
 CATEGORIES?=	graphics multimedia
 
@@ -22,7 +22,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
 GH_TAGNAME=	Release-${PORTVERSION}
-GH_COMMIT=	6185161
+GH_COMMIT=	f4d79c0
 WRKSRC=		${WRKDIR}/OpenImageIO-oiio-${GH_COMMIT}/src
 
 # fbm also installs bin/idiff
@@ -32,7 +32,8 @@ USES=		cmake:outsource
 CMAKE_ARGS?=	-DBUILDSTATIC:BOOL=OFF \
 		-DLINKSTATIC:BOOL=OFF \
 		-DNOTHREADS:BOOL=OFF \
-		-DUSE_TBB:BOOL=OFF
+		-DUSE_TBB:BOOL=OFF \
+		-DSTOP_ON_WARNING:BOOL=OFF
 
 USE_LDCONFIG=	yes
 MAKE_JOBS_SAFE=	yes
@@ -82,7 +83,7 @@ CMAKE_ARGS+=	-DUSE_OCIO:BOOL=OFF
 
 post-install:
 .if !defined(OIIO_PYBIND)
-	cd ${PREFIX}/lib && ${LN} -sf libOpenImageIO.so.1.1 libOpenImageIO.so.1
+	cd ${PREFIX}/lib && ${LN} -sf libOpenImageIO.so.1.2 libOpenImageIO.so.1
 .endif
 
 .include <bsd.port.mk>
