@@ -10,12 +10,12 @@ COMMENT=	Advanced shading language for production GI renderers
 
 LICENSE=	BSD
 
-BUILD_DEPENDS=	llvm>=3.1:${PORTSDIR}/devel/llvm \
+BUILD_DEPENDS=	llvm>=3.3:${PORTSDIR}/devel/llvm33 \
 		flex>=2.5.37:${PORTSDIR}/textproc/flex
 LIB_DEPENDS=	boost_thread:${PORTSDIR}/devel/boost-libs \
 		IlmImf:${PORTSDIR}/graphics/OpenEXR \
 		OpenImageIO:${PORTSDIR}/graphics/openimageio
-RUN_DEPENDS=	llvm>=3.1:${PORTSDIR}/devel/llvm
+RUN_DEPENDS=	llvm>=3.3:${PORTSDIR}/devel/llvm33
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
@@ -35,7 +35,7 @@ MAKE_JOBS_SAFE=	yes
 .include <bsd.port.pre.mk>
 
 .if ${OSVERSION} < 900000
-BUILD_DEPENDS+=	clang:${PORTSDIR}/lang/clang
+BUILD_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 .endif
 
 post-install:
