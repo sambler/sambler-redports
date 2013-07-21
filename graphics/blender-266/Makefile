@@ -93,14 +93,11 @@ OSL_DESC=	"OSL shading support"
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MCC_CLANG}
-CC=clang
-CXX=clang++
-CPP=clang-cpp
+BUILD_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
+CC=${LOCALBASE}/bin/clang33
+CXX=${LOCALBASE}/bin/clang++33
+CPP=${LOCALBASE}/bin/clang-cpp33
 CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=OFF
-
-.if ${OSVERSION} < 900033
-BUILD_DEPENDS+=	clang:${PORTSDIR}/lang/clang
-.endif
 .endif # CC_CLANG
 
 .if ${PORT_OPTIONS:MCC_GCC46}
@@ -112,6 +109,9 @@ LDFLAGS+=	-rpath ${LOCALBASE}/lib/gcc46
 .if ${PORT_OPTIONS:MOSL}
 LIB_DEPENDS+=	oslcomp:${PORTSDIR}/graphics/openshadinglanguage
 CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=ON
+CMAKE_ARGS+=	-DWITH_LLVM:BOOL=ON
+CMAKE_ARGS+=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33"
+CMAKE_ARGS+=	-DLLVM_STATIC:BOOL=ON
 .else
 CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=OFF
 .endif

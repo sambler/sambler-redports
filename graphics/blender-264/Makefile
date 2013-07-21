@@ -94,14 +94,11 @@ NLS_DESC=	"Include translations"
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MCC_CLANG}
-CC=clang
-CXX=clang++
-CPP=clang-cpp
+BUILD_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
+CC=${LOCALBASE}/bin/clang33
+CXX=${LOCALBASE}/bin/clang++33
+CPP=${LOCALBASE}/bin/clang-cpp33
 CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=OFF
-
-.if ${OSVERSION} < 900033
-BUILD_DEPENDS+=	clang:${PORTSDIR}/lang/clang
-.endif
 .endif # CC_CLANG
 
 .if ${PORT_OPTIONS:MCC_GCC46}
