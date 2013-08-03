@@ -81,9 +81,7 @@ post-patch:
 .for file in data/lmms.desktop
 	@${REINPLACE_CMD} -e \
 		'/^Icon/s|=.*$$|=lmms|g ; \
-		 /^Exec/s|=.*$$|=lmms|g ; \
-		 /^Categories/s|$$|;|g ; \
-		 /^MimeType/s|$$|;|g' ${WRKSRC}/${file}
+		 /^Exec/s|=.*$$|=lmms|g' ${WRKSRC}/${file}
 .endfor
 .for filename in data/lmms src/core/config_mgr.cpp
 	@${REINPLACE_CMD} -e \
