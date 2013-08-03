@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.68
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -58,7 +58,7 @@ CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.3/site-packages
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	733d3fd
+GH_COMMIT=	5951099
 
 FETCH_ARGS=	-pRr
 
