@@ -39,7 +39,6 @@ CMAKE_ARGS=	-DWITH_Freetype:BOOL=ON -DWITH_OpenEXR:BOOL=ON -DWITH_JPEG:BOOL=ON \
 USE_LDCONFIG=	yes
 USE_GCC=	4.6+
 LDFLAGS+=	-rpath ${LOCALBASE}/lib/gcc46
-MAKE_JOBS_SAFE=	yes
 USE_PYTHON=	3.2
 USE_QT_VER=	4
 QT_COMPONENTS=	gui moc_build qmake_build rcc_build uic_build

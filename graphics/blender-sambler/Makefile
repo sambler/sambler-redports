@@ -63,7 +63,6 @@ GH_COMMIT=	5951099
 FETCH_ARGS=	-pRr
 
 USES=		cmake:outsource desktop-file-utils
-MAKE_JOBS_SAFE=	yes
 WRKSRC=		${WRKDIR}/sambler-myblender-${GH_COMMIT}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.68
 

@@ -29,7 +29,7 @@ USE_QT4=	corelib gui qmake_build linguist_build moc_build network \
 USES=		cmake:outsource pkgconfig
 CMAKE_ARGS+=	-DTHREADS_HAVE_PTHREAD_ARG:BOOL=ON
 USE_LDCONFIG=	yes
-MAKE_JOBS_SAFE=	yes
+
 CXXFLAGS+=	-I${LOCALBASE}/include/portaudio2 -I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib/portaudio2 -L${LOCALBASE}/lib
 

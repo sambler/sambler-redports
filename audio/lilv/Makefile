@@ -17,7 +17,6 @@ USE_PYTHON_BUILD=	yes
 USE_BZIP2=	yes
 USES=		pkgconfig
 MAN1=		lv2info.1 lv2ls.1
-MAKE_JOBS_SAFE=	yes
 
 OPTIONS_DEFINE=		DOCS
 

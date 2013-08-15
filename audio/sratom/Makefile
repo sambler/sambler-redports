@@ -18,7 +18,6 @@ RUN_DEPENDS=	${LOCALBASE}/lib/lv2/lv2core.lv2/lv2.h:${PORTSDIR}/audio/lv2
 USE_PYTHON_BUILD=	yes
 USE_BZIP2=	yes
 USES=		pkgconfig
-MAKE_JOBS_SAFE=	yes
 
 OPTIONS_DEFINE=		DOCS
 

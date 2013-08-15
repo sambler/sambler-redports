@@ -36,7 +36,6 @@ CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.2/site-packages
 .endif
 
 USES=		cmake:outsource
-MAKE_JOBS_SAFE=	yes
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 
 USE_PYTHON=	3.2

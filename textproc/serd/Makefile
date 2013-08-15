@@ -15,7 +15,6 @@ USE_BZIP2=	yes
 USE_PYTHON_BUILD=	yes
 USES=		pkgconfig
 MAN1=		serdi.1
-MAKE_JOBS_SAFE=	yes
 
 OPTIONS_DEFINE=		DOCS
 

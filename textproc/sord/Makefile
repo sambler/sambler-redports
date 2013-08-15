@@ -17,7 +17,6 @@ USE_BZIP2=	yes
 USE_PYTHON_BUILD=	yes
 USES=		pkgconfig
 MAN1=		sordi.1 sord_validate.1
-MAKE_JOBS_SAFE=	yes
 
 OPTIONS_DEFINE=		DOCS
 

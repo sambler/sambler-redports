@@ -19,7 +19,6 @@ USE_BZIP2=	yes
 USE_GNOME=	gtk20
 USE_QT4=	gui
 USES=		pkgconfig
-MAKE_JOBS_SAFE=	yes
 
 OPTIONS_DEFINE=		DOCS
 
