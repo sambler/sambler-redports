@@ -38,7 +38,7 @@ CONFIGURE_ENV+= CXX="${CXX}"
 
 do-configure:
 	@cd ${WRKSRC} && ${CONFIGURE_ENV} ${PYTHON_CMD} waf configure \
-		${DOCOPTION} --mandir=${MANPREFIX}/man --prefix=${PREFIX}
+		${DOCOPTION} --mandir=${MANPREFIX}/man --docdir=${DOCSDIR} --prefix=${PREFIX}
 
 do-build:
 	@cd ${WRKSRC} && ${PYTHON_CMD} waf
@@ -46,7 +46,8 @@ do-build:
 pre-install:
 	@${FIND} ${WRKSRC} -name autowaf.py -or -name TaskGen.py | \
 		${XARGS} ${REINPLACE_CMD} -e "s|pkgconfig|../libdata/pkgconfig|" \
-		-e "s|%s-%d'%(name.lower(),major),outdir,'html||"
+		-e "s|versioned=True|versioned=False|" \
+		-e "s|,outname,outdir,'html'|''|"
 
 do-install:
 	@cd ${WRKSRC} && ${PYTHON_CMD} waf install
