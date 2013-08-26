@@ -242,6 +242,8 @@ RUN_DEPENDS+=	gawk:${PORTSDIR}/lang/gawk
 #RUN_DEPENDS+=	gcc46:${PORTSDIR}/lang/gcc
 RUN_DEPENDS+=	libstdc++_stldoc_4.2.2>=0:${PORTSDIR}/lang/libstdc++_stldoc_4.2.2
 RUN_DEPENDS+=	php5-extensions>=0:${PORTSDIR}/lang/php5-extensions
+RUN_DEPENDS+=	python2>=0:${PORTSDIR}/lang/python2
+RUN_DEPENDS+=	python3>=0:${PORTSDIR}/lang/python3
 
 # mail
 RUN_DEPENDS+=	fetchmail:${PORTSDIR}/mail/fetchmail
