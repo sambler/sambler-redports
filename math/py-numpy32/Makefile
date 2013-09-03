@@ -2,16 +2,16 @@
 # $FreeBSD$
 
 PORTNAME=	numpy32
-PORTVERSION=	1.7.0
+PORTVERSION=	1.8.0b1
 PORTREVISION=	0
 CATEGORIES=	math python
 MASTER_SITES=	http://docs.scipy.org/doc/${DISTNAME:C/\..$/.0/}/:doc \
 		SF/numpy/NumPy/${PORTVERSION}:source
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
-DISTFILES=	numpy-${PORTVERSION:S/r/rc/}${EXTRACT_SUFX}:source \
+DISTFILES=	numpy-${PORTVERSION}${EXTRACT_SUFX}:source \
 		numpy-ref.pdf:doc \
 		numpy-user.pdf:doc
-EXTRACT_ONLY=	numpy-${PORTVERSION:S/r/rc/}${EXTRACT_SUFX}
+EXTRACT_ONLY=	numpy-${PORTVERSION}${EXTRACT_SUFX}
 
 MAINTAINER=	llwang@infor.org
 COMMENT=	The New Numeric Extension to Python
@@ -56,17 +56,17 @@ DISTFILES+=	${FP_ARCH}/fenv.c?p=203441:fp ${FP_ARCH}/fenv.h?p=203441:fp
 .endif
 
 .if ${PORT_OPTIONS:MATLAS}
-LIB_DEPENDS+=	atlas.2:${PORTSDIR}/math/atlas
+LIB_DEPENDS+=	libatlas.so:${PORTSDIR}/math/atlas
 .if !exists(${LOCALBASE}/lib/libalapack.a)
 IGNORE=	atlas needs to be built with WITH_STATIC for numpy to function properly
 .endif
 .else
-LIB_DEPENDS+=	lapack.4:${PORTSDIR}/math/lapack \
-		blas.2:${PORTSDIR}/math/blas
+LIB_DEPENDS+=	liblapack.so:${PORTSDIR}/math/lapack \
+		libblas.so:${PORTSDIR}/math/blas
 .endif
 
 .if ${PORT_OPTIONS:MSUITESPARSE}
-LIB_DEPENDS+=	umfpack.1:${PORTSDIR}/math/suitesparse
+LIB_DEPENDS+=	libumfpack.so:${PORTSDIR}/math/suitesparse
 .endif
 
 PYDISTUTILS_CONFIGUREARGS+=	--fcompiler=gnu95
