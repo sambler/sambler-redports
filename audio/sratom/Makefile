@@ -11,9 +11,9 @@ COMMENT=	A library for serialising LV2 atoms to/from RDF
 
 LICENSE=	ISCL
 
-BUILD_DEPENDS=	${LOCALBASE}/lib/lv2/lv2core.lv2/lv2.h:${PORTSDIR}/audio/lv2
-LIB_DEPENDS=	sord-0:${PORTSDIR}/textproc/sord
-RUN_DEPENDS=	${LOCALBASE}/lib/lv2/lv2core.lv2/lv2.h:${PORTSDIR}/audio/lv2
+BUILD_DEPENDS=	lv2>=0:${PORTSDIR}/audio/lv2
+LIB_DEPENDS=	libsord-0.so:${PORTSDIR}/textproc/sord
+RUN_DEPENDS=	lv2>=0:${PORTSDIR}/audio/lv2
 
 USE_PYTHON_BUILD=	yes
 USE_BZIP2=	yes

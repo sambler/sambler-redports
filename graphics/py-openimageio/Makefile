@@ -9,8 +9,8 @@ COMMENT=	OpenImageIO python bindings
 
 LICENSE=	BSD
 
-LIB_DEPENDS=	OpenImageIO:${PORTSDIR}/graphics/openimageio \
-		boost_python:${PORTSDIR}/devel/boost-python-libs
+LIB_DEPENDS=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio \
+		libboost_python.so:${PORTSDIR}/devel/boost-python-libs
 
 MASTERDIR=	${.CURDIR}/../openimageio
 

@@ -14,8 +14,8 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 CONFLICTS=	hydrogen-0.*
 
-LIB_DEPENDS+=	sndfile:${PORTSDIR}/audio/libsndfile \
-		tar:${PORTSDIR}/devel/libtar
+LIB_DEPENDS+=	libsndfile.so:${PORTSDIR}/audio/libsndfile \
+		libtar.so:${PORTSDIR}/devel/libtar
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hydrogen-music
@@ -29,7 +29,6 @@ USE_QT4=	corelib gui qmake_build linguist_build moc_build network \
 USES=		cmake:outsource pkgconfig
 CMAKE_ARGS+=	-DTHREADS_HAVE_PTHREAD_ARG:BOOL=ON
 USE_LDCONFIG=	yes
-
 CXXFLAGS+=	-I${LOCALBASE}/include/portaudio2 -I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib/portaudio2 -L${LOCALBASE}/lib
 
@@ -43,7 +42,7 @@ RDF_DESC=           RDF File support
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MALSA}
-LIB_DEPENDS+=	asound:${PORTSDIR}/audio/alsa-lib
+LIB_DEPENDS+=	libasound.so:${PORTSDIR}/audio/alsa-lib
 RUN_DEPENDS+=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins
 CMAKE_ARGS+=	-DWANT_ALSA:BOOL=ON
 .else
@@ -51,7 +50,7 @@ CMAKE_ARGS+=	-DWANT_ALSA:BOOL=OFF
 .endif
 
 .if ${PORT_OPTIONS:MJACK}
-LIB_DEPENDS+=	jack:${PORTSDIR}/audio/jack
+LIB_DEPENDS+=	libjack.so:${PORTSDIR}/audio/jack
 CMAKE_ARGS+=	-DWANT_JACK:BOOL=ON -DWANT_JACKSESSION:BOOL=ON
 .else
 CMAKE_ARGS+=	-DWANT_JACK:BOOL=OFF -DWANT_JACKSESSION:BOOL=OFF
@@ -67,14 +66,14 @@ CMAKE_ARGS+=	-DWANT_LADSPA:BOOL=OFF
 .endif
 
 .if ${PORT_OPTIONS:MLASH}
-LIB_DEPENDS+=	lash:${PORTSDIR}/audio/lash
+LIB_DEPENDS+=	liblash.so:${PORTSDIR}/audio/lash
 CMAKE_ARGS+=	-DWANT_LASH:BOOL=ON
 .else
 CMAKE_ARGS+=	-DWANT_LASH:BOOL=OFF
 .endif
 
 .if ${PORT_OPTIONS:MLIBARCHIVE}
-LIB_DEPENDS+=	archive:${PORTSDIR}/archivers/libarchive
+LIB_DEPENDS+=	libarchive.so:${PORTSDIR}/archivers/libarchive
 CMAKE_ARGS+=	-DWANT_LIBARCHIVE:BOOL=ON
 .else
 CMAKE_ARGS+=	-DWANT_LIBARCHIVE:BOOL=OFF
@@ -87,14 +86,14 @@ CMAKE_ARGS+=	-DWANT_OSS:BOOL=OFF
 .endif
 
 .if ${PORT_OPTIONS:MPORTAUDIO}
-LIB_DEPENDS+=	portaudio.2:${PORTSDIR}/audio/portaudio2
+LIB_DEPENDS+=	libportaudio.so.2:${PORTSDIR}/audio/portaudio2
 CMAKE_ARGS+=	-DWANT_PORTAUDIO:BOOL=ON
 .else
 CMAKE_ARGS+=	-DWANT_PORTAUDIO:BOOL=OFF
 .endif
 
 .if ${PORT_OPTIONS:MRDF}
-LIB_DEPENDS+=	lrdf:${PORTSDIR}/textproc/liblrdf
+LIB_DEPENDS+=	liblrdf.so:${PORTSDIR}/textproc/liblrdf
 CFLAGS+=	-I${LOCALBASE}/include/raptor2
 CXXFLAGS+=	-I${LOCALBASE}/include/raptor2
 CMAKE_ARGS+=	-DWANT_LRDF:BOOL=ON
@@ -105,7 +104,7 @@ CMAKE_ARGS+=	-DWANT_LRDF:BOOL=OFF
 # using librubberband is experimental and current versions have bad timing
 # installing the rubberband cli tool still works as before
 .if ${PORT_OPTIONS:MRUBBERBAND}
-LIB_DEPENDS+=	rubberband:${PORTSDIR}/audio/rubberband
+LIB_DEPENDS+=	librubberband.so:${PORTSDIR}/audio/rubberband
 CMAKE_ARGS+=	-DWANT_RUBBERBAND:BOOL=ON
 CMAKE_ARGS+=	-DRUBBERBAND_INCLUDE_DIR:STRING=${LOCALBASE}/include/rubberband
 .else

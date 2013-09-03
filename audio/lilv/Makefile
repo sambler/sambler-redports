@@ -11,7 +11,7 @@ COMMENT=	A library to help with LV2 plugins
 
 LICENSE=	ISCL
 
-LIB_DEPENDS=	sratom:${PORTSDIR}/audio/sratom
+LIB_DEPENDS=	libsratom-0.so:${PORTSDIR}/audio/sratom
 
 USE_PYTHON_BUILD=	yes
 USE_BZIP2=	yes

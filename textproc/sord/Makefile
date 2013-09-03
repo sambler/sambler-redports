@@ -11,7 +11,7 @@ COMMENT=	A lightweight library for storing RDF data in memory
 
 LICENSE=	ISCL
 
-LIB_DEPENDS+=	serd-0:${PORTSDIR}/textproc/serd
+LIB_DEPENDS+=	libserd-0.so:${PORTSDIR}/textproc/serd
 
 USE_BZIP2=	yes
 USE_PYTHON_BUILD=	yes

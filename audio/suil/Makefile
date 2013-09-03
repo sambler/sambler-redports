@@ -11,8 +11,8 @@ COMMENT=	A wrapper for LV2 plugin UIs
 
 LICENSE=	ISCL
 
-BUILD_DEPENDS=	${LOCALBASE}/lib/lv2/lv2core.lv2/lv2.h:${PORTSDIR}/audio/lv2
-RUN_DEPENDS=	${LOCALBASE}/lib/lv2/lv2core.lv2/lv2.h:${PORTSDIR}/audio/lv2
+BUILD_DEPENDS=	lv2>=0:${PORTSDIR}/audio/lv2
+RUN_DEPENDS=	lv2>=0:${PORTSDIR}/audio/lv2
 
 USE_PYTHON_BUILD=	yes
 USE_BZIP2=	yes

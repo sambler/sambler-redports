@@ -20,21 +20,21 @@ COMMENT=	3D modeling/rendering/animation/gaming package
 
 LICENSE=	GPLv2
 
-LIB_DEPENDS=	samplerate:${PORTSDIR}/audio/libsamplerate
-LIB_DEPENDS+=	sndfile:${PORTSDIR}/audio/libsndfile
-LIB_DEPENDS+=	boost_thread:${PORTSDIR}/devel/boost-libs
-LIB_DEPENDS+=	execinfo:${PORTSDIR}/devel/libexecinfo
-LIB_DEPENDS+=	unwind:${PORTSDIR}/devel/libunwind
-LIB_DEPENDS+=	jpeg:${PORTSDIR}/graphics/jpeg
-LIB_DEPENDS+=	OpenColorIO:${PORTSDIR}/graphics/opencolorio
-LIB_DEPENDS+=	OpenImageIO:${PORTSDIR}/graphics/openimageio
-LIB_DEPENDS+=	IlmImf:${PORTSDIR}/graphics/OpenEXR
-LIB_DEPENDS+=	openjpeg:${PORTSDIR}/graphics/openjpeg
-LIB_DEPENDS+=	png15:${PORTSDIR}/graphics/png
-LIB_DEPENDS+=	tiff:${PORTSDIR}/graphics/tiff
-LIB_DEPENDS+=	fftw3:${PORTSDIR}/math/fftw3
-LIB_DEPENDS+=	avutil1:${PORTSDIR}/multimedia/ffmpeg1
-LIB_DEPENDS+=	freetype:${PORTSDIR}/print/freetype2
+LIB_DEPENDS=	libsamplerate.so:${PORTSDIR}/audio/libsamplerate
+LIB_DEPENDS+=	libsndfile.so:${PORTSDIR}/audio/libsndfile
+LIB_DEPENDS+=	libboost_thread.so:${PORTSDIR}/devel/boost-libs
+LIB_DEPENDS+=	libexecinfo.so:${PORTSDIR}/devel/libexecinfo
+LIB_DEPENDS+=	libunwind.so:${PORTSDIR}/devel/libunwind
+LIB_DEPENDS+=	libjpeg.so:${PORTSDIR}/graphics/jpeg
+LIB_DEPENDS+=	libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
+LIB_DEPENDS+=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio
+LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
+LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg
+LIB_DEPENDS+=	libpng15.so:${PORTSDIR}/graphics/png
+LIB_DEPENDS+=	libtiff.so:${PORTSDIR}/graphics/tiff
+LIB_DEPENDS+=	libfftw3.so:${PORTSDIR}/math/fftw3
+LIB_DEPENDS+=	libavutil1.so:${PORTSDIR}/multimedia/ffmpeg1
+LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 .if exists(${PORTSDIR}/math/py-numpy33)
 # PYTHON_SITELIBDIR most likely points to python2.7/site-packages
@@ -89,6 +89,7 @@ CMAKE_ARGS+=	-DWITH_CODEC_FFMPEG:BOOL=ON -DWITH_CODEC_SNDFILE:BOOL=ON
 CMAKE_ARGS+=	-DFFMPEG:STRING="/usr/local" -DWITH_COMPOSITOR:BOOL=ON
 CMAKE_ARGS+=	-DWITH_CYCLES:BOOL=ON -DWITH_CYCLES_CUDA_BINARIES:BOOL=OFF
 CMAKE_ARGS+=	-DCYCLES_OPENCL_DEBUG:BOOL=OFF -DWITH_CYCLES_STANDALONE:BOOL=OFF
+CMAKE_ARGS+=	-DWITH_CYCLES_STANDALONE_GUI:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_FFTW3:BOOL=ON -DWITH_FREESTYLE:BOOL=ON
 CMAKE_ARGS+=	-DWITH_GAMEENGINE:BOOL=ON -DWITH_GUARDEDALLOC:BOOL=ON
 CMAKE_ARGS+=	-DWITH_IK_ITASC:BOOL=ON
@@ -146,7 +147,7 @@ LDFLAGS+=	-rpath ${LOCALBASE}/lib/gcc46
 .endif
 
 .if ${PORT_OPTIONS:MOSL}
-LIB_DEPENDS+=	oslcomp:${PORTSDIR}/graphics/openshadinglanguage
+LIB_DEPENDS+=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
 CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=ON
 CMAKE_ARGS+=	-DWITH_LLVM:BOOL=ON
 CMAKE_ARGS+=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33"
@@ -175,7 +176,7 @@ CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=OFF
 .endif
 
 .if ${PORT_OPTIONS:MJACK}
-LIB_DEPENDS+=	jack:${PORTSDIR}/audio/jack
+LIB_DEPENDS+=	libjack.so:${PORTSDIR}/audio/jack
 CMAKE_ARGS+=	-DWITH_JACK:BOOL=ON
 CMAKE_ARGS+=	-DWITH_JACK_DYNLOAD:BOOL=ON
 .else

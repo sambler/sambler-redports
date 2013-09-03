@@ -15,19 +15,19 @@ COMMENT=	3D modeling/rendering/animation/gaming package
 
 LICENSE=	GPLv2
 
-LIB_DEPENDS=	samplerate:${PORTSDIR}/audio/libsamplerate
-LIB_DEPENDS+=	sndfile:${PORTSDIR}/audio/libsndfile
-LIB_DEPENDS+=	boost_thread:${PORTSDIR}/devel/boost-libs
-LIB_DEPENDS+=	jpeg:${PORTSDIR}/graphics/jpeg
-LIB_DEPENDS+=	OpenColorIO:${PORTSDIR}/graphics/opencolorio
-LIB_DEPENDS+=	IlmImf:${PORTSDIR}/graphics/OpenEXR
-LIB_DEPENDS+=	OpenImageIO:${PORTSDIR}/graphics/openimageio
-LIB_DEPENDS+=	openjpeg:${PORTSDIR}/graphics/openjpeg
-LIB_DEPENDS+=	png15:${PORTSDIR}/graphics/png
-LIB_DEPENDS+=	tiff:${PORTSDIR}/graphics/tiff
-LIB_DEPENDS+=	fftw3:${PORTSDIR}/math/fftw3
-LIB_DEPENDS+=	avutil:${PORTSDIR}/multimedia/ffmpeg
-LIB_DEPENDS+=	freetype:${PORTSDIR}/print/freetype2
+LIB_DEPENDS=	libsamplerate.so:${PORTSDIR}/audio/libsamplerate
+LIB_DEPENDS+=	libsndfile.so:${PORTSDIR}/audio/libsndfile
+LIB_DEPENDS+=	libboost_thread.so:${PORTSDIR}/devel/boost-libs
+LIB_DEPENDS+=	libjpeg.so:${PORTSDIR}/graphics/jpeg
+LIB_DEPENDS+=	libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
+LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
+LIB_DEPENDS+=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio
+LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg
+LIB_DEPENDS+=	libpng15.so:${PORTSDIR}/graphics/png
+LIB_DEPENDS+=	libtiff.so:${PORTSDIR}/graphics/tiff
+LIB_DEPENDS+=	libfftw3.so:${PORTSDIR}/math/fftw3
+LIB_DEPENDS+=	libavutil.so:${PORTSDIR}/multimedia/ffmpeg
+LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 .if exists(${PORTSDIR}/math/py-numpy33)
 # PYTHON_SITELIBDIR most likely points to python2.7/site-packages
@@ -107,7 +107,7 @@ LDFLAGS+=	-rpath ${LOCALBASE}/lib/gcc46
 .endif
 
 .if ${PORT_OPTIONS:MOSL}
-LIB_DEPENDS+=	oslcomp:${PORTSDIR}/graphics/openshadinglanguage
+LIB_DEPENDS+=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
 CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=ON
 CMAKE_ARGS+=	-DWITH_LLVM:BOOL=ON
 CMAKE_ARGS+=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33"
@@ -135,7 +135,7 @@ CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=OFF
 .endif
 
 .if ${PORT_OPTIONS:MJACK}
-LIB_DEPENDS+=	jack:${PORTSDIR}/audio/jack
+LIB_DEPENDS+=	libjack.so:${PORTSDIR}/audio/jack
 CMAKE_ARGS+=	-DWITH_JACK:BOOL=ON
 .else
 CMAKE_ARGS+=	-DWITH_JACK:BOOL=OFF

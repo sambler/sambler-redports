@@ -13,7 +13,7 @@ LICENSE=	ISCL
 
 CONFLICTS=	lv2core-6.*
 
-LIB_DEPENDS=	sndfile:${PORTSDIR}/audio/libsndfile
+LIB_DEPENDS=	libsndfile.so:${PORTSDIR}/audio/libsndfile
 
 USE_PYTHON_BUILD=	yes
 USE_BZIP2=	yes

@@ -9,8 +9,8 @@ COMMENT=	Tools to work with OpenColorIO profiles
 
 LICENSE=	BSD
 
-LIB_DEPENDS=	OpenImageIO:${PORTSDIR}/graphics/openimageio \
-		OpenColorIO:${PORTSDIR}/graphics/opencolorio
+LIB_DEPENDS=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio \
+		libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
 
 MASTERDIR=	${.CURDIR}/../opencolorio
 

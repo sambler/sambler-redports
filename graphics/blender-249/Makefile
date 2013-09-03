@@ -16,14 +16,14 @@ COMMENT=	3D modeling/rendering/animation/gaming package
 LICENSE=	GPLv2
 
 BUILD_DEPENDS=  ${LOCALBASE}/lib/libode.a:${PORTSDIR}/devel/ode
-LIB_DEPENDS=	jpeg:${PORTSDIR}/graphics/jpeg
-LIB_DEPENDS+=	png15:${PORTSDIR}/graphics/png
-LIB_DEPENDS+=	tiff:${PORTSDIR}/graphics/tiff
-LIB_DEPENDS+=	IlmImf:${PORTSDIR}/graphics/OpenEXR
-LIB_DEPENDS+=	avutil:${PORTSDIR}/multimedia/ffmpeg
-LIB_DEPENDS+=	openjpeg:${PORTSDIR}/graphics/openjpeg
-LIB_DEPENDS+=	freetype:${PORTSDIR}/print/freetype2
-LIB_DEPENDS+=   ftgl.2:${PORTSDIR}/graphics/ftgl
+LIB_DEPENDS=	libjpeg.so:${PORTSDIR}/graphics/jpeg
+LIB_DEPENDS+=	libpng15.so:${PORTSDIR}/graphics/png
+LIB_DEPENDS+=	libtiff.so:${PORTSDIR}/graphics/tiff
+LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
+LIB_DEPENDS+=	libavutil.so:${PORTSDIR}/multimedia/ffmpeg
+LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg
+LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
+LIB_DEPENDS+=   libftgl.so:${PORTSDIR}/graphics/ftgl
 
 USES=		cmake:outsource
 WRKSRC=		${WRKDIR}/blender-2.49b
