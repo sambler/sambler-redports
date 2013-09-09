@@ -1,5 +1,5 @@
 bin/f2py32
-%%PYTHON_SITELIBDIR%%/numpy-1.8.0b1-py3.2.egg-info
+%%PYTHON_SITELIBDIR%%/numpy-1.8.0b2-py3.2.egg-info
 %%PYTHON_SITELIBDIR%%/numpy/__config__.py
 %%PYTHON_SITELIBDIR%%/numpy/__pycache__/__config__.cpython-32.pyc
 %%PYTHON_SITELIBDIR%%/numpy/__pycache__/__config__.cpython-32.pyo
@@ -633,9 +633,11 @@ bin/f2py32
 %%PYTHON_SITELIBDIR%%/numpy/lib/tests/test_financial.py
 %%PYTHON_SITELIBDIR%%/numpy/lib/tests/test_format.py
 %%PYTHON_SITELIBDIR%%/numpy/lib/tests/test_function_base.py
+%%PYTHON_SITELIBDIR%%/numpy/lib/tests/test_function_base.py.rej
 %%PYTHON_SITELIBDIR%%/numpy/lib/tests/test_index_tricks.py
 %%PYTHON_SITELIBDIR%%/numpy/lib/tests/install.log
 %%PYTHON_SITELIBDIR%%/numpy/lib/tests/test_io.py
+%%PYTHON_SITELIBDIR%%/numpy/lib/tests/pep8.patch
 %%PYTHON_SITELIBDIR%%/numpy/lib/tests/test_polynomial.py
 %%PYTHON_SITELIBDIR%%/numpy/lib/tests/test_recfunctions.py
 %%PYTHON_SITELIBDIR%%/numpy/lib/tests/test_regression.py
@@ -900,6 +902,7 @@ bin/f2py32
 %%PYTHON_SITELIBDIR%%/numpy/polynomial/tests/test_hermite_e.py
 %%PYTHON_SITELIBDIR%%/numpy/polynomial/tests/test_laguerre.py
 %%PYTHON_SITELIBDIR%%/numpy/polynomial/tests/test_legendre.py
+%%PYTHON_SITELIBDIR%%/numpy/polynomial/tests/pep8.patch
 %%PYTHON_SITELIBDIR%%/numpy/polynomial/tests/test_polynomial.py
 %%PYTHON_SITELIBDIR%%/numpy/polynomial/tests/test_polyutils.py
 %%PYTHON_SITELIBDIR%%/numpy/polynomial/tests/test_printing.py
