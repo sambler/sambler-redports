@@ -3,7 +3,7 @@
 
 PORTNAME?=	opencolorio
 PORTVERSION=	1.0.8
-PORTREVISION?=	0
+PORTREVISION?=	1
 CATEGORIES=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
@@ -56,6 +56,10 @@ CMAKE_ARGS+=	-DOCIO_USE_SSE:BOOL=OFF
 # workaround for pr/165968
 # was fixed in 9-STABLE before 9.1-RELEASE but not passed into 9-RELEASE
 CFLAGS+=	-march=pentium2
+.endif
+
+.if (${CXX:T} == "clang++" && ${OSVERSION} > 902000) || ${OSVERSION} > 1000054
+CXXFLAGS+= -stdlib=libc++ -std=c++11
 .endif
 
 post-patch:
