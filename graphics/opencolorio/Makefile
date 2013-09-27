@@ -36,6 +36,7 @@ OPTIONS_DEFINE=		DOCS SSE
 OPTIONS_DEFAULT=	DOCS SSE
 .endif
 
+NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 .if empty(PORT_OPTIONS:MDOCS) || defined(OCIO_TOOLS)
@@ -56,10 +57,6 @@ CMAKE_ARGS+=	-DOCIO_USE_SSE:BOOL=OFF
 # workaround for pr/165968
 # was fixed in 9-STABLE before 9.1-RELEASE but not passed into 9-RELEASE
 CFLAGS+=	-march=pentium2
-.endif
-
-.if (${CXX:T} == "clang++" && ${OSVERSION} > 902000) || ${OSVERSION} > 1000054
-CXXFLAGS+= -stdlib=libc++ -std=c++11
 .endif
 
 post-patch:
