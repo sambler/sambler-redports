@@ -33,7 +33,7 @@ RUN_DEPENDS+=	jack-rack:${PORTSDIR}/audio/jack-rack
 RUN_DEPENDS+=	jack_mixer:${PORTSDIR}/audio/jack_mixer
 RUN_DEPENDS+=	jack_umidi:${PORTSDIR}/audio/jack_umidi
 RUN_DEPENDS+=	smfsh:${PORTSDIR}/audio/libsmf
-LIB_DEPENDS+=	umidi20:${PORTSDIR}/audio/libumidi
+LIB_DEPENDS+=	libumidi20.so:${PORTSDIR}/audio/libumidi
 RUN_DEPENDS+=	lv2ls:${PORTSDIR}/audio/lilv
 RUN_DEPENDS+=	lmms:${PORTSDIR}/audio/lmms-sambler
 RUN_DEPENDS+=	mixmos:${PORTSDIR}/audio/mixmos
@@ -44,8 +44,7 @@ RUN_DEPENDS+=	mutagen-inspect:${PORTSDIR}/audio/py-mutagen
 RUN_DEPENDS+=	qjackctl:${PORTSDIR}/audio/qjackctl
 RUN_DEPENDS+=	rosegarden:${PORTSDIR}/audio/rosegarden
 RUN_DEPENDS+=	rubberband:${PORTSDIR}/audio/rubberband
-RUN_DEPENDS+=	lv2_inspect:${PORTSDIR}/audio/slv2
-LIB_DEPENDS+=	suil-0:${PORTSDIR}/audio/suil
+RUN_DEPENDS+=	lv2>=0:${PORTSDIR}/audio/slv2
 RUN_DEPENDS+=	thunar-media-tags-plugin>=0:${PORTSDIR}/audio/thunar-media-tags-plugin
 RUN_DEPENDS+=	ttaenc:${PORTSDIR}/audio/tta
 RUN_DEPENDS+=	vorbisgain:${PORTSDIR}/audio/vorbisgain
@@ -63,7 +62,7 @@ RUN_DEPENDS+=	ideviceinfo:${PORTSDIR}/comms/libimobiledevice
 RUN_DEPENDS+=	db46>=0:${PORTSDIR}/databases/db46
 RUN_DEPENDS+=	libdbi-drivers>=0:${PORTSDIR}/databases/libdbi-drivers
 RUN_DEPENDS+=	libgda4-postgresql>=0:${PORTSDIR}/databases/libgda4-postgresql
-LIB_DEPENDS+=	gdamm-4.0:${PORTSDIR}/databases/libgdamm
+LIB_DEPENDS+=	libgdamm-4.0.so:${PORTSDIR}/databases/libgdamm
 RUN_DEPENDS+=	pgadmin3:${PORTSDIR}/databases/pgadmin3
 RUN_DEPENDS+=	postgresql-contrib>=0:${PORTSDIR}/databases/postgresql92-contrib
 RUN_DEPENDS+=	postgresql-docs>=0:${PORTSDIR}/databases/postgresql92-docs
@@ -90,7 +89,7 @@ RUN_DEPENDS+=	automoc4:${PORTSDIR}/devel/automoc4
 RUN_DEPENDS+=	bison:${PORTSDIR}/devel/bison
 RUN_DEPENDS+=	boost-docs>=0:${PORTSDIR}/devel/boost-docs
 RUN_DEPENDS+=	bjam:${PORTSDIR}/devel/boost-jam
-LIB_DEPENDS+=	boost_python3:${PORTSDIR}/devel/boost-python3-libs
+LIB_DEPENDS+=	libboost_python3.so:${PORTSDIR}/devel/boost-python3-libs
 RUN_DEPENDS+=	buildtool:${PORTSDIR}/devel/buildtool
 RUN_DEPENDS+=	buildtool-doc>=0:${PORTSDIR}/devel/buildtool-doc
 RUN_DEPENDS+=	ccache:${PORTSDIR}/devel/ccache
@@ -106,12 +105,13 @@ RUN_DEPENDS+=	devhelp:${PORTSDIR}/devel/devhelp
 RUN_DEPENDS+=	dmake:${PORTSDIR}/devel/dmake
 RUN_DEPENDS+=	dmalloc:${PORTSDIR}/devel/dmalloc
 RUN_DEPENDS+=	doxygen:${PORTSDIR}/devel/doxygen
-LIB_DEPENDS+=	OpenCL:${PORTSDIR}/devel/freeocl
+LIB_DEPENDS+=	libOpenCL.so:${PORTSDIR}/devel/freeocl
 RUN_DEPENDS+=	gdb76:${PORTSDIR}/devel/gdb
 RUN_DEPENDS+=	geany-plugins>=0:${PORTSDIR}/devel/geany-plugins
 RUN_DEPENDS+=	gitg:${PORTSDIR}/devel/gitg
 RUN_DEPENDS+=	gmake:${PORTSDIR}/devel/gmake
 RUN_DEPENDS+=	gnome-js-common>=0:${PORTSDIR}/devel/gnome-js-common
+RUN_DEPENDS+=	gnustep>=0:${PORTSDIR}/devel/gnustep
 RUN_DEPENDS+=	gnustep-make>=0:${PORTSDIR}/devel/gnustep-make
 RUN_DEPENDS+=	pprof:${PORTSDIR}/devel/google-perftools
 RUN_DEPENDS+=	gperf:${PORTSDIR}/devel/gperf
@@ -120,14 +120,14 @@ RUN_DEPENDS+=	gwenhywfar-config:${PORTSDIR}/devel/gwenhywfar
 RUN_DEPENDS+=	imake:${PORTSDIR}/devel/imake
 RUN_DEPENDS+=	jsmin:${PORTSDIR}/devel/jsmin
 RUN_DEPENDS+=	checkmk:${PORTSDIR}/devel/libcheck
-LIB_DEPENDS+=	config:${PORTSDIR}/devel/libconfig
-LIB_DEPENDS+=	galago:${PORTSDIR}/devel/libgalago
-LIB_DEPENDS+=	inotify:${PORTSDIR}/devel/libinotify
-LIB_DEPENDS+=	kgapi:${PORTSDIR}/devel/libkgapi
-LIB_DEPENDS+=	kolab:${PORTSDIR}/devel/libkolab
+LIB_DEPENDS+=	libconfig.so:${PORTSDIR}/devel/libconfig
+LIB_DEPENDS+=	libgalago.so:${PORTSDIR}/devel/libgalago
+LIB_DEPENDS+=	libinotify.so:${PORTSDIR}/devel/libinotify
+LIB_DEPENDS+=	libkgapi.so:${PORTSDIR}/devel/libkgapi
+LIB_DEPENDS+=	libkolab.so:${PORTSDIR}/devel/libkolab
 RUN_DEPENDS+=	libowfat>=0:${PORTSDIR}/devel/libowfat
-LIB_DEPENDS+=	slang:${PORTSDIR}/devel/libslang2
-LIB_DEPENDS+=	thai:${PORTSDIR}/devel/libthai
+LIB_DEPENDS+=	libslang.so:${PORTSDIR}/devel/libslang2
+LIB_DEPENDS+=	libthai.so:${PORTSDIR}/devel/libthai
 RUN_DEPENDS+=	hg:${PORTSDIR}/devel/mercurial
 RUN_DEPENDS+=	nasm:${PORTSDIR}/devel/nasm
 RUN_DEPENDS+=	ode-config:${PORTSDIR}/devel/ode
@@ -135,6 +135,7 @@ RUN_DEPENDS+=	puic4:${PORTSDIR}/devel/p5-perlqt
 RUN_DEPENDS+=	p5-Readonly>=0:${PORTSDIR}/devel/p5-Readonly  # for internode-quota-check
 RUN_DEPENDS+=	gpatch:${PORTSDIR}/devel/patch
 RUN_DEPENDS+=	premake:${PORTSDIR}/devel/premake
+RUN_DEPENDS+=	projectcenter>=0:${PORTSDIR}/devel/projectcenter
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}lxml>=0:${PORTSDIR}/devel/py-lxml
 RUN_DEPENDS+=	pykdeuic4:${PORTSDIR}/devel/py-pykdeuic4
 RUN_DEPENDS+=	pyuic4:${PORTSDIR}/devel/py-qt4
@@ -143,8 +144,8 @@ RUN_DEPENDS+=	qgit:${PORTSDIR}/devel/qgit
 RUN_DEPENDS+=	qmake:${PORTSDIR}/devel/qmake
 RUN_DEPENDS+=	qsvn:${PORTSDIR}/devel/qsvn
 RUN_DEPENDS+=	assistant_adp:${PORTSDIR}/devel/qt4-assistant-adp
-LIB_DEPENDS+=	QtSolutions_SingleApplication-head:${PORTSDIR}/devel/qt4-qtsolutions-singleapplication
-LIB_DEPENDS+=	QtSolutions_SOAP-head:${PORTSDIR}/devel/qt4-qtsolutions-soap
+LIB_DEPENDS+=	libQtSolutions_SingleApplication-head.so:${PORTSDIR}/devel/qt4-qtsolutions-singleapplication
+LIB_DEPENDS+=	libQtSolutions_SOAP-head.so:${PORTSDIR}/devel/qt4-qtsolutions-soap
 RUN_DEPENDS+=	uic3:${PORTSDIR}/devel/qt4-uic3
 RUN_DEPENDS+=	qtcreator:${PORTSDIR}/devel/qtcreator
 RUN_DEPENDS+=	rapidsvn:${PORTSDIR}/devel/rapidsvn
@@ -208,11 +209,11 @@ RUN_DEPENDS+=	epdfview:${PORTSDIR}/graphics/epdfview
 RUN_DEPENDS+=	frei0r>=0:${PORTSDIR}/graphics/frei0r
 RUN_DEPENDS+=	gimp-help-html>=0:${PORTSDIR}/graphics/gimp-help
 RUN_DEPENDS+=	gimp-resynthesizer>=0:${PORTSDIR}/graphics/gimp-resynthesizer
-LIB_DEPENDS+=	goom2:${PORTSDIR}/graphics/goom
+LIB_DEPENDS+=	libgoom2.so:${PORTSDIR}/graphics/goom
 RUN_DEPENDS+=	gr2fonttest:${PORTSDIR}/graphics/graphite2
 RUN_DEPENDS+=	inkscape:${PORTSDIR}/graphics/inkscape
 RUN_DEPENDS+=	kiconedit:${PORTSDIR}/graphics/kiconedit
-LIB_DEPENDS+=	lensfun:${PORTSDIR}/graphics/lensfun
+LIB_DEPENDS+=	liblensfun.so:${PORTSDIR}/graphics/lensfun
 RUN_DEPENDS+=	luxrays>=0:${PORTSDIR}/graphics/luxrays
 #RUN_DEPENDS+=	luxrender:${PORTSDIR}/graphics/luxrender
 RUN_DEPENDS+=	cuberender:${PORTSDIR}/graphics/mesa-demos
@@ -222,7 +223,7 @@ RUN_DEPENDS+=	panomatic:${PORTSDIR}/graphics/panomatic
 RUN_DEPENDS+=	pngwriter>=0:${PORTSDIR}/graphics/pngwriter
 RUN_DEPENDS+=	povray:${PORTSDIR}/graphics/povray-meta
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}openimageio>=0:${PORTSDIR}/graphics/py-openimageio
-LIB_DEPENDS+=	QtGTL:${PORTSDIR}/graphics/qtgtl
+LIB_DEPENDS+=	libQtGTL.so:${PORTSDIR}/graphics/qtgtl
 RUN_DEPENDS+=	iccDumpProfile:${PORTSDIR}/graphics/sampleicc
 RUN_DEPENDS+=	xscanimage:${PORTSDIR}/graphics/sane-frontends
 RUN_DEPENDS+=	sswf:${PORTSDIR}/graphics/sswf
@@ -236,10 +237,11 @@ RUN_DEPENDS+=	quassel:${PORTSDIR}/irc/quassel
 
 # lang
 RUN_DEPENDS+=	clang:${PORTSDIR}/lang/clang
-#RUN_DEPENDS+=	clang:${PORTSDIR}/lang/clang-devel
+RUN_DEPENDS+=	clang:${PORTSDIR}/lang/clang-devel
 RUN_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 RUN_DEPENDS+=	gawk:${PORTSDIR}/lang/gawk
-#RUN_DEPENDS+=	gcc46:${PORTSDIR}/lang/gcc
+RUN_DEPENDS+=	gcc46:${PORTSDIR}/lang/gcc
+RUN_DEPENDS+=	libobjc2>=0:${PORTSDIR}/lang/libobjc2
 RUN_DEPENDS+=	libstdc++_stldoc_4.2.2>=0:${PORTSDIR}/lang/libstdc++_stldoc_4.2.2
 RUN_DEPENDS+=	php5-extensions>=0:${PORTSDIR}/lang/php5-extensions
 RUN_DEPENDS+=	python2>=0:${PORTSDIR}/lang/python2
@@ -251,7 +253,7 @@ RUN_DEPENDS+=	fetchmail:${PORTSDIR}/mail/fetchmail
 RUN_DEPENDS+=	xfce4-mailwatch-plugin>=0:${PORTSDIR}/mail/xfce4-mailwatch-plugin
 
 # math
-LIB_DEPENDS+=	arpack:${PORTSDIR}/math/arpack
+LIB_DEPENDS+=	libarpack.so:${PORTSDIR}/math/arpack
 RUN_DEPENDS+=	djbfft>=0:${PORTSDIR}/math/djbfft
 RUN_DEPENDS+=	eigen>=0:${PORTSDIR}/math/eigen2
 RUN_DEPENDS+=	gmm++>=0:${PORTSDIR}/math/gmm++
@@ -286,7 +288,7 @@ RUN_DEPENDS+=	ffmpeg2theora:${PORTSDIR}/multimedia/ffmpeg2theora
 RUN_DEPENDS+=	gcap:${PORTSDIR}/multimedia/gcap
 RUN_DEPENDS+=	grake:${PORTSDIR}/multimedia/grake
 RUN_DEPENDS+=	gstreamer-plugins-all>=0:${PORTSDIR}/multimedia/gstreamer-plugins-all
-LIB_DEPENDS+=	gstreamermm-0.10:${PORTSDIR}/multimedia/gstreamermm
+LIB_DEPENDS+=	libgstreamermm-0.10.so:${PORTSDIR}/multimedia/gstreamermm
 RUN_DEPENDS+=	gtk-recordMyDesktop:${PORTSDIR}/multimedia/gtk-recordmydesktop
 RUN_DEPENDS+=	HandBrake:${PORTSDIR}/multimedia/handbrake
 RUN_DEPENDS+=	lsdvd:${PORTSDIR}/multimedia/lsdvd
@@ -305,14 +307,13 @@ RUN_DEPENDS+=	xine:${PORTSDIR}/multimedia/xine
 
 # net-im
 RUN_DEPENDS+=	pidgin:${PORTSDIR}/net-im/pidgin
-LIB_DEPENDS+=	gadu:${PORTSDIR}/polish/libgadu
+LIB_DEPENDS+=	libgadu.so:${PORTSDIR}/polish/libgadu
 
 # net
 RUN_DEPENDS+=	cvsup:${PORTSDIR}/net/cvsup-without-gui
-LIB_DEPENDS+=	gupnp-1.0:${PORTSDIR}/net/gupnp
+LIB_DEPENDS+=	libgupnp-1.0.so:${PORTSDIR}/net/gupnp
 RUN_DEPENDS+=	liferea:${PORTSDIR}/net/liferea
 RUN_DEPENDS+=	linphonec:${PORTSDIR}/net/linphone-base
-RUN_DEPENDS+=	openRTSP:${PORTSDIR}/net/liveMedia
 RUN_DEPENDS+=	slptool:${PORTSDIR}/net/openslp
 RUN_DEPENDS+=	vncviewer:${PORTSDIR}/net/tightvnc
 RUN_DEPENDS+=	vino-passwd:${PORTSDIR}/net/vino
@@ -340,7 +341,7 @@ RUN_DEPENDS+=	dirmngr:${PORTSDIR}/security/dirmngr
 RUN_DEPENDS+=	krb5-config:${PORTSDIR}/security/heimdal
 RUN_DEPENDS+=	keychain:${PORTSDIR}/security/keychain
 RUN_DEPENDS+=	otr_parse:${PORTSDIR}/security/libotr
-LIB_DEPENDS+=	ssh2:${PORTSDIR}/security/libssh2
+LIB_DEPENDS+=	libssh2.so:${PORTSDIR}/security/libssh2
 RUN_DEPENDS+=	ssh-askpass:${PORTSDIR}/security/openssh-askpass
 RUN_DEPENDS+=	pgp:${PORTSDIR}/security/pgp
 RUN_DEPENDS+=	pinentry:${PORTSDIR}/security/pinentry
@@ -358,7 +359,6 @@ RUN_DEPENDS+=	zsh:${PORTSDIR}/shells/zsh
 RUN_DEPENDS+=	procsystime:${PORTSDIR}/sysutils/DTraceToolkit
 RUN_DEPENDS+=	automount2amd:${PORTSDIR}/sysutils/am-utils
 RUN_DEPENDS+=	anacron:${PORTSDIR}/sysutils/anacron
-RUN_DEPENDS+=	apcupsd:${PORTSDIR}/sysutils/apcupsd
 RUN_DEPENDS+=	ataidle:${PORTSDIR}/sysutils/ataidle
 RUN_DEPENDS+=	automounter:${PORTSDIR}/sysutils/automounter
 RUN_DEPENDS+=	rcstatus:${PORTSDIR}/sysutils/bsdadminscripts
@@ -384,11 +384,11 @@ RUN_DEPENDS+=	ntfslabel:${PORTSDIR}/sysutils/ntfsprogs
 RUN_DEPENDS+=	nvclock:${PORTSDIR}/sysutils/nvclock
 RUN_DEPENDS+=	lspci:${PORTSDIR}/sysutils/pciutils
 RUN_DEPENDS+=	quicksynergy:${PORTSDIR}/sysutils/quicksynergy
-RUN_DEPENDS+=	screen:${PORTSDIR}/sysutils/screen
 RUN_DEPENDS+=	sensors-applet>=0:${PORTSDIR}/sysutils/sensors-applet
 RUN_DEPENDS+=	sg_get_config:${PORTSDIR}/sysutils/sg3_utils
 RUN_DEPENDS+=	synergys:${PORTSDIR}/sysutils/synergy
 RUN_DEPENDS+=	testdisk:${PORTSDIR}/sysutils/testdisk
+RUN_DEPENDS+=  tmux:${PORTSDIR}/sysutils/tmux
 RUN_DEPENDS+=	vobcopy:${PORTSDIR}/sysutils/vobcopy
 RUN_DEPENDS+=	volmand:${PORTSDIR}/sysutils/volman
 RUN_DEPENDS+=	webmin>=0:${PORTSDIR}/sysutils/webmin
@@ -423,7 +423,7 @@ RUN_DEPENDS+=	meld:${PORTSDIR}/textproc/meld
 RUN_DEPENDS+=	mythes>=0:${PORTSDIR}/textproc/mythes
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}rdflib>=0:${PORTSDIR}/textproc/py-rdflib
 RUN_DEPENDS+=	sphinx-build:${PORTSDIR}/textproc/py-sphinx
-LIB_DEPENDS+=	rdf:${PORTSDIR}/textproc/redland
+LIB_DEPENDS+=	librdf.so:${PORTSDIR}/textproc/redland
 RUN_DEPENDS+=	redland-bindings>=0:${PORTSDIR}/textproc/redland-bindings
 RUN_DEPENDS+=	rtfreader:${PORTSDIR}/textproc/rtfreader
 RUN_DEPENDS+=	deplate:${PORTSDIR}/textproc/ruby-deplate
@@ -433,11 +433,11 @@ RUN_DEPENDS+=	xmlto:${PORTSDIR}/textproc/xmlto
 
 # www
 RUN_DEPENDS+=	bluefish:${PORTSDIR}/www/bluefish
-#RUN_DEPENDS+=	chrome:${PORTSDIR}/www/chromium
+RUN_DEPENDS+=	chrome:${PORTSDIR}/www/chromium
 RUN_DEPENDS+=	cs:${PORTSDIR}/www/clearsilver-python
 RUN_DEPENDS+=	firefox:${PORTSDIR}/www/firefox
-LIB_DEPENDS+=	gtkhtml-3.1[1-9]:${PORTSDIR}/www/gtkhtml3
-LIB_DEPENDS+=	microhttpd:${PORTSDIR}/www/libmicrohttpd
+LIB_DEPENDS+=	libgtkhtml-3.1[1-9].so:${PORTSDIR}/www/gtkhtml3
+LIB_DEPENDS+=	libmicrohttpd.so:${PORTSDIR}/www/libmicrohttpd
 RUN_DEPENDS+=	lighttpd:${PORTSDIR}/www/lighttpd
 RUN_DEPENDS+=	linklint:${PORTSDIR}/www/linklint
 RUN_DEPENDS+=	linkchecker:${PORTSDIR}/www/linkchecker
@@ -532,11 +532,11 @@ RUN_DEPENDS+=	icon-naming-utils>=0:${PORTSDIR}/x11-themes/icon-naming-utils
 RUN_DEPENDS+=	lxappearance:${PORTSDIR}/x11-themes/lxappearance
 
 # x11-toolkits
-LIB_DEPENDS+=	gdl-1:${PORTSDIR}/x11-toolkits/gdl
-LIB_DEPENDS+=	gtkimageview:${PORTSDIR}/x11-toolkits/gtkimageview
+LIB_DEPENDS+=	libgdl-1.so:${PORTSDIR}/x11-toolkits/gdl
+LIB_DEPENDS+=	libgtkimageview.so:${PORTSDIR}/x11-toolkits/gtkimageview
 RUN_DEPENDS+=	libgail-gnome>=0:${PORTSDIR}/x11-toolkits/libgail-gnome
-LIB_DEPENDS+=	gtksourceviewmm-2.0:${PORTSDIR}/x11-toolkits/libgtksourceviewmm
-LIB_DEPENDS+=	wx_gtk2_gizmos-2.8:${PORTSDIR}/x11-toolkits/wxgtk28-contrib
+LIB_DEPENDS+=	libgtksourceviewmm-2.0.so:${PORTSDIR}/x11-toolkits/libgtksourceviewmm
+LIB_DEPENDS+=	libwx_gtk2_gizmos-2.8.so:${PORTSDIR}/x11-toolkits/wxgtk28-contrib
 
 # x11-wm
 RUN_DEPENDS+=	xfce>=0:${PORTSDIR}/x11-wm/xfce4
@@ -548,15 +548,15 @@ RUN_DEPENDS+=	florence:${PORTSDIR}/x11/florence
 RUN_DEPENDS+=	gnome2-lite>=0:${PORTSDIR}/x11/gnome2-lite
 RUN_DEPENDS+=	switch2:${PORTSDIR}/x11/gtk-theme-switch2
 RUN_DEPENDS+=	idesk:${PORTSDIR}/x11/idesk
-LIB_DEPENDS+=	xdg-basedir:${PORTSDIR}/x11/libxdg-basedir
+LIB_DEPENDS+=	libxdg-basedir.so:${PORTSDIR}/x11/libxdg-basedir
 RUN_DEPENDS+=	numlockx:${PORTSDIR}/x11/numlockx
 RUN_DEPENDS+=	nvidia-driver>=0:${PORTSDIR}/x11/nvidia-driver
 RUN_DEPENDS+=	nvidia-settings:${PORTSDIR}/x11/nvidia-settings
 RUN_DEPENDS+=	printscreen:${PORTSDIR}/x11/printscreen
 RUN_DEPENDS+=	resourceproto>=0:${PORTSDIR}/x11/resourceproto
 RUN_DEPENDS+=	xcb-proto>=0:${PORTSDIR}/x11/xcb-proto
-LIB_DEPENDS+=	xcb-image:${PORTSDIR}/x11/xcb-util-image
-LIB_DEPENDS+=	xcb-ewmh:${PORTSDIR}/x11/xcb-util-wm
+LIB_DEPENDS+=	libxcb-image.so:${PORTSDIR}/x11/xcb-util-image
+LIB_DEPENDS+=	libxcb-ewmh.so:${PORTSDIR}/x11/xcb-util-wm
 RUN_DEPENDS+=	xcmiscproto>=0:${PORTSDIR}/x11/xcmiscproto
 RUN_DEPENDS+=	xf86driproto>=0:${PORTSDIR}/x11/xf86driproto
 RUN_DEPENDS+=	xfce4-clipman-plugin>=0:${PORTSDIR}/x11/xfce4-clipman-plugin

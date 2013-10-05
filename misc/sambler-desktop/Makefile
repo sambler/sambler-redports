@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	sambler-desktop
-PORTVERSION=	2
+PORTVERSION=	3
 CATEGORIES=	misc
 MASTER_SITES=	# Empty
 DISTFILES=	# None
@@ -18,6 +18,8 @@ RUN_DEPENDS=	# Empty so subsequent RUN_DEPENDS need +=
 NO_BUILD=	yes
 USE_PYTHON=	2.7+
 USE_APACHE_RUN=	22
+NO_MTREE=	yes
+NO_STAGE=	yes
 
 do-install:	# empty
 
