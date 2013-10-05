@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME?=	openimageio
-PORTVERSION=	1.2.1
+PORTVERSION=	1.2.2
 PORTREVISION?=	0
 CATEGORIES?=	graphics multimedia
 
@@ -22,7 +22,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
 GH_TAGNAME=	Release-${PORTVERSION}
-GH_COMMIT=	f7908a3
+GH_COMMIT=	f9d8f1b
 WRKSRC=		${WRKDIR}/OpenImageIO-oiio-${GH_COMMIT}/src
 
 # fbm also installs bin/idiff
@@ -55,6 +55,7 @@ IMAGEVIEWER_DESC=	Build image viewer
 OCIO_DESC=		Colour management support
 .endif
 
+NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MDOCS}
