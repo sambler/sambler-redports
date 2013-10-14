@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-263
 PORTVERSION=	2.63a
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -89,10 +89,16 @@ NLS_DESC=	"Include translations"
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MCC_CLANG}
+.if ${OSVERSION} < 902000
 BUILD_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 CC=${LOCALBASE}/bin/clang33
 CXX=${LOCALBASE}/bin/clang++33
 CPP=${LOCALBASE}/bin/clang-cpp33
+.else
+CC=clang
+CXX=clang++
+CPP=clang-cpp
+.endif # OSVERSION
 CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=OFF
 .endif # CC_CLANG
 
@@ -134,46 +140,46 @@ USES+=		gettext iconv
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
 .endif
 
-post-install:
-	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${PREFIX}/bin/blender-263
+do-install:
+	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${STAGEDIR}/${PREFIX}/bin/blender-263
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
-		${PREFIX}/bin/blender-bin-263
-	@${MKDIR} ${DATADIR}
-	@${INSTALL_SCRIPT} ${INSTALL_WRKSRC}/bin/blender-thumbnailer.py \
-		${PREFIX}/bin/blender-thumbnailer-263.py
+		${STAGEDIR}/${PREFIX}/bin/blender-bin-263
+	@${MKDIR} ${STAGEDIR}/${DATADIR}
+	@${INSTALL_SCRIPT} ${WRKSRC}/release/bin/blender-thumbnailer.py \
+		${STAGEDIR}/${PREFIX}/bin/blender-thumbnailer-263.py
 	@${ECHO} bin/blender-263 >> ${TMPPLIST}
 	@${ECHO} bin/blender-bin-263 >> ${TMPPLIST}
 	@${ECHO} bin/blender-thumbnailer-263.py >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MPLAYER}
-	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${PREFIX}/bin/blenderplayer-263
+	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${STAGEDIR}/${PREFIX}/bin/blenderplayer-263
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blenderplayer \
-		${PREFIX}/bin/blenderplayer-bin-263
+		${STAGEDIR}/${PREFIX}/bin/blenderplayer-bin-263
 	@${ECHO} bin/blenderplayer-263 >> ${TMPPLIST}
 	@${ECHO} bin/blenderplayer-bin-263 >> ${TMPPLIST}
 .endif
 
-	@${CP} -R ${OUTDIR}/scripts ${DATADIR}
-	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
-		${PREFIX}/share/pixmaps/blender-263.svg
-	@(cd ${OUTDIR}; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@${CP} -R ${WRKSRC}/release/scripts ${STAGEDIR}/${DATADIR}/
+	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/icons/scalable/apps/blender.svg \
+		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-263.svg
+	@(cd ${WRKSRC}/release; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${WRKSRC}/release; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 	@${ECHO} share/pixmaps/blender-263.svg >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MNLS}
-	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/locale ${DATADIR}
-	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
-
-	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/fonts ${DATADIR}
-	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@cd ${WRKSRC}/release && ${COPYTREE_SHARE} datafiles/locale ${STAGEDIR}/${DATADIR}/
+	@(cd ${WRKSRC}/release; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${WRKSRC}/release; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${WRKSRC}/release; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 .endif
 
-	@${MKDIR} ${DESKTOPDIR}
-	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.desktop \
-		${DESKTOPDIR}/blender-263.desktop
+	@cd ${WRKSRC}/release && ${COPYTREE_SHARE} datafiles/fonts ${STAGEDIR}/${DATADIR}/
+	@(cd ${WRKSRC}/release; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${WRKSRC}/release; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+
+	@${MKDIR} ${STAGEDIR}/${DESKTOPDIR}
+	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/blender.desktop \
+		${STAGEDIR}/${DESKTOPDIR}/blender-263.desktop
 	@-update-desktop-database -q
 	@${ECHO} share/applications/blender-263.desktop >> ${TMPPLIST}
 

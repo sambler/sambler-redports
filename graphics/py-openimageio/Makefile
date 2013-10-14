@@ -19,6 +19,7 @@ USE_PYTHON=	2.6+
 OIIO_PYBIND=	yes
 
 do-install:
-	${INSTALL_LIB} ${BUILD_WRKSRC}/python/OpenImageIO.so ${PYTHON_SITELIBDIR}/
+	@${MKDIR} -p ${STAGEDIR}/${PYTHON_SITELIBDIR}
+	${INSTALL_LIB} ${BUILD_WRKSRC}/python/OpenImageIO.so ${STAGEDIR}/${PYTHON_SITELIBDIR}/
 
 .include "${MASTERDIR}/Makefile"

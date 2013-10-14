@@ -7,10 +7,9 @@ CATEGORIES=	audio
 MASTER_SITES=	SF/${PORTNAME}/Hydrogen/${MAJORVERSION}%20Sources
 
 MAINTAINER=	FreeBSD@ShaneWare.Biz
-COMMENT=	An advanced drum machine
+COMMENT=	Advanced drum machine
 
 LICENSE=	GPLv2
-LICENSE_FILE=	${WRKSRC}/COPYING
 
 CONFLICTS=	hydrogen-devel-0.*
 

@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-249
 PORTVERSION=	2.49b
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -93,27 +93,27 @@ PLIST_SUB+=	NLS="@comment "
 .endif
 
 do-install:
-	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${PREFIX}/bin/blender-249
+	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${STAGEDIR}/${PREFIX}/bin/blender-249
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
-		${PREFIX}/bin/blender-bin-249
-	@${MKDIR} ${DATADIR}
+		${STAGEDIR}/${PREFIX}/bin/blender-bin-249
+	@${MKDIR} ${STAGEDIR}/${DATADIR}
 
 .if ${PORT_OPTIONS:MPLAYER}
-	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${PREFIX}/bin/blenderplayer-249
+	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${STAGEDIR}/${PREFIX}/bin/blenderplayer-249
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blenderplayer \
-		${PREFIX}/bin/blenderplayer-bin-249
+		${STAGEDIR}/${PREFIX}/bin/blenderplayer-bin-249
 .endif
 
-	@${CP} -R ${WRKSRC}/release/scripts ${DATADIR}
-	@${INSTALL_DATA} ${WRKSRC}/bin/.blender/.Blanguages ${DATADIR}
-	@${INSTALL_DATA} ${WRKSRC}/bin/.blender/.bfont.ttf ${DATADIR}
+	@${CP} -R ${WRKSRC}/release/scripts ${STAGEDIR}/${DATADIR}
+	@${INSTALL_DATA} ${WRKSRC}/bin/.blender/.Blanguages ${STAGEDIR}/${DATADIR}
+	@${INSTALL_DATA} ${WRKSRC}/bin/.blender/.bfont.ttf ${STAGEDIR}/${DATADIR}
 
 .if ${PORT_OPTIONS:MNLS}
 .for ii in ${LANG}
-	@${MKDIR} ${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES
+	@${MKDIR} ${STAGEDIR}/${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES
 	@${INSTALL_DATA} \
 		${WRKSRC}/bin/.blender/locale/${ii}/LC_MESSAGES/blender.mo \
-		${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
+		${STAGEDIR}/${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
 .endfor
 .endif
 

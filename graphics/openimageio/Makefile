@@ -55,7 +55,6 @@ IMAGEVIEWER_DESC=	Build image viewer
 OCIO_DESC=		Colour management support
 .endif
 
-NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MDOCS}
@@ -84,7 +83,7 @@ CMAKE_ARGS+=	-DUSE_OCIO:BOOL=OFF
 
 post-install:
 .if !defined(OIIO_PYBIND)
-	cd ${PREFIX}/lib && ${LN} -sf libOpenImageIO.so.1.2 libOpenImageIO.so.1
+	cd ${STAGEDIR}/${PREFIX}/lib && ${LN} -sf libOpenImageIO.so.1.2 libOpenImageIO.so.1
 .endif
 
 .include <bsd.port.mk>

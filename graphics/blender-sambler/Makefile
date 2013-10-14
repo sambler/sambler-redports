@@ -104,6 +104,7 @@ CMAKE_ARGS+=	-DWITH_MOD_FLUID:BOOL=ON
 CMAKE_ARGS+=	-DWITH_MOD_OCEANSIM:BOOL=ON -DWITH_MOD_REMESH:BOOL=ON
 CMAKE_ARGS+=	-DWITH_MOD_SMOKE:BOOL=ON -DWITH_GCC_MUDFLAP:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_OPENAL:BOOL=ON -DWITH_OPENCOLORIO:BOOL=ON
+CMAKE_ARGS+=	-DWITH_PSD:BOOL=ON
 CMAKE_ARGS+=	-DWITH_PYTHON:BOOL=ON -DWITH_PYTHON_INSTALL:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_PYTHON_MODULE:BOOL=OFF -DWITH_PYTHON_SAFETY:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_PYTHON_INSTALL_NUMPY:BOOL=OFF
@@ -132,10 +133,16 @@ OSL_DESC=	"OSL shading support"
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MCC_CLANG}
+.if ${OSVERSION} < 902000
 BUILD_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 CC=${LOCALBASE}/bin/clang33
 CXX=${LOCALBASE}/bin/clang++33
 CPP=${LOCALBASE}/bin/clang-cpp33
+.else
+CC=clang
+CXX=clang++
+CPP=clang-cpp
+.endif # OSVERSION
 CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=OFF
 .endif # CC_CLANG
 
@@ -212,50 +219,50 @@ post-extract:
 # contrib
 	@${MV} ${WRKDIR}/sambler-myblendercontrib-*/* ${WRKSRC}/release/scripts/addons_contrib/
 
-post-install:
-	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${PREFIX}/bin/blender-sambler
+do-install:
+	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${STAGEDIR}/${PREFIX}/bin/blender-sambler
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
-		${PREFIX}/bin/blender-bin-sambler
-	@${MKDIR} ${DATADIR}
-	@${INSTALL_SCRIPT} ${INSTALL_WRKSRC}/bin/blender-thumbnailer.py \
-		${PREFIX}/bin/blender-thumbnailer-sambler.py
+		${STAGEDIR}/${PREFIX}/bin/blender-bin-sambler
+	@${MKDIR} ${STAGEDIR}/${DATADIR}
+	@${INSTALL_SCRIPT} ${WRKSRC}/release/bin/blender-thumbnailer.py \
+		${STAGEDIR}/${PREFIX}/bin/blender-thumbnailer-sambler.py
 	@${ECHO} bin/blender-sambler >> ${TMPPLIST}
 	@${ECHO} bin/blender-bin-sambler >> ${TMPPLIST}
 	@${ECHO} bin/blender-thumbnailer-sambler.py >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MPLAYER}
-	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${PREFIX}/bin/blenderplayer-sambler
+	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${STAGEDIR}/${PREFIX}/bin/blenderplayer-sambler
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blenderplayer \
-		${PREFIX}/bin/blenderplayer-bin-sambler
+		${STAGEDIR}/${PREFIX}/bin/blenderplayer-bin-sambler
 	@${ECHO} bin/blenderplayer-sambler >> ${TMPPLIST}
 	@${ECHO} bin/blenderplayer-bin-sambler >> ${TMPPLIST}
 .endif
 
-	@${CP} -R ${OUTDIR}/scripts ${DATADIR}
-	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
-		${PREFIX}/share/pixmaps/blender-sambler.svg
-	@(cd ${OUTDIR}; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@${CP} -R ${WRKSRC}/release/scripts ${STAGEDIR}/${DATADIR}/
+	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/icons/scalable/apps/blender.svg \
+		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-sambler.svg
+	@(cd ${WRKSRC}/release; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${WRKSRC}/release; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 	@${ECHO} share/pixmaps/blender-sambler.svg >> ${TMPPLIST}
 
-	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/colormanagement ${DATADIR}
-	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@cd ${WRKSRC}/release && ${COPYTREE_SHARE} datafiles/colormanagement ${STAGEDIR}/${DATADIR}
+	@(cd ${WRKSRC}/release; ${FIND} datafiles/colormanagement -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${WRKSRC}/release; ${FIND} datafiles/colormanagement -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MNLS}
-	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/locale ${DATADIR}
-	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@cd ${WRKSRC}/release && ${COPYTREE_SHARE} datafiles/locale ${STAGEDIR}/${DATADIR}/
+	@(cd ${WRKSRC}/release; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${WRKSRC}/release; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${WRKSRC}/release; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 
-	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/fonts ${DATADIR}
-	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@cd ${WRKSRC}/release && ${COPYTREE_SHARE} datafiles/fonts ${STAGEDIR}/${DATADIR}/
+	@(cd ${WRKSRC}/release; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${WRKSRC}/release; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 .endif
 
-	@${MKDIR} ${DESKTOPDIR}
-	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.desktop \
-		${DESKTOPDIR}/${PORTNAME}.desktop
+	@${MKDIR} ${STAGEDIR}/${DESKTOPDIR}
+	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/blender.desktop \
+		${STAGEDIR}/${DESKTOPDIR}/${PORTNAME}.desktop
 	@-update-desktop-database -q
 	@${ECHO} share/applications/${PORTNAME}.desktop >> ${TMPPLIST}
 
