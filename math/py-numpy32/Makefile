@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	numpy32
-PORTVERSION=	1.8.0b2
+PORTVERSION=	1.8.0rc1
 PORTREVISION=	0
 CATEGORIES=	math python
 MASTER_SITES=	http://docs.scipy.org/doc/${DISTNAME:C/\..$/.0/}/:doc \
@@ -28,7 +28,6 @@ SUITESPARSE_DESC=	Use AMD and UMFPACK in SuiteSparse
 USE_FORTRAN=	yes
 USE_PYTHON=	3.2
 USE_PYDISTUTILS=yes
-MAN1=		f2py32.1
 NO_CHECKSUM=	yes
 
 LATEST_LINK=	py-${PORTNAME}
@@ -113,11 +112,11 @@ pre-install:
 .endif
 
 post-install:
-	${INSTALL_MAN} ${WRKSRC}/numpy/f2py/f2py.1 ${MAN1PREFIX}/man/man1/f2py32.1
+	${INSTALL_MAN} ${WRKSRC}/numpy/f2py/f2py.1 ${STAGEDIR}/${MAN1PREFIX}/man/man1/f2py32.1
 .if !defined(NOPORTDOCS)
-	@${MKDIR} ${DOCSDIR}
-	${INSTALL_DATA} ${WRKDIR}/numpy-ref.pdf ${DOCSDIR}
-	${INSTALL_DATA} ${WRKDIR}/numpy-user.pdf ${DOCSDIR}
+	@${MKDIR} ${STAGEDIR}/${DOCSDIR}
+	${INSTALL_DATA} ${WRKDIR}/numpy-ref.pdf ${STAGEDIR}/${DOCSDIR}/
+	${INSTALL_DATA} ${WRKDIR}/numpy-user.pdf ${STAGEDIR}/${DOCSDIR}/
 .endif
 .if defined(WITH_FIXED_FENV)
 	@if [ "`${PKG_VERSION} -t \"\`\\\`${CC} -print-prog-name=as\\\` --version | ${AWK} 'NR==1 {sub(/\(GNU Binutils\)/,""); print $$3}'\`\" 2.18.49`" = ">" ] ; then \
