@@ -131,5 +131,5 @@ share/ocio/setup_ocio.sh
 %%PORTDOCS%%@dirrm %%DOCSDIR%%/_sources
 %%PORTDOCS%%@dirrm %%DOCSDIR%%/_images
 %%PORTDOCS%%@dirrm %%DOCSDIR%%
-@dirrmtry %%PYTHON_LIBDIR%%/site-packages
+@dirrmtry %%PYTHON_SITELIBDIR%%
 @dirrmtry %%PYTHON_LIBDIR%%
