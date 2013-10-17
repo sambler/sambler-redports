@@ -1,5 +1,5 @@
 bin/f2py33
-lib/python3.3/site-packages/numpy-1.8.0rc1-py3.3.egg-info
+lib/python3.3/site-packages/numpy-1.8.0rc2-py3.3.egg-info
 lib/python3.3/site-packages/numpy/__config__.py
 lib/python3.3/site-packages/numpy/__pycache__/__config__.cpython-33.pyc
 lib/python3.3/site-packages/numpy/__pycache__/__config__.cpython-33.pyo
@@ -662,9 +662,6 @@ lib/python3.3/site-packages/numpy/lib/__pycache__/utils.cpython-33.pyo
 lib/python3.3/site-packages/numpy/linalg/__init__.py
 lib/python3.3/site-packages/numpy/linalg/__pycache__/__init__.cpython-33.pyc
 lib/python3.3/site-packages/numpy/linalg/__pycache__/__init__.cpython-33.pyo
-lib/python3.3/site-packages/numpy/linalg/_gufuncs_linalg.py
-lib/python3.3/site-packages/numpy/linalg/__pycache__/_gufuncs_linalg.cpython-33.pyc
-lib/python3.3/site-packages/numpy/linalg/__pycache__/_gufuncs_linalg.cpython-33.pyo
 lib/python3.3/site-packages/numpy/linalg/_umath_linalg.so
 lib/python3.3/site-packages/numpy/linalg/info.py
 lib/python3.3/site-packages/numpy/linalg/__pycache__/info.cpython-33.pyc
@@ -678,7 +675,6 @@ lib/python3.3/site-packages/numpy/linalg/__pycache__/setup.cpython-33.pyc
 lib/python3.3/site-packages/numpy/linalg/__pycache__/setup.cpython-33.pyo
 lib/python3.3/site-packages/numpy/linalg/tests/test_build.py
 lib/python3.3/site-packages/numpy/linalg/tests/test_deprecations.py
-lib/python3.3/site-packages/numpy/linalg/tests/test_gufuncs_linalg.py
 lib/python3.3/site-packages/numpy/linalg/tests/test_linalg.py
 lib/python3.3/site-packages/numpy/linalg/tests/test_regression.py
 lib/python3.3/site-packages/numpy/ma/__init__.py
