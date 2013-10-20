@@ -36,9 +36,9 @@ do-build:
 		( for l in lib*.so.*; do ${LN} -sf $${l} $${l%.*}; done )
 
 do-install:
-	@cd ${WRKSRC}/stage/lib && ${PAX} -rw -p p libboost_python3* ${PREFIX}/lib
+	@cd ${WRKSRC}/stage/lib && ${PAX} -rw -p p libboost_python3* ${STAGEDIR}${PREFIX}/lib
 # For some reasons BJAM forget about the links
-	@cd ${WRKSRC}/stage/ && ${FIND} lib -type l -and -name "*python3*"| ${PAX} -rw -p p ${PREFIX}
+	@cd ${WRKSRC}/stage/ && ${FIND} lib -type l -and -name "*python3*"| ${PAX} -rw -p p ${STAGEDIR}${PREFIX}
 
 post-install:
 # display pkg-message
@@ -48,11 +48,11 @@ post-install:
 	@${CAT} ${PKG_MESSAGE_FILE_PYTHON} >> ${PKGMESSAGE}
 	@${ECHO_CMD} >> ${PKGMESSAGE}
 	@${REINPLACE_CMD} \
-		-e "s|%%LOCALBASE%%|${LOCALBASE}|g" \
+		-e "s|%%LOCALBASE%%|${STAGEDIR}${LOCALBASE}|g" \
 		-e "s|%%PTHREAD_LIBS%%|${PTHREAD_LIBS}|g" \
-		-e "s|%%PYTHON_INCLUDEDIR%%|${PYTHON_INCLUDEDIR}|g" \
-		-e "s|%%PYTHON_LIBDIR%%|${PYTHON_LIBDIR}|g" \
-		-e "s|%%PYTHON_VERSION%%|${PYTHON_VERSION}|g" \
+		-e "s|%%PYTHON_INCLUDEDIR%%|${STAGEDIR}${PYTHON_INCLUDEDIR}|g" \
+		-e "s|%%PYTHON_LIBDIR%%|${STAGEDIR}${PYTHON_LIBDIR}|g" \
+		-e "s|%%PYTHON_VERSION%%|${STAGEDIR}${PYTHON_VERSION}|g" \
 		-e "s|lboost_python|lboost_python3|g" ${PKGMESSAGE}
 	@if [ -s ${PKGMESSAGE} ]; then \
 		${CAT} ${PKGMESSAGE}; \
