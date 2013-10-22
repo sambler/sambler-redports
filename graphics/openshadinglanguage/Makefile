@@ -3,6 +3,7 @@
 
 PORTNAME=	openshadinglanguage
 PORTVERSION=	1.3.3
+PORTREVISION=	1
 CATEGORIES=	graphics devel
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -10,12 +11,12 @@ COMMENT=	Advanced shading language for production GI renderers
 
 LICENSE=	BSD
 
-BUILD_DEPENDS=	llvm>=3.3:${PORTSDIR}/devel/llvm33 \
+BUILD_DEPENDS=	llvm-config33:${PORTSDIR}/devel/llvm33 \
 		flex>=2.5.37:${PORTSDIR}/textproc/flex
 LIB_DEPENDS=	libboost_thread.so:${PORTSDIR}/devel/boost-libs \
 		libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
 		libOpenImageIO.so:${PORTSDIR}/graphics/openimageio
-RUN_DEPENDS=	llvm>=3.3:${PORTSDIR}/devel/llvm33
+RUN_DEPENDS=	llvm-config33:${PORTSDIR}/devel/llvm33
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
