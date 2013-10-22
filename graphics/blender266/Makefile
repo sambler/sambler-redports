@@ -1,9 +1,9 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
-PORTNAME=	blender-266
+PORTNAME=	blender266
 PORTVERSION=	2.66a
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -26,7 +26,7 @@ LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg
 LIB_DEPENDS+=	libpng15.so:${PORTSDIR}/graphics/png
 LIB_DEPENDS+=	libtiff.so:${PORTSDIR}/graphics/tiff
 LIB_DEPENDS+=	libfftw3.so:${PORTSDIR}/math/fftw3
-LIB_DEPENDS+=	libavutil.so:${PORTSDIR}/multimedia/ffmpeg
+LIB_DEPENDS+=	libavutil0.so:${PORTSDIR}/multimedia/ffmpeg0
 LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 .if exists(${PORTSDIR}/math/py-numpy33)
@@ -47,6 +47,11 @@ USE_OPENAL=	al alut
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu
 USE_GL=		glew
+# adjust for ffmpeg0
+CFLAGS+=	-I${LOCALBASE}/include/ffmpeg0
+CXXFLAGS+=	-I${LOCALBASE}/include/ffmpeg0
+LDFLAGS+=	-L${LOCALBASE}/lib/ffmpeg0
+CMAKE_ARGS+=	-DFFMPEG_LIBRARIES:STRING="avformat0;avcodec0;avutil0;avdevice0;swscale0"
 
 CMAKE_ARGS+=	-DWITH_BUILDINFO:BOOL=ON -DWITH_AUDASPACE:BOOL=ON
 CMAKE_ARGS+=	-DWITH_BLENDER:BOOL=ON -DWITH_BULLET:BOOL=ON
@@ -76,12 +81,8 @@ CMAKE_ARGS+=	-DWITH_X11_XF86VMODE:BOOL=ON -DWITH_X11_XINPUT:BOOL=ON
 SUB_FILES=	blender blenderplayer
 
 OPTIONS_DEFINE=	HEADLESS SECURITY PLAYER JACK NLS OSL
-OPTIONS_SINGLE=	COMPILER
-OPTIONS_SINGLE_COMPILER=	CC_GCC46 CC_CLANG
-OPTIONS_DEFAULT=	CC_CLANG SECURITY PLAYER NLS OSL JACK
+OPTIONS_DEFAULT=	SECURITY PLAYER NLS OSL JACK
 
-CC_GCC46_DESC=	"Build with gcc46"
-CC_CLANG_DESC=	"Build with clang"
 HEADLESS_DESC=	"Disable user interface"
 SECURITY_DESC=	"Disable scripts auto-run"
 PLAYER_DESC=	"Build blender player"
@@ -90,26 +91,6 @@ NLS_DESC=	"Include translations"
 OSL_DESC=	"OSL shading support"
 
 .include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MCC_CLANG}
-.if ${OSVERSION} < 902000
-BUILD_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
-CC=${LOCALBASE}/bin/clang33
-CXX=${LOCALBASE}/bin/clang++33
-CPP=${LOCALBASE}/bin/clang-cpp33
-.else
-CC=clang
-CXX=clang++
-CPP=clang-cpp
-.endif # OSVERSION
-CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=OFF
-.endif # CC_CLANG
-
-.if ${PORT_OPTIONS:MCC_GCC46}
-CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=ON
-USE_GCC=	4.6+
-LDFLAGS+=	-rpath ${LOCALBASE}/lib/gcc46
-.endif
 
 .if ${PORT_OPTIONS:MOSL}
 LIB_DEPENDS+=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage

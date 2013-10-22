@@ -1,9 +1,9 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
-PORTNAME=	blender-267
+PORTNAME=	blender267
 PORTVERSION=	2.67b
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -88,12 +88,8 @@ CMAKE_ARGS+=	-DWITH_X11_XF86VMODE:BOOL=ON -DWITH_X11_XINPUT:BOOL=ON
 SUB_FILES=	blender blenderplayer
 
 OPTIONS_DEFINE=	HEADLESS SECURITY PLAYER JACK NLS OSL
-OPTIONS_SINGLE=	COMPILER
-OPTIONS_SINGLE_COMPILER=	CC_GCC46 CC_CLANG
-OPTIONS_DEFAULT=	CC_CLANG SECURITY PLAYER NLS OSL JACK
+OPTIONS_DEFAULT=	SECURITY PLAYER NLS OSL JACK
 
-CC_GCC46_DESC=	"Build with gcc46"
-CC_CLANG_DESC=	"Build with clang"
 HEADLESS_DESC=	"Disable user interface"
 SECURITY_DESC=	"Disable scripts auto-run"
 PLAYER_DESC=	"Build blender player"
@@ -102,27 +98,6 @@ NLS_DESC=	"Include translations"
 OSL_DESC=	"OSL shading support"
 
 .include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MCC_CLANG}
-.if ${OSVERSION} < 902000
-BUILD_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
-CC=${LOCALBASE}/bin/clang33
-CXX=${LOCALBASE}/bin/clang++33
-CPP=${LOCALBASE}/bin/clang-cpp33
-.else
-CC=clang
-CXX=clang++
-CPP=clang-cpp
-.endif # OSVERSION
-CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=OFF
-.endif # CC_CLANG
-
-.if ${PORT_OPTIONS:MCC_GCC46}
-CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=ON
-CMAKE_ARGS+=	-DWITH_GCC_MUDFLAP:BOOL=OFF
-USE_GCC=	4.6+
-LDFLAGS+=	-rpath ${LOCALBASE}/lib/gcc46
-.endif
 
 .if ${PORT_OPTIONS:MOSL}
 LIB_DEPENDS+=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
