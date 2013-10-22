@@ -1,0 +1,11 @@
+--- ./CMakeLists.txt.orig	2013-10-22 23:01:28.746017500 +1030
++++ ./CMakeLists.txt	2013-10-22 23:01:45.727019809 +1030
+@@ -161,7 +161,7 @@
+ 
+   SET(FFMPEG /usr)
+   SET(FFMPEG_INC ${FFMPEG}/include)
+-  SET(FFMPEG_LIB avformat avcodec avutil avdevice swscale)
++  SET(FFMPEG_LIB avformat0 avcodec0 avutil0 avdevice0 swscale0)
+   SET(FFMPEG_LIBPATH ${FFMPEG}/lib)
+ 
+   SET(JPEG_LIB jpeg)

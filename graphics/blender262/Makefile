@@ -1,9 +1,9 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
-PORTNAME=	blender-262
+PORTNAME=	blender262
 PORTVERSION=	2.62
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -18,13 +18,14 @@ LICENSE=	GPLv2
 LIB_DEPENDS=	libsamplerate.so:${PORTSDIR}/audio/libsamplerate
 LIB_DEPENDS+=	libsndfile.so:${PORTSDIR}/audio/libsndfile
 LIB_DEPENDS+=	libboost_thread.so:${PORTSDIR}/devel/boost-libs
+LIB_DEPENDS+=	libunwind.so:${PORTSDIR}/devel/libunwind
 LIB_DEPENDS+=	libjpeg.so:${PORTSDIR}/graphics/jpeg
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
 LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg
 LIB_DEPENDS+=	libpng15.so:${PORTSDIR}/graphics/png
 LIB_DEPENDS+=	libtiff.so:${PORTSDIR}/graphics/tiff
 LIB_DEPENDS+=	libfftw3.so:${PORTSDIR}/math/fftw3
-LIB_DEPENDS+=	libavutil.so:${PORTSDIR}/multimedia/ffmpeg
+LIB_DEPENDS+=	libavutil0.so:${PORTSDIR}/multimedia/ffmpeg0
 LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 .if exists(${PORTSDIR}/math/py-numpy32)
@@ -44,9 +45,13 @@ USE_OPENAL=	al alut
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu
 USE_GL=		glew
-USE_GCC=	4.6+
 CFLAGS+=	-I${WRKSRC}/extern/libopenjpeg
 LDFLAGS+=	-rpath ${LOCALBASE}/lib/gcc46
+# adjust for ffmpeg0
+CFLAGS+=	-I${LOCALBASE}/include/ffmpeg0
+CXXFLAGS+=	-I${LOCALBASE}/include/ffmpeg0
+LDFLAGS+=	-L${LOCALBASE}/lib/ffmpeg0
+CMAKE_ARGS+=	-DFFMPEG_LIBRARIES:STRING="avformat0;avcodec0;avutil0;avdevice0;swscale0"
 
 CMAKE_ARGS+=	-DWITH_BUILDINFO:BOOL=ON -DWITH_AUDASPACE:BOOL=ON
 CMAKE_ARGS+=	-DWITH_BLENDER:BOOL=ON -DWITH_BUILTIN_GLEW:BOOL=ON

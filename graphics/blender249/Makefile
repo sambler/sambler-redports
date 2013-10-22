@@ -1,9 +1,9 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
-PORTNAME=	blender-249
+PORTNAME=	blender249
 PORTVERSION=	2.49b
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -20,7 +20,7 @@ LIB_DEPENDS=	libjpeg.so:${PORTSDIR}/graphics/jpeg
 LIB_DEPENDS+=	libpng15.so:${PORTSDIR}/graphics/png
 LIB_DEPENDS+=	libtiff.so:${PORTSDIR}/graphics/tiff
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
-LIB_DEPENDS+=	libavutil.so:${PORTSDIR}/multimedia/ffmpeg
+LIB_DEPENDS+=	libavutil0.so:${PORTSDIR}/multimedia/ffmpeg0
 LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg
 LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 LIB_DEPENDS+=   libftgl.so:${PORTSDIR}/graphics/ftgl
@@ -34,26 +34,27 @@ USE_OPENAL=	al alut
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu xi
 USE_GL=		gl glu glew
-USE_GCC=	4.6+
-LDFLAGS+=	-lX11 -lopenjpeg -lGLEW
+LDFLAGS+=	-L${LOCALBASE}/lib -lX11 -lopenjpeg -lGLEW
+# adjust for ffmpeg0
+CFLAGS+=	-I${LOCALBASE}/include/ffmpeg0
+CXXFLAGS+=	-I${LOCALBASE}/include/ffmpeg0
+LDFLAGS+=	-L${LOCALBASE}/lib/ffmpeg0
 
 CMAKE_ARGS+=	-DWITH_BULLET=ON -DWITH_DDS=ON
 CMAKE_ARGS+=	-DWITH_ELBEEM=ON -DWITH_FFMPEG=ON
-CMAKE_ARGS+=	-DWITH_GAMEENGINE=OFF
+CMAKE_ARGS+=	-DWITH_GAMEENGINE=ON
 CMAKE_ARGS+=	-DWITH_KETSJI=ON -DWITH_OPENAL=ON
 CMAKE_ARGS+=	-DWITH_OPENEXR=ON -DWITH_OPENJPEG=ON
 CMAKE_ARGS+=	-DWITH_OPENMP=ON -DWITH_QUICKTIME=OFF
 CMAKE_ARGS+=	-DWITH_VERSE=OFF -DWITH_WEBPLUGIN=OFF
 
-SUB_FILES=	blender 
-#blenderplayer
-#MAN1=		blender.1
+SUB_FILES=	blender blenderplayer
 
 LANG=		ar bg ca cs de el es fi fr hr hr_HR it ja ko nl pl pt_BR ro \
 		ru sr sr@Latn sv uk zh_CN
 
 OPTIONS_DEFINE=	HEADLESS SECURITY PLAYER NLS
-OPTIONS_DEFAULT=	SECURITY NLS
+OPTIONS_DEFAULT=	SECURITY PLAYER NLS
 
 HEADLESS_DESC=	"Disable user interface"
 SECURITY_DESC=	"Disable scripts auto-run"
@@ -75,7 +76,6 @@ CMAKE_ARGS+=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 .endif
 
 .if ${PORT_OPTIONS:MPLAYER}
-BROKEN= blender-249 player not currently working
 CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=ON
 PLIST_SUB+=	PLAYER=""
 .else

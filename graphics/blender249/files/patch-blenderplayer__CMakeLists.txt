@@ -1,0 +1,10 @@
+--- ./blenderplayer/CMakeLists.txt.orig	2013-10-23 00:12:07.246017495 +1030
++++ ./blenderplayer/CMakeLists.txt	2013-10-23 00:12:10.929016497 +1030
+@@ -112,6 +112,7 @@
+     bf_quicktime
+     extern_binreloc
+ 	extern_glew
++	bf_videotex
+   ) 
+ 
+   FOREACH(SORTLIB ${BLENDER_SORTED_LIBS})
