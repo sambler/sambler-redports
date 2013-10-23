@@ -128,6 +128,9 @@ LIB_DEPENDS+=	libkolab.so:${PORTSDIR}/devel/libkolab
 RUN_DEPENDS+=	libowfat>=0:${PORTSDIR}/devel/libowfat
 LIB_DEPENDS+=	libslang.so:${PORTSDIR}/devel/libslang2
 LIB_DEPENDS+=	libthai.so:${PORTSDIR}/devel/libthai
+RUN_DEPENDS+=	llvm-config31:${PORTSDIR}/devel/llvm31
+RUN_DEPENDS+=	llvm-config32:${PORTSDIR}/devel/llvm32
+RUN_DEPENDS+=	llvm-config33:${PORTSDIR}/devel/llvm33
 RUN_DEPENDS+=	hg:${PORTSDIR}/devel/mercurial
 RUN_DEPENDS+=	nasm:${PORTSDIR}/devel/nasm
 RUN_DEPENDS+=	ode-config:${PORTSDIR}/devel/ode
@@ -191,14 +194,14 @@ RUN_DEPENDS+=	mahjongg:${PORTSDIR}/games/gnome-games
 # graphics
 RUN_DEPENDS+=	GraphicsMagick-config:${PORTSDIR}/graphics/GraphicsMagick
 RUN_DEPENDS+=	blender:${PORTSDIR}/graphics/blender
-RUN_DEPENDS+=	blender-249:${PORTSDIR}/graphics/blender-249
-RUN_DEPENDS+=	blender-262:${PORTSDIR}/graphics/blender-262
-RUN_DEPENDS+=	blender-263:${PORTSDIR}/graphics/blender-263
-RUN_DEPENDS+=	blender-264:${PORTSDIR}/graphics/blender-264
-RUN_DEPENDS+=	blender-265:${PORTSDIR}/graphics/blender-265
-RUN_DEPENDS+=	blender-266:${PORTSDIR}/graphics/blender-266
-RUN_DEPENDS+=	blender-267:${PORTSDIR}/graphics/blender-267
-RUN_DEPENDS+=	blender-268:${PORTSDIR}/graphics/blender-268
+RUN_DEPENDS+=	blender-249:${PORTSDIR}/graphics/blender249
+RUN_DEPENDS+=	blender-262:${PORTSDIR}/graphics/blender262
+RUN_DEPENDS+=	blender-263:${PORTSDIR}/graphics/blender263
+RUN_DEPENDS+=	blender-264:${PORTSDIR}/graphics/blender264
+RUN_DEPENDS+=	blender-265:${PORTSDIR}/graphics/blender265
+RUN_DEPENDS+=	blender-266:${PORTSDIR}/graphics/blender266
+RUN_DEPENDS+=	blender-267:${PORTSDIR}/graphics/blender267
+RUN_DEPENDS+=	blender-268:${PORTSDIR}/graphics/blender268
 RUN_DEPENDS+=	blender-sambler:${PORTSDIR}/graphics/blender-sambler
 RUN_DEPENDS+=	cbrpager:${PORTSDIR}/graphics/cbrpager
 RUN_DEPENDS+=	cbview:${PORTSDIR}/graphics/cbview
@@ -236,8 +239,8 @@ RUN_DEPENDS+=	xsane:${PORTSDIR}/graphics/xsane
 RUN_DEPENDS+=	quassel:${PORTSDIR}/irc/quassel
 
 # lang
-RUN_DEPENDS+=	clang:${PORTSDIR}/lang/clang
-RUN_DEPENDS+=	clang:${PORTSDIR}/lang/clang-devel
+RUN_DEPENDS+=	clang31:${PORTSDIR}/lang/clang31
+RUN_DEPENDS+=	clang32:${PORTSDIR}/lang/clang32
 RUN_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 RUN_DEPENDS+=	gawk:${PORTSDIR}/lang/gawk
 RUN_DEPENDS+=	gcc46:${PORTSDIR}/lang/gcc
