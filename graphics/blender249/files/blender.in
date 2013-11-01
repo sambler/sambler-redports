@@ -10,4 +10,4 @@ if [ -L ${HOME}/.blender ]; then
 	exit 1
 fi
 
-exec %%PREFIX%%/bin/blender-bin-249 "$@"
+exec %%PREFIX%%/bin/blender-bin-%%VERS_TAG%% "$@"

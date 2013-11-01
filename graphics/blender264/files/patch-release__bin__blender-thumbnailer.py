@@ -5,7 +5,7 @@
  To run automatically with nautilus:
     gconftool --type boolean --set /desktop/gnome/thumbnailers/application@x-blender/enable true
 -   gconftool --type string --set /desktop/gnome/thumbnailers/application@x-blender/command "blender-thumbnailer.py %u %o"
-+   gconftool --type string --set /desktop/gnome/thumbnailers/application@x-blender/command "blender-thumbnailer-264.py %u %o"
++   gconftool --type string --set /desktop/gnome/thumbnailers/application@x-blender/command "blender-thumbnailer-%%VERS_TAG%%.py %u %o"
  """
  
  import struct

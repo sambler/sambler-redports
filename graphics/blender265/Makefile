@@ -3,7 +3,7 @@
 
 PORTNAME=	blender265
 PORTVERSION=	2.65a
-PORTREVISION=	4
+PORTREVISION=	5
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -39,6 +39,7 @@ CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.3/site-packages
 USES=		cmake:outsource
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.65
+VERS_TAG=	265
 
 USE_PYTHON=	3.3
 WANT_GNOME=	yes
@@ -135,31 +136,39 @@ USES+=		gettext iconv
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
 .endif
 
+post-patch:
+	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
+		${WRKSRC}/release/bin/blender-thumbnailer.py
+	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
+		${WRKSRC}/release/freedesktop/blender.desktop
+
 do-install:
-	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${STAGEDIR}/${PREFIX}/bin/blender-265
+	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blender
+	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${STAGEDIR}/${PREFIX}/bin/blender-${VERS_TAG}
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
-		${STAGEDIR}/${PREFIX}/bin/blender-bin-265
+		${STAGEDIR}/${PREFIX}/bin/blender-bin-${VERS_TAG}
 	@${MKDIR} ${STAGEDIR}/${DATADIR}
 	@${INSTALL_SCRIPT} ${WRKSRC}/release/bin/blender-thumbnailer.py \
-		${STAGEDIR}/${PREFIX}/bin/blender-thumbnailer-265.py
-	@${ECHO} bin/blender-265 >> ${TMPPLIST}
-	@${ECHO} bin/blender-bin-265 >> ${TMPPLIST}
-	@${ECHO} bin/blender-thumbnailer-265.py >> ${TMPPLIST}
+		${STAGEDIR}/${PREFIX}/bin/blender-thumbnailer-${VERS_TAG}.py
+	@${ECHO} bin/blender-${VERS_TAG} >> ${TMPPLIST}
+	@${ECHO} bin/blender-bin-${VERS_TAG} >> ${TMPPLIST}
+	@${ECHO} bin/blender-thumbnailer-${VERS_TAG}.py >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MPLAYER}
-	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${STAGEDIR}/${PREFIX}/bin/blenderplayer-265
+	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blenderplayer
+	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${STAGEDIR}/${PREFIX}/bin/blenderplayer-${VERS_TAG}
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blenderplayer \
-		${STAGEDIR}/${PREFIX}/bin/blenderplayer-bin-265
-	@${ECHO} bin/blenderplayer-265 >> ${TMPPLIST}
-	@${ECHO} bin/blenderplayer-bin-265 >> ${TMPPLIST}
+		${STAGEDIR}/${PREFIX}/bin/blenderplayer-bin-${VERS_TAG}
+	@${ECHO} bin/blenderplayer-${VERS_TAG} >> ${TMPPLIST}
+	@${ECHO} bin/blenderplayer-bin-${VERS_TAG} >> ${TMPPLIST}
 .endif
 
 	@${CP} -R ${WRKSRC}/release/scripts ${STAGEDIR}/${DATADIR}/
 	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/icons/scalable/apps/blender.svg \
-		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-265.svg
+		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
 	@(cd ${WRKSRC}/release; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
 	@(cd ${WRKSRC}/release; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
-	@${ECHO} share/pixmaps/blender-265.svg >> ${TMPPLIST}
+	@${ECHO} share/pixmaps/blender-${VERS_TAG}.svg >> ${TMPPLIST}
 
 	@cd ${WRKSRC}/release && ${COPYTREE_SHARE} datafiles/colormanagement ${STAGEDIR}/${DATADIR}/
 	@(cd ${WRKSRC}/release; ${FIND} datafiles/colormanagement -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
@@ -178,9 +187,9 @@ do-install:
 
 	@${MKDIR} ${STAGEDIR}/${DESKTOPDIR}
 	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/blender.desktop \
-		${STAGEDIR}/${DESKTOPDIR}/blender-265.desktop
+		${STAGEDIR}/${DESKTOPDIR}/blender-${VERS_TAG}.desktop
 	@-update-desktop-database -q
-	@${ECHO} share/applications/blender-265.desktop >> ${TMPPLIST}
+	@${ECHO} share/applications/blender-${VERS_TAG}.desktop >> ${TMPPLIST}
 
 	@${ECHO} @dirrm ${DATADIR_REL}/datafiles >> ${TMPPLIST}
 	@${ECHO} @dirrm ${DATADIR_REL} >> ${TMPPLIST}

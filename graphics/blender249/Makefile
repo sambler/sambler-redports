@@ -3,7 +3,7 @@
 
 PORTNAME=	blender249
 PORTVERSION=	2.49b
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -27,6 +27,7 @@ LIB_DEPENDS+=   libftgl.so:${PORTSDIR}/graphics/ftgl
 
 USES=		cmake:outsource
 WRKSRC=		${WRKDIR}/blender-2.49b
+VERS_TAG=	249
 
 USE_PYTHON=	2.7
 WANT_GNOME=	yes
@@ -93,15 +94,17 @@ PLIST_SUB+=	NLS="@comment "
 .endif
 
 do-install:
-	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${STAGEDIR}/${PREFIX}/bin/blender-249
+	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blender
+	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${STAGEDIR}/${PREFIX}/bin/blender-${VERS_TAG}
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
-		${STAGEDIR}/${PREFIX}/bin/blender-bin-249
+		${STAGEDIR}/${PREFIX}/bin/blender-bin-${VERS_TAG}
 	@${MKDIR} ${STAGEDIR}/${DATADIR}
 
 .if ${PORT_OPTIONS:MPLAYER}
-	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${STAGEDIR}/${PREFIX}/bin/blenderplayer-249
+	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blenderplayer
+	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${STAGEDIR}/${PREFIX}/bin/blenderplayer-${VERS_TAG}
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blenderplayer \
-		${STAGEDIR}/${PREFIX}/bin/blenderplayer-bin-249
+		${STAGEDIR}/${PREFIX}/bin/blenderplayer-bin-${VERS_TAG}
 .endif
 
 	@${CP} -R ${WRKSRC}/release/scripts ${STAGEDIR}/${DATADIR}

@@ -3,7 +3,7 @@
 @@ -1,5 +1,5 @@
  [Desktop Entry]
 -Name=Blender
-+Name=Blender-266
++Name=Blender-%%VERS_TAG%%
  GenericName=3D modeller
  GenericName[es]=modelador 3D
  GenericName[de]=3D-Modellierer
@@ -13,8 +13,8 @@
  Comment[de]=3D-Modellierung, Animation, Rendering und Nachbearbeitung
 -Exec=blender
 -Icon=blender
-+Exec=blender-266
-+Icon=blender-266
++Exec=blender-%%VERS_TAG%%
++Icon=blender-%%VERS_TAG%%
  Terminal=false
  Type=Application
  Categories=Graphics;3DGraphics;
