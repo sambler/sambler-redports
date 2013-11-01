@@ -27,7 +27,7 @@ OPTIONS_DEFINE=		DOCS
 .if ${PORT_OPTIONS:MDOCS}
 BUILD_DEPENDS+=	doxygen:${PORTSDIR}/devel/doxygen
 BUILD_DEPENDS+=	dot:${PORTSDIR}/graphics/graphviz
-DOCOPTION=	--docs --docdir=${DOCSDIR}
+DOCOPTION=	--docs --docdir=${STAGEDIR}${DOCSDIR}
 MAN3=		suil.3
 .else
 DOCOPTION=
@@ -38,7 +38,7 @@ CONFIGURE_ENV+= CXX="${CXX}"
 
 do-configure:
 	@cd ${WRKSRC} && ${CONFIGURE_ENV} ${PYTHON_CMD} waf configure \
-		${DOCOPTION} --mandir=${MANPREFIX}/man --docdir=${DOCSDIR} --prefix=${PREFIX}
+		${DOCOPTION} --mandir=${STAGEDIR}${MANPREFIX}/man --docdir=${STAGEDIR}${DOCSDIR} --prefix=${STAGEDIR}${PREFIX}
 
 do-build:
 	@cd ${WRKSRC} && ${PYTHON_CMD} waf

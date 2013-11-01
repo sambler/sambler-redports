@@ -26,7 +26,7 @@ OPTIONS_DEFINE=		DOCS
 .if ${PORT_OPTIONS:MDOCS}
 BUILD_DEPENDS+=	doxygen:${PORTSDIR}/devel/doxygen
 BUILD_DEPENDS+=	dot:${PORTSDIR}/graphics/graphviz
-DOCOPTION=	--docs --docdir=${DOCSDIR}
+DOCOPTION=	--docs --docdir=${STAGEDIR}${DOCSDIR}
 MAN3=		sratom.3
 .else
 DOCOPTION=
@@ -37,7 +37,7 @@ CONFIGURE_ENV+= CXX="${CXX}"
 
 do-configure:
 	@cd ${WRKSRC} && ${CONFIGURE_ENV} ${PYTHON_CMD} waf configure \
-		${DOCOPTION} --mandir=${MANPREFIX}/man --prefix=${PREFIX}
+		${DOCOPTION} --mandir=${STAGEDIR}${MANPREFIX}/man --prefix=${STAGEDIR}v${PREFIX}
 
 do-build:
 	@cd ${WRKSRC} && ${PYTHON_CMD} waf
@@ -48,6 +48,6 @@ pre-install:
 		-e "s|%s-%d'%(name.lower(),major),outdir,'html||"
 
 do-install:
-	@cd ${WRKSRC} && ${PYTHON_CMD} waf install
+	@cd ${WRKSRC} && ${STAGEDIR}${PYTHON_CMD} waf install
 
 .include <bsd.port.mk>

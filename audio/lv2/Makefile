@@ -28,7 +28,7 @@ OPTIONS_DEFINE=		DOCS
 BUILD_DEPENDS=	doxygen:${PORTSDIR}/devel/doxygen
 BUILD_DEPENDS+=	dot:${PORTSDIR}/graphics/graphviz
 BUILD_DEPENDS+=	${PYTHON_SITELIBDIR}/rdflib/__init__.py:${PORTSDIR}/textproc/py-rdflib
-DOCOPTION=	--docs --docdir=${DOCSDIR}
+DOCOPTION=	--docs --docdir=${STAGEDIR}${DOCSDIR}
 .else
 DOCOPTION=
 .endif
@@ -38,7 +38,7 @@ CONFIGURE_ENV+= CXX="${CXX}"
 
 do-configure:
 	@cd ${WRKSRC} && ${CONFIGURE_ENV} ${PYTHON_CMD} waf configure \
-		${DOCOPTION} --mandir=${MANPREFIX}/man --prefix=${PREFIX}
+		${DOCOPTION} --mandir=${STAGEDIR}${MANPREFIX}/man --prefix=${STAGEDIR}${PREFIX}
 
 do-build:
 	@cd ${WRKSRC} && ${PYTHON_CMD} waf
