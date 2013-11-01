@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	blender-sambler
-PORTVERSION=	2.68
-PORTREVISION=	5
+PORTVERSION=	2.69
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -33,7 +33,7 @@ LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg
 LIB_DEPENDS+=	libpng15.so:${PORTSDIR}/graphics/png
 LIB_DEPENDS+=	libtiff.so:${PORTSDIR}/graphics/tiff
 LIB_DEPENDS+=	libfftw3.so:${PORTSDIR}/math/fftw3
-LIB_DEPENDS+=	libavutil1.so:${PORTSDIR}/multimedia/ffmpeg1
+LIB_DEPENDS+=	libavutil.so:${PORTSDIR}/multimedia/ffmpeg
 LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 .if exists(${PORTSDIR}/math/py-numpy33)
@@ -58,13 +58,14 @@ CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.3/site-packages
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	74122db
+GH_COMMIT=	1700c2d
 
 FETCH_ARGS=	-pRr
 
 USES=		cmake:outsource desktop-file-utils
 WRKSRC=		${WRKDIR}/sambler-myblender-${GH_COMMIT}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.68
+VERS_TAG=	sambler
 
 SUB_FILES=	blender blenderplayer
 
@@ -75,10 +76,10 @@ USE_SDL=	sdl
 USE_XORG=	x11 xext xmu
 USE_GL=		glew
 # adjust for ffmpeg1
-CFLAGS+=	-I${LOCALBASE}/include/ffmpeg1
-CXXFLAGS+=	-I${LOCALBASE}/include/ffmpeg1
-LDFLAGS+=	-L${LOCALBASE}/lib/ffmpeg1
-CMAKE_ARGS+=	-DFFMPEG_LIBRARIES:STRING="avformat1;avcodec1;avutil1;avdevice1;swscale1"
+#CFLAGS+=	-I${LOCALBASE}/include/ffmpeg1
+#CXXFLAGS+=	-I${LOCALBASE}/include/ffmpeg1
+#LDFLAGS+=	-L${LOCALBASE}/lib/ffmpeg1
+#CMAKE_ARGS+=	-DFFMPEG_LIBRARIES:STRING="avformat1;avcodec1;avutil1;avdevice1;swscale1"
 
 LDFLAGS+=	-L${LOCALBASE}/lib -lexecinfo
 
@@ -186,6 +187,12 @@ USES+=		gettext iconv
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
 .endif
 
+post-patch:
+	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
+		${WRKSRC}/release/bin/blender-thumbnailer.py
+	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
+		${WRKSRC}/release/freedesktop/blender.desktop
+
 post-extract:
 # tanslations
 	@${MV} ${WRKDIR}/sambler-myblendertranslations-*/* ${WRKSRC}/release/datafiles/locale/
@@ -195,30 +202,32 @@ post-extract:
 	@${MV} ${WRKDIR}/sambler-myblendercontrib-*/* ${WRKSRC}/release/scripts/addons_contrib/
 
 do-install:
-	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${STAGEDIR}/${PREFIX}/bin/blender-sambler
+	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blender
+	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${STAGEDIR}/${PREFIX}/bin/blender-${VERS_TAG}
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
-		${STAGEDIR}/${PREFIX}/bin/blender-bin-sambler
+		${STAGEDIR}/${PREFIX}/bin/blender-bin-${VERS_TAG}
 	@${MKDIR} ${STAGEDIR}/${DATADIR}
 	@${INSTALL_SCRIPT} ${WRKSRC}/release/bin/blender-thumbnailer.py \
-		${STAGEDIR}/${PREFIX}/bin/blender-thumbnailer-sambler.py
-	@${ECHO} bin/blender-sambler >> ${TMPPLIST}
-	@${ECHO} bin/blender-bin-sambler >> ${TMPPLIST}
-	@${ECHO} bin/blender-thumbnailer-sambler.py >> ${TMPPLIST}
+		${STAGEDIR}/${PREFIX}/bin/blender-thumbnailer-${VERS_TAG}.py
+	@${ECHO} bin/blender-${VERS_TAG} >> ${TMPPLIST}
+	@${ECHO} bin/blender-bin-${VERS_TAG} >> ${TMPPLIST}
+	@${ECHO} bin/blender-thumbnailer-${VERS_TAG}.py >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MPLAYER}
-	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${STAGEDIR}/${PREFIX}/bin/blenderplayer-sambler
+	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blenderplayer
+	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${STAGEDIR}/${PREFIX}/bin/blenderplayer-${VERS_TAG}
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blenderplayer \
-		${STAGEDIR}/${PREFIX}/bin/blenderplayer-bin-sambler
-	@${ECHO} bin/blenderplayer-sambler >> ${TMPPLIST}
-	@${ECHO} bin/blenderplayer-bin-sambler >> ${TMPPLIST}
+		${STAGEDIR}/${PREFIX}/bin/blenderplayer-bin-${VERS_TAG}
+	@${ECHO} bin/blenderplayer-${VERS_TAG} >> ${TMPPLIST}
+	@${ECHO} bin/blenderplayer-bin-${VERS_TAG} >> ${TMPPLIST}
 .endif
 
 	@${CP} -R ${WRKSRC}/release/scripts ${STAGEDIR}/${DATADIR}/
 	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/icons/scalable/apps/blender.svg \
-		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-sambler.svg
+		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
 	@(cd ${WRKSRC}/release; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
 	@(cd ${WRKSRC}/release; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
-	@${ECHO} share/pixmaps/blender-sambler.svg >> ${TMPPLIST}
+	@${ECHO} share/pixmaps/blender-${VERS_TAG}.svg >> ${TMPPLIST}
 
 	@cd ${WRKSRC}/release && ${COPYTREE_SHARE} datafiles/colormanagement ${STAGEDIR}/${DATADIR}
 	@(cd ${WRKSRC}/release; ${FIND} datafiles/colormanagement -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
