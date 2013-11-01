@@ -27,6 +27,7 @@ GH_COMMIT=	18671dc
 WRKSRC=		${WRKDIR}/imageworks-OpenShadingLanguage-${GH_COMMIT}/src
 
 CMAKE_ARGS=	-DFLEX_EXECUTABLE:STRING=${LOCALBASE}/bin/flex \
+		-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33" \
 		-DUSE_TBB:BOOL=OFF
 CXXFLAGS+=	-I${LOCALBASE}/include/flex
 USE_LDCONFIG=	yes

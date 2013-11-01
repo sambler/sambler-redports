@@ -1,25 +1,16 @@
 # Created by: Shane Ambler
 # $FreeBSD$
 
-PORTNAME=	openimageio
 CATEGORIES=	graphics multimedia python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
 COMMENT=	OpenImageIO python bindings
 
-LICENSE=	BSD
-
-LIB_DEPENDS=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio \
-		libboost_python.so:${PORTSDIR}/devel/boost-python-libs
-
 MASTERDIR=	${.CURDIR}/../openimageio
-
-USE_PYTHON=	2.6+
-
-OIIO_PYBIND=	yes
+OPTIONS_EXCLUDE=DOCS IMAGEVIEWER OCIO
 
 do-install:
-	@${MKDIR} -p ${STAGEDIR}/${PYTHON_SITELIBDIR}
-	${INSTALL_LIB} ${BUILD_WRKSRC}/python/OpenImageIO.so ${STAGEDIR}/${PYTHON_SITELIBDIR}/
+	@${MKDIR} -p ${STAGEDIR}${PYTHON_SITELIBDIR}
+	${INSTALL_LIB} ${BUILD_WRKSRC}/python/OpenImageIO.so ${STAGEDIR}${PYTHON_SITELIBDIR}
 
 .include "${MASTERDIR}/Makefile"
