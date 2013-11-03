@@ -11,8 +11,7 @@ COMMENT=	Advanced shading language for production GI renderers
 
 LICENSE=	BSD
 
-BUILD_DEPENDS=	llvm-config33:${PORTSDIR}/devel/llvm33 \
-		flex>=2.5.37:${PORTSDIR}/textproc/flex
+BUILD_DEPENDS=	llvm-config33:${PORTSDIR}/devel/llvm33
 LIB_DEPENDS=	libboost_thread.so:${PORTSDIR}/devel/boost-libs \
 		libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
 		libOpenImageIO.so:${PORTSDIR}/graphics/openimageio
@@ -26,23 +25,34 @@ GH_COMMIT=	18671dc
 
 WRKSRC=		${WRKDIR}/imageworks-OpenShadingLanguage-${GH_COMMIT}/src
 
-CMAKE_ARGS=	-DFLEX_EXECUTABLE:STRING=${LOCALBASE}/bin/flex \
-		-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33" \
-		-DUSE_TBB:BOOL=OFF
-CXXFLAGS+=	-I${LOCALBASE}/include/flex
+CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33"
 USE_LDCONFIG=	yes
 USES=		bison cmake:outsource
 
-.include <bsd.port.pre.mk>
+.include <bsd.port.options.mk>
+
+.if ${ARCH} == i386 && ! ${MACHINE_CPU:Mi586}
+IGNORE=		CPUTYPE must be i586 or higher in /etc/make.conf
+.endif
 
 .if ${OSVERSION} < 900000
 BUILD_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 .endif
 
+.if ${OSVERSION} < 1000033
+BUILD_DEPENDS+=	flex>=2.5.37:${PORTSDIR}/textproc/flex
+CMAKE_ARGS+=	-DFLEX_EXECUTABLE:STRING=${LOCALBASE}/bin/flex
+CXXFLAGS+=	-I${LOCALBASE}/include/flex
+.endif
+
+post-patch:
+	@${REINPLACE_CMD} -e 's,/bin/bash,/bin/sh,' \
+		${WRKSRC}/liboslexec/serialize-bc.bash
+
 post-install:
 .for LNAME in oslcomp oslexec oslquery testshade
-	cd ${STAGEDIR}/${PREFIX}/lib && ${MV} -f lib${LNAME}.so lib${LNAME}.so.1
-	cd ${STAGEDIR}/${PREFIX}/lib && ${LN} -sf lib${LNAME}.so.1 lib${LNAME}.so
+	${MV} ${STAGEDIR}${PREFIX}/lib/lib${LNAME}.so ${STAGEDIR}${PREFIX}/lib/lib${LNAME}.so.1
+	${LN} -s lib${LNAME}.so.1 ${STAGEDIR}${PREFIX}/lib/lib${LNAME}.so
 .endfor
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
