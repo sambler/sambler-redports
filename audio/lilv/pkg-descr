@@ -1,5 +1,0 @@
-Lilv is a library to make the use of LV2 plugins as simple as possible
-for developers. Lilv is the successor to SLV2, rewritten to be significantly
-faster and have minimal dependencies
-
-www: http://drobilla.net/software/lilv/

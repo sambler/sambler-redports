@@ -1,7 +1,0 @@
-Serd is a lightweight C library for RDF support.
-
-Serd is not intended to be a swiss-army knife of RDF support, 
-but rather is suited to resource limited or performance critical applications
-or situations where a simple reader/writer with minimal dependencies is ideal
-
-www: http://drobilla.net/software/serd/
