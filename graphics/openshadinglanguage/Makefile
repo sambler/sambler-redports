@@ -3,7 +3,7 @@
 
 PORTNAME=	openshadinglanguage
 PORTVERSION=	1.3.3
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	graphics devel
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -11,7 +11,8 @@ COMMENT=	Advanced shading language for production GI renderers
 
 LICENSE=	BSD
 
-BUILD_DEPENDS=	llvm-config33:${PORTSDIR}/devel/llvm33
+BUILD_DEPENDS=	llvm-config33:${PORTSDIR}/devel/llvm33 \
+		clang33>=3.3_3:${PORTSDIR}/lang/clang33
 LIB_DEPENDS=	libboost_thread.so:${PORTSDIR}/devel/boost-libs \
 		libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
 		libOpenImageIO.so:${PORTSDIR}/graphics/openimageio
@@ -33,10 +34,6 @@ USES=		bison cmake:outsource
 
 .if ${ARCH} == i386 && ! ${MACHINE_CPU:Mi586}
 IGNORE=		CPUTYPE must be i586 or higher in /etc/make.conf
-.endif
-
-.if ${OSVERSION} < 900000
-BUILD_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 .endif
 
 .if ${OSVERSION} < 1000033
