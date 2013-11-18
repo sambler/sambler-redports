@@ -66,7 +66,7 @@ CMAKE_ARGS+=	-DWITH_IMAGE_OPENJPEG:BOOL=ON -DWITH_IMAGE_REDCODE:BOOL=ON
 CMAKE_ARGS+=	-DWITH_IMAGE_TIFF:BOOL=ON -DWITH_INSTALL_PORTABLE:BOOL=ON
 CMAKE_ARGS+=	-DWITH_LIBMV:BOOL=ON -DWITH_LZMA:BOOL=ON -DWITH_LZO:BOOL=ON
 CMAKE_ARGS+=	-DWITH_MEM_JEMALLOC:BOOL=OFF -DWITH_MOD_BOOLEAN:BOOL=ON
-CMAKE_ARGS+=	-DWITH_MOD_CLOTH_ELTOPO:BOOL=ON -DWITH_MOD_DECIMATE=ON
+CMAKE_ARGS+=	-DWITH_MOD_CLOTH_ELTOPO:BOOL=OFF -DWITH_MOD_DECIMATE=ON
 CMAKE_ARGS+=	-DWITH_MOD_FLUID:BOOL=ON
 CMAKE_ARGS+=	-DWITH_MOD_OCEANSIM:BOOL=ON -DWITH_MOD_REMESH:BOOL=ON
 CMAKE_ARGS+=	-DWITH_MOD_SMOKE:BOOL=ON -DWITH_OPENAL:BOOL=ON
@@ -78,6 +78,11 @@ CMAKE_ARGS+=	-DWITH_RAYOPTIMIZATION:BOOL=ON -DWITH_SDL:BOOL=ON
 CMAKE_ARGS+=	-DWITH_X11_XF86VMODE:BOOL=ON -DWITH_X11_XINPUT:BOOL=ON
 
 SUB_FILES=	blender blenderplayer
+python_CMD=	${PYTHON_CMD}
+SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
+		release/scripts/modules/bl_i18n_utils/merge_po.py \
+		release/scripts/modules/bl_i18n_utils/utils_rtl.py \
+		release/scripts/modules/blend_render_info.py
 
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.62
 
@@ -120,6 +125,7 @@ CMAKE_ARGS+=	-DWITH_JACK:BOOL=OFF
 .if ${PORT_OPTIONS:MNLS}
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=ON
 USES+=		gettext iconv
+LDFLAGS+=	-L${LOCALBASE}/lib -lintl
 .else
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
 .endif
@@ -129,8 +135,22 @@ post-patch:
 		${WRKSRC}/release/bin/blender-thumbnailer.py
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
 		${WRKSRC}/release/freedesktop/blender.desktop
+	@cd ${WRKSRC}/intern/cycles && ${REINPLACE_CMD} \
+		-e 's/__align/cycles_align/' \
+		-e 's/__global/cycles_global/g' \
+		util/util_types.h kernel/kernel_compat_cuda.h \
+		kernel/kernel_displace.h kernel/kernel_film.h \
+		kernel/kernel_passes.h kernel/kernel_path.h \
+		kernel/kernel_random.h
 
+# We ignore MAKE_ARGS, since those would set DESTDIR for make stage,
+# which in turn would cause make install to install everything in a
+# wrong location
 do-install:
+	@(cd ${INSTALL_WRKSRC} && ${SETENV} ${MAKE_ENV} ${MAKE_CMD} \
+		${MAKE_FLAGS} ${MAKEFILE} ${INSTALL_TARGET})
+
+post-install:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blender
 	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${STAGEDIR}/${PREFIX}/bin/blender-${VERS_TAG}
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
@@ -151,31 +171,39 @@ do-install:
 	@${ECHO} bin/blenderplayer-bin-${VERS_TAG} >> ${TMPPLIST}
 .endif
 
-	@${CP} -R ${WRKSRC}/release/scripts ${STAGEDIR}/${DATADIR}/
-	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/icons/scalable/apps/blender.svg \
+	${MKDIR} ${STAGEDIR}${DATADIR}
+	(cd ${OUTDIR} && ${COPYTREE_SHARE} scripts ${STAGEDIR}${DATADIR})
+	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
 		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
-	@(cd ${WRKSRC}/release; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${WRKSRC}/release; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 	@${ECHO} share/pixmaps/blender-${VERS_TAG}.svg >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MNLS}
-	@cd ${WRKSRC}/release && ${COPYTREE_SHARE} datafiles/locale ${STAGEDIR}/${DATADIR}/
-	@(cd ${WRKSRC}/release; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${WRKSRC}/release; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${WRKSRC}/release; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/locale ${STAGEDIR}/${DATADIR}/
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 .endif
 
-	@cd ${WRKSRC}/release && ${COPYTREE_SHARE} datafiles/fonts ${STAGEDIR}/${DATADIR}/
-	@(cd ${WRKSRC}/release; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${WRKSRC}/release; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/fonts ${STAGEDIR}/${DATADIR}/
+	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
 
 	@${MKDIR} ${STAGEDIR}/${DESKTOPDIR}
 	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/blender.desktop \
-		${STAGEDIR}/${DESKTOPDIR}/blender-${VERS_TAG}.desktop
+		${STAGEDIR}/${DESKTOPDIR}/${PORTNAME}.desktop
 	@-update-desktop-database -q
-	@${ECHO} share/applications/blender-${VERS_TAG}.desktop >> ${TMPPLIST}
+	@${ECHO} share/applications/${PORTNAME}.desktop >> ${TMPPLIST}
 
 	@${ECHO} @dirrm ${DATADIR_REL}/datafiles >> ${TMPPLIST}
 	@${ECHO} @dirrm ${DATADIR_REL} >> ${TMPPLIST}
+
+.if !defined(NO_INSTALL_MANPAGES)
+	@${MV} ${INSTALL_WRKSRC}/bin/blender.1 ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1
+	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
+		${STAGEDIR}${MAN1PREFIX}/man/man1
+	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
+.endif
 
 .include <bsd.port.mk>

@@ -88,6 +88,7 @@ PLIST_SUB+=	PLAYER="@comment "
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=ON
 PLIST_SUB+=	NLS=""
 USES+=		gettext iconv
+LDFLAGS+=	-lintl
 .else
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
 PLIST_SUB+=	NLS="@comment "
@@ -98,7 +99,6 @@ do-install:
 	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${STAGEDIR}/${PREFIX}/bin/blender-${VERS_TAG}
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
 		${STAGEDIR}/${PREFIX}/bin/blender-bin-${VERS_TAG}
-	@${MKDIR} ${STAGEDIR}/${DATADIR}
 
 .if ${PORT_OPTIONS:MPLAYER}
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blenderplayer
@@ -107,6 +107,7 @@ do-install:
 		${STAGEDIR}/${PREFIX}/bin/blenderplayer-bin-${VERS_TAG}
 .endif
 
+	@${MKDIR} ${STAGEDIR}/${DATADIR}
 	@${CP} -R ${WRKSRC}/release/scripts ${STAGEDIR}/${DATADIR}
 	@${INSTALL_DATA} ${WRKSRC}/bin/.blender/.Blanguages ${STAGEDIR}/${DATADIR}
 	@${INSTALL_DATA} ${WRKSRC}/bin/.blender/.bfont.ttf ${STAGEDIR}/${DATADIR}
