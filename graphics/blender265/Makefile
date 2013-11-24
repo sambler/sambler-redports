@@ -36,7 +36,7 @@ RUN_DEPENDS+=	${LOCALBASE}/lib/python3.3/site-packages/numpy/__init__.py:${PORTS
 CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.3/site-packages
 .endif
 
-USES=		cmake:outsource
+USES=		cmake:outsource compiler
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.65
 VERS_TAG=	265
@@ -69,7 +69,7 @@ CMAKE_ARGS+=	-DWITH_IMAGE_OPENJPEG:BOOL=ON -DWITH_IMAGE_REDCODE:BOOL=ON
 CMAKE_ARGS+=	-DWITH_IMAGE_TIFF:BOOL=ON -DWITH_INSTALL_PORTABLE:BOOL=ON
 CMAKE_ARGS+=	-DWITH_LIBMV:BOOL=ON -DWITH_LZMA:BOOL=ON -DWITH_LZO:BOOL=ON
 CMAKE_ARGS+=	-DWITH_MEM_JEMALLOC:BOOL=OFF -DWITH_MOD_BOOLEAN:BOOL=ON
-CMAKE_ARGS+=	-DWITH_MOD_CLOTH_ELTOPO:BOOL=ON -DWITH_MOD_FLUID:BOOL=ON
+CMAKE_ARGS+=	-DWITH_MOD_CLOTH_ELTOPO:BOOL=OFF -DWITH_MOD_FLUID:BOOL=ON
 CMAKE_ARGS+=	-DWITH_MOD_OCEANSIM:BOOL=ON -DWITH_MOD_REMESH:BOOL=ON
 CMAKE_ARGS+=	-DWITH_MOD_SMOKE:BOOL=ON -DWITH_OPENAL:BOOL=ON
 CMAKE_ARGS+=	-DWITH_OPENCOLORIO:BOOL=ON -DWITH_OPENCOLLADA:BOOL=OFF
@@ -77,6 +77,7 @@ CMAKE_ARGS+=	-DWITH_INPUT_NDOF:BOOL=OFF -DWITH_PYTHON:BOOL=ON
 CMAKE_ARGS+=	-DWITH_PYTHON_INSTALL:BOOL=OFF -DWITH_PYTHON_MODULE:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_PYTHON_SAFETY:BOOL=OFF -DWITH_PYTHON_INSTALL_NUMPY:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_RAYOPTIMIZATION:BOOL=ON -DWITH_SDL:BOOL=ON
+CMAKE_ARGS+=	-DWITH_STATIC_LIBS:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_SYSTEM_GLEW:BOOL=ON -DWITH_SYSTEM_OPENJPEG:BOOL=ON
 CMAKE_ARGS+=	-DWITH_X11_XF86VMODE:BOOL=ON -DWITH_X11_XINPUT:BOOL=ON
 
@@ -97,7 +98,12 @@ JACK_DESC=	"Audio support using JackAudio"
 NLS_DESC=	"Include translations"
 OSL_DESC=	"OSL shading support"
 
-.include <bsd.port.options.mk>
+# we use pre so we can use COMPILER_TYPE
+.include <bsd.port.pre.mk>
+
+.if ${OSVERSION} < 900000
+BROKEN= Fails to build on 8.x
+.endif
 
 .if ${PORT_OPTIONS:MOSL}
 LIB_DEPENDS+=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
@@ -105,9 +111,16 @@ CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=ON
 CMAKE_ARGS+=	-DWITH_LLVM:BOOL=ON
 CMAKE_ARGS+=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33"
 CMAKE_ARGS+=	-DLLVM_STATIC:BOOL=ON
+.if ${COMPILER_TYPE:Mgcc}
+# we have linking issues using gcc
+# clang33 is used by osl so use it here
+BUILD_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
+CMAKE_ARGS+=	-DCMAKE_C_COMPILER:STRING=${LOCALBASE}/bin/clang33
+CMAKE_ARGS+=	-DCMAKE_CXX_COMPILER:STRING=${LOCALBASE}/bin/clang++33
+.endif #gcc
 .else
 CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=OFF
-.endif
+.endif #OSL
 
 .if ${PORT_OPTIONS:MHEADLESS}
 CMAKE_ARGS+=	-DWITH_HEADLESS:BOOL=ON
@@ -199,11 +212,11 @@ post-install:
 	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
 	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
 	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
-.endif
 
 	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/fonts ${STAGEDIR}/${DATADIR}/
 	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
 	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+.endif
 
 	@${MKDIR} ${STAGEDIR}/${DESKTOPDIR}
 	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/blender.desktop \
@@ -221,4 +234,4 @@ post-install:
 	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
 .endif
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>

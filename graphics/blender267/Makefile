@@ -37,7 +37,7 @@ RUN_DEPENDS+=	${LOCALBASE}/lib/python3.3/site-packages/numpy/__init__.py:${PORTS
 CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.3/site-packages
 .endif
 
-USES=		cmake:outsource
+USES=		cmake:outsource compiler
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.67
 VERS_TAG=	267
@@ -98,7 +98,12 @@ JACK_DESC=	"Audio support using JackAudio"
 NLS_DESC=	"Include translations"
 OSL_DESC=	"OSL shading support"
 
-.include <bsd.port.options.mk>
+# we use pre so we can use COMPILER_TYPE
+.include <bsd.port.pre.mk>
+
+.if ${OSVERSION} < 900000
+BROKEN= Fails to build on 8.x
+.endif
 
 .if ${PORT_OPTIONS:MOSL}
 LIB_DEPENDS+=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
@@ -106,10 +111,16 @@ CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=ON
 CMAKE_ARGS+=	-DWITH_LLVM:BOOL=ON
 CMAKE_ARGS+=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33"
 CMAKE_ARGS+=	-DLLVM_STATIC:BOOL=ON
+.if ${COMPILER_TYPE:Mgcc}
+# we have linking issues using gcc
+# clang33 is used by osl so use it here
+BUILD_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
+CMAKE_ARGS+=	-DCMAKE_C_COMPILER:STRING=${LOCALBASE}/bin/clang33
+CMAKE_ARGS+=	-DCMAKE_CXX_COMPILER:STRING=${LOCALBASE}/bin/clang++33
+.endif #gcc
 .else
 CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=OFF
-CMAKE_ARGS+=	-DWITH_LLVM:BOOL=OFF
-.endif # OSL
+.endif #OSL
 
 .if ${PORT_OPTIONS:MHEADLESS}
 CMAKE_ARGS+=	-DWITH_HEADLESS:BOOL=ON
@@ -202,11 +213,11 @@ post-install:
 	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
 	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
 	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
-.endif
 
 	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/fonts ${STAGEDIR}/${DATADIR}/
 	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
 	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+.endif
 
 	@${MKDIR} ${STAGEDIR}/${DESKTOPDIR}
 	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/blender.desktop \
@@ -224,4 +235,4 @@ post-install:
 	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
 .endif
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
