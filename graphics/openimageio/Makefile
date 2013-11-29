@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio
-PORTVERSION=	1.2.3
+PORTVERSION=	1.3.8
 PORTREVISION?=	0
 CATEGORIES?=	graphics multimedia
 
@@ -14,9 +14,8 @@ LICENSE=	BSD
 USE_GITHUB=	yes
 GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
-GH_TAGNAME=	Release-${PORTVERSION}
-GH_COMMIT=	bcdad81
-WRKSRC=		${WRKDIR}/OpenImageIO-oiio-${GH_COMMIT}/src
+GH_TAGNAME=	Release-${PORTVERSION}-RC1
+GH_COMMIT=	8ab5b6e
 
 # fbm also installs bin/idiff
 CONFLICTS=	fbm-[0-9]*
@@ -78,7 +77,7 @@ CMAKE_ARGS+=	-DUSE_OCIO:BOOL=OFF
 
 post-install:
 .if ${SLAVE_PORT} == no
-	${LN} -sf libOpenImageIO.so.1.2 ${STAGEDIR}${PREFIX}/lib/libOpenImageIO.so.1
+	${LN} -sf libOpenImageIO.so.1.3 ${STAGEDIR}${PREFIX}/lib/libOpenImageIO.so.1
 .endif
 
 .include <bsd.port.mk>
