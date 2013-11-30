@@ -17,7 +17,7 @@ RUN_DEPENDS+=	aacgain:${PORTSDIR}/audio/aacgain
 RUN_DEPENDS+=	alienwah>=0:${PORTSDIR}/audio/alienwah
 RUN_DEPENDS+=	alsactl:${PORTSDIR}/audio/alsa-utils
 RUN_DEPENDS+=	amb-plugins>=0:${PORTSDIR}/audio/amb-plugins
-RUN_DEPENDS+=	ardour2:${PORTSDIR}/audio/ardour
+#RUN_DEPENDS+=	ardour2:${PORTSDIR}/audio/ardour
 RUN_DEPENDS+=	asunder:${PORTSDIR}/audio/asunder
 RUN_DEPENDS+=	audacity:${PORTSDIR}/audio/audacity
 RUN_DEPENDS+=	autotalent>=0:${PORTSDIR}/audio/autotalent
@@ -34,7 +34,6 @@ RUN_DEPENDS+=	jack_mixer:${PORTSDIR}/audio/jack_mixer
 RUN_DEPENDS+=	jack_umidi:${PORTSDIR}/audio/jack_umidi
 RUN_DEPENDS+=	smfsh:${PORTSDIR}/audio/libsmf
 LIB_DEPENDS+=	libumidi20.so:${PORTSDIR}/audio/libumidi
-RUN_DEPENDS+=	lv2ls:${PORTSDIR}/audio/lilv
 RUN_DEPENDS+=	lmms:${PORTSDIR}/audio/lmms-sambler
 RUN_DEPENDS+=	mixmos:${PORTSDIR}/audio/mixmos
 RUN_DEPENDS+=	mp3gain:${PORTSDIR}/audio/mp3gain
@@ -44,7 +43,7 @@ RUN_DEPENDS+=	mutagen-inspect:${PORTSDIR}/audio/py-mutagen
 RUN_DEPENDS+=	qjackctl:${PORTSDIR}/audio/qjackctl
 RUN_DEPENDS+=	rosegarden:${PORTSDIR}/audio/rosegarden
 RUN_DEPENDS+=	rubberband:${PORTSDIR}/audio/rubberband
-RUN_DEPENDS+=	lv2>=0:${PORTSDIR}/audio/slv2
+RUN_DEPENDS+=	slv2>=0:${PORTSDIR}/audio/slv2
 RUN_DEPENDS+=	thunar-media-tags-plugin>=0:${PORTSDIR}/audio/thunar-media-tags-plugin
 RUN_DEPENDS+=	ttaenc:${PORTSDIR}/audio/tta
 RUN_DEPENDS+=	vorbisgain:${PORTSDIR}/audio/vorbisgain
@@ -53,7 +52,7 @@ RUN_DEPENDS+=	xsynth-dssi>=0:${PORTSDIR}/audio/xsynth-dssi
 RUN_DEPENDS+=	zynaddsubfx:${PORTSDIR}/audio/zynaddsubfx
 
 # cad
-RUN_DEPENDS+=	meshlab:${PORTSDIR}/cad/meshlab
+#RUN_DEPENDS+=	meshlab:${PORTSDIR}/cad/meshlab
 
 # comms
 RUN_DEPENDS+=	ideviceinfo:${PORTSDIR}/comms/libimobiledevice
@@ -115,7 +114,6 @@ RUN_DEPENDS+=	gnustep>=0:${PORTSDIR}/devel/gnustep
 RUN_DEPENDS+=	gnustep-make>=0:${PORTSDIR}/devel/gnustep-make
 RUN_DEPENDS+=	pprof:${PORTSDIR}/devel/google-perftools
 RUN_DEPENDS+=	gperf:${PORTSDIR}/devel/gperf
-RUN_DEPENDS+=	gps:${PORTSDIR}/devel/gps
 RUN_DEPENDS+=	gwenhywfar-config:${PORTSDIR}/devel/gwenhywfar
 RUN_DEPENDS+=	imake:${PORTSDIR}/devel/imake
 RUN_DEPENDS+=	jsmin:${PORTSDIR}/devel/jsmin
@@ -131,6 +129,7 @@ LIB_DEPENDS+=	libthai.so:${PORTSDIR}/devel/libthai
 RUN_DEPENDS+=	llvm-config31:${PORTSDIR}/devel/llvm31
 RUN_DEPENDS+=	llvm-config32:${PORTSDIR}/devel/llvm32
 RUN_DEPENDS+=	llvm-config33:${PORTSDIR}/devel/llvm33
+RUN_DEPENDS+=	llvm-config-devel:${PORTSDIR}/devel/llvm-devel
 RUN_DEPENDS+=	hg:${PORTSDIR}/devel/mercurial
 RUN_DEPENDS+=	nasm:${PORTSDIR}/devel/nasm
 RUN_DEPENDS+=	ode-config:${PORTSDIR}/devel/ode
@@ -242,6 +241,7 @@ RUN_DEPENDS+=	quassel:${PORTSDIR}/irc/quassel
 RUN_DEPENDS+=	clang31:${PORTSDIR}/lang/clang31
 RUN_DEPENDS+=	clang32:${PORTSDIR}/lang/clang32
 RUN_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
+RUN_DEPENDS+=	clang-devel:${PORTSDIR}/lang/clang-devel
 RUN_DEPENDS+=	gawk:${PORTSDIR}/lang/gawk
 RUN_DEPENDS+=	gcc46:${PORTSDIR}/lang/gcc
 RUN_DEPENDS+=	libobjc2>=0:${PORTSDIR}/lang/libobjc2
@@ -252,7 +252,7 @@ RUN_DEPENDS+=	python3>=0:${PORTSDIR}/lang/python3
 
 # mail
 RUN_DEPENDS+=	fetchmail:${PORTSDIR}/mail/fetchmail
-#RUN_DEPENDS+=	thunderbird-dictionaries>=0:${PORTSDIR}/mail/thunderbird-dictionaries
+RUN_DEPENDS+=	thunderbird-dictionaries>=0:${PORTSDIR}/mail/thunderbird-dictionaries
 RUN_DEPENDS+=	xfce4-mailwatch-plugin>=0:${PORTSDIR}/mail/xfce4-mailwatch-plugin
 
 # math
@@ -293,11 +293,11 @@ RUN_DEPENDS+=	grake:${PORTSDIR}/multimedia/grake
 RUN_DEPENDS+=	gstreamer-plugins-all>=0:${PORTSDIR}/multimedia/gstreamer-plugins-all
 LIB_DEPENDS+=	libgstreamermm-0.10.so:${PORTSDIR}/multimedia/gstreamermm
 RUN_DEPENDS+=	gtk-recordMyDesktop:${PORTSDIR}/multimedia/gtk-recordmydesktop
-RUN_DEPENDS+=	HandBrake:${PORTSDIR}/multimedia/handbrake
+#RUN_DEPENDS+=	HandBrake:${PORTSDIR}/multimedia/handbrake
 RUN_DEPENDS+=	lsdvd:${PORTSDIR}/multimedia/lsdvd
 RUN_DEPENDS+=	mediainfo:${PORTSDIR}/multimedia/mediainfo
 RUN_DEPENDS+=	minitube:${PORTSDIR}/multimedia/minitube
-#RUN_DEPENDS+=	mplayer:${PORTSDIR}/multimedia/mplayer2
+RUN_DEPENDS+=	mplayer:${PORTSDIR}/multimedia/mplayer2
 RUN_DEPENDS+=	phonon-vlc>=0:${PORTSDIR}/multimedia/phonon-vlc
 RUN_DEPENDS+=	pitivi:${PORTSDIR}/multimedia/pitivi
 RUN_DEPENDS+=	umph:${PORTSDIR}/multimedia/umph
@@ -351,6 +351,7 @@ RUN_DEPENDS+=	pinentry:${PORTSDIR}/security/pinentry
 RUN_DEPENDS+=	qca-ossl>=0:${PORTSDIR}/security/qca-ossl
 RUN_DEPENDS+=	rkhunter:${PORTSDIR}/security/rkhunter
 RUN_DEPENDS+=	seahorse-tool:${PORTSDIR}/security/seahorse-plugins
+RUN_DEPENDS+=	ssh-copy-id:${PORTSDIR}/security/ssh-copy-id
 RUN_DEPENDS+=	zenmap:${PORTSDIR}/security/zenmap
 
 # shells
@@ -391,7 +392,7 @@ RUN_DEPENDS+=	sensors-applet>=0:${PORTSDIR}/sysutils/sensors-applet
 RUN_DEPENDS+=	sg_get_config:${PORTSDIR}/sysutils/sg3_utils
 RUN_DEPENDS+=	synergys:${PORTSDIR}/sysutils/synergy
 RUN_DEPENDS+=	testdisk:${PORTSDIR}/sysutils/testdisk
-RUN_DEPENDS+=  tmux:${PORTSDIR}/sysutils/tmux
+RUN_DEPENDS+=	tmux:${PORTSDIR}/sysutils/tmux
 RUN_DEPENDS+=	vobcopy:${PORTSDIR}/sysutils/vobcopy
 RUN_DEPENDS+=	volmand:${PORTSDIR}/sysutils/volman
 RUN_DEPENDS+=	webmin>=0:${PORTSDIR}/sysutils/webmin
@@ -411,7 +412,7 @@ RUN_DEPENDS+=	zfs-stats:${PORTSDIR}/sysutils/zfs-stats
 RUN_DEPENDS+=	clit:${PORTSDIR}/textproc/clit
 RUN_DEPENDS+=	docbook-to-man:${PORTSDIR}/textproc/docbook-to-man
 RUN_DEPENDS+=	docbook2html:${PORTSDIR}/textproc/docbook-utils
-RUN_DEPENDS+=	docproj-nojadetex>=0:${PORTSDIR}/textproc/docproj-nojadetex
+RUN_DEPENDS+=	docproj>=0:${PORTSDIR}/textproc/docproj
 RUN_DEPENDS+=	flex:${PORTSDIR}/textproc/flex
 RUN_DEPENDS+=	gnome-spell>=0:${PORTSDIR}/textproc/gnome-spell
 RUN_DEPENDS+=	gsed:${PORTSDIR}/textproc/gsed
@@ -453,7 +454,6 @@ RUN_DEPENDS+=	${APACHE_PKGNAMEPREFIX}mod_wsgi>=0:${PORTSDIR}/www/mod_wsgi3
 RUN_DEPENDS+=	nspluginwrapper:${PORTSDIR}/www/nspluginwrapper
 RUN_DEPENDS+=	p5-WWW-Mechanize>=0:${PORTSDIR}/www/p5-WWW-Mechanize  # for internode-quota-check
 RUN_DEPENDS+=	cssparse:${PORTSDIR}/www/py-cssutils
-#RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django_cms>=0:${PORTSDIR}/www/py-django-cms
 RUN_DEPENDS+=	urlgrabber:${PORTSDIR}/www/py-urlgrabber
 RUN_DEPENDS+=	spawn-fcgi:${PORTSDIR}/www/spawn-fcgi
 RUN_DEPENDS+=	swfdec-plugin>=0:${PORTSDIR}/www/swfdec-plugin
@@ -530,7 +530,7 @@ RUN_DEPENDS+=	Xvfb:${PORTSDIR}/x11-servers/xorg-vfbserver
 # x11-themes
 RUN_DEPENDS+=	cursor-jimmac-theme>=0:${PORTSDIR}/x11-themes/cursor-jimmac-theme
 RUN_DEPENDS+=	emerald-themes>=0:${PORTSDIR}/x11-themes/emerald-themes
-#RUN_DEPENDS+=	gtk-qt4-engine>=0:${PORTSDIR}/x11-themes/gtk-qt4-engine
+RUN_DEPENDS+=	gtk-qt4-engine>=0:${PORTSDIR}/x11-themes/gtk-qt4-engine
 RUN_DEPENDS+=	icon-naming-utils>=0:${PORTSDIR}/x11-themes/icon-naming-utils
 RUN_DEPENDS+=	lxappearance:${PORTSDIR}/x11-themes/lxappearance
 
@@ -543,6 +543,7 @@ LIB_DEPENDS+=	libwx_gtk2_gizmos-2.8.so:${PORTSDIR}/x11-toolkits/wxgtk28-contrib
 
 # x11-wm
 RUN_DEPENDS+=	xfce>=0:${PORTSDIR}/x11-wm/xfce4
+RUN_DEPENDS+=	lxmed>=0:${PORTSDIR}/x11-wm/lxmed
 
 # x11
 RUN_DEPENDS+=	bigreqsproto>=0:${PORTSDIR}/x11/bigreqsproto
