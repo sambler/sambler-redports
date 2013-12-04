@@ -203,9 +203,12 @@ post-patch:
 		${WRKSRC}/release/bin/blender-thumbnailer.py
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
 		${WRKSRC}/release/freedesktop/blender.desktop
+	@${REINPLACE_CMD} -e 's|MY_WC_HASH "unknown"|MY_WC_HASH "${GH_COMMIT}"|g' \
+		-e 's|MY_WC_BRANCH "unknown"|MY_WC_BRANCH "mymods"|g' \
+		${WRKSRC}/build_files/cmake/buildinfo.cmake
 	@cd ${WRKSRC}/intern/cycles && ${REINPLACE_CMD} \
-		-e 's/__align/cycles_align/' \
-		-e 's/__global/cycles_global/g' \
+		-e 's|__align|cycles_align|' \
+		-e 's|__global|cycles_global|g' \
 		util/util_types.h kernel/kernel_compat_cuda.h \
 		kernel/kernel_displace.h kernel/kernel_film.h \
 		kernel/kernel_passes.h kernel/kernel_path.h \
