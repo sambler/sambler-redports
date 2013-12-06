@@ -126,9 +126,9 @@ LIB_DEPENDS+=	libkolab.so:${PORTSDIR}/devel/libkolab
 RUN_DEPENDS+=	libowfat>=0:${PORTSDIR}/devel/libowfat
 LIB_DEPENDS+=	libslang.so:${PORTSDIR}/devel/libslang2
 LIB_DEPENDS+=	libthai.so:${PORTSDIR}/devel/libthai
-RUN_DEPENDS+=	llvm-config31:${PORTSDIR}/devel/llvm31
 RUN_DEPENDS+=	llvm-config32:${PORTSDIR}/devel/llvm32
 RUN_DEPENDS+=	llvm-config33:${PORTSDIR}/devel/llvm33
+RUN_DEPENDS+=	llvm-config34:${PORTSDIR}/devel/llvm34
 RUN_DEPENDS+=	llvm-config-devel:${PORTSDIR}/devel/llvm-devel
 RUN_DEPENDS+=	hg:${PORTSDIR}/devel/mercurial
 RUN_DEPENDS+=	nasm:${PORTSDIR}/devel/nasm
@@ -238,9 +238,9 @@ RUN_DEPENDS+=	xsane:${PORTSDIR}/graphics/xsane
 RUN_DEPENDS+=	quassel:${PORTSDIR}/irc/quassel
 
 # lang
-RUN_DEPENDS+=	clang31:${PORTSDIR}/lang/clang31
 RUN_DEPENDS+=	clang32:${PORTSDIR}/lang/clang32
 RUN_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
+RUN_DEPENDS+=	clang34:${PORTSDIR}/lang/clang34
 RUN_DEPENDS+=	clang-devel:${PORTSDIR}/lang/clang-devel
 RUN_DEPENDS+=	gawk:${PORTSDIR}/lang/gawk
 RUN_DEPENDS+=	gcc46:${PORTSDIR}/lang/gcc
@@ -458,7 +458,6 @@ RUN_DEPENDS+=	urlgrabber:${PORTSDIR}/www/py-urlgrabber
 RUN_DEPENDS+=	spawn-fcgi:${PORTSDIR}/www/spawn-fcgi
 RUN_DEPENDS+=	swfdec-plugin>=0:${PORTSDIR}/www/swfdec-plugin
 RUN_DEPENDS+=	trac-codetags>=0:${PORTSDIR}/www/trac-codetags
-RUN_DEPENDS+=	trac-gitplugin>=0:${PORTSDIR}/www/trac-gitplugin
 RUN_DEPENDS+=	trac-iniadmin>=0:${PORTSDIR}/www/trac-iniadmin
 RUN_DEPENDS+=	xfce4-smartbookmark-plugin>=0:${PORTSDIR}/www/xfce4-smartbookmark-plugin
 
@@ -543,7 +542,6 @@ LIB_DEPENDS+=	libwx_gtk2_gizmos-2.8.so:${PORTSDIR}/x11-toolkits/wxgtk28-contrib
 
 # x11-wm
 RUN_DEPENDS+=	xfce>=0:${PORTSDIR}/x11-wm/xfce4
-RUN_DEPENDS+=	lxmed>=0:${PORTSDIR}/x11-wm/lxmed
 
 # x11
 RUN_DEPENDS+=	bigreqsproto>=0:${PORTSDIR}/x11/bigreqsproto
