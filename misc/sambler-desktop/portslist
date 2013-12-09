@@ -17,7 +17,7 @@ RUN_DEPENDS+=	aacgain:${PORTSDIR}/audio/aacgain
 RUN_DEPENDS+=	alienwah>=0:${PORTSDIR}/audio/alienwah
 RUN_DEPENDS+=	alsactl:${PORTSDIR}/audio/alsa-utils
 RUN_DEPENDS+=	amb-plugins>=0:${PORTSDIR}/audio/amb-plugins
-#RUN_DEPENDS+=	ardour2:${PORTSDIR}/audio/ardour
+RUN_DEPENDS+=	ardour2:${PORTSDIR}/audio/ardour
 RUN_DEPENDS+=	asunder:${PORTSDIR}/audio/asunder
 RUN_DEPENDS+=	audacity:${PORTSDIR}/audio/audacity
 RUN_DEPENDS+=	autotalent>=0:${PORTSDIR}/audio/autotalent
