@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	clipgrab
-PORTVERSION=	3.3.0.3
+PORTVERSION=	3.3.0.4
 CATEGORIES=	multimedia
 MASTER_SITES=	http://clipgrab.de/download/ \
 		http://vanbittern.org/
