@@ -183,7 +183,7 @@ include/lmms/update_event.h
 include/lmms/visualization_widget.h
 include/lmms/volume.h
 include/lmms/VST_sync_shm.h
-lib/lmms/ladspa/calf.so
+@comment lib/lmms/ladspa/calf.so
 lib/lmms/libaudiofileprocessor.so
 lib/lmms/libbassbooster.so
 lib/lmms/libbitinvader.so
@@ -2060,10 +2060,9 @@ share/pixmaps/lmms.png
 @dirrm %%DATADIR%%/locale
 @dirrm %%DATADIR%%/backgrounds
 @dirrm %%DATADIR%%
-@dirrm lib/lmms/ladspa
+@comment @dirrm lib/lmms/ladspa
 @dirrm lib/lmms
 @dirrm include/lmms
-@dirrmtry share/applications
 @dirrmtry share/menu
 @exec %%LOCALBASE%%/bin/update-mime-database %D/share/mime
 @unexec %%LOCALBASE%%/bin/update-mime-database %D/share/mime

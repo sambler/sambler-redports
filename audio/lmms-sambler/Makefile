@@ -34,13 +34,8 @@ USE_BZIP2=	yes
 USE_XORG=	xft
 USE_QT4=	corelib gui xml moc_build uic_build rcc_build qmake_build
 USES=		cmake pkgconfig
-# gcc46 fails with libc++ runtime linking issues
-USE_GCC=	4.2
-# gcc42 doesn't know avx
-SKIP_AVX=	yes
-CPUTYPE=	nocona
 CMAKE_ARGS=	-DWANT_ALSA:BOOL=OFF \
-		-DWANT_CALF:BOOL=ON \
+		-DWANT_CALF:BOOL=OFF \
 		-DWANT_CAPS:BOOL=OFF \
 		-DWANT_CMT:BOOL=OFF \
 		-DWANT_SWH:BOOL=OFF \
@@ -94,10 +89,10 @@ post-patch:
 
 post-install:
 	@${LN} -sf ${DATADIR}/themes/default/icon.png \
-		${PREFIX}/share/pixmaps/lmms.png
-	@-update-mime-database ${PREFIX}/share/mime
+		${STAGEDIR}${PREFIX}/share/pixmaps/lmms.png
+	@-update-mime-database ${STAGEDIR}${PREFIX}/share/mime
 	# make it setuid-root to be able to set realtime priority
 	# (root privileges are dropped in the main routine)
-	${CHMOD} u+s ${PREFIX}/bin/lmms
+	${CHMOD} u+s ${STAGEDIR}${PREFIX}/bin/lmms
 
 .include <bsd.port.mk>
