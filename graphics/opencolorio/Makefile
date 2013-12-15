@@ -3,7 +3,7 @@
 
 PORTNAME=	opencolorio
 PORTVERSION=	1.0.8
-PORTREVISION?=	1
+PORTREVISION?=	2
 CATEGORIES=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
@@ -43,7 +43,8 @@ USE_PYTHON=	2.6+
 USE_LDCONFIG=	yes
 CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=OFF \
 		-DOCIO_BUILD_SHARED:BOOL=ON \
-		-DOCIO_BUILD_PYGLUE:BOOL=ON
+		-DOCIO_BUILD_PYGLUE:BOOL=ON \
+		-DPYTHON:FILEPATH=${PYTHON_CMD}
 .else
 LIB_DEPENDS=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio \
 		libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
