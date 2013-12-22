@@ -192,16 +192,7 @@ RUN_DEPENDS+=	mahjongg:${PORTSDIR}/games/gnome-games
 
 # graphics
 RUN_DEPENDS+=	GraphicsMagick-config:${PORTSDIR}/graphics/GraphicsMagick
-RUN_DEPENDS+=	blender:${PORTSDIR}/graphics/blender
 RUN_DEPENDS+=	blender-249:${PORTSDIR}/graphics/blender249
-RUN_DEPENDS+=	blender-262:${PORTSDIR}/graphics/blender262
-RUN_DEPENDS+=	blender-263:${PORTSDIR}/graphics/blender263
-RUN_DEPENDS+=	blender-264:${PORTSDIR}/graphics/blender264
-RUN_DEPENDS+=	blender-265:${PORTSDIR}/graphics/blender265
-RUN_DEPENDS+=	blender-266:${PORTSDIR}/graphics/blender266
-RUN_DEPENDS+=	blender-267:${PORTSDIR}/graphics/blender267
-RUN_DEPENDS+=	blender-268:${PORTSDIR}/graphics/blender268
-RUN_DEPENDS+=	blender-sambler:${PORTSDIR}/graphics/blender-sambler
 RUN_DEPENDS+=	cbrpager:${PORTSDIR}/graphics/cbrpager
 RUN_DEPENDS+=	cbview:${PORTSDIR}/graphics/cbview
 RUN_DEPENDS+=	comix:${PORTSDIR}/graphics/comix
@@ -263,8 +254,6 @@ RUN_DEPENDS+=	gmm++>=0:${PORTSDIR}/math/gmm++
 RUN_DEPENDS+=	gnumeric:${PORTSDIR}/math/gnumeric
 RUN_DEPENDS+=	qalc:${PORTSDIR}/math/libqalculate
 RUN_DEPENDS+=	lp_solve:${PORTSDIR}/math/lp_solve
-RUN_DEPENDS+=	py32-numpy32>=0:${PORTSDIR}/math/py-numpy32
-RUN_DEPENDS+=	py33-numpy33>=0:${PORTSDIR}/math/py-numpy33
 RUN_DEPENDS+=	qhull:${PORTSDIR}/math/qhull5
 
 # misc
@@ -326,7 +315,6 @@ RUN_DEPENDS+=	dialog4ports:${PORTSDIR}/ports-mgmt/dialog4ports
 RUN_DEPENDS+=	fbsdmon:${PORTSDIR}/ports-mgmt/fbsdmon
 #RUN_DEPENDS+=	pkg:${PORTSDIR}/ports-mgmt/pkg
 RUN_DEPENDS+=	portlint:${PORTSDIR}/ports-mgmt/portlint
-RUN_DEPENDS+=	portmaster:${PORTSDIR}/ports-mgmt/portmaster
 RUN_DEPENDS+=	tinderbox>=0:${PORTSDIR}/ports-mgmt/tinderbox
 
 # print
@@ -341,7 +329,6 @@ RUN_DEPENDS+=	apg:${PORTSDIR}/security/apg
 RUN_DEPENDS+=	clamav-config:${PORTSDIR}/security/clamav
 RUN_DEPENDS+=	denyhosts.py:${PORTSDIR}/security/denyhosts
 RUN_DEPENDS+=	dirmngr:${PORTSDIR}/security/dirmngr
-RUN_DEPENDS+=	krb5-config:${PORTSDIR}/security/heimdal
 RUN_DEPENDS+=	keychain:${PORTSDIR}/security/keychain
 RUN_DEPENDS+=	otr_parse:${PORTSDIR}/security/libotr
 LIB_DEPENDS+=	libssh2.so:${PORTSDIR}/security/libssh2
@@ -353,6 +340,9 @@ RUN_DEPENDS+=	rkhunter:${PORTSDIR}/security/rkhunter
 RUN_DEPENDS+=	seahorse-tool:${PORTSDIR}/security/seahorse-plugins
 RUN_DEPENDS+=	ssh-copy-id:${PORTSDIR}/security/ssh-copy-id
 RUN_DEPENDS+=	zenmap:${PORTSDIR}/security/zenmap
+
+#science
+RUN_DEPENDS+=	mbdyn:${PORTSDIR}/science/mbdyn
 
 # shells
 RUN_DEPENDS+=	bash:${PORTSDIR}/shells/bash
