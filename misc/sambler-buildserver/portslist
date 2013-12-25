@@ -1,0 +1,81 @@
+
+# database
+RUN_DEPENDS+=	postgresql92-contrib>=0:${PORTSDIR}/databases/postgresql92-contrib
+RUN_DEPENDS+=	postgresql92-docs>=0:${PORTSDIR}/databases/postgresql92-docs
+RUN_DEPENDS+=	postgresql92-plperl>=0:${PORTSDIR}/databases/postgresql92-plperl
+RUN_DEPENDS+=	postgresql92-plpython>=0:${PORTSDIR}/databases/postgresql92-plpython
+RUN_DEPENDS+=	postgresql92-client>=0:${PORTSDIR}/databases/postgresql92-client
+RUN_DEPENDS+=	postgresql92-server>=0:${PORTSDIR}/databases/postgresql92-server
+
+# editors
+RUN_DEPENDS+=	gedit-plugins>=0:${PORTSDIR}/editors/gedit-plugins
+RUN_DEPENDS+=	SciTE:${PORTSDIR}/editors/scite
+
+# lang
+RUN_DEPENDS+=	clang32:${PORTSDIR}/lang/clang32
+RUN_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
+RUN_DEPENDS+=	clang34:${PORTSDIR}/lang/clang34
+RUN_DEPENDS+=	gcc46:${PORTSDIR}/lang/gcc
+
+# net
+RUN_DEPENDS+=	rsync:${PORTSDIR}/net/rsync
+
+# ports-mgmt
+RUN_DEPENDS+=	dialog4ports:${PORTSDIR}/ports-mgmt/dialog4ports
+RUN_DEPENDS+=	fbsdmon:${PORTSDIR}/ports-mgmt/fbsdmon
+RUN_DEPENDS+=	tinderbox>=0:${PORTSDIR}/ports-mgmt/tinderbox
+
+# security
+RUN_DEPENDS+=	clamav-config:${PORTSDIR}/security/clamav
+RUN_DEPENDS+=	ssh-askpass:${PORTSDIR}/security/openssh-askpass
+RUN_DEPENDS+=	rkhunter:${PORTSDIR}/security/rkhunter
+
+# shells
+RUN_DEPENDS+=	bash:${PORTSDIR}/shells/bash
+
+# sysutils
+RUN_DEPENDS+=	procsystime:${PORTSDIR}/sysutils/DTraceToolkit
+RUN_DEPENDS+=	ataidle:${PORTSDIR}/sysutils/ataidle
+RUN_DEPENDS+=	bsdstats>=0:${PORTSDIR}/sysutils/bsdstats
+RUN_DEPENDS+=	cpdup:${PORTSDIR}/sysutils/cpdup
+RUN_DEPENDS+=	ddrescue:${PORTSDIR}/sysutils/ddrescue
+RUN_DEPENDS+=	webmin>=0:${PORTSDIR}/sysutils/webmin
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}salt>=0:${PORTSDIR}/sysutils/py-salt
+
+# textproc
+RUN_DEPENDS+=	meld:${PORTSDIR}/textproc/meld
+
+# x11-fm
+RUN_DEPENDS+=	xfe:${PORTSDIR}/x11-fm/xfe
+
+# x11-fonts
+RUN_DEPENDS+=	anonymous-pro>=0:${PORTSDIR}/x11-fonts/anonymous-pro
+RUN_DEPENDS+=	artwiz-aleczapka-en>=0:${PORTSDIR}/x11-fonts/artwiz-aleczapka
+RUN_DEPENDS+=	bdftopcf>=0:${PORTSDIR}/x11-fonts/bdftopcf
+RUN_DEPENDS+=	CharisSIL>=0:${PORTSDIR}/x11-fonts/charis
+RUN_DEPENDS+=	DoulosSIL>=0:${PORTSDIR}/x11-fonts/doulos
+RUN_DEPENDS+=	ecofont>=0:${PORTSDIR}/x11-fonts/ecofont
+RUN_DEPENDS+=	fonts-te>=0:${PORTSDIR}/x11-fonts/fonts-te
+RUN_DEPENDS+=	koi8-u-gemini-x11>=0:${PORTSDIR}/x11-fonts/geminifonts
+RUN_DEPENDS+=	hanazono-fonts-ttf>=0:${PORTSDIR}/x11-fonts/hanazono-fonts-ttf
+RUN_DEPENDS+=	inconsolata-ttf>=0:${PORTSDIR}/x11-fonts/inconsolata-ttf
+RUN_DEPENDS+=	isabella-ttf>=0:${PORTSDIR}/x11-fonts/isabella
+RUN_DEPENDS+=	junicode>=0:${PORTSDIR}/x11-fonts/junicode
+RUN_DEPENDS+=	khmeros>=0:${PORTSDIR}/x11-fonts/khmeros
+RUN_DEPENDS+=	mkbold-mkitalic>=0:${PORTSDIR}/x11-fonts/mkbold-mkitalic
+RUN_DEPENDS+=	padauk>=0:${PORTSDIR}/x11-fonts/padauk
+RUN_DEPENDS+=	paratype>=0:${PORTSDIR}/x11-fonts/paratype
+RUN_DEPENDS+=	stixfonts>=0:${PORTSDIR}/x11-fonts/stix-fonts
+RUN_DEPENDS+=	suxus>=0:${PORTSDIR}/x11-fonts/suxus
+RUN_DEPENDS+=	terminus-font>=0:${PORTSDIR}/x11-fonts/terminus-font
+RUN_DEPENDS+=	ubuntu-font>=0:${PORTSDIR}/x11-fonts/ubuntu-font
+RUN_DEPENDS+=	urwfonts-ttf>=0:${PORTSDIR}/x11-fonts/urwfonts-ttf
+RUN_DEPENDS+=	webfonts>=0:${PORTSDIR}/x11-fonts/webfonts
+RUN_DEPENDS+=	wqy-fonts>=0:${PORTSDIR}/x11-fonts/wqy
+
+# x11-wm
+RUN_DEPENDS+=	xfce>=0:${PORTSDIR}/x11-wm/xfce4
+
+# x11
+RUN_DEPENDS+=	Xorg:${PORTSDIR}/x11/xorg
+
