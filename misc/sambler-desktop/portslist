@@ -62,13 +62,13 @@ RUN_DEPENDS+=	db46>=0:${PORTSDIR}/databases/db46
 RUN_DEPENDS+=	libdbi-drivers>=0:${PORTSDIR}/databases/libdbi-drivers
 RUN_DEPENDS+=	libgda4-postgresql>=0:${PORTSDIR}/databases/libgda4-postgresql
 LIB_DEPENDS+=	libgdamm-4.0.so:${PORTSDIR}/databases/libgdamm
-RUN_DEPENDS+=	pgadmin3:${PORTSDIR}/databases/pgadmin3
-RUN_DEPENDS+=	postgresql-contrib>=0:${PORTSDIR}/databases/postgresql92-contrib
-RUN_DEPENDS+=	postgresql-docs>=0:${PORTSDIR}/databases/postgresql92-docs
-RUN_DEPENDS+=	postgresql-plperl>=0:${PORTSDIR}/databases/postgresql92-plperl
-RUN_DEPENDS+=	postgresql-plpython>=0:${PORTSDIR}/databases/postgresql92-plpython
-RUN_DEPENDS+=	postgresql-client>=0:${PORTSDIR}/databases/postgresql92-client
-RUN_DEPENDS+=	postgresql-server>=0:${PORTSDIR}/databases/postgresql92-server
+RUN_DEPENDS+=	pgadmin3>=0:${PORTSDIR}/databases/pgadmin3
+RUN_DEPENDS+=	postgresql92-contrib>=0:${PORTSDIR}/databases/postgresql92-contrib
+RUN_DEPENDS+=	postgresql92-docs>=0:${PORTSDIR}/databases/postgresql92-docs
+RUN_DEPENDS+=	postgresql92-plperl>=0:${PORTSDIR}/databases/postgresql92-plperl
+RUN_DEPENDS+=	postgresql92-plpython>=0:${PORTSDIR}/databases/postgresql92-plpython
+RUN_DEPENDS+=	postgresql92-client>=0:${PORTSDIR}/databases/postgresql92-client
+RUN_DEPENDS+=	postgresql92-server>=0:${PORTSDIR}/databases/postgresql92-server
 
 # deskutils
 RUN_DEPENDS+=	alacarte:${PORTSDIR}/deskutils/alacarte
@@ -105,7 +105,7 @@ RUN_DEPENDS+=	dmake:${PORTSDIR}/devel/dmake
 RUN_DEPENDS+=	dmalloc:${PORTSDIR}/devel/dmalloc
 RUN_DEPENDS+=	doxygen:${PORTSDIR}/devel/doxygen
 LIB_DEPENDS+=	libOpenCL.so:${PORTSDIR}/devel/freeocl
-RUN_DEPENDS+=	gdb76:${PORTSDIR}/devel/gdb
+RUN_DEPENDS+=	gdb>=0:${PORTSDIR}/devel/gdb
 RUN_DEPENDS+=	geany-plugins>=0:${PORTSDIR}/devel/geany-plugins
 RUN_DEPENDS+=	gitg:${PORTSDIR}/devel/gitg
 RUN_DEPENDS+=	gmake:${PORTSDIR}/devel/gmake
@@ -209,7 +209,6 @@ RUN_DEPENDS+=	kiconedit:${PORTSDIR}/graphics/kiconedit
 LIB_DEPENDS+=	liblensfun.so:${PORTSDIR}/graphics/lensfun
 RUN_DEPENDS+=	luxrays>=0:${PORTSDIR}/graphics/luxrays
 #RUN_DEPENDS+=	luxrender:${PORTSDIR}/graphics/luxrender
-RUN_DEPENDS+=	cuberender:${PORTSDIR}/graphics/mesa-demos
 RUN_DEPENDS+=	mypaint:${PORTSDIR}/graphics/mypaint
 RUN_DEPENDS+=	ociolutimage:${PORTSDIR}/graphics/opencolorio-tools
 RUN_DEPENDS+=	panomatic:${PORTSDIR}/graphics/panomatic
@@ -249,7 +248,7 @@ RUN_DEPENDS+=	xfce4-mailwatch-plugin>=0:${PORTSDIR}/mail/xfce4-mailwatch-plugin
 # math
 LIB_DEPENDS+=	libarpack.so:${PORTSDIR}/math/arpack
 RUN_DEPENDS+=	djbfft>=0:${PORTSDIR}/math/djbfft
-RUN_DEPENDS+=	eigen>=0:${PORTSDIR}/math/eigen2
+RUN_DEPENDS+=	eigen2>=0:${PORTSDIR}/math/eigen2
 RUN_DEPENDS+=	gmm++>=0:${PORTSDIR}/math/gmm++
 RUN_DEPENDS+=	gnumeric:${PORTSDIR}/math/gnumeric
 RUN_DEPENDS+=	qalc:${PORTSDIR}/math/libqalculate
@@ -307,6 +306,7 @@ LIB_DEPENDS+=	libgupnp-1.0.so:${PORTSDIR}/net/gupnp
 RUN_DEPENDS+=	liferea:${PORTSDIR}/net/liferea
 RUN_DEPENDS+=	linphonec:${PORTSDIR}/net/linphone-base
 RUN_DEPENDS+=	slptool:${PORTSDIR}/net/openslp
+RUN_DEPENDS+=	rsync:${PORTSDIR}/net/rsync
 RUN_DEPENDS+=	vncviewer:${PORTSDIR}/net/tightvnc
 RUN_DEPENDS+=	vino-passwd:${PORTSDIR}/net/vino
 
@@ -377,6 +377,7 @@ RUN_DEPENDS+=	luckybackup:${PORTSDIR}/sysutils/luckybackup
 RUN_DEPENDS+=	ntfslabel:${PORTSDIR}/sysutils/ntfsprogs
 RUN_DEPENDS+=	nvclock:${PORTSDIR}/sysutils/nvclock
 RUN_DEPENDS+=	lspci:${PORTSDIR}/sysutils/pciutils
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}salt>=0:${PORTSDIR}/sysutils/py-salt
 RUN_DEPENDS+=	quicksynergy:${PORTSDIR}/sysutils/quicksynergy
 RUN_DEPENDS+=	sensors-applet>=0:${PORTSDIR}/sysutils/sensors-applet
 RUN_DEPENDS+=	sg_get_config:${PORTSDIR}/sysutils/sg3_utils
