@@ -33,8 +33,6 @@ NO_CHECKSUM=	yes
 LATEST_LINK=	py-${PORTNAME}
 WRKSRC=	${WRKDIR}/numpy-${PORTVERSION}
 
-PYDISTUTILS_NOEGGINFO= yes
-
 .include <bsd.port.pre.mk>
 
 .if (${OSVERSION} <= 703100 || \

@@ -1,5 +1,4 @@
 bin/f2py33
-lib/python3.3/site-packages/numpy-1.8.0-py3.3.egg-info
 lib/python3.3/site-packages/numpy/__config__.py
 lib/python3.3/site-packages/numpy/__pycache__/__config__.cpython-33.pyc
 lib/python3.3/site-packages/numpy/__pycache__/__config__.cpython-33.pyo
