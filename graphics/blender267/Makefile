@@ -3,7 +3,7 @@
 
 PORTNAME=	blender267
 PORTVERSION=	2.67b
-PORTREVISION=	5
+PORTREVISION=	6
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \

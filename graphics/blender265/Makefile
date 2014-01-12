@@ -3,7 +3,7 @@
 
 PORTNAME=	blender265
 PORTVERSION=	2.65a
-PORTREVISION=	6
+PORTREVISION=	7
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
