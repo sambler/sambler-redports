@@ -49,6 +49,9 @@ MAN1=		lmms.1
 WRKSRC=		${WRKDIR}/lmms-${PORTVERSION}
 DATADIR=	${LOCALBASE}/share/lmms
 
+CFLAGS+=	-I${LOCALBASE}/include/freetype2
+CXXFLAGS+=	-I${LOCALBASE}/include/freetype2
+
 USE_DOS2UNIX=	plugins/midi_import/portsmf/allegrowr.cpp plugins/midi_import/portsmf/mfmidi.cpp
 
 .include <bsd.port.options.mk>
