@@ -1,0 +1,13 @@
+
+# audio
+# these conflict but we can build one at a time
+RUN_DEPENDS+=	hydrogen:${PORTSDIR}/audio/hydrogen
+#RUN_DEPENDS+=	hydrogen:${PORTSDIR}/audio/hydrogen-devel
+
+# graphics
+RUN_DEPENDS+=	:${PORTSDIR}/graphics/opencolorio
+RUN_DEPENDS+=	:${PORTSDIR}/graphics/opencolorio-tools
+RUN_DEPENDS+=	:${PORTSDIR}/graphics/openimageio
+RUN_DEPENDS+=	:${PORTSDIR}/graphics/py-openimageio
+RUN_DEPENDS+=	:${PORTSDIR}/graphics/openshadinglanguage
+
