@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	sambler-blender-render
-PORTVERSION=	1
+PORTVERSION=	2
 CATEGORIES=	misc
 MASTER_SITES=	# Empty
 DISTFILES=	# None
@@ -10,7 +10,7 @@ DISTFILES=	# None
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	LOCAL Metaport for building my software
 
-BUILD_DEPENDS=	pkg:${PORTSDIR}/ports-mgmt/pkg
+BUILD_DEPENDS=	# Empty so subsequent BUILD_DEPENDS need +=
 LIB_DEPENDS=	# Empty so subsequent LIB_DEPENDS need +=
 RUN_DEPENDS=	# Empty so subsequent RUN_DEPENDS need +=
 .include <portslist>
