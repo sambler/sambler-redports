@@ -24,7 +24,7 @@
  
      void checkheap() {
 -#ifdef __GNUC__
-+#ifdef defined(HAVE_IS_HEAP)
++#if defined(HAVE_IS_HEAP)
        CARVE_ASSERT(std::__is_heap(queue.begin(), queue.end(), vertex_info_ordering()));
  #endif
      }
