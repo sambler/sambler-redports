@@ -5,5 +5,7 @@ RUN_DEPENDS+=	blender-263:${PORTSDIR}/graphics/blender263
 RUN_DEPENDS+=	blender-264:${PORTSDIR}/graphics/blender264
 
 # math
-RUN_DEPENDS+=	py32-numpy32>=0:${PORTSDIR}/math/py-numpy32
+.if exists(${PORTSDIR}/math/py-numpy32)
+    RUN_DEPENDS+=	py32-numpy32>=0:${PORTSDIR}/math/py-numpy32
+.endif
 

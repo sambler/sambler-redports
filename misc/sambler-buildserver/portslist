@@ -7,15 +7,24 @@ RUN_DEPENDS+=	postgresql92-plpython>=0:${PORTSDIR}/databases/postgresql92-plpyth
 RUN_DEPENDS+=	postgresql92-client>=0:${PORTSDIR}/databases/postgresql92-client
 RUN_DEPENDS+=	postgresql92-server>=0:${PORTSDIR}/databases/postgresql92-server
 
+# devel
+RUN_DEPENDS+=	git:${PORTSDIR}/devel/git
+RUN_DEPENDS+=	svn:${PORTSDIR}/devel/subversion
+
 # editors
 RUN_DEPENDS+=	gedit-plugins>=0:${PORTSDIR}/editors/gedit-plugins
 RUN_DEPENDS+=	SciTE:${PORTSDIR}/editors/scite
+
+# ftp
+RUN_DEPENDS+=	lftp:${PORTSDIR}/ftp/lftp
 
 # lang
 RUN_DEPENDS+=	clang32:${PORTSDIR}/lang/clang32
 RUN_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 RUN_DEPENDS+=	clang34:${PORTSDIR}/lang/clang34
 RUN_DEPENDS+=	gcc46:${PORTSDIR}/lang/gcc
+RUN_DEPENDS+=   gcc47:${PORTSDIR}/lang/gcc47
+RUN_DEPENDS+=   gcc48:${PORTSDIR}/lang/gcc48
 
 # net
 RUN_DEPENDS+=	rsync:${PORTSDIR}/net/rsync
@@ -29,6 +38,7 @@ RUN_DEPENDS+=	tinderbox>=0:${PORTSDIR}/ports-mgmt/tinderbox
 RUN_DEPENDS+=	clamav-config:${PORTSDIR}/security/clamav
 RUN_DEPENDS+=	ssh-askpass:${PORTSDIR}/security/openssh-askpass
 RUN_DEPENDS+=	rkhunter:${PORTSDIR}/security/rkhunter
+RUN_DEPENDS+=	sudo:${PORTSDIR}/security/sudo
 
 # shells
 RUN_DEPENDS+=	bash:${PORTSDIR}/shells/bash

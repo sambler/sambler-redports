@@ -4,10 +4,9 @@ RUN_DEPENDS+=	cabextract:${PORTSDIR}/archivers/cabextract
 RUN_DEPENDS+=	file-roller:${PORTSDIR}/archivers/file-roller
 RUN_DEPENDS+=	lzlib>=0:${PORTSDIR}/archivers/lzlib
 RUN_DEPENDS+=	lzma:${PORTSDIR}/archivers/lzma
-RUN_DEPENDS+=	p7zip:${PORTSDIR}/archivers/p7zip
+RUN_DEPENDS+=	p7zip>=0:${PORTSDIR}/archivers/p7zip
 RUN_DEPENDS+=	plzip:${PORTSDIR}/archivers/plzip
 RUN_DEPENDS+=	rpm:${PORTSDIR}/archivers/rpm
-RUN_DEPENDS+=	rpm2cpio:${PORTSDIR}/archivers/rpm2cpio
 RUN_DEPENDS+=	gshar:${PORTSDIR}/archivers/sharutils
 RUN_DEPENDS+=	thunar-archive-plugin>=0:${PORTSDIR}/archivers/thunar-archive-plugin
 RUN_DEPENDS+=	xarchiver:${PORTSDIR}/archivers/xarchiver
@@ -102,7 +101,7 @@ RUN_DEPENDS+=	ddd:${PORTSDIR}/devel/ddd
 RUN_DEPENDS+=	as86:${PORTSDIR}/devel/dev86
 RUN_DEPENDS+=	devhelp:${PORTSDIR}/devel/devhelp
 RUN_DEPENDS+=	dmake:${PORTSDIR}/devel/dmake
-RUN_DEPENDS+=	dmalloc:${PORTSDIR}/devel/dmalloc
+RUN_DEPENDS+=	dmalloc>=0:${PORTSDIR}/devel/dmalloc
 RUN_DEPENDS+=	doxygen:${PORTSDIR}/devel/doxygen
 LIB_DEPENDS+=	libOpenCL.so:${PORTSDIR}/devel/freeocl
 RUN_DEPENDS+=	gdb>=0:${PORTSDIR}/devel/gdb
@@ -208,7 +207,7 @@ RUN_DEPENDS+=	inkscape:${PORTSDIR}/graphics/inkscape
 RUN_DEPENDS+=	kiconedit:${PORTSDIR}/graphics/kiconedit
 LIB_DEPENDS+=	liblensfun.so:${PORTSDIR}/graphics/lensfun
 RUN_DEPENDS+=	luxrays>=0:${PORTSDIR}/graphics/luxrays
-#RUN_DEPENDS+=	luxrender:${PORTSDIR}/graphics/luxrender
+RUN_DEPENDS+=	luxrender:${PORTSDIR}/graphics/luxrender
 RUN_DEPENDS+=	mypaint:${PORTSDIR}/graphics/mypaint
 RUN_DEPENDS+=	ociolutimage:${PORTSDIR}/graphics/opencolorio-tools
 RUN_DEPENDS+=	panomatic:${PORTSDIR}/graphics/panomatic
@@ -234,6 +233,8 @@ RUN_DEPENDS+=	clang34:${PORTSDIR}/lang/clang34
 RUN_DEPENDS+=	clang-devel:${PORTSDIR}/lang/clang-devel
 RUN_DEPENDS+=	gawk:${PORTSDIR}/lang/gawk
 RUN_DEPENDS+=	gcc46:${PORTSDIR}/lang/gcc
+RUN_DEPENDS+=   gcc47:${PORTSDIR}/lang/gcc47
+RUN_DEPENDS+=   gcc48:${PORTSDIR}/lang/gcc48
 RUN_DEPENDS+=	libobjc2>=0:${PORTSDIR}/lang/libobjc2
 RUN_DEPENDS+=	libstdc++_stldoc_4.2.2>=0:${PORTSDIR}/lang/libstdc++_stldoc_4.2.2
 RUN_DEPENDS+=	php5-extensions>=0:${PORTSDIR}/lang/php5-extensions
@@ -291,7 +292,6 @@ RUN_DEPENDS+=	pitivi:${PORTSDIR}/multimedia/pitivi
 RUN_DEPENDS+=	umph:${PORTSDIR}/multimedia/umph
 RUN_DEPENDS+=	v4l_compat>=0:${PORTSDIR}/multimedia/v4l_compat
 RUN_DEPENDS+=	vamps:${PORTSDIR}/multimedia/vamps
-RUN_DEPENDS+=	xfmedia:${PORTSDIR}/multimedia/xfce4-media
 RUN_DEPENDS+=	parole:${PORTSDIR}/multimedia/xfce4-parole
 RUN_DEPENDS+=	xfce4-xmms-plugin>=0:${PORTSDIR}/multimedia/xfce4-xmms-plugin
 RUN_DEPENDS+=	xine:${PORTSDIR}/multimedia/xine
@@ -339,6 +339,7 @@ RUN_DEPENDS+=	qca-ossl>=0:${PORTSDIR}/security/qca-ossl
 RUN_DEPENDS+=	rkhunter:${PORTSDIR}/security/rkhunter
 RUN_DEPENDS+=	seahorse-tool:${PORTSDIR}/security/seahorse-plugins
 RUN_DEPENDS+=	ssh-copy-id:${PORTSDIR}/security/ssh-copy-id
+RUN_DEPENDS+=	sudo:${PORTSDIR}/security/sudo
 RUN_DEPENDS+=	zenmap:${PORTSDIR}/security/zenmap
 
 #science
@@ -395,7 +396,6 @@ RUN_DEPENDS+=	xfce4-netload-plugin>=0:${PORTSDIR}/sysutils/xfce4-netload-plugin
 RUN_DEPENDS+=	xfce4-systemload-plugin>=0:${PORTSDIR}/sysutils/xfce4-systemload-plugin
 RUN_DEPENDS+=	xfce4-wavelan-plugin>=0:${PORTSDIR}/sysutils/xfce4-wavelan-plugin
 RUN_DEPENDS+=	xfsm:${PORTSDIR}/sysutils/xfsm
-RUN_DEPENDS+=	xmbmon:${PORTSDIR}/sysutils/xmbmon
 RUN_DEPENDS+=	xosview:${PORTSDIR}/sysutils/xosview
 RUN_DEPENDS+=	zfs-stats:${PORTSDIR}/sysutils/zfs-stats
 
@@ -441,7 +441,7 @@ RUN_DEPENDS+=	midori:${PORTSDIR}/www/midori
 RUN_DEPENDS+=	${APACHE_PKGNAMEPREFIX}mod_fastcgi>=0:${PORTSDIR}/www/mod_fastcgi
 RUN_DEPENDS+=	${APACHE_PKGNAMEPREFIX}mod_perl2>=0:${PORTSDIR}/www/mod_perl2
 RUN_DEPENDS+=	${APACHE_PKGNAMEPREFIX}mod_security>=0:${PORTSDIR}/www/mod_security
-RUN_DEPENDS+=	${APACHE_PKGNAMEPREFIX}mod_wsgi>=0:${PORTSDIR}/www/mod_wsgi3
+RUN_DEPENDS+=	${APACHE_PKGNAMEPREFIX}mod_wsgi3>=0:${PORTSDIR}/www/mod_wsgi3
 RUN_DEPENDS+=	nspluginwrapper:${PORTSDIR}/www/nspluginwrapper
 RUN_DEPENDS+=	p5-WWW-Mechanize>=0:${PORTSDIR}/www/p5-WWW-Mechanize  # for internode-quota-check
 RUN_DEPENDS+=	cssparse:${PORTSDIR}/www/py-cssutils
@@ -520,7 +520,7 @@ RUN_DEPENDS+=	Xvfb:${PORTSDIR}/x11-servers/xorg-vfbserver
 # x11-themes
 RUN_DEPENDS+=	cursor-jimmac-theme>=0:${PORTSDIR}/x11-themes/cursor-jimmac-theme
 RUN_DEPENDS+=	emerald-themes>=0:${PORTSDIR}/x11-themes/emerald-themes
-RUN_DEPENDS+=	gtk-qt4-engine>=0:${PORTSDIR}/x11-themes/gtk-qt4-engine
+RUN_DEPENDS+=	gtk-qt-engine>=0:${PORTSDIR}/x11-themes/gtk-qt4-engine
 RUN_DEPENDS+=	icon-naming-utils>=0:${PORTSDIR}/x11-themes/icon-naming-utils
 RUN_DEPENDS+=	lxappearance:${PORTSDIR}/x11-themes/lxappearance
 

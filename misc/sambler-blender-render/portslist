@@ -13,6 +13,6 @@ RUN_DEPENDS+=	blender-269:${PORTSDIR}/graphics/blender269
 RUN_DEPENDS+=	blender-sambler:${PORTSDIR}/graphics/blender-sambler
 
 RUN_DEPENDS+=	luxrays>=0:${PORTSDIR}/graphics/luxrays
-#RUN_DEPENDS+=	luxrender:${PORTSDIR}/graphics/luxrender
+RUN_DEPENDS+=	luxrender:${PORTSDIR}/graphics/luxrender
 #RUN_DEPENDS+=	yafaray-xml:${PORTSDIR}/graphics/yafaray
 
