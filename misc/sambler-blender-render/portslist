@@ -10,6 +10,7 @@ RUN_DEPENDS+=	blender-266:${PORTSDIR}/graphics/blender266
 RUN_DEPENDS+=	blender-267:${PORTSDIR}/graphics/blender267
 RUN_DEPENDS+=	blender-268:${PORTSDIR}/graphics/blender268
 RUN_DEPENDS+=	blender-269:${PORTSDIR}/graphics/blender269
+RUN_DEPENDS+=   blender-270:${PORTSDIR}/graphics/blender270
 RUN_DEPENDS+=	blender-sambler:${PORTSDIR}/graphics/blender-sambler
 
 RUN_DEPENDS+=	luxrays>=0:${PORTSDIR}/graphics/luxrays
