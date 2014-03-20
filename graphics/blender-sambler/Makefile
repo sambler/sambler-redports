@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	blender-sambler
-PORTVERSION=	2.69
-PORTREVISION=	10
+PORTVERSION=	2.70
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -58,13 +58,13 @@ CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.3/site-packages
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	2c5ce9f
+GH_COMMIT=	c3037ee
 
 FETCH_ARGS=	-pRr
 
 USES=		cmake:outsource shebangfix compiler
 WRKSRC=		${WRKDIR}/sambler-myblender-${GH_COMMIT}
-OUTDIR=		${INSTALL_WRKSRC}/bin/2.69
+OUTDIR=		${INSTALL_WRKSRC}/bin/2.70
 VERS_TAG=	sambler
 
 SUB_FILES=	blender blenderplayer
