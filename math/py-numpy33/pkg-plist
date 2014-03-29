@@ -58,8 +58,6 @@ lib/python3.3/site-packages/numpy/core/include/numpy/_neighborhood_iterator_imp.
 lib/python3.3/site-packages/numpy/core/include/numpy/_numpyconfig.h
 lib/python3.3/site-packages/numpy/core/include/numpy/arrayobject.h
 lib/python3.3/site-packages/numpy/core/include/numpy/arrayscalars.h
-%%FENV%%lib/python3.3/site-packages/numpy/core/include/numpy/fenv/fenv.c
-%%FENV%%lib/python3.3/site-packages/numpy/core/include/numpy/fenv/fenv.h
 lib/python3.3/site-packages/numpy/core/include/numpy/halffloat.h
 lib/python3.3/site-packages/numpy/core/include/numpy/multiarray_api.txt
 lib/python3.3/site-packages/numpy/core/include/numpy/ndarrayobject.h
@@ -945,8 +943,8 @@ lib/python3.3/site-packages/numpy/version.py
 lib/python3.3/site-packages/numpy/__pycache__/version.cpython-33.pyc
 lib/python3.3/site-packages/numpy/__pycache__/version.cpython-33.pyo
 man/man1/f2py33.1.gz
-%%PORTDOCS%%%%DOCSDIR%%/numpy-ref.pdf
-%%PORTDOCS%%%%DOCSDIR%%/numpy-user.pdf
+%%PORTDOCS%%%%DOCSDIR%%/numpy-ref-%%DOCVER%%.pdf
+%%PORTDOCS%%%%DOCSDIR%%/numpy-user-%%DOCVER%%.pdf
 %%PORTDOCS%%@dirrmtry %%DOCSDIR%%
 @dirrmtry lib/python3.3/site-packages/numpy/tests
 @dirrmtry lib/python3.3/site-packages/numpy/testing/tests
@@ -1020,7 +1018,6 @@ man/man1/f2py33.1.gz
 @dirrmtry lib/python3.3/site-packages/numpy/core/tests
 @dirrmtry lib/python3.3/site-packages/numpy/core/lib/npy-pkg-config
 @dirrmtry lib/python3.3/site-packages/numpy/core/lib
-%%FENV%%@dirrmtry lib/python3.3/site-packages/numpy/core/include/numpy/fenv
 @dirrmtry lib/python3.3/site-packages/numpy/core/include/numpy
 @dirrmtry lib/python3.3/site-packages/numpy/core/include
 @dirrmtry lib/python3.3/site-packages/numpy/core/__pycache__
