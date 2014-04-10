@@ -3,7 +3,7 @@
 
 PORTNAME=	blender264
 PORTVERSION=	2.64a
-PORTREVISION=	6
+PORTREVISION=	7
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -29,20 +29,12 @@ LIB_DEPENDS+=	libfftw3.so:${PORTSDIR}/math/fftw3
 LIB_DEPENDS+=	libavutil0.so:${PORTSDIR}/multimedia/ffmpeg0
 LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
-.if exists(${PORTSDIR}/math/py-numpy32)
-# PYTHON_SITELIBDIR most likely points to python2.7/site-packages
-# we specifically want a 3.2 version installed
-RUN_DEPENDS+=	${LOCALBASE}/lib/python3.2/site-packages/numpy/__init__.py:${PORTSDIR}/math/py-numpy32
-CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.2/site-packages
-.endif
 
-USES=		cmake:outsource
+USES=		cmake:outsource desktop-file-utils
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 VERS_TAG=	264
 
 USE_PYTHON=	3.2
-WANT_GNOME=	yes
-USE_GNOME=	desktopfileutils
 USE_OPENAL=	al alut
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu

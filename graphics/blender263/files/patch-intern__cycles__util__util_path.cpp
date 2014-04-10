@@ -1,5 +1,5 @@
---- intern/cycles/util/util_path.cpp.orig	2013-02-07 19:56:43.615857497 +1030
-+++ intern/cycles/util/util_path.cpp	2013-02-07 19:58:48.211857059 +1030
+--- ./intern/cycles/util/util_path.cpp.orig	2012-05-11 00:14:09.000000000 +0930
++++ ./intern/cycles/util/util_path.cpp	2014-04-09 20:59:24.208216528 +0930
 @@ -26,7 +26,11 @@
  
  #include <stdio.h>
