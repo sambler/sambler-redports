@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.70
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -36,12 +36,6 @@ LIB_DEPENDS+=	libfftw3.so:${PORTSDIR}/math/fftw3
 LIB_DEPENDS+=	libavutil.so:${PORTSDIR}/multimedia/ffmpeg
 LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
-.if exists(${PORTSDIR}/math/py-numpy33)
-# PYTHON_SITELIBDIR most likely points to python2.7/site-packages
-# we specifically want a 3.3 version installed
-RUN_DEPENDS+=	${LOCALBASE}/lib/python3.3/site-packages/numpy/__init__.py:${PORTSDIR}/math/py-numpy33
-CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.3/site-packages
-.endif
 
 #USE_GITHUB=	yes
 #GH_ACCOUNT=	sambler:base \
@@ -58,11 +52,11 @@ CMAKE_ARGS+=	-DPYTHON_NUMPY_PATH:STRING=${LOCALBASE}/lib/python3.3/site-packages
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	c3037ee
+GH_COMMIT=	e788baf
 
 FETCH_ARGS=	-pRr
 
-USES=		cmake:outsource shebangfix compiler
+USES=		cmake:outsource shebangfix compiler desktop-file-utils
 WRKSRC=		${WRKDIR}/sambler-myblender-${GH_COMMIT}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.70
 VERS_TAG=	sambler
@@ -75,7 +69,6 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		release/scripts/modules/blend_render_info.py
 
 USE_PYTHON=	3.3
-WANT_GNOME=	yes
 USE_OPENAL=	al alut
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu
