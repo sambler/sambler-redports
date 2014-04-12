@@ -34,7 +34,6 @@ PYTHON_PY3K_PLIST_HACK=		yes
 
 PORTDOCS=	*
 WRKSRC=		${WRKDIR}/numpy-${PORTVERSION}
-PLIST_SUB+=	DOCVER="${PORTVERSION}"
 
 .include <bsd.port.pre.mk>
 
@@ -76,7 +75,7 @@ pre-configure:
 	@${REINPLACE_CMD} -e "s+%%GCCLIBDIR%%+$$(${GCCLIBDIR_CMDS})+" ${WRKSRC}/numpy/distutils/system_info.py
 
 post-install:
-	${INSTALL_MAN} ${WRKSRC}/numpy/f2py/f2py.1 ${STAGEDIR}${MANPREFIX}/man/man1
+	#${INSTALL_MAN} ${WRKSRC}/numpy/f2py/f2py.1 ${STAGEDIR}${MANPREFIX}/man/man1
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
 	${INSTALL_DATA} ${WRKDIR}/numpy-ref-${PORTVERSION}.pdf ${STAGEDIR}${DOCSDIR}
 	${INSTALL_DATA} ${WRKDIR}/numpy-user-${PORTVERSION}.pdf ${STAGEDIR}${DOCSDIR}

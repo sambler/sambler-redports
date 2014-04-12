@@ -942,10 +942,7 @@ lib/python3.3/site-packages/numpy/tests/test_matlib.py
 lib/python3.3/site-packages/numpy/version.py
 lib/python3.3/site-packages/numpy/__pycache__/version.cpython-33.pyc
 lib/python3.3/site-packages/numpy/__pycache__/version.cpython-33.pyo
-man/man1/f2py33.1.gz
-%%PORTDOCS%%%%DOCSDIR%%/numpy-ref-%%DOCVER%%.pdf
-%%PORTDOCS%%%%DOCSDIR%%/numpy-user-%%DOCVER%%.pdf
-%%PORTDOCS%%@dirrmtry %%DOCSDIR%%
+@comment man/man1/f2py33.1.gz
 @dirrmtry lib/python3.3/site-packages/numpy/tests
 @dirrmtry lib/python3.3/site-packages/numpy/testing/tests
 @dirrmtry lib/python3.3/site-packages/numpy/testing/__pycache__
