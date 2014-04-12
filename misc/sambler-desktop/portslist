@@ -140,7 +140,6 @@ RUN_DEPENDS+=	projectcenter>=0:${PORTSDIR}/devel/projectcenter
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}lxml>=0:${PORTSDIR}/devel/py-lxml
 RUN_DEPENDS+=	pykdeuic4:${PORTSDIR}/devel/py-pykdeuic4
 RUN_DEPENDS+=	pyuic4:${PORTSDIR}/devel/py-qt4
-RUN_DEPENDS+=	twistd:${PORTSDIR}/devel/py-twistedCore
 RUN_DEPENDS+=	qgit:${PORTSDIR}/devel/qgit
 RUN_DEPENDS+=	qmake:${PORTSDIR}/devel/qmake
 RUN_DEPENDS+=	qsvn:${PORTSDIR}/devel/qsvn
@@ -194,7 +193,6 @@ RUN_DEPENDS+=	GraphicsMagick-config:${PORTSDIR}/graphics/GraphicsMagick
 RUN_DEPENDS+=	blender-249:${PORTSDIR}/graphics/blender249
 RUN_DEPENDS+=	cbrpager:${PORTSDIR}/graphics/cbrpager
 RUN_DEPENDS+=	cbview:${PORTSDIR}/graphics/cbview
-RUN_DEPENDS+=	comix:${PORTSDIR}/graphics/comix
 RUN_DEPENDS+=	djview4:${PORTSDIR}/graphics/djview4
 RUN_DEPENDS+=	enblend:${PORTSDIR}/graphics/enblend
 RUN_DEPENDS+=	epdfview:${PORTSDIR}/graphics/epdfview
@@ -206,7 +204,6 @@ RUN_DEPENDS+=	gr2fonttest:${PORTSDIR}/graphics/graphite2
 RUN_DEPENDS+=	inkscape:${PORTSDIR}/graphics/inkscape
 RUN_DEPENDS+=	kiconedit:${PORTSDIR}/graphics/kiconedit
 LIB_DEPENDS+=	liblensfun.so:${PORTSDIR}/graphics/lensfun
-RUN_DEPENDS+=	luxrays>=0:${PORTSDIR}/graphics/luxrays
 RUN_DEPENDS+=	luxrender:${PORTSDIR}/graphics/luxrender
 RUN_DEPENDS+=	mypaint:${PORTSDIR}/graphics/mypaint
 RUN_DEPENDS+=	ociolutimage:${PORTSDIR}/graphics/opencolorio-tools
@@ -232,9 +229,6 @@ RUN_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 RUN_DEPENDS+=	clang34:${PORTSDIR}/lang/clang34
 RUN_DEPENDS+=	clang-devel:${PORTSDIR}/lang/clang-devel
 RUN_DEPENDS+=	gawk:${PORTSDIR}/lang/gawk
-RUN_DEPENDS+=	gcc46:${PORTSDIR}/lang/gcc
-RUN_DEPENDS+=   gcc47:${PORTSDIR}/lang/gcc47
-RUN_DEPENDS+=   gcc48:${PORTSDIR}/lang/gcc48
 RUN_DEPENDS+=	libobjc2>=0:${PORTSDIR}/lang/libobjc2
 RUN_DEPENDS+=	libstdc++_stldoc_4.2.2>=0:${PORTSDIR}/lang/libstdc++_stldoc_4.2.2
 RUN_DEPENDS+=	php5-extensions>=0:${PORTSDIR}/lang/php5-extensions
@@ -333,7 +327,6 @@ RUN_DEPENDS+=	keychain:${PORTSDIR}/security/keychain
 RUN_DEPENDS+=	otr_parse:${PORTSDIR}/security/libotr
 LIB_DEPENDS+=	libssh2.so:${PORTSDIR}/security/libssh2
 RUN_DEPENDS+=	ssh-askpass:${PORTSDIR}/security/openssh-askpass
-RUN_DEPENDS+=	pgp:${PORTSDIR}/security/pgp
 RUN_DEPENDS+=	pinentry:${PORTSDIR}/security/pinentry
 RUN_DEPENDS+=	qca-ossl>=0:${PORTSDIR}/security/qca-ossl
 RUN_DEPENDS+=	rkhunter:${PORTSDIR}/security/rkhunter
@@ -367,7 +360,6 @@ RUN_DEPENDS+=	gksu:${PORTSDIR}/sysutils/gksu
 RUN_DEPENDS+=	network-admin:${PORTSDIR}/sysutils/gnome-system-tools
 RUN_DEPENDS+=	healthd:${PORTSDIR}/sysutils/healthd
 RUN_DEPENDS+=	jailme:${PORTSDIR}/sysutils/jailme
-RUN_DEPENDS+=	jails:${PORTSDIR}/sysutils/jailutils
 RUN_DEPENDS+=	k3b:${PORTSDIR}/sysutils/k3b-kde4
 RUN_DEPENDS+=	ksystemlog:${PORTSDIR}/sysutils/kdeadmin4
 RUN_DEPENDS+=	ksysguardd:${PORTSDIR}/sysutils/ksysguardd
@@ -380,7 +372,6 @@ RUN_DEPENDS+=	nvclock:${PORTSDIR}/sysutils/nvclock
 RUN_DEPENDS+=	lspci:${PORTSDIR}/sysutils/pciutils
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}salt>=0:${PORTSDIR}/sysutils/py-salt
 RUN_DEPENDS+=	quicksynergy:${PORTSDIR}/sysutils/quicksynergy
-RUN_DEPENDS+=	sensors-applet>=0:${PORTSDIR}/sysutils/sensors-applet
 RUN_DEPENDS+=	sg_get_config:${PORTSDIR}/sysutils/sg3_utils
 RUN_DEPENDS+=	synergys:${PORTSDIR}/sysutils/synergy
 RUN_DEPENDS+=	testdisk:${PORTSDIR}/sysutils/testdisk
@@ -448,7 +439,6 @@ RUN_DEPENDS+=	cssparse:${PORTSDIR}/www/py-cssutils
 RUN_DEPENDS+=	urlgrabber:${PORTSDIR}/www/py-urlgrabber
 RUN_DEPENDS+=	spawn-fcgi:${PORTSDIR}/www/spawn-fcgi
 RUN_DEPENDS+=	swfdec-plugin>=0:${PORTSDIR}/www/swfdec-plugin
-RUN_DEPENDS+=	trac-codetags>=0:${PORTSDIR}/www/trac-codetags
 RUN_DEPENDS+=	trac-iniadmin>=0:${PORTSDIR}/www/trac-iniadmin
 RUN_DEPENDS+=	xfce4-smartbookmark-plugin>=0:${PORTSDIR}/www/xfce4-smartbookmark-plugin
 
