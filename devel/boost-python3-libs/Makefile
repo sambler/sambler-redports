@@ -23,7 +23,7 @@ MAKE_ENV+=	PYTHON_ROOT="${LOCALBASE}"\
 		PYTHON_INCLUDES="${PYTHON_INCLUDEDIR}"\
 		PYTHON_LIB_PATH="${PYTHON_LIBDIR}"
 
-RUN_DEPENDS+=	${LOCALBASE}/lib/libboost_thread.so.${BOOST_SHARED_LIB_VER}:${PORTSDIR}/devel/boost-libs
+LIB_DEPENDS+=	libboost_thread.so:${PORTSDIR}/devel/boost-libs
 
 BUILD_DEPENDS+=	${BJAM}:${PORTSDIR}/devel/boost-jam
 
