@@ -22,9 +22,7 @@ RUN_DEPENDS+=	lftp:${PORTSDIR}/ftp/lftp
 RUN_DEPENDS+=	clang32:${PORTSDIR}/lang/clang32
 RUN_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 RUN_DEPENDS+=	clang34:${PORTSDIR}/lang/clang34
-RUN_DEPENDS+=	gcc46:${PORTSDIR}/lang/gcc
-RUN_DEPENDS+=   gcc47:${PORTSDIR}/lang/gcc47
-RUN_DEPENDS+=   gcc48:${PORTSDIR}/lang/gcc48
+RUN_DEPENDS+=	gcc>=0:${PORTSDIR}/lang/gcc
 
 # net
 RUN_DEPENDS+=	rsync:${PORTSDIR}/net/rsync

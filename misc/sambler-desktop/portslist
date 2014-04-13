@@ -229,6 +229,7 @@ RUN_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 RUN_DEPENDS+=	clang34:${PORTSDIR}/lang/clang34
 RUN_DEPENDS+=	clang-devel:${PORTSDIR}/lang/clang-devel
 RUN_DEPENDS+=	gawk:${PORTSDIR}/lang/gawk
+RUN_DEPENDS+=	gcc>=0:${PORTSDIR}/lang/gcc
 RUN_DEPENDS+=	libobjc2>=0:${PORTSDIR}/lang/libobjc2
 RUN_DEPENDS+=	libstdc++_stldoc_4.2.2>=0:${PORTSDIR}/lang/libstdc++_stldoc_4.2.2
 RUN_DEPENDS+=	php5-extensions>=0:${PORTSDIR}/lang/php5-extensions

@@ -10,7 +10,4 @@ RUN_DEPENDS+=   blender-270:${PORTSDIR}/graphics/blender270
 RUN_DEPENDS+=	blender-sambler:${PORTSDIR}/graphics/blender-sambler
 
 # math
-.if exists(${PORTSDIR}/math/py-numpy32)
-    RUN_DEPENDS+=	py33-numpy33>=0:${PORTSDIR}/math/py-numpy33
-.endif
-
+RUN_DEPENDS+=	py33-numpy33>=0:${PORTSDIR}/math/py-numpy33
