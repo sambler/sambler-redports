@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	blender270
-PORTVERSION=	2.70
+PORTVERSION=	2.70a
 PORTREVISION=	0
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
@@ -32,7 +32,7 @@ LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 
 USES=		cmake:outsource compiler desktop-file-utils
-WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
+WRKSRC=		${WRKDIR}/blender-v${PORTVERSION}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.70
 VERS_TAG=	270
 
