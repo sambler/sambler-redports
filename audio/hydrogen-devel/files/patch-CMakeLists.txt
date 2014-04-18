@@ -1,8 +1,11 @@
---- ./CMakeLists.txt.orig	2013-02-22 05:23:51.000000000 +1030
-+++ ./CMakeLists.txt	2013-06-20 12:41:57.074569860 +0930
-@@ -23,6 +23,10 @@
+--- ./CMakeLists.txt.orig	2014-03-19 06:33:31.000000000 +1030
++++ ./CMakeLists.txt	2014-04-18 23:15:38.773218212 +0930
+@@ -21,8 +21,12 @@
+ SET(VERSION_PATCH "6")
+ SET(VERSION_SUFFIX "RC1")
  
- SET(VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
+-#SET(VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
++SET(VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
  
 +IF(LOCALBASE)
 +LINK_DIRECTORIES("${LOCALBASE}/lib")
@@ -11,7 +14,7 @@
  
  IF(VERSION_SUFFIX)
  	SET(DISPLAY_VERSION "${VERSION}-${VERSION_SUFFIX}")
-@@ -88,10 +92,7 @@
+@@ -89,10 +93,7 @@
  ENDIF()
  
  #SET(CMAKE_CXX_FLAGS "-fno-implement-inlines -finline-small-functions -findirect-inlining -fpartial-inlining")
@@ -23,7 +26,7 @@
  
  IF(APPLE)
  	#Compile for 32bit and 64bit intel macs
-@@ -106,9 +107,9 @@
+@@ -107,9 +108,9 @@
  MANDATORY_PKG(LIBSNDFILE)
  
  # TODO remove data from path
@@ -35,7 +38,7 @@
  IF(WIN32)
      SET(WANT_JACK FALSE)
      SET(Threads_PATH "C:/Program Files/GnuWin32")
-@@ -159,7 +160,7 @@
+@@ -160,7 +161,7 @@
  FIND_HELPER(LIBSNDFILE sndfile sndfile.h sndfile)
  FIND_HELPER(ALSA alsa alsa/asoundlib.h asound )
  FIND_LADSPA(LADSPA ladspa.h noise)

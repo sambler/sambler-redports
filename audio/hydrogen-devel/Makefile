@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	hydrogen-devel
-PORTVERSION=	0.9.6b3
+PORTVERSION=	0.9.6r1
 CATEGORIES=	audio
 MASTER_SITES=	GH
 
@@ -20,8 +20,8 @@ LIB_DEPENDS+=	libsndfile.so:${PORTSDIR}/audio/libsndfile \
 USE_GITHUB=	yes
 GH_ACCOUNT=	hydrogen-music
 GH_PROJECT=	hydrogen
-GH_TAGNAME=	0.9.6-beta3
-GH_COMMIT=	97e8352
+GH_TAGNAME=	0.9.6-RC1
+GH_COMMIT=	2b4b4f3
 
 MAJORVERSION=	0.9.6
 USE_QT4=	corelib gui qmake_build linguist_build moc_build network \
@@ -31,7 +31,7 @@ CMAKE_ARGS+=	-DTHREADS_HAVE_PTHREAD_ARG:BOOL=ON
 USE_LDCONFIG=	yes
 CXXFLAGS+=	-I${LOCALBASE}/include/portaudio2 -I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib/portaudio2 -L${LOCALBASE}/lib
-
+CMAKE_VERBOSE=		yes
 OPTIONS_DEFINE=		JACK ALSA PORTAUDIO OSS LIBARCHIVE LASH LADSPA RDF
 OPTIONS_DEFAULT=	JACK LADSPA LIBARCHIVE OSS RDF
 
@@ -43,7 +43,7 @@ RDF_DESC=           RDF File support
 
 .if ${PORT_OPTIONS:MALSA}
 LIB_DEPENDS+=	libasound.so:${PORTSDIR}/audio/alsa-lib
-RUN_DEPENDS+=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:${PORTSDIR}/audio/alsa-plugins
+RUN_DEPENDS+=	alsa-plugins>=1:${PORTSDIR}/audio/alsa-plugins
 CMAKE_ARGS+=	-DWANT_ALSA:BOOL=ON
 .else
 CMAKE_ARGS+=	-DWANT_ALSA:BOOL=OFF
@@ -57,7 +57,7 @@ CMAKE_ARGS+=	-DWANT_JACK:BOOL=OFF -DWANT_JACKSESSION:BOOL=OFF
 .endif
 
 .if ${PORT_OPTIONS:MLADSPA}
-BUILD_DEPENDS+=	${LOCALBASE}/include/ladspa.h:${PORTSDIR}/audio/ladspa
+BUILD_DEPENDS+=	ladspa>=1:${PORTSDIR}/audio/ladspa
 RUN_DEPENDS+=	analyseplugin:${PORTSDIR}/audio/ladspa
 CMAKE_ARGS+=	-DWANT_LADSPA:BOOL=ON
 CMAKE_ARGS+=	-DLADSPA_LIBRARIES:STRING=${LOCALBASE}/lib/ladspa
@@ -110,5 +110,17 @@ CMAKE_ARGS+=	-DRUBBERBAND_INCLUDE_DIR:STRING=${LOCALBASE}/include/rubberband
 .else
 CMAKE_ARGS+=	-DWANT_RUBBERBAND:BOOL=OFF
 .endif
+
+pre-configure:
+.    if exists(${LOCALBASE}/include/hydrogen)
+	@${ECHO_MSG} "*****************************************************" ;
+	@${ECHO_MSG} "    WARNING!!!!
+	@${ECHO_MSG} "Headers installed by previous versions of Hydrogen" ;
+	@${ECHO_MSG} "prevent this version building." ;
+	@${ECHO_MSG} "You need to either un-install the previous version" ;
+	@${ECHO_MSG} "or at least rename ${LOCALBASE}/include/hydrogen" ;
+	@${ECHO_MSG} "while building this version of Hydrogen" ;
+	@${ECHO_MSG} "*****************************************************" ;
+.    endif
 
 .include <bsd.port.mk>
