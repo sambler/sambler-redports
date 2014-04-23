@@ -1,0 +1,8 @@
+
+# graphics
+#RUN_DEPENDS+=	blender:${PORTSDIR}/graphics/blender
+RUN_DEPENDS+=	blender-sambler:${PORTSDIR}/graphics/blender-sambler
+
+# math
+RUN_DEPENDS+=	py34-numpy34>=0:${PORTSDIR}/math/py-numpy34
+
