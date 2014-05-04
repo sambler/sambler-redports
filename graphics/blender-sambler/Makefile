@@ -186,7 +186,10 @@ CMAKE_ARGS+=	-DWITH_INPUT_NDOF:BOOL=OFF
 
 .if ${PORT_OPTIONS:MNLS}
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=ON
-USES+=		gettext iconv
+# Use iconv:wchar_t to force the usage of iconv from ports.
+# libboost_locale.so uses libiconv_open, while we only provide
+# iconv_open in 10.x+
+USES+=		gettext iconv:lib,wchar_t
 .else
 CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
 .endif
