@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio
-PORTVERSION=	1.3.13
+PORTVERSION=	1.4.6
 CATEGORIES?=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
@@ -13,8 +13,8 @@ LICENSE=	BSD
 USE_GITHUB=	yes
 GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
-GH_TAGNAME=	Release-${PORTVERSION}
-GH_COMMIT=	c907af9
+GH_TAGNAME=	Release-${PORTVERSION}RC1
+GH_COMMIT=	df09c84
 
 # fbm also installs bin/idiff
 CONFLICTS=	fbm-[0-9]*
@@ -23,7 +23,6 @@ USES=		cmake:outsource
 CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DLINKSTATIC:BOOL=OFF \
 		-DNOTHREADS:BOOL=OFF \
-		-DUSE_TBB:BOOL=OFF \
 		-DSTOP_ON_WARNING:BOOL=OFF
 
 OPTIONS_DEFINE=		DOCS IMAGEVIEWER OCIO
@@ -76,7 +75,8 @@ CMAKE_ARGS+=	-DUSE_OCIO:BOOL=OFF
 
 post-install:
 .if ${SLAVE_PORT} == no
-	${LN} -sf libOpenImageIO.so.1.3 ${STAGEDIR}${PREFIX}/lib/libOpenImageIO.so.1
+	${LN} -sf libOpenImageIO.so.1.4 ${STAGEDIR}${PREFIX}/lib/libOpenImageIO.so.1
+	${LN} -sf libOpenImageIO_Util.so.1.4 ${STAGEDIR}${PREFIX}/lib/libOpenImageIO_Util.so.1
 .endif
 
 .include <bsd.port.mk>
