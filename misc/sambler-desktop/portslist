@@ -288,7 +288,6 @@ RUN_DEPENDS+=	umph:${PORTSDIR}/multimedia/umph
 RUN_DEPENDS+=	v4l_compat>=0:${PORTSDIR}/multimedia/v4l_compat
 RUN_DEPENDS+=	vamps:${PORTSDIR}/multimedia/vamps
 RUN_DEPENDS+=	parole:${PORTSDIR}/multimedia/xfce4-parole
-RUN_DEPENDS+=	xfce4-xmms-plugin>=0:${PORTSDIR}/multimedia/xfce4-xmms-plugin
 RUN_DEPENDS+=	xine:${PORTSDIR}/multimedia/xine
 
 # net-im
