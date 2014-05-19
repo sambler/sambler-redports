@@ -1,0 +1,5 @@
+OpenSubdiv is a set of open source libraries that implement
+high performance subdivision surface (subdiv) evaluation
+on massively parallel CPU and GPU architectures.
+
+WWW: http://graphics.pixar.com/opensubdiv/
