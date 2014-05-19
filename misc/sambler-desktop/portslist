@@ -6,7 +6,6 @@ RUN_DEPENDS+=	lzlib>=0:${PORTSDIR}/archivers/lzlib
 RUN_DEPENDS+=	lzma:${PORTSDIR}/archivers/lzma
 RUN_DEPENDS+=	p7zip>=0:${PORTSDIR}/archivers/p7zip
 RUN_DEPENDS+=	plzip:${PORTSDIR}/archivers/plzip
-RUN_DEPENDS+=	rpm:${PORTSDIR}/archivers/rpm
 RUN_DEPENDS+=	gshar:${PORTSDIR}/archivers/sharutils
 RUN_DEPENDS+=	thunar-archive-plugin>=0:${PORTSDIR}/archivers/thunar-archive-plugin
 RUN_DEPENDS+=	xarchiver:${PORTSDIR}/archivers/xarchiver
