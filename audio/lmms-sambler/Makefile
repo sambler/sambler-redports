@@ -30,10 +30,9 @@ RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/caps.rdf:${PORTSDIR}/audio/caps-plugi
 OPTIONS_DEFINE=	JACK PULSEAUDIO SDL
 
 USE_LDCONFIG=	yes
-USE_BZIP2=	yes
 USE_XORG=	xft
 USE_QT4=	corelib gui xml moc_build uic_build rcc_build qmake_build
-USES=		cmake pkgconfig
+USES=		cmake pkgconfig tar:bzip2 desktop-file-utils shared-mime-info dos2unix
 CMAKE_ARGS=	-DWANT_ALSA:BOOL=OFF \
 		-DWANT_CALF:BOOL=OFF \
 		-DWANT_CAPS:BOOL=OFF \
@@ -52,7 +51,7 @@ DATADIR=	${LOCALBASE}/share/lmms
 CFLAGS+=	-I${LOCALBASE}/include/freetype2
 CXXFLAGS+=	-I${LOCALBASE}/include/freetype2
 
-USE_DOS2UNIX=	plugins/midi_import/portsmf/allegrowr.cpp plugins/midi_import/portsmf/mfmidi.cpp
+DOS2UNIX_FILES=	plugins/midi_import/portsmf/allegrowr.cpp plugins/midi_import/portsmf/mfmidi.cpp CMakeLists.txt
 
 .include <bsd.port.options.mk>
 
