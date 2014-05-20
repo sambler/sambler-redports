@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio
-PORTVERSION=	1.4.6
+PORTVERSION=	1.4.7
 CATEGORIES?=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
@@ -13,8 +13,8 @@ LICENSE=	BSD
 USE_GITHUB=	yes
 GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
-GH_TAGNAME=	Release-${PORTVERSION}RC1
-GH_COMMIT=	df09c84
+GH_TAGNAME=	Release-${PORTVERSION}
+GH_COMMIT=	d1a41ea
 
 # fbm also installs bin/idiff
 CONFLICTS=	fbm-[0-9]*
@@ -31,6 +31,13 @@ OPTIONS_SUB=		yes
 
 IMAGEVIEWER_DESC=	Build image viewer
 OCIO_DESC=		Colour management support
+
+DOCS_CMAKE_ON=	-DINSTALL_DOCS:BOOL=ON
+DOCS_CMAKE_OFF=	-DINSTALL_DOCS:BOOL=OFF
+
+OCIO_CMAKE_ON=	-DUSE_OCIO:BOOL=ON
+OCIO_CMAKE_OFF=	-DUSE_OCIO:BOOL=OFF
+OCIO_LIB_DEPENDS=	libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
 
 .include <bsd.port.options.mk>
 
@@ -51,12 +58,6 @@ PLIST=		${PKGDIR}/pkg-plist-pybind
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON -DOIIO_BUILD_TOOLS:BOOL=OFF
 .endif
 
-.if ${PORT_OPTIONS:MDOCS}
-CMAKE_ARGS+=	-DINSTALL_DOCS:BOOL=ON
-.else
-CMAKE_ARGS+=	-DINSTALL_DOCS:BOOL=OFF
-.endif
-
 .if ${PORT_OPTIONS:MIMAGEVIEWER}
 USE_GL=		glew
 USE_QT4=	corelib gui opengl qmake_build moc_build rcc_build uic_build
@@ -64,13 +65,6 @@ CMAKE_ARGS+=	-DUSE_QT:BOOL=ON -DUSE_OPENGL:BOOL=ON
 CMAKE_ENV+=	QTDIR=${QT_PREFIX} QT_INCLUDES=${QT_INCDIR}
 .else
 CMAKE_ARGS+=	-DUSE_OPENGL:BOOL=OFF -DUSE_QT:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MOCIO}
-CMAKE_ARGS+=	-DUSE_OCIO:BOOL=ON
-LIB_DEPENDS+=	libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
-.else
-CMAKE_ARGS+=	-DUSE_OCIO:BOOL=OFF
 .endif
 
 post-install:

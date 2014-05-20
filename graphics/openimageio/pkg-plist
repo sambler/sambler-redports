@@ -53,7 +53,7 @@ lib/libOpenImageIO.so.1.4.6
 lib/libOpenImageIO_Util.so
 lib/libOpenImageIO_Util.so.1
 lib/libOpenImageIO_Util.so.1.4
-lib/libOpenImageIO_Util.so.1.4.6
+lib/libOpenImageIO_Util.so.1.4.7
 %%PORTDOCS%%share/doc/OpenImageIO/CHANGES
 %%PORTDOCS%%share/doc/OpenImageIO/LICENSE
 %%PORTDOCS%%share/doc/OpenImageIO/openimageio.pdf
