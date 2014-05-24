@@ -95,6 +95,7 @@ post-install:
 	@-update-mime-database ${STAGEDIR}${PREFIX}/share/mime
 	# make it setuid-root to be able to set realtime priority
 	# (root privileges are dropped in the main routine)
-	${CHMOD} u+s ${STAGEDIR}${PREFIX}/bin/lmms
+	## gtkprevents this from working now
+        ## ${CHMOD} u+s ${STAGEDIR}${PREFIX}/bin/lmms
 
 .include <bsd.port.mk>
