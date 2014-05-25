@@ -16,8 +16,10 @@ LIB_DEPENDS=	libtbb.so:${PORTSDIR}/devel/tbb
 USE_GITHUB=	yes
 GH_ACCOUNT=	PixarAnimationStudios
 GH_PROJECT=	OpenSubdiv
-GH_TAGNAME=	v2_4_1
-GH_COMMIT=	afce662
+#GH_TAGNAME=	v2_4_1
+#GH_COMMIT=	afce662
+GH_TAGNAME=	${GH_COMMIT}
+GH_COMMIT=	46baf7a
 
 # use gcc for openmp
 USE_GCC=	yes
@@ -25,10 +27,12 @@ USE_GL=		glew
 USE_XORG=	x11 xext xi ice
 USE_LDCONFIG=	yes
 USES=		cmake:outsource
-CMAKE_ARGS+=	-DNO_CUDA:BOOL=ON
+CMAKE_ARGS+=	-DNO_CUDA:BOOL=ON \
+		-DNO_OPENCL:BOOL=ON \
+		-DNO_CLEW:BOOL=ON
 
 OPTIONS_DEFINE=		DOCS EXAMPLES PYTHON TEST
-OPTIONS_DEFAULT=	DOCS EXAMPLES PYTHON TEST
+OPTIONS_DEFAULT=	PYTHON
 OPTIONS_SUB=		yes
 
 DOCS_CMAKE_ON=		-DNO_DOC:BOOL=OFF
@@ -58,6 +62,7 @@ USE_PYTHON=	2.7
 .endif
 
 post-install:
+.if ${PORT_OPTIONS:MPYTHON}
 	@${MKDIR} ${STAGEDIR}${PYTHON_SITELIBDIR}/osd
 .for SN in ${PYSCRIPTS}
 	${INSTALL_DATA} ${BUILD_WRKSRC}/python/osd/${SN} \
@@ -65,5 +70,6 @@ post-install:
 .endfor
 	${INSTALL_LIB} ${BUILD_WRKSRC}/python/osd/_shim.so \
 		${STAGEDIR}${PYTHON_SITELIBDIR}/osd
+.endif
 
 .include <bsd.port.mk>
