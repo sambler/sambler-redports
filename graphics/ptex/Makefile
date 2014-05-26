@@ -6,7 +6,7 @@ PORTVERSION=	2.0.42
 CATEGORIES?=	graphics
 
 MAINTAINER=	FreeBSD@Shaneware.biz
-COMMENT=	
+COMMENT=	Per face texture library
 
 LICENSE=	BSD3CLAUSE
 
