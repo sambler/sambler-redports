@@ -54,8 +54,8 @@ lib/libOpenImageIO_Util.so
 lib/libOpenImageIO_Util.so.1
 lib/libOpenImageIO_Util.so.1.4
 lib/libOpenImageIO_Util.so.1.4.8
-%%PORTDOCS%%share/doc/OpenImageIO/CHANGES
-%%PORTDOCS%%share/doc/OpenImageIO/LICENSE
-%%PORTDOCS%%share/doc/OpenImageIO/openimageio.pdf
-%%PORTDOCS%%@dirrm share/doc/OpenImageIO
+%%PORTDOCS%%%%DOCSDIR%%/CHANGES
+%%PORTDOCS%%%%DOCSDIR%%/LICENSE
+%%PORTDOCS%%%%DOCSDIR%%/openimageio.pdf
+%%PORTDOCS%%@dirrm %%DOCSDIR%%
 @dirrm include/OpenImageIO

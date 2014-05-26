@@ -70,6 +70,10 @@ CMAKE_ENV+=	QTDIR=${QT_PREFIX} QT_INCLUDES=${QT_INCDIR}
 CMAKE_ARGS+=	-DUSE_OPENGL:BOOL=OFF -DUSE_QT:BOOL=OFF
 .endif
 
+post-patch:
+	@${REINPLACE_CMD} -e 's|share/doc/OpenImageIO|${DOCSDIR}|g' \
+		${WRKSRC}/CMakeLists.txt
+
 post-install:
 .if ${SLAVE_PORT} == no
 	${LN} -sf libOpenImageIO.so.1.4 ${STAGEDIR}${PREFIX}/lib/libOpenImageIO.so.1
