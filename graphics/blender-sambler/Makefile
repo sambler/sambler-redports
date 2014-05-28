@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.70
-PORTREVISION=	5
+PORTREVISION=	7
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -29,7 +29,7 @@ LIB_DEPENDS+=	libjpeg.so:${PORTSDIR}/graphics/jpeg
 LIB_DEPENDS+=	libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
 LIB_DEPENDS+=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
-LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg
+LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15
 LIB_DEPENDS+=	libpng15.so:${PORTSDIR}/graphics/png
 LIB_DEPENDS+=	libtiff.so:${PORTSDIR}/graphics/tiff
 LIB_DEPENDS+=	libfftw3.so:${PORTSDIR}/math/fftw3
@@ -52,7 +52,7 @@ RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	0f4eaae
+GH_COMMIT=	7fe32f2
 
 FETCH_ARGS=	-pRr
 
@@ -111,14 +111,52 @@ OPTIONS_DEFINE=	COLLADA HEADLESS SECURITY PLAYER JACK NLS OSL
 ## NDOF
 OPTIONS_DEFAULT=	COLLADA PLAYER SECURITY NLS OSL
 
+OPTIONS_SUB=	yes
 HEADLESS_DESC=	"Disable user interface"
 SECURITY_DESC=	"Disable scripts auto-run"
 PLAYER_DESC=	"Build blender player"
 JACK_DESC=	"Audio support using JackAudio"
-#COLLADA_DESC=	"Include collada import"
+COLLADA_DESC=	"Include collada import"
 #NDOF_DESC=	"NDOF Support"
 NLS_DESC=	"Include translations"
 OSL_DESC=	"OSL shading support"
+
+COLLADA_CMAKE_ON=	-DWITH_OPENCOLLADA:BOOL=ON
+COLLADA_CMAKE_OFF=	-DWITH_OPENCOLLADA:BOOL=OFF
+COLLADA_LIB_DEPENDS=	libOpenCOLLADABaseUtils.so:${PORTSDIR}/graphics/opencollada
+
+HEADLESS_CMAKE_ON=	-DWITH_HEADLESS:BOOL=ON
+HEADLESS_CMAKE_OFF=	-DWITH_HEADLESS:BOOL=OFF
+
+JACK_CMAKE_ON=		-DWITH_JACK:BOOL=ON \
+			-DWITH_JACK_DYNLOAD:BOOL=ON
+JACK_CMAKE_OFF=		-DWITH_JACK:BOOL=OFF
+JACK_LIB_DEPENDS=	libjack.so:${PORTSDIR}/audio/jack
+
+# TODO: add ndof lib to ports
+NDOF_CMAKE_ON=		-DWITH_INPUT_NDOF:BOOL=ON
+NDOF_CMAKE_OFF=		-DWITH_INPUT_NDOF:BOOL=OFF
+
+NLS_CMAKE_ON=		-DWITH_INTERNATIONAL:BOOL=ON
+NLS_CMAKE_OFF=		-DWITH_INTERNATIONAL:BOOL=OFF
+# Use iconv:wchar_t to force the usage of iconv from ports.
+# libboost_locale.so uses libiconv_open, while we only provide
+# iconv_open in 10.x+
+NLS_USES=		gettext iconv:lib,wchar_t
+NLS_LDFLAGS=		-L${LOCALBASE}/lib -lintl
+
+OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
+			-DWITH_LLVM:BOOL=ON \
+			-DLLVM_STATIC:BOOL=ON \
+			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33"
+OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
+OSL_LIB_DEPENDS=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
+
+PLAYER_CMAKE_ON=	-DWITH_PLAYER:BOOL=ON
+PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
+
+SECURITY_CMAKE_ON=	-DWITH_PYTHON_SECURITY:BOOL=ON
+SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 
 # we use pre so we can use COMPILER_TYPE
 .include <bsd.port.pre.mk>
@@ -126,73 +164,14 @@ OSL_DESC=	"OSL shading support"
 .if ${OSVERSION} < 900000
 BROKEN= Fails to build on 8.x
 .endif
-
-.if ${PORT_OPTIONS:MOSL}
-LIB_DEPENDS+=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
-CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=ON
-CMAKE_ARGS+=	-DWITH_LLVM:BOOL=ON
-CMAKE_ARGS+=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33"
-CMAKE_ARGS+=	-DLLVM_STATIC:BOOL=ON
-.if ${COMPILER_TYPE:Mgcc}
+	
+.if ${COMPILER_TYPE:Mgcc} && ${PORT_OPTIONS:MOSL}
 # we have linking issues using gcc
 # clang33 is used by osl so use it here
 BUILD_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 CMAKE_ARGS+=	-DCMAKE_C_COMPILER:STRING=${LOCALBASE}/bin/clang33
 CMAKE_ARGS+=	-DCMAKE_CXX_COMPILER:STRING=${LOCALBASE}/bin/clang++33
 .endif #gcc
-.else
-CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=OFF
-.endif #OSL
-
-.if ${PORT_OPTIONS:MCOLLADA}
-LIB_DEPENDS+=	libOpenCOLLADABaseUtils.so:${PORTSDIR}/graphics/opencollada
-CMAKE_ARGS+=	-DWITH_OPENCOLLADA:BOOL=ON
-.else
-CMAKE_ARGS+=	-DWITH_OPENCOLLADA:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MHEADLESS}
-CMAKE_ARGS+=	-DWITH_HEADLESS:BOOL=ON
-.else
-CMAKE_ARGS+=	-DWITH_HEADLESS:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MSECURITY}
-CMAKE_ARGS+=	-DWITH_PYTHON_SECURITY:BOOL=ON
-.else
-CMAKE_ARGS+=	-DWITH_PYTHON_SECURITY:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MPLAYER}
-CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=ON
-.else
-CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MJACK}
-LIB_DEPENDS+=	libjack.so:${PORTSDIR}/audio/jack
-CMAKE_ARGS+=	-DWITH_JACK:BOOL=ON
-CMAKE_ARGS+=	-DWITH_JACK_DYNLOAD:BOOL=ON
-.else
-CMAKE_ARGS+=	-DWITH_JACK:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MNDOF}
-CMAKE_ARGS+=	-DWITH_INPUT_NDOF:BOOL=ON
-# TODO: add ndof lib to ports
-.else
-CMAKE_ARGS+=	-DWITH_INPUT_NDOF:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MNLS}
-CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=ON
-# Use iconv:wchar_t to force the usage of iconv from ports.
-# libboost_locale.so uses libiconv_open, while we only provide
-# iconv_open in 10.x+
-USES+=		gettext iconv:lib,wchar_t
-.else
-CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
-.endif
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
@@ -202,13 +181,6 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|MY_WC_HASH "unknown"|MY_WC_HASH "${GH_COMMIT}"|g' \
 		-e 's|MY_WC_BRANCH "unknown"|MY_WC_BRANCH "mymods"|g' \
 		${WRKSRC}/build_files/cmake/buildinfo.cmake
-	@cd ${WRKSRC}/intern/cycles && ${REINPLACE_CMD} \
-		-e 's|__align|cycles_align|' \
-		-e 's|__global|cycles_global|g' \
-		util/util_types.h kernel/kernel_compat_cuda.h \
-		kernel/kernel_displace.h kernel/kernel_film.h \
-		kernel/kernel_passes.h kernel/kernel_path.h \
-		kernel/kernel_random.h
 
 post-extract:
 # tanslations
