@@ -49,7 +49,7 @@ LIB_DEPENDS=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
 		libboost_thread.so:${PORTSDIR}/devel/boost-libs \
 		libhdf5.so:${PORTSDIR}/science/hdf5 \
 		libopencv_legacy.so:${PORTSDIR}/graphics/opencv \
-		libopenjpeg.so:${PORTSDIR}/graphics/openjpeg \
+		libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15 \
 		libwebp.so:${PORTSDIR}/graphics/webp
 USE_LDCONFIG=	yes
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF -DOIIO_BUILD_TOOLS:BOOL=ON

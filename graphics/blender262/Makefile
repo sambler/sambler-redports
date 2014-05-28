@@ -3,7 +3,7 @@
 
 PORTNAME=	blender262
 PORTVERSION=	2.62
-PORTREVISION=	6
+PORTREVISION=	7
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -21,7 +21,7 @@ LIB_DEPENDS+=	libboost_thread.so:${PORTSDIR}/devel/boost-libs
 LIB_DEPENDS+=	libunwind.so:${PORTSDIR}/devel/libunwind
 LIB_DEPENDS+=	libjpeg.so:${PORTSDIR}/graphics/jpeg
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
-LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg
+LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15
 LIB_DEPENDS+=	libpng15.so:${PORTSDIR}/graphics/png
 LIB_DEPENDS+=	libtiff.so:${PORTSDIR}/graphics/tiff
 LIB_DEPENDS+=	libfftw3.so:${PORTSDIR}/math/fftw3
@@ -81,46 +81,28 @@ OUTDIR=		${INSTALL_WRKSRC}/bin/2.62
 OPTIONS_DEFINE=	HEADLESS SECURITY PLAYER JACK NLS
 OPTIONS_DEFAULT=	SECURITY PLAYER NLS JACK
 
+OPTIONS_SUB=	yes
 HEADLESS_DESC=	"Disable user interface"
 SECURITY_DESC=	"Disable scripts auto-run"
 PLAYER_DESC=	"Build blender player"
 JACK_DESC=	"Audio support using JackAudio"
 NLS_DESC=	"Include translations"
 
+HEADLESS_CMAKE_ON=	-DWITH_HEADLESS:BOOL=ON
+HEADLESS_CMAKE_OFF=	-DWITH_HEADLESS:BOOL=OFF
+
+NLS_CMAKE_ON=		-DWITH_INTERNATIONAL:BOOL=ON
+NLS_CMAKE_OFF=		-DWITH_INTERNATIONAL:BOOL=OFF
+NLS_USES=		gettext iconv
+NLS_LDFLAGS=		-L${LOCALBASE}/lib -lintl
+
+PLAYER_CMAKE_ON=	-DWITH_PLAYER:BOOL=ON
+PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
+
+SECURITY_CMAKE_ON=	-DWITH_PYTHON_SECURITY:BOOL=ON
+SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
+
 .include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MHEADLESS}
-CMAKE_ARGS+=	-DWITH_HEADLESS:BOOL=ON
-.else
-CMAKE_ARGS+=	-DWITH_HEADLESS:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MSECURITY}
-CMAKE_ARGS+=	-DWITH_PYTHON_SECURITY:BOOL=ON
-.else
-CMAKE_ARGS+=	-DWITH_PYTHON_SECURITY:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MPLAYER}
-CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=ON
-.else
-CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MJACK}
-LIB_DEPENDS+=	libjack.so:${PORTSDIR}/audio/jack
-CMAKE_ARGS+=	-DWITH_JACK:BOOL=ON
-.else
-CMAKE_ARGS+=	-DWITH_JACK:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MNLS}
-CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=ON
-USES+=		gettext iconv
-LDFLAGS+=	-L${LOCALBASE}/lib -lintl
-.else
-CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
-.endif
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \

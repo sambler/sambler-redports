@@ -3,7 +3,7 @@
 
 PORTNAME=	blender265
 PORTVERSION=	2.65a
-PORTREVISION=	8
+PORTREVISION=	9
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -22,7 +22,7 @@ LIB_DEPENDS+=	libjpeg.so:${PORTSDIR}/graphics/jpeg
 LIB_DEPENDS+=	libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
 LIB_DEPENDS+=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio
-LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg
+LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15
 LIB_DEPENDS+=	libpng15.so:${PORTSDIR}/graphics/png
 LIB_DEPENDS+=	libtiff.so:${PORTSDIR}/graphics/tiff
 LIB_DEPENDS+=	libfftw3.so:${PORTSDIR}/math/fftw3
@@ -83,6 +83,7 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 OPTIONS_DEFINE=	HEADLESS SECURITY PLAYER JACK NLS OSL
 OPTIONS_DEFAULT=	SECURITY PLAYER NLS OSL JACK
 
+OPTIONS_SUB=	yes
 HEADLESS_DESC=	"Disable user interface"
 SECURITY_DESC=	"Disable scripts auto-run"
 PLAYER_DESC=	"Build blender player"
@@ -90,61 +91,45 @@ JACK_DESC=	"Audio support using JackAudio"
 NLS_DESC=	"Include translations"
 OSL_DESC=	"OSL shading support"
 
+HEADLESS_CMAKE_ON=	-DWITH_HEADLESS:BOOL=ON
+HEADLESS_CMAKE_OFF=	-DWITH_HEADLESS:BOOL=OFF
+
+JACK_CMAKE_ON=		-DWITH_JACK:BOOL=ON
+JACK_CMAKE_OFF=		-DWITH_JACK:BOOL=OFF
+JACK_LIB_DEPENDS=	libjack.so:${PORTSDIR}/audio/jack
+
+NLS_CMAKE_ON=		-DWITH_INTERNATIONAL:BOOL=ON
+NLS_CMAKE_OFF=		-DWITH_INTERNATIONAL:BOOL=OFF
+NLS_USES=		gettext iconv
+NLS_LDFLAGS=		-L${LOCALBASE}/lib -lintl
+
+OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
+			-DWITH_LLVM:BOOL=ON \
+			-DLLVM_STATIC:BOOL=ON \
+			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33"
+OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
+OSL_LIB_DEPENDS=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
+
+PLAYER_CMAKE_ON=	-DWITH_PLAYER:BOOL=ON
+PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
+
+SECURITY_CMAKE_ON=	-DWITH_PYTHON_SECURITY:BOOL=ON
+SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
+
 # we use pre so we can use COMPILER_TYPE
 .include <bsd.port.pre.mk>
 
 .if ${OSVERSION} < 900000
 BROKEN= Fails to build on 8.x
 .endif
-
-.if ${PORT_OPTIONS:MOSL}
-LIB_DEPENDS+=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
-CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=ON
-CMAKE_ARGS+=	-DWITH_LLVM:BOOL=ON
-CMAKE_ARGS+=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33"
-CMAKE_ARGS+=	-DLLVM_STATIC:BOOL=ON
-.if ${COMPILER_TYPE:Mgcc}
+	
+.if ${COMPILER_TYPE:Mgcc} && ${PORT_OPTIONS:MOSL}
 # we have linking issues using gcc
 # clang33 is used by osl so use it here
 BUILD_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 CMAKE_ARGS+=	-DCMAKE_C_COMPILER:STRING=${LOCALBASE}/bin/clang33
 CMAKE_ARGS+=	-DCMAKE_CXX_COMPILER:STRING=${LOCALBASE}/bin/clang++33
 .endif #gcc
-.else
-CMAKE_ARGS+=	-DWITH_CYCLES_OSL:BOOL=OFF
-.endif #OSL
-
-.if ${PORT_OPTIONS:MHEADLESS}
-CMAKE_ARGS+=	-DWITH_HEADLESS:BOOL=ON
-.else
-CMAKE_ARGS+=	-DWITH_HEADLESS:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MSECURITY}
-CMAKE_ARGS+=	-DWITH_PYTHON_SECURITY:BOOL=ON
-.else
-CMAKE_ARGS+=	-DWITH_PYTHON_SECURITY:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MPLAYER}
-CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=ON
-.else
-CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MJACK}
-LIB_DEPENDS+=	libjack.so:${PORTSDIR}/audio/jack
-CMAKE_ARGS+=	-DWITH_JACK:BOOL=ON
-.else
-CMAKE_ARGS+=	-DWITH_JACK:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MNLS}
-CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=ON
-USES+=		gettext iconv
-.else
-CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
-.endif
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \

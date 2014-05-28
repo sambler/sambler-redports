@@ -3,7 +3,7 @@
 
 PORTNAME=	blender249
 PORTVERSION=	2.49b
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -21,7 +21,7 @@ LIB_DEPENDS+=	libpng15.so:${PORTSDIR}/graphics/png
 LIB_DEPENDS+=	libtiff.so:${PORTSDIR}/graphics/tiff
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
 LIB_DEPENDS+=	libavutil0.so:${PORTSDIR}/multimedia/ffmpeg0
-LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg
+LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15
 LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 LIB_DEPENDS+=   libftgl.so:${PORTSDIR}/graphics/ftgl
 
@@ -58,42 +58,27 @@ LANG=		ar bg ca cs de el es fi fr hr hr_HR it ja ko nl pl pt_BR ro \
 OPTIONS_DEFINE=	HEADLESS SECURITY PLAYER NLS
 OPTIONS_DEFAULT=	SECURITY PLAYER NLS
 
+OPTIONS_SUB=	yes
 HEADLESS_DESC=	"Disable user interface"
 SECURITY_DESC=	"Disable scripts auto-run"
 PLAYER_DESC=	"Build blender player"
 NLS_DESC=	"Include translations"
 
+HEADLESS_CMAKE_ON=	-DWITH_HEADLESS:BOOL=ON
+HEADLESS_CMAKE_OFF=	-DWITH_HEADLESS:BOOL=OFF
+
+NLS_CMAKE_ON=		-DWITH_INTERNATIONAL:BOOL=ON
+NLS_CMAKE_OFF=		-DWITH_INTERNATIONAL:BOOL=OFF
+NLS_USES=		gettext iconv
+NLS_LDFLAGS=		-L${LOCALBASE}/lib -lintl
+
+PLAYER_CMAKE_ON=	-DWITH_PLAYER:BOOL=ON
+PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
+
+SECURITY_CMAKE_ON=	-DWITH_PYTHON_SECURITY:BOOL=ON
+SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
+
 .include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MHEADLESS}
-CMAKE_ARGS+=	-DWITH_HEADLESS:BOOL=ON
-.else
-CMAKE_ARGS+=	-DWITH_HEADLESS:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MSECURITY}
-CMAKE_ARGS+=	-DWITH_PYTHON_SECURITY:BOOL=ON
-.else
-CMAKE_ARGS+=	-DWITH_PYTHON_SECURITY:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MPLAYER}
-CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=ON
-PLIST_SUB+=	PLAYER=""
-.else
-CMAKE_ARGS+=	-DWITH_PLAYER:BOOL=OFF
-PLIST_SUB+=	PLAYER="@comment "
-.endif
-
-.if ${PORT_OPTIONS:MNLS}
-CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=ON
-PLIST_SUB+=	NLS=""
-USES+=		gettext iconv
-LDFLAGS+=	-lintl
-.else
-CMAKE_ARGS+=	-DWITH_INTERNATIONAL:BOOL=OFF
-PLIST_SUB+=	NLS="@comment "
-.endif
 
 do-install:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blender
