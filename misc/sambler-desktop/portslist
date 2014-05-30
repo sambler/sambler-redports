@@ -322,6 +322,7 @@ RUN_DEPENDS+=	apg:${PORTSDIR}/security/apg
 RUN_DEPENDS+=	clamav-config:${PORTSDIR}/security/clamav
 RUN_DEPENDS+=	denyhosts.py:${PORTSDIR}/security/denyhosts
 RUN_DEPENDS+=	dirmngr:${PORTSDIR}/security/dirmngr
+RUN_DEPENDS+=   racoon:${PORTSDIR}/security/ipsec-tools
 RUN_DEPENDS+=	keychain:${PORTSDIR}/security/keychain
 RUN_DEPENDS+=	otr_parse:${PORTSDIR}/security/libotr
 LIB_DEPENDS+=	libssh2.so:${PORTSDIR}/security/libssh2
