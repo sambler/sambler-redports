@@ -371,9 +371,7 @@ RUN_DEPENDS+=	ntfslabel:${PORTSDIR}/sysutils/ntfsprogs
 RUN_DEPENDS+=	nvclock:${PORTSDIR}/sysutils/nvclock
 RUN_DEPENDS+=	lspci:${PORTSDIR}/sysutils/pciutils
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}salt>=0:${PORTSDIR}/sysutils/py-salt
-RUN_DEPENDS+=	quicksynergy:${PORTSDIR}/sysutils/quicksynergy
 RUN_DEPENDS+=	sg_get_config:${PORTSDIR}/sysutils/sg3_utils
-RUN_DEPENDS+=	synergys:${PORTSDIR}/sysutils/synergy
 RUN_DEPENDS+=	testdisk:${PORTSDIR}/sysutils/testdisk
 RUN_DEPENDS+=	tmux:${PORTSDIR}/sysutils/tmux
 RUN_DEPENDS+=	vobcopy:${PORTSDIR}/sysutils/vobcopy
