@@ -1,0 +1,27 @@
+
+#database
+RUN_DEPENDS+=	postgresql93-client>=0:${PORTSDIR}/databases/postgresql93-client
+RUN_DEPENDS+=	postgresql93-contrib>=0:${PORTSDIR}/databases/postgresql93-contrib
+RUN_DEPENDS+=	postgresql93-server>=0:${PORTSDIR}/databases/postgresql93-server
+
+# devel
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}wsgiutils>=0:${PORTSDIR}/devel/py-wsgiutils
+
+# net
+RUN_DEPENDS+=	rsync:${PORTSDIR}/net/rsync
+
+# security
+RUN_DEPENDS+=	clamav-config:${PORTSDIR}/security/clamav
+RUN_DEPENDS+=	denyhosts.py:${PORTSDIR}/security/denyhosts
+RUN_DEPENDS+=   racoon:${PORTSDIR}/security/ipsec-tools
+RUN_DEPENDS+=	rkhunter:${PORTSDIR}/security/rkhunter
+RUN_DEPENDS+=	sudo:${PORTSDIR}/security/sudo
+
+# shells
+RUN_DEPENDS+=	bash:${PORTSDIR}/shells/bash
+
+# www
+RUN_DEPENDS+=	apache22>=0:${PORTSDIR}/www/apache22
+RUN_DEPENDS+=	${APACHE_PKGNAMEPREFIX}mod_wsgi3>=0:${PORTSDIR}/www/mod_wsgi3
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django>=0:${PORTSDIR}/www/py-django
+
