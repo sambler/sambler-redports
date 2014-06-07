@@ -24,8 +24,7 @@ LIB_DEPENDS=	libFLAC.so:${PORTSDIR}/audio/flac \
 RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/caps.rdf:${PORTSDIR}/audio/caps-plugins \
 		${LOCALBASE}/lib/ladspa/cmt.so:${PORTSDIR}/audio/cmt \
 		${LOCALBASE}/share/ladspa/rdf/swh-plugins.rdf:${PORTSDIR}/audio/swhplugins \
-		${LOCALBASE}/share/ladspa/rdf/tap-plugins.rdf:${PORTSDIR}/audio/tap-plugins \
-		update-mime-database:${PORTSDIR}/misc/shared-mime-info
+		${LOCALBASE}/share/ladspa/rdf/tap-plugins.rdf:${PORTSDIR}/audio/tap-plugins
 
 OPTIONS_DEFINE=	JACK PULSEAUDIO SDL
 
@@ -43,8 +42,6 @@ CMAKE_ARGS=	-DWANT_ALSA:BOOL=OFF \
 		-DWANT_VST:BOOL=OFF \
 		-DHAVE_STRTOLL=ON
 
-MANCOMPRESSED=	yes
-MAN1=		lmms.1
 WRKSRC=		${WRKDIR}/lmms-${PORTVERSION}
 DATADIR=	${LOCALBASE}/share/lmms
 
@@ -92,7 +89,7 @@ post-patch:
 post-install:
 	@${LN} -sf ${DATADIR}/themes/default/icon.png \
 		${STAGEDIR}${PREFIX}/share/pixmaps/lmms.png
-	@-update-mime-database ${STAGEDIR}${PREFIX}/share/mime
+	##@-update-mime-database ${STAGEDIR}${PREFIX}/share/mime
 	# make it setuid-root to be able to set realtime priority
 	# (root privileges are dropped in the main routine)
 	## gtkprevents this from working now
