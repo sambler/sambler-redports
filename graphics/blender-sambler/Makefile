@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.70
-PORTREVISION=	7
+PORTREVISION=	8
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -52,7 +52,7 @@ RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	7fe32f2
+GH_COMMIT=	ec08921
 
 FETCH_ARGS=	-pRr
 
