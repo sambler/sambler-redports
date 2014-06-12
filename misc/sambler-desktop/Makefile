@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	sambler-desktop
-PORTVERSION=	9
+PORTVERSION=	10
 CATEGORIES=	misc
 MASTER_SITES=	# Empty
 DISTFILES=	# None
