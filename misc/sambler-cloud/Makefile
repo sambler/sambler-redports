@@ -16,7 +16,7 @@ RUN_DEPENDS=	# Empty so subsequent RUN_DEPENDS need +=
 .include <portslist>
 
 NO_BUILD=	yes
-USE_PYTHON=	3.4
+USE_PYTHON=	yes
 USE_APACHE_RUN=	22
 NO_MTREE=	yes
 
