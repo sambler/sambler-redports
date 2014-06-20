@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	hydrogen-devel
-PORTVERSION=	0.9.6r1
+PORTVERSION=	0.9.6r2
 CATEGORIES=	audio
 MASTER_SITES=	GH
 
@@ -20,8 +20,8 @@ LIB_DEPENDS+=	libsndfile.so:${PORTSDIR}/audio/libsndfile \
 USE_GITHUB=	yes
 GH_ACCOUNT=	hydrogen-music
 GH_PROJECT=	hydrogen
-GH_TAGNAME=	0.9.6-RC1
-GH_COMMIT=	2b4b4f3
+GH_TAGNAME=	0.9.6-RC2
+GH_COMMIT=	2ff9010
 
 MAJORVERSION=	0.9.6
 USE_QT4=	corelib gui qmake_build linguist_build moc_build network \
