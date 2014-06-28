@@ -327,6 +327,7 @@ RUN_DEPENDS+=	keychain:${PORTSDIR}/security/keychain
 RUN_DEPENDS+=	otr_parse:${PORTSDIR}/security/libotr
 LIB_DEPENDS+=	libssh2.so:${PORTSDIR}/security/libssh2
 RUN_DEPENDS+=	ssh-askpass:${PORTSDIR}/security/openssh-askpass
+#RUN_DEPENDS+=	pgp:${PORTSDIR}/security/pgp
 RUN_DEPENDS+=	pinentry:${PORTSDIR}/security/pinentry
 RUN_DEPENDS+=	qca-ossl>=0:${PORTSDIR}/security/qca-ossl
 RUN_DEPENDS+=	rkhunter:${PORTSDIR}/security/rkhunter
@@ -446,7 +447,7 @@ RUN_DEPENDS+=	xfce4-time-out-plugin>=0:${PORTSDIR}/x11-clocks/xfce4-timer-out-pl
 RUN_DEPENDS+=	xfce4-timer-plugin>=0:${PORTSDIR}/x11-clocks/xfce4-timer-plugin
 
 # x11-drivers
-RUN_DEPENDS+=	xsetwacom:${PORTSDIR}/x11-drivers/input-wacom
+RUN_DEPENDS+=	xsetwacom:${PORTSDIR}/x11-drivers/xf86-input-wacom
 RUN_DEPENDS+=	xf86-input-egalax>=0:${PORTSDIR}/x11-drivers/xf86-input-egalax
 RUN_DEPENDS+=	xf86-input-joystick>=0:${PORTSDIR}/x11-drivers/xf86-input-joystick
 RUN_DEPENDS+=	xf86-video-sis>=0:${PORTSDIR}/x11-drivers/xf86-video-sis
