@@ -7,7 +7,6 @@ RUN_DEPENDS+=	blender-267:${PORTSDIR}/graphics/blender267
 RUN_DEPENDS+=	blender-268:${PORTSDIR}/graphics/blender268
 RUN_DEPENDS+=	blender-269:${PORTSDIR}/graphics/blender269
 RUN_DEPENDS+=   blender-270:${PORTSDIR}/graphics/blender270
-RUN_DEPENDS+=	blender-sambler:${PORTSDIR}/graphics/blender-sambler
 
 # math
 RUN_DEPENDS+=	py33-numpy33>=0:${PORTSDIR}/math/py-numpy33

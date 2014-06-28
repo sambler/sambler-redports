@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	sambler-desktop-py33
-PORTVERSION=	3
+PORTVERSION=	4
 CATEGORIES=	misc
 MASTER_SITES=	# Empty
 DISTFILES=	# None

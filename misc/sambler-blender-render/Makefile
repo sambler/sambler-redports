@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	sambler-blender-render
-PORTVERSION=	2
+PORTVERSION=	3
 CATEGORIES=	misc
 MASTER_SITES=	# Empty
 DISTFILES=	# None
