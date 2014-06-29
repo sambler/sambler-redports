@@ -207,7 +207,7 @@ post-install:
 	@${ECHO} @dirrm ${DATADIR_REL} >> ${TMPPLIST}
 
 .if !defined(NO_INSTALL_MANPAGES)
-	@${MV} ${INSTALL_WRKSRC}/bin/blender.1 ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1
+	@cd ${INSTALL_WRKSRC}/bin/ && ${PYTHON_CMD} ${WRKSRC}/doc/manpage/blender.1.py ./blender ./blender-${VERS_TAG}.1
 	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
 		${STAGEDIR}${MAN1PREFIX}/man/man1
 	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
