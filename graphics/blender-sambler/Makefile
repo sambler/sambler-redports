@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	blender-sambler
-PORTVERSION=	2.70
-PORTREVISION=	8
+PORTVERSION=	2.71
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -52,13 +52,13 @@ RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	ec08921
+GH_COMMIT=	19f1582
 
 FETCH_ARGS=	-pRr
 
 USES=		cmake:outsource shebangfix compiler desktop-file-utils
 WRKSRC=		${WRKDIR}/sambler-myblender-${GH_COMMIT}
-OUTDIR=		${INSTALL_WRKSRC}/bin/2.70
+OUTDIR=		${INSTALL_WRKSRC}/bin/2.71
 VERS_TAG=	sambler
 
 SUB_FILES=	blender blenderplayer
@@ -251,7 +251,7 @@ post-install:
 	@${ECHO} @dirrm ${DATADIR_REL} >> ${TMPPLIST}
 
 .if !defined(NO_INSTALL_MANPAGES)
-	@${MV} ${INSTALL_WRKSRC}/bin/blender.1 ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1
+	@cd ${INSTALL_WRKSRC}/bin/ && ${PYTHON_CMD} ${WRKSRC}/doc/manpage/blender.1.py ./blender ./blender-${VERS_TAG}.1
 	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
 		${STAGEDIR}${MAN1PREFIX}/man/man1
 	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
