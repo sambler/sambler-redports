@@ -1,0 +1,48 @@
+
+#database
+RUN_DEPENDS+=	postgresql93-server>=0:${PORTSDIR}/databases/postgresql93-server
+RUN_DEPENDS+=   postgresql93-contrib>=0:${PORTSDIR}/databases/postgresql93-contrib
+
+# devel
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}boto>=0:${PORTSDIR}/devel/py-boto
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}wsgiutils>=0:${PORTSDIR}/devel/py-wsgiutils
+
+# graphics
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-easy-thumbnails>=0:${PORTSDIR}/graphics/py-django-easy-thumbnails
+
+# net
+RUN_DEPENDS+=	rsync:${PORTSDIR}/net/rsync
+
+# security
+RUN_DEPENDS+=	clamav-config:${PORTSDIR}/security/clamav
+RUN_DEPENDS+=	denyhosts.py:${PORTSDIR}/security/denyhosts
+RUN_DEPENDS+=   racoon:${PORTSDIR}/security/ipsec-tools
+RUN_DEPENDS+=	rkhunter:${PORTSDIR}/security/rkhunter
+RUN_DEPENDS+=	sudo:${PORTSDIR}/security/sudo
+
+# shells
+RUN_DEPENDS+=	bash:${PORTSDIR}/shells/bash
+
+# www
+RUN_DEPENDS+=	apache22>=0:${PORTSDIR}/www/apache22
+RUN_DEPENDS+=	${APACHE_PKGNAMEPREFIX}mod_wsgi3>=0:${PORTSDIR}/www/mod_wsgi3
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django>=0:${PORTSDIR}/www/py-django
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-app-plugins>=0:${PORTSDIR}/www/py-django-app-plugins
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-classy-tags>=0:${PORTSDIR}/www/py-django-classy-tags
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-cms>=0:${PORTSDIR}/www/py-django-cms
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-crispy-forms>=0:${PORTSDIR}/www/py-django-crispy-forms
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-debug-toolbar>=0:${PORTSDIR}/www/py-django-debug-toolbar
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-filer>=0:${PORTSDIR}/www/py-django-filer
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-livesettings>=0:${PORTSDIR}/www/py-django-livesettings
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-mezzanine>=0:${PORTSDIR}/www/py-django-mezzanine
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-mezzanine-filebrowser>=0:${PORTSDIR}/www/py-django-mezzanine-filebrowser
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-openid-auth>=0:${PORTSDIR}/www/py-django-openid-auth
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-piston>=0:${PORTSDIR}/www/py-django-piston
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-profiles>=0:${PORTSDIR}/www/py-django-profiles
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-sekizai>=0:${PORTSDIR}/www/py-django-sekizai
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-simple-captcha>=0:${PORTSDIR}/www/py-django-simple-captcha
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-storages>=0:${PORTSDIR}/www/py-django-storages
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-subdomains>=0:${PORTSDIR}/www/py-django-subdomains
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-tables2>=0:${PORTSDIR}/www/py-django-tables2
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django-tagging>=0:${PORTSDIR}/www/py-django-tagging
+
