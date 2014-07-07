@@ -1,6 +1,6 @@
---- clipgrab.cpp.orig	2013-07-18 05:53:21.000000000 +0930
-+++ clipgrab.cpp	2013-09-06 22:54:05.671988673 +0930
-@@ -129,8 +129,8 @@
+--- ./clipgrab.cpp.orig	2014-03-13 18:48:17.000000000 +1030
++++ ./clipgrab.cpp	2014-07-04 14:29:02.429536470 +0930
+@@ -133,8 +133,8 @@
      }
  
      activateProxySettings();
@@ -11,7 +11,7 @@
      QString sys = "x11";
  
      #if defined Q_WS_WIN
-@@ -149,9 +149,9 @@
+@@ -157,9 +157,9 @@
      {
          settings.setValue("firstStarted-" + version, startedDateTime.toTime_t());
      }
