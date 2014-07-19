@@ -1,0 +1,7 @@
+mantaflow is an open-source framework targeted at fluid simulation research
+in Computer Graphics.
+
+Its paralellized C++ solver core, python scene definition interface and
+plugin system allow for quickly prototyping and testing new algorithms.
+
+WWW: http://mantaflow.ethz.ch
