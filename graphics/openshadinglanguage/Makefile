@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openshadinglanguage
-PORTVERSION=	1.4.2
+PORTVERSION=	1.5.10
 CATEGORIES=	graphics devel
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -20,8 +20,8 @@ RUN_DEPENDS=	llvm-config33:${PORTSDIR}/devel/llvm33
 USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
 GH_PROJECT=	OpenShadingLanguage
-GH_TAGNAME=	Release-${PORTVERSION}
-GH_COMMIT=	2c3574d
+GH_TAGNAME=	Release-${PORTVERSION}RC3
+GH_COMMIT=	6d2dc34
 
 CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33"
 USE_LDCONFIG=	yes
