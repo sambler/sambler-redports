@@ -10,6 +10,7 @@ RUN_DEPENDS+=	:${PORTSDIR}/graphics/opencolorio-tools
 RUN_DEPENDS+=	:${PORTSDIR}/graphics/openimageio
 RUN_DEPENDS+=	:${PORTSDIR}/graphics/py-openimageio
 RUN_DEPENDS+=	:${PORTSDIR}/graphics/openshadinglanguage
+RUN_DEPENDS+=   :${PORTSDIR}/graphics/openshadinglanguage14
 RUN_DEPENDS+=	:${PORTSDIR}/graphics/opensubdiv
 RUN_DEPENDS+=   :${PORTSDIR}/graphics/ptex
 

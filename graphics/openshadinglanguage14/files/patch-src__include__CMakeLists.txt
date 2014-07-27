@@ -1,0 +1,8 @@
+--- ./src/include/CMakeLists.txt.orig	2014-03-12 04:37:38.000000000 +1030
++++ ./src/include/CMakeLists.txt	2014-07-27 21:57:59.106399503 +0930
+@@ -5,4 +5,4 @@
+ configure_file (oslversion.h.in "${CMAKE_BINARY_DIR}/include/oslversion.h" @ONLY)
+ list (APPEND public_headers "${CMAKE_BINARY_DIR}/include/oslversion.h")
+ 
+-INSTALL ( FILES ${public_headers} DESTINATION include/OSL )
++INSTALL ( FILES ${public_headers} DESTINATION include/OSL14 )

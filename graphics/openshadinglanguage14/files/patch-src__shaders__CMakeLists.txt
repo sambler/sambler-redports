@@ -1,0 +1,25 @@
+--- ./src/shaders/CMakeLists.txt.orig	2014-03-12 04:37:38.000000000 +1030
++++ ./src/shaders/CMakeLists.txt	2014-07-27 21:57:59.167399762 +0930
+@@ -17,12 +17,12 @@
+ #    include_directories ( ${CMAKE_CURRENT_BINARY_DIR} )
+ #    include_directories ( ${CMAKE_CURRENT_SOURCE_DIR} )
+     if (VERBOSE)
+-        message (STATUS "cmd: ${CMAKE_CURRENT_BINARY_DIR}/../oslc/oslc ${oslsrc}")
++        message (STATUS "cmd: ${CMAKE_CURRENT_BINARY_DIR}/../oslc/oslc14 ${oslsrc}")
+     endif ()
+     add_custom_command (OUTPUT ${osofile}
+-        COMMAND "${CMAKE_CURRENT_BINARY_DIR}/../oslc/oslc" ${oslsrc}
++        COMMAND "${CMAKE_CURRENT_BINARY_DIR}/../oslc/oslc14" ${oslsrc}
+         MAIN_DEPENDENCY ${oslsrc}
+-        DEPENDS ${${headers}} ${oslsrc} "${CMAKE_CURRENT_BINARY_DIR}/stdosl.h" "${CMAKE_CURRENT_BINARY_DIR}/../oslc/oslc"
++        DEPENDS ${${headers}} ${oslsrc} "${CMAKE_CURRENT_BINARY_DIR}/stdosl.h" "${CMAKE_CURRENT_BINARY_DIR}/../oslc/oslc14"
+         WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+ endmacro ()
+ 
+@@ -42,5 +42,5 @@
+                    SOURCES ${shader_source} ${shader_headers})
+ 
+ install (FILES ${shader_headers} ${shader_source} ${shader_objs}
+-         DESTINATION shaders)
++         DESTINATION ${CMAKE_INSTALL_PREFIX}/share/openshadinglanguage14/shaders)
+ 

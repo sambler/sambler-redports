@@ -1,0 +1,25 @@
+--- ./src/liboslquery/CMakeLists.txt.orig	2014-03-12 04:37:38.000000000 +1030
++++ ./src/liboslquery/CMakeLists.txt	2014-07-27 21:57:59.152399691 +0930
+@@ -6,16 +6,16 @@
+ FLEX_BISON ( ../liboslexec/osolex.l ../liboslexec/osogram.y oso liboslquery_srcs compiler_headers )
+ 
+ if (BUILDSTATIC)
+-    ADD_LIBRARY ( oslquery STATIC ${liboslquery_srcs} )
++    ADD_LIBRARY ( oslquery14 STATIC ${liboslquery_srcs} )
+ else ()
+-    ADD_LIBRARY ( oslquery SHARED ${liboslquery_srcs} )
++    ADD_LIBRARY ( oslquery14 SHARED ${liboslquery_srcs} )
+ endif ()
+ 
+-TARGET_LINK_LIBRARIES ( oslquery ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} )
+-LINK_ILMBASE ( oslquery )
++TARGET_LINK_LIBRARIES ( oslquery14 ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} )
++LINK_ILMBASE ( oslquery14 )
+ 
+ if (BUILDSTATIC)
+-    INSTALL ( TARGETS oslquery LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
++    INSTALL ( TARGETS oslquery14 LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
+ else ()
+-    INSTALL ( TARGETS oslquery LIBRARY DESTINATION lib )
++    INSTALL ( TARGETS oslquery14 LIBRARY DESTINATION lib )
+ endif ()

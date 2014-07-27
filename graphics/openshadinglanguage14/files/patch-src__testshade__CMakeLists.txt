@@ -1,0 +1,47 @@
+--- ./src/testshade/CMakeLists.txt.orig	2014-03-12 04:37:38.000000000 +1030
++++ ./src/testshade/CMakeLists.txt	2014-07-27 21:57:59.173400242 +0930
+@@ -1,30 +1,30 @@
+ # The 'testshade' executable
+ SET ( testshade_srcs testshade.cpp simplerend.cpp )
+-ADD_EXECUTABLE ( testshade ${testshade_srcs} testshademain.cpp )
+-LINK_ILMBASE ( testshade )
+-TARGET_LINK_LIBRARIES ( testshade oslexec oslcomp oslquery ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-INSTALL ( TARGETS testshade RUNTIME DESTINATION bin )
++ADD_EXECUTABLE ( testshade14 ${testshade_srcs} testshademain.cpp )
++LINK_ILMBASE ( testshade14 )
++TARGET_LINK_LIBRARIES ( testshade14 oslexec14 oslcomp14 oslquery14 ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++INSTALL ( TARGETS testshade14 RUNTIME DESTINATION bin )
+ 
+ # The 'libtestshade' library
+ if (BUILDSTATIC)
+-    ADD_LIBRARY ( "libtestshade" STATIC ${testshade_srcs} )
++    ADD_LIBRARY ( "libtestshade14" STATIC ${testshade_srcs} )
+ else ()
+-    ADD_LIBRARY ( "libtestshade" SHARED ${testshade_srcs} )
++    ADD_LIBRARY ( "libtestshade14" SHARED ${testshade_srcs} )
+ endif ()
+ 
+-TARGET_LINK_LIBRARIES (libtestshade oslexec oslcomp oslquery ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} ${LLVM_LIBRARY} )
+-SET_TARGET_PROPERTIES (libtestshade PROPERTIES PREFIX "")
++TARGET_LINK_LIBRARIES (libtestshade14 oslexec14 oslcomp14 oslquery14 ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} ${LLVM_LIBRARY} )
++SET_TARGET_PROPERTIES (libtestshade14 PROPERTIES PREFIX "")
+ 
+ if (BUILDSTATIC)
+-    INSTALL ( TARGETS libtestshade LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
++    INSTALL ( TARGETS libtestshade14 LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
+ else ()
+-    INSTALL (TARGETS libtestshade LIBRARY DESTINATION lib )
++    INSTALL (TARGETS libtestshade14 LIBRARY DESTINATION lib )
+ endif ()
+ 
+ # The 'testshade_dso' executable
+-ADD_EXECUTABLE ( testshade_dso testshade_dso.cpp )
+-LINK_ILMBASE ( testshade_dso )
+-TARGET_LINK_LIBRARIES ( testshade_dso ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} )
++ADD_EXECUTABLE ( testshade_dso14 testshade_dso.cpp )
++LINK_ILMBASE ( testshade_dso14 )
++TARGET_LINK_LIBRARIES ( testshade_dso14 ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} )
+ #oslexec oslcomp oslquery ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-INSTALL ( TARGETS testshade_dso RUNTIME DESTINATION bin )
++INSTALL ( TARGETS testshade_dso14 RUNTIME DESTINATION bin )
+ 

@@ -148,9 +148,21 @@ NLS_LDFLAGS=		-L${LOCALBASE}/lib -lintl
 OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DWITH_LLVM:BOOL=ON \
 			-DLLVM_STATIC:BOOL=ON \
-			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33"
+			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33" \
+			-DOSL_COMPILER:STRING="${LOCALBASE}/bin/oslc14" \
+			-DOSL_INCLUDES:STRING="${LOCALBASE}/include" \
+			-DOSL_LIB_COMP:STRING="${LOCALBASE}/lib/liboslcomp14.so" \
+			-DOSL_LIB_EXEC:STRING="${LOCALBASE}/lib/liboslexec14.so" \
+			-DOSL_LIB_QUERY:STRING="${LOCALBASE}/lib/liboslquery14.so"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
-OSL_LIB_DEPENDS=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
+OSL_LIB_DEPENDS=	liboslcomp14.so:${PORTSDIR}/graphics/openshadinglanguage14
+OSL14_PATCH_FILES=	blender/blender_python.cpp kernel/osl/background.cpp \
+			kernel/osl/bsdf_diffuse_ramp.cpp kernel/osl/bsdf_phong_ramp.cpp \
+			kernel/osl/emissive.cpp kernel/osl/osl_bssrdf.cpp \
+			kernel/osl/osl_bssrdf.h kernel/osl/osl_closures.cpp \
+			kernel/osl/osl_closures.h kernel/osl/osl_globals.h \
+			kernel/osl/osl_services.h kernel/osl/osl_shader.cpp \
+			render/image.cpp render/osl.h render/shader.h
 
 PLAYER_CMAKE_ON=	-DWITH_PLAYER:BOOL=ON
 PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
@@ -181,6 +193,10 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|MY_WC_HASH "unknown"|MY_WC_HASH "${GH_COMMIT}"|g' \
 		-e 's|MY_WC_BRANCH "unknown"|MY_WC_BRANCH "mymods"|g' \
 		${WRKSRC}/build_files/cmake/buildinfo.cmake
+.for PFILE in ${OSL14_PATCH_FILES}
+	@${REINPLACE_CMD} -i '' -e 's|<OSL/|<OSL14/|g' \
+		${WRKSRC}/intern/cycles/${PFILE}
+.endfor
 
 post-extract:
 # tanslations

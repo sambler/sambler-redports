@@ -1,0 +1,45 @@
+bin/oslc14
+bin/oslinfo14
+bin/testrender14
+bin/testshade14
+bin/testshade_dso14
+include/OSL14/accum.h
+include/OSL14/dual_vec.h
+include/OSL14/dual.h
+include/OSL14/export.h
+include/OSL14/genclosure.h
+include/OSL14/Imathx.h
+include/OSL14/matrix22.h
+include/OSL14/optautomata.h
+include/OSL14/oslclosure.h
+include/OSL14/oslcomp.h
+include/OSL14/oslconfig.h
+include/OSL14/oslexec.h
+include/OSL14/oslquery.h
+include/OSL14/oslversion.h
+lib/liboslcomp14.so
+lib/liboslexec14.so
+lib/liboslquery14.so
+lib/libtestshade14.so
+%%DATADIR%%/CHANGES
+%%DATADIR%%/INSTALL
+%%DATADIR%%/LICENSE
+%%DATADIR%%/README.md
+%%DATADIR%%/osl-languagespec.pdf
+%%DATADIR%%/shaders/emitter.osl
+%%DATADIR%%/shaders/emitter.oso
+%%DATADIR%%/shaders/glass.osl
+%%DATADIR%%/shaders/glass.oso
+%%DATADIR%%/shaders/image.osl
+%%DATADIR%%/shaders/image.oso
+%%DATADIR%%/shaders/matte.osl
+%%DATADIR%%/shaders/matte.oso
+%%DATADIR%%/shaders/metal.osl
+%%DATADIR%%/shaders/metal.oso
+%%DATADIR%%/shaders/oslutil.h
+%%DATADIR%%/shaders/stdosl.h
+%%DATADIR%%/shaders/ubersurface.osl
+%%DATADIR%%/shaders/ubersurface.oso
+@dirrm include/OSL14
+@dirrm %%DATADIR%%/shaders
+@dirrm %%DATADIR%%

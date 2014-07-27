@@ -1,0 +1,13 @@
+--- ./src/testrender/CMakeLists.txt.orig	2014-03-12 04:37:38.000000000 +1030
++++ ./src/testrender/CMakeLists.txt	2014-07-27 21:57:59.172399858 +0930
+@@ -1,6 +1,6 @@
+ # The 'testrender' executable
+ FILE(GLOB testrender_src *.cpp)
+-ADD_EXECUTABLE ( testrender ${testrender_src} )
+-LINK_ILMBASE ( testrender )
+-TARGET_LINK_LIBRARIES ( testrender oslexec oslcomp oslquery ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-INSTALL ( TARGETS testrender RUNTIME DESTINATION bin )
++ADD_EXECUTABLE ( testrender14 ${testrender_src} )
++LINK_ILMBASE ( testrender14 )
++TARGET_LINK_LIBRARIES ( testrender14 oslexec14 oslcomp14 oslquery14 ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++INSTALL ( TARGETS testrender14 RUNTIME DESTINATION bin )
