@@ -63,7 +63,6 @@ LIB_DEPENDS+=	libgdamm-4.0.so:${PORTSDIR}/databases/libgdamm
 RUN_DEPENDS+=	pgadmin3>=0:${PORTSDIR}/databases/pgadmin3
 RUN_DEPENDS+=	postgresql93-contrib>=0:${PORTSDIR}/databases/postgresql93-contrib
 RUN_DEPENDS+=	postgresql93-docs>=0:${PORTSDIR}/databases/postgresql93-docs
-RUN_DEPENDS+=	postgresql93-plperl>=0:${PORTSDIR}/databases/postgresql93-plperl
 RUN_DEPENDS+=	postgresql93-plpython>=0:${PORTSDIR}/databases/postgresql93-plpython
 RUN_DEPENDS+=	postgresql93-client>=0:${PORTSDIR}/databases/postgresql93-client
 RUN_DEPENDS+=	postgresql93-server>=0:${PORTSDIR}/databases/postgresql93-server
@@ -138,6 +137,7 @@ RUN_DEPENDS+=	premake:${PORTSDIR}/devel/premake
 RUN_DEPENDS+=	projectcenter>=0:${PORTSDIR}/devel/projectcenter
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}lxml>=0:${PORTSDIR}/devel/py-lxml
 RUN_DEPENDS+=	pykdeuic4:${PORTSDIR}/devel/py-pykdeuic4
+RUN_DEPENDS+=	pyside${PYTHON_PKGNAMESUFFIX}>0:${PORTSDIR}/devel/pyside
 RUN_DEPENDS+=	pyuic4:${PORTSDIR}/devel/py-qt4
 RUN_DEPENDS+=	qgit:${PORTSDIR}/devel/qgit
 RUN_DEPENDS+=	qmake:${PORTSDIR}/devel/qmake
@@ -516,7 +516,6 @@ RUN_DEPENDS+=	lxappearance:${PORTSDIR}/x11-themes/lxappearance
 # x11-toolkits
 LIB_DEPENDS+=	libgdl-1.so:${PORTSDIR}/x11-toolkits/gdl
 LIB_DEPENDS+=	libgtkimageview.so:${PORTSDIR}/x11-toolkits/gtkimageview
-RUN_DEPENDS+=	libgail-gnome>=0:${PORTSDIR}/x11-toolkits/libgail-gnome
 LIB_DEPENDS+=	libgtksourceviewmm-2.0.so:${PORTSDIR}/x11-toolkits/libgtksourceviewmm
 LIB_DEPENDS+=	libwx_gtk2_gizmos-2.8.so:${PORTSDIR}/x11-toolkits/wxgtk28-contrib
 

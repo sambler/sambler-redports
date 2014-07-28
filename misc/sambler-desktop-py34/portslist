@@ -3,6 +3,7 @@
 #RUN_DEPENDS+=	blender:${PORTSDIR}/graphics/blender
 RUN_DEPENDS+=   blender-271:${PORTSDIR}/graphics/blender271
 RUN_DEPENDS+=	blender-sambler:${PORTSDIR}/graphics/blender-sambler
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}pillow>=0:${PORTSDIR}/graphics/py-pillow
 
 # math
 RUN_DEPENDS+=	py34-numpy34>=0:${PORTSDIR}/math/py-numpy34

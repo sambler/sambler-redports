@@ -2,7 +2,6 @@
 # database
 RUN_DEPENDS+=	postgresql93-contrib>=0:${PORTSDIR}/databases/postgresql93-contrib
 RUN_DEPENDS+=	postgresql93-docs>=0:${PORTSDIR}/databases/postgresql93-docs
-RUN_DEPENDS+=	postgresql93-plperl>=0:${PORTSDIR}/databases/postgresql93-plperl
 RUN_DEPENDS+=	postgresql93-plpython>=0:${PORTSDIR}/databases/postgresql93-plpython
 RUN_DEPENDS+=	postgresql93-client>=0:${PORTSDIR}/databases/postgresql93-client
 RUN_DEPENDS+=	postgresql93-server>=0:${PORTSDIR}/databases/postgresql93-server

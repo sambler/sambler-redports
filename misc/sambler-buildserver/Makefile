@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	sambler-buildserver
-PORTVERSION=	4
+PORTVERSION=	5
 CATEGORIES=	misc
 MASTER_SITES=	# Empty
 DISTFILES=	# None
