@@ -1,0 +1,12 @@
+--- ./src/Base/CMakeLists.txt.orig	2014-07-14 01:03:02.000000000 +0930
++++ ./src/Base/CMakeLists.txt	2014-07-29 14:43:41.077399676 +0930
+@@ -51,7 +51,8 @@
+         ${Boost_LIBRARIES}
+         ${ZLIB_LIBRARIES}
+         -lutil
+-        -ldl
++        -lcompat
++        -lc
+     )
+ endif(MSVC)
+ 
