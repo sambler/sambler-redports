@@ -8,7 +8,7 @@ CATEGORIES=	graphics devel
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	Advanced shading language for production GI renderers
 
-LICENSE=	BSD
+LICENSE=	BSD3CLAUSE
 
 BUILD_DEPENDS=	llvm-config33:${PORTSDIR}/devel/llvm33 \
 		clang33>=3.3_3:${PORTSDIR}/lang/clang33
@@ -20,7 +20,7 @@ RUN_DEPENDS=	llvm-config33:${PORTSDIR}/devel/llvm33
 USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
 GH_PROJECT=	OpenShadingLanguage
-GH_TAGNAME=	Release-${PORTVERSION}RC3
+GH_TAGNAME=	Release-${PORTVERSION}
 GH_COMMIT=	6d2dc34
 
 CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33"
