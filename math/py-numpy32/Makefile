@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	numpy32
-PORTVERSION=	1.9.0b1
+PORTVERSION=	1.9.0b2
 PORTREVISION=	0
 CATEGORIES=	math python
 MASTER_SITES=	SF/numpy/NumPy/${PORTVERSION}:source
@@ -16,7 +16,7 @@ EXTRACT_ONLY=	numpy-${PORTVERSION}${EXTRACT_SUFX}
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	The New Numeric Extension to Python
 
-LICENSE=	BSD
+LICENSE=	BSD3CLAUSE
 
 RUN_DEPENDS=	nosetests:${PORTSDIR}/devel/py-nose
 
