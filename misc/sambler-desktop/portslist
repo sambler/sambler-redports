@@ -423,7 +423,7 @@ LIB_DEPENDS+=	libmicrohttpd.so:${PORTSDIR}/www/libmicrohttpd
 RUN_DEPENDS+=	lighttpd:${PORTSDIR}/www/lighttpd
 RUN_DEPENDS+=	linklint:${PORTSDIR}/www/linklint
 RUN_DEPENDS+=	linkchecker:${PORTSDIR}/www/linkchecker
-RUN_DEPENDS+=	linux-f10-flashplugin>=0:${PORTSDIR}/www/linux-f10-flashplugin11
+#RUN_DEPENDS+=	linux-f10-flashplugin>=0:${PORTSDIR}/www/linux-f10-flashplugin11
 RUN_DEPENDS+=	midori:${PORTSDIR}/www/midori
 RUN_DEPENDS+=	${APACHE_PKGNAMEPREFIX}mod_fastcgi>=0:${PORTSDIR}/www/mod_fastcgi
 RUN_DEPENDS+=	${APACHE_PKGNAMEPREFIX}mod_perl2>=0:${PORTSDIR}/www/mod_perl2
