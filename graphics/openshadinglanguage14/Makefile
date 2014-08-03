@@ -8,7 +8,7 @@ CATEGORIES=	graphics devel
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	Advanced shading language for production GI renderers (v1.4)
 
-LICENSE=	BSD
+LICENSE=	BSD3CLAUSE
 
 BUILD_DEPENDS=	llvm-config33:${PORTSDIR}/devel/llvm33 \
 		clang33>=3.3_3:${PORTSDIR}/lang/clang33
