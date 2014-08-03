@@ -210,7 +210,6 @@ lib/lmms/libZynAddSubFxCore.so
 lib/lmms/RemoteZynAddSubFx
 share/applications/lmms.desktop
 share/menu/lmms
-share/mime/application/x-lmms-project.xml
 share/mime/packages/lmms.xml
 share/pixmaps/lmms.png
 %%DATADIR%%/backgrounds/lmms_tile.png

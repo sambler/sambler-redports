@@ -26,24 +26,24 @@ GH_COMMIT=	2ff9010
 MAJORVERSION=	0.9.6
 USE_QT4=	corelib gui qmake_build linguist_build moc_build network \
 		qt3support rcc_build sql uic_build xml
-USES=		cmake:outsource pkgconfig
+USES=		cmake:outsource desktop-file-utils pkgconfig
 CMAKE_ARGS+=	-DTHREADS_HAVE_PTHREAD_ARG:BOOL=ON
 USE_LDCONFIG=	yes
 CXXFLAGS+=	-I${LOCALBASE}/include/portaudio2 -I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib/portaudio2 -L${LOCALBASE}/lib
 CMAKE_VERBOSE=		yes
-OPTIONS_DEFINE=		JACK ALSA PORTAUDIO OSS LIBARCHIVE LASH LADSPA RDF
+OPTIONS_DEFINE=		JACK ALSA PORTAUDIO OSS LIBARCHIVE LASH LADSPA RDF RUBBERBAND
 OPTIONS_DEFAULT=	JACK LADSPA LIBARCHIVE OSS RDF
 
 LIBARCHIVE_DESC=	LibArchive support
 RUBBERBAND_DESC=	Rubberband for time stretching
-RDF_DESC=           RDF File support
+RDF_DESC=		RDF File support
 
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MALSA}
 LIB_DEPENDS+=	libasound.so:${PORTSDIR}/audio/alsa-lib
-RUN_DEPENDS+=	alsa-plugins>=1:${PORTSDIR}/audio/alsa-plugins
+RUN_DEPENDS+=	alsa-plugins>=0:${PORTSDIR}/audio/alsa-plugins
 CMAKE_ARGS+=	-DWANT_ALSA:BOOL=ON
 .else
 CMAKE_ARGS+=	-DWANT_ALSA:BOOL=OFF
@@ -57,7 +57,7 @@ CMAKE_ARGS+=	-DWANT_JACK:BOOL=OFF -DWANT_JACKSESSION:BOOL=OFF
 .endif
 
 .if ${PORT_OPTIONS:MLADSPA}
-BUILD_DEPENDS+=	ladspa>=1:${PORTSDIR}/audio/ladspa
+BUILD_DEPENDS+=	ladspa>=0:${PORTSDIR}/audio/ladspa
 RUN_DEPENDS+=	analyseplugin:${PORTSDIR}/audio/ladspa
 CMAKE_ARGS+=	-DWANT_LADSPA:BOOL=ON
 CMAKE_ARGS+=	-DLADSPA_LIBRARIES:STRING=${LOCALBASE}/lib/ladspa
@@ -112,15 +112,14 @@ CMAKE_ARGS+=	-DWANT_RUBBERBAND:BOOL=OFF
 .endif
 
 pre-configure:
-.    if exists(${LOCALBASE}/include/hydrogen)
+.if exists(${LOCALBASE}/include/hydrogen)
 	@${ECHO_MSG} "*****************************************************" ;
 	@${ECHO_MSG} "    WARNING!!!!
 	@${ECHO_MSG} "Headers installed by previous versions of Hydrogen" ;
 	@${ECHO_MSG} "prevent this version building." ;
-	@${ECHO_MSG} "You need to either un-install the previous version" ;
-	@${ECHO_MSG} "or at least rename ${LOCALBASE}/include/hydrogen" ;
+	@${ECHO_MSG} "You need to un-install the previous version" ;
 	@${ECHO_MSG} "while building this version of Hydrogen" ;
 	@${ECHO_MSG} "*****************************************************" ;
-.    endif
+.endif
 
 .include <bsd.port.mk>
