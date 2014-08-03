@@ -123,10 +123,6 @@ LIB_DEPENDS+=	libkolab.so:${PORTSDIR}/devel/libkolab
 RUN_DEPENDS+=	libowfat>=0:${PORTSDIR}/devel/libowfat
 LIB_DEPENDS+=	libslang.so:${PORTSDIR}/devel/libslang2
 LIB_DEPENDS+=	libthai.so:${PORTSDIR}/devel/libthai
-RUN_DEPENDS+=	llvm-config32:${PORTSDIR}/devel/llvm32
-RUN_DEPENDS+=	llvm-config33:${PORTSDIR}/devel/llvm33
-RUN_DEPENDS+=	llvm-config34:${PORTSDIR}/devel/llvm34
-RUN_DEPENDS+=	llvm-config-devel:${PORTSDIR}/devel/llvm-devel
 RUN_DEPENDS+=	hg:${PORTSDIR}/devel/mercurial
 RUN_DEPENDS+=	nasm:${PORTSDIR}/devel/nasm
 RUN_DEPENDS+=	ode-config:${PORTSDIR}/devel/ode
@@ -226,6 +222,7 @@ RUN_DEPENDS+=	quassel:${PORTSDIR}/irc/quassel
 RUN_DEPENDS+=	clang32:${PORTSDIR}/lang/clang32
 RUN_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 RUN_DEPENDS+=	clang34:${PORTSDIR}/lang/clang34
+RUN_DEPENDS+=	clang35:${PORTSDIR}/lang/clang35
 RUN_DEPENDS+=	clang-devel:${PORTSDIR}/lang/clang-devel
 RUN_DEPENDS+=	gawk:${PORTSDIR}/lang/gawk
 RUN_DEPENDS+=	gcc>=0:${PORTSDIR}/lang/gcc

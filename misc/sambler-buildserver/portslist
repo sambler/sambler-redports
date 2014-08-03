@@ -21,6 +21,7 @@ RUN_DEPENDS+=	lftp:${PORTSDIR}/ftp/lftp
 RUN_DEPENDS+=	clang32:${PORTSDIR}/lang/clang32
 RUN_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 RUN_DEPENDS+=	clang34:${PORTSDIR}/lang/clang34
+RUN_DEPENDS+=	clang35:${PORTSDIR}/lang/clang35
 RUN_DEPENDS+=	gcc>=0:${PORTSDIR}/lang/gcc
 
 # net
