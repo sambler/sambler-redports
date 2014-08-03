@@ -56,7 +56,7 @@ GH_COMMIT=	51a01f2
 
 FETCH_ARGS=	-pRr
 
-USES=		cmake:outsource shebangfix compiler desktop-file-utils
+USES=		cmake:outsource shebangfix compiler desktop-file-utils openal:al,alut
 WRKSRC=		${WRKDIR}/sambler-myblender-${GH_COMMIT}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.71
 VERS_TAG=	sambler
@@ -69,7 +69,6 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		release/scripts/modules/blend_render_info.py
 
 USE_PYTHON=	3.4
-USE_OPENAL=	al alut
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu
 USE_GL=		glew

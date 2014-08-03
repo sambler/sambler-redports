@@ -25,13 +25,12 @@ LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15
 LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 LIB_DEPENDS+=   libftgl.so:${PORTSDIR}/graphics/ftgl
 
-USES=		cmake:outsource
+USES=		cmake:outsource openal:al,alut
 WRKSRC=		${WRKDIR}/blender-2.49b
 VERS_TAG=	249
 
 USE_PYTHON=	2.7
 WANT_GNOME=	yes
-USE_OPENAL=	al alut
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu xi
 USE_GL=		gl glu glew

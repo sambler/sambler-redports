@@ -3,7 +3,7 @@
 
 PORTNAME=	blender262
 PORTVERSION=	2.62
-PORTREVISION=	7
+PORTREVISION=	8
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -29,12 +29,11 @@ LIB_DEPENDS+=	libavutil0.so:${PORTSDIR}/multimedia/ffmpeg0
 LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 
-USES=		cmake:outsource desktop-file-utils
+USES=		cmake:outsource shebangfix desktop-file-utils openal:al,alut
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 VERS_TAG=	262
 
 USE_PYTHON=	3.2
-USE_OPENAL=	al alut
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu
 USE_GL=		glew
@@ -72,8 +71,6 @@ CMAKE_ARGS+=	-DWITH_X11_XF86VMODE:BOOL=ON -DWITH_X11_XINPUT:BOOL=ON
 SUB_FILES=	blender blenderplayer
 python_CMD=	${PYTHON_CMD}
 SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
-		release/scripts/modules/bl_i18n_utils/merge_po.py \
-		release/scripts/modules/bl_i18n_utils/utils_rtl.py \
 		release/scripts/modules/blend_render_info.py
 
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.62

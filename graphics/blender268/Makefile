@@ -31,13 +31,12 @@ LIB_DEPENDS+=	libavutil.so:${PORTSDIR}/multimedia/ffmpeg
 LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 
-USES=		cmake:outsource compiler desktop-file-utils
+USES=		cmake:outsource compiler shebangfix desktop-file-utils openal:al,alut
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.68
 VERS_TAG=	268
 
 USE_PYTHON=	3.3
-USE_OPENAL=	al alut
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu
 USE_GL=		glew
