@@ -19,7 +19,7 @@
  	SET(CMAKE_CXX_FLAGS "-O2")
  ELSE()
 -	SET(CMAKE_CXX_FLAGS "-O2 -fno-implement-inlines")
-+	SET(CMAKE_CXX_FLAGS "-O2 -fno-implement-inlines ${CMAKE_CXX_FLAGS}")
++	SET(CMAKE_CXX_FLAGS "-O2 ${CMAKE_CXX_FLAGS}")
  ENDIF()
  
 -SET(CMAKE_CXX_FLAGS_RELEASE "")
