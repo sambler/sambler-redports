@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.71
-PORTREVISION=	4
+PORTREVISION=	5
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -52,11 +52,12 @@ RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	6f39c6c
+GH_COMMIT=	1c95987
 
 FETCH_ARGS=	-pRr
 
 USES=		cmake:outsource shebangfix compiler desktop-file-utils openal:al,alut
+USES+=		python:3.4
 WRKSRC=		${WRKDIR}/sambler-myblender-${GH_COMMIT}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.71
 VERS_TAG=	sambler
@@ -68,7 +69,6 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		release/scripts/modules/bl_i18n_utils/utils_rtl.py \
 		release/scripts/modules/blend_render_info.py
 
-USE_PYTHON=	3.4
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu
 USE_GL=		glew
@@ -79,7 +79,7 @@ CMAKE_ARGS+=	-DWITH_BUILDINFO:BOOL=ON -DWITH_AUDASPACE:BOOL=ON
 CMAKE_ARGS+=	-DWITH_BLENDER:BOOL=ON -DWITH_BOOL_COMPAT:BOOL=ON
 CMAKE_ARGS+=	-DWITH_BOOST_ICU:BOOL=OFF -DWITH_BULLET:BOOL=ON
 CMAKE_ARGS+=	-DWITH_CODEC_FFMPEG:BOOL=ON -DWITH_CODEC_SNDFILE:BOOL=ON
-CMAKE_ARGS+=	-DFFMPEG:STRING="/usr/local" -DWITH_COMPOSITOR:BOOL=ON
+CMAKE_ARGS+=	-DFFMPEG:STRING="${LOCALBASE}" -DWITH_COMPOSITOR:BOOL=ON
 CMAKE_ARGS+=	-DWITH_CYCLES:BOOL=ON -DWITH_CYCLES_CUDA_BINARIES:BOOL=OFF
 CMAKE_ARGS+=	-DCYCLES_OPENCL_DEBUG:BOOL=OFF -DWITH_CYCLES_STANDALONE:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_CYCLES_STANDALONE_GUI:BOOL=OFF
@@ -163,7 +163,7 @@ SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 .if ${OSVERSION} < 900000
 BROKEN= Fails to build on 8.x
 .endif
-	
+
 .if ${COMPILER_TYPE:Mgcc} && ${PORT_OPTIONS:MOSL}
 # we have linking issues using gcc
 # clang33 is used by osl so use it here

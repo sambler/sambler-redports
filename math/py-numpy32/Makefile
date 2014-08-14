@@ -3,7 +3,6 @@
 
 PORTNAME=	numpy32
 PORTVERSION=	1.9.0b2
-PORTREVISION=	0
 CATEGORIES=	math python
 MASTER_SITES=	SF/numpy/NumPy/${PORTVERSION}:source
 #		http://docs.scipy.org/doc/numpy-${PORTVERSION}/:doc
@@ -25,12 +24,10 @@ OPTIONS_DEFAULT=	SUITESPARSE
 ATLAS_DESC=	Use optimized blas library
 SUITESPARSE_DESC=	Use AMD and UMFPACK in SuiteSparse
 
-USES=		fortran
-USE_PYTHON=	3.2
-USE_PYDISTUTILS=yes
+USES=		fortran python:3.2
+PYTHON_FEATURES=distutils
 PYDISTUTILS_CONFIGUREARGS+=	--fcompiler=gnu95
 PYDISTUTILS_BUILDARGS+=		--fcompiler=gnu95
-PYTHON_PY3K_PLIST_HACK=		yes
 
 #PORTDOCS=	*
 WRKSRC=		${WRKDIR}/numpy-${PORTVERSION}

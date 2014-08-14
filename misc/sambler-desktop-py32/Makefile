@@ -16,7 +16,7 @@ RUN_DEPENDS=	# Empty so subsequent RUN_DEPENDS need +=
 .include <portslist>
 
 NO_BUILD=	yes
-USE_PYTHON=	3.2
+USES= python:3.2
 NO_MTREE=	yes
 
 do-install:	# empty

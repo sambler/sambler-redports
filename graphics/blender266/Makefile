@@ -31,11 +31,11 @@ LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 
 USES=		cmake:outsource compiler shebangfix desktop-file-utils openal:al,alut
+USES+=		python:3.3
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.66
 VERS_TAG=	266
 
-USE_PYTHON=	3.3
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu
 USE_GL=		glew

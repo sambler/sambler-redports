@@ -1,10 +1,10 @@
 
 #database
-RUN_DEPENDS+=	postgresql93-client>=0:${PORTSDIR}/databases/postgresql93-client
-RUN_DEPENDS+=	postgresql93-contrib>=0:${PORTSDIR}/databases/postgresql93-contrib
 RUN_DEPENDS+=	postgresql93-server>=0:${PORTSDIR}/databases/postgresql93-server
+RUN_DEPENDS+=   postgresql93-contrib>=0:${PORTSDIR}/databases/postgresql93-contrib
 
 # devel
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}boto>=0:${PORTSDIR}/devel/py-boto
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}wsgiutils>=0:${PORTSDIR}/devel/py-wsgiutils
 
 # net

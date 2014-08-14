@@ -4,7 +4,7 @@
 PORTNAME=	boost-python3-libs
 COMMENT=	Framework for interfacing Python and C++
 
-USE_PYTHON=	3.3
+USES+=		python:3.4
 
 OPTIONS_DEFINE=	VERBOSE_BUILD DEBUG OPTIMIZED_CFLAGS
 VERBOSE_BUILD_DESC=	Show compiler messages

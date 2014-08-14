@@ -25,11 +25,10 @@ LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15
 LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 LIB_DEPENDS+=   libftgl.so:${PORTSDIR}/graphics/ftgl
 
-USES=		cmake:outsource openal:al,alut
+USES=		cmake:outsource dos2unix openal:al,alut python:2.7
 WRKSRC=		${WRKDIR}/blender-2.49b
 VERS_TAG=	249
 
-USE_PYTHON=	2.7
 WANT_GNOME=	yes
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu xi
@@ -42,7 +41,7 @@ LDFLAGS+=	-L${LOCALBASE}/lib/ffmpeg0
 
 CMAKE_ARGS+=	-DWITH_BULLET:BOOL=ON -DWITH_DDS:BOOL=ON
 CMAKE_ARGS+=	-DWITH_ELBEEM:BOOL=ON -DWITH_FFMPEG:BOOL=ON
-CMAKE_ARGS+=	-DFREETYPE_INC:STRING=/usr/local/include/freetype2
+CMAKE_ARGS+=	-DFREETYPE_INC:STRING=${LOCALBASE}/include/freetype2
 CMAKE_ARGS+=	-DWITH_GAMEENGINE:BOOL=ON
 CMAKE_ARGS+=	-DWITH_KETSJI:BOOL=ON -DWITH_OPENAL:BOOL=ON
 CMAKE_ARGS+=	-DWITH_OPENEXR:BOOL=ON -DWITH_OPENJPEG:BOOL=ON
@@ -50,6 +49,8 @@ CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=ON -DWITH_QUICKTIME:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_VERSE:BOOL=OFF -DWITH_WEBPLUGIN:BOOL=OFF
 
 SUB_FILES=	blender blenderplayer
+DOS2UNIX_FILES=	extern/bullet2/src/BulletSoftBody/btSoftBodyInternals.h \
+		extern/libopenjpeg/opj_malloc.h
 
 LANG=		ar bg ca cs de el es fi fr hr hr_HR it ja ko nl pl pt_BR ro \
 		ru sr sr@Latn sv uk zh_CN

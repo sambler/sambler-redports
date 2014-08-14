@@ -12,10 +12,9 @@ COMMENT=	A framework targeted at fluid simulation research
 
 LICENSE=	GPLv3
 
-USES=		cmake:outsource shebangfix
+USES=		cmake:outsource shebangfix python:3.4
 SHEBANG_FILES=	tools/makeHgVersion.py
 WRKSRC=		${WRKDIR}/${PORTNAME}
-USE_PYTHON=	3.4
 CMAKE_ARGS=	-DCUDA:BOOL=OFF -DDOUBLEPRECISION:BOOL=OFF
 CMAKE_ARGS+=	-DPYTHON_INCLUDE_DIR:STRING=${PYTHON_INCLUDEDIR}
 CMAKE_ARGS+=	-DPYTHON_LIBRARY:STRING=${PYTHONBASE}/lib/libpython3.4m.so

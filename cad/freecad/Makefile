@@ -28,15 +28,16 @@ LIB_DEPENDS=	libTKernel.so:${PORTSDIR}/cad/opencascade \
 		libSoQt.so:${PORTSDIR}/x11-toolkits/soqt
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}matplotlib>=0:${PORTSDIR}/math/py-matplotlib
 
-USES=		cmake:outsource fortran
-USE_PYTHON=	yes
+USES=		cmake:outsource fortran python
 USE_QT4=	gui opengl qmake
 USE_XORG=	x11 ice
 USE_GL=		glu
 CMAKE_ARGS=	-DOCC_INCLUDE_DIR:STRING=${LOCALBASE}/include/OpenCASCADE
 CFLAGS+=	-fPIC
 CXXFLAGS+=	-fPIC
+LDFLAGS+= -lc
 #CMAKE_VERBOSE=yes
 OPTIONS_DEFINE=	DOCS
+#USE_GCC=yes
 
 .include <bsd.port.mk>

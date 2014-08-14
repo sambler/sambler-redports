@@ -14,8 +14,8 @@ LICENSE=	BSD3CLAUSE
 USE_GITHUB=	yes
 GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
-GH_TAGNAME=	RB-${PORTVERSION}
-GH_COMMIT=	5a87a25
+GH_TAGNAME=	Release-${PORTVERSION}
+GH_COMMIT=	218fe63
 
 # fbm also installs bin/idiff
 CONFLICTS=	fbm-[0-9]*
@@ -57,7 +57,7 @@ CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF -DOIIO_BUILD_TOOLS:BOOL=ON
 .else
 LIB_DEPENDS=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio \
 		libboost_python.so:${PORTSDIR}/devel/boost-python-libs
-USE_PYTHON=	yes
+USES+=		python
 PLIST=		${PKGDIR}/pkg-plist-pybind
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON -DOIIO_BUILD_TOOLS:BOOL=OFF
 .endif
