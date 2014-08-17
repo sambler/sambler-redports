@@ -1,0 +1,11 @@
+lib/qtcreator/plugins/davidsansome/libpyqtc.so
+lib/qtcreator/plugins/davidsansome/pyqtc.pluginspec
+share/qtcreator/pyqtc/python-2.7.2.qch
+share/qtcreator/pyqtc/python-2.7.2.qhc
+share/qtcreator/pyqtc/worker.zip
+@dirrmtry lib/qtcreator/plugins/davidsansome
+@dirrmtry lib/qtcreator/plugins
+@dirrmtry lib/qtcreator
+@dirrmtry share/qtcreator/pyqtc
+@dirrmtry share/qtcreator
+
