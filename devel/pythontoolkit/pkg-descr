@@ -1,0 +1,6 @@
+PythonToolkit is an interactive environment for python. It was originally
+designed to provide a python based environment similiar to Matlab, however
+it can also be used as a general purpose interactive python environment
+especially for interactive gui programming.
+
+WWW: http://pythontoolkit.sourceforge.net/
