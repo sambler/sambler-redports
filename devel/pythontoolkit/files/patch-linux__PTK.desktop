@@ -1,0 +1,15 @@
+--- ./linux/PTK.desktop.orig	2014-08-18 16:52:34.545698062 +0930
++++ ./linux/PTK.desktop	2014-08-18 16:54:27.840455643 +0930
+@@ -1,9 +1,9 @@
+ [Desktop Entry]
+-Name=PythonToolkit (PTK)
++Name=PythonToolkit%%SUFFIX%% (PTK)
+ Comment=Program interactively in Python
+-Exec=PTK -f %F
++Exec=PTK%%SUFFIX%% -f %F
+ Terminal=false
+-Icon=ptkicon
++Icon=ptkicon%%SUFFIX%%
+ Type=Application
+ Categories=Development;
+ GenericName=

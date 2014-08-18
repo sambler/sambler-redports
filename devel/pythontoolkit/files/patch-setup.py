@@ -1,5 +1,5 @@
 --- ./setup.py.orig	2014-04-04 21:02:12.000000000 +1030
-+++ ./setup.py	2014-08-18 08:46:00.210455356 +0930
++++ ./setup.py	2014-08-18 16:55:52.109455004 +0930
 @@ -69,6 +69,10 @@
      #installing on mac
      MODE = 'mac'
@@ -27,8 +27,8 @@
 +    PACKAGE_DATA = {'ptk_lib': ['resources/tips.txt',   
 +                                'resources/ptk.ico',
 +                                'resources/ptkicon.svg']}
-+    DATA_FILES = [  ( '%%LOCALBASE%%/share/applications', ['linux/PTK.desktop'] ),
-+                    ( '%%LOCALBASE%%/share/pixmaps', ['ptk_lib/resources/ptkicon.svg']) ]
++    DATA_FILES = [  ( '%%LOCALBASE%%/share/applications', ['linux/PTK%%SUFFIX%%.desktop'] ),
++                    ( '%%LOCALBASE%%/share/pixmaps', ['ptk_lib/resources/ptkicon%%SUFFIX%%.svg']) ]
 +
  elif MODE == 'linux':
      #installing on linux
