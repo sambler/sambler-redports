@@ -24,7 +24,7 @@ GH_PROJECT=	pyqtc
 GH_TAGNAME=	${GH_COMMIT}
 GH_COMMIT=	252a7b9
 
-USES=		cmake:outsource python:build
+USES=		cmake:outsource python
 CMAKE_ARGS+=	-DQTC_SOURCE:STRING=${WRKDIR}/qt-creator-2.8.0-src \
 		-DQTC_BINARY:STRING=${LOCALBASE}
 CXXFLAGS+=	-I${LOCALBASE}/include
