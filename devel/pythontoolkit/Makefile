@@ -14,8 +14,8 @@ COMMENT=	An interactive environment for python
 LICENSE=	MIT
 
 USES=		zip python
-PYTHON_FEATURES= distutils autoplist concurrent
-USE_WX=		2.8+
+USE_PYTHON=	distutils autoplist concurrent
+USE_WX=		3.0
 WX_COMPS=	python:run
 WRKSRC=		${WRKDIR}/PythonToolkit-${PORTVERSION}
 
