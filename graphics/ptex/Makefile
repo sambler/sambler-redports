@@ -38,8 +38,8 @@ do-install:
 		${STAGEDIR}${PREFIX}/bin
 .if ${PORT_OPTIONS:MDOCS}
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
-	${INSTALL_DATA} ${BUILD_WRKSRC}/../install/doc/ptex/* \
-		${STAGEDIR}${DOCSDIR}
+	@cd ${BUILD_WRKSRC}/../install/doc/ptex/ && \
+		${INSTALL_DATA} * ${STAGEDIR}${DOCSDIR}
 .endif
 
 .include <bsd.port.mk>

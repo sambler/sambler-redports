@@ -191,7 +191,7 @@ lib/libPtex.so
 %%PORTDOCS%%%%DOCSDIR%%/files.html
 %%PORTDOCS%%%%DOCSDIR%%/filterfootprint.html
 %%PORTDOCS%%%%DOCSDIR%%/ftv2blank.png
-%%PORTDOCS%%%%DOCSDIR%%/ftv2cl.png
+@comment %%PORTDOCS%%%%DOCSDIR%%/ftv2cl.png
 %%PORTDOCS%%%%DOCSDIR%%/ftv2doc.png
 %%PORTDOCS%%%%DOCSDIR%%/ftv2folderclosed.png
 %%PORTDOCS%%%%DOCSDIR%%/ftv2folderopen.png
@@ -199,87 +199,87 @@ lib/libPtex.so
 %%PORTDOCS%%%%DOCSDIR%%/ftv2link.png
 %%PORTDOCS%%%%DOCSDIR%%/ftv2mlastnode.png
 %%PORTDOCS%%%%DOCSDIR%%/ftv2mnode.png
-%%PORTDOCS%%%%DOCSDIR%%/ftv2mo.png
+@comment %%PORTDOCS%%%%DOCSDIR%%/ftv2mo.png
 %%PORTDOCS%%%%DOCSDIR%%/ftv2node.png
-%%PORTDOCS%%%%DOCSDIR%%/ftv2ns.png
+@comment %%PORTDOCS%%%%DOCSDIR%%/ftv2ns.png
 %%PORTDOCS%%%%DOCSDIR%%/ftv2plastnode.png
 %%PORTDOCS%%%%DOCSDIR%%/ftv2pnode.png
 %%PORTDOCS%%%%DOCSDIR%%/ftv2splitbar.png
 %%PORTDOCS%%%%DOCSDIR%%/ftv2vertline.png
 %%PORTDOCS%%%%DOCSDIR%%/functions.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x61.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x62.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x63.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x64.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x65.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x66.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x67.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x68.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x69.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x6b.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x6c.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x6d.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x6e.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x6f.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x70.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x71.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x72.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x73.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x74.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x75.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x76.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x77.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x7a.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_0x7e.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x61.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x62.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x63.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x64.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x65.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x66.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x67.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x68.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x69.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x6b.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x6c.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x6d.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x6e.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x6f.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x70.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x71.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x72.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x73.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x74.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x75.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x76.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x77.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x7a.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x7e.html
 %%PORTDOCS%%%%DOCSDIR%%/functions_enum.html
 %%PORTDOCS%%%%DOCSDIR%%/functions_eval.html
 %%PORTDOCS%%%%DOCSDIR%%/functions_func.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x61.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x62.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x63.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x64.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x65.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x66.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x67.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x68.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x69.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x6c.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x6d.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x6e.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x6f.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x70.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x71.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x72.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x73.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x74.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x75.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x76.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x77.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_func_0x7e.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x61.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x62.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x63.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x64.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x65.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x66.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x67.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x68.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x69.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x6c.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x6d.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x6e.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x6f.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x70.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x71.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x72.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x73.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x74.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x75.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x76.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x77.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x7e.html
 %%PORTDOCS%%%%DOCSDIR%%/functions_rela.html
 %%PORTDOCS%%%%DOCSDIR%%/functions_type.html
 %%PORTDOCS%%%%DOCSDIR%%/functions_vars.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x61.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x62.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x63.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x64.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x65.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x66.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x68.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x69.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x6b.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x6c.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x6d.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x6e.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x6f.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x70.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x72.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x73.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x74.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x75.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x76.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x77.html
-%%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x7a.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x61.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x62.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x63.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x64.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x65.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x66.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x68.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x69.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x6b.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x6c.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x6d.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x6e.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x6f.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x70.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x72.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x73.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x74.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x75.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x76.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x77.html
+@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x7a.html
 %%PORTDOCS%%%%DOCSDIR%%/globals.html
 %%PORTDOCS%%%%DOCSDIR%%/globals_defs.html
 %%PORTDOCS%%%%DOCSDIR%%/globals_enum.html
