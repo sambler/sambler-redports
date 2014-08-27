@@ -670,4 +670,3 @@ share/applications/hydrogen.desktop
 @dirrm %%DATADIR%%/data/demo_songs
 @dirrm %%DATADIR%%/data
 @dirrm %%DATADIR%%
-@dirrmtry share/applications
