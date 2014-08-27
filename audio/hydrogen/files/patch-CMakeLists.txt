@@ -1,0 +1,31 @@
+--- ./CMakeLists.txt.orig	2014-08-04 20:02:49.000000000 +0930
++++ ./CMakeLists.txt	2014-08-27 21:37:25.374455394 +0930
+@@ -99,12 +99,12 @@
+ IF(APPLE)
+ 	SET(CMAKE_CXX_FLAGS "-O2")
+ ELSE()
+-	SET(CMAKE_CXX_FLAGS "-O2 -fno-implement-inlines")
++	SET(CMAKE_CXX_FLAGS "-O2 ${CMAKE_CXX_FLAGS}")
+ ENDIF()
+ 
+-SET(CMAKE_CXX_FLAGS_RELEASE "")
++SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+ 
+-SET(CMAKE_CXX_FLAGS_DEBUG "-g ")#-Winline")
++SET(CMAKE_CXX_FLAGS_DEBUG "-g ${CMAKE_CXX_FLAGS_DEBUG}")#-Winline")
+ 
+ 
+ IF(APPLE)
+@@ -177,7 +177,11 @@
+ IF("${CMAKE_SYSTEM_NAME}" MATCHES "NetBSD")
+ 	FIND_HELPER(OSS oss sys/soundcard.h ossaudio )
+ ELSE()
+-	FIND_HELPER(OSS oss sys/soundcard.h OSSlib )
++    IF("${CMAKE_SYSTEM_NAME}" MATCHES "FreeBSD")
++        FIND_HELPER(OSS oss sys/soundcard.h c )
++    ELSE()
++        FIND_HELPER(OSS oss sys/soundcard.h OSSlib )
++    ENDIF()
+ ENDIF()
+ 
+ FIND_HELPER(JACK jack jack/jack.h jack)
