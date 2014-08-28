@@ -1,8 +1,8 @@
 bin/f2py33
-lib/python3.3/site-packages/numpy-1.9.0b2-py3.3.egg-info/dependency_links.txt
-lib/python3.3/site-packages/numpy-1.9.0b2-py3.3.egg-info/PKG-INFO
-lib/python3.3/site-packages/numpy-1.9.0b2-py3.3.egg-info/SOURCES.txt
-lib/python3.3/site-packages/numpy-1.9.0b2-py3.3.egg-info/top_level.txt
+lib/python3.3/site-packages/numpy-1.9.0rc1-py3.3.egg-info/dependency_links.txt
+lib/python3.3/site-packages/numpy-1.9.0rc1-py3.3.egg-info/PKG-INFO
+lib/python3.3/site-packages/numpy-1.9.0rc1-py3.3.egg-info/SOURCES.txt
+lib/python3.3/site-packages/numpy-1.9.0rc1-py3.3.egg-info/top_level.txt
 lib/python3.3/site-packages/numpy/__config__.py
 lib/python3.3/site-packages/numpy/__init__.py
 lib/python3.3/site-packages/numpy/__pycache__/__config__.cpython-33.pyc
@@ -847,6 +847,5 @@ lib/python3.3/site-packages/numpy/version.py
 @dirrmtry lib/python3.3/site-packages/numpy/compat
 @dirrmtry lib/python3.3/site-packages/numpy/__pycache__
 @dirrmtry lib/python3.3/site-packages/numpy
-@dirrmtry lib/python3.3/site-packages/numpy-1.9.0b2-py3.3.egg-info
-@dirrmtry lib/python3.3/site-packages
-@dirrmtry lib/python3.3
+@dirrmtry lib/python3.3/site-packages/numpy-1.9.0rc1-py3.3.egg-info
+

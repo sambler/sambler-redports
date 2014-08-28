@@ -2,15 +2,18 @@
 # $FreeBSD$
 
 PORTNAME=	numpy34
-PORTVERSION=	1.9.0b2
+PORTVERSION=	1.9.0r1
 CATEGORIES=	math python
-MASTER_SITES=	SF/numpy/NumPy/${PORTVERSION}:source
+#MASTER_SITES=	SF/numpy/NumPy/${PORTVERSION}:source
+MASTER_SITES=	SF/numpy/NumPy/1.9.0rc1:source
 #		http://docs.scipy.org/doc/numpy-${PORTVERSION}/:doc
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
-DISTFILES=	numpy-${PORTVERSION}${EXTRACT_SUFX}:source
+#DISTFILES=	numpy-${PORTVERSION}${EXTRACT_SUFX}:source
+DISTFILES=	numpy-1.9.0rc1${EXTRACT_SUFX}:source
 #		numpy-ref-${PORTVERSION}.pdf:doc \
 #		numpy-user-${PORTVERSION}.pdf:doc
-EXTRACT_ONLY=	numpy-${PORTVERSION}${EXTRACT_SUFX}
+#EXTRACT_ONLY=	numpy-${PORTVERSION}${EXTRACT_SUFX}
+EXTRACT_ONLY=	numpy-1.9.0rc1${EXTRACT_SUFX}
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	The New Numeric Extension to Python
@@ -25,12 +28,13 @@ ATLAS_DESC=	Use optimized blas library
 SUITESPARSE_DESC=	Use AMD and UMFPACK in SuiteSparse
 
 USES=		fortran python:3.4
-PYTHON_FEATURES=distutils
+USE_PYTHON=	distutils
 PYDISTUTILS_CONFIGUREARGS+=	--fcompiler=gnu95
 PYDISTUTILS_BUILDARGS+=		--fcompiler=gnu95
 
 #PORTDOCS=	*
-WRKSRC=		${WRKDIR}/numpy-${PORTVERSION}
+#WRKSRC=		${WRKDIR}/numpy-${PORTVERSION}
+WRKSRC=		${WRKDIR}/numpy-1.9.0rc1
 
 .include <bsd.port.pre.mk>
 
