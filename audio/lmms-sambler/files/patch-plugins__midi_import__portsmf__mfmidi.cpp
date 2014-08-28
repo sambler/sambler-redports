@@ -1,5 +1,5 @@
---- plugins/midi_import/portsmf/mfmidi.cpp.orig	2011-10-03 12:30:46.000000000 +0000
-+++ plugins/midi_import/portsmf/mfmidi.cpp	2011-10-03 12:30:46.000000000 +0000
+--- ./plugins/midi_import/portsmf/mfmidi.cpp.orig	2014-08-29 05:37:23.443454720 +0930
++++ ./plugins/midi_import/portsmf/mfmidi.cpp	2014-08-29 05:37:23.608455208 +0930
 @@ -28,7 +28,7 @@
      ntrks = readheader();
      if (midifile_error) return;
@@ -13,8 +13,8 @@
      char b[4];
      char buff[32];
      int c;
--    char *errmsg = "expecting ";
-+    char static * errmsg = (char *)"expecting ";
+-    const char *errmsg = "expecting ";
++    const char *errmsg = (char *)"expecting ";
  
      retry:
      while ( nread<4 ) {

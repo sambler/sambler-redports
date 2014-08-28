@@ -1,5 +1,5 @@
---- include/AudioPortAudio.h.orig	2011-10-04 21:28:47.000000000 +0000
-+++ include/AudioPortAudio.h	2011-10-04 21:29:25.000000000 +0000
+--- ./include/AudioPortAudio.h.orig	2014-08-16 16:35:46.000000000 +0930
++++ ./include/AudioPortAudio.h	2014-08-29 05:37:23.566455269 +0930
 @@ -45,7 +45,7 @@
  
  #ifdef LMMS_HAVE_PORTAUDIO

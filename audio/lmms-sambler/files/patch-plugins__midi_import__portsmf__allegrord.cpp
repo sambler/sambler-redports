@@ -1,25 +1,25 @@
---- plugins/midi_import/portsmf/allegrord.cpp	2011-07-02 13:14:01.000000000 +0000
-+++ plugins/midi_import/portsmf/allegrord.cpp.new	2011-09-30 11:37:34.000000000 +0000
+--- ./plugins/midi_import/portsmf/allegrord.cpp.orig	2014-08-16 16:35:46.000000000 +0930
++++ ./plugins/midi_import/portsmf/allegrord.cpp	2014-08-29 05:37:23.603454722 +0930
 @@ -109,19 +109,19 @@
      if (attributes) {
          Alg_parameters_ptr a;
          bool in_seconds = seq->get_units_are_seconds();
--        if (a = Alg_parameters::remove_key(&attributes, "tempor")) {
+-        if ((a = Alg_parameters::remove_key(&attributes, "tempor"))) {
 +        if ((a = Alg_parameters::remove_key(&attributes, (char *)"tempor"))) {
              double tempo = a->parm.r;
              seq->insert_tempo(tempo, seq->get_time_map()->time_to_beat(time));
          }
--        if (a = Alg_parameters::remove_key(&attributes, "beatr")) {
+-        if ((a = Alg_parameters::remove_key(&attributes, "beatr"))) {
 +        if ((a = Alg_parameters::remove_key(&attributes, (char *)"beatr"))) {
              double beat = a->parm.r;
              seq->insert_beat(time, beat);
          }
--        if (a = Alg_parameters::remove_key(&attributes, "timesig_numr")) {
+-        if ((a = Alg_parameters::remove_key(&attributes, "timesig_numr"))) {
 +        if ((a = Alg_parameters::remove_key(&attributes, (char *)"timesig_numr"))) {
              tsnum = a->parm.r;
              ts_flag = true;
          }
--        if (a = Alg_parameters::remove_key(&attributes, "timesig_denr")) {
+-        if ((a = Alg_parameters::remove_key(&attributes, "timesig_denr"))) {
 +        if ((a = Alg_parameters::remove_key(&attributes, (char *)"timesig_denr"))) {
              tsden = a->parm.r;
              ts_flag = true;
@@ -107,37 +107,30 @@
                  }
  
                  if (error_flag) {
-@@ -404,11 +404,11 @@
+@@ -404,7 +404,7 @@
  long Alg_reader::parse_chan(string &field)
  {
      const char *int_string = field.c_str() + 1;
--    char *msg = "Integer or - expected";
-+    char *msg = (char *)"Integer or - expected";
+-    const char *msg = "Integer or - expected";
++    const char *msg = (char *)"Integer or - expected";
      const char *p = int_string;
      char c;
      // check that all chars in int_string are digits or '-':
--    while (c = *p++) {
-+    while ((c = *p++)) {
-         if (!isdigit(c) && c != '-') {
-             parse_error(field, p - field.c_str() - 1, msg);
-             return 0;
-@@ -431,8 +431,8 @@
+@@ -431,7 +431,7 @@
  long Alg_reader::parse_int(string &field)
  {
      const char *int_string = field.c_str() + 1;
--    char *msg = "Integer expected";
--    const char *p = int_string;
-+    char *msg = (char *)"Integer expected";
-+    const char *p = int_string;
+-    const char *msg = "Integer expected";
++    const char *msg = (char *)"Integer expected";
+     const char *p = int_string;
      char c;
      // check that all chars in int_string are digits:
-     while (c = *p++) {
 @@ -472,7 +472,7 @@
  
  double Alg_reader::parse_real(string &field)
  {
--    char *msg = "Real expected";
-+    char *msg = (char *)"Real expected";
+-    const char *msg = "Real expected";
++    const char *msg = (char *)"Real expected";
      int last = find_real_in(field, 1);
      string real_string = field.substr(1, last - 1);
      if (last <= 1 || last < (int) field.length()) {
@@ -145,23 +138,14 @@
  
  double Alg_reader::parse_dur(string &field, double base)
  {
--    char *msg = "Duration expected";
--    char *durs = "SIQHW";
-+    char *msg = (char *)"Duration expected";
-+    char *durs = (char *)"SIQHW";
-     char *p;
+-    const char *msg = "Duration expected";
+-    const char *durs = "SIQHW";
++    const char *msg = (char *)"Duration expected";
++    const char *durs = (char *)"SIQHW";
+     const char *p;
      int last;
      double dur;
-@@ -516,7 +516,7 @@
-         // convert dur from seconds to beats
-         dur = seq->get_time_map()->time_to_beat(base + dur) - 
-               seq->get_time_map()->time_to_beat(base);
--    } else if (p = strchr(durs, toupper(field[1]))) {
-+    } else if ((p = strchr(durs, toupper(field[1])))) {
-         dur = duration_lookup[p - durs];
-         last = 2;
-     } else {
-@@ -554,12 +554,12 @@
+@@ -554,7 +554,7 @@
                  a_string, seq->get_time_map()->beat_to_time(
                          seq->get_time_map()->time_to_beat(base) + dur));
      }
@@ -170,39 +154,26 @@
      return dur;
  }
  
- struct loud_lookup_struct {
--    char *str;
-+    char const *str;
-     int val;
- } loud_lookup[] = { {"FFF", 127}, {"FF", 120}, {"F", 110}, {"MF", 100}, 
-                     {"MP", 90}, {"P", 80}, {"PP", 70}, {"PPP", 60}, 
 @@ -568,7 +568,7 @@
  
  double Alg_reader::parse_loud(string &field)
  {
--    char *msg = "Loudness expected";
-+    char *msg = (char *)"Loudness expected";
+-    const char *msg = "Loudness expected";
++    const char *msg = (char *)"Loudness expected";
      if (isdigit(field[1])) {
          return parse_int(field);
      } else {
-@@ -594,14 +594,14 @@
+@@ -594,8 +594,8 @@
  //
  long Alg_reader::parse_key(string &field)
  {
--    char *msg = "Pitch expected";
--    char *pitches = "ABCDEFG";
-+    char *msg = (char *)"Pitch expected";
-+    char *pitches = (char *)"ABCDEFG";
-     char *p;
+-    const char *msg = "Pitch expected";
+-    const char *pitches = "ABCDEFG";
++    const char *msg = (char *)"Pitch expected";
++    const char *pitches = (char *)"ABCDEFG";
+     const char *p;
      if (isdigit(field[1])) {
          // This routine would not have been called if field = "P<number>"
-         // so it must be "K<number>" so <number> must be an integer.
-         return parse_int(field);
--    } else if (p = strchr(pitches, toupper(field[1]))) {
-+    } else if ((p = strchr(pitches, toupper(field[1])))) {
-         long key = key_lookup[p - pitches];
-         key = parse_after_key(key, field, 2);
-         return key;
 @@ -629,7 +629,7 @@
          int oct = atoi(octave.c_str());
          return parse_after_key(key + oct * 12, field, last);
@@ -221,7 +192,7 @@
              }
              return !error_flag;
          }
-@@ -708,7 +708,7 @@
+@@ -706,7 +706,7 @@
              } else if (!period && s[pos] == '.') {
                  period = true;
              } else {
@@ -230,7 +201,7 @@
                  return false;
              }
              pos = pos + 1;
-@@ -729,7 +729,7 @@
+@@ -727,7 +727,7 @@
              }
          }
      } else {

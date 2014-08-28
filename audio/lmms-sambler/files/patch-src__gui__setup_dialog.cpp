@@ -1,5 +1,5 @@
---- src/gui/setup_dialog.cpp
-+++ src/gui/setup_dialog.cpp
+--- ./src/gui/setup_dialog.cpp.orig	2014-08-16 16:35:46.000000000 +0930
++++ ./src/gui/setup_dialog.cpp	2014-08-29 03:52:45.161454924 +0930
 @@ -60,6 +60,7 @@
  // platform-specific midi-interface-classes
  #include "MidiAlsaRaw.h"
@@ -8,7 +8,7 @@
  #include "MidiOss.h"
  #include "MidiWinMM.h"
  #include "MidiDummy.h"
-@@ -647,6 +648,11 @@ setupDialog::setupDialog( ConfigTabs _tab_to_open ) :
+@@ -672,6 +673,11 @@
  					new MidiAlsaRaw::setupWidget( msw );
  #endif
  
@@ -20,4 +20,3 @@
  #ifdef LMMS_HAVE_OSS
  	m_midiIfaceSetupWidgets[MidiOss::name()] =
  					new MidiOss::setupWidget( msw );
-

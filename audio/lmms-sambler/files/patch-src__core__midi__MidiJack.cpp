@@ -1,5 +1,5 @@
---- /dev/null
-+++ src/core/midi/MidiJack.cpp
+--- ./src/core/midi/MidiJack.cpp.orig	2014-08-29 03:52:45.159455396 +0930
++++ ./src/core/midi/MidiJack.cpp	2014-08-29 03:52:45.159455396 +0930
 @@ -0,0 +1,205 @@
 +/*
 + * MidiJack.cpp - Jack MIDI client
@@ -127,7 +127,7 @@
 +    return jid;
 +}
 +
-+void MidiJack::sendByte( const Uint8 _c )
++void MidiJack::sendByte( const uint8_t _c )
 +{
 +    //m_midiDev.putChar( _c );
 +}

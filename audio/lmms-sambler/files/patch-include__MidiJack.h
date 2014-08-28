@@ -1,6 +1,6 @@
---- /dev/null
-+++ include/MidiJack.h
-@@ -0,0 +1,100 @@
+--- ./include/MidiJack.h.orig	2014-08-29 05:37:23.573454824 +0930
++++ ./include/MidiJack.h	2014-08-29 05:37:23.573454824 +0930
+@@ -0,0 +1,101 @@
 +/*
 + * MidiJack.h - Jack MIDI client
 + *
@@ -31,6 +31,7 @@
 +#include "lmmsconfig.h"
 +
 +#ifdef LMMS_HAVE_JACK
++#include <sys/types.h>
 +#include <jack/jack.h>
 +#include <jack/midiport.h>
 +
@@ -77,7 +78,7 @@
 +
 +
 +protected:
-+    virtual void sendByte( const Uint8 _c );
++    virtual void sendByte( const uint8_t _c );
 +    virtual void run();
 +
 +

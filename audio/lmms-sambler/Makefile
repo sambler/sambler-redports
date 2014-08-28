@@ -2,16 +2,15 @@
 # $FreeBSD$
 
 PORTNAME=	lmms-sambler
-PORTVERSION=	0.4.15
+PORTVERSION=	1.0.93
 CATEGORIES=	audio
-MASTER_SITES=	SF/project/lmms
-DISTFILES=	lmms-${PORTVERSION}.tar.bz2
+MASTER_SITES=	GH
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	LMMS with my patches.
 
 LICENSE=	GPLv2
-CONFLICTS=	lmms-0.4.*
+CONFLICTS=	lmms-[01].* lmms-sambler-[01].*
 
 BUILD_DEPENDS=	${LOCALBASE}/include/ladspa.h:${PORTSDIR}/audio/ladspa
 LIB_DEPENDS=	libFLAC.so:${PORTSDIR}/audio/flac \
@@ -20,55 +19,46 @@ LIB_DEPENDS=	libFLAC.so:${PORTSDIR}/audio/flac \
 		libsndfile.so:${PORTSDIR}/audio/libsndfile \
 		libvorbis.so:${PORTSDIR}/audio/libvorbis \
 		libfftw3.so:${PORTSDIR}/math/fftw3 \
-		libfftw3f.so:${PORTSDIR}/math/fftw3-float
+		libfftw3f.so:${PORTSDIR}/math/fftw3-float \
+		libjack.so:${PORTSDIR}/audio/jack \
+		libportaudio.so.2:${PORTSDIR}/audio/portaudio2 \
+		libpulse.so:${PORTSDIR}/audio/pulseaudio
 RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/caps.rdf:${PORTSDIR}/audio/caps-plugins \
 		${LOCALBASE}/lib/ladspa/cmt.so:${PORTSDIR}/audio/cmt \
 		${LOCALBASE}/share/ladspa/rdf/swh-plugins.rdf:${PORTSDIR}/audio/swhplugins \
-		${LOCALBASE}/share/ladspa/rdf/tap-plugins.rdf:${PORTSDIR}/audio/tap-plugins
+		${LOCALBASE}/share/ladspa/rdf/tap-plugins.rdf:${PORTSDIR}/audio/tap-plugins \
+		update-mime-database:${PORTSDIR}/misc/shared-mime-info
 
-OPTIONS_DEFINE=	JACK PULSEAUDIO SDL
+USE_GITHUB=	yes
+GH_ACCOUNT=	lmms
+GH_PROJECT=	lmms
+GH_TAGNAME=	v1.0.93
+GH_COMMIT=	1b4b34d
 
 USE_LDCONFIG=	yes
 USE_XORG=	xft
+USE_SDL=	sdl
 USE_QT4=	corelib gui xml moc_build uic_build rcc_build qmake_build
 USES=		cmake pkgconfig tar:bzip2 desktop-file-utils shared-mime-info dos2unix
+DOS2UNIX_FILES=	plugins/midi_import/portsmf/allegrowr.cpp plugins/midi_import/portsmf/mfmidi.cpp
 CMAKE_ARGS=	-DWANT_ALSA:BOOL=OFF \
-		-DWANT_CALF:BOOL=OFF \
-		-DWANT_CAPS:BOOL=OFF \
-		-DWANT_CMT:BOOL=OFF \
-		-DWANT_SWH:BOOL=OFF \
+		-DWANT_CALF:BOOL=ON \
+		-DWANT_CAPS:BOOL=ON \
+		-DWANT_CMT:BOOL=ON \
+		-DWANT_SWH:BOOL=ON \
+		-DWANT_SF2:BOOL=ON \
 		-DWANT_STK:BOOL=OFF \
-		-DWANT_TAP:BOOL=OFF \
+		-DWANT_SWH:BOOL=ON \
+		-DWANT_TAP:BOOL=ON \
 		-DWANT_VST:BOOL=OFF \
-		-DHAVE_STRTOLL=ON
+		-DWANT_JACK:BOOL=ON \
+		-DWANT_PORTAUDIO:BOOL=ON \
+		-DWANT_PULSEAUDIO:BOOL=ON \
+		-DWANT_SDL:BOOL=ON
+LDFLAGS=	-L${LOCALBASE}/lib/portaudio2
 
-WRKSRC=		${WRKDIR}/lmms-${PORTVERSION}
+WRKSRC=		${WRKDIR}/LMMS-lmms-${GH_COMMIT}
 DATADIR=	${LOCALBASE}/share/lmms
-
-CFLAGS+=	-I${LOCALBASE}/include/freetype2
-CXXFLAGS+=	-I${LOCALBASE}/include/freetype2
-
-DOS2UNIX_FILES=	plugins/midi_import/portsmf/allegrowr.cpp plugins/midi_import/portsmf/mfmidi.cpp CMakeLists.txt
-
-.include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MJACK}
-LIB_DEPENDS+=	libjack.so:${PORTSDIR}/audio/jack
-.else
-CMAKE_ARGS+=	-DWANT_JACK:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MPULSEAUDIO}
-LIB_DEPENDS+=	libpulse.so:${PORTSDIR}/audio/pulseaudio
-.else
-CMAKE_ARGS+=	-DWANT_PULSEAUDIO:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MSDL}
-USE_SDL=	sdl
-.else
-CMAKE_ARGS+=	-DWANT_SDL:BOOL=OFF
-.endif
 
 post-patch:
 .for file in data/lmms.desktop
@@ -89,10 +79,9 @@ post-patch:
 post-install:
 	@${LN} -sf ${DATADIR}/themes/default/icon.png \
 		${STAGEDIR}${PREFIX}/share/pixmaps/lmms.png
-	##@-update-mime-database ${STAGEDIR}${PREFIX}/share/mime
+	@-update-mime-database ${STAGEDIR}${PREFIX}/share/mime
 	# make it setuid-root to be able to set realtime priority
 	# (root privileges are dropped in the main routine)
-	## gtkprevents this from working now
-        ## ${CHMOD} u+s ${STAGEDIR}${PREFIX}/bin/lmms
+	#${CHMOD} u+s ${STAGEDIR}${PREFIX}/bin/lmms
 
 .include <bsd.port.mk>

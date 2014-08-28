@@ -1,5 +1,5 @@
---- plugins/midi_import/portsmf/allegrowr.cpp.orig	2011-10-03 12:30:46.000000000 +0000
-+++ plugins/midi_import/portsmf/allegrowr.cpp	2011-10-03 12:30:46.000000000 +0000
+--- ./plugins/midi_import/portsmf/allegrowr.cpp.orig	2014-08-29 05:37:23.442454865 +0930
++++ ./plugins/midi_import/portsmf/allegrowr.cpp	2014-08-29 05:37:23.607455215 +0930
 @@ -41,7 +41,7 @@
          break;
      case 's': {

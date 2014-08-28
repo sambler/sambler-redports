@@ -1,5 +1,5 @@
---- plugins/organic/organic.cpp	2011-07-02 13:14:01.000000000 +0000
-+++ plugins/organic/organic.cpp.new	2011-09-28 09:55:59.000000000 +0000
+--- ./plugins/organic/organic.cpp.orig	2014-08-16 16:35:46.000000000 +0930
++++ ./plugins/organic/organic.cpp	2014-08-29 05:37:23.610454732 +0930
 @@ -41,6 +41,9 @@
  
  #include "embed.cpp"
@@ -8,5 +8,5 @@
 +#define log2f(x) (logf(x) / logf(2))
 +#endif
  
- extern "C"
- {
+ 
+ 

@@ -1,6 +1,6 @@
---- src/core/mixer.cpp
-+++ src/core/mixer.cpp
-@@ -52,6 +52,7 @@
+--- ./src/core/Mixer.cpp.orig	2014-08-16 16:35:46.000000000 +0930
++++ ./src/core/Mixer.cpp	2014-08-29 03:52:45.156454776 +0930
+@@ -53,6 +53,7 @@
  // platform-specific midi-interface-classes
  #include "MidiAlsaRaw.h"
  #include "MidiAlsaSeq.h"
@@ -8,7 +8,7 @@
  #include "MidiOss.h"
  #include "MidiWinMM.h"
  #include "MidiDummy.h"
-@@ -1129,6 +1130,19 @@
+@@ -858,6 +859,19 @@
  	}
  #endif
  
@@ -28,4 +28,3 @@
  #ifdef LMMS_HAVE_OSS
  	if( client_name == MidiOss::name() || client_name == "" )
  	{
-
