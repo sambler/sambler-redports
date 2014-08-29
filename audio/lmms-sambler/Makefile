@@ -10,7 +10,7 @@ MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	LMMS with my patches.
 
 LICENSE=	GPLv2
-CONFLICTS=	lmms-[01].* lmms-sambler-[01].*
+CONFLICTS=	lmms-[01].*
 
 BUILD_DEPENDS=	${LOCALBASE}/include/ladspa.h:${PORTSDIR}/audio/ladspa
 LIB_DEPENDS=	libFLAC.so:${PORTSDIR}/audio/flac \
@@ -22,7 +22,8 @@ LIB_DEPENDS=	libFLAC.so:${PORTSDIR}/audio/flac \
 		libfftw3f.so:${PORTSDIR}/math/fftw3-float \
 		libjack.so:${PORTSDIR}/audio/jack \
 		libportaudio.so.2:${PORTSDIR}/audio/portaudio2 \
-		libpulse.so:${PORTSDIR}/audio/pulseaudio
+		libpulse.so:${PORTSDIR}/audio/pulseaudio \
+		libfltk.so:${PORTSDIR}/x11-toolkits/fltk
 RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/caps.rdf:${PORTSDIR}/audio/caps-plugins \
 		${LOCALBASE}/lib/ladspa/cmt.so:${PORTSDIR}/audio/cmt \
 		${LOCALBASE}/share/ladspa/rdf/swh-plugins.rdf:${PORTSDIR}/audio/swhplugins \
