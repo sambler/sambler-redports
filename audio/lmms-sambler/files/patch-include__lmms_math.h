@@ -5,7 +5,7 @@
  #include <math.h>
  
 -#if defined (LMMS_BUILD_WIN32) || defined (LMMS_BUILD_APPLE) 
-+#if defined (__FreeBSD__) 
++#if defined (LMMS_BUILD_WIN32) || defined (LMMS_BUILD_APPLE) || defined (__FreeBSD__)
  #ifndef isnanf
  #define isnanf(x)	isnan(x)
  #endif

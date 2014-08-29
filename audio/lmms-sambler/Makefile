@@ -27,8 +27,7 @@ LIB_DEPENDS=	libFLAC.so:${PORTSDIR}/audio/flac \
 RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/caps.rdf:${PORTSDIR}/audio/caps-plugins \
 		${LOCALBASE}/lib/ladspa/cmt.so:${PORTSDIR}/audio/cmt \
 		${LOCALBASE}/share/ladspa/rdf/swh-plugins.rdf:${PORTSDIR}/audio/swhplugins \
-		${LOCALBASE}/share/ladspa/rdf/tap-plugins.rdf:${PORTSDIR}/audio/tap-plugins \
-		update-mime-database:${PORTSDIR}/misc/shared-mime-info
+		${LOCALBASE}/share/ladspa/rdf/tap-plugins.rdf:${PORTSDIR}/audio/tap-plugins
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	lmms
@@ -46,7 +45,6 @@ CMAKE_ARGS=	-DWANT_ALSA:BOOL=OFF \
 		-DWANT_CALF:BOOL=ON \
 		-DWANT_CAPS:BOOL=ON \
 		-DWANT_CMT:BOOL=ON \
-		-DWANT_SWH:BOOL=ON \
 		-DWANT_SF2:BOOL=ON \
 		-DWANT_STK:BOOL=OFF \
 		-DWANT_SWH:BOOL=ON \
