@@ -15,14 +15,15 @@ CONFLICTS=	lmms-[01].*
 BUILD_DEPENDS=	${LOCALBASE}/include/ladspa.h:${PORTSDIR}/audio/ladspa
 LIB_DEPENDS=	libFLAC.so:${PORTSDIR}/audio/flac \
 		libfluidsynth.so:${PORTSDIR}/audio/fluidsynth \
+		libjack.so:${PORTSDIR}/audio/jack \
 		libsamplerate.so:${PORTSDIR}/audio/libsamplerate \
 		libsndfile.so:${PORTSDIR}/audio/libsndfile \
 		libvorbis.so:${PORTSDIR}/audio/libvorbis \
-		libfftw3.so:${PORTSDIR}/math/fftw3 \
-		libfftw3f.so:${PORTSDIR}/math/fftw3-float \
-		libjack.so:${PORTSDIR}/audio/jack \
 		libportaudio.so.2:${PORTSDIR}/audio/portaudio2 \
 		libpulse.so:${PORTSDIR}/audio/pulseaudio \
+		libstk.so:${PORTSDIR}/audio/stk \
+		libfftw3.so:${PORTSDIR}/math/fftw3 \
+		libfftw3f.so:${PORTSDIR}/math/fftw3-float \
 		libfltk.so:${PORTSDIR}/x11-toolkits/fltk
 RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/caps.rdf:${PORTSDIR}/audio/caps-plugins \
 		${LOCALBASE}/lib/ladspa/cmt.so:${PORTSDIR}/audio/cmt \
@@ -46,7 +47,7 @@ CMAKE_ARGS=	-DWANT_ALSA:BOOL=OFF \
 		-DWANT_CAPS:BOOL=ON \
 		-DWANT_CMT:BOOL=ON \
 		-DWANT_SF2:BOOL=ON \
-		-DWANT_STK:BOOL=OFF \
+		-DWANT_STK:BOOL=ON \
 		-DWANT_SWH:BOOL=ON \
 		-DWANT_TAP:BOOL=ON \
 		-DWANT_VST:BOOL=OFF \

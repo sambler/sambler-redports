@@ -326,6 +326,7 @@ lib/lmms/libkicker.so
 lib/lmms/libladspabrowser.so
 lib/lmms/libladspaeffect.so
 lib/lmms/liblb302.so
+lib/lmms/libmalletsstk.so
 lib/lmms/libmidiimport.so
 lib/lmms/libmonstro.so
 lib/lmms/libnes.so
