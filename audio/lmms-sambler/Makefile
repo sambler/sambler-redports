@@ -40,10 +40,13 @@ USE_LDCONFIG=	yes
 USE_XORG=	xft
 USE_SDL=	sdl
 USE_QT4=	corelib gui xml moc_build uic_build rcc_build qmake_build
-USES=		cmake pkgconfig tar:bzip2 desktop-file-utils shared-mime-info dos2unix
+USES=		cmake pkgconfig tar:bzip2 desktop-file-utils shared-mime-info \
+		dos2unix compiler:c++0x
 DOS2UNIX_FILES=	plugins/midi_import/portsmf/allegrowr.cpp plugins/midi_import/portsmf/mfmidi.cpp
+# calf only compiles under some configurations
+# disable until we can get consistancy 
 CMAKE_ARGS=	-DWANT_ALSA:BOOL=OFF \
-		-DWANT_CALF:BOOL=ON \
+		-DWANT_CALF:BOOL=OFF \
 		-DWANT_CAPS:BOOL=ON \
 		-DWANT_CMT:BOOL=ON \
 		-DWANT_SF2:BOOL=ON \
