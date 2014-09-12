@@ -47,7 +47,7 @@ include/hydrogen/smf/SMFEvent.h
 include/hydrogen/synth/Synth.h
 include/hydrogen/timehelper.h
 include/hydrogen/version.h
-lib/libhydrogen-core-0.9.6.so
+lib/libhydrogen-core-0.9.6.1.so
 share/applications/hydrogen.desktop
 %%DATADIR%%/data/click.wav
 %%DATADIR%%/data/DefaultSong.h2song
