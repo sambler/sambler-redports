@@ -20,7 +20,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	hydrogen-music
 GH_PROJECT=	hydrogen
 GH_TAGNAME=	0.9.6
-GH_COMMIT=	9a93777
+GH_COMMIT=	71ec7c5
 
 MAJORVERSION=	0.9.6
 USE_QT4=	corelib gui qmake_build linguist_build moc_build network \
