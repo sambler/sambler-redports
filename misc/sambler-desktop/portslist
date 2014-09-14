@@ -305,6 +305,7 @@ RUN_DEPENDS+=	dialog4ports:${PORTSDIR}/ports-mgmt/dialog4ports
 RUN_DEPENDS+=	fbsdmon:${PORTSDIR}/ports-mgmt/fbsdmon
 #RUN_DEPENDS+=	pkg:${PORTSDIR}/ports-mgmt/pkg
 RUN_DEPENDS+=	portlint:${PORTSDIR}/ports-mgmt/portlint
+RUN_DEPENDS+=   poudriere>=0:${PORTSDIR}/ports-mgmt/poudriere
 RUN_DEPENDS+=	tinderbox>=0:${PORTSDIR}/ports-mgmt/tinderbox
 
 # print
