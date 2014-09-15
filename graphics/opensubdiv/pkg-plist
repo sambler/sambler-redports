@@ -99,10 +99,10 @@ include/opensubdiv/osdutil/uniformEvaluator.h
 include/opensubdiv/version.h
 lib/libosdCPU.a
 lib/libosdCPU.so
-lib/libosdCPU.so.2.4.1
+lib/libosdCPU.so.2.5.1
 lib/libosdGPU.a
 lib/libosdGPU.so
-lib/libosdGPU.so.2.4.1
+lib/libosdGPU.so.2.5.1
 lib/libosdutil.a
 %%PYTHON%%%%PYTHON_SITELIBDIR%%/osd/__init__.py
 %%PYTHON%%%%PYTHON_SITELIBDIR%%/osd/_shim.so

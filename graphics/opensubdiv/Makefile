@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	opensubdiv
-PORTVERSION=	2.4.1
+PORTVERSION=	2.5.1
 CATEGORIES?=	graphics
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -16,10 +16,10 @@ LIB_DEPENDS=	libtbb.so:${PORTSDIR}/devel/tbb
 USE_GITHUB=	yes
 GH_ACCOUNT=	PixarAnimationStudios
 GH_PROJECT=	OpenSubdiv
-#GH_TAGNAME=	v2_4_1
-#GH_COMMIT=	afce662
-GH_TAGNAME=	${GH_COMMIT}
-GH_COMMIT=	46baf7a
+GH_TAGNAME=	v2_5_1
+GH_COMMIT=	ab3ce52
+#GH_TAGNAME=	${GH_COMMIT}
+#GH_COMMIT=	3675bc3
 
 # use gcc for openmp
 USE_GCC=	yes
@@ -46,6 +46,7 @@ EXAMPLES_CMAKE_OFF=	-DNO_EXAMPLES:BOOL=ON
 
 PYTHON_CMAKE_ON=	-DNO_PYTHON:BOOL=OFF
 PYTHON_CMAKE_OFF=	-DNO_PYTHON:BOOL=ON
+PYTHON_USES=		python:2.7
 PYTHON_BUILD_DEPENDS=	swig:${PORTSDIR}/devel/swig13 \
 			${PYTHON_PKGNAMEPREFIX}numpy>=0:${PORTSDIR}/math/py-numpy
 PYTHON_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}numpy>=0:${PORTSDIR}/math/py-numpy
@@ -56,10 +57,6 @@ TEST_CMAKE_OFF=		-DNO_REGRESSION:BOOL=ON
 PYSCRIPTS=__init__.py adapters.py common.py shim.py subdivider.py topology.py
 
 .include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MPYTHON}
-USE_PYTHON=	2.7
-.endif
 
 post-install:
 .if ${PORT_OPTIONS:MPYTHON}
