@@ -19,6 +19,6 @@ GH_TAGNAME=	v${PORTVERSION}
 GH_COMMIT=	d384d34
 
 USES+=		python:3
-PYTHON_FEATURES=distutils autoplist concurrent
+USE_PYTHON=	distutils autoplist concurrent
 
 .include <bsd.port.mk>
