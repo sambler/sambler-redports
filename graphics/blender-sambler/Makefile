@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.71
-PORTREVISION=	5
+PORTREVISION=	6
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -52,7 +52,7 @@ RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	1c95987
+GH_COMMIT=	1b64775
 
 FETCH_ARGS=	-pRr
 
@@ -67,7 +67,8 @@ python_CMD=	${PYTHON_CMD}
 SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		release/scripts/modules/bl_i18n_utils/merge_po.py \
 		release/scripts/modules/bl_i18n_utils/utils_rtl.py \
-		release/scripts/modules/blend_render_info.py
+		release/scripts/modules/blend_render_info.py \
+		doc/manpage/blender.1.py
 
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu
@@ -110,7 +111,6 @@ OPTIONS_DEFINE=	COLLADA HEADLESS SECURITY PLAYER JACK NLS OSL
 ## NDOF
 OPTIONS_DEFAULT=	COLLADA PLAYER SECURITY NLS OSL
 
-OPTIONS_SUB=	yes
 HEADLESS_DESC=	"Disable user interface"
 SECURITY_DESC=	"Disable scripts auto-run"
 PLAYER_DESC=	"Build blender player"
@@ -147,7 +147,7 @@ NLS_LDFLAGS=		-L${LOCALBASE}/lib -lintl
 OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DWITH_LLVM:BOOL=ON \
 			-DLLVM_STATIC:BOOL=ON \
-			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33"
+			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
 OSL_LIB_DEPENDS=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
 
@@ -167,9 +167,9 @@ BROKEN= Fails to build on 8.x
 .if ${COMPILER_TYPE:Mgcc} && ${PORT_OPTIONS:MOSL}
 # we have linking issues using gcc
 # clang33 is used by osl so use it here
-BUILD_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
-CMAKE_ARGS+=	-DCMAKE_C_COMPILER:STRING=${LOCALBASE}/bin/clang33
-CMAKE_ARGS+=	-DCMAKE_CXX_COMPILER:STRING=${LOCALBASE}/bin/clang++33
+BUILD_DEPENDS+=	clang34:${PORTSDIR}/lang/clang34
+CMAKE_ARGS+=	-DCMAKE_C_COMPILER:STRING=${LOCALBASE}/bin/clang34
+CMAKE_ARGS+=	-DCMAKE_CXX_COMPILER:STRING=${LOCALBASE}/bin/clang++34
 .endif #gcc
 
 post-patch:
