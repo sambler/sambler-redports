@@ -45,7 +45,7 @@ CMAKE_ARGS+=	-DFREETYPE_INC:STRING=${LOCALBASE}/include/freetype2
 CMAKE_ARGS+=	-DWITH_GAMEENGINE:BOOL=ON
 CMAKE_ARGS+=	-DWITH_KETSJI:BOOL=ON -DWITH_OPENAL:BOOL=ON
 CMAKE_ARGS+=	-DWITH_OPENEXR:BOOL=ON -DWITH_OPENJPEG:BOOL=ON
-CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=ON -DWITH_QUICKTIME:BOOL=OFF
+CMAKE_ARGS+=	-DWITH_OPENMP:BOOL=OFF -DWITH_QUICKTIME:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_VERSE:BOOL=OFF -DWITH_WEBPLUGIN:BOOL=OFF
 
 SUB_FILES=	blender blenderplayer
@@ -78,6 +78,8 @@ PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
 SECURITY_CMAKE_ON=	-DWITH_PYTHON_SECURITY:BOOL=ON
 SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 
+OUTDIR=		${WRKSRC}/bin
+
 .include <bsd.port.options.mk>
 
 do-install:
@@ -85,18 +87,26 @@ do-install:
 	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${STAGEDIR}/${PREFIX}/bin/blender-${VERS_TAG}
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
 		${STAGEDIR}/${PREFIX}/bin/blender-bin-${VERS_TAG}
+	@${ECHO} bin/blender-${VERS_TAG} >> ${TMPPLIST}
+	@${ECHO} bin/blender-bin-${VERS_TAG} >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MPLAYER}
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blenderplayer
 	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${STAGEDIR}/${PREFIX}/bin/blenderplayer-${VERS_TAG}
 	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blenderplayer \
 		${STAGEDIR}/${PREFIX}/bin/blenderplayer-bin-${VERS_TAG}
+	@${ECHO} bin/blenderplayer-${VERS_TAG} >> ${TMPPLIST}
+	@${ECHO} bin/blenderplayer-bin-${VERS_TAG} >> ${TMPPLIST}
 .endif
 
 	@${MKDIR} ${STAGEDIR}/${DATADIR}
 	@${CP} -R ${WRKSRC}/release/scripts ${STAGEDIR}/${DATADIR}
 	@${INSTALL_DATA} ${WRKSRC}/bin/.blender/.Blanguages ${STAGEDIR}/${DATADIR}
 	@${INSTALL_DATA} ${WRKSRC}/bin/.blender/.bfont.ttf ${STAGEDIR}/${DATADIR}
+	@${ECHO} ${DATADIR_REL}/.Blanguages >> ${TMPPLIST}
+	@${ECHO} ${DATADIR_REL}/.bfont.ttf >> ${TMPPLIST}
+	@(cd ${WRKSRC}/release; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${WRKSRC}/release; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dir ${DATADIR_REL}/|" >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MNLS}
 .for ii in ${LANG}
@@ -105,6 +115,8 @@ do-install:
 		${WRKSRC}/bin/.blender/locale/${ii}/LC_MESSAGES/blender.mo \
 		${STAGEDIR}/${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
 .endfor
+	@(cd ${OUTDIR}/.blender; ${FIND} locale -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/datafiles/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}/.blender; ${FIND} locale -type d) | ${SORT} -r | ${SED} "s|^|@dir ${DATADIR_REL}/datafiles/|" >> ${TMPPLIST}
 .endif
 
 .include <bsd.port.mk>
