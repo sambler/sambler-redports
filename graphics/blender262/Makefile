@@ -30,7 +30,7 @@ LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 
 USES=		cmake:outsource shebangfix desktop-file-utils openal:al,alut
-USES+=		python:3.2
+USES+=		python:3.2 shared-mime-info
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 VERS_TAG=	262
 
@@ -61,7 +61,7 @@ CMAKE_ARGS+=	-DWITH_MOD_CLOTH_ELTOPO:BOOL=OFF -DWITH_MOD_DECIMATE=ON
 CMAKE_ARGS+=	-DWITH_MOD_FLUID:BOOL=ON
 CMAKE_ARGS+=	-DWITH_MOD_OCEANSIM:BOOL=ON -DWITH_MOD_REMESH:BOOL=ON
 CMAKE_ARGS+=	-DWITH_MOD_SMOKE:BOOL=ON -DWITH_OPENAL:BOOL=ON
-CMAKE_ARGS+=	-DWITH_OPENCOLLADA:BOOL=OFF -DWITH_OPENMP:BOOL=ON
+CMAKE_ARGS+=	-DWITH_OPENCOLLADA:BOOL=OFF -DWITH_OPENMP:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_INPUT_NDOF:BOOL=OFF -DWITH_PYTHON:BOOL=ON
 CMAKE_ARGS+=	-DWITH_PYTHON_INSTALL:BOOL=OFF -DWITH_PYTHON_MODULE:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_PYTHON_SAFETY:BOOL=OFF
@@ -71,7 +71,8 @@ CMAKE_ARGS+=	-DWITH_X11_XF86VMODE:BOOL=ON -DWITH_X11_XINPUT:BOOL=ON
 SUB_FILES=	blender blenderplayer
 python_CMD=	${PYTHON_CMD}
 SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
-		release/scripts/modules/blend_render_info.py
+		release/scripts/modules/blend_render_info.py \
+		doc/manpage/blender.1.py
 
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.62
 
@@ -151,18 +152,18 @@ post-install:
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
 		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
 	@(cd ${OUTDIR}; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dir ${DATADIR_REL}/|" >> ${TMPPLIST}
 	@${ECHO} share/pixmaps/blender-${VERS_TAG}.svg >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MNLS}
 	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/locale ${STAGEDIR}/${DATADIR}/
 	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
 	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dir ${DATADIR_REL}/|" >> ${TMPPLIST}
 
 	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/fonts ${STAGEDIR}/${DATADIR}/
 	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dir ${DATADIR_REL}/|" >> ${TMPPLIST}
 .endif
 
 	@${MKDIR} ${STAGEDIR}/${DESKTOPDIR}
