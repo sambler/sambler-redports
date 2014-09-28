@@ -107,7 +107,7 @@ CMAKE_ARGS+=	-DWITH_STATIC_LIBS:BOOL=OFF -DWITH_SYSTEM_BULLET:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_SYSTEM_GLEW:BOOL=ON -DWITH_SYSTEM_OPENJPEG:BOOL=ON
 CMAKE_ARGS+=	-DWITH_X11_XF86VMODE:BOOL=ON -DWITH_X11_XINPUT:BOOL=ON
 
-OPTIONS_DEFINE=	COLLADA HEADLESS SECURITY PLAYER JACK NLS OSL
+OPTIONS_DEFINE=	COLLADA HEADLESS SECURITY PLAYER JACK NLS OSL OPENMP
 ## NDOF
 OPTIONS_DEFAULT=	COLLADA PLAYER SECURITY NLS OSL
 
@@ -144,6 +144,9 @@ NLS_CMAKE_OFF=		-DWITH_INTERNATIONAL:BOOL=OFF
 NLS_USES=		gettext iconv:lib,wchar_t
 NLS_LDFLAGS=		-L${LOCALBASE}/lib -lintl
 
+OPENMP_CMAKE_ON=	-DWITH_OPENMP:BOOL=ON
+OPENMP_CMAKE_OFF=	-DWITH_OPENMP:BOOL=OFF
+
 OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DWITH_LLVM:BOOL=ON \
 			-DLLVM_STATIC:BOOL=ON \
@@ -166,7 +169,7 @@ BROKEN= Fails to build on 8.x
 
 .if ${COMPILER_TYPE:Mgcc} && ${PORT_OPTIONS:MOSL}
 # we have linking issues using gcc
-# clang33 is used by osl so use it here
+# clang34 is used by osl so use it here
 BUILD_DEPENDS+=	clang34:${PORTSDIR}/lang/clang34
 CMAKE_ARGS+=	-DCMAKE_C_COMPILER:STRING=${LOCALBASE}/bin/clang34
 CMAKE_ARGS+=	-DCMAKE_CXX_COMPILER:STRING=${LOCALBASE}/bin/clang++34
@@ -222,22 +225,22 @@ post-install:
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
 		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
 	@(cd ${OUTDIR}; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dir ${DATADIR_REL}/|" >> ${TMPPLIST}
 	@${ECHO} share/pixmaps/blender-${VERS_TAG}.svg >> ${TMPPLIST}
 
 	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/colormanagement ${STAGEDIR}/${DATADIR}
 	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type d) | ${SORT} -r | ${SED} "s|^|@dir ${DATADIR_REL}/|" >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MNLS}
 	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/locale ${STAGEDIR}/${DATADIR}/
 	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
 	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dir ${DATADIR_REL}/|" >> ${TMPPLIST}
 
 	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/fonts ${STAGEDIR}/${DATADIR}/
 	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dir ${DATADIR_REL}/|" >> ${TMPPLIST}
 .endif
 
 	@${MKDIR} ${STAGEDIR}/${DESKTOPDIR}
@@ -246,8 +249,8 @@ post-install:
 	@-update-desktop-database -q
 	@${ECHO} share/applications/${PORTNAME}.desktop >> ${TMPPLIST}
 
-	@${ECHO} @dirrm ${DATADIR_REL}/datafiles >> ${TMPPLIST}
-	@${ECHO} @dirrm ${DATADIR_REL} >> ${TMPPLIST}
+	@${ECHO} @dir ${DATADIR_REL}/datafiles >> ${TMPPLIST}
+	@${ECHO} @dir ${DATADIR_REL} >> ${TMPPLIST}
 
 .if !defined(NO_INSTALL_MANPAGES)
 	@cd ${INSTALL_WRKSRC}/bin/ && ${PYTHON_CMD} ${WRKSRC}/doc/manpage/blender.1.py ./blender ./blender-${VERS_TAG}.1

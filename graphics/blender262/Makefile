@@ -175,8 +175,8 @@ post-install:
 	@-update-desktop-database -q
 	@${ECHO} share/applications/${PORTNAME}.desktop >> ${TMPPLIST}
 
-	@${ECHO} @dirrm ${DATADIR_REL}/datafiles >> ${TMPPLIST}
-	@${ECHO} @dirrm ${DATADIR_REL} >> ${TMPPLIST}
+	@${ECHO} @dir ${DATADIR_REL}/datafiles >> ${TMPPLIST}
+	@${ECHO} @dir ${DATADIR_REL} >> ${TMPPLIST}
 
 .if !defined(NO_INSTALL_MANPAGES)
 	@${MV} ${INSTALL_WRKSRC}/bin/blender.1 ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1

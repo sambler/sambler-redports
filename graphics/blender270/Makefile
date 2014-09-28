@@ -78,9 +78,10 @@ python_CMD=	${PYTHON_CMD}
 SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		release/scripts/modules/bl_i18n_utils/merge_po.py \
 		release/scripts/modules/bl_i18n_utils/utils_rtl.py \
-		release/scripts/modules/blend_render_info.py
+		release/scripts/modules/blend_render_info.py \
+		doc/manpage/blender.1.py
 
-OPTIONS_DEFINE=	COLLADA HEADLESS SECURITY PLAYER JACK NLS OSL
+OPTIONS_DEFINE=	COLLADA HEADLESS SECURITY PLAYER JACK NLS OSL OPENMP
 OPTIONS_DEFAULT=	COLLADA SECURITY PLAYER NLS OSL JACK
 
 OPTIONS_SUB=	yes
@@ -110,6 +111,9 @@ NLS_CMAKE_OFF=		-DWITH_INTERNATIONAL:BOOL=OFF
 # iconv_open in 10.x+
 NLS_USES=		gettext iconv:lib,wchar_t
 NLS_LDFLAGS=		-L${LOCALBASE}/lib -lintl
+
+OPENMP_CMAKE_ON=	-DWITH_OPENMP:BOOL=ON
+OPENMP_CMAKE_OFF=	-DWITH_OPENMP:BOOL=OFF
 
 OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DWITH_LLVM:BOOL=ON \
@@ -201,22 +205,22 @@ post-install:
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
 		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
 	@(cd ${OUTDIR}; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dir ${DATADIR_REL}/|" >> ${TMPPLIST}
 	@${ECHO} share/pixmaps/blender-${VERS_TAG}.svg >> ${TMPPLIST}
 
 	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/colormanagement ${STAGEDIR}/${DATADIR}
 	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type d) | ${SORT} -r | ${SED} "s|^|@dir ${DATADIR_REL}/|" >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MNLS}
 	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/locale ${STAGEDIR}/${DATADIR}/
 	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
 	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type d) | ${SORT} -r | ${SED} "s|^|@dir ${DATADIR_REL}/|" >> ${TMPPLIST}
 
 	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/fonts ${STAGEDIR}/${DATADIR}/
 	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dirrm ${DATADIR_REL}/|" >> ${TMPPLIST}
+	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type d) | ${SORT} -r | ${SED} "s|^|@dir ${DATADIR_REL}/|" >> ${TMPPLIST}
 .endif
 
 	@${MKDIR} ${STAGEDIR}/${DESKTOPDIR}
@@ -225,8 +229,8 @@ post-install:
 	@-update-desktop-database -q
 	@${ECHO} share/applications/${PORTNAME}.desktop >> ${TMPPLIST}
 
-	@${ECHO} @dirrm ${DATADIR_REL}/datafiles >> ${TMPPLIST}
-	@${ECHO} @dirrm ${DATADIR_REL} >> ${TMPPLIST}
+	@${ECHO} @dir ${DATADIR_REL}/datafiles >> ${TMPPLIST}
+	@${ECHO} @dir ${DATADIR_REL} >> ${TMPPLIST}
 
 .if !defined(NO_INSTALL_MANPAGES)
 	@${MV} ${INSTALL_WRKSRC}/bin/blender.1 ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1
