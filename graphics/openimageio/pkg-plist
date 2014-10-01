@@ -31,6 +31,7 @@ include/OpenImageIO/imageio.h
 include/OpenImageIO/optparser.h
 include/OpenImageIO/osdep.h
 include/OpenImageIO/paramlist.h
+include/OpenImageIO/platform.h
 include/OpenImageIO/plugin.h
 include/OpenImageIO/refcnt.h
 include/OpenImageIO/strutil.h
@@ -49,13 +50,13 @@ include/OpenImageIO/version.h
 lib/libOpenImageIO.so
 lib/libOpenImageIO.so.1
 lib/libOpenImageIO.so.1.4
-lib/libOpenImageIO.so.1.4.12
+lib/libOpenImageIO.so.1.4.13
 lib/libOpenImageIO_Util.so
 lib/libOpenImageIO_Util.so.1
 lib/libOpenImageIO_Util.so.1.4
-lib/libOpenImageIO_Util.so.1.4.12
+lib/libOpenImageIO_Util.so.1.4.13
 %%PORTDOCS%%%%DOCSDIR%%/CHANGES
 %%PORTDOCS%%%%DOCSDIR%%/LICENSE
 %%PORTDOCS%%%%DOCSDIR%%/openimageio.pdf
-%%PORTDOCS%%@dirrm %%DOCSDIR%%
-@dirrm include/OpenImageIO
+%%PORTDOCS%%@dir %%DOCSDIR%%
+@dir include/OpenImageIO
