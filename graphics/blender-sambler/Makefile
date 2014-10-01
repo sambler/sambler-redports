@@ -149,7 +149,8 @@ OPENMP_CMAKE_OFF=	-DWITH_OPENMP:BOOL=OFF
 
 OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DWITH_LLVM:BOOL=ON \
-			-DLLVM_STATIC:BOOL=ON \
+			-DLLVM_STATIC:BOOL=OFF \
+			-DLLVM_VERSION:STRING="3.4" \
 			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
 OSL_LIB_DEPENDS=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
@@ -252,11 +253,11 @@ post-install:
 	@${ECHO} @dir ${DATADIR_REL}/datafiles >> ${TMPPLIST}
 	@${ECHO} @dir ${DATADIR_REL} >> ${TMPPLIST}
 
-.if !defined(NO_INSTALL_MANPAGES)
-	@cd ${INSTALL_WRKSRC}/bin/ && ${PYTHON_CMD} ${WRKSRC}/doc/manpage/blender.1.py ./blender ./blender-${VERS_TAG}.1
-	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
-		${STAGEDIR}${MAN1PREFIX}/man/man1
-	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
-.endif
+#.if !defined(NO_INSTALL_MANPAGES)
+#	@cd ${INSTALL_WRKSRC}/bin/ && ${PYTHON_CMD} ${WRKSRC}/doc/manpage/blender.1.py ./blender ./blender-${VERS_TAG}.1
+#	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
+#		${STAGEDIR}${MAN1PREFIX}/man/man1
+#	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
+#.endif
 
 .include <bsd.port.post.mk>
