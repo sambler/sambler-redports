@@ -164,17 +164,17 @@ SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 # we use pre so we can use COMPILER_TYPE
 .include <bsd.port.pre.mk>
 
-.if ${OSVERSION} < 900000
-BROKEN= Fails to build on 8.x
-.endif
+#.if ${OSVERSION} < 900000
+#BROKEN= Fails to build on 8.x
+#.endif
 
-.if ${COMPILER_TYPE:Mgcc} && ${PORT_OPTIONS:MOSL}
+#.if ${COMPILER_TYPE:Mgcc} && ${PORT_OPTIONS:MOSL}
 # we have linking issues using gcc
 # clang34 is used by osl so use it here
-BUILD_DEPENDS+=	clang34:${PORTSDIR}/lang/clang34
-CMAKE_ARGS+=	-DCMAKE_C_COMPILER:STRING=${LOCALBASE}/bin/clang34
-CMAKE_ARGS+=	-DCMAKE_CXX_COMPILER:STRING=${LOCALBASE}/bin/clang++34
-.endif #gcc
+#BUILD_DEPENDS+=	clang34:${PORTSDIR}/lang/clang34
+#CMAKE_ARGS+=	-DCMAKE_C_COMPILER:STRING=${LOCALBASE}/bin/clang34
+#CMAKE_ARGS+=	-DCMAKE_CXX_COMPILER:STRING=${LOCALBASE}/bin/clang++34
+#.endif #gcc
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \

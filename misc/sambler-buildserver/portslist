@@ -7,6 +7,7 @@ RUN_DEPENDS+=	postgresql93-client>=0:${PORTSDIR}/databases/postgresql93-client
 RUN_DEPENDS+=	postgresql93-server>=0:${PORTSDIR}/databases/postgresql93-server
 
 # devel
+RUN_DEPENDS+=   fmake:${PORTSDIR}/devel/fmake
 RUN_DEPENDS+=	git:${PORTSDIR}/devel/git
 RUN_DEPENDS+=	svn:${PORTSDIR}/devel/subversion
 
@@ -30,6 +31,7 @@ RUN_DEPENDS+=	rsync:${PORTSDIR}/net/rsync
 # ports-mgmt
 RUN_DEPENDS+=	dialog4ports:${PORTSDIR}/ports-mgmt/dialog4ports
 RUN_DEPENDS+=	fbsdmon:${PORTSDIR}/ports-mgmt/fbsdmon
+RUN_DEPENDS+=   poudriere:${PORTSDIR}/ports-mgmt/poudriere
 RUN_DEPENDS+=	tinderbox>=0:${PORTSDIR}/ports-mgmt/tinderbox
 
 # security

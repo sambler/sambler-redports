@@ -13,8 +13,7 @@ LICENSE=	GPLv2
 
 CONFLICTS=	hydrogen-devel-0.*
 
-LIB_DEPENDS+=	libsndfile.so:${PORTSDIR}/audio/libsndfile \
-		libarchive.so:${PORTSDIR}/archivers/libarchive
+LIB_DEPENDS+=	libsndfile.so:${PORTSDIR}/audio/libsndfile
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hydrogen-music

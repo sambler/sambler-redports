@@ -11,7 +11,6 @@ MAINTAINER=	FreeBSD@ShaneWare.Biz
 COMMENT=	Advanced drum machine
 
 LICENSE=	GPLv2
-LICENSE_FILE=	${WRKSRC}/COPYING
 
 CONFLICTS=	hydrogen-0.*
 

@@ -25,7 +25,7 @@ RUN_DEPENDS+=	calfjackhost:${PORTSDIR}/audio/calf
 RUN_DEPENDS+=	gmidimonitor:${PORTSDIR}/audio/gmidimonitor
 RUN_DEPENDS+=	gtkguitune:${PORTSDIR}/audio/gtkguitune
 RUN_DEPENDS+=	hexter>=0:${PORTSDIR}/audio/hexter
-RUN_DEPENDS+=	hydrogen:${PORTSDIR}/audio/hydrogen-devel
+RUN_DEPENDS+=	hydrogen:${PORTSDIR}/audio/hydrogen
 RUN_DEPENDS+=	jack-keyboard:${PORTSDIR}/audio/jack-keyboard
 RUN_DEPENDS+=	jack-rack:${PORTSDIR}/audio/jack-rack
 RUN_DEPENDS+=	jack_mixer:${PORTSDIR}/audio/jack_mixer
@@ -56,7 +56,6 @@ RUN_DEPENDS+=	zynaddsubfx:${PORTSDIR}/audio/zynaddsubfx
 RUN_DEPENDS+=	ideviceinfo:${PORTSDIR}/comms/libimobiledevice
 
 # database
-RUN_DEPENDS+=	db46>=0:${PORTSDIR}/databases/db46
 RUN_DEPENDS+=	libdbi-drivers>=0:${PORTSDIR}/databases/libdbi-drivers
 RUN_DEPENDS+=	libgda4-postgresql>=0:${PORTSDIR}/databases/libgda4-postgresql
 LIB_DEPENDS+=	libgdamm-4.0.so:${PORTSDIR}/databases/libgdamm
@@ -101,6 +100,7 @@ RUN_DEPENDS+=	devhelp:${PORTSDIR}/devel/devhelp
 RUN_DEPENDS+=	dmake:${PORTSDIR}/devel/dmake
 RUN_DEPENDS+=	dmalloc>=0:${PORTSDIR}/devel/dmalloc
 RUN_DEPENDS+=	doxygen:${PORTSDIR}/devel/doxygen
+RUN_DEPENDS+=   fmake:${PORTSDIR}/devel/fmake
 LIB_DEPENDS+=	libOpenCL.so:${PORTSDIR}/devel/freeocl
 RUN_DEPENDS+=	gdb>=0:${PORTSDIR}/devel/gdb
 RUN_DEPENDS+=	geany-plugins>=0:${PORTSDIR}/devel/geany-plugins
@@ -126,9 +126,9 @@ LIB_DEPENDS+=	libthai.so:${PORTSDIR}/devel/libthai
 RUN_DEPENDS+=	hg:${PORTSDIR}/devel/mercurial
 RUN_DEPENDS+=	nasm:${PORTSDIR}/devel/nasm
 RUN_DEPENDS+=	ode-config:${PORTSDIR}/devel/ode
-RUN_DEPENDS+=	puic4:${PORTSDIR}/devel/p5-perlqt
 RUN_DEPENDS+=	p5-Readonly>=0:${PORTSDIR}/devel/p5-Readonly  # for internode-quota-check
 RUN_DEPENDS+=	gpatch:${PORTSDIR}/devel/patch
+RUN_DEPENDS+=   phabricator>=0:${PORTSDIR}/devel/phabricator
 RUN_DEPENDS+=	premake:${PORTSDIR}/devel/premake
 RUN_DEPENDS+=	projectcenter>=0:${PORTSDIR}/devel/projectcenter
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}lxml>=0:${PORTSDIR}/devel/py-lxml
@@ -136,7 +136,6 @@ RUN_DEPENDS+=	pykdeuic4:${PORTSDIR}/devel/py-pykdeuic4
 RUN_DEPENDS+=	pyside${PYTHON_PKGNAMESUFFIX}>0:${PORTSDIR}/devel/pyside
 RUN_DEPENDS+=	pyuic4:${PORTSDIR}/devel/py-qt4
 RUN_DEPENDS+=	qgit:${PORTSDIR}/devel/qgit
-RUN_DEPENDS+=	qmake:${PORTSDIR}/devel/qmake
 RUN_DEPENDS+=	qsvn:${PORTSDIR}/devel/qsvn
 RUN_DEPENDS+=	assistant_adp:${PORTSDIR}/devel/qt4-assistant-adp
 LIB_DEPENDS+=	libQtSolutions_SingleApplication-head.so:${PORTSDIR}/devel/qt4-qtsolutions-singleapplication
@@ -267,6 +266,7 @@ RUN_DEPENDS+=	clipgrab:${PORTSDIR}/multimedia/clipgrab
 RUN_DEPENDS+=	clive:${PORTSDIR}/multimedia/clive
 RUN_DEPENDS+=	devede:${PORTSDIR}/multimedia/devede
 RUN_DEPENDS+=	dvdrip:${PORTSDIR}/multimedia/dvdrip
+RUN_DEPENDS+=   ffmpeg1:${PORTSDIR}/multimedia/ffmpeg1
 RUN_DEPENDS+=	ffmpeg2theora:${PORTSDIR}/multimedia/ffmpeg2theora
 RUN_DEPENDS+=	gcap:${PORTSDIR}/multimedia/gcap
 RUN_DEPENDS+=	grake:${PORTSDIR}/multimedia/grake
@@ -291,7 +291,6 @@ RUN_DEPENDS+=	pidgin:${PORTSDIR}/net-im/pidgin
 LIB_DEPENDS+=	libgadu.so:${PORTSDIR}/polish/libgadu
 
 # net
-RUN_DEPENDS+=	cvsup:${PORTSDIR}/net/cvsup-without-gui
 LIB_DEPENDS+=	libgupnp-1.0.so:${PORTSDIR}/net/gupnp
 RUN_DEPENDS+=	liferea:${PORTSDIR}/net/liferea
 RUN_DEPENDS+=	linphone:${PORTSDIR}/net/linphone
@@ -446,9 +445,6 @@ RUN_DEPENDS+=	xfce4-timer-plugin>=0:${PORTSDIR}/x11-clocks/xfce4-timer-plugin
 
 # x11-drivers
 RUN_DEPENDS+=	xsetwacom:${PORTSDIR}/x11-drivers/xf86-input-wacom
-RUN_DEPENDS+=	xf86-input-egalax>=0:${PORTSDIR}/x11-drivers/xf86-input-egalax
-RUN_DEPENDS+=	xf86-input-joystick>=0:${PORTSDIR}/x11-drivers/xf86-input-joystick
-RUN_DEPENDS+=	xf86-video-sis>=0:${PORTSDIR}/x11-drivers/xf86-video-sis
 
 # x11-fm
 RUN_DEPENDS+=	xfe:${PORTSDIR}/x11-fm/xfe
