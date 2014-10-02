@@ -216,14 +216,4 @@ lib/libosdutil.a
 %%PORTDOCS%%%%DOCSDIR%%/using_osd_hbr.html
 %%PORTDOCS%%%%DOCSDIR%%/using_osd_textures.html
 %%PORTDOCS%%%%DOCSDIR%%/uvviewer.html
-@dirrmtry include/opensubdiv/far
-@dirrmtry include/opensubdiv/hbr
-@dirrmtry include/opensubdiv/osd
-@dirrmtry include/opensubdiv/osdutil
-@dirrmtry include/opensubdiv
-%%PYTHON%%@dirrmtry %%PYTHON_SITELIBDIR%%/osd
-%%PORTDOCS%%@dirrmtry %%DOCSDIR%%/css
-%%PORTDOCS%%@dirrmtry %%DOCSDIR%%/images
-%%PORTDOCS%%@dirrmtry %%DOCSDIR%%/tipuesearch/img
-%%PORTDOCS%%@dirrmtry %%DOCSDIR%%/tipuesearch
-%%PORTDOCS%%@dirrmtry %%DOCSDIR%%
+

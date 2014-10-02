@@ -109,7 +109,6 @@ do-install:
 	@${ECHO} ${DATADIR_REL}/.Blanguages >> ${TMPPLIST}
 	@${ECHO} ${DATADIR_REL}/.bfont.ttf >> ${TMPPLIST}
 	@(cd ${WRKSRC}/release; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${WRKSRC}/release; ${FIND} scripts -type d) | ${SORT} -r | ${SED} "s|^|@dir ${DATADIR_REL}/|" >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MNLS}
 .for ii in ${LANG}
@@ -119,7 +118,6 @@ do-install:
 		${STAGEDIR}/${DATADIR}/datafiles/locale/${ii}/LC_MESSAGES/blender.mo
 .endfor
 	@(cd ${OUTDIR}/.blender; ${FIND} locale -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/datafiles/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}/.blender; ${FIND} locale -type d) | ${SORT} -r | ${SED} "s|^|@dir ${DATADIR_REL}/datafiles/|" >> ${TMPPLIST}
 .endif
 
 .include <bsd.port.mk>

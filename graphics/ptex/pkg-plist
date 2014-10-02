@@ -373,4 +373,4 @@ lib/libPtex.so
 %%PORTDOCS%%%%DOCSDIR%%/tab_h.png
 %%PORTDOCS%%%%DOCSDIR%%/tab_s.png
 %%PORTDOCS%%%%DOCSDIR%%/tabs.css
-%%PORTDOCS%%@dirrmtry %%DOCSDIR%%
+

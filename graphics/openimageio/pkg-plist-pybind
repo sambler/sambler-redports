@@ -1,3 +1,2 @@
 %%PYTHON_SITELIBDIR%%/OpenImageIO.so
-@dir %%PYTHON_SITELIBDIR%%
-@dir %%PYTHON_LIBDIR%%
+

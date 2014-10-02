@@ -102,5 +102,4 @@ include/stk/WvOut.h
 lib/libstk.so
 lib/libstk.so.4
 lib/libstk.so.4.4.4
-@dirrmtry include/stk
 

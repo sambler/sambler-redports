@@ -1,5 +1,4 @@
 share/blender/scripts/addons/luxrender/core/__init__.py
-@dirrm share/blender/scripts/addons/luxrender/core
 share/blender/scripts/addons/luxrender/export/__init__.py
 share/blender/scripts/addons/luxrender/export/geometry.py
 share/blender/scripts/addons/luxrender/export/lights.py
@@ -7,17 +6,14 @@ share/blender/scripts/addons/luxrender/export/materials.py
 share/blender/scripts/addons/luxrender/export/preview_scene.py
 share/blender/scripts/addons/luxrender/export/scene.py
 share/blender/scripts/addons/luxrender/export/volumes.py
-@dirrm share/blender/scripts/addons/luxrender/export/
 share/blender/scripts/addons/luxrender/operators/__init__.py
 share/blender/scripts/addons/luxrender/operators/lrmdb.py
 share/blender/scripts/addons/luxrender/operators/lrmdb_lib.py
-@dirrm share/blender/scripts/addons/luxrender/operators/
 share/blender/scripts/addons/luxrender/outputs/__init__.py
 share/blender/scripts/addons/luxrender/outputs/file_api.py
 share/blender/scripts/addons/luxrender/outputs/lbm2_api.py
 share/blender/scripts/addons/luxrender/outputs/lxm_api.py
 share/blender/scripts/addons/luxrender/outputs/pure_api.py
-@dirrm share/blender/scripts/addons/luxrender/outputs/
 share/blender/scripts/addons/luxrender/properties/__init__.py
 share/blender/scripts/addons/luxrender/properties/accelerator.py
 share/blender/scripts/addons/luxrender/properties/camera.py
@@ -34,7 +30,6 @@ share/blender/scripts/addons/luxrender/properties/rendermode.py
 share/blender/scripts/addons/luxrender/properties/sampler.py
 share/blender/scripts/addons/luxrender/properties/texture.py
 share/blender/scripts/addons/luxrender/properties/world.py
-@dirrm share/blender/scripts/addons/luxrender/properties/
 share/blender/scripts/addons/luxrender/ui/materials/__init__.py
 share/blender/scripts/addons/luxrender/ui/materials/carpaint.py
 share/blender/scripts/addons/luxrender/ui/materials/compositing.py
@@ -57,7 +52,6 @@ share/blender/scripts/addons/luxrender/ui/materials/roughglass.py
 share/blender/scripts/addons/luxrender/ui/materials/scatter.py
 share/blender/scripts/addons/luxrender/ui/materials/shinymetal.py
 share/blender/scripts/addons/luxrender/ui/materials/velvet.py
-@dirrm share/blender/scripts/addons/luxrender/ui/materials/
 share/blender/scripts/addons/luxrender/ui/textures/__init__.py
 share/blender/scripts/addons/luxrender/ui/textures/band.py
 share/blender/scripts/addons/luxrender/ui/textures/bilerp.py
@@ -93,7 +87,6 @@ share/blender/scripts/addons/luxrender/ui/textures/uv.py
 share/blender/scripts/addons/luxrender/ui/textures/uvmask.py
 share/blender/scripts/addons/luxrender/ui/textures/windy.py
 share/blender/scripts/addons/luxrender/ui/textures/wrinkled.py
-@dirrm share/blender/scripts/addons/luxrender/ui/textures/
 share/blender/scripts/addons/luxrender/ui/__init__.py
 share/blender/scripts/addons/luxrender/ui/camera.py
 share/blender/scripts/addons/luxrender/ui/image.py
@@ -102,12 +95,9 @@ share/blender/scripts/addons/luxrender/ui/mesh.py
 share/blender/scripts/addons/luxrender/ui/object.py
 share/blender/scripts/addons/luxrender/ui/render_panels.py
 share/blender/scripts/addons/luxrender/ui/world.py
-@dirrm share/blender/scripts/addons/luxrender/ui/
 share/blender/scripts/addons/luxrender/util/__init__.py
-@dirrm share/blender/scripts/addons/luxrender/util/
 share/blender/scripts/addons/luxrender/__init__.py
 share/blender/scripts/addons/luxrender/pylux.so
-@dirrm share/blender/scripts/addons/luxrender/
 share/blender/scripts/presets/luxrender/engine/Animation_-_Bidirectional.py
 share/blender/scripts/presets/luxrender/engine/Animation_-_Photon_Mapping.py
 share/blender/scripts/presets/luxrender/engine/Animation_-_SPPM.py
@@ -120,5 +110,4 @@ share/blender/scripts/presets/luxrender/engine/Path_Photon.py
 share/blender/scripts/presets/luxrender/engine/Photon_mapping_(caustics_off).py
 share/blender/scripts/presets/luxrender/engine/Photon_mapping_(caustics_on).py
 share/blender/scripts/presets/luxrender/engine/SPPM.py
-@dirrm share/blender/scripts/presets/luxrender/engine/
-@dirrm share/blender/scripts/presets/luxrender/
+

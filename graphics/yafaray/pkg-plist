@@ -47,4 +47,4 @@ lib/yafaray/libUniformVolume.so
 lib/yafaray/libExpDensityVolume.so
 lib/yafaray/libNoiseVolume.so
 lib/yafaray/libSkyVolume.so
-@dirrm lib/yafray
+
