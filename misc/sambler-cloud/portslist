@@ -21,7 +21,7 @@ RUN_DEPENDS+=	sudo:${PORTSDIR}/security/sudo
 RUN_DEPENDS+=	bash:${PORTSDIR}/shells/bash
 
 # www
-RUN_DEPENDS+=	apache22>=0:${PORTSDIR}/www/apache22
+RUN_DEPENDS+=	apache24>=0:${PORTSDIR}/www/apache24
 RUN_DEPENDS+=	${APACHE_PKGNAMEPREFIX}mod_wsgi3>=0:${PORTSDIR}/www/mod_wsgi3
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}django>=0:${PORTSDIR}/www/py-django
 
