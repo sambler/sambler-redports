@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	clipgrab
-PORTVERSION=	3.4.2
+PORTVERSION=	3.4.7
 CATEGORIES=	multimedia
 MASTER_SITES=	http://clipgrab.de/download/ \
 		http://vanbittern.org/
@@ -12,8 +12,7 @@ COMMENT=	Program to download videos from YouTube and etc
 
 LICENSE=	GPLv3
 
-USES=		qmake
-USE_BZIP2=	yes
+USES=		qmake tar:bzip2
 USE_QT4=	gui xml uic_build moc_build \
 		rcc_build network dbus webkit
 CXXFLAGS+= -I${LOCALBASE}/include/qt4/QtNetwork -I${LOCALBASE}/include/qt4/QtWebKit
@@ -25,7 +24,6 @@ PLIST_FILES=	bin/${PORTNAME} \
 		%%DATADIR%%/logo.png \
 		%%DATADIR%%/paypal-logo.png \
 		%%DATADIR%%/splash.png
-PLIST_DIRS=	%%DATADIR%%
 
 DESKTOP_ENTRIES="Clipgrab" "Download and convert videos from YouTube and etc" \
 		"${DATADIR}/icon.png" "${PORTNAME}" \
