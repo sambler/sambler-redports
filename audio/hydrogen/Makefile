@@ -11,9 +11,9 @@ COMMENT=	Advanced drum machine
 
 LICENSE=	GPLv2
 
-CONFLICTS=	hydrogen-devel-0.*
+LIB_DEPENDS=	libsndfile.so:${PORTSDIR}/audio/libsndfile
 
-LIB_DEPENDS+=	libsndfile.so:${PORTSDIR}/audio/libsndfile
+CONFLICTS=	hydrogen-devel-0.*
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hydrogen-music
