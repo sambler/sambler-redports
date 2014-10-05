@@ -1,5 +1,5 @@
---- ./CMakeLists.txt.orig	2014-04-07 03:35:43.000000000 +0930
-+++ ./CMakeLists.txt	2014-07-12 23:30:29.024399668 +0930
+--- CMakeLists.txt.orig	2014-10-05 04:19:32 UTC
++++ CMakeLists.txt
 @@ -307,7 +307,7 @@
  
  # Python: prefer 3.x, but can also use 2.x now

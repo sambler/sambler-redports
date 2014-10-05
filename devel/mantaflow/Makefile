@@ -12,21 +12,22 @@ COMMENT=	A framework targeted at fluid simulation research
 
 LICENSE=	GPLv3
 
-USES=		cmake:outsource shebangfix python:3.4
+USES=		cmake:outsource shebangfix dos2unix python:3.4
+USE_QT4=	corelib gui opengl qmake_build moc_build rcc_build uic_build
 SHEBANG_FILES=	tools/makeHgVersion.py
+DOS2UNIX_FILES=	CMakeLists.txt
 WRKSRC=		${WRKDIR}/${PORTNAME}
-CMAKE_ARGS=	-DCUDA:BOOL=OFF -DDOUBLEPRECISION:BOOL=OFF
+CMAKE_ARGS=	-DCUDA:BOOL=OFF -DDOUBLEPRECISION:BOOL=OFF -DGUI:BOOL=ON
 CMAKE_ARGS+=	-DPYTHON_INCLUDE_DIR:STRING=${PYTHON_INCLUDEDIR}
 CMAKE_ARGS+=	-DPYTHON_LIBRARY:STRING=${PYTHONBASE}/lib/libpython3.4m.so
 CXXFLAGS+=	-I${LOCALBASE}/include
 
-OPTIONS_DEFINE=	DOCS GUI
+OPTIONS_DEFINE=	DOCS
 OPTIONS_RADIO=	PARALLEL
-OPTIONS_RADIO_PARALLEL=	OPENMP TBB 
+OPTIONS_RADIO_PARALLEL=	OPENMP TBB
 OPTIONS_DEFAULT= DOCS TBB
 
 OPTIONS_SUB=	yes
-GUI_DESC=	Build qt4 interface
 PARALLEL_DESC=	Parallel Processing
 TBB_DESC=		Parallel processing support via Intels TBB
 
@@ -41,15 +42,7 @@ TBB_CMAKE_OFF=		-DTBB:BOOL=OFF
 TBB_LIB_DEPENDS=	libtbb.so:${PORTSDIR}/devel/tbb
 TBB_LDFLAGS=		-L${LOCALBASE}/lib
 
-.include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MGUI}
-USE_QT4=	corelib gui
-# opengl qmake_build moc_build rcc_build uic_build
-CMAKE_ARGS+=	-DGUI:BOOL=ON
-.else
-CMAKE_ARGS+=	-DGUI:BOOL=OFF
-.endif
+PLIST_FILES=		bin/manta
 
 .include <bsd.port.pre.mk>
 
