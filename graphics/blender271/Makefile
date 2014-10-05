@@ -140,20 +140,7 @@ PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
 SECURITY_CMAKE_ON=	-DWITH_PYTHON_SECURITY:BOOL=ON
 SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 
-# we use pre so we can use COMPILER_TYPE
-.include <bsd.port.pre.mk>
-
-.if ${OSVERSION} < 900000
-BROKEN= Fails to build on 8.x
-.endif
-
-.if ${COMPILER_TYPE:Mgcc} && ${PORT_OPTIONS:MOSL}
-# we have linking issues using gcc
-# clang33 is used by osl so use it here
-BUILD_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
-CMAKE_ARGS+=	-DCMAKE_C_COMPILER:STRING=${LOCALBASE}/bin/clang33
-CMAKE_ARGS+=	-DCMAKE_CXX_COMPILER:STRING=${LOCALBASE}/bin/clang++33
-.endif #gcc
+.include <bsd.port.options.mk>
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
@@ -225,4 +212,4 @@ post-install:
 	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
 .endif
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
