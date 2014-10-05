@@ -2,18 +2,16 @@
 # $FreeBSD$
 
 PORTNAME=	numpy32
-PORTVERSION=	1.9.0r1
+PORTVERSION=	1.9.0
 CATEGORIES=	math python
-#MASTER_SITES=	SF/numpy/NumPy/${PORTVERSION}:source
-MASTER_SITES=	SF/numpy/NumPy/1.9.0rc1:source
-#		http://docs.scipy.org/doc/numpy-${PORTVERSION}/:doc
+MASTER_SITES=	SF/numpy/NumPy/${PORTVERSION}
+#		http://docs.scipy.org/doc/numpy/${PORTVERSION}/:doc
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
-#DISTFILES=	numpy-${PORTVERSION}${EXTRACT_SUFX}:source
-DISTFILES=	numpy-1.9.0rc1${EXTRACT_SUFX}:source
-#		numpy-ref-${PORTVERSION}.pdf:doc \
-#		numpy-user-${PORTVERSION}.pdf:doc
-#EXTRACT_ONLY=	numpy-${PORTVERSION}${EXTRACT_SUFX}
-EXTRACT_ONLY=	numpy-1.9.0rc1${EXTRACT_SUFX}
+DISTFILES=	numpy-${PORTVERSION}${EXTRACT_SUFX} \
+		reference.pdf \
+		userguide.pdf
+EXTRACT_ONLY=	numpy-${PORTVERSION}${EXTRACT_SUFX}
+DIST_SUBDIR=	numpy${PORTVERSION}
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	The New Numeric Extension to Python
@@ -32,9 +30,9 @@ USE_PYTHON=	distutils
 PYDISTUTILS_CONFIGUREARGS+=	--fcompiler=gnu95
 PYDISTUTILS_BUILDARGS+=		--fcompiler=gnu95
 
-#PORTDOCS=	*
-#WRKSRC=		${WRKDIR}/numpy-${PORTVERSION}
-WRKSRC=		${WRKDIR}/numpy-1.9.0rc1
+PORTDOCS=	*
+WRKSRC=		${WRKDIR}/numpy-${PORTVERSION}
+INSTALL_TARGET=install-strip
 
 .include <bsd.port.pre.mk>
 
@@ -49,9 +47,9 @@ LIB_DEPENDS+=	liblapack.so:${PORTSDIR}/math/lapack \
 LIB_DEPENDS+=	libumfpack.so:${PORTSDIR}/math/suitesparse
 .endif
 
-#post-extract:
-#	@${CP} ${DISTDIR}/numpy-ref-${PORTVERSION}.pdf ${WRKDIR}
-#	@${CP} ${DISTDIR}/numpy-user-${PORTVERSION}.pdf ${WRKDIR}
+post-extract:
+	@${CP} ${DISTDIR}/${DIST_SUBDIR}/reference.pdf ${WRKDIR}
+	@${CP} ${DISTDIR}/${DIST_SUBDIR}/userguide.pdf ${WRKDIR}
 
 post-patch:
 	@${REINPLACE_CMD} -e "s+%%FC%%+${FC}+" ${WRKSRC}/numpy/distutils/fcompiler/gnu.py
@@ -75,10 +73,10 @@ pre-configure:
 		${WRKSRC}/site.cfg
 	@${REINPLACE_CMD} -e "s+%%GCCLIBDIR%%+$$(${GCCLIBDIR_CMDS})+" ${WRKSRC}/numpy/distutils/system_info.py
 
-#post-install:
-#	#${INSTALL_MAN} ${WRKSRC}/numpy/f2py/f2py.1 ${STAGEDIR}${MANPREFIX}/man/man1
-#	@${MKDIR} ${STAGEDIR}${DOCSDIR}
-#	${INSTALL_DATA} ${WRKDIR}/numpy-ref-${PORTVERSION}.pdf ${STAGEDIR}${DOCSDIR}
-#	${INSTALL_DATA} ${WRKDIR}/numpy-user-${PORTVERSION}.pdf ${STAGEDIR}${DOCSDIR}
+post-install:
+	#${INSTALL_MAN} ${WRKSRC}/numpy/f2py/f2py.1 ${STAGEDIR}${MANPREFIX}/man/man1
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${WRKDIR}/reference.pdf ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${WRKDIR}/userguide.pdf ${STAGEDIR}${DOCSDIR}
 
 .include <bsd.port.post.mk>
