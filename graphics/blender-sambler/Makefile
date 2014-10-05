@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	blender-sambler
-PORTVERSION=	2.71
-PORTREVISION=	6
+PORTVERSION=	2.72
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -52,14 +52,14 @@ RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	1b64775
+GH_COMMIT=	89b1ae6
 
 FETCH_ARGS=	-pRr
 
 USES=		cmake:outsource shebangfix compiler desktop-file-utils openal:al,alut
 USES+=		python:3.4
 WRKSRC=		${WRKDIR}/sambler-myblender-${GH_COMMIT}
-OUTDIR=		${INSTALL_WRKSRC}/bin/2.71
+OUTDIR=		${INSTALL_WRKSRC}/bin/2.72
 VERS_TAG=	sambler
 
 SUB_FILES=	blender blenderplayer
@@ -77,7 +77,7 @@ USE_GL=		glew
 LDFLAGS+=	-L${LOCALBASE}/lib -lexecinfo
 
 CMAKE_ARGS+=	-DWITH_BUILDINFO:BOOL=ON -DWITH_AUDASPACE:BOOL=ON
-CMAKE_ARGS+=	-DWITH_BLENDER:BOOL=ON -DWITH_BOOL_COMPAT:BOOL=ON
+CMAKE_ARGS+=	-DWITH_BLENDER:BOOL=ON
 CMAKE_ARGS+=	-DWITH_BOOST_ICU:BOOL=OFF -DWITH_BULLET:BOOL=ON
 CMAKE_ARGS+=	-DWITH_CODEC_FFMPEG:BOOL=ON -DWITH_CODEC_SNDFILE:BOOL=ON
 CMAKE_ARGS+=	-DFFMPEG:STRING="${LOCALBASE}" -DWITH_COMPOSITOR:BOOL=ON
@@ -161,20 +161,7 @@ PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
 SECURITY_CMAKE_ON=	-DWITH_PYTHON_SECURITY:BOOL=ON
 SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 
-# we use pre so we can use COMPILER_TYPE
-.include <bsd.port.pre.mk>
-
-#.if ${OSVERSION} < 900000
-#BROKEN= Fails to build on 8.x
-#.endif
-
-#.if ${COMPILER_TYPE:Mgcc} && ${PORT_OPTIONS:MOSL}
-# we have linking issues using gcc
-# clang34 is used by osl so use it here
-#BUILD_DEPENDS+=	clang34:${PORTSDIR}/lang/clang34
-#CMAKE_ARGS+=	-DCMAKE_C_COMPILER:STRING=${LOCALBASE}/bin/clang34
-#CMAKE_ARGS+=	-DCMAKE_CXX_COMPILER:STRING=${LOCALBASE}/bin/clang++34
-#.endif #gcc
+.include <bsd.port.options.mk>
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
@@ -246,11 +233,11 @@ post-install:
 	@-update-desktop-database -q
 	@${ECHO} share/applications/${PORTNAME}.desktop >> ${TMPPLIST}
 
-#.if !defined(NO_INSTALL_MANPAGES)
-#	@cd ${INSTALL_WRKSRC}/bin/ && ${PYTHON_CMD} ${WRKSRC}/doc/manpage/blender.1.py ./blender ./blender-${VERS_TAG}.1
-#	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
-#		${STAGEDIR}${MAN1PREFIX}/man/man1
-#	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
-#.endif
+.if !defined(NO_INSTALL_MANPAGES)
+	@cd ${INSTALL_WRKSRC}/bin/ && ${PYTHON_CMD} ${WRKSRC}/doc/manpage/blender.1.py ./blender ./blender-${VERS_TAG}.1
+	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
+		${STAGEDIR}${MAN1PREFIX}/man/man1
+	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
+.endif
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
