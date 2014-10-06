@@ -1,48 +1,73 @@
-# New ports collection makefile for:	YafaRay
-# Date created:				18 May 2003
-# Whom:					David Yeske <dyeske@gmail.com>
-#
-# $FreeBSD: ports/graphics/yafray/Makefile,v 1.24 2011/06/17 09:59:29 danfe Exp $
-#
+# Created by: Shane Ambler <FreeBSD@Shaneware.biz>
+# $FreeBSD$
 
 PORTNAME=	yafaray
-PORTVERSION=	0.1.2b4
+PORTVERSION=	0.1.5
 PORTREVISION=	0
 CATEGORIES=	graphics
-# official repo is at https://github.com/yafaray/Core but they don't have tags
-# which we want for downloading so I forked and tagged it
-MASTER_SITES=	https://github.com/sambler/Core/tarball/
-EXTRACT_SUFX=
+MASTER_SITES=	https://github.com/YafaRay/Core/tarball/:core \
+		https://github.com/YafaRay/Blender-2.5-Exporter/tarball/:blenaddon
+DISTFILES=	${PORTVERSION}:core
+DIST_SUBDIR=	${PORTNAME}
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	A fast XML based raytracer
 
 LICENSE=	LGPL21
 
 BUILD_DEPENDS=	swig:${PORTSDIR}/devel/swig13
-LIB_DEPENDS=	jpeg.11:${PORTSDIR}/graphics/jpeg \
-				freetype.9:${PORTSDIR}/print/freetype2 \
-				IlmImf.6:${PORTSDIR}/graphics/OpenEXR \
-				png.6:${PORTSDIR}/graphics/png \
-				tiff.4:${PORTSDIR}/graphics/tiff \
-				xml2.5:${PORTSDIR}/textproc/libxml2
+LIB_DEPENDS=	libjpeg.so:${PORTSDIR}/graphics/jpeg \
+		libfreetype.so:${PORTSDIR}/print/freetype2 \
+		libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
+		libpng15.so:${PORTSDIR}/graphics/png \
+		libtiff.so:${PORTSDIR}/graphics/tiff \
+		libxml2.so:${PORTSDIR}/textproc/libxml2
 
 FETCH_ARGS=	-pRr
-USE_CMAKE=	yes
+USES=		cmake:outsource
 CMAKE_VERBOSE=	yes
-CMAKE_OUTSOURCE=	yes
 CMAKE_ARGS=	-DWITH_Freetype:BOOL=ON -DWITH_OpenEXR:BOOL=ON -DWITH_JPEG:BOOL=ON \
-			-DWITH_PNG:BOOL=ON -DWITH_TIFF:BOOL=ON -DWITH_XML_LOADER:BOOL=ON \
-			-DWITH_QT:BOOL=ON -DWITH_YAF_PY_BINDINGS:BOOL=ON \
-			-DWITH_YAF_RUBY_BINDINGS:BOOL=OFF -DBUILDRELEASE:BOOL=ON
+		-DWITH_PNG:BOOL=ON -DWITH_TIFF:BOOL=ON -DWITH_XML_LOADER:BOOL=ON \
+		-DBUILDRELEASE:BOOL=ON
 
+# uses asm that clang fails on
+USE_GCC=	yes
 USE_LDCONFIG=	yes
-USE_GCC=	4.6+
-LDFLAGS+=	-rpath ${LOCALBASE}/lib/gcc46
-USE_PYTHON=	3.2
-USE_QT_VER=	4
-QT_COMPONENTS=	gui moc_build qmake_build rcc_build uic_build
+WRKSRC=		${WRKDIR}/YafaRay-Core-ec1c0b9
 
-WRKSRC=		${WRKDIR}/sambler-Core-57adf87
+OPTIONS_DEFINE=	PYTHON QT_GUI BLENDER_ADDON
+OPTIONS_DEFAULT=	PYTHON QT_GUI BLENDER_ADDON
+## TODO: RUBY
+
+OPTIONS_SUB=		yes
+QT_GUI_DESC=		QT interface
+BLENDER_ADDON_DESC=	Install Blender Addon
+
+BLENDER_ADDON_DISTFILES= Blender_2.62:blenaddon
+BLENDER_ADDON_RUN_DEPENDS= blender>=2.62:${PORTSDIR}/graphics/blender
+BLENADDONDIR=	${WRKDIR}/YafaRay-Blender-2.5-Exporter-e8f3502
+
+PYTHON_CMAKE_ON=	-DWITH_YAF_PY_BINDINGS:BOOL=ON
+PYTHON_CMAKE_OFF=	-DWITH_YAF_PY_BINDINGS:BOOL=OFF
+PYTHON_USES=		python:3.4
+
+QT_GUI_CMAKE_ON=	-DWITH_QT:BOOL=ON
+QT_GUI_CMAKE_OFF=	-DWITH_QT:BOOL=OFF
+QT_GUI_USE=		USE_QT4=gui moc_build qmake_build rcc_build uic_build
+
+RUBY_CMAKE_ON=		-DWITH_YAF_RUBY_BINDINGS:BOOL=ON
+RUBY_CMAKE_OFF=		-DWITH_YAF_RUBY_BINDINGS:BOOL=OFF
+RUBY_USE=		USE_RUBY=yes
+
+.include <bsd.port.options.mk>
+
+.if ${PORT_OPTIONS:MBLENDER_ADDON}
+post-install:
+	@cd ${BLENADDONDIR} && ${COPYTREE_SHARE} . \
+		${STAGEDIR}${LOCALBASE}/share/blender/scripts/addons/yafaray/
+	@${MKDIR} ${STAGEDIR}${LOCALBASE}/share/blender/scripts/addons/yafaray/bin/
+	@cd ${STAGEDIR}${LOCALBASE}/lib && ${LN} -s libyafarayplugin.so \
+		../share/blender/scripts/addons/yafaray/bin/
+.endif
 
 .include <bsd.port.mk>

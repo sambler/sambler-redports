@@ -16,5 +16,5 @@ RUN_DEPENDS+=   blender-272:${PORTSDIR}/graphics/blender272
 RUN_DEPENDS+=	blender-sambler:${PORTSDIR}/graphics/blender-sambler
 
 RUN_DEPENDS+=	luxrender:${PORTSDIR}/graphics/luxrender
-#RUN_DEPENDS+=	yafaray-xml:${PORTSDIR}/graphics/yafaray
+RUN_DEPENDS+=	yafaray-xml:${PORTSDIR}/graphics/yafaray
 

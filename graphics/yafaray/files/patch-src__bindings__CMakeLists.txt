@@ -1,0 +1,11 @@
+--- src/bindings/CMakeLists.txt.orig	2014-10-06 15:10:30 UTC
++++ src/bindings/CMakeLists.txt
+@@ -150,7 +150,7 @@
+ 
+ 	endif(NOT WIN32)
+ 
+-	include_directories(${YAF_INCLUDE_DIRS} ${RUBY_INCLUDE_DIR})
++	include_directories(${YAF_INCLUDE_DIRS} ${RUBY_INCLUDE_DIR} ${RUBY_CONFIG_INCLUDE_DIR})
+ 	include(${SWIG_USE_FILE})
+ 
+ 	set(CMAKE_SWIG_FLAGS -c++ -w-801)

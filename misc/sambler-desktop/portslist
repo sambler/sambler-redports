@@ -212,7 +212,7 @@ RUN_DEPENDS+=	sswf:${PORTSDIR}/graphics/sswf
 RUN_DEPENDS+=	tesseract:${PORTSDIR}/graphics/tesseract
 RUN_DEPENDS+=	wmicons>=0:${PORTSDIR}/graphics/wmicons
 RUN_DEPENDS+=	xsane:${PORTSDIR}/graphics/xsane
-#RUN_DEPENDS+=	yafaray-xml:${PORTSDIR}/graphics/yafaray
+RUN_DEPENDS+=	yafaray-xml:${PORTSDIR}/graphics/yafaray
 
 # irc
 RUN_DEPENDS+=	quassel:${PORTSDIR}/irc/quassel
