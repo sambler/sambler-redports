@@ -3,7 +3,7 @@
 
 PORTNAME=	blender272
 PORTVERSION=	2.72
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -67,6 +67,7 @@ CMAKE_ARGS+=	-DWITH_MOD_SMOKE:BOOL=ON -DWITH_GCC_MUDFLAP:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_OPENAL:BOOL=ON -DWITH_OPENCOLORIO:BOOL=ON
 CMAKE_ARGS+=	-DWITH_PYTHON:BOOL=ON -DWITH_PYTHON_INSTALL:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_PYTHON_MODULE:BOOL=OFF -DWITH_PYTHON_SAFETY:BOOL=OFF
+CMAKE_ARGS+=	-DWITH_PYTHON_INSTALL_REQUESTS:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_PYTHON_INSTALL_NUMPY:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_RAYOPTIMIZATION:BOOL=ON -DWITH_SDL:BOOL=ON
 CMAKE_ARGS+=	-DWITH_STATIC_LIBS:BOOL=OFF -DWITH_SYSTEM_BULLET:BOOL=OFF
@@ -115,11 +116,16 @@ NLS_LDFLAGS=		-L${LOCALBASE}/lib -lintl
 OPENMP_CMAKE_ON=	-DWITH_OPENMP:BOOL=ON
 OPENMP_CMAKE_OFF=	-DWITH_OPENMP:BOOL=OFF
 
+#CC=		${LOCALBASE}/bin/clang35
+#CXX=		${LOCALBASE}/bin/clang++35
+#CPP=		${LOCALBASE}/bin/clang-cpp
 OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DWITH_LLVM:BOOL=ON \
 			-DLLVM_STATIC:BOOL=OFF \
 			-DLLVM_VERSION:STRING="3.4" \
 			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
+#			-DLLVM_VERSION:STRING="3.5" \
+#			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config35"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
 OSL_LIB_DEPENDS=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
 
@@ -136,10 +142,6 @@ post-patch:
 		${WRKSRC}/release/bin/blender-thumbnailer.py
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
 		${WRKSRC}/release/freedesktop/blender.desktop
-.for PFILE in ${OSL14_PATCH_FILES}
-	@${REINPLACE_CMD} -i '' -e 's|<OSL/|<OSL14/|g' \
-		${WRKSRC}/intern/cycles/${PFILE}
-.endfor
 
 # We ignore MAKE_ARGS, since those would set DESTDIR for make stage,
 # which in turn would cause make install to install everything in a
