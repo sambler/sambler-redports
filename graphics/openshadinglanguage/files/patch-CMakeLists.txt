@@ -48,17 +48,6 @@
  endif ()
  
  set (CMAKE_MODULE_PATH
-@@ -219,6 +217,10 @@
- 
- message (STATUS "CMAKE_INSTALL_RPATH = ${CMAKE_INSTALL_RPATH}")
- 
-+# Try to detect libc++, in which case we should force use of Boost
-+# Wave (because that avoids a nonstandard g++ extension in the other
-+# code path).
-+check_cxx_symbol_exists(_LIBCPP_VERSION string OSL_SYSTEM_HAS_LIBCPP)
- 
- ###########################################################################
- if (MSVC)
 @@ -249,6 +251,13 @@
  add_subdirectory (src/include)
  add_subdirectory (src/doc)

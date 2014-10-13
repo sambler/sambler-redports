@@ -23,6 +23,10 @@ GH_PROJECT=	OpenShadingLanguage
 GH_TAGNAME=	Release-${PORTVERSION}
 GH_COMMIT=	9c3ba5b
 
+#CC=		${LOCALBASE}/bin/clang35
+#CXX=		${LOCALBASE}/bin/clang++35
+#CXXFLAGS+=	-std=c++11 -Wno-c++11-narrowing
+#CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config35"
 CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 USE_LDCONFIG=	yes
 USES=		bison cmake:outsource
