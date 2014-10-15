@@ -343,7 +343,6 @@ RUN_DEPENDS+=	zsh:${PORTSDIR}/shells/zsh
 
 # sysutils
 RUN_DEPENDS+=	procsystime:${PORTSDIR}/sysutils/DTraceToolkit
-RUN_DEPENDS+=	automount2amd:${PORTSDIR}/sysutils/am-utils
 RUN_DEPENDS+=	anacron:${PORTSDIR}/sysutils/anacron
 RUN_DEPENDS+=	ataidle:${PORTSDIR}/sysutils/ataidle
 RUN_DEPENDS+=	automounter:${PORTSDIR}/sysutils/automounter
