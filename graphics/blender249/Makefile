@@ -6,8 +6,7 @@ PORTVERSION=	2.49b
 PORTREVISION=	4
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
-		http://mirror.cs.umn.edu/blender.org/source/ \
-		http://public.planetmirror.com/pub/blender/source/
+		http://mirror.cs.umn.edu/blender.org/source/
 DISTFILES=	blender-2.49b.tar.gz
 
 MAINTAINER=	FreeBSD@Shaneware.biz
