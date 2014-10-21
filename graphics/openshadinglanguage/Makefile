@@ -10,12 +10,12 @@ COMMENT=	Advanced shading language for production GI renderers
 
 LICENSE=	BSD3CLAUSE
 
-BUILD_DEPENDS=	llvm-config34:${PORTSDIR}/devel/llvm34 \
-		clang34:${PORTSDIR}/lang/clang34
+BUILD_DEPENDS=	llvm-config35:${PORTSDIR}/devel/llvm35\
+		clang35:${PORTSDIR}/lang/clang35
 LIB_DEPENDS=	libboost_thread.so:${PORTSDIR}/devel/boost-libs \
 		libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
 		libOpenImageIO.so:${PORTSDIR}/graphics/openimageio
-RUN_DEPENDS=	llvm-config34:${PORTSDIR}/devel/llvm34
+RUN_DEPENDS=	llvm-config35:${PORTSDIR}/devel/llvm35
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
@@ -23,11 +23,10 @@ GH_PROJECT=	OpenShadingLanguage
 GH_TAGNAME=	Release-${PORTVERSION}
 GH_COMMIT=	9c3ba5b
 
-#CC=		${LOCALBASE}/bin/clang35
-#CXX=		${LOCALBASE}/bin/clang++35
-#CXXFLAGS+=	-std=c++11 -Wno-c++11-narrowing
-#CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config35"
-CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
+CC=		${LOCALBASE}/bin/clang35
+CXX=		${LOCALBASE}/bin/clang++35
+CXXFLAGS+=	-std=c++11 -Wno-c++11-narrowing
+CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config35"
 USE_LDCONFIG=	yes
 USES=		bison cmake:outsource
 
