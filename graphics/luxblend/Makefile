@@ -24,7 +24,7 @@ RUN_DEPENDS=	blender>=2.60:${PORTSDIR}/graphics/blender \
 # recent snapshot - 2012-02-27
 HG_NODEID=	7379271e2341
 
-USE_BZIP2=	yes
+USES=		tar:bzip2
 
 WRKSRC=		${WRKDIR}/luxblend25-${HG_NODEID}
 
