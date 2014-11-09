@@ -154,6 +154,7 @@ OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DLLVM_VERSION:STRING="3.5" \
 			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config35"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
+OSL_BUILD_DEPENDS=	clang++35:${PORTSDIR}/lang/clang35
 OSL_LIB_DEPENDS=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
 
 PLAYER_CMAKE_ON=	-DWITH_PLAYER:BOOL=ON
@@ -163,6 +164,11 @@ SECURITY_CMAKE_ON=	-DWITH_PYTHON_SECURITY:BOOL=ON
 SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 
 .include <bsd.port.options.mk>
+
+.if ${PORT_OPTIONS:MOSL}
+CC=/usr/local/bin/clang35
+CXX=/usr/local/bin/clang++35
+.endif
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
