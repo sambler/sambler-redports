@@ -126,6 +126,7 @@ LIB_DEPENDS+=	libthai.so:${PORTSDIR}/devel/libthai
 RUN_DEPENDS+=	hg:${PORTSDIR}/devel/mercurial
 RUN_DEPENDS+=	nasm:${PORTSDIR}/devel/nasm
 RUN_DEPENDS+=	ode-config:${PORTSDIR}/devel/ode
+RUN_DEPENDS+=   p5-File-Slurp>=0:${PORTSDIR}/devel/p5-File-Slurp  # for internode-quota-check
 RUN_DEPENDS+=	p5-Readonly>=0:${PORTSDIR}/devel/p5-Readonly  # for internode-quota-check
 RUN_DEPENDS+=	gpatch:${PORTSDIR}/devel/patch
 RUN_DEPENDS+=   phabricator>=0:${PORTSDIR}/devel/phabricator
