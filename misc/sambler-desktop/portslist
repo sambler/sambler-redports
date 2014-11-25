@@ -114,6 +114,7 @@ RUN_DEPENDS+=	gperf:${PORTSDIR}/devel/gperf
 RUN_DEPENDS+=	gwenhywfar-config:${PORTSDIR}/devel/gwenhywfar
 RUN_DEPENDS+=	imake:${PORTSDIR}/devel/imake
 RUN_DEPENDS+=	jsmin:${PORTSDIR}/devel/jsmin
+RUN_DEPENDS+=   kyua:${PORTSDIR}/devel/kyua
 RUN_DEPENDS+=	checkmk:${PORTSDIR}/devel/libcheck
 LIB_DEPENDS+=	libconfig.so:${PORTSDIR}/devel/libconfig
 LIB_DEPENDS+=	libgalago.so:${PORTSDIR}/devel/libgalago
@@ -160,6 +161,7 @@ RUN_DEPENDS+=	zzcat:${PORTSDIR}/devel/zziplib
 # dns
 RUN_DEPENDS+=	adnshost:${PORTSDIR}/dns/adns
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}dnspython>=0:${PORTSDIR}/dns/py-dnspython
+RUN_DEPENDS+=   bind9-config:${PORTSDIR}/dns/bind910
 
 # editors
 RUN_DEPENDS+=	gedit-plugins>=0:${PORTSDIR}/editors/gedit-plugins
@@ -234,6 +236,7 @@ RUN_DEPENDS+=	python3>=0:${PORTSDIR}/lang/python3
 
 # mail
 RUN_DEPENDS+=	fetchmail:${PORTSDIR}/mail/fetchmail
+RUN_DEPENDS+=   ssmtp:${PORTSDIR}/mail/ssmtp
 RUN_DEPENDS+=	thunderbird-dictionaries>=0:${PORTSDIR}/mail/thunderbird-dictionaries
 RUN_DEPENDS+=	xfce4-mailwatch-plugin>=0:${PORTSDIR}/mail/xfce4-mailwatch-plugin
 
@@ -329,8 +332,7 @@ RUN_DEPENDS+=	ssh-askpass:${PORTSDIR}/security/openssh-askpass
 RUN_DEPENDS+=	pinentry:${PORTSDIR}/security/pinentry
 RUN_DEPENDS+=	qca-ossl>=0:${PORTSDIR}/security/qca-ossl
 RUN_DEPENDS+=	rkhunter:${PORTSDIR}/security/rkhunter
-RUN_DEPENDS+=	seahorse-tool:${PORTSDIR}/security/seahorse-plugins
-RUN_DEPENDS+=	ssh-copy-id:${PORTSDIR}/security/ssh-copy-id
+RUN_DEPENDS+=   seahorse:${PORTSDIR}/security/seahorse
 RUN_DEPENDS+=	sudo:${PORTSDIR}/security/sudo
 RUN_DEPENDS+=	zenmap:${PORTSDIR}/security/zenmap
 
@@ -346,7 +348,6 @@ RUN_DEPENDS+=	zsh:${PORTSDIR}/shells/zsh
 RUN_DEPENDS+=	procsystime:${PORTSDIR}/sysutils/DTraceToolkit
 RUN_DEPENDS+=	anacron:${PORTSDIR}/sysutils/anacron
 RUN_DEPENDS+=	ataidle:${PORTSDIR}/sysutils/ataidle
-RUN_DEPENDS+=	automounter:${PORTSDIR}/sysutils/automounter
 RUN_DEPENDS+=	rcstatus:${PORTSDIR}/sysutils/bsdadminscripts
 RUN_DEPENDS+=	bsdstats>=0:${PORTSDIR}/sysutils/bsdstats
 RUN_DEPENDS+=	gcat:${PORTSDIR}/sysutils/coreutils
@@ -355,7 +356,6 @@ RUN_DEPENDS+=	ddrescue:${PORTSDIR}/sysutils/ddrescue
 RUN_DEPENDS+=	e2fsck:${PORTSDIR}/sysutils/e2fsprogs
 RUN_DEPENDS+=	gdisk:${PORTSDIR}/sysutils/gdisk
 RUN_DEPENDS+=	gksu:${PORTSDIR}/sysutils/gksu
-RUN_DEPENDS+=	network-admin:${PORTSDIR}/sysutils/gnome-system-tools
 RUN_DEPENDS+=	healthd:${PORTSDIR}/sysutils/healthd
 RUN_DEPENDS+=	jailme:${PORTSDIR}/sysutils/jailme
 RUN_DEPENDS+=	k3b:${PORTSDIR}/sysutils/k3b-kde4
@@ -369,7 +369,9 @@ RUN_DEPENDS+=	ntfslabel:${PORTSDIR}/sysutils/ntfsprogs
 RUN_DEPENDS+=	nvclock:${PORTSDIR}/sysutils/nvclock
 RUN_DEPENDS+=	lspci:${PORTSDIR}/sysutils/pciutils
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}salt>=0:${PORTSDIR}/sysutils/py-salt
+RUN_DEPENDS+=   screen:${PORTSDIR}/sysutils/screen
 RUN_DEPENDS+=	sg_get_config:${PORTSDIR}/sysutils/sg3_utils
+RUN_DEPENDS+=   smartctl:${PORTSDIR}/sysutils/smartmontools
 RUN_DEPENDS+=	testdisk:${PORTSDIR}/sysutils/testdisk
 RUN_DEPENDS+=	tmux:${PORTSDIR}/sysutils/tmux
 RUN_DEPENDS+=	vobcopy:${PORTSDIR}/sysutils/vobcopy

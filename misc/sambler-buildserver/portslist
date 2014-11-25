@@ -9,6 +9,7 @@ RUN_DEPENDS+=	postgresql93-server>=0:${PORTSDIR}/databases/postgresql93-server
 # devel
 RUN_DEPENDS+=   fmake:${PORTSDIR}/devel/fmake
 RUN_DEPENDS+=	git:${PORTSDIR}/devel/git
+RUN_DEPENDS+=   kyua:${PORTSDIR}/devel/kyua
 RUN_DEPENDS+=	svn:${PORTSDIR}/devel/subversion
 
 # editors
@@ -24,6 +25,9 @@ RUN_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 RUN_DEPENDS+=	clang34:${PORTSDIR}/lang/clang34
 RUN_DEPENDS+=	clang35:${PORTSDIR}/lang/clang35
 RUN_DEPENDS+=	gcc>=0:${PORTSDIR}/lang/gcc
+
+# mail
+RUN_DEPENDS+=   ssmtp:${PORTSDIR}/mail/ssmtp
 
 # net
 RUN_DEPENDS+=	rsync:${PORTSDIR}/net/rsync
@@ -49,6 +53,8 @@ RUN_DEPENDS+=	ataidle:${PORTSDIR}/sysutils/ataidle
 RUN_DEPENDS+=	bsdstats>=0:${PORTSDIR}/sysutils/bsdstats
 RUN_DEPENDS+=	cpdup:${PORTSDIR}/sysutils/cpdup
 RUN_DEPENDS+=	ddrescue:${PORTSDIR}/sysutils/ddrescue
+RUN_DEPENDS+=   screen:${PORTSDIR}/sysutils/screen
+RUN_DEPENDS+=   smartctl:${PORTSDIR}/sysutils/smartmontools
 RUN_DEPENDS+=	webmin>=0:${PORTSDIR}/sysutils/webmin
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}salt>=0:${PORTSDIR}/sysutils/py-salt
 

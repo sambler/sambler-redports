@@ -7,6 +7,9 @@ RUN_DEPENDS+=   postgresql93-contrib>=0:${PORTSDIR}/databases/postgresql93-contr
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}boto>=0:${PORTSDIR}/devel/py-boto
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}wsgiutils>=0:${PORTSDIR}/devel/py-wsgiutils
 
+# mail
+RUN_DEPENDS+=   ssmtp:${PORTSDIR}/mail/ssmtp
+
 # net
 RUN_DEPENDS+=	rsync:${PORTSDIR}/net/rsync
 
@@ -19,6 +22,9 @@ RUN_DEPENDS+=	sudo:${PORTSDIR}/security/sudo
 
 # shells
 RUN_DEPENDS+=	bash:${PORTSDIR}/shells/bash
+
+# sysutils
+RUN_DEPENDS+=   smartctl:${PORTSDIR}/sysutils/smartmontools
 
 # www
 RUN_DEPENDS+=	apache24>=0:${PORTSDIR}/www/apache24
