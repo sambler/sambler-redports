@@ -17,7 +17,7 @@ RUN_DEPENDS=	# Empty so subsequent RUN_DEPENDS need +=
 
 NO_BUILD=	yes
 USES= python:2.7
-USE_APACHE_RUN=	22
+USE_APACHE_RUN=	24
 NO_MTREE=	yes
 
 do-install:	# empty
