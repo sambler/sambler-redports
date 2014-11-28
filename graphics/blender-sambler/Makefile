@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.72
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -52,14 +52,16 @@ RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	fdaf836
+GH_COMMIT=	7123cc0
 
 FETCH_ARGS=	-pRr
 
 USES=		cmake:outsource shebangfix compiler desktop-file-utils openal:al,alut
 USES+=		python:3.4
 WRKSRC=		${WRKDIR}/sambler-myblender-${GH_COMMIT}
-OUTDIR=		${INSTALL_WRKSRC}/bin/2.72
+#OUTDIR=		${INSTALL_WRKSRC}/bin/${PORTVERSION}
+OUTDIR=		${STAGEDIR}/${PREFIX}/${PORTVERSION}
+LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
 VERS_TAG=	sambler
 
 SUB_FILES=	blender blenderplayer
@@ -151,10 +153,9 @@ OPENMP_CMAKE_OFF=	-DWITH_OPENMP:BOOL=OFF
 OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DWITH_LLVM:BOOL=ON \
 			-DLLVM_STATIC:BOOL=OFF \
-			-DLLVM_VERSION:STRING="3.5" \
-			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config35"
+			-DLLVM_VERSION:STRING="3.4" \
+			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
-OSL_BUILD_DEPENDS=	clang++35:${PORTSDIR}/lang/clang35
 OSL_LIB_DEPENDS=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
 
 PLAYER_CMAKE_ON=	-DWITH_PLAYER:BOOL=ON
@@ -164,11 +165,6 @@ SECURITY_CMAKE_ON=	-DWITH_PYTHON_SECURITY:BOOL=ON
 SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 
 .include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MOSL}
-CC=/usr/local/bin/clang35
-CXX=/usr/local/bin/clang++35
-.endif
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
@@ -190,9 +186,9 @@ post-extract:
 # We ignore MAKE_ARGS, since those would set DESTDIR for make stage,
 # which in turn would cause make install to install everything in a
 # wrong location
-do-install:
-	@(cd ${INSTALL_WRKSRC} && ${SETENV} ${MAKE_ENV} ${MAKE_CMD} \
-		${MAKE_FLAGS} ${MAKEFILE} ${INSTALL_TARGET})
+#do-install:
+#	@(cd ${INSTALL_WRKSRC} && ${SETENV} ${MAKE_ENV} ${MAKE_CMD} \
+#		${MAKE_FLAGS} ${MAKEFILE} ${INSTALL_TARGET})
 
 post-install:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blender
@@ -217,7 +213,9 @@ post-install:
 
 	${MKDIR} ${STAGEDIR}${DATADIR}
 	(cd ${OUTDIR} && ${COPYTREE_SHARE} scripts ${STAGEDIR}${DATADIR})
-	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
+#	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
+#		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
+	@${INSTALL_DATA} ${OUTDIR}/../blender.svg \
 		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
 	@(cd ${OUTDIR}; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
 	@${ECHO} share/pixmaps/blender-${VERS_TAG}.svg >> ${TMPPLIST}
@@ -235,16 +233,41 @@ post-install:
 .endif
 
 	@${MKDIR} ${STAGEDIR}/${DESKTOPDIR}
-	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/blender.desktop \
+#	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/blender.desktop \
+#		${STAGEDIR}/${DESKTOPDIR}/${PORTNAME}.desktop
+	@${INSTALL_DATA} ${OUTDIR}/../blender.desktop \
 		${STAGEDIR}/${DESKTOPDIR}/${PORTNAME}.desktop
 	@-update-desktop-database -q
 	@${ECHO} share/applications/${PORTNAME}.desktop >> ${TMPPLIST}
 
-.if !defined(NO_INSTALL_MANPAGES)
-	@cd ${INSTALL_WRKSRC}/bin/ && ${PYTHON_CMD} ${WRKSRC}/doc/manpage/blender.1.py ./blender ./blender-${VERS_TAG}.1
-	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
-		${STAGEDIR}${MAN1PREFIX}/man/man1
-	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
-.endif
+###
+	@${MKDIR} ${STAGEDIR}/${LICDIR}
+	@${MV} ${STAGEDIR}/${PREFIX}/copyright.txt ${STAGEDIR}/${LICDIR}
+	@${ECHO} ${LICDIR}/copyright.txt >> ${TMPPLIST}
+	@${MV} ${STAGEDIR}/${PREFIX}/LICENSE-bfont.ttf.txt ${STAGEDIR}/${LICDIR}
+	@${ECHO} ${LICDIR}/LICENSE-bfont.ttf.txt >> ${TMPPLIST}
+	@${MV} ${STAGEDIR}/${PREFIX}/LICENSE-bmonofont-i18n.ttf.txt ${STAGEDIR}/${LICDIR}
+	@${ECHO} ${LICDIR}/LICENSE-bmonofont-i18n.ttf.txt >> ${TMPPLIST}
+	@${MV} ${STAGEDIR}/${PREFIX}/LICENSE-droidsans.ttf.txt ${STAGEDIR}/${LICDIR}
+	@${ECHO} ${LICDIR}/LICENSE-droidsans.ttf.txt >> ${TMPPLIST}
+	@${MKDIR} ${STAGEDIR}/${DOCSDIR}
+	@${MV} ${STAGEDIR}/${PREFIX}/readme.html ${STAGEDIR}/${DOCSDIR}
+	@${ECHO} ${DOCSDIR}/readme.html >> ${TMPPLIST}
+# cleanup
+	@${RM} ${STAGEDIR}/${PREFIX}/blender
+	@${RM} ${STAGEDIR}/${PREFIX}/blender.desktop
+	@${RM} ${STAGEDIR}/${PREFIX}/blender.svg
+	@${RM} ${STAGEDIR}/${PREFIX}/blender-thumbnailer.py
+	@${RM} ${STAGEDIR}/${PREFIX}/GPL-license.txt
+	@${RM} ${STAGEDIR}/${PREFIX}/Python-license.txt
+	@${RM} -R ${STAGEDIR}/${PREFIX}/${PORTVERSION}
+###
+
+#.if !defined(NO_INSTALL_MANPAGES)
+#	@cd ${INSTALL_WRKSRC}/bin/ && ${PYTHON_CMD} ${WRKSRC}/doc/manpage/blender.1.py ./blender ./blender-${VERS_TAG}.1
+#	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
+#		${STAGEDIR}${MAN1PREFIX}/man/man1
+#	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
+#.endif
 
 .include <bsd.port.mk>
