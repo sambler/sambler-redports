@@ -1,6 +1,6 @@
---- src/testshade/testshade.cpp.orig	2014-07-30 17:38:26 UTC
+--- src/testshade/testshade.cpp.orig	2014-09-23 05:01:22 UTC
 +++ src/testshade/testshade.cpp
-@@ -731,7 +731,7 @@
+@@ -733,7 +733,7 @@ test_shade (int argc, const char *argv[]
          int num_layers = 0;
          shadingsys->getattribute (shadergroup.get(), "num_layers", num_layers);
          if (num_layers > 0) {
