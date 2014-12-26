@@ -48,17 +48,4 @@
  endif ()
  
  set (CMAKE_MODULE_PATH
-@@ -252,6 +250,13 @@ add_subdirectory (src/testrender)
- add_subdirectory (src/include)
- add_subdirectory (src/doc)
- 
-+if (USE_BOOST_WAVE)
-+    add_definitions ("-DUSE_BOOST_WAVE")
-+endif ()
-+
-+if (CMAKE_COMPILER_IS_CLANG AND OSL_SYSTEM_HAS_LIBCPP)
-+    message (STATUS "Using libc++")
-+endif ()
- 
- 
- #########################################################################
+
