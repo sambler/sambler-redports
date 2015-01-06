@@ -30,7 +30,10 @@ WITH_OPENSSL_PORT=	yes
 #SCONS_ARGS+=	platform=x11
 #SCONS_ENV+=	BUILD_REVISION="FreeBSD Ports build"
 
-.include <bsd.port.pre.mk>
+OPTIONS_DEFINE=	EXAMPLES
+OPTIONS_SUB=	yes
+
+.include <bsd.port.options.mk>
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|custom_build|FreeBSD Ports build|' ${WRKSRC}/methods.py
@@ -43,5 +46,10 @@ do-install:
 		${STAGEDIR}/${PREFIX}/bin/godot.x11.tools.64
 	@${LN} ${STAGEDIR}/${PREFIX}/bin/godot.x11.tools.64 \
 		${STAGEDIR}/${PREFIX}/bin/godot
+.if ${PORT_OPTIONS:MEXAMPLES}
+	${MKDIR} ${STAGEDIR}${DATADIR}
+	(cd ${WRKSRC} && ${COPYTREE_SHARE} demos ${STAGEDIR}${DATADIR})
+	${RM} ${STAGEDIR}${DATADIR}/demos/2d/hexamap/.fscache
+.endif
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
