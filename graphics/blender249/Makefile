@@ -16,7 +16,7 @@ LICENSE=	GPLv2
 
 BUILD_DEPENDS=  ${LOCALBASE}/lib/libode.a:${PORTSDIR}/devel/ode
 LIB_DEPENDS=	libjpeg.so:${PORTSDIR}/graphics/jpeg
-LIB_DEPENDS+=	libpng15.so:${PORTSDIR}/graphics/png
+LIB_DEPENDS+=	libpng.so:${PORTSDIR}/graphics/png
 LIB_DEPENDS+=	libtiff.so:${PORTSDIR}/graphics/tiff
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
 LIB_DEPENDS+=	libavutil0.so:${PORTSDIR}/multimedia/ffmpeg0
