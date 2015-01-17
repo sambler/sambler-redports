@@ -1,5 +1,14 @@
 --- CMakeLists.txt.orig	2014-04-13 12:03:21.000000000 +0200
 +++ CMakeLists.txt	2014-04-13 12:13:07.000000000 +0200
+@@ -83,6 +83,8 @@
+ # Input directories must have CMakeLists.txt
+ cmake_policy(SET CMP0014 NEW)
+ 
++cmake_policy(SET CMP0043 NEW)
++
+ #-----------------------------------------------------------------------------
+ # Load some macros.
+ include(build_files/cmake/macros.cmake)
 @@ -752,6 +752,7 @@
  			set(__boost_packages filesystem regex system thread date_time)
  			if(WITH_INTERNATIONAL)

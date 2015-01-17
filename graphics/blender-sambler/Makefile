@@ -27,7 +27,7 @@ LIB_DEPENDS+=	libexecinfo.so:${PORTSDIR}/devel/libexecinfo
 LIB_DEPENDS+=	libunwind.so:${PORTSDIR}/devel/libunwind
 LIB_DEPENDS+=	libjpeg.so:${PORTSDIR}/graphics/jpeg
 LIB_DEPENDS+=	libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
-LIB_DEPENDS+=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio
+LIB_DEPENDS+=	libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
 LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15
 LIB_DEPENDS+=	libpng.so:${PORTSDIR}/graphics/png
@@ -174,6 +174,10 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|MY_WC_HASH "unknown"|MY_WC_HASH "${GH_COMMIT}"|g' \
 		-e 's|MY_WC_BRANCH "unknown"|MY_WC_BRANCH "mymods"|g' \
 		${WRKSRC}/build_files/cmake/buildinfo.cmake
+	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
+		${XARGS} ${REINPLACE_CMD} -i '' -e 's|OpenImageIO/|OpenImageIO14/|g'
+	@${REINPLACE_CMD} -i '' -e 's|OpenImageIO/|OpenImageIO14/|g' \
+		${WRKSRC}/source/blender/imbuf/intern/oiio/openimageio_api.cpp
 
 post-extract:
 # tanslations

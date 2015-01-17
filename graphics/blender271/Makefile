@@ -21,7 +21,7 @@ LIB_DEPENDS+=	libexecinfo.so:${PORTSDIR}/devel/libexecinfo
 LIB_DEPENDS+=	libjpeg.so:${PORTSDIR}/graphics/jpeg
 LIB_DEPENDS+=	libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
-LIB_DEPENDS+=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio
+LIB_DEPENDS+=	libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14
 LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15
 LIB_DEPENDS+=	libpng.so:${PORTSDIR}/graphics/png
 LIB_DEPENDS+=	libtiff.so:${PORTSDIR}/graphics/tiff
@@ -125,13 +125,6 @@ OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DOSL_LIB_QUERY:STRING="${LOCALBASE}/lib/liboslquery14.so"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
 OSL_LIB_DEPENDS=	liboslcomp14.so:${PORTSDIR}/graphics/openshadinglanguage14
-OSL14_PATCH_FILES=	blender/blender_python.cpp kernel/osl/background.cpp \
-			kernel/osl/bsdf_diffuse_ramp.cpp kernel/osl/bsdf_phong_ramp.cpp \
-			kernel/osl/emissive.cpp kernel/osl/osl_bssrdf.cpp \
-			kernel/osl/osl_bssrdf.h kernel/osl/osl_closures.cpp \
-			kernel/osl/osl_closures.h kernel/osl/osl_globals.h \
-			kernel/osl/osl_services.h kernel/osl/osl_shader.cpp \
-			render/image.cpp render/osl.h render/shader.h
 
 PLAYER_CMAKE_ON=	-DWITH_PLAYER:BOOL=ON
 PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
@@ -146,10 +139,12 @@ post-patch:
 		${WRKSRC}/release/bin/blender-thumbnailer.py
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
 		${WRKSRC}/release/freedesktop/blender.desktop
-.for PFILE in ${OSL14_PATCH_FILES}
-	@${REINPLACE_CMD} -i '' -e 's|<OSL/|<OSL14/|g' \
-		${WRKSRC}/intern/cycles/${PFILE}
-.endfor
+	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
+		${XARGS} ${REINPLACE_CMD} -i '' -e 's|<OpenImageIO/|<OpenImageIO14/|g'
+	@${REINPLACE_CMD} -i '' -e 's|OpenImageIO/|OpenImageIO14/|g' \
+		${WRKSRC}/source/blender/imbuf/intern/oiio/openimageio_api.cpp
+	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
+		${XARGS} ${REINPLACE_CMD} -i '' -e 's|<OSL/|<OSL14/|g'
 
 # We ignore MAKE_ARGS, since those would set DESTDIR for make stage,
 # which in turn would cause make install to install everything in a
@@ -204,11 +199,11 @@ post-install:
 	@-update-desktop-database -q
 	@${ECHO} share/applications/${PORTNAME}.desktop >> ${TMPPLIST}
 
-.if !defined(NO_INSTALL_MANPAGES)
-	@cd ${INSTALL_WRKSRC}/bin/ && ${PYTHON_CMD} ${WRKSRC}/doc/manpage/blender.1.py ./blender ./blender-${VERS_TAG}.1
-	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
-		${STAGEDIR}${MAN1PREFIX}/man/man1
-	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
-.endif
+#.if !defined(NO_INSTALL_MANPAGES)
+#	@cd ${INSTALL_WRKSRC}/bin/ && ${PYTHON_CMD} ${WRKSRC}/doc/manpage/blender.1.py ./blender ./blender-${VERS_TAG}.1
+#	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
+#		${STAGEDIR}${MAN1PREFIX}/man/man1
+#	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
+#.endif
 
 .include <bsd.port.mk>

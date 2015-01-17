@@ -1,0 +1,30 @@
+--- ./source/creator/CMakeLists.txt.orig	2015-01-17 20:49:52.261466989 +1030
++++ ./source/creator/CMakeLists.txt	2015-01-17 20:50:54.062758081 +1030
+@@ -390,15 +390,6 @@
+ 
+ if(UNIX AND NOT APPLE)
+ 
+-	install(
+-		CODE
+-		"
+-		execute_process(COMMAND
+-		                ${CMAKE_SOURCE_DIR}/doc/manpage/blender.1.py
+-		                ${TARGETDIR}/blender
+-		                ${TARGETDIR}/blender.1)
+-		"
+-	)
+ 
+ 	# there are a few differences between portable and system install
+ 	if(WITH_INSTALL_PORTABLE)
+@@ -467,10 +458,7 @@
+ 			PROGRAMS ${CMAKE_SOURCE_DIR}/release/bin/blender-thumbnailer.py
+ 			DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
+ 		)
+-		install(
+-			FILES ${TARGETDIR}/blender.1
+-			DESTINATION ${CMAKE_INSTALL_PREFIX}/share/man/man1
+-		)
++		
+ 		install(
+ 			FILES ${BLENDER_TEXT_FILES}
+ 			DESTINATION ${CMAKE_INSTALL_PREFIX}/share/doc/blender

@@ -20,7 +20,7 @@ LIB_DEPENDS+=	libboost_thread.so:${PORTSDIR}/devel/boost-libs
 LIB_DEPENDS+=	libjpeg.so:${PORTSDIR}/graphics/jpeg
 LIB_DEPENDS+=	libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
-LIB_DEPENDS+=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio
+LIB_DEPENDS+=	libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14
 LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15
 LIB_DEPENDS+=	libpng.so:${PORTSDIR}/graphics/png
 LIB_DEPENDS+=	libtiff.so:${PORTSDIR}/graphics/tiff
@@ -123,6 +123,8 @@ post-patch:
 		kernel/kernel_displace.h kernel/kernel_film.h \
 		kernel/kernel_passes.h kernel/kernel_path.h \
 		kernel/kernel_random.h
+	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
+		${XARGS} ${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO14/|g'
 
 # We ignore MAKE_ARGS, since those would set DESTDIR for make stage,
 # which in turn would cause make install to install everything in a
@@ -177,11 +179,11 @@ post-install:
 	@-update-desktop-database -q
 	@${ECHO} share/applications/${PORTNAME}.desktop >> ${TMPPLIST}
 
-.if !defined(NO_INSTALL_MANPAGES)
-	@${MV} ${INSTALL_WRKSRC}/bin/blender.1 ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1
-	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
-		${STAGEDIR}${MAN1PREFIX}/man/man1
-	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
-.endif
+#.if !defined(NO_INSTALL_MANPAGES)
+#	@${MV} ${INSTALL_WRKSRC}/bin/blender.1 ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1
+#	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
+#		${STAGEDIR}${MAN1PREFIX}/man/man1
+#	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
+#.endif
 
 .include <bsd.port.mk>
