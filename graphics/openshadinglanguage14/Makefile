@@ -14,7 +14,7 @@ BUILD_DEPENDS=	llvm-config33:${PORTSDIR}/devel/llvm33 \
 		clang33>=3.3_3:${PORTSDIR}/lang/clang33
 LIB_DEPENDS=	libboost_thread.so:${PORTSDIR}/devel/boost-libs \
 		libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
-		libOpenImageIO.so:${PORTSDIR}/graphics/openimageio
+		libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14
 RUN_DEPENDS=	llvm-config33:${PORTSDIR}/devel/llvm33
 
 USE_GITHUB=	yes
@@ -38,5 +38,7 @@ CXXFLAGS+=	-I${LOCALBASE}/include/flex
 post-patch:
 	@${REINPLACE_CMD} -e 's,/bin/bash,/bin/sh,' \
 		${WRKSRC}/src/liboslexec/serialize-bc.bash
+	@${FIND} ${WRKSRC} -name "*.cpp" -or -name "*.h" -or -name "*.l" | \
+		${XARGS} ${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO14/|g'
 
 .include <bsd.port.mk>
