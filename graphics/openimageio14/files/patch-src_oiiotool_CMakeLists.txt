@@ -1,0 +1,14 @@
+--- src/oiiotool/CMakeLists.txt.orig	2014-11-25 05:10:44 UTC
++++ src/oiiotool/CMakeLists.txt
+@@ -1,6 +1,6 @@
+ set (oiiotool_srcs oiiotool.cpp diff.cpp imagerec.cpp printinfo.cpp)
+-add_executable (oiiotool ${oiiotool_srcs})
+-set_target_properties (oiiotool PROPERTIES FOLDER "Tools")
+-target_link_libraries (oiiotool OpenImageIO ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-link_ilmbase (oiiotool)
+-oiio_install_targets (oiiotool)
++add_executable (oiiotool14 ${oiiotool_srcs})
++set_target_properties (oiiotool14 PROPERTIES FOLDER "Tools")
++target_link_libraries (oiiotool14 OpenImageIO14 ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++link_ilmbase (oiiotool14)
++oiio_install_targets (oiiotool14)
