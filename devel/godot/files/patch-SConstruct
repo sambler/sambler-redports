@@ -1,0 +1,57 @@
+--- SConstruct.orig	2014-12-15 18:49:18 UTC
++++ SConstruct
+@@ -110,10 +110,11 @@ opts.Add('pvr','PVR (PowerVR) Texture lo
+ opts.Add('builtin_zlib','Use built-in zlib (yes/no)','yes')
+ opts.Add('openssl','Use OpenSSL (yes/no/builtin)','no')
+ opts.Add('musepack','Musepack Audio (yes/no)','yes')
+-opts.Add("CXX", "Compiler");
+-opts.Add("CCFLAGS", "Custom flags for the C++ compiler");
+-opts.Add("CFLAGS", "Custom flags for the C compiler");
+-opts.Add("LINKFLAGS", "Custom flags for the linker");
++opts.Add("CC", "C Compiler")
++opts.Add("CXX", "C++ Compiler")
++opts.Add("CCFLAGS", "Custom flags for the C++ compiler")
++opts.Add("CFLAGS", "Custom flags for the C compiler")
++opts.Add("LINKFLAGS", "Custom flags for the linker")
+ opts.Add('disable_3d', 'Disable 3D nodes for smaller executable (yes/no)', "no")
+ opts.Add('disable_advanced_gui', 'Disable advance 3D gui nodes and behaviors (yes/no)', "no")
+ 
+@@ -170,26 +171,29 @@ if selected_platform in platform_list:
+ 	else:
+ 		env = env_base.Clone()
+ 
++	detect.configure(env)
++	
+ 	env.extra_suffix=""
+ 
++	env['CC'] = os.environ['CC']
++	
++	env['CXX'] = os.environ['CXX']
++	
+ 	CCFLAGS = env.get('CCFLAGS', '')
+-	env['CCFLAGS'] = ''
+-
+-	env.Append(CCFLAGS=string.split(str(CCFLAGS)))
++	env['CCFLAGS'] = []
++	for i in CCFLAGS:
++		env['CCFLAGS'].append(i)
+ 
+ 	CFLAGS = env.get('CFLAGS', '')
+-	env['CFLAGS'] = ''
+-
+-	env.Append(CFLAGS=string.split(str(CFLAGS)))
++	env['CFLAGS'] = []
++	for i in CFLAGS:
++		env['CFLAGS'].append(i)
+ 
+ 	LINKFLAGS = env.get('LINKFLAGS', '')
+ 	env['LINKFLAGS'] = ''
+ 
+ 	env.Append(LINKFLAGS=string.split(str(LINKFLAGS)))
+ 
+-	detect.configure(env)
+-
+-
+ 	flag_list = platform_flags[selected_platform]
+ 	for f in flag_list:
+ 		if not (f[0] in ARGUMENTS): # allow command line to override platform flags
