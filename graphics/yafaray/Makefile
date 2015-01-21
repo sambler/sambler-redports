@@ -53,13 +53,16 @@ PYTHON_USES=		python:3.4
 
 QT_GUI_CMAKE_ON=	-DWITH_QT:BOOL=ON
 QT_GUI_CMAKE_OFF=	-DWITH_QT:BOOL=OFF
-QT_GUI_USE=		USE_QT4=gui moc_build qmake_build rcc_build uic_build
 
 RUBY_CMAKE_ON=		-DWITH_YAF_RUBY_BINDINGS:BOOL=ON
 RUBY_CMAKE_OFF=		-DWITH_YAF_RUBY_BINDINGS:BOOL=OFF
 RUBY_USE=		USE_RUBY=yes
 
 .include <bsd.port.options.mk>
+USE_QT4=gui moc_build qmake_build rcc_build uic_build
+.if ${PORT_OPTIONS:MQT_GUI}
+
+.endif
 
 .if ${PORT_OPTIONS:MBLENDER_ADDON}
 post-install:
