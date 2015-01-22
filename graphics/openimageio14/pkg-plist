@@ -50,11 +50,11 @@ include/OpenImageIO14/version.h
 lib/libOpenImageIO14.so
 lib/libOpenImageIO14.so.1
 lib/libOpenImageIO14.so.1.4
-lib/libOpenImageIO14.so.1.4.15
+lib/libOpenImageIO14.so.%%LIBVERS%%
 lib/libOpenImageIO_Util14.so
 lib/libOpenImageIO_Util14.so.1
 lib/libOpenImageIO_Util14.so.1.4
-lib/libOpenImageIO_Util14.so.1.4.15
+lib/libOpenImageIO_Util14.so.%%LIBVERS%%
 %%PORTDOCS%%%%DOCSDIR%%/CHANGES
 %%PORTDOCS%%%%DOCSDIR%%/LICENSE
 %%PORTDOCS%%%%DOCSDIR%%/openimageio.pdf
