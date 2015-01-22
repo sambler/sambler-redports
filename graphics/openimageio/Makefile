@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio
-PORTVERSION=	1.5.8
+PORTVERSION=	1.5.9
 PORTREVISION?=	0
 CATEGORIES?=	graphics multimedia
 
@@ -14,8 +14,8 @@ LICENSE=	BSD3CLAUSE
 USE_GITHUB=	yes
 GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
-GH_TAGNAME=	Release-${PORTVERSION}beta1
-GH_COMMIT=	7aace95
+GH_TAGNAME=	Release-${PORTVERSION}RC1
+GH_COMMIT=	bff89a0
 
 # fbm also installs bin/idiff
 CONFLICTS=	fbm-[0-9]*
@@ -49,6 +49,8 @@ OCIO_LIB_DEPENDS=	libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
 
 TEST_CMAKE_ON=		-DOIIO_BUILD_TESTS:BOOL=ON
 TEST_CMAKE_OFF=		-DOIIO_BUILD_TESTS:BOOL=OFF
+
+PLIST_SUB+=		LIBVERS=${PORTVERSION}
 
 .include <bsd.port.options.mk>
 

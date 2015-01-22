@@ -52,11 +52,11 @@ include/OpenImageIO/version.h
 lib/libOpenImageIO.so
 lib/libOpenImageIO.so.1
 lib/libOpenImageIO.so.1.5
-lib/libOpenImageIO.so.1.5.8
+lib/libOpenImageIO.so.%%LIBVERS%%
 lib/libOpenImageIO_Util.so
 lib/libOpenImageIO_Util.so.1
 lib/libOpenImageIO_Util.so.1.5
-lib/libOpenImageIO_Util.so.1.5.8
+lib/libOpenImageIO_Util.so.%%LIBVERS%%
 %%PORTDOCS%%%%DOCSDIR%%/CHANGES
 %%PORTDOCS%%%%DOCSDIR%%/LICENSE
 %%PORTDOCS%%%%DOCSDIR%%/openimageio.pdf
