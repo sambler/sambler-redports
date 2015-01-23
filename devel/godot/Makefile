@@ -19,42 +19,46 @@ GH_COMMIT=	7eb5d04
 LIB_DEPENDS=	libfreetype.so:${PORTSDIR}/print/freetype2 \
 		libasound.so:${PORTSDIR}/audio/alsa-lib
 
-USES=		scons pkgconfig
+USES=		scons pkgconfig compiler
 USE_XORG=	x11 xcursor
 USE_GL=		glu
 USE_OPENSSL=	yes
 # uses pkg-config to find ssl - pkg-config only finds port version
 WITH_OPENSSL_PORT=	yes
 
-MAKE_ARGS+=	platform=x11 CCFLAGS="${CXXFLAGS}" LINKFLAGS="${LDFLAGS}"
-#MAKE_ARGS+=	openssl=builtin 
+MAKE_ARGS+=	platform=x11 
+#MAKE_ARGS+=	openssl=builtin
 
-OPTIONS_DEFINE=	LLVM EXAMPLES SANITIZE
-OPTIONS_DEFAULT= LLVM
+OPTIONS_DEFINE=	EXAMPLES SANITIZE
+OPTIONS_DEFAULT= EXAMPLES
 OPTIONS_SUB=	yes
 
-LLVM_DESC=		Build using clang/llvm
-LLVM_BUILD_DEPENDS=	clang++34:${PORTSDIR}/lang/clang34
+SANITIZE_DESC=		Use sanitize=address
 
-SANITIZE_DESC=		Use llvm-sanitizer (needs CLANG)
-
-.include <bsd.port.options.mk>
+.include <bsd.port.pre.mk>
 
 .if ${ARCH}==amd64 || ${ARCH}==powerpc64 || ${ARCH}==sparc64 || ${ARCH}==ia64
 BITSUF=	64
 .else
 BITSUF=	32
 .endif
-.if ${PORT_OPTIONS:MLLVM}
+
+.if ${COMPILER_TYPE} == clang
+.if ${OSVERSION} < 900000
+BROKEN=	clang fails to link on 8.x
+.endif
 #LLSUF=	.llvm
 MAKE_ARGS+=	use_llvm=yes
-CC=	/usr/local/bin/clang34
-CXX=	/usr/local/bin/clang++34
-CPP=	/usr/local/bin/clang-cpp34
+.else  # LLVM
+USE_GCC=	4.8+
+.if ${ARCH} == i386
+CXXFLAGS+=	-march=i586
+.endif
+.endif # LLVM
+
 .if ${PORT_OPTIONS:MSANITIZE}
 #SANSUF=	s
 MAKE_ARGS+=	use_sanitizer=yes
-.endif
 .endif
 
 BINSUFFIX=	${BITSUF}${LLSUF}${SANSUF}
@@ -74,4 +78,4 @@ do-install:
 	${RM} ${STAGEDIR}${DATADIR}/demos/2d/hexamap/.fscache
 .endif
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
