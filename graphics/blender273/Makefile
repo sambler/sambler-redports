@@ -34,7 +34,7 @@ USES=		cmake:outsource compiler shebangfix desktop-file-utils openal:al,alut
 USES+=		python:3.4
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 #OUTDIR=		${INSTALL_WRKSRC}/bin/2.73
-OUTDIR=		${STAGEDIR}/${PREFIX}/${PORTVERSION}
+OUTDIR=		${STAGEDIR}/${PREFIX}/2.73
 LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
 VERS_TAG=	273
 
