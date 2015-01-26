@@ -1,5 +1,5 @@
 bin/godot
-bin/godot.x11.tools.%%BINSUFF%%
+bin/godot.x11%%BINSUFF%%
 %%EXAMPLES%%%%DATADIR%%/demos/2d/hexamap/WWT-01.png
 %%EXAMPLES%%%%DATADIR%%/demos/2d/hexamap/WWT-02.png
 %%EXAMPLES%%%%DATADIR%%/demos/2d/hexamap/WWT-03.png

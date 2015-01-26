@@ -1,53 +1,38 @@
 --- SConstruct.orig	2014-12-16 05:19:18.000000000 +1030
-+++ SConstruct	2015-01-23 15:37:19.602408084 +1030
-@@ -110,10 +110,11 @@
++++ SConstruct	2015-01-27 00:22:23.169373963 +1030
+@@ -110,7 +110,8 @@
  opts.Add('builtin_zlib','Use built-in zlib (yes/no)','yes')
  opts.Add('openssl','Use OpenSSL (yes/no/builtin)','no')
  opts.Add('musepack','Musepack Audio (yes/no)','yes')
 -opts.Add("CXX", "Compiler");
--opts.Add("CCFLAGS", "Custom flags for the C++ compiler");
--opts.Add("CFLAGS", "Custom flags for the C compiler");
--opts.Add("LINKFLAGS", "Custom flags for the linker");
 +opts.Add("CC", "C Compiler")
-+opts.Add("CXX", "C++ Compiler")
-+opts.Add("CCFLAGS", "Custom flags for the C++ compiler")
-+opts.Add("CFLAGS", "Custom flags for the C compiler")
-+opts.Add("LINKFLAGS", "Custom flags for the linker")
- opts.Add('disable_3d', 'Disable 3D nodes for smaller executable (yes/no)', "no")
- opts.Add('disable_advanced_gui', 'Disable advance 3D gui nodes and behaviors (yes/no)', "no")
++opts.Add("CXX", "C++ Compiler");
+ opts.Add("CCFLAGS", "Custom flags for the C++ compiler");
+ opts.Add("CFLAGS", "Custom flags for the C compiler");
+ opts.Add("LINKFLAGS", "Custom flags for the linker");
+@@ -172,15 +173,17 @@
  
-@@ -170,16 +171,18 @@
- 	else:
- 		env = env_base.Clone()
- 
-+	detect.configure(env)
-+	
  	env.extra_suffix=""
  
 -	CCFLAGS = env.get('CCFLAGS', '')
 -	env['CCFLAGS'] = ''
 -
+-	env.Append(CCFLAGS=string.split(str(CCFLAGS)))
+-
+-	CFLAGS = env.get('CFLAGS', '')
+-	env['CFLAGS'] = ''
 +	env['CC'] = os.environ['CC']
 +	
 +	env['CXX'] = os.environ['CXX']
-+	
-+	CCFLAGS = os.environ['CXXFLAGS']
- 	env.Append(CCFLAGS=string.split(str(CCFLAGS)))
  
--	CFLAGS = env.get('CFLAGS', '')
--	env['CFLAGS'] = ''
--
+-	env.Append(CFLAGS=string.split(str(CFLAGS)))
 +	CFLAGS = os.environ['CFLAGS']
- 	env.Append(CFLAGS=string.split(str(CFLAGS)))
++	env['CFLAGS'] = []
++	env.Append(CFLAGS=string.split(CFLAGS))
++
++	CCFLAGS = os.environ['CXXFLAGS']
++	env['CCFLAGS'] = []
++	env.Append(CCFLAGS=string.split(CCFLAGS))
  
  	LINKFLAGS = env.get('LINKFLAGS', '')
-@@ -187,9 +190,6 @@
- 
- 	env.Append(LINKFLAGS=string.split(str(LINKFLAGS)))
- 
--	detect.configure(env)
--
--
- 	flag_list = platform_flags[selected_platform]
- 	for f in flag_list:
- 		if not (f[0] in ARGUMENTS): # allow command line to override platform flags
+ 	env['LINKFLAGS'] = ''

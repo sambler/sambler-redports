@@ -1,46 +1,5 @@
 --- platform/x11/detect.py.orig	2014-12-16 05:19:18.000000000 +1030
 +++ platform/x11/detect.py	2015-01-23 16:08:21.497280349 +1030
-@@ -1,13 +1,13 @@
- 
- import os
--import sys	
-+import sys
- 
- 
- def is_active():
- 	return True
--        
-+
- def get_name():
--        return "X11"
-+	return "X11"
- 
- 
- def can_build():
-@@ -29,10 +29,10 @@
- 		print("X11 not found.. x11 disabled.")
- 		return False
- 
--        ssl_error=os.system("pkg-config openssl --modversion > /dev/null ")
--        if (ssl_error):
--                print("OpenSSL not found.. x11 disabled.")
--                return False
-+		ssl_error=os.system("pkg-config openssl --modversion > /dev/null ")
-+		if (ssl_error):
-+			print("OpenSSL not found.. x11 disabled.")
-+			return False
- 
- 	x11_error=os.system("pkg-config xcursor --modversion > /dev/null ")
- 	if (x11_error):
-@@ -55,7 +55,7 @@
- 	('builtin_zlib', 'no'),
- 	("openssl", "yes"),
- 	("theora","no"),
--        ]
-+		]
- 			
- 
- 
 @@ -72,17 +72,16 @@
  
  	env.Append(CPPPATH=['#platform/x11'])
