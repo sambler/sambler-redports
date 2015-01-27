@@ -19,7 +19,7 @@
 +			env["CC"]="clang"
 +			env["CXX"]="clang++"
 +			env["LD"]="clang++"
-+			env.Append(CPPFLAGS=['-DTYPED_METHOD_BIND'])
++		env.Append(CPPFLAGS=['-DTYPED_METHOD_BIND'])
 +		env.extra_suffix=".llvm"
 +
 +	if (env["use_sanitizer"]=="yes"):

@@ -327,4 +327,3 @@ bin/godot.x11%%BINSUFF%%
 %%EXAMPLES%%%%DATADIR%%/demos/viewport/gui_in_3d/gui.scn
 %%EXAMPLES%%%%DATADIR%%/demos/viewport/gui_in_3d/gui_3d.gd
 %%EXAMPLES%%%%DATADIR%%/demos/viewport/gui_in_3d/gui_3d.scn
-
