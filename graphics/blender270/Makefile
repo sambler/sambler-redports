@@ -132,7 +132,12 @@ PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
 SECURITY_CMAKE_ON=	-DWITH_PYTHON_SECURITY:BOOL=ON
 SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 
-.include <bsd.port.options.mk>
+.include <bsd.port.pre.mk>
+
+.if ${COMPILER_TYPE} == gcc
+# gcc 4.2 does not support -msse4.1, which is needed for blender 2.70+
+USE_GCC=	yes
+.endif
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
@@ -152,6 +157,8 @@ post-patch:
 		${WRKSRC}/source/blender/imbuf/intern/oiio/openimageio_api.cpp
 	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
 		${XARGS} ${REINPLACE_CMD} -i '' -e 's|<OSL/|<OSL14/|g'
+	@${REINPLACE_CMD} -e 's|yaml-cpp|&03|' \
+		${PATCH_WRKSRC}/build_files/cmake/Modules/FindOpenColorIO.cmake
 
 # We ignore MAKE_ARGS, since those would set DESTDIR for make stage,
 # which in turn would cause make install to install everything in a
@@ -213,4 +220,4 @@ post-install:
 	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
 .endif
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
