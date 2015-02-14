@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio
-PORTVERSION=	1.5.9
+PORTVERSION=	1.5.12
 PORTREVISION?=	0
 CATEGORIES?=	graphics multimedia
 
@@ -14,8 +14,8 @@ LICENSE=	BSD3CLAUSE
 USE_GITHUB=	yes
 GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
-GH_TAGNAME=	Release-${PORTVERSION}RC1
-GH_COMMIT=	bff89a0
+GH_TAGNAME=	Release-${PORTVERSION}
+GH_COMMIT=	ddfca7b
 
 # fbm also installs bin/idiff
 CONFLICTS=	fbm-[0-9]*
