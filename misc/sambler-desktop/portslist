@@ -50,7 +50,7 @@ RUN_DEPENDS+=	xsynth-dssi>=0:${PORTSDIR}/audio/xsynth-dssi
 RUN_DEPENDS+=	zynaddsubfx:${PORTSDIR}/audio/zynaddsubfx
 
 # cad
-#RUN_DEPENDS+=	meshlab:${PORTSDIR}/cad/meshlab
+#RUN_DEPENDS+=  meshlab:${PORTSDIR}/cad/meshlab
 
 # comms
 RUN_DEPENDS+=	ideviceinfo:${PORTSDIR}/comms/libimobiledevice
@@ -100,7 +100,7 @@ RUN_DEPENDS+=	devhelp:${PORTSDIR}/devel/devhelp
 RUN_DEPENDS+=	dmake:${PORTSDIR}/devel/dmake
 RUN_DEPENDS+=	dmalloc>=0:${PORTSDIR}/devel/dmalloc
 RUN_DEPENDS+=	doxygen:${PORTSDIR}/devel/doxygen
-RUN_DEPENDS+=   fmake:${PORTSDIR}/devel/fmake
+RUN_DEPENDS+=	fmake:${PORTSDIR}/devel/fmake
 LIB_DEPENDS+=	libOpenCL.so:${PORTSDIR}/devel/freeocl
 RUN_DEPENDS+=	gdb>=0:${PORTSDIR}/devel/gdb
 RUN_DEPENDS+=	geany-plugins>=0:${PORTSDIR}/devel/geany-plugins
@@ -114,7 +114,7 @@ RUN_DEPENDS+=	gperf:${PORTSDIR}/devel/gperf
 RUN_DEPENDS+=	gwenhywfar-config:${PORTSDIR}/devel/gwenhywfar
 RUN_DEPENDS+=	imake:${PORTSDIR}/devel/imake
 RUN_DEPENDS+=	jsmin:${PORTSDIR}/devel/jsmin
-RUN_DEPENDS+=   kyua:${PORTSDIR}/devel/kyua
+RUN_DEPENDS+=	kyua:${PORTSDIR}/devel/kyua
 RUN_DEPENDS+=	checkmk:${PORTSDIR}/devel/libcheck
 LIB_DEPENDS+=	libconfig.so:${PORTSDIR}/devel/libconfig
 LIB_DEPENDS+=	libgalago.so:${PORTSDIR}/devel/libgalago
@@ -127,10 +127,10 @@ LIB_DEPENDS+=	libthai.so:${PORTSDIR}/devel/libthai
 RUN_DEPENDS+=	hg:${PORTSDIR}/devel/mercurial
 RUN_DEPENDS+=	nasm:${PORTSDIR}/devel/nasm
 RUN_DEPENDS+=	ode-config:${PORTSDIR}/devel/ode
-RUN_DEPENDS+=   p5-File-Slurp>=0:${PORTSDIR}/devel/p5-File-Slurp  # for internode-quota-check
+RUN_DEPENDS+=	p5-File-Slurp>=0:${PORTSDIR}/devel/p5-File-Slurp  # for internode-quota-check
 RUN_DEPENDS+=	p5-Readonly>=0:${PORTSDIR}/devel/p5-Readonly  # for internode-quota-check
 RUN_DEPENDS+=	gpatch:${PORTSDIR}/devel/patch
-RUN_DEPENDS+=   phabricator>=0:${PORTSDIR}/devel/phabricator
+RUN_DEPENDS+=	phabricator>=0:${PORTSDIR}/devel/phabricator
 RUN_DEPENDS+=	premake:${PORTSDIR}/devel/premake
 RUN_DEPENDS+=	projectcenter>=0:${PORTSDIR}/devel/projectcenter
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}lxml>=0:${PORTSDIR}/devel/py-lxml
@@ -161,7 +161,7 @@ RUN_DEPENDS+=	zzcat:${PORTSDIR}/devel/zziplib
 # dns
 RUN_DEPENDS+=	adnshost:${PORTSDIR}/dns/adns
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}dnspython>=0:${PORTSDIR}/dns/py-dnspython
-RUN_DEPENDS+=   bind9-config:${PORTSDIR}/dns/bind910
+RUN_DEPENDS+=	bind9-config:${PORTSDIR}/dns/bind910
 
 # editors
 RUN_DEPENDS+=	gedit-plugins>=0:${PORTSDIR}/editors/gedit-plugins
@@ -225,6 +225,7 @@ RUN_DEPENDS+=	clang32:${PORTSDIR}/lang/clang32
 RUN_DEPENDS+=	clang33:${PORTSDIR}/lang/clang33
 RUN_DEPENDS+=	clang34:${PORTSDIR}/lang/clang34
 RUN_DEPENDS+=	clang35:${PORTSDIR}/lang/clang35
+RUN_DEPENDS+=	clang36:${PORTSDIR}/lang/clang36
 RUN_DEPENDS+=	clang-devel:${PORTSDIR}/lang/clang-devel
 RUN_DEPENDS+=	gawk:${PORTSDIR}/lang/gawk
 RUN_DEPENDS+=	gcc>=0:${PORTSDIR}/lang/gcc
@@ -236,7 +237,7 @@ RUN_DEPENDS+=	python3>=0:${PORTSDIR}/lang/python3
 
 # mail
 RUN_DEPENDS+=	fetchmail:${PORTSDIR}/mail/fetchmail
-RUN_DEPENDS+=   ssmtp:${PORTSDIR}/mail/ssmtp
+RUN_DEPENDS+=	ssmtp:${PORTSDIR}/mail/ssmtp
 RUN_DEPENDS+=	thunderbird-dictionaries>=0:${PORTSDIR}/mail/thunderbird-dictionaries
 RUN_DEPENDS+=	xfce4-mailwatch-plugin>=0:${PORTSDIR}/mail/xfce4-mailwatch-plugin
 
@@ -270,14 +271,14 @@ RUN_DEPENDS+=	clipgrab:${PORTSDIR}/multimedia/clipgrab
 RUN_DEPENDS+=	clive:${PORTSDIR}/multimedia/clive
 RUN_DEPENDS+=	devede:${PORTSDIR}/multimedia/devede
 RUN_DEPENDS+=	dvdrip:${PORTSDIR}/multimedia/dvdrip
-RUN_DEPENDS+=   ffmpeg1:${PORTSDIR}/multimedia/ffmpeg1
+RUN_DEPENDS+=	ffmpeg1:${PORTSDIR}/multimedia/ffmpeg1
 RUN_DEPENDS+=	ffmpeg2theora:${PORTSDIR}/multimedia/ffmpeg2theora
 RUN_DEPENDS+=	gcap:${PORTSDIR}/multimedia/gcap
 RUN_DEPENDS+=	grake:${PORTSDIR}/multimedia/grake
 RUN_DEPENDS+=	gstreamer-plugins-all>=0:${PORTSDIR}/multimedia/gstreamer-plugins-all
 LIB_DEPENDS+=	libgstreamermm-0.10.so:${PORTSDIR}/multimedia/gstreamermm
 RUN_DEPENDS+=	gtk-recordMyDesktop:${PORTSDIR}/multimedia/gtk-recordmydesktop
-#RUN_DEPENDS+=	HandBrake:${PORTSDIR}/multimedia/handbrake
+#RUN_DEPENDS+=  HandBrake:${PORTSDIR}/multimedia/handbrake
 RUN_DEPENDS+=	lsdvd:${PORTSDIR}/multimedia/lsdvd
 RUN_DEPENDS+=	mediainfo:${PORTSDIR}/multimedia/mediainfo
 RUN_DEPENDS+=	minitube:${PORTSDIR}/multimedia/minitube
@@ -306,9 +307,9 @@ RUN_DEPENDS+=	vino-passwd:${PORTSDIR}/net/vino
 # ports-mgmt
 RUN_DEPENDS+=	dialog4ports:${PORTSDIR}/ports-mgmt/dialog4ports
 RUN_DEPENDS+=	fbsdmon:${PORTSDIR}/ports-mgmt/fbsdmon
-#RUN_DEPENDS+=	pkg:${PORTSDIR}/ports-mgmt/pkg
+#RUN_DEPENDS+=  pkg:${PORTSDIR}/ports-mgmt/pkg
 RUN_DEPENDS+=	portlint:${PORTSDIR}/ports-mgmt/portlint
-RUN_DEPENDS+=   poudriere>=0:${PORTSDIR}/ports-mgmt/poudriere
+RUN_DEPENDS+=	poudriere>=0:${PORTSDIR}/ports-mgmt/poudriere
 RUN_DEPENDS+=	tinderbox>=0:${PORTSDIR}/ports-mgmt/tinderbox
 
 # print
@@ -323,16 +324,16 @@ RUN_DEPENDS+=	apg:${PORTSDIR}/security/apg
 RUN_DEPENDS+=	clamav-config:${PORTSDIR}/security/clamav
 RUN_DEPENDS+=	denyhosts.py:${PORTSDIR}/security/denyhosts
 RUN_DEPENDS+=	dirmngr:${PORTSDIR}/security/dirmngr
-RUN_DEPENDS+=   racoon:${PORTSDIR}/security/ipsec-tools
+RUN_DEPENDS+=	racoon:${PORTSDIR}/security/ipsec-tools
 RUN_DEPENDS+=	keychain:${PORTSDIR}/security/keychain
 RUN_DEPENDS+=	otr_parse:${PORTSDIR}/security/libotr
 LIB_DEPENDS+=	libssh2.so:${PORTSDIR}/security/libssh2
 RUN_DEPENDS+=	ssh-askpass:${PORTSDIR}/security/openssh-askpass
-#RUN_DEPENDS+=	pgp:${PORTSDIR}/security/pgp
+#RUN_DEPENDS+=  pgp:${PORTSDIR}/security/pgp
 RUN_DEPENDS+=	pinentry:${PORTSDIR}/security/pinentry
 RUN_DEPENDS+=	qca-ossl>=0:${PORTSDIR}/security/qca-ossl
 RUN_DEPENDS+=	rkhunter:${PORTSDIR}/security/rkhunter
-RUN_DEPENDS+=   seahorse:${PORTSDIR}/security/seahorse
+RUN_DEPENDS+=	seahorse:${PORTSDIR}/security/seahorse
 RUN_DEPENDS+=	sudo:${PORTSDIR}/security/sudo
 RUN_DEPENDS+=	zenmap:${PORTSDIR}/security/zenmap
 
@@ -369,9 +370,9 @@ RUN_DEPENDS+=	ntfslabel:${PORTSDIR}/sysutils/ntfsprogs
 RUN_DEPENDS+=	nvclock:${PORTSDIR}/sysutils/nvclock
 RUN_DEPENDS+=	lspci:${PORTSDIR}/sysutils/pciutils
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}salt>=0:${PORTSDIR}/sysutils/py-salt
-RUN_DEPENDS+=   screen:${PORTSDIR}/sysutils/screen
+RUN_DEPENDS+=	screen:${PORTSDIR}/sysutils/screen
 RUN_DEPENDS+=	sg_get_config:${PORTSDIR}/sysutils/sg3_utils
-RUN_DEPENDS+=   smartctl:${PORTSDIR}/sysutils/smartmontools
+RUN_DEPENDS+=	smartctl:${PORTSDIR}/sysutils/smartmontools
 RUN_DEPENDS+=	testdisk:${PORTSDIR}/sysutils/testdisk
 RUN_DEPENDS+=	tmux:${PORTSDIR}/sysutils/tmux
 RUN_DEPENDS+=	vobcopy:${PORTSDIR}/sysutils/vobcopy
@@ -425,7 +426,7 @@ LIB_DEPENDS+=	libmicrohttpd.so:${PORTSDIR}/www/libmicrohttpd
 RUN_DEPENDS+=	lighttpd:${PORTSDIR}/www/lighttpd
 RUN_DEPENDS+=	linklint:${PORTSDIR}/www/linklint
 RUN_DEPENDS+=	linkchecker:${PORTSDIR}/www/linkchecker
-#RUN_DEPENDS+=	linux-f10-flashplugin>=0:${PORTSDIR}/www/linux-f10-flashplugin11
+#RUN_DEPENDS+=  linux-f10-flashplugin>=0:${PORTSDIR}/www/linux-f10-flashplugin11
 RUN_DEPENDS+=	midori:${PORTSDIR}/www/midori
 RUN_DEPENDS+=	${APACHE_PKGNAMEPREFIX}mod_fastcgi>=0:${PORTSDIR}/www/mod_fastcgi
 RUN_DEPENDS+=	${APACHE_PKGNAMEPREFIX}mod_perl2>=0:${PORTSDIR}/www/mod_perl2
