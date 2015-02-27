@@ -21,7 +21,7 @@ OPTIONS_DEFINE=	DOCS
 
 LDFLAGS+=	-L${LOCALBASE}/lib
 PLIST=		${PKGDIR}/pkg-plist${PKGNAMESUFFIX}
-USES=		alias cmake:outsource pkgconfig
+USES=		alias cmake:outsource pkgconfig compiler
 CMAKE_ARGS=	-DOCIO_BUILD_JNIGLUE:BOOL=OFF \
 		-DOCIO_BUILD_NUKE:BOOL=OFF \
 		-DOCIO_BUILD_STATIC:BOOL=OFF \
@@ -47,7 +47,7 @@ CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=OFF \
 		-DOCIO_BUILD_PYGLUE:BOOL=ON \
 		-DPYTHON:FILEPATH=${PYTHON_CMD}
 .else
-LIB_DEPENDS=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio \
+LIB_DEPENDS=	libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14 \
 		libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
 CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=ON \
 		-DOCIO_BUILD_SHARED:BOOL=OFF \
@@ -60,13 +60,22 @@ CMAKE_ARGS+=	-DOCIO_BUILD_DOCS:BOOL=ON
 CMAKE_ARGS+=	-DOCIO_BUILD_DOCS:BOOL=OFF
 .endif
 
+.include <bsd.port.pre.mk>
+
+.if ${COMPILER_TYPE} == gcc && ${SLAVE_PORT} == yes
+# gcc 4.2 does not link with oiio that now uses gcc4.9
+USE_GCC=	yes
+.endif
+
 post-patch:
 	@${REINPLACE_CMD} -e '/pkg_check_modules/ s|yaml-cpp|&03|' \
 		${WRKSRC}/CMakeLists.txt
 	@${REINPLACE_CMD} -e 's|yaml-cpp|&03|' ${WRKSRC}/src/core/OCIOYaml.h
+	@${FIND} ${WRKSRC} -name "*.cpp" | \
+		${XARGS} ${REINPLACE_CMD} -i '' -e 's|<OpenImageIO/|<OpenImageIO14/|g'
 .if ${SLAVE_PORT} == yes
 	@${FIND} ${WRKSRC}/src/apps -name main.cpp | ${XARGS} \
 		${REINPLACE_CMD} '/namespace OIIO/d'
 .endif
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>

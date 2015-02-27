@@ -54,7 +54,7 @@ LIB_DEPENDS=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
 USE_LDCONFIG=	yes
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF -DOIIO_BUILD_TOOLS:BOOL=ON
 .else
-LIB_DEPENDS=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio \
+LIB_DEPENDS=	libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14 \
 		libboost_python.so:${PORTSDIR}/devel/boost-python-libs
 USES+=		python
 PLIST=		${PKGDIR}/pkg-plist-pybind

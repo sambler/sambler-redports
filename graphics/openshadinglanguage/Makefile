@@ -25,9 +25,14 @@ GH_COMMIT=	f03977a
 
 CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 USE_LDCONFIG=	yes
-USES=		bison cmake:outsource
+USES=		bison cmake:outsource compiler
 
-.include <bsd.port.options.mk>
+.include <bsd.port.pre.mk>
+
+.if ${COMPILER_TYPE} == gcc
+# gcc 4.2 does not link with other ports that now use gcc4.9
+USE_GCC=	yes
+.endif
 
 .if ${OSVERSION} < 1000033
 BUILD_DEPENDS+=	flex>=2.5.37:${PORTSDIR}/textproc/flex
@@ -47,4 +52,4 @@ post-install:
 	${LN} -s lib${LNAME}.so.1 ${STAGEDIR}${PREFIX}/lib/lib${LNAME}.so
 .endfor
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
