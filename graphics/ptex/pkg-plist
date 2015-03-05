@@ -1,83 +1,35 @@
 bin/ptxinfo
 lib/libPtex.so
-%%PORTDOCS%%%%DOCSDIR%%/License_8txt.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexCache_8cpp.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexCache_8cpp_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexCache_8h.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexCache_8h_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexDict_8h.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexDict_8h_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexFilters_8cpp.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexFilters_8cpp_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexHalf_8cpp.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexHalf_8cpp_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexHalf_8h.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexHalf_8h_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexHashMap_8h.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexHashMap_8h_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexIO_8h.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexIO_8h_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexInt_8h.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexInt_8h_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexMutex_8h.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexMutex_8h_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexPlatform_8h.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexPlatform_8h_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexReader_8cpp.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexReader_8cpp_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexReader_8h.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexReader_8h_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexSeparableFilter_8cpp.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexSeparableFilter_8cpp_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexSeparableFilter_8h.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexSeparableFilter_8h_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexSeparableKernel_8cpp.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexSeparableKernel_8cpp_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexSeparableKernel_8h.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexSeparableKernel_8h_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexTriangleFilter_8cpp.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexTriangleFilter_8cpp_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexTriangleFilter_8h.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexTriangleFilter_8h_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexTriangleKernel_8cpp.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexTriangleKernel_8cpp_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexTriangleKernel_8h.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexTriangleKernel_8h_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexUtils_8cpp.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexUtils_8cpp_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexUtils_8h.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexUtils_8h_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexWriter_8cpp.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexWriter_8cpp_source.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexWriter_8h.html
-%%PORTDOCS%%%%DOCSDIR%%/PtexWriter_8h_source.html
-%%PORTDOCS%%%%DOCSDIR%%/Ptexture_8h.html
-%%PORTDOCS%%%%DOCSDIR%%/Ptexture_8h_source.html
 %%PORTDOCS%%%%DOCSDIR%%/annotated.html
-%%PORTDOCS%%%%DOCSDIR%%/apiintro.html
 %%PORTDOCS%%%%DOCSDIR%%/apiintro_8txt.html
+%%PORTDOCS%%%%DOCSDIR%%/apiintro.html
+%%PORTDOCS%%%%DOCSDIR%%/arrowdown.png
+%%PORTDOCS%%%%DOCSDIR%%/arrowright.png
 %%PORTDOCS%%%%DOCSDIR%%/bc_s.png
 %%PORTDOCS%%%%DOCSDIR%%/bdwn.png
+%%PORTDOCS%%%%DOCSDIR%%/classes.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtex_1_1String-members.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtex_1_1String.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexCache-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexCache.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexCache.png
-%%PORTDOCS%%%%DOCSDIR%%/classPtexCacheImpl-members.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexCacheImpl.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexCacheImpl.png
 %%PORTDOCS%%%%DOCSDIR%%/classPtexCachedData-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexCachedData.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexCachedData.png
 %%PORTDOCS%%%%DOCSDIR%%/classPtexCachedFile-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexCachedFile.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexCachedFile.png
-%%PORTDOCS%%%%DOCSDIR%%/classPtexDict-members.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexDict.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexDict_1_1Entry-members.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexDict_1_1Entry.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexCacheImpl-members.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexCacheImpl.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexCacheImpl.png
 %%PORTDOCS%%%%DOCSDIR%%/classPtexDict_1_1const__iterator-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexDict_1_1const__iterator.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexDict_1_1Entry-members.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexDict_1_1Entry.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexDict_1_1iterator-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexDict_1_1iterator.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexDict-members.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexDict.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexFaceData-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexFaceData.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexFaceData.png
@@ -85,22 +37,22 @@ lib/libPtex.so
 %%PORTDOCS%%%%DOCSDIR%%/classPtexFilter.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexFilter.png
 %%PORTDOCS%%%%DOCSDIR%%/classPtexHalf-members.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexHashMap-members.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexHashMap.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexHashMap_1_1iterator-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexHashMap_1_1iterator.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexHashMap-members.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexHashMap.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexIncrWriter-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexIncrWriter.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexIncrWriter.png
 %%PORTDOCS%%%%DOCSDIR%%/classPtexInputHandler-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexInputHandler.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexInputHandler.png
-%%PORTDOCS%%%%DOCSDIR%%/classPtexInternal_1_1AutoLock-members.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexInternal_1_1AutoLock.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexInternal_1_1__Mutex-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexInternal_1_1__Mutex.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexInternal_1_1__SpinLock-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexInternal_1_1__SpinLock.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexInternal_1_1AutoLock-members.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexInternal_1_1AutoLock.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexLruItem-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexLruItem.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexLruItem.png
@@ -114,18 +66,12 @@ lib/libPtex.so
 %%PORTDOCS%%%%DOCSDIR%%/classPtexMetaData.png
 %%PORTDOCS%%%%DOCSDIR%%/classPtexPtr-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexPtr.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexReader-members.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexReader.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexReader.png
-%%PORTDOCS%%%%DOCSDIR%%/classPtexReaderCache-members.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexReaderCache.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexReaderCache.png
-%%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1ConstDataPtr-members.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1ConstDataPtr.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1ConstDataPtr.png
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1ConstantFace-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1ConstantFace.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1ConstantFace.png
+%%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1ConstDataPtr-members.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1ConstDataPtr.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1ConstDataPtr.png
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1DefaultInputHandler-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1DefaultInputHandler.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1DefaultInputHandler.png
@@ -135,12 +81,12 @@ lib/libPtex.so
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1Level-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1Level.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1Level.png
-%%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1MetaData-members.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1MetaData.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1MetaData.png
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1MetaData_1_1LargeMetaData-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1MetaData_1_1LargeMetaData.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1MetaData_1_1LargeMetaData.png
+%%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1MetaData-members.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1MetaData.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1MetaData.png
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1PackedFace-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1PackedFace.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1PackedFace.png
@@ -153,6 +99,12 @@ lib/libPtex.so
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1TiledReducedFace-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1TiledReducedFace.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexReader_1_1TiledReducedFace.png
+%%PORTDOCS%%%%DOCSDIR%%/classPtexReader-members.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexReader.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexReader.png
+%%PORTDOCS%%%%DOCSDIR%%/classPtexReaderCache-members.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexReaderCache.html
+%%PORTDOCS%%%%DOCSDIR%%/classPtexReaderCache.png
 %%PORTDOCS%%%%DOCSDIR%%/classPtexSeparableFilter-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexSeparableFilter.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexSeparableFilter.png
@@ -177,124 +129,109 @@ lib/libPtex.so
 %%PORTDOCS%%%%DOCSDIR%%/classPtexWriterBase-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexWriterBase.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexWriterBase.png
-%%PORTDOCS%%%%DOCSDIR%%/classPtex_1_1String-members.html
-%%PORTDOCS%%%%DOCSDIR%%/classPtex_1_1String.html
 %%PORTDOCS%%%%DOCSDIR%%/classString-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classString.html
-%%PORTDOCS%%%%DOCSDIR%%/classes.html
 %%PORTDOCS%%%%DOCSDIR%%/closed.png
 %%PORTDOCS%%%%DOCSDIR%%/dir_ae2047f671a609e8080f0f626fd72399.html
 %%PORTDOCS%%%%DOCSDIR%%/doc_2CMakeLists_8txt.html
+%%PORTDOCS%%%%DOCSDIR%%/doc.png
 %%PORTDOCS%%%%DOCSDIR%%/doxygen.css
 %%PORTDOCS%%%%DOCSDIR%%/doxygen.png
 %%PORTDOCS%%%%DOCSDIR%%/dynsections.js
 %%PORTDOCS%%%%DOCSDIR%%/files.html
 %%PORTDOCS%%%%DOCSDIR%%/filterfootprint.html
-%%PORTDOCS%%%%DOCSDIR%%/ftv2blank.png
-@comment %%PORTDOCS%%%%DOCSDIR%%/ftv2cl.png
-%%PORTDOCS%%%%DOCSDIR%%/ftv2doc.png
-%%PORTDOCS%%%%DOCSDIR%%/ftv2folderclosed.png
-%%PORTDOCS%%%%DOCSDIR%%/ftv2folderopen.png
-%%PORTDOCS%%%%DOCSDIR%%/ftv2lastnode.png
-%%PORTDOCS%%%%DOCSDIR%%/ftv2link.png
-%%PORTDOCS%%%%DOCSDIR%%/ftv2mlastnode.png
-%%PORTDOCS%%%%DOCSDIR%%/ftv2mnode.png
-@comment %%PORTDOCS%%%%DOCSDIR%%/ftv2mo.png
-%%PORTDOCS%%%%DOCSDIR%%/ftv2node.png
-@comment %%PORTDOCS%%%%DOCSDIR%%/ftv2ns.png
-%%PORTDOCS%%%%DOCSDIR%%/ftv2plastnode.png
-%%PORTDOCS%%%%DOCSDIR%%/ftv2pnode.png
-%%PORTDOCS%%%%DOCSDIR%%/ftv2splitbar.png
-%%PORTDOCS%%%%DOCSDIR%%/ftv2vertline.png
-%%PORTDOCS%%%%DOCSDIR%%/functions.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x61.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x62.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x63.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x64.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x65.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x66.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x67.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x68.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x69.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x6b.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x6c.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x6d.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x6e.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x6f.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x70.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x71.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x72.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x73.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x74.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x75.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x76.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x77.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x7a.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_0x7e.html
+%%PORTDOCS%%%%DOCSDIR%%/folderclosed.png
+%%PORTDOCS%%%%DOCSDIR%%/folderopen.png
+%%PORTDOCS%%%%DOCSDIR%%/functions_~.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_a.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_b.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_c.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_d.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_e.html
 %%PORTDOCS%%%%DOCSDIR%%/functions_enum.html
 %%PORTDOCS%%%%DOCSDIR%%/functions_eval.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_f.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_~.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_a.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_b.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_c.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_d.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_e.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_f.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_g.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_h.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_i.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_l.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_m.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_n.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_o.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_p.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_q.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_r.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_s.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_t.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_u.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_v.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_func_w.html
 %%PORTDOCS%%%%DOCSDIR%%/functions_func.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x61.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x62.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x63.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x64.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x65.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x66.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x67.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x68.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x69.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x6c.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x6d.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x6e.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x6f.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x70.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x71.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x72.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x73.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x74.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x75.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x76.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x77.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_func_0x7e.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_g.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_h.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_i.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_k.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_l.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_m.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_n.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_o.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_p.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_q.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_r.html
 %%PORTDOCS%%%%DOCSDIR%%/functions_rela.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_s.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_t.html
 %%PORTDOCS%%%%DOCSDIR%%/functions_type.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_u.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_v.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_a.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_b.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_c.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_d.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_e.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_f.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_h.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_i.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_k.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_l.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_m.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_n.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_o.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_p.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_r.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_s.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_t.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_u.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_v.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_w.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_vars_z.html
 %%PORTDOCS%%%%DOCSDIR%%/functions_vars.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x61.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x62.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x63.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x64.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x65.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x66.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x68.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x69.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x6b.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x6c.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x6d.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x6e.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x6f.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x70.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x72.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x73.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x74.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x75.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x76.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x77.html
-@comment %%PORTDOCS%%%%DOCSDIR%%/functions_vars_0x7a.html
-%%PORTDOCS%%%%DOCSDIR%%/globals.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_w.html
+%%PORTDOCS%%%%DOCSDIR%%/functions_z.html
+%%PORTDOCS%%%%DOCSDIR%%/functions.html
 %%PORTDOCS%%%%DOCSDIR%%/globals_defs.html
 %%PORTDOCS%%%%DOCSDIR%%/globals_enum.html
 %%PORTDOCS%%%%DOCSDIR%%/globals_eval.html
 %%PORTDOCS%%%%DOCSDIR%%/globals_func.html
 %%PORTDOCS%%%%DOCSDIR%%/globals_type.html
 %%PORTDOCS%%%%DOCSDIR%%/globals_vars.html
+%%PORTDOCS%%%%DOCSDIR%%/globals.html
 %%PORTDOCS%%%%DOCSDIR%%/hierarchy.html
 %%PORTDOCS%%%%DOCSDIR%%/index.html
 %%PORTDOCS%%%%DOCSDIR%%/jquery.js
+%%PORTDOCS%%%%DOCSDIR%%/License_8txt.html
 %%PORTDOCS%%%%DOCSDIR%%/license.html
 %%PORTDOCS%%%%DOCSDIR%%/main_8txt.html
-%%PORTDOCS%%%%DOCSDIR%%/namespacePtexInternal.html
-%%PORTDOCS%%%%DOCSDIR%%/namespacemembers.html
 %%PORTDOCS%%%%DOCSDIR%%/namespacemembers_type.html
+%%PORTDOCS%%%%DOCSDIR%%/namespacemembers.html
+%%PORTDOCS%%%%DOCSDIR%%/namespacePtexInternal.html
 %%PORTDOCS%%%%DOCSDIR%%/namespaces.html
 %%PORTDOCS%%%%DOCSDIR%%/nav_f.png
 %%PORTDOCS%%%%DOCSDIR%%/nav_g.png
@@ -302,8 +239,69 @@ lib/libPtex.so
 %%PORTDOCS%%%%DOCSDIR%%/open.png
 %%PORTDOCS%%%%DOCSDIR%%/pages.html
 %%PORTDOCS%%%%DOCSDIR%%/ptex_2CMakeLists_8txt.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexCache_8cpp_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexCache_8cpp.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexCache_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexCache_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexDict_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexDict_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexFilters_8cpp_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexFilters_8cpp.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexHalf_8cpp_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexHalf_8cpp.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexHalf_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexHalf_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexHalfTableGen_8cpp_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexHalfTableGen_8cpp.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexHalfTables_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexHalfTables_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexHashMap_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexHashMap_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexInt_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexInt_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexIO_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexIO_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexMutex_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexMutex_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexPlatform_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexPlatform_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexReader_8cpp_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexReader_8cpp.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexReader_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexReader_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexSeparableFilter_8cpp_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexSeparableFilter_8cpp.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexSeparableFilter_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexSeparableFilter_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexSeparableKernel_8cpp_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexSeparableKernel_8cpp.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexSeparableKernel_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexSeparableKernel_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexTriangleFilter_8cpp_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexTriangleFilter_8cpp.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexTriangleFilter_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexTriangleFilter_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexTriangleKernel_8cpp_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexTriangleKernel_8cpp.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexTriangleKernel_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexTriangleKernel_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/Ptexture_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/Ptexture_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexUtils_8cpp_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexUtils_8cpp.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexUtils_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexUtils_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexWriter_8cpp_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexWriter_8cpp.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexWriter_8h_source.html
+%%PORTDOCS%%%%DOCSDIR%%/PtexWriter_8h.html
+%%PORTDOCS%%%%DOCSDIR%%/splitbar.png
 %%PORTDOCS%%%%DOCSDIR%%/structFaceInfo-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structFaceInfo.html
+%%PORTDOCS%%%%DOCSDIR%%/structPtex_1_1FaceInfo-members.html
+%%PORTDOCS%%%%DOCSDIR%%/structPtex_1_1FaceInfo.html
+%%PORTDOCS%%%%DOCSDIR%%/structPtex_1_1Res-members.html
+%%PORTDOCS%%%%DOCSDIR%%/structPtex_1_1Res.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtex-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtex.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtex.png
@@ -316,9 +314,6 @@ lib/libPtex.so
 %%PORTDOCS%%%%DOCSDIR%%/structPtexHashMap_1_1Entry.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexHashMap_1_1value__type-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexHashMap_1_1value__type.html
-%%PORTDOCS%%%%DOCSDIR%%/structPtexIO-members.html
-%%PORTDOCS%%%%DOCSDIR%%/structPtexIO.html
-%%PORTDOCS%%%%DOCSDIR%%/structPtexIO.png
 %%PORTDOCS%%%%DOCSDIR%%/structPtexIO_1_1EditFaceDataHeader-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexIO_1_1EditFaceDataHeader.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexIO_1_1EditMetaDataHeader-members.html
@@ -331,6 +326,9 @@ lib/libPtex.so
 %%PORTDOCS%%%%DOCSDIR%%/structPtexIO_1_1Header.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexIO_1_1LevelInfo-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexIO_1_1LevelInfo.html
+%%PORTDOCS%%%%DOCSDIR%%/structPtexIO-members.html
+%%PORTDOCS%%%%DOCSDIR%%/structPtexIO.html
+%%PORTDOCS%%%%DOCSDIR%%/structPtexIO.png
 %%PORTDOCS%%%%DOCSDIR%%/structPtexMainWriter_1_1LevelRec-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexMainWriter_1_1LevelRec.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexReader_1_1FaceEdit-members.html
@@ -339,31 +337,27 @@ lib/libPtex.so
 %%PORTDOCS%%%%DOCSDIR%%/structPtexReader_1_1MetaData_1_1Entry.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexReader_1_1MetaEdit-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexReader_1_1MetaEdit.html
-%%PORTDOCS%%%%DOCSDIR%%/structPtexReader_1_1ReductionKey-members.html
-%%PORTDOCS%%%%DOCSDIR%%/structPtexReader_1_1ReductionKey.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexReader_1_1ReductionKey_1_1Hasher-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexReader_1_1ReductionKey_1_1Hasher.html
-%%PORTDOCS%%%%DOCSDIR%%/structPtexUtils-members.html
-%%PORTDOCS%%%%DOCSDIR%%/structPtexUtils.html
-%%PORTDOCS%%%%DOCSDIR%%/structPtexUtils.png
+%%PORTDOCS%%%%DOCSDIR%%/structPtexReader_1_1ReductionKey-members.html
+%%PORTDOCS%%%%DOCSDIR%%/structPtexReader_1_1ReductionKey.html
+%%PORTDOCS%%%%DOCSDIR%%/structPtexUtils_1_1VecAccum_3_01T_00_010_01_4-members.html
+%%PORTDOCS%%%%DOCSDIR%%/structPtexUtils_1_1VecAccum_3_01T_00_010_01_4.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexUtils_1_1VecAccum-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexUtils_1_1VecAccum.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexUtils_1_1VecAccumN-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexUtils_1_1VecAccumN.html
-%%PORTDOCS%%%%DOCSDIR%%/structPtexUtils_1_1VecAccum_3_01T_00_010_01_4-members.html
-%%PORTDOCS%%%%DOCSDIR%%/structPtexUtils_1_1VecAccum_3_01T_00_010_01_4.html
+%%PORTDOCS%%%%DOCSDIR%%/structPtexUtils_1_1VecMult_3_01T_00_010_01_4-members.html
+%%PORTDOCS%%%%DOCSDIR%%/structPtexUtils_1_1VecMult_3_01T_00_010_01_4.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexUtils_1_1VecMult-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexUtils_1_1VecMult.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexUtils_1_1VecMultN-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexUtils_1_1VecMultN.html
-%%PORTDOCS%%%%DOCSDIR%%/structPtexUtils_1_1VecMult_3_01T_00_010_01_4-members.html
-%%PORTDOCS%%%%DOCSDIR%%/structPtexUtils_1_1VecMult_3_01T_00_010_01_4.html
+%%PORTDOCS%%%%DOCSDIR%%/structPtexUtils-members.html
+%%PORTDOCS%%%%DOCSDIR%%/structPtexUtils.html
+%%PORTDOCS%%%%DOCSDIR%%/structPtexUtils.png
 %%PORTDOCS%%%%DOCSDIR%%/structPtexWriterBase_1_1MetaEntry-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexWriterBase_1_1MetaEntry.html
-%%PORTDOCS%%%%DOCSDIR%%/structPtex_1_1FaceInfo-members.html
-%%PORTDOCS%%%%DOCSDIR%%/structPtex_1_1FaceInfo.html
-%%PORTDOCS%%%%DOCSDIR%%/structPtex_1_1Res-members.html
-%%PORTDOCS%%%%DOCSDIR%%/structPtex_1_1Res.html
 %%PORTDOCS%%%%DOCSDIR%%/structRes-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structRes.html
 %%PORTDOCS%%%%DOCSDIR%%/sync_off.png
@@ -373,4 +367,3 @@ lib/libPtex.so
 %%PORTDOCS%%%%DOCSDIR%%/tab_h.png
 %%PORTDOCS%%%%DOCSDIR%%/tab_s.png
 %%PORTDOCS%%%%DOCSDIR%%/tabs.css
-
