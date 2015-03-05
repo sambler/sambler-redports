@@ -21,7 +21,7 @@ OPTIONS_DEFINE=	DOCS
 
 LDFLAGS+=	-L${LOCALBASE}/lib
 PLIST=		${PKGDIR}/pkg-plist${PKGNAMESUFFIX}
-USES=		alias cmake:outsource pkgconfig compiler
+USES=		alias cmake:outsource pkgconfig
 CMAKE_ARGS=	-DOCIO_BUILD_JNIGLUE:BOOL=OFF \
 		-DOCIO_BUILD_NUKE:BOOL=OFF \
 		-DOCIO_BUILD_STATIC:BOOL=OFF \
@@ -49,6 +49,7 @@ CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=OFF \
 .else
 LIB_DEPENDS=	libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14 \
 		libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
+USES+=		compiler:c++11-lib
 CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=ON \
 		-DOCIO_BUILD_SHARED:BOOL=OFF \
 		-DOCIO_BUILD_PYGLUE:BOOL=OFF
@@ -58,13 +59,6 @@ CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=ON \
 CMAKE_ARGS+=	-DOCIO_BUILD_DOCS:BOOL=ON
 .else
 CMAKE_ARGS+=	-DOCIO_BUILD_DOCS:BOOL=OFF
-.endif
-
-.include <bsd.port.pre.mk>
-
-.if ${COMPILER_TYPE} == gcc && ${SLAVE_PORT} == yes
-# gcc 4.2 does not link with oiio that now uses gcc4.9
-USE_GCC=	yes
 .endif
 
 post-patch:
@@ -78,4 +72,4 @@ post-patch:
 		${REINPLACE_CMD} '/namespace OIIO/d'
 .endif
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

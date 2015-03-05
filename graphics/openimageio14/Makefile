@@ -17,7 +17,7 @@ GH_PROJECT=	oiio
 GH_TAGNAME=	Release-${PORTVERSION}
 GH_COMMIT=	6a16173
 
-USES=		cmake:outsource
+USES=		cmake:outsource compiler:c++11-lib
 CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DLINKSTATIC:BOOL=OFF \
 		-DNOTHREADS:BOOL=OFF \

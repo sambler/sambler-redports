@@ -20,7 +20,7 @@ GH_COMMIT=	ddfca7b
 # fbm also installs bin/idiff
 CONFLICTS=	fbm-[0-9]*
 
-USES=		cmake:outsource compiler
+USES=		cmake:outsource compiler:c++11-lib
 CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DLINKSTATIC:BOOL=OFF \
 		-DNOTHREADS:BOOL=OFF \
@@ -82,13 +82,6 @@ CMAKE_ENV+=	QTDIR=${QT_PREFIX} QT_INCLUDES=${QT_INCDIR}
 CMAKE_ARGS+=	-DUSE_OPENGL:BOOL=OFF -DUSE_QT:BOOL=OFF
 .endif
 
-.include <bsd.port.pre.mk>
-
-.if ${COMPILER_TYPE} == gcc
-# gcc 4.2 does not link with other ports that now use gcc4.9
-USE_GCC=	yes
-.endif
-
 post-patch:
 	@${REINPLACE_CMD} -e 's|share/doc/OpenImageIO|${DOCSDIR}|g' \
 		${WRKSRC}/CMakeLists.txt
@@ -99,4 +92,4 @@ post-install:
 	${LN} -sf libOpenImageIO_Util.so.1.5 ${STAGEDIR}${PREFIX}/lib/libOpenImageIO_Util.so.1
 .endif
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
