@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	clipgrab
-PORTVERSION=	3.4.8
+PORTVERSION=	3.4.9
 CATEGORIES=	multimedia
 MASTER_SITES=	http://clipgrab.de/download/ \
 		http://vanbittern.org/
@@ -17,7 +17,6 @@ USE_QT4=	gui xml uic_build moc_build rcc_build network dbus webkit
 CXXFLAGS+= -I${LOCALBASE}/include/qt4/QtNetwork -I${LOCALBASE}/include/qt4/QtWebKit
 CXXFLAGS+= -I${LOCALBASE}/include/qt4/QtXml
 LDFLAGS+=  -L${LOCALBASE}/lib/qt4 -lQtNetwork -lQtWebKit -lQtXml
-WRKSRC=		${WRKDIR}/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME} \
 		%%DATADIR%%/icon.png \
@@ -39,7 +38,7 @@ pre-configure:
 
 do-install:
 	${MKDIR} ${STAGEDIR}${DATADIR}
-	${INSTALL_PROGRAM} ${WRKSRC}/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
+	${INSTALL_PROGRAM} ${WRKSRC}/${PORTNAME}-3 ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 	${INSTALL_DATA} ${WRKSRC}/*.png ${STAGEDIR}${DATADIR}
 
 .include <bsd.port.mk>
