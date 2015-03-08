@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	opensubdiv
-PORTVERSION=	2.5.1
+PORTVERSION=	2.6.1
 CATEGORIES?=	graphics
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -16,10 +16,8 @@ LIB_DEPENDS=	libtbb.so:${PORTSDIR}/devel/tbb
 USE_GITHUB=	yes
 GH_ACCOUNT=	PixarAnimationStudios
 GH_PROJECT=	OpenSubdiv
-GH_TAGNAME=	v2_5_1
-GH_COMMIT=	ab3ce52
-#GH_TAGNAME=	${GH_COMMIT}
-#GH_COMMIT=	3675bc3
+GH_TAGNAME=	v2_6_1
+GH_COMMIT=	c042af6
 
 # use gcc for openmp
 USE_GCC=	yes
@@ -37,9 +35,8 @@ OPTIONS_SUB=		yes
 
 DOCS_CMAKE_ON=		-DNO_DOC:BOOL=OFF
 DOCS_CMAKE_OFF=		-DNO_DOC:BOOL=ON
-DOCS_BUILD_DEPENDS=	rst2html.py:${PORTSDIR}/textproc/py-docutils
-# doxygen is to create the api docs but we only have 1.8.3 in ports
-#			doxygen>=1.8.4:${PORTSDIR}/devel/doxygen
+DOCS_BUILD_DEPENDS=	rst2html.py:${PORTSDIR}/textproc/py-docutils \
+			doxygen>=1.8.4:${PORTSDIR}/devel/doxygen
 
 EXAMPLES_CMAKE_ON=	-DNO_EXAMPLES:BOOL=OFF
 EXAMPLES_CMAKE_OFF=	-DNO_EXAMPLES:BOOL=ON
