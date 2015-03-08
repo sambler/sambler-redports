@@ -8,6 +8,7 @@
 %%EXAMPLES%%bin/limitEval
 %%TEST%%bin/osd_regression
 %%EXAMPLES%%bin/paintTest
+%%EXAMPLES%%bin/ptexViewer
 %%EXAMPLES%%bin/simpleCpu
 bin/stringify
 %%EXAMPLES%%bin/tessellateObjFile
@@ -75,10 +76,10 @@ include/opensubdiv/osd/glslTransformFeedbackComputeController.h
 include/opensubdiv/osd/glslTransformFeedbackKernelBundle.h
 include/opensubdiv/osd/mesh.h
 include/opensubdiv/osd/nonCopyable.h
-include/opensubdiv/osd/ompComputeController.h
-include/opensubdiv/osd/ompEvalStencilsController.h
-include/opensubdiv/osd/ompKernel.h
-include/opensubdiv/osd/ompSmoothNormalController.h
+%%OPENMP%%include/opensubdiv/osd/ompComputeController.h
+%%OPENMP%%include/opensubdiv/osd/ompEvalStencilsController.h
+%%OPENMP%%include/opensubdiv/osd/ompKernel.h
+%%OPENMP%%include/opensubdiv/osd/ompSmoothNormalController.h
 include/opensubdiv/osd/opengl.h
 include/opensubdiv/osd/tbbComputeController.h
 include/opensubdiv/osd/tbbEvalStencilsController.h
