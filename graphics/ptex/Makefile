@@ -34,6 +34,8 @@ post-build:
 do-install:
 	${INSTALL_LIB} ${BUILD_WRKSRC}/ptex/libPtex.so \
 		${STAGEDIR}${PREFIX}/lib
+	${INSTALL_LIB} ${BUILD_WRKSRC}/ptex/libPtex.a \
+		${STAGEDIR}${PREFIX}/lib
 	${INSTALL_PROGRAM} ${BUILD_WRKSRC}/utils/ptxinfo \
 		${STAGEDIR}${PREFIX}/bin
 .if ${PORT_OPTIONS:MDOCS}

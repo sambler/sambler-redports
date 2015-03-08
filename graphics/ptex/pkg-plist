@@ -1,4 +1,5 @@
 bin/ptxinfo
+lib/libPtex.a
 lib/libPtex.so
 %%PORTDOCS%%%%DOCSDIR%%/annotated.html
 %%PORTDOCS%%%%DOCSDIR%%/apiintro_8txt.html
