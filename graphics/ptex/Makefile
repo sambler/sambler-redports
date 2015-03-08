@@ -38,6 +38,8 @@ do-install:
 		${STAGEDIR}${PREFIX}/lib
 	${INSTALL_PROGRAM} ${BUILD_WRKSRC}/utils/ptxinfo \
 		${STAGEDIR}${PREFIX}/bin
+	${MKDIR} ${STAGEDIR}/${PREFIX}/include/ptex
+	${INSTALL_DATA} ${BUILD_WRKSRC}/ptex/*.h ${STAGEDIR}/${PREFIX}/include/ptex
 .if ${PORT_OPTIONS:MDOCS}
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
 	@cd ${BUILD_WRKSRC}/../install/doc/ptex/ && \
