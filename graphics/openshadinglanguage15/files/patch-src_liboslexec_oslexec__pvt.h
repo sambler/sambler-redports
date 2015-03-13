@@ -1,14 +1,23 @@
---- src/liboslexec/oslexec_pvt.h.orig	2014-12-04 12:01:54 UTC
+--- src/liboslexec/oslexec_pvt.h.orig	2014-12-26 20:22:53 UTC
 +++ src/liboslexec/oslexec_pvt.h
-@@ -44,6 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- #include <OpenImageIO/paramlist.h>
- #include <OpenImageIO/refcnt.h>
+@@ -39,11 +39,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ #include <boost/unordered_map.hpp>
+ #include <boost/intrusive_ptr.hpp>
+ 
+-#include <OpenImageIO/ustring.h>
+-#include <OpenImageIO/thread.h>
+-#include <OpenImageIO/paramlist.h>
+-#include <OpenImageIO/refcnt.h>
++#include <OpenImageIO14/ustring.h>
++#include <OpenImageIO14/thread.h>
++#include <OpenImageIO14/paramlist.h>
++#include <OpenImageIO14/refcnt.h>
  
 +#include "OSL/genclosure.h"
  #include "OSL/oslexec.h"
  #include "OSL/oslclosure.h"
  #include "osl_pvt.h"
-@@ -627,13 +628,16 @@ public:
+@@ -634,13 +635,16 @@ public:
          std::vector<ClosureParam> params;
          // the needed size for the structure
          int                       struct_size;
@@ -26,7 +35,7 @@
  
      const ClosureEntry *get_entry (ustring name) const;
      const ClosureEntry *get_entry (int id) const {
-@@ -789,7 +793,8 @@ public:
+@@ -796,7 +800,8 @@ public:
      ustring *alloc_string_constants (size_t n) { return m_string_pool.alloc (n); }
  
      void register_closure (string_view name, int id, const ClosureParam *params,
@@ -36,7 +45,7 @@
      bool query_closure (const char **name, int *id,
                          const ClosureParam **params);
      const ClosureRegistry::ClosureEntry *find_closure(ustring name) const {
-@@ -1049,19 +1054,24 @@ public:
+@@ -1056,19 +1061,24 @@ public:
      char * alloc(size_t size, size_t alignment=1) {
          // Alignment must be power of two
          DASSERT ((alignment & (alignment - 1)) == 0);
@@ -66,7 +75,7 @@
          }
          return m_blocks[m_current_block] + m_block_offset;
      }
-@@ -1069,6 +1079,10 @@ public:
+@@ -1076,6 +1086,10 @@ public:
      void clear () { m_current_block = 0; m_block_offset = BlockSize; }
  
  private:
@@ -77,7 +86,7 @@
      std::vector<char *> m_blocks;
      size_t              m_current_block;
      size_t              m_block_offset;
-@@ -1243,7 +1257,9 @@ public:
+@@ -1250,7 +1264,9 @@ public:
      ClosureComponent * closure_component_allot(int id, size_t prim_size, int nattrs) {
          size_t needed = sizeof(ClosureComponent) + (prim_size >= 4 ? prim_size - 4 : 0)
                                                   + sizeof(ClosureComponent::Attr) * nattrs;
@@ -88,7 +97,7 @@
          comp->type = ClosureColor::COMPONENT;
          comp->id = id;
          comp->size = prim_size;
-@@ -1258,7 +1274,9 @@ public:
+@@ -1265,7 +1281,9 @@ public:
          // Allocate the component and the mul back to back
          size_t needed = sizeof(ClosureComponent) + (prim_size >= 4 ? prim_size - 4 : 0)
                                                   + sizeof(ClosureComponent::Attr) * nattrs;
@@ -99,7 +108,7 @@
          comp->type = ClosureColor::COMPONENT;
          comp->id = id;
          comp->size = prim_size;
-@@ -1409,6 +1427,13 @@ private:
+@@ -1416,6 +1434,13 @@ private:
      // Buffering of error messages and printfs
      typedef std::pair<ErrorHandler::ErrCode, std::string> ErrorItem;
      mutable std::vector<ErrorItem> m_buffered_errors;

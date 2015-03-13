@@ -3,7 +3,7 @@
 
 PORTNAME=	blender273
 PORTVERSION=	2.73a
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -30,8 +30,8 @@ LIB_DEPENDS+=	libavutil.so:${PORTSDIR}/multimedia/ffmpeg
 LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 
-USES=		cmake:outsource compiler:c++11-lib shebangfix desktop-file-utils openal:al,alut
-USES+=		python:3.4
+USES=		cmake:outsource compiler:c++11-lib shebangfix
+USES+=		python:3.4 desktop-file-utils openal:al,alut
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 #OUTDIR=		${INSTALL_WRKSRC}/bin/2.73
 OUTDIR=		${STAGEDIR}/${PREFIX}/2.73
@@ -51,7 +51,7 @@ CMAKE_ARGS+=	-DWITH_CODEC_FFMPEG:BOOL=ON -DWITH_CODEC_SNDFILE:BOOL=ON
 CMAKE_ARGS+=	-DFFMPEG:STRING="${LOCALBASE}" -DWITH_COMPOSITOR:BOOL=ON
 CMAKE_ARGS+=	-DWITH_CYCLES:BOOL=ON -DWITH_CYCLES_CUDA_BINARIES:BOOL=OFF
 CMAKE_ARGS+=	-DCYCLES_OPENCL_DEBUG:BOOL=OFF -DWITH_CYCLES_STANDALONE:BOOL=OFF
-CMAKE_ARGS+=	-DWITH_CYCLES_STANDALONE_GUI:BOOL=OFF
+CMAKE_ARGS+=	-DWITH_CYCLES_STANDALONE_GUI:BOOL=OFF -DWITH_DOC_MANPAGE:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_FFTW3:BOOL=ON -DWITH_FREESTYLE:BOOL=ON
 CMAKE_ARGS+=	-DWITH_GAMEENGINE:BOOL=ON -DWITH_GUARDEDALLOC:BOOL=ON
 CMAKE_ARGS+=	-DWITH_IK_ITASC:BOOL=ON
@@ -123,7 +123,7 @@ OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DLLVM_VERSION:STRING="3.4" \
 			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
-OSL_LIB_DEPENDS=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
+OSL_LIB_DEPENDS=	liboslcomp15.so:${PORTSDIR}/graphics/openshadinglanguage15
 
 PLAYER_CMAKE_ON=	-DWITH_PLAYER:BOOL=ON
 PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
@@ -142,6 +142,8 @@ post-patch:
 		${XARGS} ${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO14/|g'
 	@${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO14/|g' \
 		${WRKSRC}/source/blender/imbuf/intern/oiio/openimageio_api.cpp
+	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
+		${XARGS} ${REINPLACE_CMD} -e 's|<OSL/|<OSL15/|g'
 	@${REINPLACE_CMD} -e 's|yaml-cpp|&03|' \
 		${PATCH_WRKSRC}/build_files/cmake/Modules/FindOpenColorIO.cmake
 

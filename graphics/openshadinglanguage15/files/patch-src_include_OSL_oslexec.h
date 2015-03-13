@@ -1,5 +1,16 @@
---- src/include/OSL/oslexec.h.orig	2014-12-04 11:59:48 UTC
+--- src/include/OSL/oslexec.h.orig	2014-12-26 20:22:53 UTC
 +++ src/include/OSL/oslexec.h
+@@ -33,8 +33,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ #include "OSL/shaderglobals.h"
+ #include "OSL/rendererservices.h"
+ 
+-#include <OpenImageIO/refcnt.h>
+-#include <OpenImageIO/ustring.h>
++#include <OpenImageIO14/refcnt.h>
++#include <OpenImageIO14/ustring.h>
+ 
+ 
+ OSL_NAMESPACE_ENTER
 @@ -418,7 +418,8 @@ public:
      std::string getstats (int level=1) const;
  

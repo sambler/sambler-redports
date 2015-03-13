@@ -27,7 +27,7 @@ LIB_DEPENDS+=	libexecinfo.so:${PORTSDIR}/devel/libexecinfo
 LIB_DEPENDS+=	libunwind.so:${PORTSDIR}/devel/libunwind
 LIB_DEPENDS+=	libjpeg.so:${PORTSDIR}/graphics/jpeg
 LIB_DEPENDS+=	libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
-LIB_DEPENDS+=	libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14
+LIB_DEPENDS+=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
 LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15
 LIB_DEPENDS+=	libpng.so:${PORTSDIR}/graphics/png
@@ -56,8 +56,8 @@ GH_COMMIT=	6c37303
 
 FETCH_ARGS=	-pRr
 
-USES=		cmake:outsource shebangfix compiler desktop-file-utils openal:al,alut
-USES+=		python:3.4
+USES=		cmake:outsource shebangfix compiler:c++11-lib
+USES+=		python:3.4 desktop-file-utils openal:al,alut
 WRKSRC=		${WRKDIR}/sambler-myblender-${GH_COMMIT}
 #OUTDIR=		${INSTALL_WRKSRC}/bin/${PORTVERSION}
 OUTDIR=		${STAGEDIR}/${PREFIX}/${PORTVERSION}
@@ -85,7 +85,7 @@ CMAKE_ARGS+=	-DWITH_CODEC_FFMPEG:BOOL=ON -DWITH_CODEC_SNDFILE:BOOL=ON
 CMAKE_ARGS+=	-DFFMPEG:STRING="${LOCALBASE}" -DWITH_COMPOSITOR:BOOL=ON
 CMAKE_ARGS+=	-DWITH_CYCLES:BOOL=ON -DWITH_CYCLES_CUDA_BINARIES:BOOL=OFF
 CMAKE_ARGS+=	-DCYCLES_OPENCL_DEBUG:BOOL=OFF -DWITH_CYCLES_STANDALONE:BOOL=OFF
-CMAKE_ARGS+=	-DWITH_CYCLES_STANDALONE_GUI:BOOL=OFF
+CMAKE_ARGS+=	-DWITH_CYCLES_STANDALONE_GUI:BOOL=OFF -DWITH_DOC_MANPAGE:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_FFTW3:BOOL=ON -DWITH_FREESTYLE:BOOL=ON
 CMAKE_ARGS+=	-DWITH_GAMEENGINE:BOOL=ON -DWITH_GUARDEDALLOC:BOOL=ON
 CMAKE_ARGS+=	-DWITH_IK_ITASC:BOOL=ON
@@ -164,12 +164,7 @@ PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
 SECURITY_CMAKE_ON=	-DWITH_PYTHON_SECURITY:BOOL=ON
 SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 
-.include <bsd.port.pre.mk>
-
-.if ${COMPILER_TYPE} == gcc
-# gcc 4.2 does not support -msse4.1, which is needed for blender 2.70+
-USE_GCC=	yes
-.endif
+.include <bsd.port.options.mk>
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
@@ -180,8 +175,8 @@ post-patch:
 		-e 's|MY_WC_BRANCH "unknown"|MY_WC_BRANCH "mymods"|g' \
 		${WRKSRC}/build_files/cmake/buildinfo.cmake
 	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
-		${XARGS} ${REINPLACE_CMD} -i '' -e 's|OpenImageIO/|OpenImageIO14/|g'
-	@${REINPLACE_CMD} -i '' -e 's|OpenImageIO/|OpenImageIO14/|g' \
+		${XARGS} ${REINPLACE_CMD} -e 's|OpenImageIO14/|OpenImageIO/|g'
+	@${REINPLACE_CMD} -e 's|OpenImageIO14/|OpenImageIO/|g' \
 		${WRKSRC}/source/blender/imbuf/intern/oiio/openimageio_api.cpp
 	@${REINPLACE_CMD} -e 's|yaml-cpp|&03|' \
 		${PATCH_WRKSRC}/build_files/cmake/Modules/FindOpenColorIO.cmake
@@ -287,4 +282,4 @@ post-install:
 #	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
 #.endif
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

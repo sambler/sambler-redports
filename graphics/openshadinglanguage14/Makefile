@@ -41,4 +41,8 @@ post-patch:
 	@${FIND} ${WRKSRC} -name "*.cpp" -or -name "*.h" -or -name "*.l" | \
 		${XARGS} ${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO14/|g'
 
+post-install:
+	@${REINPLACE_CMD} -e 's|OSL/|OSL14/|g' ${STAGEDIR}/${PREFIX}/include/OSL14/oslexec.h
+	@${FIND} ${STAGEDIR}/${PREFIX}/include/OSL14/ -name "*.bak" -delete
+
 .include <bsd.port.mk>

@@ -1,4 +1,4 @@
---- src/cmake/oiio.cmake.orig	2015-01-16 21:18:09 UTC
+--- src/cmake/oiio.cmake.orig	2014-12-26 20:22:53 UTC
 +++ src/cmake/oiio.cmake
 @@ -13,12 +13,12 @@ endif ()
  MESSAGE ( STATUS "OPENIMAGEIOHOME = ${OPENIMAGEIOHOME}" )

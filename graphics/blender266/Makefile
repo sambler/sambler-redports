@@ -3,7 +3,7 @@
 
 PORTNAME=	blender266
 PORTVERSION=	2.66a
-PORTREVISION=	9
+PORTREVISION=	10
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -29,8 +29,8 @@ LIB_DEPENDS+=	libavutil0.so:${PORTSDIR}/multimedia/ffmpeg0
 LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 
-USES=		cmake:outsource compiler shebangfix desktop-file-utils openal:al,alut
-USES+=		python:3.3
+USES=		cmake:outsource compiler:c++11-lib shebangfix
+USES+=		python:3.3 desktop-file-utils openal:al,alut
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.66
 VERS_TAG=	266

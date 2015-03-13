@@ -1,5 +1,26 @@
---- src/liboslexec/shadingsys.cpp.orig	2014-12-04 12:15:18 UTC
+--- src/liboslexec/shadingsys.cpp.orig	2014-12-26 20:22:53 UTC
 +++ src/liboslexec/shadingsys.cpp
+@@ -40,13 +40,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ #include "backendllvm.h"
+ #include "OSL/oslquery.h"
+ 
+-#include <OpenImageIO/strutil.h>
+-#include <OpenImageIO/dassert.h>
+-#include <OpenImageIO/thread.h>
+-#include <OpenImageIO/timer.h>
+-#include <OpenImageIO/filesystem.h>
+-#include <OpenImageIO/optparser.h>
+-#include <OpenImageIO/fmath.h>
++#include <OpenImageIO14/strutil.h>
++#include <OpenImageIO14/dassert.h>
++#include <OpenImageIO14/thread.h>
++#include <OpenImageIO14/timer.h>
++#include <OpenImageIO14/filesystem.h>
++#include <OpenImageIO14/optparser.h>
++#include <OpenImageIO14/fmath.h>
+ 
+ using namespace OSL;
+ using namespace OSL::pvt;
 @@ -284,9 +284,10 @@ void
  ShadingSystem::register_closure (string_view name, int id,
                                   const ClosureParam *params,
@@ -32,7 +53,7 @@
  }
  
  
-@@ -2474,7 +2476,8 @@ void
+@@ -2484,7 +2486,8 @@ void
  ClosureRegistry::register_closure (string_view name, int id,
                                     const ClosureParam *params,
                                     PrepareClosureFunc prepare,
@@ -42,7 +63,7 @@
  {
      if (m_closure_table.size() <= (size_t)id)
          m_closure_table.resize(id + 1);
-@@ -2498,6 +2501,7 @@ ClosureRegistry::register_closure (strin
+@@ -2508,6 +2511,7 @@ ClosureRegistry::register_closure (strin
      }
      entry.prepare = prepare;
      entry.setup = setup;

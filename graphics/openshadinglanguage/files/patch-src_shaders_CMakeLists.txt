@@ -1,4 +1,4 @@
---- src/shaders/CMakeLists.txt.orig	2014-12-26 20:22:53 UTC
+--- src/shaders/CMakeLists.txt.orig	2015-03-10 21:57:05 UTC
 +++ src/shaders/CMakeLists.txt
 @@ -49,5 +49,5 @@ add_custom_target (shaders ALL
                     SOURCES ${shader_source} ${shader_headers})

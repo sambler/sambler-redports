@@ -3,7 +3,7 @@
 
 PORTNAME=	blender272
 PORTVERSION=	2.72b
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -30,8 +30,8 @@ LIB_DEPENDS+=	libavutil.so:${PORTSDIR}/multimedia/ffmpeg
 LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 
-USES=		cmake:outsource compiler shebangfix desktop-file-utils openal:al,alut
-USES+=		python:3.4
+USES=		cmake:outsource compiler:c++11-lib shebangfix
+USES+=		python:3.4 desktop-file-utils openal:al,alut
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.72
 VERS_TAG=	272
@@ -121,7 +121,7 @@ OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DLLVM_VERSION:STRING="3.4" \
 			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
-OSL_LIB_DEPENDS=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
+OSL_LIB_DEPENDS=	liboslcomp15.so:${PORTSDIR}/graphics/openshadinglanguage15
 
 PLAYER_CMAKE_ON=	-DWITH_PLAYER:BOOL=ON
 PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
@@ -129,12 +129,7 @@ PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
 SECURITY_CMAKE_ON=	-DWITH_PYTHON_SECURITY:BOOL=ON
 SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 
-.include <bsd.port.pre.mk>
-
-.if ${COMPILER_TYPE} == gcc
-# gcc 4.2 does not support -msse4.1, which is needed for blender 2.70+
-USE_GCC=	yes
-.endif
+.include <bsd.port.options.mk>
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
@@ -145,6 +140,8 @@ post-patch:
 		${XARGS} ${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO14/|g'
 	@${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO14/|g' \
 		${WRKSRC}/source/blender/imbuf/intern/oiio/openimageio_api.cpp
+	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
+		${XARGS} ${REINPLACE_CMD} -e 's|<OSL/|<OSL15/|g'
 	@${REINPLACE_CMD} -e 's|yaml-cpp|&03|' \
 		${PATCH_WRKSRC}/build_files/cmake/Modules/FindOpenColorIO.cmake
 
@@ -208,4 +205,4 @@ post-install:
 #	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
 #.endif
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

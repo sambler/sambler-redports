@@ -1,0 +1,27 @@
+--- src/liboslcomp/CMakeLists.txt.orig	2015-03-12 13:54:20 UTC
++++ src/liboslcomp/CMakeLists.txt
+@@ -14,18 +14,18 @@ FILE ( GLOB compiler_headers "*.h" )
+ FLEX_BISON ( osllex.l oslgram.y osl liboslcomp_srcs compiler_headers )
+ 
+ if (BUILDSTATIC)
+-    ADD_LIBRARY ( oslcomp STATIC ${liboslcomp_srcs} )
++    ADD_LIBRARY ( oslcomp15 STATIC ${liboslcomp_srcs} )
+     ADD_DEFINITIONS ( -DBUILD_STATIC=1 )
+ else ()
+-    ADD_LIBRARY ( oslcomp SHARED ${liboslcomp_srcs} )
++    ADD_LIBRARY ( oslcomp15 SHARED ${liboslcomp_srcs} )
+ endif ()
+ 
+-TARGET_LINK_LIBRARIES ( oslcomp ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-LINK_ILMBASE ( oslcomp )
++TARGET_LINK_LIBRARIES ( oslcomp15 ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++LINK_ILMBASE ( oslcomp15 )
+ 
+ if (BUILDSTATIC)
+-    INSTALL ( TARGETS oslcomp LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
++    INSTALL ( TARGETS oslcomp15 LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
+ else ()
+-    INSTALL ( TARGETS oslcomp LIBRARY DESTINATION lib )
++    INSTALL ( TARGETS oslcomp15 LIBRARY DESTINATION lib )
+ endif ()
+ 

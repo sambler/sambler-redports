@@ -1,12 +1,12 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
-PORTNAME=	openshadinglanguage
-PORTVERSION=	1.6.3
+PORTNAME=	openshadinglanguage15
+PORTVERSION=	1.5.12
 CATEGORIES=	graphics devel
 
 MAINTAINER=	FreeBSD@Shaneware.biz
-COMMENT=	Advanced shading language for production GI renderers
+COMMENT=	Advanced shading language for production GI renderers (v1.5)
 
 LICENSE=	BSD3CLAUSE
 
@@ -14,14 +14,14 @@ BUILD_DEPENDS=	llvm-config34:${PORTSDIR}/devel/llvm34 \
 		clang34>=3.4_1:${PORTSDIR}/lang/clang34
 LIB_DEPENDS=	libboost_thread.so:${PORTSDIR}/devel/boost-libs \
 		libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
-		libOpenImageIO.so:${PORTSDIR}/graphics/openimageio
+		libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14
 RUN_DEPENDS=	llvm-config34:${PORTSDIR}/devel/llvm34
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
 GH_PROJECT=	OpenShadingLanguage
-GH_TAGNAME=	Release-${PORTVERSION}dev
-GH_COMMIT=	c47c37e
+GH_TAGNAME=	Release-${PORTVERSION}
+GH_COMMIT=	f03977a
 
 CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 USE_LDCONFIG=	yes
@@ -38,5 +38,12 @@ CXXFLAGS+=	-I${LOCALBASE}/include/flex
 post-patch:
 	@${REINPLACE_CMD} -e 's,/bin/bash,/bin/sh,' \
 		${WRKSRC}/src/liboslexec/serialize-bc.bash
+	@${FIND} ${WRKSRC} -name "*.cpp" -or -name "*.h" -or -name "*.l" | \
+		${XARGS} ${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO14/|g'
+
+post-install:
+	@${REINPLACE_CMD} -e 's|OSL/|OSL15/|g' ${STAGEDIR}/${PREFIX}/include/OSL15/oslexec.h
+	@${FIND} ${STAGEDIR}/${PREFIX}/include/OSL15/ -name "*.bak" -delete
+
 
 .include <bsd.port.mk>

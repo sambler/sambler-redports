@@ -1,5 +1,5 @@
---- ./CMakeLists.txt.orig	2015-01-17 18:01:48.137456296 +1030
-+++ ./CMakeLists.txt	2015-01-17 18:02:02.351455075 +1030
+--- ./CMakeLists.txt.orig	2014-04-12 00:20:37.000000000 +0930
++++ ./CMakeLists.txt	2015-03-13 02:43:00.375051746 +1030
 @@ -83,6 +83,8 @@
  # Input directories must have CMakeLists.txt
  cmake_policy(SET CMP0014 NEW)
@@ -9,3 +9,23 @@
  #-----------------------------------------------------------------------------
  # Load some macros.
  include(build_files/cmake/macros.cmake)
+@@ -870,14 +872,14 @@
+ 	
+ 		message(STATUS "CYCLES_OSL = ${CYCLES_OSL}")
+ 	
+-		find_library(OSL_LIB_EXEC NAMES oslexec PATHS ${CYCLES_OSL}/lib)
+-		find_library(OSL_LIB_COMP NAMES oslcomp PATHS ${CYCLES_OSL}/lib)
+-		find_library(OSL_LIB_QUERY NAMES oslquery PATHS ${CYCLES_OSL}/lib)
++		find_library(OSL_LIB_EXEC NAMES oslexec14 PATHS ${CYCLES_OSL}/lib)
++		find_library(OSL_LIB_COMP NAMES oslcomp14 PATHS ${CYCLES_OSL}/lib)
++		find_library(OSL_LIB_QUERY NAMES oslquery14 PATHS ${CYCLES_OSL}/lib)
+ 		# Note: --whole-archive is needed to force loading of all symbols in liboslexec,
+ 		# otherwise LLVM is missing the osl_allocate_closure_component function
+ 		list(APPEND OSL_LIBRARIES ${OSL_LIB_COMP} -Wl,--whole-archive ${OSL_LIB_EXEC} -Wl,--no-whole-archive ${OSL_LIB_QUERY})
+-		find_path(OSL_INCLUDES OSL/oslclosure.h PATHS ${CYCLES_OSL}/include)
+-		find_program(OSL_COMPILER NAMES oslc PATHS ${CYCLES_OSL}/bin)
++		find_path(OSL_INCLUDES OSL14/oslclosure.h PATHS ${CYCLES_OSL}/include)
++		find_program(OSL_COMPILER NAMES oslc14 PATHS ${CYCLES_OSL}/bin)
+ 	
+ 		if(OSL_INCLUDES AND OSL_LIBRARIES AND OSL_COMPILER)
+ 			set(OSL_FOUND TRUE)

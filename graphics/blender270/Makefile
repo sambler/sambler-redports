@@ -3,7 +3,7 @@
 
 PORTNAME=	blender270
 PORTVERSION=	2.70a
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -30,8 +30,8 @@ LIB_DEPENDS+=	libavutil.so:${PORTSDIR}/multimedia/ffmpeg
 LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 
-USES=		cmake:outsource compiler shebangfix desktop-file-utils openal:al,alut
-USES+=		python:3.3
+USES=		cmake:outsource compiler:c++11-lib shebangfix
+USES+=		python:3.3 desktop-file-utils openal:al,alut
 WRKSRC=		${WRKDIR}/blender-v${PORTVERSION}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.70
 VERS_TAG=	270
@@ -132,12 +132,7 @@ PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
 SECURITY_CMAKE_ON=	-DWITH_PYTHON_SECURITY:BOOL=ON
 SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 
-.include <bsd.port.pre.mk>
-
-.if ${COMPILER_TYPE} == gcc
-# gcc 4.2 does not support -msse4.1, which is needed for blender 2.70+
-USE_GCC=	yes
-.endif
+.include <bsd.port.options.mk>
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
@@ -220,4 +215,4 @@ post-install:
 	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
 .endif
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

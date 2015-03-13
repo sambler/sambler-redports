@@ -1,0 +1,64 @@
+--- src/liboslexec/CMakeLists.txt.orig	2015-03-12 13:55:50 UTC
++++ src/liboslexec/CMakeLists.txt
+@@ -1,14 +1,14 @@
+ SET ( liboslexec_srcs
+           shadingsys.cpp closure.cpp
+           dictionary.cpp
+-          context.cpp instance.cpp 
+-          loadshader.cpp master.cpp 
+-          opcolor.cpp 
++          context.cpp instance.cpp
++          loadshader.cpp master.cpp
++          opcolor.cpp
+           opmessage.cpp
+           opnoise.cpp simplexnoise.cpp gabornoise.cpp
+           opspline.cpp opstring.cpp
+           oslexec.cpp osoreader.cpp
+-          pointcloud.cpp rendservices.cpp 
++          pointcloud.cpp rendservices.cpp
+           constfold.cpp runtimeoptimize.cpp typespec.cpp
+           lpexp.cpp lpeparse.cpp automata.cpp accum.cpp
+           opclosure.cpp
+@@ -123,33 +123,33 @@ else ()
+ endif ()
+ 
+ if (BUILDSTATIC)
+-    ADD_LIBRARY ( oslexec STATIC ${liboslexec_srcs} )
++    ADD_LIBRARY ( oslexec15 STATIC ${liboslexec_srcs} )
+ else ()
+-    ADD_LIBRARY ( oslexec SHARED ${liboslexec_srcs} )
++    ADD_LIBRARY ( oslexec15 SHARED ${liboslexec_srcs} )
+ endif ()
+ 
+-TARGET_LINK_LIBRARIES ( oslexec
++TARGET_LINK_LIBRARIES ( oslexec15
+                         ${VISIBILITY_COMMAND} ${VISIBILITY_MAP_COMMAND}
+                         ${OPENIMAGEIO_LIBRARY} ${PUGIXML_LIBRARIES}
+                         ${PARTIO_LIBRARIES} ${ZLIB_LIBRARIES}
+                         ${Boost_LIBRARIES} ${CMAKE_DL_LIBS}
+                         ${LLVM_LIBRARY} ${LLVM_MCJIT_LIBRARY} ${EXTRA_OSLEXEC_LIBRARIES})
+-ADD_DEPENDENCIES (oslexec "${CMAKE_CURRENT_SOURCE_DIR}/liboslexec.map")
+-LINK_ILMBASE ( oslexec )
++ADD_DEPENDENCIES (oslexec15 "${CMAKE_CURRENT_SOURCE_DIR}/liboslexec.map")
++LINK_ILMBASE ( oslexec15 )
+ 
+ if (BUILDSTATIC)
+-    INSTALL ( TARGETS oslexec LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
++    INSTALL ( TARGETS oslexec15 LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
+ else ()
+-    INSTALL ( TARGETS oslexec LIBRARY DESTINATION lib )
++    INSTALL ( TARGETS oslexec15 LIBRARY DESTINATION lib )
+ endif ()
+ 
+ # Unit tests
+ add_executable (accum_test accum_test.cpp)
+-target_link_libraries ( accum_test oslexec oslcomp ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} ${LLVM_LIBRARY} ${EXTRA_OSLEXEC_LIBRARIES} )
++target_link_libraries ( accum_test oslexec15 oslcomp15 ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} ${LLVM_LIBRARY} ${EXTRA_OSLEXEC_LIBRARIES} )
+ link_ilmbase (accum_test)
+ add_test (unit_accum "${CMAKE_BINARY_DIR}/src/liboslexec/accum_test")
+ 
+ add_executable (llvmutil_test llvmutil_test.cpp)
+-target_link_libraries ( llvmutil_test oslexec oslcomp ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} ${LLVM_LIBRARY} ${EXTRA_OSLEXEC_LIBRARIES} )
++target_link_libraries ( llvmutil_test oslexec15 oslcomp15 ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} ${LLVM_LIBRARY} ${EXTRA_OSLEXEC_LIBRARIES} )
+ link_ilmbase (llvmutil_test)
+ add_test (unit_llvmutil "${CMAKE_BINARY_DIR}/src/liboslexec/llvmutil_test")
