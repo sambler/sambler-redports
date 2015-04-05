@@ -1,0 +1,43 @@
+--- ./CMakeLists.txt.orig	2015-04-01 13:14:23.000000000 +1030
++++ ./CMakeLists.txt	2015-04-05 16:22:50.773950909 +0930
+@@ -88,6 +88,8 @@
+ # Input directories must have CMakeLists.txt
+ cmake_policy(SET CMP0014 NEW)
+ 
++cmake_policy(SET CMP0043 NEW)
++
+ #-----------------------------------------------------------------------------
+ # Load some macros.
+ include(build_files/cmake/macros.cmake)
+@@ -968,6 +970,7 @@
+ 			endif()
+ 			if(WITH_INTERNATIONAL)
+ 				list(APPEND __boost_packages locale)
++				set(PLATFORM_LINKFLAGS "${PLATFORM_LINKFLAGS} -liconv") # boost_locale needs it !
+ 			endif()
+ 			if(WITH_CYCLES_NETWORK)
+ 				list(APPEND __boost_packages serialization)
+@@ -1785,15 +1788,15 @@
+ 	if(WITH_CYCLES_OSL)
+ 		set(CYCLES_OSL ${LIBDIR}/osl CACHE PATH "Path to OpenShadingLanguage installation")
+ 	
+-		find_library(OSL_LIB_EXEC NAMES oslexec PATHS ${CYCLES_OSL}/lib)
+-		find_library(OSL_LIB_COMP NAMES oslcomp PATHS ${CYCLES_OSL}/lib)
+-		find_library(OSL_LIB_QUERY NAMES oslquery PATHS ${CYCLES_OSL}/lib)
+-		find_library(OSL_LIB_EXEC_DEBUG NAMES oslexec_d PATHS ${CYCLES_OSL}/lib)
+-		find_library(OSL_LIB_COMP_DEBUG NAMES oslcomp_d PATHS ${CYCLES_OSL}/lib)
+-		find_library(OSL_LIB_QUERY_DEBUG NAMES oslquery_d PATHS ${CYCLES_OSL}/lib)
++		find_library(OSL_LIB_EXEC NAMES oslexec15 PATHS ${CYCLES_OSL}/lib)
++		find_library(OSL_LIB_COMP NAMES oslcomp15 PATHS ${CYCLES_OSL}/lib)
++		find_library(OSL_LIB_QUERY NAMES oslquery15 PATHS ${CYCLES_OSL}/lib)
++		find_library(OSL_LIB_EXEC_DEBUG NAMES oslexec_d15 PATHS ${CYCLES_OSL}/lib)
++		find_library(OSL_LIB_COMP_DEBUG NAMES oslcomp_d15 PATHS ${CYCLES_OSL}/lib)
++		find_library(OSL_LIB_QUERY_DEBUG NAMES oslquery_d15 PATHS ${CYCLES_OSL}/lib)
+ 		list(APPEND OSL_LIBRARIES optimized ${OSL_LIB_COMP} optimized ${OSL_LIB_EXEC} optimized ${OSL_LIB_QUERY} debug ${OSL_LIB_EXEC_DEBUG} debug ${OSL_LIB_COMP_DEBUG} debug ${OSL_LIB_QUERY_DEBUG})
+-		find_path(OSL_INCLUDE_DIR OSL/oslclosure.h PATHS ${CYCLES_OSL}/include)
+-		find_program(OSL_COMPILER NAMES oslc PATHS ${CYCLES_OSL}/bin)
++		find_path(OSL_INCLUDE_DIR OSL15/oslclosure.h PATHS ${CYCLES_OSL}/include)
++		find_program(OSL_COMPILER NAMES oslc15 PATHS ${CYCLES_OSL}/bin)
+ 	
+ 		if(OSL_INCLUDE_DIR AND OSL_LIBRARIES AND OSL_COMPILER)
+ 			set(OSL_FOUND TRUE)
