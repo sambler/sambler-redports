@@ -43,7 +43,7 @@ BITSUF=	.64
 BITSUF=	.32
 .endif
 
-.if ${COMPILER_TYPE} == clang
+.if ${CHOSEN_COMPILER_TYPE} == clang
 .if ${OSVERSION} < 900000
 BROKEN=	clang fails to link on 8.x
 .endif
