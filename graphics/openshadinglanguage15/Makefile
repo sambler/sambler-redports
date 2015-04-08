@@ -3,7 +3,9 @@
 
 PORTNAME=	openshadinglanguage15
 PORTVERSION=	1.5.12
+PORTREVISION=	1
 CATEGORIES=	graphics devel
+DISTVERSIONPREFIX=	Release-
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	Advanced shading language for production GI renderers (v1.5)
@@ -20,8 +22,7 @@ RUN_DEPENDS=	llvm-config34:${PORTSDIR}/devel/llvm34
 USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
 GH_PROJECT=	OpenShadingLanguage
-GH_TAGNAME=	Release-${PORTVERSION}
-GH_COMMIT=	f03977a
+WRKSRC=		${WRKDIR}/${GH_PROJECT}-${DISTVERSIONPREFIX}${PORTVERSION}${DISTVERSIONSUFFIX}
 
 CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 USE_LDCONFIG=	yes
