@@ -17,7 +17,6 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	PixarAnimationStudios
 GH_PROJECT=	OpenSubdiv
 GH_TAGNAME=	v2_6_1
-GH_COMMIT=	c042af6
 
 USE_GL=		glew
 USE_XORG=	x11 xext xi ice xcursor
