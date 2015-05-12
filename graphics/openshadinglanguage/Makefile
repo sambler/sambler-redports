@@ -2,10 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	openshadinglanguage
-PORTVERSION=	1.6.3
+PORTVERSION=	1.6.4
 CATEGORIES=	graphics devel
 DISTVERSIONPREFIX=	Release-
-DISTVERSIONSUFFIX=	dev
+DISTVERSIONSUFFIX=	beta
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	Advanced shading language for production GI renderers
