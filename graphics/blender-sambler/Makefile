@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.74
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
 		https://github.com/sambler/myblendertranslations/tarball/:trans \
@@ -53,7 +53,7 @@ RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 #		addons-${PORTVERSION}.${PORTREVISION}:addons \
 #		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
 #		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	091e02a
+GH_COMMIT=	3af14f3
 
 FETCH_ARGS=	-pRr
 
@@ -114,16 +114,16 @@ CMAKE_ARGS+=	-DWITH_BUILDINFO:BOOL=ON -DWITH_AUDASPACE:BOOL=ON \
 
 OPTIONS_DEFINE=	COLLADA HEADLESS SECURITY PLAYER JACK NLS OSL OPENMP
 ## NDOF
-OPTIONS_DEFAULT=	COLLADA PLAYER SECURITY NLS OSL
+OPTIONS_DEFAULT=	COLLADA SECURITY NLS OSL
 
-HEADLESS_DESC=	"Disable user interface"
-SECURITY_DESC=	"Disable scripts auto-run"
-PLAYER_DESC=	"Build blender player"
-JACK_DESC=	"Audio support using JackAudio"
-COLLADA_DESC=	"Include collada import"
-#NDOF_DESC=	"NDOF Support"
-NLS_DESC=	"Include translations"
-OSL_DESC=	"OSL shading support"
+HEADLESS_DESC=	Disable user interface
+SECURITY_DESC=	Disable scripts auto-run
+PLAYER_DESC=	Build blender player
+JACK_DESC=	Audio support using JackAudio
+COLLADA_DESC=	Include collada import
+#NDOF_DESC=	NDOF Support
+NLS_DESC=	Include translations
+OSL_DESC=	OSL shading support
 
 COLLADA_CMAKE_ON=	-DWITH_OPENCOLLADA:BOOL=ON
 COLLADA_CMAKE_OFF=	-DWITH_OPENCOLLADA:BOOL=OFF
