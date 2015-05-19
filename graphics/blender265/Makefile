@@ -82,12 +82,12 @@ OPTIONS_DEFINE=	HEADLESS SECURITY PLAYER JACK NLS OSL OPENMP
 OPTIONS_DEFAULT=	SECURITY PLAYER NLS OSL JACK
 
 OPTIONS_SUB=	yes
-HEADLESS_DESC=	"Disable user interface"
-SECURITY_DESC=	"Disable scripts auto-run"
-PLAYER_DESC=	"Build blender player"
-JACK_DESC=	"Audio support using JackAudio"
-NLS_DESC=	"Include translations"
-OSL_DESC=	"OSL shading support"
+HEADLESS_DESC=	Disable user interface
+SECURITY_DESC=	Disable scripts auto-run
+PLAYER_DESC=	Build blender player
+JACK_DESC=	Audio support using JackAudio
+NLS_DESC=	Include translations
+OSL_DESC=	OSL shading support
 
 HEADLESS_CMAKE_ON=	-DWITH_HEADLESS:BOOL=ON
 HEADLESS_CMAKE_OFF=	-DWITH_HEADLESS:BOOL=OFF

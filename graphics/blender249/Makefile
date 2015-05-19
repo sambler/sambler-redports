@@ -58,10 +58,10 @@ OPTIONS_DEFINE=	HEADLESS SECURITY PLAYER NLS OPENMP
 OPTIONS_DEFAULT=	SECURITY PLAYER NLS
 
 OPTIONS_SUB=	yes
-HEADLESS_DESC=	"Disable user interface"
-SECURITY_DESC=	"Disable scripts auto-run"
-PLAYER_DESC=	"Build blender player"
-NLS_DESC=	"Include translations"
+HEADLESS_DESC=	Disable user interface
+SECURITY_DESC=	Disable scripts auto-run
+PLAYER_DESC=	Build blender player
+NLS_DESC=	Include translations
 
 HEADLESS_CMAKE_ON=	-DWITH_HEADLESS:BOOL=ON
 HEADLESS_CMAKE_OFF=	-DWITH_HEADLESS:BOOL=OFF
