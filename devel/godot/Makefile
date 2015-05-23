@@ -19,7 +19,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	okamstudio
 
 USES=		scons pkgconfig compiler
-USE_XORG=	x11 xcursor
+USE_XORG=	x11 xcursor xinerama
 USE_GL=		glu
 USE_OPENSSL=	yes
 
