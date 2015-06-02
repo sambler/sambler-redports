@@ -1,6 +1,6 @@
---- ./platform/x11/detect.py.orig	2015-05-22 03:33:21.000000000 +0930
-+++ ./platform/x11/detect.py	2015-05-23 14:57:49.522273728 +0930
-@@ -29,11 +29,6 @@
+--- platform/x11/detect.py.orig	2015-05-21 18:03:21 UTC
++++ platform/x11/detect.py
+@@ -29,11 +29,6 @@ def can_build():
  		print("X11 not found.. x11 disabled.")
  		return False
  
@@ -12,7 +12,7 @@
  	x11_error=os.system("pkg-config xcursor --modversion > /dev/null ")
  	if (x11_error):
  		print("xcursor not found.. x11 disabled.")
-@@ -126,7 +121,7 @@
+@@ -126,7 +121,7 @@ def configure(env):
  	env.ParseConfig('pkg-config x11 --cflags --libs')
  	env.ParseConfig('pkg-config xinerama --cflags --libs')
  	env.ParseConfig('pkg-config xcursor --cflags --libs')
