@@ -16,7 +16,6 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	necaris
 GH_PROJECT=	python3-openid
 GH_TAGNAME=	v${PORTVERSION}
-GH_COMMIT=	d384d34
 
 USES+=		python:3
 USE_PYTHON=	distutils autoplist concurrent
