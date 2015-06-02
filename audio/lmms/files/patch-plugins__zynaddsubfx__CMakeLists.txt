@@ -1,0 +1,20 @@
+--- ./plugins/zynaddsubfx/CMakeLists.txt.orig	2014-08-16 16:35:46.000000000 +0930
++++ ./plugins/zynaddsubfx/CMakeLists.txt	2014-08-29 23:58:51.579455306 +0930
+@@ -101,7 +101,7 @@
+ 
+ 
+ ADD_LIBRARY(ZynAddSubFxCore SHARED LocalZynAddSubFx.cpp ${zynaddsubfx_core_SRCS})
+-TARGET_LINK_LIBRARIES(ZynAddSubFxCore zynaddsubfx_nio ${FFTW3F_LIBRARIES} ${QT_LIBRARIES} -lz -lpthread)
++TARGET_LINK_LIBRARIES(ZynAddSubFxCore zynaddsubfx_nio ${FFTW3F_LIBRARIES} ${QT_LIBRARIES} -lz -lpthread -L/usr/local/lib)
+ IF(LMMS_BUILD_WIN32)
+ 	TARGET_LINK_LIBRARIES(ZynAddSubFxCore -lws2_32)
+ 	INSTALL(TARGETS ZynAddSubFxCore RUNTIME DESTINATION "${PLUGIN_DIR}")
+@@ -135,7 +135,7 @@
+ 
+ # FLTK needs X
+ IF(LMMS_BUILD_LINUX)
+-	TARGET_LINK_LIBRARIES(RemoteZynAddSubFx -ldl)
++	TARGET_LINK_LIBRARIES(RemoteZynAddSubFx)
+ ENDIF(LMMS_BUILD_LINUX)
+ 
+ 
