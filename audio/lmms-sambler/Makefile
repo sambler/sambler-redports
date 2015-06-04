@@ -19,7 +19,7 @@ LIB_DEPENDS=	libFLAC.so:${PORTSDIR}/audio/flac \
 		libsamplerate.so:${PORTSDIR}/audio/libsamplerate \
 		libsndfile.so:${PORTSDIR}/audio/libsndfile \
 		libvorbis.so:${PORTSDIR}/audio/libvorbis \
-		libportaudio.so.2:${PORTSDIR}/audio/portaudio2 \
+		libportaudio.so:${PORTSDIR}/audio/portaudio \
 		libpulse.so:${PORTSDIR}/audio/pulseaudio \
 		libstk.so:${PORTSDIR}/audio/stk \
 		libfftw3.so:${PORTSDIR}/math/fftw3 \
@@ -34,7 +34,6 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	lmms
 GH_PROJECT=	lmms
 GH_TAGNAME=	v1.0.93
-GH_COMMIT=	1b4b34d
 
 USE_LDCONFIG=	yes
 USE_XORG=	xft
@@ -58,9 +57,7 @@ CMAKE_ARGS=	-DWANT_ALSA:BOOL=OFF \
 		-DWANT_PORTAUDIO:BOOL=ON \
 		-DWANT_PULSEAUDIO:BOOL=ON \
 		-DWANT_SDL:BOOL=ON
-LDFLAGS=	-L${LOCALBASE}/lib/portaudio2
 
-WRKSRC=		${WRKDIR}/LMMS-lmms-${GH_COMMIT}
 DATADIR=	${LOCALBASE}/share/lmms
 
 post-patch:
