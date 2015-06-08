@@ -1,6 +1,6 @@
---- ./src/core/CMakeLists.txt.orig	2012-04-18 09:38:16.000000000 +0930
-+++ ./src/core/CMakeLists.txt	2012-10-08 00:20:27.667351098 +1030
-@@ -90,4 +90,4 @@
+--- src/core/CMakeLists.txt.orig	2012-12-11 23:21:23 UTC
++++ src/core/CMakeLists.txt
+@@ -90,4 +90,4 @@ message(STATUS "Create OpenColorIO.pc fr
  configure_file(${CMAKE_SOURCE_DIR}/export/pkgconfig/OpenColorIO.pc.in
      ${CMAKE_CURRENT_BINARY_DIR}/OpenColorIO.pc @ONLY)
  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenColorIO.pc

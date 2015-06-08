@@ -46,7 +46,7 @@ CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=OFF \
 		-DOCIO_BUILD_PYGLUE:BOOL=ON \
 		-DPYTHON:FILEPATH=${PYTHON_CMD}
 .else
-LIB_DEPENDS=	libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14 \
+LIB_DEPENDS=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio \
 		libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
 USES+=		compiler:c++11-lib
 CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=ON \
@@ -64,8 +64,6 @@ post-patch:
 	@${REINPLACE_CMD} -e '/pkg_check_modules/ s|yaml-cpp|&03|' \
 		${WRKSRC}/CMakeLists.txt
 	@${REINPLACE_CMD} -e 's|yaml-cpp|&03|' ${WRKSRC}/src/core/OCIOYaml.h
-	@${FIND} ${WRKSRC} -name "*.cpp" | \
-		${XARGS} ${REINPLACE_CMD} -i '' -e 's|<OpenImageIO/|<OpenImageIO14/|g'
 .if ${SLAVE_PORT} == yes
 	@${FIND} ${WRKSRC}/src/apps -name main.cpp | ${XARGS} \
 		${REINPLACE_CMD} '/namespace OIIO/d'

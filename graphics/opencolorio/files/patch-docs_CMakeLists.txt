@@ -1,6 +1,6 @@
---- ./docs/CMakeLists.txt.orig	2012-04-18 09:38:16.000000000 +0930
-+++ ./docs/CMakeLists.txt	2012-10-08 00:26:42.081351698 +1030
-@@ -98,11 +98,10 @@
+--- docs/CMakeLists.txt.orig	2012-12-11 23:21:23 UTC
++++ docs/CMakeLists.txt
+@@ -98,12 +98,11 @@ add_custom_target(doc ALL
  add_dependencies(doc Sphinx) 
  
  install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/build-html/
