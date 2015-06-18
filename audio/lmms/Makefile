@@ -39,7 +39,7 @@ USES=		cmake pkgconfig tar:bzip2 desktop-file-utils shared-mime-info \
 # calf can be compiled under some configurations
 # disable until we can get consistancy
 CMAKE_ARGS=	-DWANT_ALSA:BOOL=OFF \
-		-DWANT_CALF:BOOL=ON \
+		-DWANT_CALF:BOOL=OFF \
 		-DWANT_CAPS:BOOL=ON \
 		-DWANT_CMT:BOOL=ON \
 		-DWANT_SF2:BOOL=ON \
@@ -54,10 +54,9 @@ JACK_LIB_DEPENDS=	libjack.so:${PORTSDIR}/audio/jack
 JACK_CMAKE_ON=		-DWANT_JACK:BOOL=ON
 JACK_CMAKE_OFF=		-DWANT_JACK:BOOL=OFF
 
-PORTAUDIO_LIB_DEPENDS=	libpulse.so:${PORTSDIR}/audio/pulseaudio
+PORTAUDIO_LIB_DEPENDS=	libportaudio.so:${PORTSDIR}/audio/portaudio
 PORTAUDIO_CMAKE_ON=	-DWANT_PORTAUDIO:BOOL=ON
 PORTAUDIO_CMAKE_OFF=	-DWANT_PORTAUDIO:BOOL=OFF
-PORTAUDIO_LDFLAGS=	-L${LOCALBASE}/lib/portaudio2
 
 PULSEAUDIO_LIB_DEPENDS=	libpulse.so:${PORTSDIR}/audio/pulseaudio
 PULSEAUDIO_CMAKE_ON=	-DWANT_PULSEAUDIO:BOOL=ON
@@ -91,6 +90,6 @@ post-install:
 	# make it setuid-root to be able to set realtime priority
 	# (root privileges are dropped in the main routine)
 	# gtk2 now refuses to run with suid
-	#${CHMOD} u+s ${STAGEDIR}${PREFIX}/bin/lmms
+	${CHMOD} u+s ${STAGEDIR}${PREFIX}/bin/lmms
 
 .include <bsd.port.mk>
