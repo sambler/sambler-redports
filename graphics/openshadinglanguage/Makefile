@@ -3,8 +3,8 @@
 
 PORTNAME=	openshadinglanguage
 PORTVERSION=	1.6.6
-CATEGORIES=	graphics devel
 DISTVERSIONPREFIX=	Release-
+CATEGORIES=	graphics devel
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	Advanced shading language for production GI renderers
@@ -24,7 +24,7 @@ GH_PROJECT=	OpenShadingLanguage
 
 CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 USE_LDCONFIG=	yes
-USES=		bison cmake:outsource compiler:c++11-lib
+USES=		bison cmake:outsource
 
 .include <bsd.port.options.mk>
 
