@@ -2,10 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio
-PORTVERSION=	1.5.15
+PORTVERSION=	1.5.16
+DISTVERSIONPREFIX=	Release-
 PORTREVISION?=	0
 CATEGORIES?=	graphics multimedia
-DISTVERSIONPREFIX=	Release-
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
 COMMENT?=	OpenImageIO graphics library
@@ -15,12 +15,11 @@ LICENSE=	BSD3CLAUSE
 USE_GITHUB=	yes
 GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
-WRKSRC=		${WRKDIR}/${GH_PROJECT}-${DISTVERSIONPREFIX}${PORTVERSION}
 
 # fbm also installs bin/idiff
 CONFLICTS=	fbm-[0-9]*
 
-USES=		cmake:outsource compiler:c++11-lib
+USES=		cmake:outsource
 CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DLINKSTATIC:BOOL=OFF \
 		-DNOTHREADS:BOOL=OFF \
@@ -34,10 +33,10 @@ OPTIONS_DEFAULT=	OCIO FFMPEG GIF
 OPTIONS_SUB=		yes
 
 FFMPEG_DESC=		Use ffmpeg to support extra file types
-GIF_DESC=		Use libgif
+GIF_DESC=		Enable gif image support
 IMAGEVIEWER_DESC=	Build image viewer
 OCIO_DESC=		Colour management support
-RAW_DESC=		Use libraw
+RAW_DESC=		Enable raw image support
 
 DOCS_CMAKE_ON=		-DINSTALL_DOCS:BOOL=ON
 DOCS_CMAKE_OFF=		-DINSTALL_DOCS:BOOL=OFF
@@ -78,10 +77,12 @@ CMAKE_ARGS+=	-DUSE_PYTHON3:BOOL=OFF
 .else
 LIB_DEPENDS=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio \
 		libboost_python.so:${PORTSDIR}/devel/boost-python-libs
-USES+=		python
 PLIST=		${PKGDIR}/pkg-plist-pybind
-CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON -DOIIO_BUILD_TOOLS:BOOL=OFF
-CMAKE_ARGS+=	-DUSE_PYTHON3:BOOL=ON
+#while oiio supports py3, ports doesn't have py3 support for boost-python yet
+USES+=		python:2
+CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON
+CMAKE_ARGS+=	-DUSE_PYTHON3:BOOL=OFF
+CMAKE_ARGS+=	-DOIIO_BUILD_TOOLS:BOOL=OFF
 .endif
 
 .if ${PORT_OPTIONS:MIMAGEVIEWER}
