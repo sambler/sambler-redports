@@ -3,9 +3,9 @@
 
 PORTNAME=	openshadinglanguage15
 PORTVERSION=	1.5.12
+DISTVERSIONPREFIX=	Release-
 PORTREVISION=	1
 CATEGORIES=	graphics devel
-DISTVERSIONPREFIX=	Release-
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	Advanced shading language for production GI renderers (v1.5)
@@ -22,7 +22,6 @@ RUN_DEPENDS=	llvm-config34:${PORTSDIR}/devel/llvm34
 USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
 GH_PROJECT=	OpenShadingLanguage
-WRKSRC=		${WRKDIR}/${GH_PROJECT}-${DISTVERSIONPREFIX}${PORTVERSION}${DISTVERSIONSUFFIX}
 
 CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 USE_LDCONFIG=	yes
@@ -45,6 +44,5 @@ post-patch:
 post-install:
 	@${REINPLACE_CMD} -e 's|OSL/|OSL15/|g' ${STAGEDIR}/${PREFIX}/include/OSL15/oslexec.h
 	@${FIND} ${STAGEDIR}/${PREFIX}/include/OSL15/ -name "*.bak" -delete
-
 
 .include <bsd.port.mk>
