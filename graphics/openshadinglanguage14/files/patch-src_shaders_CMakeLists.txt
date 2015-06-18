@@ -1,6 +1,6 @@
---- ./src/shaders/CMakeLists.txt.orig	2014-03-12 04:37:38.000000000 +1030
-+++ ./src/shaders/CMakeLists.txt	2014-07-27 21:57:59.167399762 +0930
-@@ -17,12 +17,12 @@
+--- src/shaders/CMakeLists.txt.orig	2014-03-11 18:07:38 UTC
++++ src/shaders/CMakeLists.txt
+@@ -17,12 +17,12 @@ macro (osl_compile oslsrc objlist header
  #    include_directories ( ${CMAKE_CURRENT_BINARY_DIR} )
  #    include_directories ( ${CMAKE_CURRENT_SOURCE_DIR} )
      if (VERBOSE)
@@ -16,7 +16,7 @@
          WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
  endmacro ()
  
-@@ -42,5 +42,5 @@
+@@ -42,5 +42,5 @@ add_custom_target (shaders ALL
                     SOURCES ${shader_source} ${shader_headers})
  
  install (FILES ${shader_headers} ${shader_source} ${shader_objs}

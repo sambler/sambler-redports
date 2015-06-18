@@ -1,5 +1,5 @@
---- ./src/testshade/CMakeLists.txt.orig	2014-03-12 04:37:38.000000000 +1030
-+++ ./src/testshade/CMakeLists.txt	2014-07-27 21:57:59.173400242 +0930
+--- src/testshade/CMakeLists.txt.orig	2014-03-11 18:07:38 UTC
++++ src/testshade/CMakeLists.txt
 @@ -1,30 +1,30 @@
  # The 'testshade' executable
  SET ( testshade_srcs testshade.cpp simplerend.cpp )

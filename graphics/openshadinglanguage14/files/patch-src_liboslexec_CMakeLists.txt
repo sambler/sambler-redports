@@ -1,6 +1,6 @@
---- ./src/liboslexec/CMakeLists.txt.orig	2014-03-12 04:37:38.000000000 +1030
-+++ ./src/liboslexec/CMakeLists.txt	2014-07-27 22:04:52.419399672 +0930
-@@ -115,31 +115,31 @@
+--- src/liboslexec/CMakeLists.txt.orig	2014-03-11 18:07:38 UTC
++++ src/liboslexec/CMakeLists.txt
+@@ -115,31 +115,31 @@ else ()
  endif ()
  
  if (BUILDSTATIC)

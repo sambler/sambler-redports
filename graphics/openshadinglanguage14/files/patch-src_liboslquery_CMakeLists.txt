@@ -1,6 +1,6 @@
---- ./src/liboslquery/CMakeLists.txt.orig	2014-03-12 04:37:38.000000000 +1030
-+++ ./src/liboslquery/CMakeLists.txt	2014-07-27 21:57:59.152399691 +0930
-@@ -6,16 +6,16 @@
+--- src/liboslquery/CMakeLists.txt.orig	2014-03-11 18:07:38 UTC
++++ src/liboslquery/CMakeLists.txt
+@@ -6,16 +6,16 @@ INCLUDE_DIRECTORIES ( ../liboslexec )
  FLEX_BISON ( ../liboslexec/osolex.l ../liboslexec/osogram.y oso liboslquery_srcs compiler_headers )
  
  if (BUILDSTATIC)

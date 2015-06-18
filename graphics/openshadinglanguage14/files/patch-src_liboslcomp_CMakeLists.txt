@@ -1,6 +1,6 @@
---- ./src/liboslcomp/CMakeLists.txt.orig	2014-03-12 04:37:38.000000000 +1030
-+++ ./src/liboslcomp/CMakeLists.txt	2014-07-27 21:57:59.121399820 +0930
-@@ -14,18 +14,18 @@
+--- src/liboslcomp/CMakeLists.txt.orig	2014-03-11 18:07:38 UTC
++++ src/liboslcomp/CMakeLists.txt
+@@ -14,18 +14,18 @@ FILE ( GLOB compiler_headers "*.h" )
  FLEX_BISON ( osllex.l oslgram.y osl liboslcomp_srcs compiler_headers )
  
  if (BUILDSTATIC)
