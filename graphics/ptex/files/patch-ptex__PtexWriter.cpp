@@ -1,6 +1,6 @@
---- ./ptex/PtexWriter.cpp.orig	2014-05-27 14:01:14.677938262 +0930
-+++ ./ptex/PtexWriter.cpp	2014-05-27 14:01:17.778535863 +0930
-@@ -66,6 +66,7 @@
+--- ptex/PtexWriter.cpp.orig	2015-02-12 16:37:58 UTC
++++ ptex/PtexWriter.cpp
+@@ -66,6 +66,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  #include <algorithm>
  #include <iostream>
  #include <sstream>

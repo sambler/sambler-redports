@@ -1,6 +1,6 @@
---- ./ptex/PtexPlatform.h.orig	2014-05-27 02:04:52.211536293 +0930
-+++ ./ptex/PtexPlatform.h	2014-05-27 02:06:45.384535527 +0930
-@@ -60,7 +60,9 @@
+--- ptex/PtexPlatform.h.orig	2015-02-12 16:37:58 UTC
++++ ptex/PtexPlatform.h
+@@ -60,7 +60,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  
  // linux/unix/posix
  #include <stdlib.h>
