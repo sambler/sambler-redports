@@ -5,14 +5,6 @@ PORTNAME=	blender-sambler
 PORTVERSION=	2.74
 PORTREVISION=	4
 CATEGORIES=	graphics multimedia
-MASTER_SITES=	https://github.com/sambler/myblender/tarball/:base \
-		https://github.com/sambler/myblendertranslations/tarball/:trans \
-		https://github.com/sambler/myblenderaddons/tarball/:addons \
-		https://github.com/sambler/myblendercontrib/tarball/:contrib
-DISTFILES=	sambler-${PORTVERSION}.${PORTREVISION}:base \
-		translate-${PORTVERSION}.${PORTREVISION}:trans \
-		addons-${PORTVERSION}.${PORTREVISION}:addons \
-		contrib-${PORTVERSION}.${PORTREVISION}:contrib
 DIST_SUBDIR=	${PORTNAME}
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -38,32 +30,26 @@ LIB_DEPENDS=	liblzo2.so:${PORTSDIR}/archivers/lzo2 \
 		libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 
-#USE_GITHUB=	yes
-#GH_ACCOUNT=	sambler:base \
-#		sambler:addons \
-#		sambler:contrib \
-#		sambler:trans
-#GH_PROJECT=	myblender
-#GH_PROJECT=	myblender:base \
-#		myblenderaddons:addons \
-#		myblendercontrib:contrib \
-#		myblendertranslations:trans
-#GH_TAGNAME=	sambler-${PORTVERSION}.${PORTREVISION}
-#GH_TAGNAME=	sambler-${PORTVERSION}.${PORTREVISION}:base \
-#		addons-${PORTVERSION}.${PORTREVISION}:addons \
-#		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
-#		translate-${PORTVERSION}.${PORTREVISION}:trans
-GH_COMMIT=	3d2d8ad
-
-FETCH_ARGS=	-pRr
+USE_GITHUB=	yes
+GH_ACCOUNT=	sambler \
+		sambler:addons \
+		sambler:contrib \
+		sambler:trans
+GH_PROJECT=	myblender \
+		myblenderaddons:addons \
+		myblendercontrib:contrib \
+		myblendertranslations:trans
+GH_TAGNAME=	sambler-${PORTVERSION}.${PORTREVISION} \
+		addons-${PORTVERSION}.${PORTREVISION}:addons \
+		contrib-${PORTVERSION}.${PORTREVISION}:contrib \
+		translate-${PORTVERSION}.${PORTREVISION}:trans
 
 USES=		cmake:outsource shebangfix compiler:c++11-lib \
 		python:3.4 desktop-file-utils openal:al,alut
-WRKSRC=		${WRKDIR}/sambler-myblender-${GH_COMMIT}
-#OUTDIR=		${INSTALL_WRKSRC}/bin/${PORTVERSION}
 OUTDIR=		${STAGEDIR}/${PREFIX}/${PORTVERSION}
 LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
 VERS_TAG=	sambler
+HASHTAG=	3d2d8ad
 
 SUB_FILES=	blender blenderplayer
 python_CMD=	${PYTHON_CMD}
@@ -94,7 +80,7 @@ CMAKE_ARGS+=	-DWITH_BUILDINFO:BOOL=ON -DWITH_AUDASPACE:BOOL=ON \
 		-DWITH_IMAGE_DDS:BOOL=ON -DWITH_IMAGE_FRAMESERVER:BOOL=ON \
 		-DWITH_IMAGE_HDR:BOOL=ON -DWITH_IMAGE_OPENEXR:BOOL=ON \
 		-DWITH_IMAGE_OPENJPEG:BOOL=ON -DWITH_IMAGE_REDCODE:BOOL=ON \
-		-DWITH_IMAGE_TIFF:BOOL=ON -DWITH_INSTALL_PORTABLE:BOOL=ON \
+		-DWITH_IMAGE_TIFF:BOOL=ON -DWITH_INSTALL_PORTABLE:BOOL=OFF \
 		-DWITH_LIBMV:BOOL=ON -DWITH_LZMA:BOOL=ON -DWITH_LZO:BOOL=ON \
 		-DWITH_MEM_JEMALLOC:BOOL=OFF -DWITH_MOD_BOOLEAN:BOOL=ON \
 		-DWITH_MOD_FLUID:BOOL=ON \
@@ -115,6 +101,7 @@ CMAKE_ARGS+=	-DWITH_BUILDINFO:BOOL=ON -DWITH_AUDASPACE:BOOL=ON \
 OPTIONS_DEFINE=	COLLADA HEADLESS SECURITY PLAYER JACK NLS OSL OPENMP
 ## NDOF
 OPTIONS_DEFAULT=	COLLADA SECURITY NLS OSL
+OPTIONS_SUB=		yes
 
 HEADLESS_DESC=	Disable user interface
 SECURITY_DESC=	Disable scripts auto-run
@@ -168,116 +155,67 @@ SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 
 .include <bsd.port.options.mk>
 
+post-extract:
+# tanslations
+	@${MV} ${WRKSRC_trans}/* ${WRKSRC}/release/datafiles/locale/
+# addons
+	@${MV} ${WRKSRC_addons}/* ${WRKSRC}/release/scripts/addons/
+# contrib
+	@${MV} ${WRKSRC_contrib}/* ${WRKSRC}/release/scripts/addons_contrib/
+
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
 		${WRKSRC}/release/bin/blender-thumbnailer.py
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
 		${WRKSRC}/release/freedesktop/blender.desktop
-	@${REINPLACE_CMD} -e 's|MY_WC_HASH "unknown"|MY_WC_HASH "${GH_COMMIT}"|g' \
+	@${REINPLACE_CMD} -e 's|MY_WC_HASH "unknown"|MY_WC_HASH "${HASHTAG}"|g' \
 		-e 's|MY_WC_BRANCH "unknown"|MY_WC_BRANCH "mymods"|g' \
 		${WRKSRC}/build_files/cmake/buildinfo.cmake
 	@${REINPLACE_CMD} -e 's|yaml-cpp|&03|' \
 		${PATCH_WRKSRC}/build_files/cmake/Modules/FindOpenColorIO.cmake
 
 post-build:
+.if !defined(NO_INSTALL_MANPAGES)
 	@(cd ${WRKSRC}/doc/manpage && \
 		${PYTHON_CMD} blender.1.py \
 			${INSTALL_WRKSRC}/bin/blender \
 			${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1)
-
-post-extract:
-# tanslations
-	@${MV} ${WRKDIR}/sambler-myblendertranslations-*/* ${WRKSRC}/release/datafiles/locale/
-# addons
-	@${MV} ${WRKDIR}/sambler-myblenderaddons-*/* ${WRKSRC}/release/scripts/addons/
-# contrib
-	@${MV} ${WRKDIR}/sambler-myblendercontrib-*/* ${WRKSRC}/release/scripts/addons_contrib/
-
-# We ignore MAKE_ARGS, since those would set DESTDIR for make stage,
-# which in turn would cause make install to install everything in a
-# wrong location
-#do-install:
-#	@(cd ${INSTALL_WRKSRC} && ${SETENV} ${MAKE_ENV} ${MAKE_CMD} \
-#		${MAKE_FLAGS} ${MAKEFILE} ${INSTALL_TARGET})
+.endif
 
 post-install:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blender
 	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${STAGEDIR}/${PREFIX}/bin/blender-${VERS_TAG}
-	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
-		${STAGEDIR}/${PREFIX}/bin/blender-bin-${VERS_TAG}
-	@${MKDIR} ${STAGEDIR}/${DATADIR}
-	@${INSTALL_SCRIPT} ${WRKSRC}/release/bin/blender-thumbnailer.py \
+	@${MV} ${STAGEDIR}/${PREFIX}/bin/blender ${STAGEDIR}/${PREFIX}/bin/blender-bin-${VERS_TAG}
+	@${MV} ${STAGEDIR}/${PREFIX}/bin/blender-thumbnailer.py \
 		${STAGEDIR}/${PREFIX}/bin/blender-thumbnailer-${VERS_TAG}.py
-	@${ECHO} bin/blender-${VERS_TAG} >> ${TMPPLIST}
-	@${ECHO} bin/blender-bin-${VERS_TAG} >> ${TMPPLIST}
-	@${ECHO} bin/blender-thumbnailer-${VERS_TAG}.py >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MPLAYER}
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blenderplayer
 	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${STAGEDIR}/${PREFIX}/bin/blenderplayer-${VERS_TAG}
-	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blenderplayer \
+	@${MV} ${STAGEDIR}/${PREFIX}/bin/blenderplayer \
 		${STAGEDIR}/${PREFIX}/bin/blenderplayer-bin-${VERS_TAG}
-	@${ECHO} bin/blenderplayer-${VERS_TAG} >> ${TMPPLIST}
-	@${ECHO} bin/blenderplayer-bin-${VERS_TAG} >> ${TMPPLIST}
 .endif
 
-	${MKDIR} ${STAGEDIR}${DATADIR}
-	(cd ${OUTDIR} && ${COPYTREE_SHARE} scripts ${STAGEDIR}${DATADIR})
-#	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
-#		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
-	@${INSTALL_DATA} ${OUTDIR}/../blender.svg \
+	@${MKDIR} ${STAGEDIR}${DATADIR}
+	@${MV} ${STAGEDIR}/${PREFIX}/share/blender/${PORTVERSION}/* ${STAGEDIR}${DATADIR}
+	@${RM} -R ${STAGEDIR}/${PREFIX}/share/blender
+	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/icons/scalable/apps/blender.svg \
 		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
-	@(cd ${OUTDIR}; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@${ECHO} share/pixmaps/blender-${VERS_TAG}.svg >> ${TMPPLIST}
-
-	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/colormanagement ${STAGEDIR}/${DATADIR}
-	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-
-.if ${PORT_OPTIONS:MNLS}
-	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/locale ${STAGEDIR}/${DATADIR}/
-	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-
-	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/fonts ${STAGEDIR}/${DATADIR}/
-	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-.endif
-
 	@${MKDIR} ${STAGEDIR}/${DESKTOPDIR}
-#	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/blender.desktop \
-#		${STAGEDIR}/${DESKTOPDIR}/${PORTNAME}.desktop
-	@${INSTALL_DATA} ${OUTDIR}/../blender.desktop \
+	@${MV} ${STAGEDIR}/${DESKTOPDIR}/blender.desktop \
+		${STAGEDIR}/${DESKTOPDIR}/${PORTNAME}.desktop
+	@${REINPLACE_CMD} -i '' -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
 		${STAGEDIR}/${DESKTOPDIR}/${PORTNAME}.desktop
 	@-update-desktop-database -q
-	@${ECHO} share/applications/${PORTNAME}.desktop >> ${TMPPLIST}
-
-###
 	@${MKDIR} ${STAGEDIR}/${LICDIR}
-	@${MV} ${STAGEDIR}/${PREFIX}/copyright.txt ${STAGEDIR}/${LICDIR}
-	@${ECHO} ${LICDIR}/copyright.txt >> ${TMPPLIST}
-	@${MV} ${STAGEDIR}/${PREFIX}/LICENSE-bfont.ttf.txt ${STAGEDIR}/${LICDIR}
-	@${ECHO} ${LICDIR}/LICENSE-bfont.ttf.txt >> ${TMPPLIST}
-	@${MV} ${STAGEDIR}/${PREFIX}/LICENSE-bmonofont-i18n.ttf.txt ${STAGEDIR}/${LICDIR}
-	@${ECHO} ${LICDIR}/LICENSE-bmonofont-i18n.ttf.txt >> ${TMPPLIST}
-	@${MV} ${STAGEDIR}/${PREFIX}/LICENSE-droidsans.ttf.txt ${STAGEDIR}/${LICDIR}
-	@${ECHO} ${LICDIR}/LICENSE-droidsans.ttf.txt >> ${TMPPLIST}
-	@${MKDIR} ${STAGEDIR}/${DOCSDIR}
-	@${MV} ${STAGEDIR}/${PREFIX}/readme.html ${STAGEDIR}/${DOCSDIR}
-	@${ECHO} ${DOCSDIR}/readme.html >> ${TMPPLIST}
-# cleanup
-	@${RM} ${STAGEDIR}/${PREFIX}/blender
-	@${RM} ${STAGEDIR}/${PREFIX}/blender.desktop
-	@${RM} ${STAGEDIR}/${PREFIX}/blender.svg
-	@${RM} ${STAGEDIR}/${PREFIX}/blender-thumbnailer.py
-	@${RM} ${STAGEDIR}/${PREFIX}/GPL-license.txt
-	@${RM} ${STAGEDIR}/${PREFIX}/Python-license.txt
-	@${RM} -R ${STAGEDIR}/${PREFIX}/${PORTVERSION}
-###
+	@${MV} ${STAGEDIR}/${PREFIX}/share/doc/blender/* ${STAGEDIR}/${LICDIR}
+	@${RM} -R ${STAGEDIR}/${PREFIX}/share/doc/blender
+	@cd ${STAGEDIR}/${PREFIX}/share/icons && ${FIND} . -name "*.png" -or -name "*.svg" | \
+		${SED} -e "p;s|blender|blender-${VERS_TAG}|" | xargs -n2 ${MV}
 
-#.if !defined(NO_INSTALL_MANPAGES)
-#	@cd ${INSTALL_WRKSRC}/bin/ && ${PYTHON_CMD} ${WRKSRC}/doc/manpage/blender.1.py ./blender ./blender-${VERS_TAG}.1
-#	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
-#		${STAGEDIR}${MAN1PREFIX}/man/man1
-#	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
-#.endif
+.if !defined(NO_INSTALL_MANPAGES)
+	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
+		${STAGEDIR}${MAN1PREFIX}/man/man1
+.endif
 
 .include <bsd.port.mk>
