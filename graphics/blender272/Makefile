@@ -81,7 +81,7 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		release/scripts/modules/blend_render_info.py \
 		doc/manpage/blender.1.py
 
-OPTIONS_DEFINE=	COLLADA HEADLESS SECURITY PLAYER JACK NLS OSL OPENMP
+OPTIONS_DEFINE=	COLLADA HEADLESS SECURITY MANPAGES PLAYER JACK NLS OSL OPENMP
 OPTIONS_DEFAULT=	COLLADA SECURITY PLAYER NLS OSL JACK
 
 OPTIONS_SUB=	yes
@@ -198,11 +198,13 @@ post-install:
 	@-update-desktop-database -q
 	@${ECHO} share/applications/${PORTNAME}.desktop >> ${TMPPLIST}
 
-#.if !defined(NO_INSTALL_MANPAGES)
-#	@cd ${INSTALL_WRKSRC}/bin/ && ${PYTHON_CMD} ${WRKSRC}/doc/manpage/blender.1.py ./blender ./blender-${VERS_TAG}.1
-#	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
-#		${STAGEDIR}${MAN1PREFIX}/man/man1
-#	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
-#.endif
+.if ${PORT_OPTIONS:MMANPAGES}
+	@(cd ${WRKSRC}/doc/manpage && \
+		${PYTHON_CMD} blender.1.py \
+			${INSTALL_WRKSRC}/bin/blender \
+			${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1)
+	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
+		${STAGEDIR}${MAN1PREFIX}/man/man1
+.endif
 
 .include <bsd.port.mk>

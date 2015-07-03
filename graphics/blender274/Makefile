@@ -3,7 +3,7 @@
 
 PORTNAME=	blender274
 PORTVERSION=	2.74
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -33,8 +33,6 @@ RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 USES=		cmake:outsource compiler:c++11-lib shebangfix
 USES+=		python:3.4 desktop-file-utils openal:al,alut
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
-#OUTDIR=		${INSTALL_WRKSRC}/bin/2.74
-OUTDIR=		${STAGEDIR}/${PREFIX}/2.74
 LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
 VERS_TAG=	274
 
@@ -59,7 +57,7 @@ CMAKE_ARGS+=	-DWITH_IK_SOLVER:BOOL=ON -DWITH_IMAGE_CINEON:BOOL=ON
 CMAKE_ARGS+=	-DWITH_IMAGE_DDS:BOOL=ON -DWITH_IMAGE_FRAMESERVER:BOOL=ON
 CMAKE_ARGS+=	-DWITH_IMAGE_HDR:BOOL=ON -DWITH_IMAGE_OPENEXR:BOOL=ON
 CMAKE_ARGS+=	-DWITH_IMAGE_OPENJPEG:BOOL=ON -DWITH_IMAGE_REDCODE:BOOL=ON
-CMAKE_ARGS+=	-DWITH_IMAGE_TIFF:BOOL=ON -DWITH_INSTALL_PORTABLE:BOOL=ON
+CMAKE_ARGS+=	-DWITH_IMAGE_TIFF:BOOL=ON -DWITH_INSTALL_PORTABLE:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_LIBMV:BOOL=ON -DWITH_LZMA:BOOL=ON -DWITH_LZO:BOOL=ON
 CMAKE_ARGS+=	-DWITH_MEM_JEMALLOC:BOOL=OFF -DWITH_MOD_BOOLEAN:BOOL=ON
 CMAKE_ARGS+=	-DWITH_MOD_FLUID:BOOL=ON
@@ -83,7 +81,7 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		release/scripts/modules/blend_render_info.py \
 		doc/manpage/blender.1.py
 
-OPTIONS_DEFINE=	COLLADA HEADLESS SECURITY PLAYER JACK NLS OSL OPENMP
+OPTIONS_DEFINE=	COLLADA HEADLESS MANPAGES SECURITY PLAYER JACK NLS OSL OPENMP
 OPTIONS_DEFAULT=	COLLADA SECURITY PLAYER NLS OSL JACK
 
 OPTIONS_SUB=	yes
@@ -141,91 +139,44 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|yaml-cpp|&03|' \
 		${PATCH_WRKSRC}/build_files/cmake/Modules/FindOpenColorIO.cmake
 
-# We ignore MAKE_ARGS, since those would set DESTDIR for make stage,
-# which in turn would cause make install to install everything in a
-# wrong location
-#do-install:
-#	@(cd ${INSTALL_WRKSRC} && ${SETENV} ${MAKE_ENV} ${MAKE_CMD} \
-#		${MAKE_FLAGS} ${MAKEFILE} ${INSTALL_TARGET})
-
 post-install:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blender
 	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${STAGEDIR}/${PREFIX}/bin/blender-${VERS_TAG}
-	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blender \
-		${STAGEDIR}/${PREFIX}/bin/blender-bin-${VERS_TAG}
-	@${MKDIR} ${STAGEDIR}/${DATADIR}
-	@${INSTALL_SCRIPT} ${WRKSRC}/release/bin/blender-thumbnailer.py \
+	@${MV} ${STAGEDIR}/${PREFIX}/bin/blender ${STAGEDIR}/${PREFIX}/bin/blender-bin-${VERS_TAG}
+	@${MV} ${STAGEDIR}/${PREFIX}/bin/blender-thumbnailer.py \
 		${STAGEDIR}/${PREFIX}/bin/blender-thumbnailer-${VERS_TAG}.py
-	@${ECHO} bin/blender-${VERS_TAG} >> ${TMPPLIST}
-	@${ECHO} bin/blender-bin-${VERS_TAG} >> ${TMPPLIST}
-	@${ECHO} bin/blender-thumbnailer-${VERS_TAG}.py >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MPLAYER}
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blenderplayer
 	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${STAGEDIR}/${PREFIX}/bin/blenderplayer-${VERS_TAG}
-	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/bin/blenderplayer \
+	@${MV} ${STAGEDIR}/${PREFIX}/bin/blenderplayer \
 		${STAGEDIR}/${PREFIX}/bin/blenderplayer-bin-${VERS_TAG}
-	@${ECHO} bin/blenderplayer-${VERS_TAG} >> ${TMPPLIST}
-	@${ECHO} bin/blenderplayer-bin-${VERS_TAG} >> ${TMPPLIST}
 .endif
 
-	${MKDIR} ${STAGEDIR}${DATADIR}
-	(cd ${OUTDIR} && ${COPYTREE_SHARE} scripts ${STAGEDIR}${DATADIR})
-#	@${INSTALL_DATA} ${INSTALL_WRKSRC}/bin/blender.svg \
-#		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
-	@${INSTALL_DATA} ${OUTDIR}/../blender.svg \
+	@${MKDIR} ${STAGEDIR}${DATADIR}
+	@${MV} ${STAGEDIR}/${PREFIX}/share/blender/${PORTVERSION}/* ${STAGEDIR}${DATADIR}
+	@${RM} -R ${STAGEDIR}/${PREFIX}/share/blender
+	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/icons/scalable/apps/blender.svg \
 		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
-	@(cd ${OUTDIR}; ${FIND} scripts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@${ECHO} share/pixmaps/blender-${VERS_TAG}.svg >> ${TMPPLIST}
-
-	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/colormanagement ${STAGEDIR}/${DATADIR}
-	@(cd ${OUTDIR}; ${FIND} datafiles/colormanagement -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-
-.if ${PORT_OPTIONS:MNLS}
-	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/locale ${STAGEDIR}/${DATADIR}/
-	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name blender.mo) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-	@(cd ${OUTDIR}; ${FIND} datafiles/locale -type f -name languages) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-
-	@cd ${OUTDIR} && ${COPYTREE_SHARE} datafiles/fonts ${STAGEDIR}/${DATADIR}/
-	@(cd ${OUTDIR}; ${FIND} datafiles/fonts -type f) | ${SORT} | ${SED} "s|^|${DATADIR_REL}/|" >> ${TMPPLIST}
-.endif
-
 	@${MKDIR} ${STAGEDIR}/${DESKTOPDIR}
-#	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/blender.desktop \
-#		${STAGEDIR}/${DESKTOPDIR}/${PORTNAME}.desktop
-	@${INSTALL_DATA} ${OUTDIR}/../blender.desktop \
+	@${MV} ${STAGEDIR}/${DESKTOPDIR}/blender.desktop \
+		${STAGEDIR}/${DESKTOPDIR}/${PORTNAME}.desktop
+	@${REINPLACE_CMD} -i '' -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
 		${STAGEDIR}/${DESKTOPDIR}/${PORTNAME}.desktop
 	@-update-desktop-database -q
-	@${ECHO} share/applications/${PORTNAME}.desktop >> ${TMPPLIST}
-
-###
 	@${MKDIR} ${STAGEDIR}/${LICDIR}
-	@${MV} ${STAGEDIR}/${PREFIX}/copyright.txt ${STAGEDIR}/${LICDIR}
-	@${ECHO} ${LICDIR}/copyright.txt >> ${TMPPLIST}
-	@${MV} ${STAGEDIR}/${PREFIX}/LICENSE-bfont.ttf.txt ${STAGEDIR}/${LICDIR}
-	@${ECHO} ${LICDIR}/LICENSE-bfont.ttf.txt >> ${TMPPLIST}
-	@${MV} ${STAGEDIR}/${PREFIX}/LICENSE-bmonofont-i18n.ttf.txt ${STAGEDIR}/${LICDIR}
-	@${ECHO} ${LICDIR}/LICENSE-bmonofont-i18n.ttf.txt >> ${TMPPLIST}
-	@${MV} ${STAGEDIR}/${PREFIX}/LICENSE-droidsans.ttf.txt ${STAGEDIR}/${LICDIR}
-	@${ECHO} ${LICDIR}/LICENSE-droidsans.ttf.txt >> ${TMPPLIST}
-	@${MKDIR} ${STAGEDIR}/${DOCSDIR}
-	@${MV} ${STAGEDIR}/${PREFIX}/readme.html ${STAGEDIR}/${DOCSDIR}
-	@${ECHO} ${DOCSDIR}/readme.html >> ${TMPPLIST}
-# cleanup
-	@${RM} ${STAGEDIR}/${PREFIX}/blender
-	@${RM} ${STAGEDIR}/${PREFIX}/blender.desktop
-	@${RM} ${STAGEDIR}/${PREFIX}/blender.svg
-	@${RM} ${STAGEDIR}/${PREFIX}/blender-thumbnailer.py
-	@${RM} ${STAGEDIR}/${PREFIX}/GPL-license.txt
-	@${RM} ${STAGEDIR}/${PREFIX}/Python-license.txt
-	@${RM} -R ${STAGEDIR}/${PREFIX}/${PORTVERSION}
-###
+	@${MV} ${STAGEDIR}/${PREFIX}/share/doc/blender/* ${STAGEDIR}/${LICDIR}
+	@${RM} -R ${STAGEDIR}/${PREFIX}/share/doc/blender
+	@cd ${STAGEDIR}/${PREFIX}/share/icons && ${FIND} . -name "*.png" -or -name "*.svg" | \
+		${SED} -e "p;s|blender|blender-${VERS_TAG}|" | xargs -n2 ${MV}
 
-#.if !defined(NO_INSTALL_MANPAGES)
-#	@cd ${INSTALL_WRKSRC}/bin/ && ${PYTHON_CMD} ${WRKSRC}/doc/manpage/blender.1.py ./blender ./blender-${VERS_TAG}.1
-#	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
-#		${STAGEDIR}${MAN1PREFIX}/man/man1
-#	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
-#.endif
+.if ${PORT_OPTIONS:MMANPAGES}
+	@(cd ${WRKSRC}/doc/manpage && \
+		${PYTHON_CMD} blender.1.py \
+			${INSTALL_WRKSRC}/bin/blender \
+			${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1)
+	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
+		${STAGEDIR}${MAN1PREFIX}/man/man1
+.endif
 
 .include <bsd.port.mk>
