@@ -1,0 +1,19 @@
+--- ./CMakeLists.txt.orig	2015-04-01 13:14:23.000000000 +1030
++++ ./CMakeLists.txt	2015-04-05 16:22:50.773950909 +0930
+@@ -88,6 +88,8 @@
+ # Input directories must have CMakeLists.txt
+ cmake_policy(SET CMP0014 NEW)
+ 
++cmake_policy(SET CMP0043 NEW)
++
+ #-----------------------------------------------------------------------------
+ # Load some macros.
+ include(build_files/cmake/macros.cmake)
+@@ -968,6 +970,7 @@
+ 			endif()
+ 			if(WITH_INTERNATIONAL)
+ 				list(APPEND __boost_packages locale)
++				set(PLATFORM_LINKFLAGS "${PLATFORM_LINKFLAGS} -liconv") # boost_locale needs it !
+ 			endif()
+ 			if(WITH_CYCLES_NETWORK)
+ 				list(APPEND __boost_packages serialization)
