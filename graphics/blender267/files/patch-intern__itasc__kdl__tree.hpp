@@ -1,6 +1,6 @@
---- intern/itasc/kdl/tree.hpp.orig	2012-12-15 21:45:05.000000000 +1030
-+++ intern/itasc/kdl/tree.hpp	2013-12-14 21:46:43.167307356 +1030
-@@ -41,32 +41,28 @@
+--- intern/itasc/kdl/tree.hpp.orig	2012-12-15 11:15:05 UTC
++++ intern/itasc/kdl/tree.hpp
+@@ -41,32 +41,28 @@ namespace KDL
  {
      //Forward declaration
      class TreeElement;
@@ -39,7 +39,7 @@
          };
          static TreeElement Root()
          {
-@@ -167,7 +163,15 @@
+@@ -167,7 +163,15 @@ namespace KDL
              return segments.find(segment_name);
          };
  

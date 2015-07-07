@@ -1,6 +1,6 @@
---- ./CMakeLists.txt.orig	2013-04-29 10:19:44.000000000 +0930
-+++ ./CMakeLists.txt	2015-03-13 02:47:53.217031451 +1030
-@@ -83,6 +83,8 @@
+--- CMakeLists.txt.orig	2013-04-29 00:49:44 UTC
++++ CMakeLists.txt
+@@ -83,6 +83,8 @@ cmake_policy(SET CMP0010 NEW)
  # Input directories must have CMakeLists.txt
  cmake_policy(SET CMP0014 NEW)
  
@@ -9,7 +9,7 @@
  #-----------------------------------------------------------------------------
  # Load some macros.
  include(build_files/cmake/macros.cmake)
-@@ -826,14 +828,14 @@
+@@ -826,14 +828,14 @@ if(UNIX AND NOT APPLE)
  	
  		message(STATUS "CYCLES_OSL = ${CYCLES_OSL}")
  	

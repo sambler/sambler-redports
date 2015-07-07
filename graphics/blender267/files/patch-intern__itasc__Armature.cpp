@@ -1,6 +1,6 @@
---- intern/itasc/Armature.cpp.orig	2013-12-14 21:34:35.877307020 +1030
-+++ intern/itasc/Armature.cpp	2013-12-14 21:35:15.815307533 +1030
-@@ -402,7 +402,7 @@
+--- intern/itasc/Armature.cpp.orig	2013-03-18 11:44:56 UTC
++++ intern/itasc/Armature.cpp
+@@ -402,7 +402,7 @@ bool Armature::finalize()
  	m_armlength = 0.0;
  	for (i=0; i<m_neffector; i++) {
  		length = 0.0;

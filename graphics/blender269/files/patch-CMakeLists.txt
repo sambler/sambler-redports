@@ -1,6 +1,6 @@
---- ./CMakeLists.txt.orig	2013-10-08 03:21:15.000000000 +1030
-+++ ./CMakeLists.txt	2015-03-13 02:44:25.392045640 +1030
-@@ -83,6 +83,8 @@
+--- CMakeLists.txt.orig	2013-10-07 16:51:15 UTC
++++ CMakeLists.txt
+@@ -83,6 +83,8 @@ cmake_policy(SET CMP0010 NEW)
  # Input directories must have CMakeLists.txt
  cmake_policy(SET CMP0014 NEW)
  
@@ -9,7 +9,7 @@
  #-----------------------------------------------------------------------------
  # Load some macros.
  include(build_files/cmake/macros.cmake)
-@@ -856,14 +858,14 @@
+@@ -856,14 +858,14 @@ if(UNIX AND NOT APPLE)
  	
  		message(STATUS "CYCLES_OSL = ${CYCLES_OSL}")
  	
@@ -29,7 +29,7 @@
  	
  		if(OSL_INCLUDES AND OSL_LIBRARIES AND OSL_COMPILER)
  			set(OSL_FOUND TRUE)
-@@ -876,7 +878,7 @@
+@@ -876,7 +878,7 @@ if(UNIX AND NOT APPLE)
  	endif()
  
  	# OpenSuse needs lutil, ArchLinux not, for now keep, can avoid by using --as-needed

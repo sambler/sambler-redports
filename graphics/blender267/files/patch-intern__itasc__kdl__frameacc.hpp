@@ -1,6 +1,6 @@
---- ./intern/itasc/kdl/frameacc.hpp.orig	2012-05-11 00:16:16.000000000 +0930
-+++ ./intern/itasc/kdl/frameacc.hpp	2014-04-09 20:59:24.211217472 +0930
-@@ -78,9 +78,9 @@
+--- intern/itasc/kdl/frameacc.hpp.orig	2011-10-23 17:52:20 UTC
++++ intern/itasc/kdl/frameacc.hpp
+@@ -78,9 +78,9 @@ public:
      IMETHOD friend VectorAcc operator / (const VectorAcc& r2,const doubleAcc& r1);
  
  
@@ -13,7 +13,7 @@
      IMETHOD friend VectorAcc operator - (const VectorAcc& r);
      IMETHOD friend doubleAcc dot(const VectorAcc& lhs,const VectorAcc& rhs);
      IMETHOD friend doubleAcc dot(const VectorAcc& lhs,const Vector& rhs);
-@@ -132,9 +132,9 @@
+@@ -132,9 +132,9 @@ public:
      IMETHOD friend RotationAcc operator* (const RotationAcc& r1,const RotationAcc& r2);
      IMETHOD friend RotationAcc operator* (const Rotation& r1,const RotationAcc& r2);
      IMETHOD friend RotationAcc operator* (const RotationAcc& r1,const Rotation& r2);
@@ -26,7 +26,7 @@
      IMETHOD TwistAcc Inverse(const TwistAcc& arg) const;
      IMETHOD TwistAcc Inverse(const Twist& arg) const;
      IMETHOD TwistAcc operator * (const TwistAcc& arg) const;
-@@ -170,9 +170,9 @@
+@@ -170,9 +170,9 @@ public:
      IMETHOD friend FrameAcc operator * (const FrameAcc& f1,const FrameAcc& f2);
      IMETHOD friend FrameAcc operator * (const Frame& f1,const FrameAcc& f2);
      IMETHOD friend FrameAcc operator * (const FrameAcc& f1,const Frame& f2);
@@ -39,7 +39,7 @@
  
      IMETHOD TwistAcc  Inverse(const TwistAcc& arg) const;
      IMETHOD TwistAcc  Inverse(const Twist& arg) const;
-@@ -226,9 +226,9 @@
+@@ -226,9 +226,9 @@ public:
       // the new point.
       // Complexity : 6M+6A
  
@@ -52,7 +52,7 @@
  
  
       IMETHOD Twist GetTwist() const;
-@@ -240,10 +240,18 @@
+@@ -240,10 +240,18 @@ public:
  };
  
  

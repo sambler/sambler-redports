@@ -1,6 +1,6 @@
---- ./source/blender/imbuf/intern/cineon/cineonlib.c.orig	2013-10-29 22:42:09.000000000 +1030
-+++ ./source/blender/imbuf/intern/cineon/cineonlib.c	2013-10-29 22:42:46.000000000 +1030
-@@ -277,10 +277,10 @@
+--- source/blender/imbuf/intern/cineon/cineonlib.c.orig	2013-03-22 05:34:10 UTC
++++ source/blender/imbuf/intern/cineon/cineonlib.c
+@@ -277,10 +277,10 @@ LogImageFile *cineonOpen(const unsigned 
  				return NULL;
  		}
  

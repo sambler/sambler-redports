@@ -1,6 +1,6 @@
---- intern/itasc/kdl/treejnttojacsolver.cpp.orig	2013-12-14 21:34:36.318308532 +1030
-+++ intern/itasc/kdl/treejnttojacsolver.cpp	2013-12-14 21:42:48.003306761 +1030
-@@ -28,16 +28,16 @@
+--- intern/itasc/kdl/treejnttojacsolver.cpp.orig	2011-10-23 18:38:16 UTC
++++ intern/itasc/kdl/treejnttojacsolver.cpp
+@@ -28,16 +28,16 @@ int TreeJntToJacSolver::JntToJac(const J
          return -1;
  
      //Lets search the tree-element

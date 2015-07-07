@@ -1,6 +1,6 @@
---- ./CMakeLists.txt.orig	2015-01-17 18:01:48.137456296 +1030
-+++ ./CMakeLists.txt	2015-01-17 18:02:02.351455075 +1030
-@@ -83,6 +83,8 @@
+--- CMakeLists.txt.orig	2013-07-15 08:26:16 UTC
++++ CMakeLists.txt
+@@ -83,6 +83,8 @@ cmake_policy(SET CMP0010 NEW)
  # Input directories must have CMakeLists.txt
  cmake_policy(SET CMP0014 NEW)
  

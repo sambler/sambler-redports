@@ -1,5 +1,5 @@
---- ./extern/carve/lib/triangulator.cpp.orig	2012-01-30 19:15:12.000000000 +1030
-+++ ./extern/carve/lib/triangulator.cpp	2014-01-12 20:41:36.267781842 +1030
+--- extern/carve/lib/triangulator.cpp.orig	2012-01-30 08:45:12 UTC
++++ extern/carve/lib/triangulator.cpp
 @@ -27,6 +27,18 @@
  
  #include <algorithm>
@@ -19,7 +19,7 @@
  
  namespace {
    // private code related to hole patching.
-@@ -122,8 +134,8 @@
+@@ -122,8 +134,8 @@ namespace {
      std::vector<vertex_info *> queue;
  
      void checkheap() {

@@ -1,6 +1,6 @@
---- ./intern/itasc/kdl/jntarrayvel.hpp.orig	2012-05-11 00:16:16.000000000 +0930
-+++ ./intern/itasc/kdl/jntarrayvel.hpp	2014-04-09 20:59:24.219217004 +0930
-@@ -51,9 +51,10 @@
+--- intern/itasc/kdl/jntarrayvel.hpp.orig	2009-07-14 15:36:21 UTC
++++ intern/itasc/kdl/jntarrayvel.hpp
+@@ -51,9 +51,10 @@ namespace KDL
          friend void Divide(const JntArrayVel& src,const double& factor,JntArrayVel& dest);
          friend void Divide(const JntArrayVel& src,const doubleVel& factor,JntArrayVel& dest);
          friend void SetToZero(JntArrayVel& array);

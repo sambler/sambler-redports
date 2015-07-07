@@ -1,6 +1,6 @@
---- source/blender/blenfont/intern/blf_glyph.c.orig	2013-09-01 10:16:04.000000000 +0930
-+++ source/blender/blenfont/intern/blf_glyph.c	2014-12-14 15:45:10.154201047 +1030
-@@ -273,8 +273,8 @@
+--- source/blender/blenfont/intern/blf_glyph.c.orig	2013-09-01 00:46:04 UTC
++++ source/blender/blenfont/intern/blf_glyph.c
+@@ -273,8 +273,8 @@ GlyphBLF *blf_glyph_add(FontBLF *font, u
  	g->xoff = -1;
  	g->yoff = -1;
  	bitmap = slot->bitmap;

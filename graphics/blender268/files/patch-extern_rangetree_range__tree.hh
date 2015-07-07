@@ -1,6 +1,6 @@
---- extern/rangetree/range_tree.hh.orig	2013-11-12 09:41:41.000000000 +0100
-+++ extern/rangetree/range_tree.hh	2013-11-12 21:47:07.000000000 +0100
-@@ -35,6 +35,12 @@
+--- extern/rangetree/range_tree.hh.orig	2012-12-31 01:12:29 UTC
++++ extern/rangetree/range_tree.hh
+@@ -35,6 +35,12 @@ struct RangeTree {
  			: min(t), max(t), single(true)
  		{}
  

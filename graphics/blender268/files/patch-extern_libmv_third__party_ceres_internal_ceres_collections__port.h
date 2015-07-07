@@ -1,5 +1,5 @@
---- extern/libmv/third_party/ceres/internal/ceres/collections_port.h.orig	2013-02-25 09:59:26.000000000 +0100
-+++ extern/libmv/third_party/ceres/internal/ceres/collections_port.h	2013-11-13 17:12:57.000000000 +0100
+--- extern/libmv/third_party/ceres/internal/ceres/collections_port.h.orig	2013-02-25 08:59:26 UTC
++++ extern/libmv/third_party/ceres/internal/ceres/collections_port.h
 @@ -33,11 +33,12 @@
  #ifndef CERES_INTERNAL_COLLECTIONS_PORT_H_
  #define CERES_INTERNAL_COLLECTIONS_PORT_H_
@@ -22,7 +22,7 @@
  #include "ceres/integral_types.h"
  #include "ceres/internal/port.h"
  
-@@ -71,11 +71,19 @@
+@@ -71,11 +71,19 @@ struct HashSet : set<K> {};
  namespace ceres {
  namespace internal {
  
@@ -42,7 +42,7 @@
  
  #if defined(_WIN32) && !defined(__MINGW64__) && !defined(__MINGW32__)
  #define GG_LONGLONG(x) x##I64
-@@ -135,7 +143,11 @@
+@@ -135,7 +143,11 @@ inline uint64 Hash64NumWithSeed(uint64 n
  
  // Since on some platforms this is a doubly-nested namespace (std::tr1) and
  // others it is not, the entire namespace line must be in a macro.
@@ -54,7 +54,7 @@
  
  // The outrageously annoying specializations below are for portability reasons.
  // In short, it's not possible to have two overloads of hash<pair<T1, T2>
-@@ -160,7 +172,11 @@
+@@ -160,7 +172,11 @@ struct hash<pair<T, T> > {
    static const size_t min_buckets = 8;  // 4 and 8 are defaults.
  };
  

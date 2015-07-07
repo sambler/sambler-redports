@@ -1,6 +1,6 @@
---- ./intern/itasc/kdl/frames.hpp.orig	2012-05-11 00:16:16.000000000 +0930
-+++ ./intern/itasc/kdl/frames.hpp	2014-04-09 20:59:24.213216750 +0930
-@@ -245,10 +245,10 @@
+--- intern/itasc/kdl/frames.hpp.orig	2012-06-03 12:06:42 UTC
++++ intern/itasc/kdl/frames.hpp
+@@ -248,10 +248,10 @@ public:
  
       //! do not use operator == because the definition of Equal(.,.) is slightly
       //! different.  It compares whether the 2 arguments are equal in an eps-interval
@@ -13,7 +13,7 @@
  
  	 //! The literal equality operator==(), also identical.
       inline friend bool operator==(const Vector& a,const Vector& b);
-@@ -258,7 +258,7 @@
+@@ -261,7 +261,7 @@ public:
       friend class Rotation;
       friend class Frame;
  };
@@ -22,7 +22,7 @@
  
  /**
    \brief represents rotations in 3 dimensional space.
-@@ -499,7 +499,7 @@
+@@ -502,7 +502,7 @@ public:
  
       //! do not use operator == because the definition of Equal(.,.) is slightly
       //! different.  It compares whether the 2 arguments are equal in an eps-interval
@@ -31,7 +31,7 @@
  
  	 //! The literal equality operator==(), also identical.
       friend bool operator==(const Rotation& a,const Rotation& b);
-@@ -660,7 +660,7 @@
+@@ -663,7 +663,7 @@ public:
  
       //! do not use operator == because the definition of Equal(.,.) is slightly
       //! different.  It compares whether the 2 arguments are equal in an eps-interval
@@ -40,7 +40,7 @@
  
  	 //! The literal equality operator==(), also identical.
       inline friend bool operator==(const Frame& a,const Frame& b);
-@@ -732,7 +732,7 @@
+@@ -735,7 +735,7 @@ public:
  
       //! do not use operator == because the definition of Equal(.,.) is slightly
       //! different.  It compares whether the 2 arguments are equal in an eps-interval
@@ -49,7 +49,7 @@
  
  	 //! The literal equality operator==(), also identical.
       inline friend bool operator==(const Twist& a,const Twist& b);
-@@ -895,7 +895,7 @@
+@@ -898,7 +898,7 @@ public:
  
       //! do not use operator == because the definition of Equal(.,.) is slightly
       //! different.  It compares whether the 2 arguments are equal in an eps-interval
@@ -58,7 +58,7 @@
  
  	 //! The literal equality operator==(), also identical.
       inline friend bool operator==(const Wrench& a,const Wrench& b);
-@@ -976,7 +976,7 @@
+@@ -979,7 +979,7 @@ public:
  
       //! do not use operator == because the definition of Equal(.,.) is slightly
       //! different.  It compares whether the 2 arguments are equal in an eps-interval
@@ -67,7 +67,7 @@
  
      friend class Rotation2;
  };
-@@ -1023,7 +1023,7 @@
+@@ -1026,7 +1026,7 @@ public:
  
       //! do not use operator == because the definition of Equal(.,.) is slightly
       //! different.  It compares whether the 2 arguments are equal in an eps-interval
@@ -76,7 +76,7 @@
  };
  
  //! A 2D frame class, for further documentation see the Frames class
-@@ -1064,9 +1064,18 @@
+@@ -1067,9 +1067,18 @@ public:
          tmp.SetIdentity();
          return tmp;
       }

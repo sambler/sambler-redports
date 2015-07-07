@@ -1,6 +1,6 @@
---- intern/itasc/kdl/treefksolverpos_recursive.cpp.orig	2013-12-14 21:34:36.218309107 +1030
-+++ intern/itasc/kdl/treefksolverpos_recursive.cpp	2013-12-14 21:41:38.122310772 +1030
-@@ -35,22 +35,22 @@
+--- intern/itasc/kdl/treefksolverpos_recursive.cpp.orig	2011-10-23 18:38:16 UTC
++++ intern/itasc/kdl/treefksolverpos_recursive.cpp
+@@ -35,22 +35,22 @@ namespace KDL {
  
      int TreeFkSolverPos_recursive::JntToCart(const JntArray& q_in, Frame& p_out, const std::string& segmentName, const std::string& baseName)
      {      
@@ -30,7 +30,7 @@
  	{
  		//gets the frame for the current element (segment)
  		const TreeElement& currentElement = it->second;
-@@ -60,8 +60,7 @@
+@@ -60,8 +60,7 @@ namespace KDL {
  		}
  		else{
  			Frame currentFrame = currentElement.segment.pose(((JntArray&)q_in)(currentElement.q_nr));

@@ -1,6 +1,6 @@
---- ./source/blender/imbuf/intern/cineon/dpxlib.c.orig	2013-10-29 22:43:48.000000000 +1030
-+++ ./source/blender/imbuf/intern/cineon/dpxlib.c	2013-10-29 22:44:45.000000000 +1030
-@@ -300,10 +300,10 @@
+--- source/blender/imbuf/intern/cineon/dpxlib.c.orig	2013-03-22 05:34:10 UTC
++++ source/blender/imbuf/intern/cineon/dpxlib.c
+@@ -300,10 +300,10 @@ LogImageFile *dpxOpen(const unsigned cha
  			case descriptor_RGB:
  			case descriptor_RGBA:
  			case descriptor_ABGR:
@@ -13,7 +13,7 @@
  					dpx->element[i].refHighData = (unsigned int)dpx->element[i].maxValue;
  
  				if (dpx->element[i].refLowQuantity == DPX_UNDEFINED_R32 || isnan(dpx->element[i].refLowQuantity))
-@@ -324,10 +324,10 @@
+@@ -324,10 +324,10 @@ LogImageFile *dpxOpen(const unsigned cha
  			case descriptor_CbYCr:
  			case descriptor_CbYACrYA:
  			case descriptor_CbYCrA:

@@ -1,6 +1,6 @@
---- ./intern/itasc/kdl/jacobian.hpp.orig	2012-05-11 00:16:16.000000000 +0930
-+++ ./intern/itasc/kdl/jacobian.hpp	2014-04-09 20:59:24.216216945 +0930
-@@ -45,7 +45,7 @@
+--- intern/itasc/kdl/jacobian.hpp.orig	2009-07-14 15:36:21 UTC
++++ intern/itasc/kdl/jacobian.hpp
+@@ -45,7 +45,7 @@ namespace KDL
          bool operator ==(const Jacobian& arg);
          bool operator !=(const Jacobian& arg);
          
@@ -9,7 +9,7 @@
          
  
          ~Jacobian();
-@@ -63,6 +63,7 @@
+@@ -63,6 +63,7 @@ namespace KDL
  
  
      };
