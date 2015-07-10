@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	blender-sambler
-PORTVERSION=	2.74
-PORTREVISION=	4
+PORTVERSION=	2.75
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 DIST_SUBDIR=	${PORTNAME}
 
@@ -49,7 +49,7 @@ USES=		cmake:outsource shebangfix compiler:c++11-lib \
 OUTDIR=		${STAGEDIR}/${PREFIX}/${PORTVERSION}
 LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
 VERS_TAG=	sambler
-HASHTAG=	3d2d8ad
+HASHTAG=	207f7a6
 
 SUB_FILES=	blender blenderplayer
 python_CMD=	${PYTHON_CMD}
@@ -98,7 +98,7 @@ CMAKE_ARGS+=	-DWITH_BUILDINFO:BOOL=ON -DWITH_AUDASPACE:BOOL=ON \
 		-DWITH_SYSTEM_OPENJPEG:BOOL=ON \
 		-DWITH_X11_XF86VMODE:BOOL=ON -DWITH_X11_XINPUT:BOOL=ON
 
-OPTIONS_DEFINE=	COLLADA HEADLESS SECURITY PLAYER JACK NLS OSL OPENMP
+OPTIONS_DEFINE=	COLLADA HEADLESS MANPAGES SECURITY PLAYER JACK NLS OSL OPENMP
 ## NDOF
 OPTIONS_DEFAULT=	COLLADA SECURITY NLS OSL
 OPTIONS_SUB=		yes
@@ -175,7 +175,7 @@ post-patch:
 		${PATCH_WRKSRC}/build_files/cmake/Modules/FindOpenColorIO.cmake
 
 post-build:
-.if !defined(NO_INSTALL_MANPAGES)
+.if ${PORT_OPTIONS:MMANPAGES}
 	@(cd ${WRKSRC}/doc/manpage && \
 		${PYTHON_CMD} blender.1.py \
 			${INSTALL_WRKSRC}/bin/blender \
@@ -213,7 +213,7 @@ post-install:
 	@cd ${STAGEDIR}/${PREFIX}/share/icons && ${FIND} . -name "*.png" -or -name "*.svg" | \
 		${SED} -e "p;s|blender|blender-${VERS_TAG}|" | xargs -n2 ${MV}
 
-.if !defined(NO_INSTALL_MANPAGES)
+.if ${PORT_OPTIONS:MMANPAGES}
 	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
 		${STAGEDIR}${MAN1PREFIX}/man/man1
 .endif
