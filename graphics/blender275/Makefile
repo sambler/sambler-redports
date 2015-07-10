@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	blender275
-PORTVERSION=	2.75
+PORTVERSION=	2.75a
 PORTREVISION=	0
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
@@ -155,7 +155,7 @@ post-install:
 .endif
 
 	@${MKDIR} ${STAGEDIR}${DATADIR}
-	@${MV} ${STAGEDIR}/${PREFIX}/share/blender/${PORTVERSION}/* ${STAGEDIR}${DATADIR}
+	@${MV} ${STAGEDIR}/${PREFIX}/share/blender/2.75/* ${STAGEDIR}${DATADIR}
 	@${RM} -R ${STAGEDIR}/${PREFIX}/share/blender
 	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/icons/scalable/apps/blender.svg \
 		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
