@@ -3,7 +3,7 @@ bin/blender-bin-273
 bin/blender-thumbnailer-273.py
 %%PLAYER%%bin/blenderplayer-273
 %%PLAYER%%bin/blenderplayer-bin-273
-%%MANPAGES%%man/man1/blender-sambler.1.gz
+%%MANPAGES%%man/man1/blender-273.1.gz
 share/applications/blender273.desktop
 %%DATADIR%%/datafiles/colormanagement/config.ocio
 %%DATADIR%%/datafiles/colormanagement/luts/aces_to_xyz.spimtx
