@@ -95,10 +95,10 @@ include/opensubdiv/vtr/stackBuffer.h
 include/opensubdiv/vtr/types.h
 lib/libosdCPU.a
 lib/libosdCPU.so
-lib/libosdCPU.so.3.0.0
+lib/libosdCPU.so.3.0.1
 lib/libosdGPU.a
 lib/libosdGPU.so
-lib/libosdGPU.so.3.0.0
+lib/libosdGPU.so.3.0.1
 %%PORTDOCS%%%%DOCSDIR%%/additional_resources.html
 %%PORTDOCS%%%%DOCSDIR%%/api_overview.html
 %%PORTDOCS%%%%DOCSDIR%%/cmake_build.html
@@ -1058,6 +1058,7 @@ lib/libosdGPU.so.3.0.0
 %%PORTDOCS%%%%DOCSDIR%%/images/hedit_example5.png
 %%PORTDOCS%%%%DOCSDIR%%/images/hedit_path.gif
 %%PORTDOCS%%%%DOCSDIR%%/images/icon.png
+%%PORTDOCS%%%%DOCSDIR%%/images/insideout.png
 %%PORTDOCS%%%%DOCSDIR%%/images/mod_notes.0.png
 %%PORTDOCS%%%%DOCSDIR%%/images/mod_notes.1.png
 %%PORTDOCS%%%%DOCSDIR%%/images/mod_notes.2.png
@@ -1117,6 +1118,7 @@ lib/libosdGPU.so.3.0.0
 %%PORTDOCS%%%%DOCSDIR%%/porting.html
 %%PORTDOCS%%%%DOCSDIR%%/%%CMAKE_BUILD_TYPE%%_notes.html
 %%PORTDOCS%%%%DOCSDIR%%/%%CMAKE_BUILD_TYPE%%_notes_2x.html
+%%PORTDOCS%%%%DOCSDIR%%/references.html
 %%PORTDOCS%%%%DOCSDIR%%/roadmap.html
 %%PORTDOCS%%%%DOCSDIR%%/sdc_overview.html
 %%PORTDOCS%%%%DOCSDIR%%/search.html
