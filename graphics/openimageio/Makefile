@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio
-PORTVERSION=	1.5.16
+PORTVERSION=	1.5.18
 DISTVERSIONPREFIX=	Release-
 PORTREVISION?=	0
 CATEGORIES?=	graphics multimedia
@@ -65,24 +65,23 @@ PLIST_SUB+=		LIBVERS=${PORTVERSION}
 .include <bsd.port.options.mk>
 
 .if ${SLAVE_PORT} == no
-LIB_DEPENDS=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
+LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
 		libboost_thread.so:${PORTSDIR}/devel/boost-libs \
 		libhdf5.so:${PORTSDIR}/science/hdf5 \
-		libopencv_legacy.so:${PORTSDIR}/graphics/opencv \
+		libopencv_core.so:${PORTSDIR}/graphics/opencv \
 		libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15 \
 		libwebp.so:${PORTSDIR}/graphics/webp
 USE_LDCONFIG=	yes
-CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF -DOIIO_BUILD_TOOLS:BOOL=ON
-CMAKE_ARGS+=	-DUSE_PYTHON3:BOOL=OFF
+CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF -DUSE_PYTHON3:BOOL=OFF \
+		-DOIIO_BUILD_TOOLS:BOOL=ON
 .else
 LIB_DEPENDS=	libOpenImageIO.so:${PORTSDIR}/graphics/openimageio \
 		libboost_python.so:${PORTSDIR}/devel/boost-python-libs
 PLIST=		${PKGDIR}/pkg-plist-pybind
 #while oiio supports py3, ports doesn't have py3 support for boost-python yet
 USES+=		python:2
-CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON
-CMAKE_ARGS+=	-DUSE_PYTHON3:BOOL=OFF
-CMAKE_ARGS+=	-DOIIO_BUILD_TOOLS:BOOL=OFF
+CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON -DUSE_PYTHON3:BOOL=OFF \
+		-DOIIO_BUILD_TOOLS:BOOL=OFF
 .endif
 
 .if ${PORT_OPTIONS:MIMAGEVIEWER}
