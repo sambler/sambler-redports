@@ -68,7 +68,7 @@ PLIST_SUB+=		LIBVERS=${PORTVERSION}
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
 		libboost_thread.so:${PORTSDIR}/devel/boost-libs \
 		libhdf5.so:${PORTSDIR}/science/hdf5 \
-		libopencv_core.so:${PORTSDIR}/graphics/opencv \
+		libopencv_highgui.so:${PORTSDIR}/graphics/opencv \
 		libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15 \
 		libwebp.so:${PORTSDIR}/graphics/webp
 USE_LDCONFIG=	yes
