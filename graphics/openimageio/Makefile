@@ -33,10 +33,8 @@ OPTIONS_DEFAULT=	OCIO FFMPEG GIF
 OPTIONS_SUB=		yes
 
 FFMPEG_DESC=		Use ffmpeg to support extra file types
-GIF_DESC=		Enable gif image support
 IMAGEVIEWER_DESC=	Build image viewer
 OCIO_DESC=		Colour management support
-RAW_DESC=		Enable raw image support
 
 DOCS_CMAKE_ON=		-DINSTALL_DOCS:BOOL=ON
 DOCS_CMAKE_OFF=		-DINSTALL_DOCS:BOOL=OFF
