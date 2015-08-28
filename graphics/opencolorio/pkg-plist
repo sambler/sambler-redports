@@ -6,7 +6,6 @@ include/PyOpenColorIO/PyOpenColorIO.h
 lib/libOpenColorIO.so
 lib/libOpenColorIO.so.1
 lib/libOpenColorIO.so.1.0.9
-%%PYTHON_SITELIBDIR%%/PyOpenColorIO.so
 libdata/pkgconfig/OpenColorIO.pc
 %%PORTDOCS%%%%DOCSDIR%%/ChangeLog.html
 %%PORTDOCS%%%%DOCSDIR%%/CompatibleSoftware.html
