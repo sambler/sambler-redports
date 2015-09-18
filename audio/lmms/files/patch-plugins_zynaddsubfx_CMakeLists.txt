@@ -1,6 +1,6 @@
---- ./plugins/zynaddsubfx/CMakeLists.txt.orig	2014-08-16 16:35:46.000000000 +0930
-+++ ./plugins/zynaddsubfx/CMakeLists.txt	2014-08-29 23:58:51.579455306 +0930
-@@ -101,7 +101,7 @@
+--- plugins/zynaddsubfx/CMakeLists.txt.orig	2015-03-08 02:47:14 UTC
++++ plugins/zynaddsubfx/CMakeLists.txt
+@@ -105,7 +105,7 @@ SET(zynaddsubfx_core_SRCS
  
  
  ADD_LIBRARY(ZynAddSubFxCore SHARED LocalZynAddSubFx.cpp ${zynaddsubfx_core_SRCS})
@@ -9,7 +9,7 @@
  IF(LMMS_BUILD_WIN32)
  	TARGET_LINK_LIBRARIES(ZynAddSubFxCore -lws2_32)
  	INSTALL(TARGETS ZynAddSubFxCore RUNTIME DESTINATION "${PLUGIN_DIR}")
-@@ -135,7 +135,7 @@
+@@ -139,7 +139,7 @@ ENDIF(LMMS_BUILD_WIN32)
  
  # FLTK needs X
  IF(LMMS_BUILD_LINUX)

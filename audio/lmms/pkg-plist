@@ -209,7 +209,7 @@ lib/lmms/ladspa/bandpass_iir_1892.so
 lib/lmms/ladspa/bode_shifter_1431.so
 lib/lmms/ladspa/bode_shifter_cv_1432.so
 lib/lmms/ladspa/butterworth_1902.so
-@comment lib/lmms/ladspa/calf.so
+%%CALF%%lib/lmms/ladspa/calf.so
 lib/lmms/ladspa/caps.so
 lib/lmms/ladspa/chebstortion_1430.so
 lib/lmms/ladspa/cmt.so

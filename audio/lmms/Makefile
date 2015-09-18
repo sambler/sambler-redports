@@ -36,10 +36,8 @@ USE_QT4=	corelib gui xml moc_build uic_build rcc_build \
 		qmake_build
 USES=		cmake pkgconfig tar:bzip2 desktop-file-utils shared-mime-info \
 		compiler:c++0x
-# calf can be compiled under some configurations
-# disable until we can get consistancy
+
 CMAKE_ARGS=	-DWANT_ALSA:BOOL=OFF \
-		-DWANT_CALF:BOOL=OFF \
 		-DWANT_CAPS:BOOL=ON \
 		-DWANT_CMT:BOOL=ON \
 		-DWANT_SF2:BOOL=ON \
@@ -66,6 +64,17 @@ SDL_USE=		SDL=sdl
 SDL_CMAKE_ON=		-DWANT_SDL:BOOL=ON
 SDL_CMAKE_OFF=		-DWANT_SDL:BOOL=OFF
 
+.include <bsd.port.options.mk>
+
+.if ${ARCH} == amd64
+# calf fails on x86, other working arches may be added to this
+CMAKE_ARGS+=	-DWANT_CALF:BOOL=ON
+PLIST_SUB+=	CALF=""
+.else
+CMAKE_ARGS+=	-DWANT_CALF:BOOL=OFF
+PLIST_SUB+=	CALF="@comment "
+.endif
+
 post-patch:
 .for file in data/lmms.desktop
 	@${REINPLACE_CMD} -e \
@@ -89,7 +98,6 @@ post-install:
 		${STAGEDIR}${PREFIX}/share/pixmaps/lmms.png
 	# make it setuid-root to be able to set realtime priority
 	# (root privileges are dropped in the main routine)
-	# gtk2 now refuses to run with suid
 	${CHMOD} u+s ${STAGEDIR}${PREFIX}/bin/lmms
 
 .include <bsd.port.mk>

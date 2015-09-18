@@ -1,5 +1,5 @@
---- ./plugins/organic/organic.cpp.orig	2014-08-16 16:35:46.000000000 +0930
-+++ ./plugins/organic/organic.cpp	2014-08-29 23:58:51.576454970 +0930
+--- plugins/organic/organic.cpp.orig	2015-03-08 02:47:14 UTC
++++ plugins/organic/organic.cpp
 @@ -41,6 +41,9 @@
  
  #include "embed.cpp"

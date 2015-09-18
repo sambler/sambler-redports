@@ -1,6 +1,6 @@
---- ./CMakeLists.txt.orig	2014-08-29 23:58:51.466455152 +0930
-+++ ./CMakeLists.txt	2014-08-30 00:06:33.273455493 +0930
-@@ -319,9 +319,9 @@
+--- CMakeLists.txt.orig	2015-03-08 02:47:14 UTC
++++ CMakeLists.txt
+@@ -333,9 +333,9 @@ CONFIGURE_FILE("${CMAKE_SOURCE_DIR}/lmms
  CONFIGURE_FILE("${CMAKE_SOURCE_DIR}/plugins/zynaddsubfx/zynaddsubfx.rc.in" "${CMAKE_BINARY_DIR}/plugins/zynaddsubfx/zynaddsubfx.rc")
  
  # set compiler flags
@@ -12,7 +12,7 @@
  ENDIF()
  
  # Due to a regression in gcc-4.8.X, we need to disable array-bounds check
-@@ -450,7 +450,7 @@
+@@ -464,7 +464,7 @@ ENDIF()
  ADD_CUSTOM_COMMAND(OUTPUT "${CMAKE_BINARY_DIR}/lmms.1.gz" COMMAND gzip -c "\"${CMAKE_SOURCE_DIR}/lmms.1\"" > "\"${CMAKE_BINARY_DIR}/lmms.1.gz\"" DEPENDS "${CMAKE_SOURCE_DIR}/lmms.1" COMMENT "Generating lmms.1.gz")
  ADD_EXECUTABLE(lmms ${lmms_SOURCES} ${lmms_INCLUDES} "${LMMS_ER_H}" ${lmms_UI_out} lmmsconfig.h lmmsversion.h "${WINRC}" "${CMAKE_BINARY_DIR}/lmms.1.gz")
  
@@ -21,7 +21,7 @@
  
  IF(LMMS_BUILD_WIN32)
  
-@@ -489,7 +489,7 @@
+@@ -503,7 +503,7 @@ ELSE(LMMS_BUILD_WIN32)
  	ENDIF(NOT LMMS_BUILD_APPLE)
  
  	INSTALL(TARGETS lmms RUNTIME DESTINATION "${BIN_DIR}")
@@ -30,7 +30,7 @@
  
  ENDIF(LMMS_BUILD_WIN32)
  
-@@ -592,6 +592,7 @@
+@@ -606,6 +606,7 @@ MESSAGE(
  "-------------------------\n"
  "* ALSA                        : ${STATUS_ALSA}\n"
  "* OSS                         : ${STATUS_OSS}\n"

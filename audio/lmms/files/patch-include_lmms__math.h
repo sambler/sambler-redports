@@ -1,8 +1,8 @@
---- ./include/lmms_math.h.orig	2014-08-16 16:35:46.000000000 +0930
-+++ ./include/lmms_math.h	2014-08-29 23:58:51.563455026 +0930
-@@ -33,7 +33,7 @@
- 
- #include <math.h>
+--- include/lmms_math.h.orig	2015-03-08 02:47:14 UTC
++++ include/lmms_math.h
+@@ -34,7 +34,7 @@
+ #include <cmath>
+ using namespace std;
  
 -#if defined (LMMS_BUILD_WIN32) || defined (LMMS_BUILD_APPLE) 
 +#if defined (LMMS_BUILD_WIN32) || defined (LMMS_BUILD_APPLE) || defined (__FreeBSD__)
