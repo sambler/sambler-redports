@@ -24,9 +24,9 @@ While here, use HINTS instead of PATHS when calling the find_*()
 functions, as CMake's documentation says that "paths computed by system
 introspection" should use HINTS, not PATHS, which is for hardcoded
 paths.
---- cmake/FindHelper.cmake.orig	2014-09-10 04:09:33 UTC
+--- cmake/FindHelper.cmake.orig	2014-09-09 18:39:33 UTC
 +++ cmake/FindHelper.cmake
-@@ -23,7 +23,7 @@ macro(FIND_HELPER prefix pkg_name header lib)
+@@ -23,7 +23,7 @@ macro(FIND_HELPER prefix pkg_name header
              FIND_PACKAGE(PkgConfig)
          endif()
          if(PKG_CONFIG_FOUND)
@@ -35,7 +35,7 @@ paths.
              #MESSAGE(STATUS  " LDFLAGS       ${${prefix}_LDFLAGS}" )
              #MESSAGE(STATUS  " CFLAGS        ${${prefix}_CFLAGS}" )
              #MESSAGE(STATUS  " INCLUDEDIRS   ${${prefix}_INCLUDE_DIRS}" )
-@@ -36,12 +36,14 @@ macro(FIND_HELPER prefix pkg_name header lib)
+@@ -36,12 +36,14 @@ macro(FIND_HELPER prefix pkg_name header
  
          find_path(${prefix}_INCLUDE_DIR
              NAMES ${header}
