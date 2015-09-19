@@ -40,6 +40,7 @@ OPTIONS_SUB=	yes
 
 ALSA_CMAKE_ON=		-DWANT_ALSA:BOOL=ON
 ALSA_CMAKE_OFF=		-DWANT_ALSA:BOOL=OFF
+ALSA_LIB_DEPENDS=	libasound.so:${PORTSDIR}/audio/alsa-lib
 
 # calf fails on i386
 CALF_DESC=		CALF LADSPA plugins
