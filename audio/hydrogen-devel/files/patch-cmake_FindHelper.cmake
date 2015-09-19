@@ -1,6 +1,6 @@
---- cmake/FindHelper.cmake.orig	2014-09-10 04:09:33 UTC
+--- cmake/FindHelper.cmake.orig	2015-08-31 19:04:48 UTC
 +++ cmake/FindHelper.cmake
-@@ -23,7 +23,7 @@ macro(FIND_HELPER prefix pkg_name header lib)
+@@ -23,7 +23,7 @@ macro(FIND_HELPER prefix pkg_name header
              FIND_PACKAGE(PkgConfig)
          endif()
          if(PKG_CONFIG_FOUND)
@@ -9,7 +9,7 @@
              #MESSAGE(STATUS  " LDFLAGS       ${${prefix}_LDFLAGS}" )
              #MESSAGE(STATUS  " CFLAGS        ${${prefix}_CFLAGS}" )
              #MESSAGE(STATUS  " INCLUDEDIRS   ${${prefix}_INCLUDE_DIRS}" )
-@@ -36,12 +36,14 @@ macro(FIND_HELPER prefix pkg_name header lib)
+@@ -36,12 +36,14 @@ macro(FIND_HELPER prefix pkg_name header
  
          find_path(${prefix}_INCLUDE_DIR
              NAMES ${header}
