@@ -3,8 +3,8 @@
 
 PORTNAME=	lmms
 PORTVERSION=	1.1.3
+DISTVERSIONPREFIX= v
 CATEGORIES=	audio
-MASTER_SITES=	GH
 
 MAINTAINER=	rodrigo@FreeBSD.org
 COMMENT=	All-in-one sequencer, drum machine, sampler, and more
@@ -16,19 +16,12 @@ LIB_DEPENDS=	libFLAC.so:${PORTSDIR}/audio/flac \
 		libfluidsynth.so:${PORTSDIR}/audio/fluidsynth \
 		libsamplerate.so:${PORTSDIR}/audio/libsamplerate \
 		libsndfile.so:${PORTSDIR}/audio/libsndfile \
-		libvorbis.so:${PORTSDIR}/audio/libvorbis \
 		libfftw3.so:${PORTSDIR}/math/fftw3 \
 		libfftw3f.so:${PORTSDIR}/math/fftw3-float \
 		libfltk.so:${PORTSDIR}/x11-toolkits/fltk
-RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/caps.rdf:${PORTSDIR}/audio/caps-plugins \
-		${LOCALBASE}/lib/ladspa/cmt.so:${PORTSDIR}/audio/cmt \
-		${LOCALBASE}/share/ladspa/rdf/swh-plugins.rdf:${PORTSDIR}/audio/swhplugins \
-		${LOCALBASE}/share/ladspa/rdf/tap-plugins.rdf:${PORTSDIR}/audio/tap-plugins
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	lmms
-GH_PROJECT=	lmms
-GH_TAGNAME=	v${PORTVERSION}
 
 USE_LDCONFIG=	yes
 USE_XORG=	xft
@@ -37,20 +30,38 @@ USE_QT4=	corelib gui xml moc_build uic_build rcc_build \
 USES=		cmake pkgconfig tar:bzip2 desktop-file-utils shared-mime-info \
 		compiler:c++0x
 
-CMAKE_ARGS=	-DWANT_ALSA:BOOL=OFF \
-		-DWANT_CAPS:BOOL=ON \
-		-DWANT_CMT:BOOL=ON \
-		-DWANT_SF2:BOOL=ON \
-		-DWANT_STK:BOOL=OFF \
-		-DWANT_SWH:BOOL=ON \
-		-DWANT_TAP:BOOL=ON \
+CMAKE_ARGS=	-DWANT_STK:BOOL=OFF \
 		-DWANT_VST:BOOL=OFF
 
-OPTIONS_DEFINE=	JACK PORTAUDIO PULSEAUDIO SDL
+OPTIONS_DEFINE=	ALSA CALF CAPS CMT JACK OGG PORTAUDIO PULSEAUDIO SDL SF2 SWH TAP
+OPTIONS_DEFAULT= CAPS CMT JACK OGG PORTAUDIO PULSEAUDIO SDL SF2 SWH TAP
+OPTIONS_SUB=	yes
+
+ALSA_CMAKE_ON=		-DWANT_ALSA:BOOL=ON
+ALSA_CMAKE_OFF=		-DWANT_ALSA:BOOL=OFF
+
+# calf fails on i386
+CALF_DESC=		CALF LADSPA plugins
+CALF_CMAKE_ON=		-DWANT_CALF:BOOL=ON
+CALF_CMAKE_OFF=		-DWANT_CALF:BOOL=OFF
+
+CAPS_DESC=		C* Audio Plugin suite
+CAPS_CMAKE_ON=		-DWANT_CAPS:BOOL=ON
+CAPS_CMAKE_OFF=		-DWANT_CAPS:BOOL=OFF
+CAPS_RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/caps.rdf:${PORTSDIR}/audio/caps-plugins
+
+CMT_DESC=		Computer Music Toolbox LADSPA plugins
+CMT_CMAKE_ON=		-DWANT_CMT:BOOL=ON
+CMT_CMAKE_OFF=		-DWANT_CMT:BOOL=OFF
+CMT_RUN_DEPENDS=	${LOCALBASE}/lib/ladspa/cmt.so:${PORTSDIR}/audio/cmt
 
 JACK_LIB_DEPENDS=	libjack.so:${PORTSDIR}/audio/jack
 JACK_CMAKE_ON=		-DWANT_JACK:BOOL=ON
 JACK_CMAKE_OFF=		-DWANT_JACK:BOOL=OFF
+
+OGG_CMAKE_ON=		-DWANT_OGGVORBIS:BOOL=ON
+OGG_CMAKE_OFF=		-DWANT_OGGVORBIS:BOOL=OFF
+OGG_LIB_DEPENDS=	libvorbis.so:${PORTSDIR}/audio/libvorbis
 
 PORTAUDIO_LIB_DEPENDS=	libportaudio.so:${PORTSDIR}/audio/portaudio
 PORTAUDIO_CMAKE_ON=	-DWANT_PORTAUDIO:BOOL=ON
@@ -64,15 +75,24 @@ SDL_USE=		SDL=sdl
 SDL_CMAKE_ON=		-DWANT_SDL:BOOL=ON
 SDL_CMAKE_OFF=		-DWANT_SDL:BOOL=OFF
 
+SF2_DESC=		Soundfont2 player plugin
+SF2_CMAKE_ON=		-DWANT_SF2:BOOL=ON
+SF2_CMAKE_OFF=		-DWANT_SF2:BOOL=OFF
+
+SWH_DESC=		Steve Harris's LADSPA plugins
+SWH_CMAKE_ON=		-DWANT_SWH:BOOL=ON
+SWH_CMAKE_ONFF=		-DWANT_SWH:BOOL=OFF
+SWH_RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/swh-plugins.rdf:${PORTSDIR}/audio/swhplugins
+
+TAP_DESC=		Tom's Audio Processing LADSPA plugins
+TAP_CMAKE_ON=		-DWANT_TAP:BOOL=ON
+TAP_CMAKE_OFF=		-DWANT_TAP:BOOL=OFF
+TAP_RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/tap-plugins.rdf:${PORTSDIR}/audio/tap-plugins
+
 .include <bsd.port.options.mk>
 
-.if ${ARCH} == amd64
-# calf fails on x86, other working arches may be added to this
-CMAKE_ARGS+=	-DWANT_CALF:BOOL=ON
-PLIST_SUB+=	CALF=""
-.else
-CMAKE_ARGS+=	-DWANT_CALF:BOOL=OFF
-PLIST_SUB+=	CALF="@comment "
+.if ${ARCH} == i386 && ${PORT_OPTIONS:MCALF}
+BROKEN= Calf plugins fail to build on i386
 .endif
 
 post-patch:
