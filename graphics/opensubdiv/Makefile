@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	opensubdiv
-PORTVERSION=	3.0.1
+PORTVERSION=	3.0.2
 CATEGORIES?=	graphics
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -16,7 +16,7 @@ LIB_DEPENDS=	libtbb.so:${PORTSDIR}/devel/tbb
 USE_GITHUB=	yes
 GH_ACCOUNT=	PixarAnimationStudios
 GH_PROJECT=	OpenSubdiv
-GH_TAGNAME=	v3_0_1
+GH_TAGNAME=	v3_0_2
 
 USE_GL=		glew
 USE_XORG=	x11 xext xi xrandr ice xcursor xinerama
@@ -52,6 +52,8 @@ PTEX_LDFLAGS=		-L${LOCALBASE}/lib -lPtex
 
 TEST_CMAKE_ON=		-DNO_REGRESSION:BOOL=OFF
 TEST_CMAKE_OFF=		-DNO_REGRESSION:BOOL=ON
+
+PLIST_SUB+=		LIBVERS=${PORTVERSION}
 
 .include <bsd.port.options.mk>
 

@@ -95,10 +95,10 @@ include/opensubdiv/vtr/stackBuffer.h
 include/opensubdiv/vtr/types.h
 lib/libosdCPU.a
 lib/libosdCPU.so
-lib/libosdCPU.so.3.0.1
+lib/libosdCPU.so.%%LIBVERS%%
 lib/libosdGPU.a
 lib/libosdGPU.so
-lib/libosdGPU.so.3.0.1
+lib/libosdGPU.so.%%LIBVERS%%
 %%PORTDOCS%%%%DOCSDIR%%/additional_resources.html
 %%PORTDOCS%%%%DOCSDIR%%/api_overview.html
 %%PORTDOCS%%%%DOCSDIR%%/cmake_build.html
@@ -559,7 +559,7 @@ lib/libosdGPU.so.3.0.1
 %%PORTDOCS%%%%DOCSDIR%%/doxy_html/a00257.html
 %%PORTDOCS%%%%DOCSDIR%%/doxy_html/a00258.html
 %%PORTDOCS%%%%DOCSDIR%%/doxy_html/annotated.html
-%%PORTDOCS%%%%DOCSDIR%%/doxy_html/annotated.js
+%%PORTDOCS%%%%DOCSDIR%%/doxy_html/annotated_dup.js
 %%PORTDOCS%%%%DOCSDIR%%/doxy_html/arrowdown.png
 %%PORTDOCS%%%%DOCSDIR%%/doxy_html/arrowright.png
 %%PORTDOCS%%%%DOCSDIR%%/doxy_html/bc_s.png
