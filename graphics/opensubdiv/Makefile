@@ -21,7 +21,7 @@ GH_TAGNAME=	v3_0_2
 USE_GL=		glew
 USE_XORG=	x11 xext xi xrandr ice xcursor xinerama
 # gcc works while clang needs ldflags added
-LDFLAGS+=	-L${LOCALBASE}/lib -lX11
+LDFLAGS+=	-lX11
 
 USE_LDCONFIG=	yes
 USES=		cmake:outsource
