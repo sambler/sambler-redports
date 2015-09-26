@@ -18,7 +18,6 @@ LIB_DEPENDS=	liblzo2.so:${PORTSDIR}/archivers/lzo2 \
 		libboost_thread.so:${PORTSDIR}/devel/boost-libs \
 		libexecinfo.so:${PORTSDIR}/devel/libexecinfo \
 		libunwind.so:${PORTSDIR}/devel/libunwind \
-		libjpeg.so:${PORTSDIR}/graphics/jpeg \
 		libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio \
 		libOpenImageIO.so:${PORTSDIR}/graphics/openimageio \
 		libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
@@ -45,7 +44,7 @@ GH_TAGNAME=	sambler-${PORTVERSION}.${PORTREVISION} \
 		translate-${PORTVERSION}.${PORTREVISION}:trans
 
 USES=		cmake:outsource shebangfix compiler:c++11-lib \
-		python:3.4 desktop-file-utils openal:al,alut
+		python:3.4 desktop-file-utils openal:al,alut jpeg
 OUTDIR=		${STAGEDIR}/${PREFIX}/${PORTVERSION}
 LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
 VERS_TAG=	sambler

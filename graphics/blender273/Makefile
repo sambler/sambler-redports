@@ -18,7 +18,6 @@ LIB_DEPENDS=	libsamplerate.so:${PORTSDIR}/audio/libsamplerate
 LIB_DEPENDS+=	libsndfile.so:${PORTSDIR}/audio/libsndfile
 LIB_DEPENDS+=	libboost_thread.so:${PORTSDIR}/devel/boost-libs
 LIB_DEPENDS+=	libexecinfo.so:${PORTSDIR}/devel/libexecinfo
-LIB_DEPENDS+=	libjpeg.so:${PORTSDIR}/graphics/jpeg
 LIB_DEPENDS+=	libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
 LIB_DEPENDS+=	libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14
@@ -31,7 +30,7 @@ LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 
 USES=		cmake:outsource compiler:c++11-lib shebangfix
-USES+=		python:3.4 desktop-file-utils openal:al,alut
+USES+=		python:3.4 desktop-file-utils openal:al,alut jpeg
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
 VERS_TAG=	273

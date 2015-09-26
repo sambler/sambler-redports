@@ -15,8 +15,7 @@ COMMENT=	3D modeling/rendering/animation/gaming package
 LICENSE=	GPLv2
 
 BUILD_DEPENDS=  ${LOCALBASE}/lib/libode.a:${PORTSDIR}/devel/ode
-LIB_DEPENDS=	libjpeg.so:${PORTSDIR}/graphics/jpeg
-LIB_DEPENDS+=	libpng.so:${PORTSDIR}/graphics/png
+LIB_DEPENDS=	libpng.so:${PORTSDIR}/graphics/png
 LIB_DEPENDS+=	libtiff.so:${PORTSDIR}/graphics/tiff
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
 LIB_DEPENDS+=	libavutil0.so:${PORTSDIR}/multimedia/ffmpeg0
@@ -24,7 +23,7 @@ LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15
 LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 LIB_DEPENDS+=   libftgl.so:${PORTSDIR}/graphics/ftgl
 
-USES=		cmake:outsource dos2unix openal:al,alut python:2.7
+USES=		cmake:outsource dos2unix openal:al,alut python:2.7 jpeg
 WRKSRC=		${WRKDIR}/blender-2.49b
 VERS_TAG=	249
 

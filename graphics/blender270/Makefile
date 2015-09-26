@@ -18,7 +18,6 @@ LIB_DEPENDS=	libsamplerate.so:${PORTSDIR}/audio/libsamplerate
 LIB_DEPENDS+=	libsndfile.so:${PORTSDIR}/audio/libsndfile
 LIB_DEPENDS+=	libboost_thread.so:${PORTSDIR}/devel/boost-libs
 LIB_DEPENDS+=	libexecinfo.so:${PORTSDIR}/devel/libexecinfo
-LIB_DEPENDS+=	libjpeg.so:${PORTSDIR}/graphics/jpeg
 LIB_DEPENDS+=	libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
 LIB_DEPENDS+=	libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14
@@ -31,7 +30,7 @@ LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 
 USES=		cmake:outsource compiler:c++11-lib shebangfix
-USES+=		python:3.3 desktop-file-utils openal:al,alut
+USES+=		python:3.3 desktop-file-utils openal:al,alut jpeg
 WRKSRC=		${WRKDIR}/blender-v${PORTVERSION}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.70
 VERS_TAG=	270
@@ -80,7 +79,7 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		release/scripts/modules/blend_render_info.py \
 		doc/manpage/blender.1.py
 
-OPTIONS_DEFINE=	COLLADA HEADLESS SECURITY PLAYER JACK NLS OSL OPENMP
+OPTIONS_DEFINE=	COLLADA HEADLESS SECURITY MANPAGES PLAYER JACK NLS OSL OPENMP
 OPTIONS_DEFAULT=	COLLADA SECURITY PLAYER NLS OSL JACK
 
 OPTIONS_SUB=	yes
@@ -208,7 +207,7 @@ post-install:
 	@-update-desktop-database -q
 	@${ECHO} share/applications/${PORTNAME}.desktop >> ${TMPPLIST}
 
-.if !defined(NO_INSTALL_MANPAGES)
+.if ${PORT_OPTIONS:MMANPAGES}
 	@${MV} ${INSTALL_WRKSRC}/bin/blender.1 ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1
 	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
 		${STAGEDIR}${MAN1PREFIX}/man/man1

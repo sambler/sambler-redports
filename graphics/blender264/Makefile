@@ -17,7 +17,6 @@ LICENSE=	GPLv2
 LIB_DEPENDS=	libsamplerate.so:${PORTSDIR}/audio/libsamplerate
 LIB_DEPENDS+=	libsndfile.so:${PORTSDIR}/audio/libsndfile
 LIB_DEPENDS+=	libboost_thread.so:${PORTSDIR}/devel/boost-libs
-LIB_DEPENDS+=	libjpeg.so:${PORTSDIR}/graphics/jpeg
 LIB_DEPENDS+=	libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
 LIB_DEPENDS+=	libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14
@@ -30,7 +29,7 @@ LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
 RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
 
 USES=		cmake:outsource shebangfix desktop-file-utils openal:al,alut
-USES+=		python:3.2
+USES+=		python:3.2 jpeg
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 VERS_TAG=	264
 
@@ -78,7 +77,7 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.64
 
-OPTIONS_DEFINE=	HEADLESS SECURITY PLAYER JACK NLS OPENMP
+OPTIONS_DEFINE=	HEADLESS MANPAGES SECURITY PLAYER JACK NLS OPENMP
 OPTIONS_DEFAULT=	SECURITY PLAYER NLS JACK
 
 OPTIONS_SUB=	yes
@@ -179,11 +178,11 @@ post-install:
 	@-update-desktop-database -q
 	@${ECHO} share/applications/${PORTNAME}.desktop >> ${TMPPLIST}
 
-#.if !defined(NO_INSTALL_MANPAGES)
-#	@${MV} ${INSTALL_WRKSRC}/bin/blender.1 ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1
-#	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
-#		${STAGEDIR}${MAN1PREFIX}/man/man1
-#	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
-#.endif
+.if ${PORT_OPTIONS:MMANPAGES}
+	@${MV} ${INSTALL_WRKSRC}/bin/blender.1 ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1
+	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
+		${STAGEDIR}${MAN1PREFIX}/man/man1
+	@${ECHO} man/man1/blender-${VERS_TAG}.1.gz >> ${TMPPLIST}
+.endif
 
 .include <bsd.port.mk>
