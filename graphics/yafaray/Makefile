@@ -16,15 +16,14 @@ COMMENT=	A fast XML based raytracer
 LICENSE=	LGPL21
 
 BUILD_DEPENDS=	swig:${PORTSDIR}/devel/swig13
-LIB_DEPENDS=	libjpeg.so:${PORTSDIR}/graphics/jpeg \
-		libfreetype.so:${PORTSDIR}/print/freetype2 \
+LIB_DEPENDS=	libfreetype.so:${PORTSDIR}/print/freetype2 \
 		libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
 		libpng.so:${PORTSDIR}/graphics/png \
 		libtiff.so:${PORTSDIR}/graphics/tiff \
 		libxml2.so:${PORTSDIR}/textproc/libxml2
 
 FETCH_ARGS=	-pRr
-USES=		cmake:outsource
+USES=		cmake:outsource jpeg
 CMAKE_VERBOSE=	yes
 CMAKE_ARGS=	-DWITH_Freetype:BOOL=ON -DWITH_OpenEXR:BOOL=ON -DWITH_JPEG:BOOL=ON \
 		-DWITH_PNG:BOOL=ON -DWITH_TIFF:BOOL=ON -DWITH_XML_LOADER:BOOL=ON \
