@@ -1,0 +1,4 @@
+Script to help visualize profiling data collected with the cProfile
+python module with the kcachegrind or qcachegrind graphical calltree analyser.
+
+WWW: https://github.com/pwaller/pyprof2calltree/
