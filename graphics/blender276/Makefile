@@ -82,14 +82,14 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		release/scripts/modules/blend_render_info.py \
 		doc/manpage/blender.1.py
 
-OPTIONS_DEFINE=	COLLADA HEADLESS JACK MANPAGES NLS OPENMP OPENSUBDIV OSL PLAYER SECURITY
-OPTIONS_DEFAULT=	COLLADA JACK NLS OSL PLAYER SECURITY
+OPTIONS_DEFINE=	COLLADA HEADLESS JACK MANPAGES NLS OPENMP OSD OSL PLAYER SECURITY
+OPTIONS_DEFAULT=	COLLADA JACK NLS OSD OSL PLAYER SECURITY
 
 OPTIONS_SUB=	yes
 HEADLESS_DESC=	Disable user interface
 JACK_DESC=	Audio support using JackAudio
 NLS_DESC=	Include translations
-OPENSUBDIV_DESC= Opensubdiv support
+OSD_DESC=	Opensubdiv support
 OSL_DESC=	OSL shading support
 PLAYER_DESC=	Build blender player
 SECURITY_DESC=	Disable scripts auto-run
@@ -117,9 +117,9 @@ NLS_LDFLAGS=		-L${LOCALBASE}/lib -lintl
 OPENMP_CMAKE_ON=	-DWITH_OPENMP:BOOL=ON
 OPENMP_CMAKE_OFF=	-DWITH_OPENMP:BOOL=OFF
 
-OPENSUBDIV_CMAKE_ON=	-DWITH_OPENSUBDIV:BOOL=ON
-OPENSUBDIV_CMAKE_OFF=	-DWITH_OPENSUBDIV:BOOL=OFF
-OPENSUBDIV_LIB_DEPENDS=	libosdCPU.so:${PORTSDIR}/graphics/opensubdiv
+OSD_CMAKE_ON=		-DWITH_OPENSUBDIV:BOOL=ON
+OSD_CMAKE_OFF=		-DWITH_OPENSUBDIV:BOOL=OFF
+OSD_LIB_DEPENDS=	libosdCPU.so:${PORTSDIR}/graphics/opensubdiv
 
 OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DWITH_LLVM:BOOL=ON \
@@ -160,7 +160,7 @@ post-install:
 .endif
 
 	@${MKDIR} ${STAGEDIR}${DATADIR}
-	@${MV} ${STAGEDIR}/${PREFIX}/share/blender/2.76/* ${STAGEDIR}${DATADIR}
+	@${MV} ${STAGEDIR}/${PREFIX}/share/blender/${PORTVERSION}/* ${STAGEDIR}${DATADIR}
 	@${RM} -R ${STAGEDIR}/${PREFIX}/share/blender
 	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/icons/scalable/apps/blender.svg \
 		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
