@@ -1,15 +1,15 @@
---- ./release/freedesktop/blender.desktop.orig	2015-07-09 21:43:07.000000000 +0930
-+++ ./release/freedesktop/blender.desktop	2015-07-10 11:16:59.139816356 +0930
+--- release/freedesktop/blender.desktop.orig	2015-10-15 02:24:42 UTC
++++ release/freedesktop/blender.desktop
 @@ -1,5 +1,5 @@
  [Desktop Entry]
 -Name=Blender
 +Name=Blender-%%VERS_TAG%%
  GenericName=3D modeler
- GenericName[de]=3D-Modellierer
- GenericName[es]=Modelador 3D
-@@ -10,8 +10,8 @@ Comment[de]=3D-Modellierung, Animation, 
- Comment[es]=Modelado 3D, animación, renderizado y post-producción
- Comment[fr]=Modelage 3D, animation, rendu et post-production
+ GenericName[ar]=3D المنمذج ثلاثي الأبعاد
+ GenericName[ca]=Modelador 3D
+@@ -79,8 +79,8 @@ Comment[zh_HK]=3D 模型、動畫、算�
+ Comment[zh_CN]=3D 建模、动画、渲染和后期制作
+ Comment[zh_TW]=3D 模型、動畫、算圖和後製
  Keywords=3d;cg;modeling;animation;painting;sculpting;texturing;video editing;video tracking;rendering;render engine;cycles;game engine;python;
 -Exec=blender %f
 -Icon=blender

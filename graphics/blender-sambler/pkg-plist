@@ -160,6 +160,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons/add_mesh_extra_objects/add_mesh_vertex.py
 %%DATADIR%%/scripts/addons/animation_add_corrective_shape_key.py
 %%DATADIR%%/scripts/addons/animation_animall.py
+%%DATADIR%%/scripts/addons/bone_selection_groups.py
 %%DATADIR%%/scripts/addons/compositing_film_response/__init__.py
 %%DATADIR%%/scripts/addons/compositing_film_response/film_response_curves.py
 %%DATADIR%%/scripts/addons/curve_simplify.py
@@ -299,6 +300,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_value.h
 %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_vector_transform.h
 %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_voronoi.h
+%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_voxel.h
 %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_wave.h
 %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_wavelength.h
 %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_wireframe.h
@@ -396,6 +398,7 @@ share/applications/blender-sambler.desktop
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_vector_transform.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_velvet_bsdf.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_voronoi_texture.oso
+%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_voxel_texture.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_wave_texture.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_wavelength.oso
 %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_wireframe.oso
@@ -545,6 +548,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons/light_field_tools/__init__.py
 %%DATADIR%%/scripts/addons/light_field_tools/light_field_tools.py
 %%DATADIR%%/scripts/addons/mesh_bsurfaces.py
+%%DATADIR%%/scripts/addons/mesh_custom_normals_tools.py
 %%DATADIR%%/scripts/addons/mesh_f2.py
 %%DATADIR%%/scripts/addons/mesh_inset/__init__.py
 %%DATADIR%%/scripts/addons/mesh_inset/geom.py
@@ -678,15 +682,6 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons/render_povray/render.py
 %%DATADIR%%/scripts/addons/render_povray/ui.py
 %%DATADIR%%/scripts/addons/render_povray/update_files.py
-%%DATADIR%%/scripts/addons/render_renderfarmfi/__init__.py
-%%DATADIR%%/scripts/addons/render_renderfarmfi/exceptions.py
-%%DATADIR%%/scripts/addons/render_renderfarmfi/operators.py
-%%DATADIR%%/scripts/addons/render_renderfarmfi/ore_session.py
-%%DATADIR%%/scripts/addons/render_renderfarmfi/panels.py
-%%DATADIR%%/scripts/addons/render_renderfarmfi/prepare.py
-%%DATADIR%%/scripts/addons/render_renderfarmfi/rpc.py
-%%DATADIR%%/scripts/addons/render_renderfarmfi/upload.py
-%%DATADIR%%/scripts/addons/render_renderfarmfi/utils.py
 %%DATADIR%%/scripts/addons/rigify/CREDITS
 %%DATADIR%%/scripts/addons/rigify/README
 %%DATADIR%%/scripts/addons/rigify/__init__.py
@@ -756,31 +751,138 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons/ui_translate/update_ui.py
 %%DATADIR%%/scripts/addons/uv_bake_texture_to_vcols.py
 %%DATADIR%%/scripts/addons/uv_texture_atlas.py
-%%DATADIR%%/scripts/addons_contrib/Black_Hole.py
-%%DATADIR%%/scripts/addons_contrib/Blender-Camera-Addon/__init__.py
-%%DATADIR%%/scripts/addons_contrib/Blender-Camera-Addon/sniper_utils.py
-%%DATADIR%%/scripts/addons_contrib/Blender-Camera-Addon/target_camera.py
-%%DATADIR%%/scripts/addons_contrib/BoolTool.py
-%%DATADIR%%/scripts/addons_contrib/DialScale.py
-%%DATADIR%%/scripts/addons_contrib/EdgeRoundifier.py
-%%DATADIR%%/scripts/addons_contrib/Image_Selector.py
-%%DATADIR%%/scripts/addons_contrib/Maskerade.py
-%%DATADIR%%/scripts/addons_contrib/Plancher_addon.py
-%%DATADIR%%/scripts/addons_contrib/Randomiser/Randomiser_addon.py
-%%DATADIR%%/scripts/addons_contrib/Randomiser/__init__.py
-%%DATADIR%%/scripts/addons_contrib/SimpleSubtitleEditor.py
-%%DATADIR%%/scripts/addons_contrib/Surf.py
-%%DATADIR%%/scripts/addons_contrib/VSEQuickFunctions.py
-%%DATADIR%%/scripts/addons_contrib/VSE_Transform_Tool.py
-%%DATADIR%%/scripts/addons_contrib/ZeroBrush.py
+%%DATADIR%%/scripts/addons_contrib/3dview_border_lines_bmesh_edition.py
+%%DATADIR%%/scripts/addons_contrib/3dview_mesh_statistics.py
+%%DATADIR%%/scripts/addons_contrib/3dview_play_tictactoe.py
+%%DATADIR%%/scripts/addons_contrib/3dview_synchronize_views.py
+%%DATADIR%%/scripts/addons_contrib/add_coil_spring.py
 %%DATADIR%%/scripts/addons_contrib/add_dimension.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/Blocks.py
-%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/Wallfactory.py
+%%DATADIR%%/scripts/addons_contrib/Add_Empty_Parent.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/__init__.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Animals/Suzanne's Crazy Brother.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Animals/Suzanne's Crazy Brother.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cars/Antenna.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cars/Antenna.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cars/Fordish.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cars/Fordish.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cars/Side mirror.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cars/Side mirror.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cars/Window wiper.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cars/Window wiper.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cogs/Cog 1.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cogs/Cog 1.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cogs/Cog 2.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cogs/Cog 2.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cogs/Cog 3.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cogs/Cog 3.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cogs/Cog 4.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cogs/Cog 4.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cogs/Cog 5.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cogs/Cog 5.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cogs/Cog 6.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cogs/Cog 6.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cogs/Cog 7.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cogs/Cog 7.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cogs/Cog 8.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Cogs/Cog 8.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Button, 4 holes.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Button, 4 holes.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Cardboard box.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Cardboard box.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Chain.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Chain.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Glass.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Glass.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Hose clamp.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Hose clamp.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Key.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Key.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Latch.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Latch.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/More/Drill blade.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/More/Drill blade.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/More/Drill chuck.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/More/Drill chuck.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/More/Jig saw blade.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/More/Jig saw blade.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/More/Pencil, Hex, Regular.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/More/Pencil, Hex, Regular.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/More/Pencil, Hex.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/More/Pencil, Hex.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/More/Pencil, Round.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/More/Pencil, Round.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Snap Fastener.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Snap Fastener.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Soda can.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Soda can.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Valve.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Valve.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Wire net.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Misc/Wire net.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Nuts & Bolts/Bolt 1.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Nuts & Bolts/Bolt 1.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Nuts & Bolts/Bolt 2.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Nuts & Bolts/Bolt 2.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Nuts & Bolts/HQ/Bolt 1 (HQ).obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Nuts & Bolts/HQ/Bolt 1 (HQ).png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Nuts & Bolts/HQ/Bolt 2 (HQ).obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Nuts & Bolts/HQ/Bolt 2 (HQ).png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Nuts & Bolts/HQ/Nut (HQ).obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Nuts & Bolts/HQ/Nut (HQ).png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Nuts & Bolts/Nut.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Nuts & Bolts/Nut.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Nuts & Bolts/Small nuts and bolts.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Nuts & Bolts/Small nuts and bolts.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Rig/Rig, Master.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Rig/Rig, Master.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Screws/HQ/Screw, Cross (HQ).obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Screws/HQ/Screw, Cross (HQ).png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Screws/HQ/Screw, Slot, Flat (HQ).obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Screws/HQ/Screw, Slot, Flat (HQ).png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Screws/HQ/Screw, Slot, Hex (HQ).obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Screws/HQ/Screw, Slot, Hex (HQ).png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Screws/HQ/Screw, Slot, Round (HQ).obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Screws/HQ/Screw, Slot, Round (HQ).png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Screws/Screw, Cross.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Screws/Screw, Cross.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Screws/Screw, Slot, Flat.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Screws/Screw, Slot, Flat.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Screws/Screw, Slot, Hex.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Screws/Screw, Slot, Hex.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Screws/Screw, Slot, Round.obj
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/assets/Screws/Screw, Slot, Round.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/icons/folder.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/icons/nothumbnail.png
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Linux/Thumbnailer - METAL.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Linux/Thumbnailer.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer - METAL.app/Contents/Info.plist
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer - METAL.app/Contents/MacOS/Thumbnailer
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer - METAL.app/Contents/Resources/appIcon.icns
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer - METAL.app/Contents/Resources/AppSettings.plist
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer - METAL.app/Contents/Resources/MainMenu.nib
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer - METAL.app/Contents/Resources/script
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer - METAL.app/Contents/Resources/thumbnailer/config
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer - METAL.app/Contents/Resources/thumbnailer/generator/__init__.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer - METAL.app/Contents/Resources/thumbnailer/Thumbnailer.blend
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer - METAL.app/Contents/Resources/thumbnailer/Thumbnailer.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer.app/Contents/Info.plist
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer.app/Contents/MacOS/Thumbnailer
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer.app/Contents/Resources/appIcon.icns
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer.app/Contents/Resources/AppSettings.plist
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer.app/Contents/Resources/MainMenu.nib
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer.app/Contents/Resources/script
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer.app/Contents/Resources/thumbnailer/config
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer.app/Contents/Resources/thumbnailer/generator/__init__.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer.app/Contents/Resources/thumbnailer/Thumbnailer.blend
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Mac/Thumbnailer.app/Contents/Resources/thumbnailer/Thumbnailer.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Windows/Thumbnailer - METAL.bat
+%%DATADIR%%/scripts/addons_contrib/add_mesh_asset_flinger/thumbnailer/Windows/Thumbnailer.bat
 %%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/add_mesh_balcony.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/add_mesh_beam_builder.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/add_mesh_sove.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/add_mesh_window.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/Blocks.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/general.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/post.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/rail.py
@@ -788,6 +890,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/stairbuilder.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/stringer.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/tread.py
+%%DATADIR%%/scripts/addons_contrib/add_mesh_building_objects/Wallfactory.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope/oscurart_chain_maker.py
 %%DATADIR%%/scripts/addons_contrib/add_mesh_chain_rope/oscurart_rope_maker.py
@@ -808,8 +911,8 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_camera.py
 %%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_lighting.py
 %%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_materials.py
-%%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_objects.py
 %%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_objects_cycles.py
+%%DATADIR%%/scripts/addons_contrib/add_scene_elements/scene_objects.py
 %%DATADIR%%/scripts/addons_contrib/add_window/__init__.py
 %%DATADIR%%/scripts/addons_contrib/add_window/window_panel.py
 %%DATADIR%%/scripts/addons_contrib/add_window/window_tools.py
@@ -859,10 +962,10 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/amaranth/scene/save_reload.py
 %%DATADIR%%/scripts/addons_contrib/amaranth/scene/stats.py
 %%DATADIR%%/scripts/addons_contrib/amaranth/utils.py
+%%DATADIR%%/scripts/addons_contrib/anim_from_csv.py
 %%DATADIR%%/scripts/addons_contrib/anim_selection_sets.py
 %%DATADIR%%/scripts/addons_contrib/animation_freens_tools.py
 %%DATADIR%%/scripts/addons_contrib/animation_motion_trail.py
-%%DATADIR%%/scripts/addons_contrib/animation_nodes/README.md
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/__init__.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/algorithms/__init__.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/algorithms/interpolation.py
@@ -889,8 +992,8 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/insert_nodes_menu.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/manage_broken_files.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/mn_cache.py
-%%DATADIR%%/scripts/addons_contrib/animation_nodes/mn_execution.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/mn_execution_unit_generator.py
+%%DATADIR%%/scripts/addons_contrib/animation_nodes/mn_execution.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/mn_node_base.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/mn_ui.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/mn_utils.py
@@ -1002,9 +1105,9 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/nodes/script/mn_script.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/nodes/sound/__init__.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/nodes/sound/mn_sequencer_sound_input.py
-%%DATADIR%%/scripts/addons_contrib/animation_nodes/nodes/sound/mn_sound_bake.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/nodes/sound/mn_sound_bake_input.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/nodes/sound/mn_sound_bake_reader.py
+%%DATADIR%%/scripts/addons_contrib/animation_nodes/nodes/sound/mn_sound_bake.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/nodes/spline/__init__.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/nodes/spline/mn_append_point_to_spline.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/nodes/spline/mn_connect_splines.py
@@ -1057,6 +1160,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/nodes/vector/mn_vector_length_node.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/nodes/vector/mn_vector_math.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/nodes/vector/mn_wiggle_vector.py
+%%DATADIR%%/scripts/addons_contrib/animation_nodes/README.md
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/sockets/__init__.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/sockets/mn_baked_sound_socket.py
 %%DATADIR%%/scripts/addons_contrib/animation_nodes/sockets/mn_boolean_socket.py
@@ -1125,13 +1229,46 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/archimesh/window_panel.py
 %%DATADIR%%/scripts/addons_contrib/autoFakeUserActions.py
 %%DATADIR%%/scripts/addons_contrib/autoFakeUserMaterials.py
+%%DATADIR%%/scripts/addons_contrib/automat/__init__.py
+%%DATADIR%%/scripts/addons_contrib/automat/adj_material.json
+%%DATADIR%%/scripts/addons_contrib/automat/AdjOp.py
+%%DATADIR%%/scripts/addons_contrib/automat/automatic_material.json
+%%DATADIR%%/scripts/addons_contrib/automat/AutoOp.py
+%%DATADIR%%/scripts/addons_contrib/automat/blur.json
+%%DATADIR%%/scripts/addons_contrib/automat/JSONOps.py
+%%DATADIR%%/scripts/addons_contrib/automat/seamless_vector.json
 %%DATADIR%%/scripts/addons_contrib/autoRigLayers.py
 %%DATADIR%%/scripts/addons_contrib/basket_arch.py
 %%DATADIR%%/scripts/addons_contrib/basrelief.py
+%%DATADIR%%/scripts/addons_contrib/batch_converter.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/__init__.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/bc_CAD_utils.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/bc_command_dispatch.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/bc_gist_utils.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/bc_operator_loaders.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/bc_operators.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/bc_package_manager.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/bc_panels.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/bc_scene_utils.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/bc_search_utils.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/bc_text_repr_utils.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/bc_TEXT_utils.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/bc_theme_utils.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/bc_update_utils.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/bc_utils.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/fast_ops/__init__.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/fast_ops/curve_handle_equalizer.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/fast_ops/node_plex.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/keymaps/console_keymaps.py
+%%DATADIR%%/scripts/addons_contrib/BCPrompt/sub_util.py
+%%DATADIR%%/scripts/addons_contrib/Black_Hole.py
+%%DATADIR%%/scripts/addons_contrib/Blender-Camera-Addon/__init__.py
+%%DATADIR%%/scripts/addons_contrib/Blender-Camera-Addon/sniper_utils.py
+%%DATADIR%%/scripts/addons_contrib/Blender-Camera-Addon/target_camera.py
 %%DATADIR%%/scripts/addons_contrib/blender-sculpt-geometry-tools/__init__.py
-%%DATADIR%%/scripts/addons_contrib/blender-sculpt-tools/Freeze.py
 %%DATADIR%%/scripts/addons_contrib/blender-sculpt-tools/__init__.py
 %%DATADIR%%/scripts/addons_contrib/blender-sculpt-tools/booleanOps.py
+%%DATADIR%%/scripts/addons_contrib/blender-sculpt-tools/Freeze.py
 %%DATADIR%%/scripts/addons_contrib/blender-sculpt-tools/greaseTrim.py
 %%DATADIR%%/scripts/addons_contrib/blender-sculpt-tools/helper.py
 %%DATADIR%%/scripts/addons_contrib/blender-sculpt-tools/meshExtract.py
@@ -1141,77 +1278,77 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/blendercam/chunk.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/collision.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/image_utils.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/LICENSE
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/__init__.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/anilam_crusader_m.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/anilam_crusader_m_read.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/anilam_crusader_m.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/attach.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/cad_iso_read.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/cad_nc_read.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/cad_read.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/centroid1.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/centroid1_read.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/centroid1.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/drag_knife.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/emc2.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/emc2_read.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/emc2b.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/emc2b_crc.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/emc2.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/emc2b_crc_read.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/emc2b_crc.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/emc2b_read.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/emc2tap.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/emc2b.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/emc2tap_read.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/emc2tap.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/format.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/gantry_router.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/gantry_router_read.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/gantry_router.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/gravos.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/heiden.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/heiden_read.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/hm50.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/heiden.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/hm50_read.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/hpgl2d.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/hm50.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/hpgl2d_read.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/hpgl2dv.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/hpgl2d.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/hpgl2dv_read.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/hpgl3d.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/hpgl2dv.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/hpgl3d_read.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/hpgl3d.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/hxml_writer.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/iso.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/iso_codes.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/iso_crc.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/iso_crc_read.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/iso_modal.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/iso_crc.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/iso_modal_read.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/iso_modal.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/iso_read.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/lathe1.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/iso.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/lathe1_read.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/lathe1.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/LICENSE
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/lynx_otter_o.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/mach3.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/mach3_read.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/mach3.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/machines.txt
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/makerbotHBP.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/makerbotHBP_read.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/makerbot_codes.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/nc.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/makerbotHBP_read.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/makerbotHBP.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/nc_read.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/nc.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/nclathe_read.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/num_reader.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/printbot3d.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/printbot3d_read.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/printbot3d.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/recreator.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/rez2.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/rez2_read.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/series1.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/rez2.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/series1_read.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/series1.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/shopbot_mtc.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/siegkx1.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/siegkx1_read.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/nc/tnc151.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/siegkx1.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/tnc151_read.py
+%%DATADIR%%/scripts/addons_contrib/blendercam/nc/tnc151.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/nc/winpc.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/opencamlib/oclSample.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/opencamlib/oclWaterline.py
-%%DATADIR%%/scripts/addons_contrib/blendercam/opencamlib/opencamlib.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/opencamlib/opencamlib_readme.txt
+%%DATADIR%%/scripts/addons_contrib/blendercam/opencamlib/opencamlib.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/ops.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/pack.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/pattern.py
@@ -1223,7 +1360,13 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/blendercam/utils.py
 %%DATADIR%%/scripts/addons_contrib/blendercam/voronoi.py
 %%DATADIR%%/scripts/addons_contrib/blendermada.py
+%%DATADIR%%/scripts/addons_contrib/blendgit.py
 %%DATADIR%%/scripts/addons_contrib/bmh.py
+%%DATADIR%%/scripts/addons_contrib/bone_selection_panel_maker.py
+%%DATADIR%%/scripts/addons_contrib/boolean_push/__init__.py
+%%DATADIR%%/scripts/addons_contrib/boolean_push/bmesh_extras.py
+%%DATADIR%%/scripts/addons_contrib/boolean_push/boolean_main.py
+%%DATADIR%%/scripts/addons_contrib/BoolTool.py
 %%DATADIR%%/scripts/addons_contrib/breakpoint.py
 %%DATADIR%%/scripts/addons_contrib/btrace/__init__.py
 %%DATADIR%%/scripts/addons_contrib/btrace/bTrace.py
@@ -1239,16 +1382,19 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/cmu_mocap_browser/download.py
 %%DATADIR%%/scripts/addons_contrib/cmu_mocap_browser/library.py
 %%DATADIR%%/scripts/addons_contrib/cmu_mocap_browser/makehuman.py
+%%DATADIR%%/scripts/addons_contrib/code_editor.py
 %%DATADIR%%/scripts/addons_contrib/commentnode.py
-%%DATADIR%%/scripts/addons_contrib/commotion/README.md
 %%DATADIR%%/scripts/addons_contrib/commotion/__init__.py
 %%DATADIR%%/scripts/addons_contrib/commotion/helpers.py
+%%DATADIR%%/scripts/addons_contrib/commotion/LICENSE.txt
 %%DATADIR%%/scripts/addons_contrib/commotion/operators.py
+%%DATADIR%%/scripts/addons_contrib/commotion/README.md
 %%DATADIR%%/scripts/addons_contrib/commotion/ui.py
 %%DATADIR%%/scripts/addons_contrib/connectedvertexcolors .py
 %%DATADIR%%/scripts/addons_contrib/convertText.py
 %%DATADIR%%/scripts/addons_contrib/create_bound_box.py
 %%DATADIR%%/scripts/addons_contrib/create_multi_bound_box.py
+%%DATADIR%%/scripts/addons_contrib/curve_tools/__init__.py
 %%DATADIR%%/scripts/addons_contrib/curve_tools/CurveIntersections.py
 %%DATADIR%%/scripts/addons_contrib/curve_tools/Curves.py
 %%DATADIR%%/scripts/addons_contrib/curve_tools/Math.py
@@ -1257,16 +1403,20 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/curve_tools/Properties.py
 %%DATADIR%%/scripts/addons_contrib/curve_tools/Surfaces.py
 %%DATADIR%%/scripts/addons_contrib/curve_tools/Util.py
-%%DATADIR%%/scripts/addons_contrib/curve_tools/__init__.py
 %%DATADIR%%/scripts/addons_contrib/cycle_through_local_objects.py
 %%DATADIR%%/scripts/addons_contrib/data_overrides/__init__.py
 %%DATADIR%%/scripts/addons_contrib/data_overrides/override.py
 %%DATADIR%%/scripts/addons_contrib/data_overrides/ui.py
 %%DATADIR%%/scripts/addons_contrib/data_overrides/util.py
+%%DATADIR%%/scripts/addons_contrib/delaunay_voronoi/__init__.py
+%%DATADIR%%/scripts/addons_contrib/delaunay_voronoi/DelaunayVoronoi.py
+%%DATADIR%%/scripts/addons_contrib/delaunay_voronoi/delaunayVoronoiBlender.py
 %%DATADIR%%/scripts/addons_contrib/development_class_viewer.py
 %%DATADIR%%/scripts/addons_contrib/development_macros_recorder.py
+%%DATADIR%%/scripts/addons_contrib/DialScale.py
 %%DATADIR%%/scripts/addons_contrib/doc_scenes/__init__.py
 %%DATADIR%%/scripts/addons_contrib/doc_scenes/html_maker.py
+%%DATADIR%%/scripts/addons_contrib/doc_scenes/main_panel.py
 %%DATADIR%%/scripts/addons_contrib/doc_scenes/template/doc_template.htm
 %%DATADIR%%/scripts/addons_contrib/doc_scenes/template/images/bottom_area.png
 %%DATADIR%%/scripts/addons_contrib/doc_scenes/template/images/c.gif
@@ -1274,11 +1424,15 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/doc_scenes/template/images/mid_area.png
 %%DATADIR%%/scripts/addons_contrib/doc_scenes/template/images/top_area.png
 %%DATADIR%%/scripts/addons_contrib/doc_scenes/template/images/whitenoise.png
+%%DATADIR%%/scripts/addons_contrib/draw_parenting_tree.py
 %%DATADIR%%/scripts/addons_contrib/drystone.py
 %%DATADIR%%/scripts/addons_contrib/dubbingmotion.py
 %%DATADIR%%/scripts/addons_contrib/dynamic_slideshow.py
 %%DATADIR%%/scripts/addons_contrib/easy_logging.py
+%%DATADIR%%/scripts/addons_contrib/easyLogging/__init__.py
+%%DATADIR%%/scripts/addons_contrib/easyLogging/README.md
 %%DATADIR%%/scripts/addons_contrib/edger.py
+%%DATADIR%%/scripts/addons_contrib/EdgeRoundifier.py
 %%DATADIR%%/scripts/addons_contrib/editing_pies.py
 %%DATADIR%%/scripts/addons_contrib/effector.py
 %%DATADIR%%/scripts/addons_contrib/ewoc_projects_tools/__init__.py
@@ -1296,11 +1450,14 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/ewoc_projects_tools/object_decouple.py
 %%DATADIR%%/scripts/addons_contrib/ewoc_projects_tools/object_fastorigin.py
 %%DATADIR%%/scripts/addons_contrib/ewoc_projects_tools/object_keeptrans.py
+%%DATADIR%%/scripts/addons_contrib/fake_hdr.py
 %%DATADIR%%/scripts/addons_contrib/filter_tracks.py
 %%DATADIR%%/scripts/addons_contrib/gaffer.py
+%%DATADIR%%/scripts/addons_contrib/game_engine_decompile_runtime.py
+%%DATADIR%%/scripts/addons_contrib/game_engine_legacy_start.py
 %%DATADIR%%/scripts/addons_contrib/game_engine_ragdolls_kit/__init__.py
-%%DATADIR%%/scripts/addons_contrib/game_engine_ragdolls_kit/brik.py
 %%DATADIR%%/scripts/addons_contrib/game_engine_ragdolls_kit/brik_funcs.py
+%%DATADIR%%/scripts/addons_contrib/game_engine_ragdolls_kit/brik.py
 %%DATADIR%%/scripts/addons_contrib/game_engine_ragdolls_kit/templates/brik_init_ragdoll.py
 %%DATADIR%%/scripts/addons_contrib/game_engine_ragdolls_kit/templates/brik_load.py
 %%DATADIR%%/scripts/addons_contrib/game_engine_ragdolls_kit/templates/brik_spawn.py
@@ -1316,14 +1473,20 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/geodesic_domes/vefm_271.py
 %%DATADIR%%/scripts/addons_contrib/gpencil_retopo/__init__.py
 %%DATADIR%%/scripts/addons_contrib/gpencil_retopo/retopo.py
+%%DATADIR%%/scripts/addons_contrib/graph_editor_convert_fcurves.py
 %%DATADIR%%/scripts/addons_contrib/gyes/__init__.py
 %%DATADIR%%/scripts/addons_contrib/gyes/random_material_generator.py
 %%DATADIR%%/scripts/addons_contrib/gyes/random_texture_generator.py
+%%DATADIR%%/scripts/addons_contrib/hdr2rgbm/__init__.py
+%%DATADIR%%/scripts/addons_contrib/hdr2rgbm/nodegroups_lib.blend
+%%DATADIR%%/scripts/addons_contrib/hdr2rgbm/README.md
 %%DATADIR%%/scripts/addons_contrib/height.py
+%%DATADIR%%/scripts/addons_contrib/hierarchy_editor.py
+%%DATADIR%%/scripts/addons_contrib/hierarchy_viewer.py
 %%DATADIR%%/scripts/addons_contrib/hooker.py
+%%DATADIR%%/scripts/addons_contrib/Image_Selector.py
 %%DATADIR%%/scripts/addons_contrib/io_atomblend_utilities/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_atomblend_utilities/io_atomblend_utilities.py
-%%DATADIR%%/scripts/addons_contrib/io_directx_bel/README
 %%DATADIR%%/scripts/addons_contrib/io_directx_bel/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_directx_bel/bel/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_directx_bel/bel/fs.py
@@ -1334,16 +1497,19 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/io_directx_bel/bel/ob.py
 %%DATADIR%%/scripts/addons_contrib/io_directx_bel/bel/uv.py
 %%DATADIR%%/scripts/addons_contrib/io_directx_bel/import_x.py
+%%DATADIR%%/scripts/addons_contrib/io_directx_bel/README
 %%DATADIR%%/scripts/addons_contrib/io_directx_bel/templates_x.py
 %%DATADIR%%/scripts/addons_contrib/io_export_marmalade.py
 %%DATADIR%%/scripts/addons_contrib/io_export_md3.py
 %%DATADIR%%/scripts/addons_contrib/io_export_paper_model.py
 %%DATADIR%%/scripts/addons_contrib/io_export_selected.py
 %%DATADIR%%/scripts/addons_contrib/io_import_BrushSet.py
-%%DATADIR%%/scripts/addons_contrib/io_import_LRO_Lola_MGS_Mola_img.py
+%%DATADIR%%/scripts/addons_contrib/io_import_georaster.py
 %%DATADIR%%/scripts/addons_contrib/io_import_lipSync_Importer.py
+%%DATADIR%%/scripts/addons_contrib/io_import_LRO_Lola_MGS_Mola_img.py
 %%DATADIR%%/scripts/addons_contrib/io_import_sound_to_anim.py
 %%DATADIR%%/scripts/addons_contrib/io_import_voodoo_camera.py
+%%DATADIR%%/scripts/addons_contrib/io_import_z64.py
 %%DATADIR%%/scripts/addons_contrib/io_mesh_gwyddion/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_mesh_gwyddion/import_gwyddion.py
 %%DATADIR%%/scripts/addons_contrib/io_mesh_xyz/__init__.py
@@ -1370,10 +1536,16 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/io_scene_fpx/lzo_spec.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_m3/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_m3/import_m3.py
+%%DATADIR%%/scripts/addons_contrib/io_scene_map/__init__.py
+%%DATADIR%%/scripts/addons_contrib/io_scene_map/export_map.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_md3/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_md3/export_md3.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_md3/import_md3.py
 %%DATADIR%%/scripts/addons_contrib/io_scene_open_street_map.py
+%%DATADIR%%/scripts/addons_contrib/io_shapefile/__init__.py
+%%DATADIR%%/scripts/addons_contrib/io_shapefile/op_export_shp.py
+%%DATADIR%%/scripts/addons_contrib/io_shapefile/op_import_shp.py
+%%DATADIR%%/scripts/addons_contrib/io_shapefile/shapefile.py
 %%DATADIR%%/scripts/addons_contrib/io_simple_3dcoat/__init__.py
 %%DATADIR%%/scripts/addons_contrib/io_simple_3dcoat/simple_coat.py
 %%DATADIR%%/scripts/addons_contrib/io_three/__init__.py
@@ -1416,10 +1588,19 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/isosurfer/__init__.py
 %%DATADIR%%/scripts/addons_contrib/isosurfer/mciso.pyx
 %%DATADIR%%/scripts/addons_contrib/isosurfer/setup64.py
+%%DATADIR%%/scripts/addons_contrib/jarch_vis/__init__.py
+%%DATADIR%%/scripts/addons_contrib/jarch_vis/jarch_flooring.py
+%%DATADIR%%/scripts/addons_contrib/jarch_vis/jarch_materials.py
+%%DATADIR%%/scripts/addons_contrib/jarch_vis/jarch_roofing.py
+%%DATADIR%%/scripts/addons_contrib/jarch_vis/jarch_siding.py
+%%DATADIR%%/scripts/addons_contrib/jarch_vis/jarch_stairs.py
+%%DATADIR%%/scripts/addons_contrib/jarch_vis/jarch_utils.py
 %%DATADIR%%/scripts/addons_contrib/keyframealign.py
 %%DATADIR%%/scripts/addons_contrib/lamp_geographical_sun.py
 %%DATADIR%%/scripts/addons_contrib/libraryManager.py
 %%DATADIR%%/scripts/addons_contrib/light_manager.py
+%%DATADIR%%/scripts/addons_contrib/Maskerade.py
+%%DATADIR%%/scripts/addons_contrib/matalogue.py
 %%DATADIR%%/scripts/addons_contrib/material_relations.py
 %%DATADIR%%/scripts/addons_contrib/materials_cycles_converter.py
 %%DATADIR%%/scripts/addons_contrib/matlib/__init__.py
@@ -1428,6 +1609,31 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/matlib/overwmat.py
 %%DATADIR%%/scripts/addons_contrib/matlib/removemat.py
 %%DATADIR%%/scripts/addons_contrib/matlib/sendmat.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/__init__.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/base.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/common.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/constitutive.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/database.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/definition.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/drive.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/driver.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/element.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/friction.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/function.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/help.html
+%%DATADIR%%/scripts/addons_contrib/MBDyn/help/createElem.png
+%%DATADIR%%/scripts/addons_contrib/MBDyn/help/editElem.png
+%%DATADIR%%/scripts/addons_contrib/MBDyn/help/index.html
+%%DATADIR%%/scripts/addons_contrib/MBDyn/help/info.svg
+%%DATADIR%%/scripts/addons_contrib/MBDyn/help/showFiltering.png
+%%DATADIR%%/scripts/addons_contrib/MBDyn/input_card.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/LICENSE
+%%DATADIR%%/scripts/addons_contrib/MBDyn/matrix.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/ns_node.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/plot.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/README.md
+%%DATADIR%%/scripts/addons_contrib/MBDyn/shape.py
+%%DATADIR%%/scripts/addons_contrib/MBDyn/simulator.py
 %%DATADIR%%/scripts/addons_contrib/measureit/__init__.py
 %%DATADIR%%/scripts/addons_contrib/measureit/measureit_geometry.py
 %%DATADIR%%/scripts/addons_contrib/measureit/measureit_main.py
@@ -1437,8 +1643,8 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/menuPins.py
 %%DATADIR%%/scripts/addons_contrib/mesh_border_deselect_outer.py
 %%DATADIR%%/scripts/addons_contrib/mesh_copy_uvs_from_joined.py
-%%DATADIR%%/scripts/addons_contrib/mesh_cut_faces/README.md
 %%DATADIR%%/scripts/addons_contrib/mesh_cut_faces/__init__.py
+%%DATADIR%%/scripts/addons_contrib/mesh_cut_faces/README.md
 %%DATADIR%%/scripts/addons_contrib/mesh_discombobulator.py
 %%DATADIR%%/scripts/addons_contrib/mesh_easylattice.py
 %%DATADIR%%/scripts/addons_contrib/mesh_edgetools.py
@@ -1455,6 +1661,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/mesh_extrude_along_curve.py
 %%DATADIR%%/scripts/addons_contrib/mesh_face_info_select.py
 %%DATADIR%%/scripts/addons_contrib/mesh_insert_edge_ring.py
+%%DATADIR%%/scripts/addons_contrib/mesh_makecoplanar.py
 %%DATADIR%%/scripts/addons_contrib/mesh_select_tools/__init__.py
 %%DATADIR%%/scripts/addons_contrib/mesh_select_tools/mesh_extras.py
 %%DATADIR%%/scripts/addons_contrib/mesh_select_tools/mesh_index_select.py
@@ -1469,21 +1676,32 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/mesh_select_tools/mesh_selection_topokit.py
 %%DATADIR%%/scripts/addons_contrib/mesh_select_vertex_groups.py
 %%DATADIR%%/scripts/addons_contrib/mesh_show_vgroup_weights.py
+%%DATADIR%%/scripts/addons_contrib/mesh_snap_utilities_line.py
 %%DATADIR%%/scripts/addons_contrib/mesh_summary.py
+%%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/__init__.py
 %%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/BIX.py
+%%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/cad_module.py
 %%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/CCEN.py
 %%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/EXM.py
+%%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/icons/array_slicer_short.py
+%%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/icons/BIX.png
+%%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/icons/CCEN.png
+%%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/icons/EXM.png
+%%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/icons/local01.tff
+%%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/icons/PERP.png
+%%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/icons/RENDERED_icons.png
+%%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/icons/V2X.png
+%%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/icons/VTX.png
+%%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/icons/XALL.png
 %%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/PERP.py
 %%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/V2X.py
 %%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/VTX.py
 %%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/XALL.py
-%%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/__init__.py
-%%DATADIR%%/scripts/addons_contrib/mesh_tinyCAD/cad_module.py
 %%DATADIR%%/scripts/addons_contrib/mesh_viewport_vertex_alignment.py
 %%DATADIR%%/scripts/addons_contrib/meshlint.py
 %%DATADIR%%/scripts/addons_contrib/mifth_tools/__init__.py
-%%DATADIR%%/scripts/addons_contrib/mifth_tools/mifth_tools.py
 %%DATADIR%%/scripts/addons_contrib/mifth_tools/mifth_tools_cloning.py
+%%DATADIR%%/scripts/addons_contrib/mifth_tools/mifth_tools.py
 %%DATADIR%%/scripts/addons_contrib/mifth_tools/mifth_vertex_paint.py
 %%DATADIR%%/scripts/addons_contrib/mira_tools/__init__.py
 %%DATADIR%%/scripts/addons_contrib/mira_tools/mi_base.py
@@ -1494,10 +1712,11 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/mira_tools/mi_curve_stretch.py
 %%DATADIR%%/scripts/addons_contrib/mira_tools/mi_curve_surfaces.py
 %%DATADIR%%/scripts/addons_contrib/mira_tools/mi_curve_test.py
-%%DATADIR%%/scripts/addons_contrib/mira_tools/mi_deform.py
 %%DATADIR%%/scripts/addons_contrib/mira_tools/mi_deform_gui.py
+%%DATADIR%%/scripts/addons_contrib/mira_tools/mi_deform.py
 %%DATADIR%%/scripts/addons_contrib/mira_tools/mi_draw_extrude.py
 %%DATADIR%%/scripts/addons_contrib/mira_tools/mi_extrude.py
+%%DATADIR%%/scripts/addons_contrib/mira_tools/mi_gui_old.py
 %%DATADIR%%/scripts/addons_contrib/mira_tools/mi_gui.py
 %%DATADIR%%/scripts/addons_contrib/mira_tools/mi_inputs.py
 %%DATADIR%%/scripts/addons_contrib/mira_tools/mi_linear_deformer.py
@@ -1512,6 +1731,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/molecular/molcore.py
 %%DATADIR%%/scripts/addons_contrib/molecular/setup64.py
 %%DATADIR%%/scripts/addons_contrib/node_colours.py
+%%DATADIR%%/scripts/addons_contrib/node_location_panel.py
 %%DATADIR%%/scripts/addons_contrib/node_presets.py
 %%DATADIR%%/scripts/addons_contrib/object_batch_rename_datablocks.py
 %%DATADIR%%/scripts/addons_contrib/object_booleans.py
@@ -1521,6 +1741,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/object_drop_to_ground.py
 %%DATADIR%%/scripts/addons_contrib/object_laplace_lightning.py
 %%DATADIR%%/scripts/addons_contrib/object_mangle_tools.py
+%%DATADIR%%/scripts/addons_contrib/object_particle_hair_lab.py
 %%DATADIR%%/scripts/addons_contrib/object_powerlib.py
 %%DATADIR%%/scripts/addons_contrib/object_render_wire.py
 %%DATADIR%%/scripts/addons_contrib/online_mat_lib/__init__.py
@@ -1577,8 +1798,8 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/stones/polished_haematite.bcm
 %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/stones/pool_tiles.bcm
 %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/stones/veined_marble.bcm
-%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/synthetic/carbon_fiber.bcm
 %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/synthetic/carbon_fiber_glossy.bcm
+%%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/synthetic/carbon_fiber.bcm
 %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/synthetic/polystyrene_foam.bcm
 %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/synthetic/rubber.bcm
 %%DATADIR%%/scripts/addons_contrib/online_mat_lib/material-library/bundled/cycles/textiles/denim.bcm
@@ -1607,7 +1828,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/oscurart_tools/oscurart_render.py
 %%DATADIR%%/scripts/addons_contrib/oscurart_tools/oscurart_shapes.py
 %%DATADIR%%/scripts/addons_contrib/oscurart_worn_edges_map.py
-%%DATADIR%%/scripts/addons_contrib/particle_hair_lab.py
+%%DATADIR%%/scripts/addons_contrib/Plancher_addon.py
 %%DATADIR%%/scripts/addons_contrib/planks.py
 %%DATADIR%%/scripts/addons_contrib/power_snapping_pies.py
 %%DATADIR%%/scripts/addons_contrib/presets/cam_cutters/ball_1.00mm.py
@@ -1698,18 +1919,39 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/print_3d/machine_profiles/PrintrBot.ini
 %%DATADIR%%/scripts/addons_contrib/print_3d/machine_profiles/PrintrBotLC+.ini
 %%DATADIR%%/scripts/addons_contrib/print_3d/machine_profiles/Prusa Mendel i3.ini
+%%DATADIR%%/scripts/addons_contrib/PRMan/__init__.py
+%%DATADIR%%/scripts/addons_contrib/PRMan/changelog.txt
+%%DATADIR%%/scripts/addons_contrib/PRMan/engine.py
+%%DATADIR%%/scripts/addons_contrib/PRMan/export.py
+%%DATADIR%%/scripts/addons_contrib/PRMan/installation.txt
+%%DATADIR%%/scripts/addons_contrib/PRMan/nodes.py
+%%DATADIR%%/scripts/addons_contrib/PRMan/operators.py
+%%DATADIR%%/scripts/addons_contrib/PRMan/preferences.py
+%%DATADIR%%/scripts/addons_contrib/PRMan/preview/preview_scene.rib
+%%DATADIR%%/scripts/addons_contrib/PRMan/properties.py
+%%DATADIR%%/scripts/addons_contrib/PRMan/README.md
+%%DATADIR%%/scripts/addons_contrib/PRMan/shader_parameters.py
+%%DATADIR%%/scripts/addons_contrib/PRMan/shaders/Args/PxrStdDisplacement.args
+%%DATADIR%%/scripts/addons_contrib/PRMan/shaders/PxrStdDisplacement.slo
+%%DATADIR%%/scripts/addons_contrib/PRMan/ui.py
+%%DATADIR%%/scripts/addons_contrib/PRMan/util.py
 %%DATADIR%%/scripts/addons_contrib/quick_pie.py
+%%DATADIR%%/scripts/addons_contrib/Randomiser/__init__.py
+%%DATADIR%%/scripts/addons_contrib/Randomiser/Randomiser_addon.py
 %%DATADIR%%/scripts/addons_contrib/randomvertexcolors.py
 %%DATADIR%%/scripts/addons_contrib/remove_unused_vertexGroups.py
 %%DATADIR%%/scripts/addons_contrib/render_auto_save.py
 %%DATADIR%%/scripts/addons_contrib/render_clay.py
 %%DATADIR%%/scripts/addons_contrib/render_notify.py
 %%DATADIR%%/scripts/addons_contrib/render_time.py
+%%DATADIR%%/scripts/addons_contrib/render_timeremapper.py
 %%DATADIR%%/scripts/addons_contrib/render_to_print.py
+%%DATADIR%%/scripts/addons_contrib/Resolve Camera Tracks.py
 %%DATADIR%%/scripts/addons_contrib/rig_face_bone_tool.py
 %%DATADIR%%/scripts/addons_contrib/rigging_camerarigs.py
 %%DATADIR%%/scripts/addons_contrib/rotationArmature.py
 %%DATADIR%%/scripts/addons_contrib/runscript_pyconsole.py
+%%DATADIR%%/scripts/addons_contrib/save_all_renderlayers_and_passes.py
 %%DATADIR%%/scripts/addons_contrib/scan_tools.py
 %%DATADIR%%/scripts/addons_contrib/script_auto_complete/__init__.py
 %%DATADIR%%/scripts/addons_contrib/script_auto_complete/addon_development_manager.py
@@ -1737,8 +1979,9 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/script_auto_complete/text_editor_utils.py
 %%DATADIR%%/scripts/addons_contrib/script_auto_complete/text_operators.py
 %%DATADIR%%/scripts/addons_contrib/script_auto_complete/ui.py
-%%DATADIR%%/scripts/addons_contrib/sculpt_brushes/Brushes_IK.blend
+%%DATADIR%%/scripts/addons_contrib/script_watcher.py
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/__init__.py
+%%DATADIR%%/scripts/addons_contrib/sculpt_brushes/Brushes_IK.blend
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/loadik.py
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/main_brush.py
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/Clay strip knif.png
@@ -1748,22 +1991,22 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/Dots.png
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/Draw bules.png
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/Draw rack.png
+%%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/hecto.png
+%%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/inf .png
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/Multi strock.png
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/Rec slash 2.png
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/Rec slash trait.png
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/Rec slash.png
+%%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/repter1.png
+%%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/repter2.png
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/Scrap (1).png
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/Scrap.png
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/Slash-Bum.png
-%%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/hecto.png
-%%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/inf .png
-%%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/repter1.png
-%%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/repter2.png
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/voro1.png
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/shoot/voro2.png
+%%DATADIR%%/scripts/addons_contrib/sculpt_brushes/textures/aret.jpg
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/textures/AsileFX_Alpha_0181.jpg
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/textures/AsileFX_Alpha_0261.jpg
-%%DATADIR%%/scripts/addons_contrib/sculpt_brushes/textures/aret.jpg
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/textures/aye.jpg
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/textures/boulon-octo.jpg
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/textures/carre-fil.jpg
@@ -1773,6 +2016,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/textures/rectangle.jpg
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/textures/slash.jpg
 %%DATADIR%%/scripts/addons_contrib/sculpt_brushes/textures/vis-hexa.jpg
+%%DATADIR%%/scripts/addons_contrib/seamless.py
 %%DATADIR%%/scripts/addons_contrib/select_similar.py
 %%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/__init__.py
 %%DATADIR%%/scripts/addons_contrib/sequencer_extra_actions/exiftool.py
@@ -1784,6 +2028,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sequencer_tools/export_strips.py
 %%DATADIR%%/scripts/addons_contrib/sibl.py
 %%DATADIR%%/scripts/addons_contrib/silhouette.py
+%%DATADIR%%/scripts/addons_contrib/SimpleSubtitleEditor.py
 %%DATADIR%%/scripts/addons_contrib/slope.py
 %%DATADIR%%/scripts/addons_contrib/slope2vcol.py
 %%DATADIR%%/scripts/addons_contrib/slope2vgroup.py
@@ -1817,8 +2062,8 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/space_view3d_cursor_control/memory.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_cursor_control/misc_utils.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_cursor_control/operators.py
-%%DATADIR%%/scripts/addons_contrib/space_view3d_cursor_control/ui.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_cursor_control/ui_utils.py
+%%DATADIR%%/scripts/addons_contrib/space_view3d_cursor_control/ui.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_cut_copy_paste.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_enhanced_3d_cursor.py
 %%DATADIR%%/scripts/addons_contrib/space_view3d_game_props_visualiser.py
@@ -1865,8 +2110,9 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/stored_views/ui.py
 %%DATADIR%%/scripts/addons_contrib/super_grouper/__init__.py
 %%DATADIR%%/scripts/addons_contrib/super_grouper/grouper_main.py
-%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/COPYING
+%%DATADIR%%/scripts/addons_contrib/Surf.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/__init__.py
+%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/auxiliary_classes/__init__.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/auxiliary_classes/Brush.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/auxiliary_classes/Brushes.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/auxiliary_classes/FalloffCurve.py
@@ -1879,26 +2125,26 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/auxiliary_classes/VertexFilter.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/auxiliary_classes/VertexProperties.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/auxiliary_classes/View3DGraphic.py
-%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/auxiliary_classes/__init__.py
+%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/COPYING
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/function_modules/__init__.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/function_modules/auto_shrinkwrap_handlers.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/function_modules/modifiers.py
+%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/operators/__init__.py
+%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/operators/internal/__init__.py
+%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/operators/internal/ResizeMeshBrush.py
+%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/operators/internal/StrokeMove.py
+%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/operators/internal/StrokeSmooth.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/operators/MeshBrush.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/operators/PickSurfaceConstraint.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/operators/Shrinkwrap.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/operators/SmoothVertices.py
-%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/operators/__init__.py
-%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/operators/internal/ResizeMeshBrush.py
-%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/operators/internal/StrokeMove.py
-%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/operators/internal/StrokeSmooth.py
-%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/operators/internal/__init__.py
-%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/preferences/SurfaceConstraintToolsPrefs.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/preferences/__init__.py
+%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/preferences/SurfaceConstraintToolsPrefs.py
+%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/properties/__init__.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/properties/MeshBrushProps.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/properties/ShrinkwrapProps.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/properties/SmoothVerticesProps.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/properties/SurfaceConstraintProps.py
-%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/properties/__init__.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/ui/__init__.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/ui/layouts/__init__.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/ui/layouts/mesh_brush/__init__.py
@@ -1913,34 +2159,28 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/ui/layouts/smooth_vertices/smooth_vertices_ui.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/ui/layouts/surface_constraint/__init__.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/ui/layouts/surface_constraint/surface_constraint_ui.py
-%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/ui/panels/SurfaceConstraintToolsPanel.py
 %%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/ui/panels/__init__.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/LICENSE
-%%DATADIR%%/scripts/addons_contrib/sverchok/README.md
+%%DATADIR%%/scripts/addons_contrib/surface_constraint_tools/ui/panels/SurfaceConstraintToolsPanel.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/__init__.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/core/__init__.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/core/handlers.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/core/update_system.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/core/upgrade_nodes.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/data_structure.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/Makefile
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/Unit_01/lesson_01.rst
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/Unit_01/lesson_02.rst
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/Unit_01/lesson_03.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/__init__.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/breadcrumbs.html
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/footer.html
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/layout.html
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/layout_old.html
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/layout.html
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/search.html
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/searchbox.html
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/static/css/badge_only.css
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/static/css/theme.css
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/static/fonts/FontAwesome.otf
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/static/fonts/fontawesome-webfont.eot
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/static/fonts/fontawesome-webfont.svg
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/static/fonts/fontawesome-webfont.ttf
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/static/fonts/fontawesome-webfont.woff
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/static/fonts/FontAwesome.otf
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/static/js/theme.js
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/theme.conf
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/_themes/sphinx_rtd_theme/versions.html
@@ -1951,6 +2191,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/installation.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/main.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/make.bat
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/Makefile
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/analyzer/analyzer.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/analyzer/area.rst
@@ -1958,8 +2199,8 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/analyzer/calc_normals.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/analyzer/distance_pp.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/analyzer/edge_angles.rst
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/analyzer/kd_tree.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/analyzer/kd_tree_edges.rst
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/analyzer/kd_tree.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/analyzer/polygons_centers.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/analyzer/raycast.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/analyzer/volume.rst
@@ -1968,14 +2209,13 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/beta/bevel.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/beta/bricks.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/beta/image_decompose.rst
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/beta/iterate.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/beta/matrix_apply_and_join.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/beta/mesh_filter.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/beta/set_dataobject.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/2pt_spline.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/3pt_arc.rst
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/box.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/box_rounded.rst
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/box.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/circle.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/cylinder.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/exponential.rst
@@ -1983,18 +2223,18 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/formula_shape.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/generative_art.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/generator.rst
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/hilbert_image.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/hilbert.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/hilbert3d.rst
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/hilbert_image.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/image.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/line.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/ngon.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/plane.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/profile_parametric.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/random_vector.rst
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/scripted_intro.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/scripted.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/scripted2.rst
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/scripted_intro.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/generator/sphere.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/layout/layout.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/layout/socket_converter.rst
@@ -2021,20 +2261,21 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/list_struct/list_split.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/list_struct/list_struct.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/logic/elman.rst
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/logic/logic.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/logic/logic_node.rst
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/logic/logic.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/logic/switch.rst
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/matrix/matrix.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/matrix/matrix_deform.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/matrix/matrix_in_out.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/matrix/matrix_input.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/matrix/matrix_interpolation.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/matrix/matrix_shear.rst
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/matrix/matrix.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/modifier_change/delete_loose.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/modifier_change/extrude_edges.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/modifier_change/extrude_separate.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/modifier_change/fill_holes.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/modifier_change/intersect_edges.rst
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/modifier_change/iterate.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/modifier_change/mask_vertices.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/modifier_change/mesh_join.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/modifier_change/modifier_change.rst
@@ -2081,9 +2322,9 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/text/gtext.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/text/note.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/text/stethoscope.rst
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/text/text.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/text/text_in.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/text/text_out.rst
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/text/text.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/text/viewer_text.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/transforms/matrix_apply.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/transforms/mirror.rst
@@ -2091,7 +2332,6 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/transforms/rotation.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/transforms/scale.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/transforms/transforms.rst
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/vector/vector.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/vector/vector_doubles.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/vector/vector_drop.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/vector/vector_evaluate.rst
@@ -2104,55 +2344,59 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/vector/vector_polar_out.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/vector/vector_sort.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/vector/vector_xyz.rst
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/vector/vector.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/viz/3dview_props.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/viz/viewer_bmesh.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/viz/viewer_draw.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/viz/viewer_indx.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/nodes/viz/viz.rst
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/old/for_developers
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/old/Installation_troubleshooting.md
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/old/Introduction_to_Geometry.md
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/old/lists_join wiki
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/old/ScriptedNode_documentation.md
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/old/Scripts_generator.md
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/old/VectorMathNode.md
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/old/for_developers
-%%DATADIR%%/scripts/addons_contrib/sverchok/docs/old/lists_join wiki
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/old/todo.md
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/old/VectorMathNode.md
 %%DATADIR%%/scripts/addons_contrib/sverchok/docs/panels.rst
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/Unit_01/lesson_01.rst
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/Unit_01/lesson_02.rst
+%%DATADIR%%/scripts/addons_contrib/sverchok/docs/Unit_01/lesson_03.rst
 %%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/1.Basics_Sverchok.json
 %%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/3.Spiral.json
 %%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/4leveldataexample.json
-%%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/Donut.json
-%%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/Transformations.json
-%%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/WAFEL_minimal.json
 %%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/dancing_nodes.json
+%%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/Donut.json
 %%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/hilbert_to_circle.json
 %%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/petal_egg.json
 %%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/petri_circle.json
 %%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/petri_plane.json
-%%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/petri_spiral.json
 %%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/petri_spiral_scale.json
+%%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/petri_spiral.json
+%%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/Transformations.json
+%%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/WAFEL_minimal.json
 %%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/wingflap4.json
 %%DATADIR%%/scripts/addons_contrib/sverchok/json_examples/zef_lesson_01_unit_circle.json
+%%DATADIR%%/scripts/addons_contrib/sverchok/LICENSE
 %%DATADIR%%/scripts/addons_contrib/sverchok/menu.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/SN2-templates/LorenzAttractor2.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/SN2-templates/deleteloose.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/SN2-templates/geodesic.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/SN2-templates/grid.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/SN2-templates/line.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/SN2-templates/list_lengths.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/SN2-templates/LorenzAttractor2.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/SN2-templates/petal.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/SN2-templates/test.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/SN2-templates/test2.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/TEMPLATE.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/best_candidate_rect_randompoints.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/circles_on_points.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/default_cube_ordered.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/edge-length.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/elfnor/GA_node.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/elfnor/GA_node_simple.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/elfnor/GA_node.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/elfnor/GA_xml.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/elfnor/LSystem_blender.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/elfnor/hyperbolic_coral.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/elfnor/LSystem_blender.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/elfnor/matrix_tube_node.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/equal_pols_leave.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/fib_sphere.py
@@ -2177,10 +2421,12 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/nikitron/influence.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/nikitron/nodes_to_3d_dance.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/nikitron/pipe.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/nikitron/projection_to_plane.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/nikitron/rollout.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/nikitron/shape_keys_values_vectorized.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/nikitron/statistics.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/nikitron/tie_binding.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/nikitron/vector_field.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/parametric_spring_with_polygons.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/petal_sine.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/process_bmesh.py
@@ -2189,14 +2435,11 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/sinus_from_line.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/spiral_fib.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/sv_lang_template.sn
+%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/TEMPLATE.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/3dgrid_Downsampler.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/BFont_outline_and_polygons.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/L-system_initial.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/LorenzAttractor.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/LorenzAttractor2.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/Template_paradigm.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/bezier_node_script.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/bezier_node_script_normalizer.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/bezier_node_script.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/BFont_outline_and_polygons.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/cyclic_surface.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/dashed_edges.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/geometry_lesson_03_GRID.py
@@ -2204,6 +2447,9 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/hilbert3.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/kdtree_3_closest.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/kdtree_Proportional_move.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/L-system_initial.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/LorenzAttractor.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/LorenzAttractor2.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/matrices.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/max_x_filter.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/minimal_kdtree_edges_closest_n.py
@@ -2212,28 +2458,32 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/random_numpy_points_on_plane.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/random_numpy_wseed.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/spline_utils.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/Template_paradigm.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/tone_fillet.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/ui_ops_test.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/vector_fx.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/vert_edges_kdtree.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/vert_edges_kdtree_range.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/vert_edges_kdtree.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/vert_edges_trig.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/whatkindofnameisthat.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/zUVEdgeSurf.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/zUVEdgeSurf_fromiterator.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/node_scripts/templates/zeffii/zUVEdgeSurf.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/node_tree.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/__init__.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/__init__.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/area.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/bbox.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/bmesh_props.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/bvh_nearest.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/bvh_overlap.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/bvh_raycast.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/closest_point_on_mesh.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/colors.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/distance_pp.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/edge_angles.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/image_components.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/kd_tree.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/kd_tree_edges.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/kd_tree.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/mesh_filter.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/neuro_elman.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/normals.py
@@ -2242,10 +2492,14 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/scene_raycast.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/volume.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/analyzer/weights.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_data/BMOperators.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_data/__init__.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_data/blenddata_to_svdata.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_data/bmesh_in.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_data/bmesh_out.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_data/bmesh_to_element.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_data/BMOperators.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_data/cache.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_data/create_bvh_tree.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_data/filter_blenddata.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_data/get_blenddata.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_data/getsetprop.py
@@ -2258,18 +2512,18 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_data/text.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_data/wifi_in.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_data/wifi_out.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_debug/3dview_props.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_debug/__init__.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_debug/3dview_props.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_debug/debug_print.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_debug/frame_info.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_debug/gtext.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_debug/gtext_font.dict
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_debug/gtext.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_debug/note.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_debug/stethoscope.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_view/__init__.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_view/empty_out.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_view/viewer_bmesh.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_view/viewer_bmesh_mk2.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_view/viewer_bmesh.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_view/viewer_curves.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_view/viewer_indices.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/basic_view/viewer_mk2.py
@@ -2279,16 +2533,16 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/__init__.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/basic_3pt_arc.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/basic_spline.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/box.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/box_rounded.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/box.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/bricks.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/circle.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/cylinder.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/formula.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/generative_art.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/hilbert_image.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/hilbert.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/hilbert3d.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/hilbert_image.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/image.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/instancer.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/line.py
@@ -2297,8 +2551,8 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/profile.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/prototyper_js.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/random_vector.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/script.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/script_mk2.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/script.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/generator/sphere.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/list_basic/__init__.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/list_basic/converter.py
@@ -2307,8 +2561,8 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/list_basic/join.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/list_basic/length.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/list_basic/levels.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/list_basic/mask.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/list_basic/mask_join.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/list_basic/mask.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/list_basic/match.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/list_basic/sum.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/list_basic/zip.py
@@ -2325,8 +2579,8 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/list_interfere/split.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/list_interfere/start_end.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/matrix/__init__.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/matrix/apply.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/matrix/apply_and_join.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/matrix/apply.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/matrix/deform.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/matrix/destructor.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/matrix/euler.py
@@ -2373,11 +2627,13 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/modifier_make/voronoi_2d.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/modifier_make/wafel.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/modifier_make/wireframe.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/network/udp_client.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/number/__init__.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/number/easing.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/number/exponential.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/number/fibonacci.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/number/float.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/number/float_to_int.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/number/float.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/number/formula2.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/number/integer.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/number/list_input.py
@@ -2390,6 +2646,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/vector/__init__.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/vector/axis_input.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/vector/drop.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/nodes/vector/interpolation_mk2.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/vector/interpolation.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/vector/line_evaluate.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/vector/math.py
@@ -2402,14 +2659,15 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/vector/vector_polar_out.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/vector/vertices_delete_doubles.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/nodes/vector/vertices_sort.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/old_nodes/README
 %%DATADIR%%/scripts/addons_contrib/sverchok/old_nodes/__init__.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/old_nodes/bakery.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/old_nodes/circle.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/old_nodes/eval_knieval.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/old_nodes/formula.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/old_nodes/list_item.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/old_nodes/polygons_center.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/old_nodes/range.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/old_nodes/README
 %%DATADIR%%/scripts/addons_contrib/sverchok/old_nodes/reroute.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/old_nodes/series.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/old_nodes/test.py
@@ -2417,6 +2675,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/old_nodes/viewer.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/old_nodes/voronoi.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/package.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/README.md
 %%DATADIR%%/scripts/addons_contrib/sverchok/settings.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/ui/__init__.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/ui/color_def.py
@@ -2425,8 +2684,8 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/ui/nodeview_space_menu.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/ui/sv_IO_panel.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/ui/sv_panels.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/ui/viewer_draw.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/ui/viewer_draw_mk2.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/ui/viewer_draw.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/utils/__init__.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/utils/ascii_print.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/utils/cad_module.py
@@ -2434,10 +2693,11 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/sverchok/utils/csg_geom.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/utils/group_tools.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/utils/script_importhelper.py
-%%DATADIR%%/scripts/addons_contrib/sverchok/utils/sv_IO_panel_tools.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/utils/sv_bmesh_utils.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/utils/sv_curve_utils.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/utils/sv_draw_svg_node.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/utils/sv_easing_functions.py
+%%DATADIR%%/scripts/addons_contrib/sverchok/utils/sv_IO_panel_tools.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/utils/sv_itertools.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/utils/sv_mesh_utils.py
 %%DATADIR%%/scripts/addons_contrib/sverchok/utils/sv_panels_tools.py
@@ -2465,10 +2725,16 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/system_keyboard_svg.py
 %%DATADIR%%/scripts/addons_contrib/system_project_folder.py
 %%DATADIR%%/scripts/addons_contrib/system_time_tracker.py
-%%DATADIR%%/scripts/addons_contrib/textToFile.py
 %%DATADIR%%/scripts/addons_contrib/text_editor_pasteall.py
 %%DATADIR%%/scripts/addons_contrib/text_intellisense.py
+%%DATADIR%%/scripts/addons_contrib/textToFile.py
 %%DATADIR%%/scripts/addons_contrib/texture_extractor.py
+%%DATADIR%%/scripts/addons_contrib/tissue/__init__.py
+%%DATADIR%%/scripts/addons_contrib/tissue/colors_groups_exchanger.py
+%%DATADIR%%/scripts/addons_contrib/tissue/dual_mesh.py
+%%DATADIR%%/scripts/addons_contrib/tissue/LICENSE
+%%DATADIR%%/scripts/addons_contrib/tissue/README.md
+%%DATADIR%%/scripts/addons_contrib/tissue/tessellate_numpy.py
 %%DATADIR%%/scripts/addons_contrib/tracking_pies.py
 %%DATADIR%%/scripts/addons_contrib/tubetool/__init__.py
 %%DATADIR%%/scripts/addons_contrib/tubetool/tt_operators.py
@@ -2490,15 +2756,19 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/addons_contrib/uv_squares.py
 %%DATADIR%%/scripts/addons_contrib/uv_tube_unwrap.py
 %%DATADIR%%/scripts/addons_contrib/uv_utility.py
-%%DATADIR%%/scripts/addons_contrib/uvimageTools.py
 %%DATADIR%%/scripts/addons_contrib/uvimage_save_slots.py
+%%DATADIR%%/scripts/addons_contrib/uvimageTools.py
 %%DATADIR%%/scripts/addons_contrib/vfxtoolbox.py
+%%DATADIR%%/scripts/addons_contrib/view3d_setGeorefCam.py
 %%DATADIR%%/scripts/addons_contrib/viewer_target.py
 %%DATADIR%%/scripts/addons_contrib/viewport_pies.py
 %%DATADIR%%/scripts/addons_contrib/visiblevertices.py
+%%DATADIR%%/scripts/addons_contrib/VSE_Transform_Tool.py
+%%DATADIR%%/scripts/addons_contrib/VSEC.py
+%%DATADIR%%/scripts/addons_contrib/VSEQuickFunctions.py
 %%DATADIR%%/scripts/addons_contrib/vtoolsSnapShotMesh.py
 %%DATADIR%%/scripts/addons_contrib/weighttovertexcolor.py
-%%DATADIR%%/scripts/addons_contrib/wetted_mesh.py
+%%DATADIR%%/scripts/addons_contrib/ZeroBrush.py
 %%DATADIR%%/scripts/freestyle/modules/freestyle/__init__.py
 %%DATADIR%%/scripts/freestyle/modules/freestyle/chainingiterators.py
 %%DATADIR%%/scripts/freestyle/modules/freestyle/functions.py
@@ -2556,6 +2826,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/modules/bl_i18n_utils/utils_languages_menu.py
 %%DATADIR%%/scripts/modules/bl_i18n_utils/utils_rtl.py
 %%DATADIR%%/scripts/modules/bl_i18n_utils/utils_spell_check.py
+%%DATADIR%%/scripts/modules/bl_previews_utils/bl_previews_render.py
 %%DATADIR%%/scripts/modules/blend_render_info.py
 %%DATADIR%%/scripts/modules/bpy/__init__.py
 %%DATADIR%%/scripts/modules/bpy/ops.py
@@ -2596,6 +2867,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/modules/msgpack/unpack_define.h
 %%DATADIR%%/scripts/modules/msgpack/unpack_template.h
 %%DATADIR%%/scripts/modules/nodeitems_utils.py
+%%DATADIR%%/scripts/modules/progress_report.py
 %%DATADIR%%/scripts/modules/rna_info.py
 %%DATADIR%%/scripts/modules/rna_keymap_ui.py
 %%DATADIR%%/scripts/modules/rna_prop_ui.py
@@ -2779,6 +3051,7 @@ share/applications/blender-sambler.desktop
 %%DATADIR%%/scripts/startup/bl_operators/anim.py
 %%DATADIR%%/scripts/startup/bl_operators/clip.py
 %%DATADIR%%/scripts/startup/bl_operators/console.py
+%%DATADIR%%/scripts/startup/bl_operators/file.py
 %%DATADIR%%/scripts/startup/bl_operators/freestyle.py
 %%DATADIR%%/scripts/startup/bl_operators/image.py
 %%DATADIR%%/scripts/startup/bl_operators/mask.py
