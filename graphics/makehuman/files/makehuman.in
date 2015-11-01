@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# makehuman is self contained in one folder and 
+# finds files in the same dir as the main script.
+# putting a sh script in $PREFIX/bin is easier than 
+# adjusting python search paths.
+
+%%PYTHON_CMD%% %%DATADIR%%/makehuman.py $@
