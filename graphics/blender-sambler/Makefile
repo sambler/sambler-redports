@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.76
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	graphics multimedia
 DIST_SUBDIR=	${PORTNAME}
 
@@ -192,12 +192,17 @@ post-install:
 	@${MV} ${STAGEDIR}/${PREFIX}/bin/blender ${STAGEDIR}/${PREFIX}/bin/blender-bin-${VERS_TAG}
 	@${MV} ${STAGEDIR}/${PREFIX}/bin/blender-thumbnailer.py \
 		${STAGEDIR}/${PREFIX}/bin/blender-thumbnailer-${VERS_TAG}.py
+	@${ECHO} bin/blender-${VERS_TAG} >> ${TMPPLIST}
+	@${ECHO} bin/blender-bin-${VERS_TAG} >> ${TMPPLIST}
+	@${ECHO} bin/blender-thumbnailer-${VERS_TAG}.py >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MPLAYER}
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blenderplayer
 	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${STAGEDIR}/${PREFIX}/bin/blenderplayer-${VERS_TAG}
 	@${MV} ${STAGEDIR}/${PREFIX}/bin/blenderplayer \
 		${STAGEDIR}/${PREFIX}/bin/blenderplayer-bin-${VERS_TAG}
+	@${ECHO} bin/blenderplayer-${VERS_TAG} >> ${TMPPLIST}
+	@${ECHO} bin/blenderplayer-bin-${VERS_TAG} >> ${TMPPLIST}
 .endif
 
 	@${MKDIR} ${STAGEDIR}${DATADIR}
@@ -205,17 +210,21 @@ post-install:
 	@${RM} -R ${STAGEDIR}/${PREFIX}/share/blender
 	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/icons/scalable/apps/blender.svg \
 		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
+	@${ECHO} share/pixmaps/blender-${VERS_TAG}.svg >> ${TMPPLIST}
 	@${MKDIR} ${STAGEDIR}/${DESKTOPDIR}
 	@${MV} ${STAGEDIR}/${DESKTOPDIR}/blender.desktop \
 		${STAGEDIR}/${DESKTOPDIR}/${PORTNAME}.desktop
 	@${REINPLACE_CMD} -i '' -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
 		${STAGEDIR}/${DESKTOPDIR}/${PORTNAME}.desktop
+	@${ECHO} share/applications/${PORTNAME}.desktop >> ${TMPPLIST}
 	@-update-desktop-database -q
 	@${MKDIR} ${STAGEDIR}/${LICDIR}
 	@${MV} ${STAGEDIR}/${PREFIX}/share/doc/blender/* ${STAGEDIR}/${LICDIR}
 	@${RM} -R ${STAGEDIR}/${PREFIX}/share/doc/blender
 	@cd ${STAGEDIR}/${PREFIX}/share/icons && ${FIND} . -name "*.png" -or -name "*.svg" | \
 		${SED} -e "p;s|blender|blender-${VERS_TAG}|" | xargs -n2 ${MV}
+	@(cd ${STAGEDIR}/${PREFIX}; ${FIND} share/icons -type f) | ${SORT} >> ${TMPPLIST}
+	@(cd ${STAGEDIR}/${PREFIX}; ${FIND} ${DATADIR_REL} -type f) | ${SORT} >> ${TMPPLIST}
 
 .if ${PORT_OPTIONS:MMANPAGES}
 	${INSTALL_MAN} ${INSTALL_WRKSRC}/bin/blender-${VERS_TAG}.1 \
