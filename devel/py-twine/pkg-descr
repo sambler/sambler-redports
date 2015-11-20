@@ -1,0 +1,12 @@
+Twine is a utility for interacting with PyPI.
+The biggest reason to use twine is that it securely authenticates
+you to PyPI over HTTPS using a verified connection.
+
+Features -
+- Verified HTTPS Connections
+- Uploading doesn’t require executing setup.py
+- Uploading files that have already been created, allowing testing 
+   of distributions before release
+- Supports uploading any packaging format (including wheels).
+
+WWW: https://github.com/pypa/twine
