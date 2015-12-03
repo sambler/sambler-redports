@@ -2,9 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio
-PORTVERSION=	1.5.20
+PORTVERSION=	1.6.6
 DISTVERSIONPREFIX=	Release-
-PORTREVISION?=	1
+PORTREVISION?=	0
+DISTVERSIONSUFFIX=	beta
 CATEGORIES?=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
@@ -24,7 +25,8 @@ CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DLINKSTATIC:BOOL=OFF \
 		-DNOTHREADS:BOOL=OFF \
 		-DSTOP_ON_WARNING:BOOL=OFF \
-		-DUSE_CPP11:BOOL=OFF \
+		-DOIIO_BUILD_CPP11:BOOL=OFF \
+		-DOIIO_BUILD_CPP14:BOOL=OFF \
 		-DUSE_OPENSSL:BOOL=OFF
 CXXFLAGS+=	-D__STDC_CONSTANT_MACROS
 
@@ -34,7 +36,7 @@ OPTIONS_DEFAULT=	FREETYPE GIF OCIO OPENJPEG
 OPTIONS_SUB=		yes
 
 FFMPEG_DESC=		Use FFmpeg to support extra file types
-IMAGEVIEWER_DESC=	Build image viewer
+IMAGEVIEWER_DESC=	Build image viewer (requires Qt)
 OCIO_DESC=		Color management support
 
 DOCS_CMAKE_ON=		-DINSTALL_DOCS:BOOL=ON
@@ -51,6 +53,10 @@ FREETYPE_LIB_DEPENDS=	libfreetype.so:${PORTSDIR}/print/freetype2
 GIF_CMAKE_ON=		-DUSE_GIF:BOOL=ON
 GIF_CMAKE_OFF=		-DUSE_GIF:BOOL=OFF
 GIF_LIB_DEPENDS=	libgif.so:${PORTSDIR}/graphics/giflib
+
+IMAGEVIEWER_CMAKE_ON=	-DUSE_QT:BOOL=ON -DUSE_OPENGL:BOOL=ON
+IMAGEVIEWER_CMAKE_OFF=	-DUSE_OPENGL:BOOL=OFF -DUSE_QT:BOOL=OFF
+IMAGEVIEWER_USE=	GL=glew QT4=corelib,gui,opengl,qmake_build,moc_build,rcc_build,uic_build
 
 OCIO_CMAKE_ON=		-DUSE_OCIO:BOOL=ON
 OCIO_CMAKE_OFF=		-DUSE_OCIO:BOOL=OFF
@@ -90,15 +96,7 @@ PLIST=		${PKGDIR}/pkg-plist-pybind
 #while oiio supports py3, ports doesn't have py3 support for boost-python yet
 USES+=		python:2
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON -DUSE_PYTHON3:BOOL=OFF \
-		-DOIIO_BUILD_TOOLS:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MIMAGEVIEWER}
-USE_GL=		glew
-USE_QT4=	corelib gui opengl qmake_build moc_build rcc_build uic_build
-CMAKE_ARGS+=	-DUSE_QT:BOOL=ON -DUSE_OPENGL:BOOL=ON
-.else
-CMAKE_ARGS+=	-DUSE_OPENGL:BOOL=OFF -DUSE_QT:BOOL=OFF
+		-DOIIO_BUILD_TOOLS:BOOL=OFF -DUSE_FFMPEG:BOOL=OFF
 .endif
 
 post-patch:
@@ -107,8 +105,13 @@ post-patch:
 
 post-install:
 .if ${SLAVE_PORT} == no
-	${LN} -sf libOpenImageIO.so.1.5 ${STAGEDIR}${PREFIX}/lib/libOpenImageIO.so.1
-	${LN} -sf libOpenImageIO_Util.so.1.5 ${STAGEDIR}${PREFIX}/lib/libOpenImageIO_Util.so.1
+	${LN} -sf libOpenImageIO.so.1.6 \
+		${STAGEDIR}${PREFIX}/lib/libOpenImageIO.so.1
+	${LN} -sf libOpenImageIO_Util.so.1.6 \
+		${STAGEDIR}${PREFIX}/lib/libOpenImageIO_Util.so.1
 .endif
+
+do-test-TEST-on:
+	@cd ${BUILD_WRKSRC} && ${MAKE_CMD} test
 
 .include <bsd.port.mk>
