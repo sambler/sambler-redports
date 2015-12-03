@@ -1,0 +1,9 @@
+--- src/include/CMakeLists.txt.orig	2015-12-02 07:17:13 UTC
++++ src/include/CMakeLists.txt
+@@ -15,5 +15,5 @@ set (OIIO_VERSION_NS "v${MANGLED_SOVERSI
+ configure_file(OpenImageIO/oiioversion.h.in "${CMAKE_BINARY_DIR}/include/OpenImageIO/oiioversion.h" @ONLY)
+ list(APPEND public_headers "${CMAKE_BINARY_DIR}/include/OpenImageIO/oiioversion.h")
+ 
+-install (FILES ${public_headers} DESTINATION ${INCLUDE_INSTALL_DIR}
++install (FILES ${public_headers} DESTINATION include/OpenImageIO15
+          COMPONENT developer)

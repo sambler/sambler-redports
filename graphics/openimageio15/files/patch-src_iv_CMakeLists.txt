@@ -1,0 +1,23 @@
+--- src/iv/CMakeLists.txt.orig	2015-12-02 07:17:13 UTC
++++ src/iv/CMakeLists.txt
+@@ -18,14 +18,14 @@ if (QT4_FOUND AND OPENGL_FOUND AND GLEW_
+     if (FORCE_OPENGL_1)
+         add_definitions(-DFORCE_OPENGL_1)
+     endif()
+-    add_executable (iv ${iv_srcs})
+-    set_target_properties (iv PROPERTIES FOLDER "Tools")
+-    link_ilmbase (iv)
+-    target_link_libraries (iv OpenImageIO ${QT_LIBRARIES} ${OPENGL_LIBRARIES} 
++    add_executable (iv15 ${iv_srcs})
++    set_target_properties (iv15 PROPERTIES FOLDER "Tools")
++    link_ilmbase (iv15)
++    target_link_libraries (iv15 OpenImageIO15 ${QT_LIBRARIES} ${OPENGL_LIBRARIES} 
+                                ${Boost_LIBRARIES} ${CMAKE_DL_LIBS}
+                                ${GLEW_LIBRARIES})
+-    oiio_install_targets (iv)
++    oiio_install_targets (iv15)
+ 
+ else ()
+-    message (STATUS "\n\n   WARNING: Qt, OpenGL, or GLEW not found -- 'iv' will not be built!\n")
++    message (STATUS "\n\n   WARNING: Qt, OpenGL, or GLEW not found -- 'iv15' will not be built!\n")
+ endif ()

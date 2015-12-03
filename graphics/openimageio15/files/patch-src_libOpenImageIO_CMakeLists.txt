@@ -1,0 +1,145 @@
+--- src/libOpenImageIO/CMakeLists.txt.orig	2015-12-02 07:17:13 UTC
++++ src/libOpenImageIO/CMakeLists.txt
+@@ -206,80 +206,80 @@ source_group ("libutil"    REGULAR_EXPRE
+ source_group ("libtexture" REGULAR_EXPRESSION ".+/libtexture/.+")
+ 
+ if (BUILDSTATIC)
+-    add_library (OpenImageIO STATIC ${libOpenImageIO_srcs})
++    add_library (OpenImageIO15 STATIC ${libOpenImageIO_srcs})
+ else ()
+-    add_library (OpenImageIO SHARED ${libOpenImageIO_srcs})
++    add_library (OpenImageIO15 SHARED ${libOpenImageIO_srcs})
+ endif ()
+-target_link_libraries (OpenImageIO
++target_link_libraries (OpenImageIO15
+                            ${VISIBILITY_COMMAND} ${VISIBILITY_MAP_COMMAND}
+                            ${Boost_LIBRARIES})
+ 
+ # Include FFmpeg if using it
+ if (USE_FFMPEG AND FFMPEG_FOUND)
+     message (STATUS "Linking FFmpeg ${FFMPEG_LIBRARIES}")
+-    target_link_libraries (OpenImageIO ${FFMPEG_LIBRARIES})
++    target_link_libraries (OpenImageIO15 ${FFMPEG_LIBRARIES})
+ endif ()
+ 
+         
+ # Include OpenColorIO if using it
+ if (USE_OCIO AND OCIO_FOUND)
+     message (STATUS "Linking OpenColorIO ${OCIO_LIBRARIES}")
+-    target_link_libraries (OpenImageIO ${OCIO_LIBRARIES})
++    target_link_libraries (OpenImageIO15 ${OCIO_LIBRARIES})
+ endif ()
+ 
+ 
+ # Include OpenCV if using it
+ if (OpenCV_FOUND)
+     include_directories (${OpenCV_INCLUDE_DIR})
+-    target_link_libraries (OpenImageIO opencv_core opencv_highgui)
++    target_link_libraries (OpenImageIO15 opencv_core opencv_highgui)
+ endif ()
+ 
+ # Include OpenSSL if using it
+ if (OPENSSL_FOUND)
+     include_directories (${OPENSSL_INCLUDE_DIR})
+-    target_link_libraries (OpenImageIO ${OPENSSL_LIBRARIES})
++    target_link_libraries (OpenImageIO15 ${OPENSSL_LIBRARIES})
+ endif ()
+ 
+ # Include Freetype if using it
+ if (FREETYPE_FOUND)
+     include_directories (${FREETYPE_INCLUDE_DIRS})
+-    target_link_libraries (OpenImageIO ${FREETYPE_LIBRARIES})
++    target_link_libraries (OpenImageIO15 ${FREETYPE_LIBRARIES})
+ endif ()
+ 
+ 
+ 
+ if (WIN32)
+-    target_link_libraries (OpenImageIO psapi.lib)
++    target_link_libraries (OpenImageIO15 psapi.lib)
+ endif ()
+ 
+-add_dependencies (OpenImageIO "${CMAKE_CURRENT_SOURCE_DIR}/libOpenImageIO.map")
++add_dependencies (OpenImageIO15 "${CMAKE_CURRENT_SOURCE_DIR}/libOpenImageIO.map")
+ 
+ if (EMBEDPLUGINS)
+-    target_link_libraries (OpenImageIO ${PNG_LIBRARIES} ${TIFF_LIBRARIES}
++    target_link_libraries (OpenImageIO15 ${PNG_LIBRARIES} ${TIFF_LIBRARIES}
+                                ${JPEG_LIBRARIES} ${ZLIB_LIBRARIES}
+                                ${FIELD3D_LIBRARY}
+                                ${HDF5_LIBRARY}
+                                ${OPENJPEG_LIBRARIES}
+                                ${WEBP_LIBRARY}
+                           )
+-    link_openexr (OpenImageIO)
++    link_openexr (OpenImageIO15)
+     if (USE_GIF AND GIF_FOUND)
+-        target_link_libraries (OpenImageIO ${GIF_LIBRARY})
++        target_link_libraries (OpenImageIO15 ${GIF_LIBRARY})
+     endif ()
+ 
+     if (USE_LIBRAW AND LIBRAW_FOUND)
+-        target_link_libraries (OpenImageIO ${LibRaw_r_LIBRARIES})
++        target_link_libraries (OpenImageIO15 ${LibRaw_r_LIBRARIES})
+     endif ()
+ endif ()
+ 
+-link_ilmbase (OpenImageIO)
++link_ilmbase (OpenImageIO15)
+ 
+ if (USE_EXTERNAL_PUGIXML)
+-    target_link_libraries (OpenImageIO ${PUGIXML_LIBRARIES})
++    target_link_libraries (OpenImageIO15 ${PUGIXML_LIBRARIES})
+ endif ()
+ 
+ message(STATUS "Setting SOVERSION to: ${SOVERSION}")
+-set_target_properties(OpenImageIO
++set_target_properties(OpenImageIO15
+                          PROPERTIES
+                          VERSION ${OIIO_VERSION_MAJOR}.${OIIO_VERSION_MINOR}.${OIIO_VERSION_PATCH}
+                          SOVERSION ${SOVERSION}
+@@ -289,13 +289,13 @@ set_target_properties(OpenImageIO
+ # with a .so suffix instead of a .dylib suffix.
+ if(DEFINED OVERRIDE_SHARED_LIBRARY_SUFFIX)
+   message(STATUS "Setting SUFFIX to: ${OVERRIDE_SHARED_LIBRARY_SUFFIX}")
+-  set_target_properties(OpenImageIO
++  set_target_properties(OpenImageIO15
+                            PROPERTIES
+                            SUFFIX ${OVERRIDE_SHARED_LIBRARY_SUFFIX}
+                        )
+ endif(DEFINED OVERRIDE_SHARED_LIBRARY_SUFFIX)
+ 
+-oiio_install_targets (OpenImageIO)
++oiio_install_targets (OpenImageIO15)
+ 
+ 
+ # Testing
+@@ -314,24 +314,24 @@ if (OIIO_BUILD_TESTS)
+ 
+     add_executable (imagebuf_test imagebuf_test.cpp)
+     set_target_properties (imagebuf_test PROPERTIES FOLDER "Unit Tests")
+-    target_link_libraries (imagebuf_test OpenImageIO ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++    target_link_libraries (imagebuf_test OpenImageIO15 ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+     link_ilmbase (imagebuf_test)
+     add_test (unit_imagebuf imagebuf_test)
+ 
+     add_executable (imagebufalgo_test imagebufalgo_test.cpp)
+     set_target_properties (imagebufalgo_test PROPERTIES FOLDER "Unit Tests")
+-    target_link_libraries (imagebufalgo_test OpenImageIO ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++    target_link_libraries (imagebufalgo_test OpenImageIO15 ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+     link_ilmbase (imagebufalgo_test)
+     add_test (unit_imagebufalgo imagebufalgo_test)
+ 
+     add_executable (imagespec_test imagespec_test.cpp)
+     set_target_properties (imagespec_test PROPERTIES FOLDER "Unit Tests")
+-    target_link_libraries (imagespec_test OpenImageIO ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++    target_link_libraries (imagespec_test OpenImageIO15 ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+     add_test (unit_imagespec imagespec_test)
+     
+     add_executable (imagespeed_test imagespeed_test.cpp)
+     set_target_properties (imagespeed_test PROPERTIES FOLDER "Unit Tests")
+-    target_link_libraries (imagespeed_test OpenImageIO ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++    target_link_libraries (imagespeed_test OpenImageIO15 ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+     link_ilmbase (imagespeed_test)
+     #add_test (imagespeed_test imagespeed_test)
+ 
