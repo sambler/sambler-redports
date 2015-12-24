@@ -1,12 +1,11 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
-PORTNAME=	lineprofiler
+PORTNAME=	line_profiler
 PORTVERSION=	1.0
 CATEGORIES=	devel python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
-DISTNAME=	line_profiler-${PORTVERSION}
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	Line-by-line time profiling
@@ -23,11 +22,20 @@ USE_PYTHON=	autoplist concurrent distutils
 
 python_OLD_CMD=	"/usr/bin/env\ python"
 SHEBANG_FILES=	${WRKSRC}/line_profiler.py ${WRKSRC}/kernprof.py
+
+.include <bsd.port.pre.mk>
+
+# why does autoplist find kernprof and not line_profiler when using py3.5?
+# yet finds neither when < 3.5
+.if ${PYTHON_VER} == 3.5
+PLIST_FILES=	bin/line_profiler
+.else
 PLIST_FILES=	bin/line_profiler bin/kernprof
+.endif
 
 post-install:
 	${INSTALL_SCRIPT} ${WRKSRC}/line_profiler.py ${STAGEDIR}${PREFIX}/bin/line_profiler
 	${INSTALL_SCRIPT} ${WRKSRC}/kernprof.py ${STAGEDIR}${PREFIX}/bin/kernprof
 	@${STRIP_CMD} ${STAGEDIR}${PYTHON_SITELIBDIR}/_line_profiler.so
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
