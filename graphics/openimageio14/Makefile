@@ -55,7 +55,7 @@ PLIST_SUB+=		LIBVERS=${PORTVERSION}
 .include <bsd.port.options.mk>
 
 .if ${SLAVE_PORT} == no
-LIB_DEPENDS=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
+LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
 		libboost_thread.so:${PORTSDIR}/devel/boost-libs \
 		libhdf5.so:${PORTSDIR}/science/hdf5 \
 		libopencv_legacy.so:${PORTSDIR}/graphics/opencv \
@@ -64,7 +64,7 @@ LIB_DEPENDS=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
 USE_LDCONFIG=	yes
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF -DOIIO_BUILD_TOOLS:BOOL=ON
 .else
-LIB_DEPENDS=	libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14 \
+LIB_DEPENDS+=	libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14 \
 		libboost_python.so:${PORTSDIR}/devel/boost-python-libs
 USES+=		python
 PLIST=		${PKGDIR}/pkg-plist-pybind
