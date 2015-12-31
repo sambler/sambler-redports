@@ -17,6 +17,6 @@ RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}requests>0:${PORTSDIR}/www/py-requests \
 		${PYTHON_PKGNAMEPREFIX}pkginfo>0:${PORTSDIR}/sysutils/py-pkginfo
 
 USES=		python
-USE_PYTHON=	autoplist distutils
+USE_PYTHON=	autoplist distutils concurrent
 
 .include <bsd.port.mk>
