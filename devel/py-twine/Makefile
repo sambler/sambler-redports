@@ -17,6 +17,18 @@ RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}requests>0:${PORTSDIR}/www/py-requests \
 		${PYTHON_PKGNAMEPREFIX}pkginfo>0:${PORTSDIR}/sysutils/py-pkginfo
 
 USES=		python
-USE_PYTHON=	autoplist distutils concurrent
+USE_PYTHON=	autoplist concurrent distutils
+SUB_FILES=	twine
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+
+.if ${PYTHON_MAJOR_VER} == 2
+PLIST_FILES=	bin/twine
+.endif
+
+post-install:
+.if ${PYTHON_MAJOR_VER} == 2
+	${INSTALL_SCRIPT} ${WRKDIR}/twine ${STAGEDIR}${PREFIX}/bin/twine
+.endif
+
+.include <bsd.port.post.mk>
