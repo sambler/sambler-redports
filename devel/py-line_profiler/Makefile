@@ -22,20 +22,18 @@ USE_PYTHON=	autoplist concurrent distutils
 
 python_OLD_CMD=	"/usr/bin/env\ python"
 SHEBANG_FILES=	${WRKSRC}/line_profiler.py ${WRKSRC}/kernprof.py
+SUB_FILES=	kernprof
 
 .include <bsd.port.pre.mk>
 
-# why does autoplist find kernprof and not line_profiler when using py3.5?
-# yet finds neither when < 3.5
-.if ${PYTHON_VER} == 3.5
-PLIST_FILES=	bin/line_profiler
-.else
-PLIST_FILES=	bin/line_profiler bin/kernprof
+.if ${PYTHON_MAJOR_VER} == 2
+PLIST_FILES=	bin/kernprof
 .endif
 
 post-install:
-	${INSTALL_SCRIPT} ${WRKSRC}/line_profiler.py ${STAGEDIR}${PREFIX}/bin/line_profiler
-	${INSTALL_SCRIPT} ${WRKSRC}/kernprof.py ${STAGEDIR}${PREFIX}/bin/kernprof
+.if ${PYTHON_MAJOR_VER} == 2
+	${INSTALL_SCRIPT} ${WRKDIR}/kernprof ${STAGEDIR}${PREFIX}/bin/kernprof
+.endif
 	@${STRIP_CMD} ${STAGEDIR}${PYTHON_SITELIBDIR}/_line_profiler.so
 
 .include <bsd.port.post.mk>
