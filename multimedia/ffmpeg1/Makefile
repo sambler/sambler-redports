@@ -18,8 +18,6 @@ BUILD_DEPENDS=	yasm:${PORTSDIR}/devel/yasm \
 		${LOCALBASE}/bin/as:${PORTSDIR}/devel/binutils \
 		texi2html:${PORTSDIR}/textproc/texi2html
 
-#LATEST_LINK=	ffmpeg${PKGNAMESUFFIX}
-
 HAS_CONFIGURE=	yes
 CONFIGURE_LOG=	config.err
 USES=		gmake pkgconfig perl5 tar:bzip2
