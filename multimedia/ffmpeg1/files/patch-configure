@@ -1,0 +1,95 @@
+--- configure.orig	2014-09-09 17:30:58 UTC
++++ configure
+@@ -2147,7 +2147,7 @@
+ nogas=":"
+ 
+ # machine
+-arch_default=$(uname -m)
++arch_default=$(uname -p)
+ cpu="generic"
+ 
+ # OS
+@@ -3731,8 +3731,8 @@
+ 
+ if check_func dlopen; then
+     ldl=
+-elif check_func dlopen -ldl; then
+-    ldl=-ldl
++elif check_func dlopen ; then
++    ldl=
+ fi
+ 
+ if ! disabled network; then
+@@ -3912,7 +3912,7 @@
+ enabled libnut     && require  libnut libnut.h nut_demuxer_init -lnut
+ enabled libopencore_amrnb  && require libopencore_amrnb opencore-amrnb/interf_dec.h Decoder_Interface_init -lopencore-amrnb
+ enabled libopencore_amrwb  && require libopencore_amrwb opencore-amrwb/dec_if.h D_IF_init -lopencore-amrwb
+-enabled libopencv  && require_pkg_config opencv opencv/cxcore.h cvCreateImageHeader
++enabled libopencv  && require_pkg_config opencv-core opencv2/core/core_c.h cvCreateImageHeader
+ enabled libopenjpeg && { check_lib openjpeg-1.5/openjpeg.h opj_version -lopenjpeg ||
+                          check_lib openjpeg.h opj_version -lopenjpeg ||
+                          die "ERROR: libopenjpeg not found"; }
+@@ -3970,7 +3970,7 @@
+     die "ERROR: No version of libdc1394 found "
+ fi
+ 
+-SDL_CONFIG="${cross_prefix}sdl-config"
++SDL_CONFIG="${cross_prefix}/usr/local/bin/sdl-config"
+ if check_pkg_config sdl SDL_events.h SDL_PollEvent; then
+     check_cpp_condition SDL.h "(SDL_MAJOR_VERSION<<16 | SDL_MINOR_VERSION<<8 | SDL_PATCHLEVEL) >= 0x010201" $sdl_cflags &&
+     enable sdl &&
+@@ -3993,10 +3993,10 @@
+ pod2man --help > /dev/null 2>&1 && enable pod2man || disable pod2man
+ rsync --help 2> /dev/null | grep -q 'contimeout' && enable rsync_contimeout || disable rsync_contimeout
+ 
+-check_header linux/fb.h
+-check_header linux/videodev.h
+-check_header linux/videodev2.h
+-check_code cc linux/videodev2.h "struct v4l2_frmsizeenum vfse; vfse.discrete.width = 0;" && enable_safe struct_v4l2_frmivalenum_discrete
++#check_header linux/fb.h
++#check_header linux/videodev.h
++#check_header linux/videodev2.h
++#check_code cc linux/videodev2.h "struct v4l2_frmsizeenum vfse; vfse.discrete.width = 0;" && enable_safe struct_v4l2_frmivalenum_discrete
+ 
+ check_header sys/videoio.h
+ 
+@@ -4372,7 +4372,7 @@
+ SRC_PATH:=\$(SRC_PATH:.%=..%)
+ endif
+ CC_IDENT=$cc_ident
+-ARCH=$arch
++FFMPEG_ARCH=$arch
+ CC=$cc
+ CXX=$cxx
+ AS=$as
+@@ -4447,7 +4447,7 @@
+ CFLAGS-ffplay=$sdl_cflags
+ ZLIB=$($ldflags_filter -lz)
+ LIB_INSTALL_EXTRA_CMD=$LIB_INSTALL_EXTRA_CMD
+-EXTRALIBS=$extralibs
++EXTRALIBS=-L/usr/local/lib $extralibs
+ COMPAT_OBJS=$compat_objs
+ EXEOBJS=$exeobjs
+ INSTALL=$install
+@@ -4554,7 +4554,7 @@
+ libdir=$libdir
+ includedir=$incdir
+ 
+-Name: $name
++Name: ${name}${build_suffix}
+ Description: $comment
+ Version: $version
+ Requires: $(enabled shared || echo $requires)
+@@ -4568,10 +4568,10 @@
+ mkdir -p doc/examples/pc-uninstalled
+ includedir=${source_path}
+ [ "$includedir" = . ] && includedir="\${pcfiledir}/../../.."
+-    cat <<EOF > doc/examples/pc-uninstalled/$name.pc
++    cat <<EOF > doc/examples/pc-uninstalled/${name}${build_suffix}.pc
+ prefix=
+ exec_prefix=
+-libdir=\${pcfiledir}/../../../$name
++libdir=\${pcfiledir}/../../../${name}${build_suffix}
+ includedir=${includedir}
+ 
+ Name: $name

@@ -1,0 +1,11 @@
+--- libavcodec/Makefile.orig	2014-09-09 17:31:01 UTC
++++ libavcodec/Makefile
+@@ -781,7 +781,7 @@
+                                           fft-internal.h                \
+                                           old_codec_ids.h               \
+                                           tableprint.h                  \
+-                                          $(ARCH)/vp56_arith.h          \
++                                          $(FFMPEG_ARCH)/vp56_arith.h   \
+ 
+ SKIPHEADERS-$(CONFIG_DXVA2)            += dxva2.h dxva2_internal.h
+ SKIPHEADERS-$(CONFIG_LIBSCHROEDINGER)  += libschroedinger.h
