@@ -2,10 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio
-PORTVERSION=	1.6.6
+PORTVERSION=	1.6.8
 DISTVERSIONPREFIX=	Release-
 PORTREVISION?=	0
-DISTVERSIONSUFFIX=	beta
 CATEGORIES?=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
@@ -80,6 +79,10 @@ TEST_CMAKE_OFF=		-DOIIO_BUILD_TESTS:BOOL=OFF
 PLIST_SUB+=		LIBVERS=${PORTVERSION}
 
 .include <bsd.port.options.mk>
+
+.if ${ARCH} == powerpc
+USE_GCC=	yes
+.endif
 
 .if ${SLAVE_PORT} == no
 LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
