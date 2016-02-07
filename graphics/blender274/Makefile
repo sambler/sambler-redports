@@ -3,7 +3,7 @@
 
 PORTNAME=	blender274
 PORTVERSION=	2.74
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -135,6 +135,8 @@ post-patch:
 		${WRKSRC}/release/bin/blender-thumbnailer.py
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
 		${WRKSRC}/release/freedesktop/blender.desktop
+	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
+		${XARGS} ${REINPLACE_CMD} -e 's|<OSL/|<OSL16/|g'
 	@${REINPLACE_CMD} -e 's|yaml-cpp|&03|' \
 		${PATCH_WRKSRC}/build_files/cmake/Modules/FindOpenColorIO.cmake
 
