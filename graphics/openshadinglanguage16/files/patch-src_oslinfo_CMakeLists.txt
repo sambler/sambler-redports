@@ -1,0 +1,12 @@
+--- src/oslinfo/CMakeLists.txt.orig	2016-02-07 13:12:27 UTC
++++ src/oslinfo/CMakeLists.txt
+@@ -1,5 +1,5 @@
+ SET ( oslinfo_srcs oslinfo.cpp )
+-ADD_EXECUTABLE ( oslinfo ${oslinfo_srcs} )
+-LINK_ILMBASE ( oslinfo )
+-TARGET_LINK_LIBRARIES ( oslinfo oslquery ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-INSTALL ( TARGETS oslinfo RUNTIME DESTINATION bin )
++ADD_EXECUTABLE ( oslinfo16 ${oslinfo_srcs} )
++LINK_ILMBASE ( oslinfo16 )
++TARGET_LINK_LIBRARIES ( oslinfo16 oslquery ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++INSTALL ( TARGETS oslinfo16 RUNTIME DESTINATION bin )
