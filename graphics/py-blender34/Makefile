@@ -1,7 +1,7 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
-PORTNAME=	blender
+PORTNAME=	blender34
 PORTVERSION=	2.76b
 PORTREVISION=	0
 CATEGORIES=	graphics multimedia
@@ -87,7 +87,7 @@ CMAKE_INSTALL_PREFIX=	${PYTHON_SITELIBDIR}
 #		release/scripts/modules/blend_render_info.py \
 #		doc/manpage/blender.1.py
 
-OPTIONS_DEFINE=	COLLADA JACK NLS OPENMP OSD OSL SECURITY
+OPTIONS_DEFINE=	COLLADA JACK NLS OSD OSL SECURITY
 OPTIONS_DEFAULT=	COLLADA JACK NLS OSD OSL SECURITY
 
 OPTIONS_SUB=	yes
@@ -114,10 +114,6 @@ NLS_CMAKE_OFF=		-DWITH_INTERNATIONAL:BOOL=OFF
 NLS_USES=		gettext iconv:lib,wchar_t
 NLS_LDFLAGS=		-L${LOCALBASE}/lib -lintl
 
-OPENMP_CMAKE_ON=	-DWITH_OPENMP:BOOL=ON
-OPENMP_CMAKE_OFF=	-DWITH_OPENMP:BOOL=OFF
-OPENMP_USES=		compiler:openmp
-
 OSD_CMAKE_ON=		-DWITH_OPENSUBDIV:BOOL=ON
 OSD_CMAKE_OFF=		-DWITH_OPENSUBDIV:BOOL=OFF
 OSD_LIB_DEPENDS=	libosdCPU.so:${PORTSDIR}/graphics/opensubdiv
@@ -128,7 +124,7 @@ OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DLLVM_VERSION:STRING="3.4" \
 			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
-OSL_LIB_DEPENDS=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
+OSL_LIB_DEPENDS=	liboslcomp16.so:${PORTSDIR}/graphics/openshadinglanguage16
 
 SECURITY_CMAKE_ON=	-DWITH_PYTHON_SECURITY:BOOL=ON
 SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
@@ -138,6 +134,8 @@ SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF
 post-patch:
 	@${REINPLACE_CMD} -e 's|yaml-cpp|&03|' \
 		${PATCH_WRKSRC}/build_files/cmake/Modules/FindOpenColorIO.cmake
+	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
+		${XARGS} ${REINPLACE_CMD} -e 's|<OSL/|<OSL16/|g'
 
 #post-install:
 #	@${MKDIR} ${STAGEDIR}${PYTHON_SITELIBDIR}
