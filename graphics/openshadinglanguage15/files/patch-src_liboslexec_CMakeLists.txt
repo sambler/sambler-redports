@@ -1,24 +1,5 @@
 --- src/liboslexec/CMakeLists.txt.orig	2015-03-12 13:55:50 UTC
 +++ src/liboslexec/CMakeLists.txt
-@@ -1,14 +1,14 @@
- SET ( liboslexec_srcs
-           shadingsys.cpp closure.cpp
-           dictionary.cpp
--          context.cpp instance.cpp 
--          loadshader.cpp master.cpp 
--          opcolor.cpp 
-+          context.cpp instance.cpp
-+          loadshader.cpp master.cpp
-+          opcolor.cpp
-           opmessage.cpp
-           opnoise.cpp simplexnoise.cpp gabornoise.cpp
-           opspline.cpp opstring.cpp
-           oslexec.cpp osoreader.cpp
--          pointcloud.cpp rendservices.cpp 
-+          pointcloud.cpp rendservices.cpp
-           constfold.cpp runtimeoptimize.cpp typespec.cpp
-           lpexp.cpp lpeparse.cpp automata.cpp accum.cpp
-           opclosure.cpp
 @@ -123,33 +123,33 @@ else ()
  endif ()
  
