@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio15
-PORTVERSION=	1.5.23
+PORTVERSION=	1.5.24
 DISTVERSIONPREFIX=	Release-
 PORTREVISION?=	0
 CATEGORIES?=	graphics multimedia
