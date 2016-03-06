@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.76
-PORTREVISION=	4
+PORTREVISION=	5
 CATEGORIES=	graphics multimedia
 DIST_SUBDIR=	${PORTNAME}
 
@@ -48,7 +48,7 @@ USES=		cmake:outsource shebangfix compiler:c++11-lib \
 OUTDIR=		${STAGEDIR}/${PREFIX}/${PORTVERSION}
 LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
 VERS_TAG=	sambler
-HASHTAG=	207f7a6
+HASHTAG=	1736184
 
 SUB_FILES=	blender blenderplayer
 python_CMD=	${PYTHON_CMD}
@@ -207,7 +207,7 @@ post-install:
 .endif
 
 	@${MKDIR} ${STAGEDIR}${DATADIR}
-	@${MV} ${STAGEDIR}/${PREFIX}/share/blender/${PORTVERSION}/* ${STAGEDIR}${DATADIR}
+	@${MV} ${STAGEDIR}/${PREFIX}/share/blender/2.77/* ${STAGEDIR}${DATADIR}
 	@${RM} -R ${STAGEDIR}/${PREFIX}/share/blender
 	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/icons/scalable/apps/blender.svg \
 		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
