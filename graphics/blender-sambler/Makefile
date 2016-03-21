@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	blender-sambler
-PORTVERSION=	2.76
-PORTREVISION=	5
+PORTVERSION=	2.77
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 DIST_SUBDIR=	${PORTNAME}
 
@@ -207,7 +207,7 @@ post-install:
 .endif
 
 	@${MKDIR} ${STAGEDIR}${DATADIR}
-	@${MV} ${STAGEDIR}/${PREFIX}/share/blender/2.77/* ${STAGEDIR}${DATADIR}
+	@${MV} ${STAGEDIR}/${PREFIX}/share/blender/${PORTVERSION}/* ${STAGEDIR}${DATADIR}
 	@${RM} -R ${STAGEDIR}/${PREFIX}/share/blender
 	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/icons/scalable/apps/blender.svg \
 		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
