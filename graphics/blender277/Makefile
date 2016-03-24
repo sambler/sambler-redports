@@ -3,7 +3,7 @@
 
 PORTNAME=	blender277
 PORTVERSION=	2.77
-PORTREVISION=	1
+PORTREVISION=	0
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -127,7 +127,7 @@ OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DLLVM_VERSION:STRING="3.4" \
 			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
-OSL_LIB_DEPENDS=	liboslcomp16.so:${PORTSDIR}/graphics/openshadinglanguage16
+OSL_LIB_DEPENDS=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
 
 PLAYER_CMAKE_ON=	-DWITH_PLAYER:BOOL=ON
 PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
@@ -142,8 +142,6 @@ post-patch:
 		${WRKSRC}/release/bin/blender-thumbnailer.py
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
 		${WRKSRC}/release/freedesktop/blender.desktop
-	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
-		${XARGS} ${REINPLACE_CMD} -e 's|<OSL/|<OSL16/|g'
 	@${REINPLACE_CMD} -e 's|yaml-cpp|&03|' \
 		${PATCH_WRKSRC}/build_files/cmake/Modules/FindOpenColorIO.cmake
 
