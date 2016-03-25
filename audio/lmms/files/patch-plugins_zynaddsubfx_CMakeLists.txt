@@ -1,20 +1,11 @@
---- plugins/zynaddsubfx/CMakeLists.txt.orig	2015-03-08 02:47:14 UTC
+--- plugins/zynaddsubfx/CMakeLists.txt.orig	2016-02-17 05:57:44 UTC
 +++ plugins/zynaddsubfx/CMakeLists.txt
-@@ -105,7 +105,7 @@ SET(zynaddsubfx_core_SRCS
+@@ -113,7 +113,7 @@ SET(zynaddsubfx_core_SRCS
  
  
  ADD_LIBRARY(ZynAddSubFxCore SHARED LocalZynAddSubFx.cpp ${zynaddsubfx_core_SRCS})
 -TARGET_LINK_LIBRARIES(ZynAddSubFxCore zynaddsubfx_nio ${FFTW3F_LIBRARIES} ${QT_LIBRARIES} -lz -lpthread)
 +TARGET_LINK_LIBRARIES(ZynAddSubFxCore zynaddsubfx_nio ${FFTW3F_LIBRARIES} ${QT_LIBRARIES} -lz -lpthread -L/usr/local/lib)
- IF(LMMS_BUILD_WIN32)
- 	TARGET_LINK_LIBRARIES(ZynAddSubFxCore -lws2_32)
- 	INSTALL(TARGETS ZynAddSubFxCore RUNTIME DESTINATION "${PLUGIN_DIR}")
-@@ -139,7 +139,7 @@ ENDIF(LMMS_BUILD_WIN32)
  
- # FLTK needs X
- IF(LMMS_BUILD_LINUX)
--	TARGET_LINK_LIBRARIES(RemoteZynAddSubFx -ldl)
-+	TARGET_LINK_LIBRARIES(RemoteZynAddSubFx)
- ENDIF(LMMS_BUILD_LINUX)
- 
- 
+ # required libs for debug msys builds
+ IF(LMMS_BUILD_MSYS AND CMAKE_BUILD_TYPE STREQUAL "Debug")

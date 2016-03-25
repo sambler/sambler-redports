@@ -1,40 +1,19 @@
---- CMakeLists.txt.orig	2015-03-08 02:47:14 UTC
+--- CMakeLists.txt.orig	2016-03-25 18:58:46 UTC
 +++ CMakeLists.txt
-@@ -333,9 +333,9 @@ CONFIGURE_FILE("${CMAKE_SOURCE_DIR}/lmms
- CONFIGURE_FILE("${CMAKE_SOURCE_DIR}/plugins/zynaddsubfx/zynaddsubfx.rc.in" "${CMAKE_BINARY_DIR}/plugins/zynaddsubfx/zynaddsubfx.rc")
+@@ -408,7 +408,7 @@ ENDIF(LMMS_BUILD_WIN32)
+ PKG_CHECK_MODULES(SAMPLERATE REQUIRED samplerate>=0.1.8)
  
  # set compiler flags
 -SET(WERROR_FLAGS "-Wall -Werror=unused-function -Wno-sign-compare -Wno-strict-overflow")
-+SET(WERROR_FLAGS "-Werror=unused-function -Wno-sign-compare -Wno-strict-overflow -Wno-unused-private-field ")
- IF(NOT LMMS_BUILD_APPLE)
--   SET(WERROR_FLAGS "${WERROR_FLAGS} -Werror")
-+   SET(WERROR_FLAGS "${WERROR_FLAGS}")
- ENDIF()
- 
- # Due to a regression in gcc-4.8.X, we need to disable array-bounds check
-@@ -464,7 +464,7 @@ ENDIF()
- ADD_CUSTOM_COMMAND(OUTPUT "${CMAKE_BINARY_DIR}/lmms.1.gz" COMMAND gzip -c "\"${CMAKE_SOURCE_DIR}/lmms.1\"" > "\"${CMAKE_BINARY_DIR}/lmms.1.gz\"" DEPENDS "${CMAKE_SOURCE_DIR}/lmms.1" COMMENT "Generating lmms.1.gz")
- ADD_EXECUTABLE(lmms ${lmms_SOURCES} ${lmms_INCLUDES} "${LMMS_ER_H}" ${lmms_UI_out} lmmsconfig.h lmmsversion.h "${WINRC}" "${CMAKE_BINARY_DIR}/lmms.1.gz")
- 
--TARGET_LINK_LIBRARIES(lmms ${CMAKE_THREAD_LIBS_INIT} ${QT_LIBRARIES} ${ASOUND_LIBRARY} ${SDL_LIBRARY} ${PORTAUDIO_LIBRARIES} ${PULSEAUDIO_LIBRARIES} ${JACK_LIBRARIES} ${OGGVORBIS_LIBRARIES} ${SAMPLERATE_LIBRARIES} ${SNDFILE_LIBRARIES} ${EXTRA_LIBRARIES})
-+TARGET_LINK_LIBRARIES(lmms ${CMAKE_THREAD_LIBS_INIT} ${QT_LIBRARIES} ${ASOUND_LIBRARY} ${SDL_LIBRARY} ${PORTAUDIO_LIBRARIES} ${PULSEAUDIO_LIBRARIES} ${JACK_LIBRARIES} ${OGGVORBIS_LIBRARIES} ${SAMPLERATE_LIBRARIES} ${SNDFILE_LIBRARIES} ${EXTRA_LIBRARIES} -L${CMAKE_INSTALL_PREFIX}/lib)
- 
- IF(LMMS_BUILD_WIN32)
- 
-@@ -503,7 +503,7 @@ ELSE(LMMS_BUILD_WIN32)
- 	ENDIF(NOT LMMS_BUILD_APPLE)
- 
- 	INSTALL(TARGETS lmms RUNTIME DESTINATION "${BIN_DIR}")
--	INSTALL(FILES "${CMAKE_BINARY_DIR}/lmms.1.gz" DESTINATION "${CMAKE_INSTALL_PREFIX}/share/man/man1/" PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
-+	INSTALL(FILES "${CMAKE_BINARY_DIR}/lmms.1.gz" DESTINATION "${CMAKE_INSTALL_PREFIX}/man/man1/" PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
- 
- ENDIF(LMMS_BUILD_WIN32)
- 
-@@ -606,6 +606,7 @@ MESSAGE(
++SET(WERROR_FLAGS "-Werror=unused-function -Wno-sign-compare -Wno-strict-overflow -Wno-unused-private-field")
+ OPTION(USE_WERROR "Add -werror to the build flags. Stops the build on warnings" OFF)
+ IF(${USE_WERROR})
+    SET(WERROR_FLAGS "${WERROR_FLAGS} -Werror")
+@@ -559,6 +559,7 @@ MESSAGE(
  "-------------------------\n"
  "* ALSA                        : ${STATUS_ALSA}\n"
  "* OSS                         : ${STATUS_OSS}\n"
 +"* JACK                        : ${STATUS_JACK}\n"
  "* WinMM                       : ${STATUS_WINMM}\n"
+ "* AppleMidi                   : ${STATUS_APPLEMIDI}\n"
  )
- 

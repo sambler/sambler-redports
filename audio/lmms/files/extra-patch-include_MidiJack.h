@@ -1,6 +1,6 @@
---- include/MidiJack.h.orig	2015-06-11 08:36:14 UTC
+--- include/MidiJack.h.orig	2016-03-25 21:50:59 UTC
 +++ include/MidiJack.h
-@@ -0,0 +1,101 @@
+@@ -0,0 +1,95 @@
 +/*
 + * MidiJack.h - MIDI client for Jack
 + *
@@ -31,7 +31,6 @@
 +#include "lmmsconfig.h"
 +
 +#ifdef LMMS_HAVE_JACK
-+#include <sys/types.h>
 +#include <jack/jack.h>
 +#include <jack/midiport.h>
 +
@@ -40,6 +39,7 @@
 +#include <QtCore/QFile>
 +
 +#include "MidiClient.h"
++#include "AudioJack.h"
 +
 +#define	JACK_MIDI_BUFFER_MAX 64 /* events */
 +
@@ -48,57 +48,51 @@
 +class MidiJack : public MidiClientRaw, public QThread
 +{
 +public:
-+    MidiJack();
-+    virtual ~MidiJack();
++	MidiJack();
++	virtual ~MidiJack();
 +
-+    static QString probeDevice();
++	jack_client_t* jackClient();
 +
-+    inline static QString name()
-+    {
-+        return( QT_TRANSLATE_NOOP( "setupWidget",
-+            "Jack-MIDI" ) );
-+    }
++	static QString probeDevice();
 +
-+    void JackMidiWrite(jack_nframes_t nframes);
-+    void JackMidiRead(jack_nframes_t nframes);
++	inline static QString name()
++	{
++		return( QT_TRANSLATE_NOOP( "MidiSetupWidget",
++			"Jack-MIDI" ) );
++	}
++
++	void JackMidiWrite(jack_nframes_t nframes);
++	void JackMidiRead(jack_nframes_t nframes);
 +
 +
-+    class setupWidget : public MidiClientRaw::setupWidget
-+    {
-+    public:
-+        setupWidget( QWidget * _parent );
-+        virtual ~setupWidget();
-+
-+        virtual void saveSettings();
-+
-+    private:
-+        QLineEdit * m_device;
-+
-+    } ;
++	inline static QString configSection()
++	{
++		return "MidiJack";
++	}
 +
 +
 +protected:
-+    virtual void sendByte( const uint8_t _c );
-+    virtual void run();
++	virtual void sendByte( const unsigned char c );
++	virtual void run();
 +
 +
 +private:
-+    jack_client_t * m_jack_client;
-+    jack_port_t *m_input_port;
-+    jack_port_t *m_output_port;
-+    uint8_t m_jack_buffer[JACK_MIDI_BUFFER_MAX * 4];
++	AudioJack *m_jackAudio;
++	jack_client_t *m_jackClient;
++	jack_port_t *m_input_port;
++	jack_port_t *m_output_port;
++	uint8_t m_jack_buffer[JACK_MIDI_BUFFER_MAX * 4];
 +
-+    void JackMidiOutEvent(uint8_t *buf, uint8_t len);
-+    void lock();
-+    void unlock();
++	void JackMidiOutEvent(uint8_t *buf, uint8_t len);
++	void lock();
++	void unlock();
 +
-+    void getPortInfo( const QString& sPortName, int& nClient, int& nPort );
++	void getPortInfo( const QString& sPortName, int& nClient, int& nPort );
 +
-+    volatile bool m_quit;
++	volatile bool m_quit;
 +
 +};
 +
 +#endif // LMMS_HAVE_JACK
 +
 +#endif // MIDIJACK_H
-+

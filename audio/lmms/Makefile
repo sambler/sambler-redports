@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	lmms
-PORTVERSION=	1.1.3
+PORTVERSION=	1.1.90
 DISTVERSIONPREFIX= v
 CATEGORIES=	audio
 
@@ -27,7 +27,7 @@ USE_LDCONFIG=	yes
 USE_XORG=	xft
 USE_QT4=	corelib gui xml moc_build uic_build rcc_build \
 		qmake_build
-USES=		cmake pkgconfig tar:bzip2 desktop-file-utils shared-mime-info \
+USES=		cmake pkgconfig desktop-file-utils shared-mime-info \
 		compiler:c++0x
 
 CMAKE_ARGS=	-DWANT_VST:BOOL=OFF
@@ -62,10 +62,13 @@ JACK_CMAKE_OFF=		-DWANT_JACK:BOOL=OFF
 JACK_LIB_DEPENDS=	libjack.so:${PORTSDIR}/audio/jack
 
 JACKMIDI_DESC=		Enable Jack midi input
-JACKMIDI_EXTRA_PATCHES=	${FILESDIR}/extra-patch-include_MidiJack.h \
+JACKMIDI_EXTRA_PATCHES=	${FILESDIR}/extra-patch-include_AudioJack.h \
+			${FILESDIR}/extra-patch-include_MidiJack.h \
+			${FILESDIR}/extra-patch-src_core_CMakeLists.txt \
 			${FILESDIR}/extra-patch-src_core_Mixer.cpp \
+			${FILESDIR}/extra-patch-src_core_audio_AudioJack.cpp \
 			${FILESDIR}/extra-patch-src_core_midi_MidiJack.cpp \
-			${FILESDIR}/extra-patch-src_gui_setup__dialog.cpp
+			${FILESDIR}/extra-patch-src_gui_SetupDialog.cpp
 JACKMIDI_IMPLIES=	JACK
 
 OGG_CMAKE_ON=		-DWANT_OGGVORBIS:BOOL=ON
@@ -110,18 +113,18 @@ BROKEN= Calf plugins fail to build on i386
 .endif
 
 post-patch:
-.for file in data/lmms.desktop
+.for file in cmake/linux/lmms.desktop
 	@${REINPLACE_CMD} -e \
 		'/^Icon/s|=.*$$|=lmms|g ; \
 		 /^Exec/s|=.*$$|=lmms|g ; \
 		 /^Categories/s|$$|;|g ; \
 		 /^MimeType/s|$$|;|g' ${WRKSRC}/${file}
 .endfor
-.for filename in data/lmms src/core/config_mgr.cpp
+.for filename in src/core/ConfigManager.cpp
 	@${REINPLACE_CMD} -e \
 		's|/usr|${PREFIX}|g' ${WRKSRC}/${filename}
 .endfor
-.for filename in src/core/ladspa_manager.cpp
+.for filename in src/core/LadspaManager.cpp
 	@${REINPLACE_CMD} -e \
 		'/\/usr\/lib/d ; \
 		 s|/usr/local|${PREFIX}|g' ${WRKSRC}/${filename}
