@@ -2,10 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	clipgrab
-PORTVERSION=	3.4.9
+PORTVERSION=	3.4.11
 CATEGORIES=	multimedia
-MASTER_SITES=	http://clipgrab.de/download/ \
-		http://vanbittern.org/
+MASTER_SITES=	http://download.clipgrab.de/
 
 MAINTAINER=	vg@FreeBSD.org
 COMMENT=	Program to download videos from YouTube and etc
@@ -13,10 +12,8 @@ COMMENT=	Program to download videos from YouTube and etc
 LICENSE=	GPLv3
 
 USES=		qmake tar:bzip2
-USE_QT4=	gui xml uic_build moc_build rcc_build network dbus webkit
-CXXFLAGS+= -I${LOCALBASE}/include/qt4/QtNetwork -I${LOCALBASE}/include/qt4/QtWebKit
-CXXFLAGS+= -I${LOCALBASE}/include/qt4/QtXml
-LDFLAGS+=  -L${LOCALBASE}/lib/qt4 -lQtNetwork -lQtWebKit -lQtXml
+USE_QT4=	gui xml uic_build moc_build \
+		rcc_build network dbus webkit
 
 PLIST_FILES=	bin/${PORTNAME} \
 		%%DATADIR%%/icon.png \
@@ -28,17 +25,15 @@ DESKTOP_ENTRIES="Clipgrab" "Download and convert videos from YouTube and etc" \
 		"${DATADIR}/icon.png" "${PORTNAME}" \
 		"AudioVideo;" true
 
+QMAKE_SOURCE_PATH=	${WRKSRC}/${PORTNAME}.pro
+
 post-patch:
 	${REINPLACE_CMD} -e 's,img/,share/${PORTNAME}/,g' \
 	${WRKSRC}/*.cpp
 
-pre-configure:
-	@(cd ${WRKSRC} && ${RM} video_tudou.* video_youku.*)
-	@(cd ${WRKSRC} && qmake-qt4 -project)
-
 do-install:
 	${MKDIR} ${STAGEDIR}${DATADIR}
-	${INSTALL_PROGRAM} ${WRKSRC}/${PORTNAME}-3 ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
+	${INSTALL_PROGRAM} ${WRKSRC}/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 	${INSTALL_DATA} ${WRKSRC}/*.png ${STAGEDIR}${DATADIR}
 
 .include <bsd.port.mk>
