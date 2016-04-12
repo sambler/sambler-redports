@@ -21,7 +21,7 @@ USES=		cmake
 
 OPTIONS_DEFINE=		DOCS
 
-DOCS_BUILD_DEPENDS=	doxygen:${PORTSDIR}/devel/doxygen
+DOCS_BUILD_DEPENDS=	doxygen:devel/doxygen
 
 .include <bsd.port.options.mk>
 

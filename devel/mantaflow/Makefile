@@ -31,7 +31,7 @@ OPTIONS_SUB=	yes
 PARALLEL_DESC=	Parallel Processing
 TBB_DESC=		Parallel processing support via Intels TBB
 
-DOCS_BUILD_DEPENDS=	doxygen:${PORTSDIR}/devel/doxygen
+DOCS_BUILD_DEPENDS=	doxygen:devel/doxygen
 
 OPENMP_CMAKE_ON=	-DOPENMP:BOOL=ON
 OPENMP_CMAKE_OFF=	-DOPENMP:BOOL=OFF
@@ -39,7 +39,7 @@ OPENMP_USES=		compiler:openmp
 
 TBB_CMAKE_ON=		-DTBB:BOOL=ON
 TBB_CMAKE_OFF=		-DTBB:BOOL=OFF
-TBB_LIB_DEPENDS=	libtbb.so:${PORTSDIR}/devel/tbb
+TBB_LIB_DEPENDS=	libtbb.so:devel/tbb
 TBB_LDFLAGS=		-L${LOCALBASE}/lib
 
 PLIST_FILES=		bin/manta

@@ -15,18 +15,18 @@ COMMENT=	Parametric 3D modeler
 
 LICENSE=	LGPL20
 
-BUILD_DEPENDS=	eigen>0:${PORTSDIR}/math/eigen3 \
-		${PYTHON_PKGNAMEPREFIX}matplotlib>=0:${PORTSDIR}/math/py-matplotlib \
-		swig2.0:${PORTSDIR}/devel/swig20 \
-		doxygen:${PORTSDIR}/devel/doxygen
-LIB_DEPENDS=	libTKernel.so:${PORTSDIR}/cad/opencascade \
-		libboost_thread.so:${PORTSDIR}/devel/boost-libs \
-		libfreetype.so:${PORTSDIR}/print/freetype2 \
-		libxerces-c.so:${PORTSDIR}/textproc/xerces-c3 \
-		libCoin.so:${PORTSDIR}/graphics/Coin \
-		libsysinfo.so:${PORTSDIR}/devel/libsysinfo \
-		libSoQt.so:${PORTSDIR}/x11-toolkits/soqt
-RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}matplotlib>=0:${PORTSDIR}/math/py-matplotlib
+BUILD_DEPENDS=	eigen>0:math/eigen3 \
+		${PYTHON_PKGNAMEPREFIX}matplotlib>=0:math/py-matplotlib \
+		swig2.0:devel/swig20 \
+		doxygen:devel/doxygen
+LIB_DEPENDS=	libTKernel.so:cad/opencascade \
+		libboost_thread.so:devel/boost-libs \
+		libfreetype.so:print/freetype2 \
+		libxerces-c.so:textproc/xerces-c3 \
+		libCoin.so:graphics/Coin \
+		libsysinfo.so:devel/libsysinfo \
+		libSoQt.so:x11-toolkits/soqt
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}matplotlib>=0:math/py-matplotlib
 
 USES=		cmake:outsource fortran python
 USE_QT4=	gui opengl qmake

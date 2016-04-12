@@ -13,8 +13,8 @@ LICENSE=	AGPLv3 CC0-1.0
 LICENSE_COMB=	dual
 
 RUN_DEPENDS=	${PYNUMPY} \
-		${PYTHON_PKGNAMEPREFIX}qt4-gui>=0:${PORTSDIR}/x11-toolkits/py-qt4-gui \
-		${PYTHON_PKGNAMEPREFIX}opengl>0:${PORTSDIR}/graphics/py-opengl
+		${PYTHON_PKGNAMEPREFIX}qt4-gui>=0:x11-toolkits/py-qt4-gui \
+		${PYTHON_PKGNAMEPREFIX}opengl>0:graphics/py-opengl
 
 USES=		python:2 shebangfix
 NO_BUILD=	yes

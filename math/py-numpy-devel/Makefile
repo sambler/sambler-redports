@@ -41,8 +41,8 @@ DOCVERSION=	1.9.1
 ATLAS_USES=	blaslapack:atlas
 NETLIB_USES=	blaslapack:netlib
 OPENBLAS_USES=	blaslapack:openblas
-SUITESPARSE_LIB_DEPENDS=libumfpack.so:${PORTSDIR}/math/suitesparse
-TESTS_RUN_DEPENDS=	${PYTHON_SITELIBDIR}/nose/__init__.py:${PORTSDIR}/devel/py-nose
+SUITESPARSE_LIB_DEPENDS=libumfpack.so:math/suitesparse
+TESTS_RUN_DEPENDS=	${PYTHON_SITELIBDIR}/nose/__init__.py:devel/py-nose
 
 PLIST_SUB+=	NPVERS=${PORTVERSION}
 

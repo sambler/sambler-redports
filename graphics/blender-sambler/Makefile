@@ -12,22 +12,22 @@ COMMENT=	3D modeling/rendering/animation/gaming package
 
 LICENSE=	GPLv2
 
-LIB_DEPENDS=	liblzo2.so:${PORTSDIR}/archivers/lzo2 \
-		libsamplerate.so:${PORTSDIR}/audio/libsamplerate \
-		libsndfile.so:${PORTSDIR}/audio/libsndfile \
-		libboost_thread.so:${PORTSDIR}/devel/boost-libs \
-		libexecinfo.so:${PORTSDIR}/devel/libexecinfo \
-		libunwind.so:${PORTSDIR}/devel/libunwind \
-		libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio \
-		libOpenImageIO.so:${PORTSDIR}/graphics/openimageio \
-		libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
-		libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15 \
-		libpng.so:${PORTSDIR}/graphics/png \
-		libtiff.so:${PORTSDIR}/graphics/tiff \
-		libfftw3.so:${PORTSDIR}/math/fftw3 \
-		libavutil.so:${PORTSDIR}/multimedia/ffmpeg \
-		libfreetype.so:${PORTSDIR}/print/freetype2
-RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
+LIB_DEPENDS=	liblzo2.so:archivers/lzo2 \
+		libsamplerate.so:audio/libsamplerate \
+		libsndfile.so:audio/libsndfile \
+		libboost_thread.so:devel/boost-libs \
+		libexecinfo.so:devel/libexecinfo \
+		libunwind.so:devel/libunwind \
+		libOpenColorIO.so:graphics/opencolorio \
+		libOpenImageIO.so:graphics/openimageio \
+		libIlmImf.so:graphics/OpenEXR \
+		libopenjpeg.so:graphics/openjpeg15 \
+		libpng.so:graphics/png \
+		libtiff.so:graphics/tiff \
+		libfftw3.so:math/fftw3 \
+		libavutil.so:multimedia/ffmpeg \
+		libfreetype.so:print/freetype2
+RUN_DEPENDS=	xdg-mime:devel/xdg-utils
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	sambler \
@@ -114,7 +114,7 @@ SECURITY_DESC=	Disable scripts auto-run
 
 COLLADA_CMAKE_ON=	-DWITH_OPENCOLLADA:BOOL=ON
 COLLADA_CMAKE_OFF=	-DWITH_OPENCOLLADA:BOOL=OFF
-COLLADA_LIB_DEPENDS=	libOpenCOLLADABaseUtils.so:${PORTSDIR}/graphics/opencollada
+COLLADA_LIB_DEPENDS=	libOpenCOLLADABaseUtils.so:graphics/opencollada
 
 HEADLESS_CMAKE_ON=	-DWITH_HEADLESS:BOOL=ON
 HEADLESS_CMAKE_OFF=	-DWITH_HEADLESS:BOOL=OFF
@@ -122,7 +122,7 @@ HEADLESS_CMAKE_OFF=	-DWITH_HEADLESS:BOOL=OFF
 JACK_CMAKE_ON=		-DWITH_JACK:BOOL=ON \
 			-DWITH_JACK_DYNLOAD:BOOL=ON
 JACK_CMAKE_OFF=		-DWITH_JACK:BOOL=OFF
-JACK_LIB_DEPENDS=	libjack.so:${PORTSDIR}/audio/jack
+JACK_LIB_DEPENDS=	libjack.so:audio/jack
 
 # TODO: add ndof lib to ports
 NDOF_CMAKE_ON=		-DWITH_INPUT_NDOF:BOOL=ON
@@ -142,7 +142,7 @@ OPENMP_USES=		compiler:openmp
 
 OSD_CMAKE_ON=		-DWITH_OPENSUBDIV:BOOL=ON
 OSD_CMAKE_OFF=		-DWITH_OPENSUBDIV:BOOL=OFF
-OSD_LIB_DEPENDS=	libosdCPU.so:${PORTSDIR}/graphics/opensubdiv
+OSD_LIB_DEPENDS=	libosdCPU.so:graphics/opensubdiv
 
 OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DWITH_LLVM:BOOL=ON \
@@ -150,7 +150,7 @@ OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DLLVM_VERSION:STRING="3.4" \
 			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
-OSL_LIB_DEPENDS=	liboslcomp.so:${PORTSDIR}/graphics/openshadinglanguage
+OSL_LIB_DEPENDS=	liboslcomp.so:graphics/openshadinglanguage
 
 PLAYER_CMAKE_ON=	-DWITH_PLAYER:BOOL=ON
 PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF

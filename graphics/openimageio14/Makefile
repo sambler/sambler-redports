@@ -37,15 +37,15 @@ DOCS_CMAKE_OFF=		-DINSTALL_DOCS:BOOL=OFF
 
 GIF_CMAKE_ON=		-DUSE_GIF:BOOL=ON
 GIF_CMAKE_OFF=		-DUSE_GIF:BOOL=OFF
-GIF_LIB_DEPENDS=	libgif.so:${PORTSDIR}/graphics/giflib
+GIF_LIB_DEPENDS=	libgif.so:graphics/giflib
 
 OCIO_CMAKE_ON=		-DUSE_OCIO:BOOL=ON
 OCIO_CMAKE_OFF=		-DUSE_OCIO:BOOL=OFF
-OCIO_LIB_DEPENDS=	libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
+OCIO_LIB_DEPENDS=	libOpenColorIO.so:graphics/opencolorio
 
 RAW_CMAKE_ON=		-DUSE_LIBRAW:BOOL=ON
 RAW_CMAKE_OFF=		-DUSE_LIBRAW:BOOL=OFF
-RAW_LIB_DEPENDS=	libraw_r.so:${PORTSDIR}/graphics/libraw
+RAW_LIB_DEPENDS=	libraw_r.so:graphics/libraw
 
 TEST_CMAKE_ON=		-DOIIO_BUILD_TESTS:BOOL=ON
 TEST_CMAKE_OFF=		-DOIIO_BUILD_TESTS:BOOL=OFF
@@ -55,17 +55,17 @@ PLIST_SUB+=		LIBVERS=${PORTVERSION}
 .include <bsd.port.options.mk>
 
 .if ${SLAVE_PORT} == no
-LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
-		libboost_thread.so:${PORTSDIR}/devel/boost-libs \
-		libhdf5.so:${PORTSDIR}/science/hdf5 \
-		libopencv_legacy.so:${PORTSDIR}/graphics/opencv \
-		libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15 \
-		libwebp.so:${PORTSDIR}/graphics/webp
+LIB_DEPENDS+=	libIlmImf.so:graphics/OpenEXR \
+		libboost_thread.so:devel/boost-libs \
+		libhdf5.so:science/hdf5 \
+		libopencv_legacy.so:graphics/opencv \
+		libopenjpeg.so:graphics/openjpeg15 \
+		libwebp.so:graphics/webp
 USE_LDCONFIG=	yes
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF -DOIIO_BUILD_TOOLS:BOOL=ON
 .else
-LIB_DEPENDS+=	libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14 \
-		libboost_python.so:${PORTSDIR}/devel/boost-python-libs
+LIB_DEPENDS+=	libOpenImageIO14.so:graphics/openimageio14 \
+		libboost_python.so:devel/boost-python-libs
 USES+=		python
 PLIST=		${PKGDIR}/pkg-plist-pybind
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON -DOIIO_BUILD_TOOLS:BOOL=OFF

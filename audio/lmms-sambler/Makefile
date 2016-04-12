@@ -12,23 +12,23 @@ COMMENT=	LMMS with my patches.
 LICENSE=	GPLv2
 CONFLICTS=	lmms-[01].*
 
-BUILD_DEPENDS=	${LOCALBASE}/include/ladspa.h:${PORTSDIR}/audio/ladspa
-LIB_DEPENDS=	libFLAC.so:${PORTSDIR}/audio/flac \
-		libfluidsynth.so:${PORTSDIR}/audio/fluidsynth \
-		libjack.so:${PORTSDIR}/audio/jack \
-		libsamplerate.so:${PORTSDIR}/audio/libsamplerate \
-		libsndfile.so:${PORTSDIR}/audio/libsndfile \
-		libvorbis.so:${PORTSDIR}/audio/libvorbis \
-		libportaudio.so:${PORTSDIR}/audio/portaudio \
-		libpulse.so:${PORTSDIR}/audio/pulseaudio \
-		libstk.so:${PORTSDIR}/audio/stk \
-		libfftw3.so:${PORTSDIR}/math/fftw3 \
-		libfftw3f.so:${PORTSDIR}/math/fftw3-float \
-		libfltk.so:${PORTSDIR}/x11-toolkits/fltk
-RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/caps.rdf:${PORTSDIR}/audio/caps-plugins \
-		${LOCALBASE}/lib/ladspa/cmt.so:${PORTSDIR}/audio/cmt \
-		${LOCALBASE}/share/ladspa/rdf/swh-plugins.rdf:${PORTSDIR}/audio/swhplugins \
-		${LOCALBASE}/share/ladspa/rdf/tap-plugins.rdf:${PORTSDIR}/audio/tap-plugins
+BUILD_DEPENDS=	${LOCALBASE}/include/ladspa.h:audio/ladspa
+LIB_DEPENDS=	libFLAC.so:audio/flac \
+		libfluidsynth.so:audio/fluidsynth \
+		libjack.so:audio/jack \
+		libsamplerate.so:audio/libsamplerate \
+		libsndfile.so:audio/libsndfile \
+		libvorbis.so:audio/libvorbis \
+		libportaudio.so:audio/portaudio \
+		libpulse.so:audio/pulseaudio \
+		libstk.so:audio/stk \
+		libfftw3.so:math/fftw3 \
+		libfftw3f.so:math/fftw3-float \
+		libfltk.so:x11-toolkits/fltk
+RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/caps.rdf:audio/caps-plugins \
+		${LOCALBASE}/lib/ladspa/cmt.so:audio/cmt \
+		${LOCALBASE}/share/ladspa/rdf/swh-plugins.rdf:audio/swhplugins \
+		${LOCALBASE}/share/ladspa/rdf/tap-plugins.rdf:audio/tap-plugins
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	lmms

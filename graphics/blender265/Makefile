@@ -14,19 +14,19 @@ COMMENT=	3D modeling/rendering/animation/gaming package
 
 LICENSE=	GPLv2
 
-LIB_DEPENDS=	libsamplerate.so:${PORTSDIR}/audio/libsamplerate
-LIB_DEPENDS+=	libsndfile.so:${PORTSDIR}/audio/libsndfile
-LIB_DEPENDS+=	libboost_thread.so:${PORTSDIR}/devel/boost-libs
-LIB_DEPENDS+=	libOpenColorIO.so:${PORTSDIR}/graphics/opencolorio
-LIB_DEPENDS+=	libIlmImf.so:${PORTSDIR}/graphics/OpenEXR
-LIB_DEPENDS+=	libOpenImageIO14.so:${PORTSDIR}/graphics/openimageio14
-LIB_DEPENDS+=	libopenjpeg.so:${PORTSDIR}/graphics/openjpeg15
-LIB_DEPENDS+=	libpng.so:${PORTSDIR}/graphics/png
-LIB_DEPENDS+=	libtiff.so:${PORTSDIR}/graphics/tiff
-LIB_DEPENDS+=	libfftw3.so:${PORTSDIR}/math/fftw3
-LIB_DEPENDS+=	libavutil0.so:${PORTSDIR}/multimedia/ffmpeg0
-LIB_DEPENDS+=	libfreetype.so:${PORTSDIR}/print/freetype2
-RUN_DEPENDS=	xdg-mime:${PORTSDIR}/devel/xdg-utils
+LIB_DEPENDS=	libsamplerate.so:audio/libsamplerate
+LIB_DEPENDS+=	libsndfile.so:audio/libsndfile
+LIB_DEPENDS+=	libboost_thread.so:devel/boost-libs
+LIB_DEPENDS+=	libOpenColorIO.so:graphics/opencolorio
+LIB_DEPENDS+=	libIlmImf.so:graphics/OpenEXR
+LIB_DEPENDS+=	libOpenImageIO14.so:graphics/openimageio14
+LIB_DEPENDS+=	libopenjpeg.so:graphics/openjpeg15
+LIB_DEPENDS+=	libpng.so:graphics/png
+LIB_DEPENDS+=	libtiff.so:graphics/tiff
+LIB_DEPENDS+=	libfftw3.so:math/fftw3
+LIB_DEPENDS+=	libavutil0.so:multimedia/ffmpeg0
+LIB_DEPENDS+=	libfreetype.so:print/freetype2
+RUN_DEPENDS=	xdg-mime:devel/xdg-utils
 
 USES=		cmake:outsource compiler:c++11-lib shebangfix
 USES+=		python:3.3 desktop-file-utils openal:al,alut jpeg
@@ -93,7 +93,7 @@ HEADLESS_CMAKE_OFF=	-DWITH_HEADLESS:BOOL=OFF
 
 JACK_CMAKE_ON=		-DWITH_JACK:BOOL=ON
 JACK_CMAKE_OFF=		-DWITH_JACK:BOOL=OFF
-JACK_LIB_DEPENDS=	libjack.so:${PORTSDIR}/audio/jack
+JACK_LIB_DEPENDS=	libjack.so:audio/jack
 
 NLS_CMAKE_ON=		-DWITH_INTERNATIONAL:BOOL=ON
 NLS_CMAKE_OFF=		-DWITH_INTERNATIONAL:BOOL=OFF
@@ -113,7 +113,7 @@ OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DOSL_LIB_EXEC:STRING="${LOCALBASE}/lib/liboslexec14.so" \
 			-DOSL_LIB_QUERY:STRING="${LOCALBASE}/lib/liboslquery14.so"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
-OSL_LIB_DEPENDS=	liboslcomp14.so:${PORTSDIR}/graphics/openshadinglanguage14
+OSL_LIB_DEPENDS=	liboslcomp14.so:graphics/openshadinglanguage14
 
 PLAYER_CMAKE_ON=	-DWITH_PLAYER:BOOL=ON
 PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF

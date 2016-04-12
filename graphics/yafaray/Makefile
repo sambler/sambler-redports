@@ -15,12 +15,12 @@ COMMENT=	A fast XML based raytracer
 
 LICENSE=	LGPL21
 
-BUILD_DEPENDS=	swig:${PORTSDIR}/devel/swig13
-LIB_DEPENDS=	libfreetype.so:${PORTSDIR}/print/freetype2 \
-		libIlmImf.so:${PORTSDIR}/graphics/OpenEXR \
-		libpng.so:${PORTSDIR}/graphics/png \
-		libtiff.so:${PORTSDIR}/graphics/tiff \
-		libxml2.so:${PORTSDIR}/textproc/libxml2
+BUILD_DEPENDS=	swig:devel/swig13
+LIB_DEPENDS=	libfreetype.so:print/freetype2 \
+		libIlmImf.so:graphics/OpenEXR \
+		libpng.so:graphics/png \
+		libtiff.so:graphics/tiff \
+		libxml2.so:textproc/libxml2
 
 FETCH_ARGS=	-pRr
 USES=		cmake:outsource jpeg
@@ -43,7 +43,7 @@ QT_GUI_DESC=		QT interface
 BLENDER_ADDON_DESC=	Install Blender Addon
 
 BLENDER_ADDON_DISTFILES= Blender_2.62:blenaddon
-BLENDER_ADDON_RUN_DEPENDS= blender>=2.62:${PORTSDIR}/graphics/blender
+BLENDER_ADDON_RUN_DEPENDS= blender>=2.62:graphics/blender
 BLENADDONDIR=	${WRKDIR}/YafaRay-Blender-2.5-Exporter-e8f3502
 
 PYTHON_CMAKE_ON=	-DWITH_YAF_PY_BINDINGS:BOOL=ON

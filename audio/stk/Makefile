@@ -19,9 +19,9 @@ OPTIONS_DEFINE=		JACK ALSA
 OPTIONS_DEFAULT=	JACK ALSA
 
 JACK_CONFIGURE_WITH=	jack
-JACK_LIB_DEPENDS=	libjack.so:${PORTSDIR}/audio/jack
+JACK_LIB_DEPENDS=	libjack.so:audio/jack
 
 ALSA_CONFIGURE_WITH=	alsa
-ALSA_LIB_DEPENDS=	libasound.so:${PORTSDIR}/audio/alsa-lib
+ALSA_LIB_DEPENDS=	libasound.so:audio/alsa-lib
 
 .include <bsd.port.mk>
