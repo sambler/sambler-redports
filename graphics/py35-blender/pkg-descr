@@ -1,0 +1,7 @@
+Blender is a free and fully functional 3D
+modeling/rendering/animation/gaming package.
+
+This port builds blender 2.77 as a python 3.5 module,
+without the main gui.
+
+WWW: http://www.blender.org/
