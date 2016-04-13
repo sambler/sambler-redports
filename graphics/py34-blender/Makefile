@@ -1,14 +1,13 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
-PORTNAME=	blender34
+PORTNAME=	py34-blender
 PORTVERSION=	2.76b
 PORTREVISION=	0
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
 DISTFILES=	blender-${PORTVERSION}.tar.gz
-PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	blender built as a python module
@@ -28,10 +27,7 @@ LIB_DEPENDS=	libsamplerate.so:audio/libsamplerate \
 		libfftw3.so:math/fftw3 \
 		libavutil.so:multimedia/ffmpeg \
 		libfreetype.so:print/freetype2
-#RUN_DEPENDS=	xdg-mime:devel/xdg-utils
 
-#USES=		cmake:outsource compiler:c++11-lib shebangfix
-#USES+=		python:3.4 desktop-file-utils openal:al,alut jpeg
 USES=		cmake:outsource compiler:c++11-lib python:3.4 openal:al,alut jpeg
 
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
@@ -40,8 +36,6 @@ VERS_TAG=	${PORTVERSION:C/[.abcd]//g}
 PLIST_SUB+=	VERSTAG=${VERS_TAG}
 
 USE_SDL=	sdl
-#USE_XORG=	x11 xext xmu
-#USE_GL=		glew
 
 LDFLAGS+=	-L${LOCALBASE}/lib -lexecinfo
 
@@ -78,14 +72,6 @@ CMAKE_ARGS+=	-DWITH_BUILDINFO:BOOL=ON -DWITH_AUDASPACE:BOOL=ON \
 		-DWITH_X11_XF86VMODE:BOOL=ON -DWITH_X11_XINPUT:BOOL=ON
 
 CMAKE_INSTALL_PREFIX=	${PYTHON_SITELIBDIR}
-
-#SUB_FILES=	blender blenderplayer
-#python_CMD=	${PYTHON_CMD}
-#SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
-#		release/scripts/modules/bl_i18n_utils/merge_po.py \
-#		release/scripts/modules/bl_i18n_utils/utils_rtl.py \
-#		release/scripts/modules/blend_render_info.py \
-#		doc/manpage/blender.1.py
 
 OPTIONS_DEFINE=	COLLADA JACK NLS OSD OSL SECURITY
 OPTIONS_DEFAULT=	COLLADA JACK NLS OSD OSL SECURITY
@@ -136,9 +122,5 @@ post-patch:
 		${PATCH_WRKSRC}/build_files/cmake/Modules/FindOpenColorIO.cmake
 	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
 		${XARGS} ${REINPLACE_CMD} -e 's|<OSL/|<OSL16/|g'
-
-#post-install:
-#	@${MKDIR} ${STAGEDIR}${PYTHON_SITELIBDIR}
-#	@${INSTALL_LIB} ${INSTALL_WRKSRC}/bin/bpy.so ${STAGEDIR}${PYTHON_SITELIBDIR}/
 
 .include <bsd.port.mk>
