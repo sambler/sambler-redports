@@ -2,9 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	godot
-PORTVERSION=	1.1
+PORTVERSION=	2.0
 DISTVERSIONSUFFIX=	-stable
-PORTREVISION=	0
 CATEGORIES=	devel games
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -12,8 +11,8 @@ COMMENT=	Game engine and development environment
 
 LICENSE=	MIT
 
-LIB_DEPENDS=	libfreetype.so:${PORTSDIR}/print/freetype2 \
-		libasound.so:${PORTSDIR}/audio/alsa-lib
+LIB_DEPENDS=	libfreetype.so:print/freetype2 \
+		libasound.so:audio/alsa-lib
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	okamstudio
@@ -24,6 +23,7 @@ USE_GL=		glu
 USE_OPENSSL=	yes
 
 MAKE_ARGS+=	platform=x11
+CXXFLAGS+=	-DRTAUDIO_ENABLED
 
 OPTIONS_DEFINE=	EXAMPLES TOOLS
 OPTIONS_DEFAULT=	EXAMPLES TOOLS
@@ -42,9 +42,6 @@ BITSUF=	.32
 .endif
 
 .if ${CHOSEN_COMPILER_TYPE} == clang
-.if ${OSVERSION} < 900000
-BROKEN=	clang fails to link on 8.x
-.endif
 LLSUF=	.llvm
 MAKE_ARGS+=	use_llvm=yes
 .else  # clang
@@ -71,10 +68,10 @@ do-install:
 		${STAGEDIR}/${PREFIX}/bin/godot.x11${BINSUFFIX}
 	@${LN} ${STAGEDIR}/${PREFIX}/bin/godot.x11${BINSUFFIX} \
 		${STAGEDIR}/${PREFIX}/bin/godot
-.if ${PORT_OPTIONS:MEXAMPLES}
+
+do-install-EXAMPLES-on:
 	${MKDIR} ${STAGEDIR}${DATADIR}
 	(cd ${WRKSRC} && ${COPYTREE_SHARE} demos ${STAGEDIR}${DATADIR})
 	${RM} ${STAGEDIR}${DATADIR}/demos/2d/hexamap/.fscache
-.endif
 
 .include <bsd.port.post.mk>
