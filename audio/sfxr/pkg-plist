@@ -1,0 +1,7 @@
+bin/sfxr
+share/applications/sfxr.desktop
+%%PORTDOCS%%%%DOCSDIR%%/readme.txt
+share/icons/hicolor/48x48/apps/sfxr.png
+%%DATADIR%%/font.tga
+%%DATADIR%%/ld48.tga
+%%DATADIR%%/sfxr.bmp
