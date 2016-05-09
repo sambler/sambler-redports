@@ -1,0 +1,7 @@
+PyTMX is a map loader for python/pygame designed for games.
+It provides smart tile loading with a fast and efficient storage base.
+Not only does it correctly handle most Tiled object types, it also
+will load metadata for them so you can modify your maps and objects
+in Tiled instead of modifying your source code.
+
+WWW: https://github.com/bitcraft/PyTMX
