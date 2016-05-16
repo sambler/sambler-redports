@@ -1,0 +1,4 @@
+Nucular is a system for creating full text indices for fielded data.
+Nucular archives fielded documents and retrieves them based on field value, field prefix, field word prefix, or full text word prefix, word proximity or combinations of these. Nucular also includes features for determining values related to a query often called query facets.
+
+WWW: http://nucular.sourceforge.net
