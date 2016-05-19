@@ -17,6 +17,10 @@ USE_SDL=	sdl
 USE_GNOME=	gtk30
 INSTALLS_ICONS=	yes
 
+post-patch:
+	@${REINPLACE_CMD} -e 's|/usr/share/sfxr|${DATADIR}|g' \
+		${WRKSRC}/main.cpp ${WRKSRC}/sdlkit.h
+
 do-build:
 	@cd ${WRKSRC} && gmake
 
