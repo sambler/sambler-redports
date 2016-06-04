@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.77
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	graphics multimedia
 DIST_SUBDIR=	${PORTNAME}
 
@@ -18,15 +18,19 @@ LIB_DEPENDS=	liblzo2.so:archivers/lzo2 \
 		libboost_thread.so:devel/boost-libs \
 		libexecinfo.so:devel/libexecinfo \
 		libunwind.so:devel/libunwind \
+		libpcre.so:devel/pcre \
+		libyaml-cpp03.so:devel/yaml-cpp03 \
 		libOpenColorIO.so:graphics/opencolorio \
 		libOpenImageIO.so:graphics/openimageio \
 		libIlmImf.so:graphics/OpenEXR \
+		libHalf.so:graphics/ilmbase \
 		libopenjpeg.so:graphics/openjpeg15 \
 		libpng.so:graphics/png \
 		libtiff.so:graphics/tiff \
 		libfftw3.so:math/fftw3 \
 		libavutil.so:multimedia/ffmpeg \
-		libfreetype.so:print/freetype2
+		libfreetype.so:print/freetype2 \
+		libtinyxml.so:textproc/tinyxml
 RUN_DEPENDS=	xdg-mime:devel/xdg-utils
 
 USE_GITHUB=	yes
@@ -58,9 +62,10 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		release/scripts/modules/blend_render_info.py \
 		doc/manpage/blender.1.py
 
-USE_SDL=	sdl
-USE_XORG=	x11 xext xmu
-USE_GL=		glew
+USE_SDL=	sdl2
+USE_XORG=	x11 xext xmu xi xxf86vm
+USE_GL=		gl glu glew
+USE_GNOME=	libxml2
 
 LDFLAGS+=	-L${LOCALBASE}/lib -lexecinfo
 
@@ -151,6 +156,8 @@ OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
 OSL_LIB_DEPENDS=	liboslcomp.so:graphics/openshadinglanguage
+OSL_BUILD_DEPENDS=	llvm-config34:devel/llvm34
+OSL_RUN_DEPENDS=	llvm-config34:devel/llvm34
 
 PLAYER_CMAKE_ON=	-DWITH_PLAYER:BOOL=ON
 PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
@@ -189,7 +196,7 @@ post-build:
 
 post-install:
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blender
-	@${INSTALL_SCRIPT} ${WRKDIR}/blender ${STAGEDIR}/${PREFIX}/bin/blender-${VERS_TAG}
+	${INSTALL_SCRIPT} ${WRKDIR}/blender ${STAGEDIR}/${PREFIX}/bin/blender-${VERS_TAG}
 	@${MV} ${STAGEDIR}/${PREFIX}/bin/blender ${STAGEDIR}/${PREFIX}/bin/blender-bin-${VERS_TAG}
 	@${MV} ${STAGEDIR}/${PREFIX}/bin/blender-thumbnailer.py \
 		${STAGEDIR}/${PREFIX}/bin/blender-thumbnailer-${VERS_TAG}.py
@@ -199,7 +206,7 @@ post-install:
 
 .if ${PORT_OPTIONS:MPLAYER}
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' ${WRKDIR}/blenderplayer
-	@${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${STAGEDIR}/${PREFIX}/bin/blenderplayer-${VERS_TAG}
+	${INSTALL_SCRIPT} ${WRKDIR}/blenderplayer ${STAGEDIR}/${PREFIX}/bin/blenderplayer-${VERS_TAG}
 	@${MV} ${STAGEDIR}/${PREFIX}/bin/blenderplayer \
 		${STAGEDIR}/${PREFIX}/bin/blenderplayer-bin-${VERS_TAG}
 	@${ECHO} bin/blenderplayer-${VERS_TAG} >> ${TMPPLIST}
@@ -209,7 +216,7 @@ post-install:
 	@${MKDIR} ${STAGEDIR}${DATADIR}
 	@${MV} ${STAGEDIR}/${PREFIX}/share/blender/${PORTVERSION}/* ${STAGEDIR}${DATADIR}
 	@${RM} -R ${STAGEDIR}/${PREFIX}/share/blender
-	@${INSTALL_DATA} ${WRKSRC}/release/freedesktop/icons/scalable/apps/blender.svg \
+	${INSTALL_DATA} ${WRKSRC}/release/freedesktop/icons/scalable/apps/blender.svg \
 		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg
 	@${ECHO} share/pixmaps/blender-${VERS_TAG}.svg >> ${TMPPLIST}
 	@${MKDIR} ${STAGEDIR}/${DESKTOPDIR}
@@ -223,7 +230,7 @@ post-install:
 	@${MV} ${STAGEDIR}/${PREFIX}/share/doc/blender/* ${STAGEDIR}/${LICDIR}
 	@${RM} -R ${STAGEDIR}/${PREFIX}/share/doc/blender
 	@cd ${STAGEDIR}/${PREFIX}/share/icons && ${FIND} . -name "*.png" -or -name "*.svg" | \
-		${SED} -e "p;s|blender|blender-${VERS_TAG}|" | xargs -n2 ${MV}
+		${SED} -e "p;s|blender|blender-${VERS_TAG}|" | ${XARGS} -n2 ${MV}
 	@(cd ${STAGEDIR}/${PREFIX}; ${FIND} share/icons -type f) | ${SORT} >> ${TMPPLIST}
 	@(cd ${STAGEDIR}/${PREFIX}; ${FIND} ${DATADIR_REL} -type f) | ${SORT} >> ${TMPPLIST}
 
