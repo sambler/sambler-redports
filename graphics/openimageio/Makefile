@@ -2,9 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio
-PORTVERSION=	1.6.12
+PORTVERSION=	1.6.14
 DISTVERSIONPREFIX=	Release-
-PORTREVISION?=	0
 CATEGORIES?=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
@@ -54,7 +53,8 @@ GIF_LIB_DEPENDS=	libgif.so:graphics/giflib
 
 IMAGEVIEWER_CMAKE_ON=	-DUSE_QT:BOOL=ON -DUSE_OPENGL:BOOL=ON
 IMAGEVIEWER_CMAKE_OFF=	-DUSE_OPENGL:BOOL=OFF -DUSE_QT:BOOL=OFF
-IMAGEVIEWER_USE=	GL=glew QT4=corelib,gui,opengl,qmake_build,moc_build,rcc_build,uic_build
+IMAGEVIEWER_USE=	GL=gl,glu,glew \
+			QT4=corelib,gui,opengl,qmake_build,moc_build,rcc_build,uic_build
 
 OCIO_CMAKE_ON=		-DUSE_OCIO:BOOL=ON
 OCIO_CMAKE_OFF=		-DUSE_OCIO:BOOL=OFF
@@ -62,7 +62,8 @@ OCIO_LIB_DEPENDS=	libOpenColorIO.so:graphics/opencolorio
 
 OPENCV_CMAKE_ON=	-DUSE_OPENCV:BOOL=ON
 OPENCV_CMAKE_OFF=	-DUSE_OPENCV:BOOL=OFF
-OPENCV_LIB_DEPENDS=	libopencv_highgui.so:graphics/opencv
+OPENCV_LIB_DEPENDS=	libopencv_highgui.so:graphics/opencv \
+			libopencv_core.so:graphics/opencv-core
 
 OPENJPEG_CMAKE_ON=	-DUSE_OPENJPEG:BOOL=ON
 OPENJPEG_CMAKE_OFF=	-DUSE_OPENJPEG:BOOL=OFF
@@ -84,10 +85,14 @@ USE_GCC=	yes
 .endif
 
 .if ${SLAVE_PORT} == no
-LIB_DEPENDS+=	libIlmImf.so:graphics/OpenEXR \
-		libboost_thread.so:devel/boost-libs \
-		libhdf5.so:science/hdf5 \
-		libwebp.so:graphics/webp
+LIB_DEPENDS+=	libboost_thread.so:devel/boost-libs \
+		libImath.so:graphics/ilmbase \
+		libIlmImf.so:graphics/OpenEXR \
+		libpng16.so:graphics/png \
+		libtiff.so:graphics/tiff \
+		libwebp.so:graphics/webp \
+		libhdf5.so:science/hdf5
+USES+=		jpeg
 USE_LDCONFIG=	yes
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF -DUSE_PYTHON3:BOOL=OFF \
 		-DOIIO_BUILD_TOOLS:BOOL=ON
