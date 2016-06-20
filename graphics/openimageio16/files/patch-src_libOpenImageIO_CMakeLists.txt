@@ -1,6 +1,6 @@
---- src/libOpenImageIO/CMakeLists.txt.orig	2016-03-31 18:07:45 UTC
+--- src/libOpenImageIO/CMakeLists.txt.orig	2016-05-31 03:36:55 UTC
 +++ src/libOpenImageIO/CMakeLists.txt
-@@ -230,11 +230,11 @@ source_group ("libutil"    REGULAR_EXPRE
+@@ -217,11 +217,11 @@
  source_group ("libtexture" REGULAR_EXPRESSION ".+/libtexture/.+")
  
  if (BUILDSTATIC)
@@ -15,7 +15,7 @@
                             ${VISIBILITY_COMMAND} ${VISIBILITY_MAP_COMMAND}
                             ${Boost_LIBRARIES})
  
-@@ -243,7 +243,7 @@ if (USE_FFMPEG AND FFMPEG_FOUND)
+@@ -230,7 +230,7 @@
      if (VERBOSE)
          message (STATUS "Linking FFmpeg ${FFMPEG_LIBRARIES}")
      endif ()
@@ -24,7 +24,7 @@
  endif ()
  
          
-@@ -252,38 +252,38 @@ if (USE_OCIO AND OCIO_FOUND)
+@@ -239,38 +239,38 @@
      if (VERBOSE)
          message (STATUS "Linking OpenColorIO ${OCIO_LIBRARIES}")
      endif ()
@@ -36,8 +36,8 @@
  # Include OpenCV if using it
  if (OpenCV_FOUND)
      include_directories (${OpenCV_INCLUDE_DIR})
--    target_link_libraries (OpenImageIO opencv_core opencv_highgui)
-+    target_link_libraries (OpenImageIO16 opencv_core opencv_highgui)
+-    target_link_libraries (OpenImageIO ${OpenCV_LIBS})
++    target_link_libraries (OpenImageIO16 ${OpenCV_LIBS})
  endif ()
  
  # Include OpenSSL if using it
@@ -70,7 +70,7 @@
                                 ${JPEG_LIBRARIES}
                                 ${FIELD3D_LIBRARY}
                                 ${HDF5_LIBRARIES}
-@@ -294,24 +294,28 @@ if (EMBEDPLUGINS)
+@@ -281,24 +281,28 @@
                                 ${ZLIB_LIBRARIES}
                            )
      if (USE_GIF AND GIF_FOUND)
@@ -104,7 +104,7 @@
                           PROPERTIES
                           VERSION ${OIIO_VERSION_MAJOR}.${OIIO_VERSION_MINOR}.${OIIO_VERSION_PATCH}
                           SOVERSION ${SOVERSION}
-@@ -323,13 +327,13 @@ if(DEFINED OVERRIDE_SHARED_LIBRARY_SUFFI
+@@ -310,13 +314,13 @@
    if (VERBOSE)
        message(STATUS "Setting SUFFIX to: ${OVERRIDE_SHARED_LIBRARY_SUFFIX}")
    endif ()
@@ -120,7 +120,7 @@
  
  
  # Testing
-@@ -348,27 +352,27 @@ if (OIIO_BUILD_TESTS)
+@@ -335,27 +339,27 @@
  
      add_executable (imagebuf_test imagebuf_test.cpp)
      set_target_properties (imagebuf_test PROPERTIES FOLDER "Unit Tests")
