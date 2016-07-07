@@ -3,6 +3,7 @@
 
 PORTNAME=	openshadinglanguage16
 PORTVERSION=	1.6.9
+PORTREVISION=	1
 DISTVERSIONPREFIX=	Release-
 CATEGORIES=	graphics devel
 
@@ -14,8 +15,9 @@ LICENSE=	BSD3CLAUSE
 BUILD_DEPENDS=	llvm-config34:devel/llvm34 \
 		clang34>=3.4_1:lang/clang34
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
+		libImath-2_2.so:graphics/ilmbase \
 		libIlmImf.so:graphics/OpenEXR \
-		libOpenImageIO.so:graphics/openimageio
+		libOpenImageIO16.so:graphics/openimageio16
 RUN_DEPENDS=	llvm-config34:devel/llvm34
 
 USE_GITHUB=	yes
@@ -42,6 +44,8 @@ CXXFLAGS+=	-I${LOCALBASE}/include/flex
 post-patch:
 	@${REINPLACE_CMD} -e 's,/bin/bash,/bin/sh,' \
 		${WRKSRC}/src/liboslexec/serialize-bc.bash
+	@${FIND} ${WRKSRC} -name "*.cpp" -or -name "*.h" -or -name "*.l" | \
+		${XARGS} ${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO16/|g'
 
 post-install:
 	@${REINPLACE_CMD} -e 's|OSL/|OSL16/|g' ${STAGEDIR}/${PREFIX}/include/OSL16/oslexec.h
