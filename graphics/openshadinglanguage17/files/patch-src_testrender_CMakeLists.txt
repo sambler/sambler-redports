@@ -1,0 +1,11 @@
+--- src/testrender/CMakeLists.txt.orig	2016-07-02 00:07:46 UTC
++++ src/testrender/CMakeLists.txt
+@@ -1,5 +1,5 @@
+ # The 'testrender' executable
+ FILE(GLOB testrender_src *.cpp)
+-ADD_EXECUTABLE ( testrender ${testrender_src} )
+-TARGET_LINK_LIBRARIES ( testrender oslexec oslcomp oslquery ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-INSTALL ( TARGETS testrender RUNTIME DESTINATION bin )
++ADD_EXECUTABLE ( testrender17 ${testrender_src} )
++TARGET_LINK_LIBRARIES ( testrender17 oslexec17 oslcomp17 oslquery17 ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++INSTALL ( TARGETS testrender17 RUNTIME DESTINATION bin )

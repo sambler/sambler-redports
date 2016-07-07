@@ -1,0 +1,40 @@
+--- src/liboslexec/CMakeLists.txt.orig	2016-07-02 00:07:46 UTC
++++ src/liboslexec/CMakeLists.txt
+@@ -133,12 +133,12 @@ else ()
+ endif ()
+ 
+ if (BUILDSTATIC)
+-    ADD_LIBRARY ( oslexec STATIC ${liboslexec_srcs} )
++    ADD_LIBRARY ( oslexec17 STATIC ${liboslexec_srcs} )
+ else ()
+-    ADD_LIBRARY ( oslexec SHARED ${liboslexec_srcs} )
++    ADD_LIBRARY ( oslexec17 SHARED ${liboslexec_srcs} )
+ endif ()
+ 
+-TARGET_LINK_LIBRARIES ( oslexec
++TARGET_LINK_LIBRARIES ( oslexec17
+                         ${VISIBILITY_COMMAND} ${VISIBILITY_MAP_COMMAND}
+                         ${OPENIMAGEIO_LIBRARY} ${ILMBASE_LIBRARIES}
+                         ${PUGIXML_LIBRARIES}
+@@ -147,17 +147,17 @@ TARGET_LINK_LIBRARIES ( oslexec
+                         ${LLVM_LIBRARY} ${LLVM_MCJIT_LIBRARY}
+                         ${LLVM_LIBRARIES} ${LLVM_LDFLAGS}
+                         ${EXTRA_OSLEXEC_LIBRARIES})
+-ADD_DEPENDENCIES (oslexec "${CMAKE_CURRENT_SOURCE_DIR}/liboslexec.map")
++ADD_DEPENDENCIES (oslexec17 "${CMAKE_CURRENT_SOURCE_DIR}/liboslexec.map")
+ 
+-INSTALL ( TARGETS oslexec RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib )
++INSTALL ( TARGETS oslexec17 RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib )
+ 
+ # Unit tests
+ if (OSL_BUILD_TESTS)
+     add_executable (accum_test accum_test.cpp)
+-    target_link_libraries ( accum_test oslexec oslcomp ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} ${EXTRA_OSLEXEC_LIBRARIES} )
++    target_link_libraries ( accum_test oslexec17 oslcomp17 ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} ${EXTRA_OSLEXEC_LIBRARIES} )
+     add_test (unit_accum "${CMAKE_BINARY_DIR}/src/liboslexec/accum_test")
+ 
+     add_executable (llvmutil_test llvmutil_test.cpp)
+-    target_link_libraries ( llvmutil_test oslexec oslcomp ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} ${EXTRA_OSLEXEC_LIBRARIES} )
++    target_link_libraries ( llvmutil_test oslexec17 oslcomp17 ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} ${EXTRA_OSLEXEC_LIBRARIES} )
+     add_test (unit_llvmutil "${CMAKE_BINARY_DIR}/src/liboslexec/llvmutil_test")
+ endif ()
