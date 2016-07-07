@@ -4,7 +4,7 @@
 PORTNAME=	openshadinglanguage15
 PORTVERSION=	1.5.12
 DISTVERSIONPREFIX=	Release-
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	graphics devel
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -15,6 +15,7 @@ LICENSE=	BSD3CLAUSE
 BUILD_DEPENDS=	llvm-config34:devel/llvm34 \
 		clang34>=3.4_1:lang/clang34
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
+		libImath-2_2.so:graphics/ilmbase \
 		libIlmImf.so:graphics/OpenEXR \
 		libOpenImageIO14.so:graphics/openimageio14
 RUN_DEPENDS=	llvm-config34:devel/llvm34
