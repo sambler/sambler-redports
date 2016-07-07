@@ -2,9 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio16
-PORTVERSION=	1.6.14
+PORTVERSION=	1.6.15
 DISTVERSIONPREFIX=	Release-
-PORTREVISION?=	0
+PORTREVISION?=	1
 CATEGORIES?=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
@@ -24,8 +24,8 @@ CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DLINKSTATIC:BOOL=OFF \
 		-DNOTHREADS:BOOL=OFF \
 		-DSTOP_ON_WARNING:BOOL=OFF \
-		-DOIIO_BUILD_CPP11:BOOL=OFF \
-		-DOIIO_BUILD_CPP14:BOOL=OFF \
+		-DUSE_CPP11:BOOL=OFF \
+		-DUSE_CPP14:BOOL=OFF \
 		-DUSE_OPENSSL:BOOL=OFF
 
 OPTIONS_DEFINE=		DOCS FFMPEG FREETYPE GIF IMAGEVIEWER OCIO OPENCV \
@@ -44,7 +44,8 @@ FFMPEG_CMAKE_ON=	-DUSE_FFMPEG:BOOL=ON
 FFMPEG_CMAKE_OFF=	-DUSE_FFMPEG:BOOL=OFF
 FFMPEG_LIB_DEPENDS=	libavutil.so:multimedia/ffmpeg
 
-FREETYPE_CMAKE_ON=	-DUSE_FREETYPE:BOOL=ON
+FREETYPE_CMAKE_ON=	-DUSE_FREETYPE:BOOL=ON \
+			-DFONTS_INSTALL_DIR:STRING=share/fonts/oiio16
 FREETYPE_CMAKE_OFF=	-DUSE_FREETYPE:BOOL=OFF
 FREETYPE_LIB_DEPENDS=	libfreetype.so:print/freetype2
 
@@ -96,8 +97,7 @@ LIB_DEPENDS+=	libboost_thread.so:devel/boost-libs \
 USES+=		jpeg
 USE_LDCONFIG=	yes
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF -DUSE_PYTHON3:BOOL=OFF \
-		-DOIIO_BUILD_TOOLS:BOOL=ON \
-		-DFONTS_INSTALL_DIR:STRING=share/fonts/oiio16
+		-DOIIO_BUILD_TOOLS:BOOL=ON
 .else
 LIB_DEPENDS=	libOpenImageIO16.so:graphics/openimageio16 \
 		libboost_python.so:devel/boost-python-libs
@@ -118,6 +118,9 @@ post-install:
 		${STAGEDIR}${PREFIX}/lib/libOpenImageIO16.so.1
 	${LN} -sf libOpenImageIO_Util16.so.1.6 \
 		${STAGEDIR}${PREFIX}/lib/libOpenImageIO_Util16.so.1
+	@${FIND} ${STAGEDIR}${PREFIX}/include -type f | \
+		${XARGS} ${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO16/|g'
+	@${FIND} ${STAGEDIR}/${PREFIX}/include/ -name "*.bak" -delete
 .endif
 
 do-test-TEST-on:
