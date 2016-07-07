@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openshadinglanguage
-PORTVERSION=	1.7.2
+PORTVERSION=	1.7.3
 DISTVERSIONPREFIX=	Release-
 CATEGORIES=	graphics devel
 
@@ -14,6 +14,8 @@ LICENSE=	BSD3CLAUSE
 BUILD_DEPENDS=	llvm-config34:devel/llvm34 \
 		clang34>=3.4_1:lang/clang34
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
+		libtinfo.so:devel/ncurses \
+		libImath-2_2.so:graphics/ilmbase \
 		libIlmImf.so:graphics/OpenEXR \
 		libOpenImageIO.so:graphics/openimageio
 RUN_DEPENDS=	llvm-config34:devel/llvm34
