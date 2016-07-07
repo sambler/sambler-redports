@@ -1,0 +1,18 @@
+--- src/liboslquery/CMakeLists.txt.orig	2016-07-02 00:07:46 UTC
++++ src/liboslquery/CMakeLists.txt
+@@ -7,11 +7,11 @@ INCLUDE_DIRECTORIES ( ../liboslexec )
+ FLEX_BISON ( ../liboslexec/osolex.l ../liboslexec/osogram.y oso liboslquery_srcs compiler_headers )
+ 
+ if (BUILDSTATIC)
+-    ADD_LIBRARY ( oslquery STATIC ${liboslquery_srcs} )
++    ADD_LIBRARY ( oslquery-dev STATIC ${liboslquery_srcs} )
+ else ()
+-    ADD_LIBRARY ( oslquery SHARED ${liboslquery_srcs} )
++    ADD_LIBRARY ( oslquery-dev SHARED ${liboslquery_srcs} )
+ endif ()
+ 
+-TARGET_LINK_LIBRARIES ( oslquery ${OPENIMAGEIO_LIBRARY} ${ILMBASE_LIBRARIES} ${Boost_LIBRARIES} )
++TARGET_LINK_LIBRARIES ( oslquery-dev ${OPENIMAGEIO_LIBRARY} ${ILMBASE_LIBRARIES} ${Boost_LIBRARIES} )
+ 
+-INSTALL ( TARGETS oslquery RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib )
++INSTALL ( TARGETS oslquery-dev RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib )
