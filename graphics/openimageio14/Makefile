@@ -4,7 +4,7 @@
 PORTNAME=	openimageio14
 PORTVERSION=	1.4.16
 DISTVERSIONPREFIX=	Release-
-PORTREVISION?=	1
+PORTREVISION?=	2
 CATEGORIES?=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
@@ -39,6 +39,11 @@ GIF_CMAKE_ON=		-DUSE_GIF:BOOL=ON
 GIF_CMAKE_OFF=		-DUSE_GIF:BOOL=OFF
 GIF_LIB_DEPENDS=	libgif.so:graphics/giflib
 
+IMAGEVIEWER_CMAKE_ON=	-DUSE_QT:BOOL=ON -DUSE_OPENGL:BOOL=ON
+IMAGEVIEWER_CMAKE_OFF=	-DUSE_OPENGL:BOOL=OFF -DUSE_QT:BOOL=OFF
+IMAGEVIEWER_USE=	GL=gl,glu,glew \
+			QT4=corelib,gui,opengl,qmake_build,moc_build,rcc_build,uic_build
+
 OCIO_CMAKE_ON=		-DUSE_OCIO:BOOL=ON
 OCIO_CMAKE_OFF=		-DUSE_OCIO:BOOL=OFF
 OCIO_LIB_DEPENDS=	libOpenColorIO.so:graphics/opencolorio
@@ -55,12 +60,19 @@ PLIST_SUB+=		LIBVERS=${PORTVERSION}
 .include <bsd.port.options.mk>
 
 .if ${SLAVE_PORT} == no
-LIB_DEPENDS+=	libIlmImf.so:graphics/OpenEXR \
-		libboost_thread.so:devel/boost-libs \
+LIB_DEPENDS+=	libboost_thread.so:devel/boost-libs \
+		libfreetype.so:print/freetype2 \
 		libhdf5.so:science/hdf5 \
-		libopencv_legacy.so:graphics/opencv \
+		libImath.so:graphics/ilmbase \
+		libIlmImf.so:graphics/OpenEXR \
+		libopencv_highgui.so:graphics/opencv \
+		libopencv_core.so:graphics/opencv-core \
 		libopenjpeg.so:graphics/openjpeg15 \
+		libpng16.so:graphics/png \
+		libtiff.so:graphics/tiff \
+		libhdf5.so:science/hdf5 \
 		libwebp.so:graphics/webp
+USES+=		jpeg
 USE_LDCONFIG=	yes
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF -DOIIO_BUILD_TOOLS:BOOL=ON
 .else
@@ -69,15 +81,6 @@ LIB_DEPENDS+=	libOpenImageIO14.so:graphics/openimageio14 \
 USES+=		python
 PLIST=		${PKGDIR}/pkg-plist-pybind
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON -DOIIO_BUILD_TOOLS:BOOL=OFF
-.endif
-
-.if ${PORT_OPTIONS:MIMAGEVIEWER}
-USE_GL=		glew
-USE_QT4=	corelib gui opengl qmake_build moc_build rcc_build uic_build
-CMAKE_ARGS+=	-DUSE_QT:BOOL=ON -DUSE_OPENGL:BOOL=ON
-CMAKE_ENV+=	QTDIR=${QT_PREFIX} QT_INCLUDES=${QT_INCDIR}
-.else
-CMAKE_ARGS+=	-DUSE_OPENGL:BOOL=OFF -DUSE_QT:BOOL=OFF
 .endif
 
 post-patch:
