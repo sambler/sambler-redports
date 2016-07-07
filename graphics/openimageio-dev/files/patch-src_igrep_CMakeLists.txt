@@ -1,0 +1,12 @@
+--- src/igrep/CMakeLists.txt.orig	2016-04-12 09:52:18 UTC
++++ src/igrep/CMakeLists.txt
+@@ -1,5 +1,5 @@
+ set (igrep_srcs igrep.cpp)
+-add_executable (igrep ${igrep_srcs})
+-set_target_properties (igrep PROPERTIES FOLDER "Tools")
+-target_link_libraries (igrep OpenImageIO ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-oiio_install_targets (igrep)
++add_executable (igrep_dev ${igrep_srcs})
++set_target_properties (igrep_dev PROPERTIES FOLDER "Tools")
++target_link_libraries (igrep_dev OpenImageIO_dev ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++oiio_install_targets (igrep_dev)
