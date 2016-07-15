@@ -78,3 +78,12 @@
    result = ioctl( mixerfd, SNDCTL_AUDIOINFO, &ainfo );
    close( mixerfd );
    if ( result == -1 ) {
+@@ -9025,7 +9043,7 @@ bool RtApiOss :: probeDeviceOpen( unsign
+   }
+ 
+   // Verify the sample rate setup worked.
+-  if ( abs( srate - sampleRate ) > 100 ) {
++  if ( abs( srate - (int)sampleRate ) > 100 ) {
+     close( fd );
+     errorStream_ << "RtApiOss::probeDeviceOpen: device (" << ainfo.name << ") does not support sample rate (" << sampleRate << ").";
+     errorText_ = errorStream_.str();

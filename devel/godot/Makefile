@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	godot
-PORTVERSION=	2.0.3
+PORTVERSION=	2.0.4.1
 DISTVERSIONSUFFIX=	-stable
 PORTREVISION=	1
 CATEGORIES=	devel games
@@ -25,10 +25,9 @@ RUN_DEPENDS=	xdg-open:devel/xdg-utils \
 USE_GITHUB=	yes
 GH_ACCOUNT=	godotengine
 
-USES=		scons pkgconfig compiler
+USES=		scons ssl pkgconfig compiler
 USE_XORG=	x11 xcursor xinerama
 USE_GL=		gl glu
-USE_OPENSSL=	yes
 
 MAKE_ARGS+=	platform=x11
 CXXFLAGS+=	-DRTAUDIO_ENABLED
