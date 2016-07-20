@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	makehuman
-DISTVERSION=	1.0.2
+DISTVERSION=	1.1.0
 CATEGORIES=	graphics
 MASTER_SITES=	https://bitbucket.org/MakeHuman/makehuman/get/${PORTVERSION}.tar.gz?dummy=/
 
@@ -18,17 +18,17 @@ RUN_DEPENDS=	${PYNUMPY} \
 
 USES=		python:2 shebangfix
 NO_BUILD=	yes
+NO_ARCH=	yes
 
-WRKSRC=		${WRKDIR}/MakeHuman-makehuman-47eda58327ee
+WRKSRC=		${WRKDIR}/MakeHuman-makehuman-38e6e33b59ee
 python_OLD_CMD=	/usr/bin/python2.7
 SHEBANG_FILES=	${WRKSRC}/makehuman/*/*.py ${WRKSRC}/makehuman/*/*/*.py
 SUB_FILES=	makehuman
 SUB_LIST=	PYTHON_CMD=${PYTHON_CMD}
+PLIST_FILES=	bin/makehuman
 
-post-extract:
-	# one file doesn't have python2.7 which prevents shebangfix adjusting it
-	@${REINPLACE_CMD} -e 's|usr/bin/python|usr/bin/python2.7|' \
-		${WRKSRC}/makehuman/core/managed_file.py
+PORTDATA=	*
+PORTDOCS=	README
 
 do-install:
 	@${MKDIR} ${STAGEDIR}${DATADIR}
