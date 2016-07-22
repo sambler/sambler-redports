@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.77
-PORTREVISION=	2
+PORTREVISION=	4
 CATEGORIES=	graphics multimedia
 DIST_SUBDIR=	${PORTNAME}
 
@@ -63,7 +63,7 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		doc/manpage/blender.1.py
 
 USE_SDL=	sdl2
-USE_XORG=	x11 xext xmu xi xxf86vm
+USE_XORG=	x11 xext xmu xi xxf86vm xrender
 USE_GL=		gl glu glew
 USE_GNOME=	libxml2
 
