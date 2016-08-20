@@ -18,8 +18,8 @@ CONFLICTS=	hydrogen-devel-0.*
 USE_GITHUB=	yes
 GH_ACCOUNT=	hydrogen-music
 
-USE_QT4=	qmake_build moc_build rcc_build uic_build gui \
-		network xml xmlpatterns
+USE_QT4=	qmake_build moc_build rcc_build uic_build corelib \
+		gui network xml xmlpatterns
 USES=		cmake desktop-file-utils pkgconfig
 
 OPTIONS_SINGLE=		EXPORT

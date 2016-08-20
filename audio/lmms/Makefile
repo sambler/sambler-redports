@@ -21,10 +21,9 @@ LIB_DEPENDS=	libFLAC.so:audio/flac \
 		libfltk.so:x11-toolkits/fltk
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	lmms
 
 USE_LDCONFIG=	yes
-USE_XORG=	xft
+USE_XORG=	ice sm x11 xext xft
 USE_QT4=	corelib gui xml moc_build uic_build rcc_build \
 		qmake_build linguisttools
 USES=		cmake pkgconfig desktop-file-utils shared-mime-info \
@@ -73,7 +72,8 @@ JACKMIDI_IMPLIES=	JACK
 
 OGG_CMAKE_ON=		-DWANT_OGGVORBIS:BOOL=ON
 OGG_CMAKE_OFF=		-DWANT_OGGVORBIS:BOOL=OFF
-OGG_LIB_DEPENDS=	libvorbis.so:audio/libvorbis
+OGG_LIB_DEPENDS=	libvorbis.so:audio/libvorbis \
+			libogg.so:audio/libogg
 
 PORTAUDIO_CMAKE_ON=	-DWANT_PORTAUDIO:BOOL=ON
 PORTAUDIO_CMAKE_OFF=	-DWANT_PORTAUDIO:BOOL=OFF
@@ -131,10 +131,9 @@ post-patch:
 .endfor
 
 post-install:
-	@${LN} -sf ${DATADIR}/themes/default/icon.png \
-		${STAGEDIR}${PREFIX}/share/pixmaps/lmms.png
+	@(cd ${STAGEDIR}${PREFIX}/share/pixmaps/ \
+		&& ${LN} -sf ../lmms/themes/default/icon.png ./lmms.png)
 	# make it setuid-root to be able to set realtime priority
-	# (root privileges are dropped in the main routine)
-	${CHMOD} u+s ${STAGEDIR}${PREFIX}/bin/lmms
+	#${CHMOD} u+s ${STAGEDIR}${PREFIX}/bin/lmms
 
 .include <bsd.port.mk>

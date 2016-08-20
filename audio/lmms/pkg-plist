@@ -1,4 +1,4 @@
-%%QT_BINDIR%%/lmms
+bin/lmms
 include/lmms/AboutDialog.h
 include/lmms/ActionGroup.h
 include/lmms/aeffectx.h
@@ -1369,7 +1369,7 @@ share/applications/lmms.desktop
 %%DATADIR%%/presets/ZynAddSubFX/the_mysterious_bank/0010-synth_bass.xiz
 %%DATADIR%%/presets/ZynAddSubFX/the_mysterious_bank/0011-synth_bass_fat.xiz
 %%DATADIR%%/presets/ZynAddSubFX/the_mysterious_bank/0013-supersaw.xiz
-%%DATADIR%%/presets/ZynAddSubFX/the_mysterious_bank/0014-supersaw_wihout_%%CMAKE_BUILD_TYPE%%.xiz
+%%DATADIR%%/presets/ZynAddSubFX/the_mysterious_bank/0014-supersaw_wihout_release.xiz
 %%DATADIR%%/presets/ZynAddSubFX/the_mysterious_bank/0015-superpulse.xiz
 %%DATADIR%%/presets/ZynAddSubFX/the_mysterious_bank/0016-sine_pad.xiz
 %%DATADIR%%/presets/ZynAddSubFX/the_mysterious_bank/0018-organ1.xiz
@@ -2782,10 +2782,10 @@ share/applications/lmms.desktop
 %%DATADIR%%/themes/default/zoom.png
 %%DATADIR%%/themes/default/zoom_x.png
 %%DATADIR%%/themes/default/zoom_y.png
-%%DATADIR%%/wavetables/moog.%%QT_BINDIR%%
-%%DATADIR%%/wavetables/saw.%%QT_BINDIR%%
-%%DATADIR%%/wavetables/sqr.%%QT_BINDIR%%
-%%DATADIR%%/wavetables/tri.%%QT_BINDIR%%
+%%DATADIR%%/wavetables/moog.bin
+%%DATADIR%%/wavetables/saw.bin
+%%DATADIR%%/wavetables/sqr.bin
+%%DATADIR%%/wavetables/tri.bin
 share/man/man1/lmms.1.gz
 share/menu/lmms
 share/mime/packages/lmms.xml
