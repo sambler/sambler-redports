@@ -20,7 +20,7 @@ LIB_DEPENDS+=	libboost_thread.so:devel/boost-libs
 LIB_DEPENDS+=	libexecinfo.so:devel/libexecinfo
 LIB_DEPENDS+=	libOpenColorIO.so:graphics/opencolorio
 LIB_DEPENDS+=	libIlmImf.so:graphics/OpenEXR
-LIB_DEPENDS+=	libOpenImageIO.so:graphics/openimageio
+LIB_DEPENDS+=	libOpenImageIO16.so:graphics/openimageio16
 LIB_DEPENDS+=	libopenjpeg.so:graphics/openjpeg15
 LIB_DEPENDS+=	libpng.so:graphics/png
 LIB_DEPENDS+=	libtiff.so:graphics/tiff
@@ -135,6 +135,10 @@ post-patch:
 		${WRKSRC}/release/bin/blender-thumbnailer.py
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
 		${WRKSRC}/release/freedesktop/blender.desktop
+	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
+		${XARGS} ${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO16/|g'
+	@${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO16/|g' \
+		${WRKSRC}/source/blender/imbuf/intern/oiio/openimageio_api.cpp
 	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
 		${XARGS} ${REINPLACE_CMD} -e 's|<OSL/|<OSL16/|g'
 	@${REINPLACE_CMD} -e 's|yaml-cpp|&03|' \

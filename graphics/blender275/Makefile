@@ -20,7 +20,7 @@ LIB_DEPENDS=	libsamplerate.so:audio/libsamplerate \
 		libexecinfo.so:devel/libexecinfo \
 		libOpenColorIO.so:graphics/opencolorio \
 		libIlmImf.so:graphics/OpenEXR \
-		libOpenImageIO.so:graphics/openimageio \
+		libOpenImageIO16.so:graphics/openimageio16 \
 		libopenjpeg.so:graphics/openjpeg15 \
 		libpng.so:graphics/png \
 		libtiff.so:graphics/tiff \
@@ -136,6 +136,10 @@ post-patch:
 		${WRKSRC}/release/bin/blender-thumbnailer.py
 	@${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
 		${WRKSRC}/release/freedesktop/blender.desktop
+	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
+		${XARGS} ${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO16/|g'
+	@${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO16/|g' \
+		${WRKSRC}/source/blender/imbuf/intern/oiio/openimageio_api.cpp
 	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
 		${XARGS} ${REINPLACE_CMD} -e 's|<OSL/|<OSL16/|g'
 	@${REINPLACE_CMD} -e 's|yaml-cpp|&03|' \
