@@ -1,5 +1,13 @@
 --- ./source/creator/CMakeLists.txt.orig	2015-01-17 20:49:52.261466989 +1030
 +++ ./source/creator/CMakeLists.txt	2015-01-17 20:50:54.062758081 +1030
+@@ -177,6 +177,7 @@ if(WITH_BUILDINFO)
+ 
+ 	# make an object library so can load with it in tests
+ 	add_library(buildinfoobj OBJECT buildinfo.c)
++	add_dependencies(buildinfoobj buildinfo)
+ endif()
+ 
+ # message(STATUS "Configuring blender")
 @@ -390,15 +390,6 @@
  
  if(UNIX AND NOT APPLE)
