@@ -7,7 +7,8 @@ PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 COMMENT=	OpenImageIO python bindings
 
 MASTERDIR=	${.CURDIR}/../openimageio
-OPTIONS_EXCLUDE=${OPTIONS_DEFINE}
+# we want to use the same options as the main port
+OPTIONS_NAME=	graphics_openimageio
 
 do-install:
 	@${MKDIR} ${STAGEDIR}${PYTHON_SITELIBDIR}
