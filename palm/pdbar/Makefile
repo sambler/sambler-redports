@@ -8,12 +8,8 @@ MASTER_SITES=	http://www.djw.org/product/palm/par/
 DISTNAME=	prc
 EXTRACT_SUFX=	.tgz
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	Create and manipulate PalmOS database files
-
-BROKEN=		unfetchable
-DEPRECATED=	Broken for more than 6 months
-EXPIRATION_DATE=	2016-07-04
 
 MAKE_ARGS=	CC="${CC}" CFLAGS="${CFLAGS}" LDFLAGS="" AR=${AR} RANLIB=${RANLIB} LD=${CC}
 
