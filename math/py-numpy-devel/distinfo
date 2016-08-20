@@ -1,6 +1,7 @@
-SHA256 (numpy-devel1.10.1/numpy-1.10.1.tar.gz) = 8b9f453f29ce96a14e625100d3dcf8926301d36c5f622623bf8820e748510858
-SIZE (numpy-devel1.10.1/numpy-1.10.1.tar.gz) = 4048478
-SHA256 (numpy-devel1.10.1/numpy-ref-1.9.1.pdf) = 3c8e5881a3460e1cc9da95fe2167044e8f832ab8e980c3606d1f353e7ac6dcee
-SIZE (numpy-devel1.10.1/numpy-ref-1.9.1.pdf) = 5318122
-SHA256 (numpy-devel1.10.1/numpy-user-1.9.1.pdf) = e1f6baed0b73f3d4b106c88924c083f9a519e860c1beb718830bf1aee1892232
-SIZE (numpy-devel1.10.1/numpy-user-1.9.1.pdf) = 418111
+TIMESTAMP = 1470538225
+SHA256 (numpy-devel1.11.1/numpy-1.11.1.tar.gz) = dc4082c43979cc856a2bf352a8297ea109ccb3244d783ae067eb2ee5b0d577cd
+SIZE (numpy-devel1.11.1/numpy-1.11.1.tar.gz) = 4171162
+SHA256 (numpy-devel1.11.1/numpy-ref-1.11.0.pdf) = a975923b98f4dbd5a4736ab1c74a1c6393f422e3d1f9184bae2f12f041e3ac3e
+SIZE (numpy-devel1.11.1/numpy-ref-1.11.0.pdf) = 5310792
+SHA256 (numpy-devel1.11.1/numpy-user-1.11.0.pdf) = 7ea6d24169d9e19d20ff131378d2bb5cd8b41658f242c87a1ffc53c3ac2e4b59
+SIZE (numpy-devel1.11.1/numpy-user-1.11.0.pdf) = 555403

@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	numpy-devel
-PORTVERSION=	1.10.1
+PORTVERSION=	1.11.1
 CATEGORIES=	math python
 MASTER_SITES=	http://docs.scipy.org/doc/numpy/:doc \
 		SF/numpy/NumPy/${PORTVERSION:S/r/rc/}:source
@@ -36,7 +36,7 @@ PYDISTUTILS_BUILDARGS+=		--fcompiler=gnu95
 
 PORTDOCS=	*
 WRKSRC=		${WRKDIR}/numpy-${PORTVERSION:S/r/rc/}
-DOCVERSION=	1.9.1
+DOCVERSION=	1.11.0
 
 ATLAS_USES=	blaslapack:atlas
 NETLIB_USES=	blaslapack:netlib
