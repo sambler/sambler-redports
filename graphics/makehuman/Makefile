@@ -14,7 +14,7 @@ LICENSE_COMB=	dual
 
 RUN_DEPENDS=	${PYNUMPY} \
 		${PYTHON_PKGNAMEPREFIX}qt4-gui>=0:x11-toolkits/py-qt4-gui \
-		${PYTHON_PKGNAMEPREFIX}opengl>0:graphics/py-opengl
+		${PYTHON_PKGNAMEPREFIX}PyOpenGL>0:graphics/py-PyOpenGL
 
 USES=		python:2 shebangfix
 NO_BUILD=	yes
