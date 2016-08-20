@@ -3,13 +3,15 @@
 
 PORTNAME=	opencolorio
 PORTVERSION=	1.0.9
-PORTREVISION?=	0
+PORTREVISION?=	1
 CATEGORIES=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
 COMMENT?=	Complete color management solution
 
 LICENSE=	BSD3CLAUSE
+
+BROKEN_powerpc64=	Does not build
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
@@ -29,26 +31,29 @@ SHEBANG_FILES=	share/sphinx/ExtractRstFromSourceCPP.py \
 		share/sphinx/ExtractRstFromSourceSimple.py \
 		src/pyglue/createPyDocH.py
 
-.if ${MACHINE_CPU:Msse2}
-CMAKE_ARGS+=	-DOCIO_USE_SSE:BOOL=ON
-.else
-CMAKE_ARGS+=	-DOCIO_USE_SSE:BOOL=OFF
-.endif
+#.if ${MACHINE_CPU:Msse2}
+#CMAKE_ARGS+=	-DOCIO_USE_SSE:BOOL=ON
+#.else
+#CMAKE_ARGS+=	-DOCIO_USE_SSE:BOOL=OFF
+#.endif
 
 .include <bsd.port.options.mk>
 
 .if defined(OCIO_SLAVE) && ${OCIO_SLAVE} == tools
-LIB_DEPENDS=	libOpenImageIO.so:graphics/openimageio \
+LIB_DEPENDS=	liblcms2.so:graphics/lcms2 \
+		libOpenImageIO.so:graphics/openimageio \
 		libOpenColorIO.so:graphics/opencolorio
 CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=ON \
 		-DOCIO_BUILD_SHARED:BOOL=OFF \
 		-DOCIO_BUILD_PYGLUE:BOOL=OFF
-USE_GL=		glew glut
+USE_GL=		gl glu glut glew
+USE_XORG=	xi xmu
 PLIST=		${PKGDIR}/pkg-plist-tools
 EXTRA_PATCHES=	${FILESDIR}/extra-patch-CMakeLists.txt \
 		${FILESDIR}/extra-tools-patch-src_core_CMakeLists.txt
 .elif defined(OCIO_SLAVE) && ${OCIO_SLAVE} == pymodule
-LIB_DEPENDS=	libOpenImageIO.so:graphics/openimageio
+LIB_DEPENDS=	libOpenImageIO.so:graphics/openimageio \
+		libOpenColorIO.so:graphics/opencolorio
 USES+=		python
 CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=OFF \
 		-DOCIO_BUILD_SHARED:BOOL=OFF \
