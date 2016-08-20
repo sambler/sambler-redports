@@ -1,5 +1,5 @@
---- ptex/PtexPlatform.h.orig	2015-02-12 16:37:58 UTC
-+++ ptex/PtexPlatform.h
+--- src/ptex/PtexPlatform.h.orig	2015-02-12 16:37:58 UTC
++++ src/ptex/PtexPlatform.h
 @@ -60,7 +60,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  
  // linux/unix/posix
