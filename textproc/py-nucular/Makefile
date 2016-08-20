@@ -18,7 +18,7 @@ NO_ARCH=	yes
 
 .include <bsd.port.pre.mk>
 
-post-patch:
+pre-build:
 .if ${PYTHON_MAJOR_VER} == 3
 	@cd ${WRKSRC} && ${FIND} . -name "*.py" | \
 		${XARGS} ${LOCALBASE}/bin/2to3${UNIQUE_SUFFIX} -wn --no-diffs
