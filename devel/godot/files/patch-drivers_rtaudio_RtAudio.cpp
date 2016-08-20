@@ -1,4 +1,4 @@
---- drivers/rtaudio/RtAudio.cpp.orig	2016-05-13 15:36:31 UTC
+--- drivers/rtaudio/RtAudio.cpp.orig	2016-08-09 07:52:15 UTC
 +++ drivers/rtaudio/RtAudio.cpp
 @@ -8589,6 +8589,12 @@ bool RtApiPulse::probeDeviceOpen( unsign
  #include <errno.h>
