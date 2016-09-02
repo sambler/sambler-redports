@@ -3,10 +3,11 @@
 
 PKGNAMESUFFIX=	-tools
 
-COMMENT=	Game development environment
+COMMENT=	Game integrated development environment
+
+OPTIONS_EXCLUDE=	#
+OPTIONS_SLAVE=	TOOLS
 
 MASTERDIR=	${.CURDIR}/../godot
-
-OPTIONS_DEFINE=		EXAMPLES
 
 .include "${MASTERDIR}/Makefile"

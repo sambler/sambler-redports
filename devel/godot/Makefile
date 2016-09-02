@@ -12,8 +12,8 @@ COMMENT?=	Game runtime engine
 LICENSE=		MIT CCBYv3
 LICENSE_COMB=		multi
 LICENSE_NAME_CCBYv3=	Creative Commons Attribution 3.0 Unported license
-LICENSE_FILE_MIT=	${WRKSRC}/LICENSE.md
 LICENSE_FILE_CCBYv3=	${WRKSRC}/LOGO_LICENSE.md
+LICENSE_FILE_MIT=	${WRKSRC}/LICENSE.md
 LICENSE_PERMS_CCBYv3=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 LIB_DEPENDS=	libfreetype.so:print/freetype2
@@ -23,61 +23,50 @@ RUN_DEPENDS=	xdg-user-dir:devel/xdg-user-dirs \
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	godotengine
-GH_TAGNAME_DEMOS=	dfa1274
 
-USES=		scons ssl pkgconfig compiler
+USES=		compiler:c++11-lib pkgconfig scons ssl
 USE_XORG=	x11 xcursor xinerama xrandr
 USE_GL=		gl
 
 MAKE_ARGS+=	platform=x11
+MAKE_ARGS+=	${MAKE_ARGS_${CHOSEN_COMPILER_TYPE}}
+MAKE_ARGS_clang=	use_llvm=yes
 CXXFLAGS+=	-DGLEW_NO_GLU -DRTAUDIO_ENABLED
+CXXFLAGS_i386=	${CXXFLAGS_i386_${CHOSEN_COMPILER_TYPE}}
+CXXFLAGS_i386_gcc=	-march=i586
 
-OPTIONS_DEFINE+=	DEBUG
-OPTIONS_DEFAULT+=	OSS
+OPTIONS_DEFINE=	EXAMPLES TOOLS
+OPTIONS_DEFAULT=	OSS
+# Moved to devel/godot-tools
+OPTIONS_EXCLUDE?=	EXAMPLES TOOLS
 OPTIONS_GROUP=		AUDIO
 OPTIONS_GROUP_AUDIO=	ALSA OSS PULSEAUDIO
 
-EXAMPLES_GH_TUPLE=	godotengine:godot-demo-projects:${GH_TAGNAME_DEMOS}:DEMOS
-
-AUDIO_DESC=		Supported audio
+AUDIO_DESC=		Audio support
 ALSA_LIB_DEPENDS=	libasound.so:audio/alsa-lib
 ALSA_MAKE_ARGS=		alsa=yes
+EXAMPLES_GH_PROJECT=	godot-demo-projects:DEMOS
+# Branch HEAD for PORTVERSION
+EXAMPLES_GH_TAGNAME=	dfa1274:DEMOS
+EXAMPLES_PORTEXAMPLES=	*
 OSS_MAKE_ARGS=		oss=yes
 PULSEAUDIO_LIB_DEPENDS=	libpulse-simple.so:audio/pulseaudio
 PULSEAUDIO_MAKE_ARGS=	pulseaudio=yes
+TOOLS_DESC=	Include development tools (IDE)
+TOOLS_MAKE_ARGS=	target=release_debug tools=yes
+TOOLS_MAKE_ARGS_OFF=	target=release tools=no
+TOOLS_DESKTOP_ENTRIES=	"Godot" "${COMMENT}" "${GODOTFILE}" \
+			"${GODOTFILE}" "Development;IDE;" ""
+TOOLS_PLIST_FILES=	share/pixmaps/${GODOTFILE}.png \
+			share/pixmaps/${GODOTFILE}.svg
 
 GODOTFILE=		${PORTNAME}${PKGNAMESUFFIX}
-PLIST_FILES=		bin/${GODOTFILE}
-PORTDATA=		*
+PLIST_FILES=	bin/${GODOTFILE}
 
-.include <bsd.port.pre.mk>
-
-.ifdef WITH_DEBUG
-MAKE_ARGS+=	target=debug
-.elif ${SLAVE_PORT} == yes
-MAKE_ARGS+=	target=release_debug
-.else #SLAVE_PORT
-MAKE_ARGS+=	target=release
-.endif #SLAVE_PORT
-
-.if ${SLAVE_PORT} == yes
-MAKE_ARGS+=	tools=yes
-DESKTOP_ENTRIES=	"Godot" "${COMMENT}" "${GODOTFILE}" \
-			"${GODOTFILE}" "Development;IDE;" ""
-PLIST_FILES+=	share/pixmaps/${GODOTFILE}.png \
-		share/pixmaps/${GODOTFILE}.svg
-.else #SLAVE_PORT
-MAKE_ARGS+=	tools=no
-.endif #SLAVE_PORT
-
-.if ${CHOSEN_COMPILER_TYPE} == clang
-MAKE_ARGS+=	use_llvm=yes
-.else  # clang
-USE_GCC=	yes
-.if ${ARCH} == i386
-CXXFLAGS+=	-march=i586
+.ifmake makesum
+# Always include optional distfiles
+.MAKEFLAGS:	WITH="${OPTIONS_DEFINE}" OPTIONS_EXCLUDE=
 .endif
-.endif # clang
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|custom_build|${OPSYS}_Ports_build|' \
@@ -85,21 +74,21 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|/usr/bin|${PREFIX}/bin|' \
 		${WRKSRC}/platform/x11/os_x11.cpp
 
-# the official godot binary name reflects options used to compile
-# we just want a simple name matching the portname
-# this gives us bin/godot for runtime and bin/godot-tools for the IDE
+# The official godot binary name reflects options used to compile
+# We just want a simple name matching the portname
+# This gives us bin/godot for runtime and bin/godot-tools for the IDE
 do-install:
 	@cd ${WRKSRC}/bin && ${INSTALL_PROGRAM} godot.x11* \
 		${STAGEDIR}/${PREFIX}/bin/${GODOTFILE}
-.if ${SLAVE_PORT} == yes
+
+do-install-EXAMPLES-on:
+	(cd ${WRKSRC_DEMOS} && ${COPYTREE_SHARE} "${PORTEXAMPLES}" \
+		${STAGEDIR}${EXAMPLESDIR})
+
+do-install-TOOLS-on:
 	${INSTALL_DATA} ${WRKSRC}/icon.png \
 		${STAGEDIR}${PREFIX}/share/pixmaps/${GODOTFILE}.png
 	${INSTALL_DATA} ${WRKSRC}/icon.svg \
 		${STAGEDIR}${PREFIX}/share/pixmaps/${GODOTFILE}.svg
-.endif
 
-do-install-EXAMPLES-on:
-	(cd ${WRKSRC_DEMOS} && ${COPYTREE_SHARE} "${PORTDATA}" \
-		${STAGEDIR}${DATADIR}/demos)
-
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
