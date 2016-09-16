@@ -3,7 +3,7 @@
 
 PORTNAME=	opencolorio
 PORTVERSION=	1.0.9
-PORTREVISION?=	1
+PORTREVISION?=	2
 CATEGORIES=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
@@ -16,7 +16,7 @@ BROKEN_powerpc64=	Does not build
 USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
 GH_PROJECT=	OpenColorIO
-GH_TAGNAME=	a557a85454
+GH_TAGNAME=	67e455b97e
 
 OPTIONS_DEFINE=	DOCS
 
@@ -31,11 +31,11 @@ SHEBANG_FILES=	share/sphinx/ExtractRstFromSourceCPP.py \
 		share/sphinx/ExtractRstFromSourceSimple.py \
 		src/pyglue/createPyDocH.py
 
-#.if ${MACHINE_CPU:Msse2}
-#CMAKE_ARGS+=	-DOCIO_USE_SSE:BOOL=ON
-#.else
-#CMAKE_ARGS+=	-DOCIO_USE_SSE:BOOL=OFF
-#.endif
+.if ${MACHINE_CPU:Msse2}
+CMAKE_ARGS+=	-DOCIO_USE_SSE:BOOL=ON
+.else
+CMAKE_ARGS+=	-DOCIO_USE_SSE:BOOL=OFF
+.endif
 
 .include <bsd.port.options.mk>
 
