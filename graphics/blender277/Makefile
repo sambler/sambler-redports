@@ -3,7 +3,7 @@
 
 PORTNAME=	blender277
 PORTVERSION=	2.77a
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -14,19 +14,25 @@ COMMENT=	3D modeling/rendering/animation/gaming package
 
 LICENSE=	GPLv2
 
-LIB_DEPENDS=	libsamplerate.so:audio/libsamplerate \
+LIB_DEPENDS=	liblzo2.so:archivers/lzo2 \
+		libsamplerate.so:audio/libsamplerate \
 		libsndfile.so:audio/libsndfile \
 		libboost_thread.so:devel/boost-libs \
 		libexecinfo.so:devel/libexecinfo \
+		libunwind.so:devel/libunwind \
+		libpcre.so:devel/pcre \
+		libyaml-cpp03.so:devel/yaml-cpp03 \
 		libOpenColorIO.so:graphics/opencolorio \
-		libIlmImf.so:graphics/OpenEXR \
 		libOpenImageIO.so:graphics/openimageio \
+		libIlmImf.so:graphics/OpenEXR \
+		libHalf.so:graphics/ilmbase \
 		libopenjpeg.so:graphics/openjpeg15 \
 		libpng.so:graphics/png \
 		libtiff.so:graphics/tiff \
 		libfftw3.so:math/fftw3 \
 		libavutil.so:multimedia/ffmpeg \
-		libfreetype.so:print/freetype2
+		libfreetype.so:print/freetype2 \
+		libtinyxml.so:textproc/tinyxml
 RUN_DEPENDS=	xdg-mime:devel/xdg-utils
 
 USES=		cmake:outsource compiler:c++11-lib shebangfix
@@ -37,9 +43,10 @@ LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
 VERS_TAG=	${PORTVERSION:C/[.abcd]//g}
 PLIST_SUB+=	VERSTAG=${VERS_TAG}
 
-USE_SDL=	sdl
-USE_XORG=	x11 xext xmu
-USE_GL=		glew
+USE_SDL=	sdl2
+USE_XORG=	x11 xext xmu xi xxf86vm xrender
+USE_GL=		gl glu glew
+USE_GNOME=	libxml2
 
 LDFLAGS+=	-L${LOCALBASE}/lib -lexecinfo
 
@@ -128,6 +135,8 @@ OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
 OSL_LIB_DEPENDS=	liboslcomp.so:graphics/openshadinglanguage
+OSL_BUILD_DEPENDS=	llvm-config34:devel/llvm34
+OSL_RUN_DEPENDS=	llvm-config34:devel/llvm34
 
 PLAYER_CMAKE_ON=	-DWITH_PLAYER:BOOL=ON
 PLAYER_CMAKE_OFF=	-DWITH_PLAYER:BOOL=OFF
