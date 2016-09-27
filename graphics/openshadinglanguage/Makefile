@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openshadinglanguage
-PORTVERSION=	1.7.3
+PORTVERSION=	1.7.4
 DISTVERSIONPREFIX=	Release-
 CATEGORIES=	graphics devel
 
@@ -25,9 +25,10 @@ GH_ACCOUNT=	imageworks
 GH_PROJECT=	OpenShadingLanguage
 
 CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34" \
-		-DENABLERTTI:BOOL=ON
+		-DENABLERTTI:BOOL=ON -DOSL_BUILD_CPP11:BOOL=ON \
+		-DOSL_BUILD_CPP14:BOOL=OFF
 USE_LDCONFIG=	yes
-USES=		bison cmake:outsource compiler:c11
+USES=		bison cmake:outsource compiler:c++11-lang
 
 .include <bsd.port.options.mk>
 
