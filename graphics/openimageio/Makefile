@@ -2,8 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio
-PORTVERSION=	1.6.15
+PORTVERSION=	1.7.6
 DISTVERSIONPREFIX=	Release-
+DISTVERSIONSUFFIX=	RC1
 CATEGORIES?=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
@@ -18,7 +19,14 @@ GH_PROJECT=	oiio
 # fbm also installs bin/idiff
 CONFLICTS=	fbm-[0-9]*
 
-USES=		cmake:outsource compiler:c11
+LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
+		libImath.so:graphics/ilmbase \
+		libIlmImf.so:graphics/OpenEXR \
+		libpng16.so:graphics/png \
+		libtiff.so:graphics/tiff \
+		libwebp.so:graphics/webp \
+		libhdf5.so:science/hdf5
+USES=		cmake:outsource compiler:c11 jpeg
 CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DLINKSTATIC:BOOL=OFF \
 		-DNOTHREADS:BOOL=OFF \
@@ -63,11 +71,12 @@ OCIO_LIB_DEPENDS=	libOpenColorIO.so:graphics/opencolorio
 OPENCV_CMAKE_ON=	-DUSE_OPENCV:BOOL=ON
 OPENCV_CMAKE_OFF=	-DUSE_OPENCV:BOOL=OFF
 OPENCV_LIB_DEPENDS=	libopencv_highgui.so:graphics/opencv \
-			libopencv_core.so:graphics/opencv-core
+			libopencv_core.so:graphics/opencv-core \
+			libopenjpeg.so:graphics/openjpeg15
 
 OPENJPEG_CMAKE_ON=	-DUSE_OPENJPEG:BOOL=ON
 OPENJPEG_CMAKE_OFF=	-DUSE_OPENJPEG:BOOL=OFF
-OPENJPEG_LIB_DEPENDS=	libopenjpeg.so:graphics/openjpeg15
+OPENJPEG_LIB_DEPENDS=	libopenjp2.so:graphics/openjpeg
 
 RAW_CMAKE_ON=		-DUSE_LIBRAW:BOOL=ON
 RAW_CMAKE_OFF=		-DUSE_LIBRAW:BOOL=OFF
@@ -85,19 +94,11 @@ USE_GCC=	yes
 .endif
 
 .if ${SLAVE_PORT} == no
-LIB_DEPENDS+=	libboost_thread.so:devel/boost-libs \
-		libImath.so:graphics/ilmbase \
-		libIlmImf.so:graphics/OpenEXR \
-		libpng16.so:graphics/png \
-		libtiff.so:graphics/tiff \
-		libwebp.so:graphics/webp \
-		libhdf5.so:science/hdf5
-USES+=		jpeg
 USE_LDCONFIG=	yes
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF -DUSE_PYTHON3:BOOL=OFF \
 		-DOIIO_BUILD_TOOLS:BOOL=ON
 .else
-LIB_DEPENDS=	libOpenImageIO.so:graphics/openimageio \
+LIB_DEPENDS+=	libOpenImageIO.so:graphics/openimageio \
 		libboost_python.so:devel/boost-python-libs
 PLIST=		${PKGDIR}/pkg-plist-pybind
 #while oiio supports py3, ports doesn't have py3 support for boost-python yet

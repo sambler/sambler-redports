@@ -7,9 +7,11 @@ bin/maketx
 bin/oiiotool
 include/OpenImageIO/argparse.h
 include/OpenImageIO/array_view.h
+include/OpenImageIO/atomic.h
 include/OpenImageIO/color.h
 include/OpenImageIO/coordinate.h
 include/OpenImageIO/dassert.h
+include/OpenImageIO/deepdata.h
 include/OpenImageIO/errorhandler.h
 include/OpenImageIO/export.h
 include/OpenImageIO/filesystem.h
@@ -52,11 +54,11 @@ include/OpenImageIO/varyingref.h
 include/OpenImageIO/version.h
 lib/libOpenImageIO.so
 lib/libOpenImageIO.so.1
-lib/libOpenImageIO.so.1.6
+lib/libOpenImageIO.so.1.7
 lib/libOpenImageIO.so.%%LIBVERS%%
 lib/libOpenImageIO_Util.so
 lib/libOpenImageIO_Util.so.1
-lib/libOpenImageIO_Util.so.1.6
+lib/libOpenImageIO_Util.so.1.7
 lib/libOpenImageIO_Util.so.%%LIBVERS%%
 %%FREETYPE%%share/fonts/oiio/DroidSans-Bold.ttf
 %%FREETYPE%%share/fonts/oiio/DroidSans.ttf
@@ -65,6 +67,6 @@ lib/libOpenImageIO_Util.so.%%LIBVERS%%
 %%FREETYPE%%share/fonts/oiio/DroidSerif-BoldItalic.ttf
 %%FREETYPE%%share/fonts/oiio/DroidSerif-Italic.ttf
 %%FREETYPE%%share/fonts/oiio/DroidSerif.ttf
-%%PORTDOCS%%%%DOCSDIR%%/CHANGES
+%%PORTDOCS%%%%DOCSDIR%%/CHANGES.md
 %%PORTDOCS%%%%DOCSDIR%%/LICENSE
 %%PORTDOCS%%%%DOCSDIR%%/openimageio.pdf
