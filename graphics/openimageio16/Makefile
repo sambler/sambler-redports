@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio16
-PORTVERSION=	1.6.15
+PORTVERSION=	1.6.17
 DISTVERSIONPREFIX=	Release-
 PORTREVISION?=	1
 CATEGORIES?=	graphics multimedia
@@ -19,13 +19,20 @@ GH_PROJECT=	oiio
 # fbm also installs bin/idiff
 CONFLICTS=	fbm-[0-9]*
 
-USES=		cmake:outsource compiler:c11
+LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
+		libImath.so:graphics/ilmbase \
+		libIlmImf.so:graphics/OpenEXR \
+		libpng16.so:graphics/png \
+		libtiff.so:graphics/tiff \
+		libwebp.so:graphics/webp \
+		libhdf5.so:science/hdf5
+USES=		cmake:outsource compiler:c11 jpeg
 CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DLINKSTATIC:BOOL=OFF \
 		-DNOTHREADS:BOOL=OFF \
 		-DSTOP_ON_WARNING:BOOL=OFF \
-		-DUSE_CPP11:BOOL=OFF \
-		-DUSE_CPP14:BOOL=OFF \
+		-DOIIO_BUILD_CPP11:BOOL=OFF \
+		-DOIIO_BUILD_CPP14:BOOL=OFF \
 		-DUSE_OPENSSL:BOOL=OFF
 
 OPTIONS_DEFINE=		DOCS FFMPEG FREETYPE GIF IMAGEVIEWER OCIO OPENCV \
@@ -69,7 +76,7 @@ OPENCV_LIB_DEPENDS=	libopencv_highgui.so:graphics/opencv \
 
 OPENJPEG_CMAKE_ON=	-DUSE_OPENJPEG:BOOL=ON
 OPENJPEG_CMAKE_OFF=	-DUSE_OPENJPEG:BOOL=OFF
-OPENJPEG_LIB_DEPENDS=	libopenjpeg.so:graphics/openjpeg15
+OPENJPEG_LIB_DEPENDS=	libopenjp2.so:graphics/openjpeg
 
 RAW_CMAKE_ON=		-DUSE_LIBRAW:BOOL=ON
 RAW_CMAKE_OFF=		-DUSE_LIBRAW:BOOL=OFF
@@ -87,19 +94,11 @@ USE_GCC=	yes
 .endif
 
 .if ${SLAVE_PORT} == no
-LIB_DEPENDS+=	libboost_thread.so:devel/boost-libs \
-		libImath.so:graphics/ilmbase \
-		libIlmImf.so:graphics/OpenEXR \
-		libpng16.so:graphics/png \
-		libtiff.so:graphics/tiff \
-		libhdf5.so:science/hdf5 \
-		libwebp.so:graphics/webp
-USES+=		jpeg
 USE_LDCONFIG=	yes
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF -DUSE_PYTHON3:BOOL=OFF \
 		-DOIIO_BUILD_TOOLS:BOOL=ON
 .else
-LIB_DEPENDS=	libOpenImageIO16.so:graphics/openimageio16 \
+LIB_DEPENDS+=	libOpenImageIO16.so:graphics/openimageio16 \
 		libboost_python.so:devel/boost-python-libs
 PLIST=		${PKGDIR}/pkg-plist-pybind
 #while oiio supports py3, ports doesn't have py3 support for boost-python yet
