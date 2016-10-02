@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	py35-blender
-PORTVERSION=	2.77a
+PORTVERSION=	2.78
 PORTREVISION=	0
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
@@ -14,28 +14,37 @@ COMMENT=	blender built as a python module
 
 LICENSE=	GPLv2
 
-LIB_DEPENDS=	libsamplerate.so:audio/libsamplerate \
+LIB_DEPENDS=	liblzo2.so:archivers/lzo2 \
+		libsamplerate.so:audio/libsamplerate \
 		libsndfile.so:audio/libsndfile \
 		libboost_thread.so:devel/boost-libs \
 		libexecinfo.so:devel/libexecinfo \
+		libunwind.so:devel/libunwind \
+		libpcre.so:devel/pcre \
+		libyaml-cpp03.so:devel/yaml-cpp03 \
 		libOpenColorIO.so:graphics/opencolorio \
-		libIlmImf.so:graphics/OpenEXR \
 		libOpenImageIO.so:graphics/openimageio \
+		libIlmImf.so:graphics/OpenEXR \
+		libHalf.so:graphics/ilmbase \
 		libopenjpeg.so:graphics/openjpeg15 \
 		libpng.so:graphics/png \
 		libtiff.so:graphics/tiff \
 		libfftw3.so:math/fftw3 \
 		libavutil.so:multimedia/ffmpeg \
-		libfreetype.so:print/freetype2
+		libfreetype.so:print/freetype2 \
+		libtinyxml.so:textproc/tinyxml
 
-USES=		cmake:outsource compiler:c++11-lib python:3.5 openal:al,alut jpeg
-
+USES=		cmake:outsource compiler:c++11-lib shebangfix
+USES+=		python:3.5 openal:al,alut jpeg
+USES+=		imake:noman
+USE_GL=		gl glu glew
+USE_GNOME=	libxml2
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
 VERS_TAG=	${PORTVERSION:C/[.abcd]//g}
 PLIST_SUB+=	VERSTAG=${VERS_TAG}
 
-USE_SDL=	sdl
+USE_SDL=	sdl2
 
 LDFLAGS+=	-L${LOCALBASE}/lib -lexecinfo
 
@@ -111,6 +120,8 @@ OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
 OSL_LIB_DEPENDS=	liboslcomp.so:graphics/openshadinglanguage
+OSL_BUILD_DEPENDS=	llvm-config34:devel/llvm34
+OSL_RUN_DEPENDS=	llvm-config34:devel/llvm34
 
 SECURITY_CMAKE_ON=	-DWITH_PYTHON_SECURITY:BOOL=ON
 SECURITY_CMAKE_OFF=	-DWITH_PYTHON_SECURITY:BOOL=OFF

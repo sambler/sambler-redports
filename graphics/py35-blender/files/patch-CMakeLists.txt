@@ -9,11 +9,3 @@
  #-----------------------------------------------------------------------------
  # Load some macros.
  include(build_files/cmake/macros.cmake)
-@@ -968,6 +970,7 @@
- 			endif()
- 			if(WITH_INTERNATIONAL)
- 				list(APPEND __boost_packages locale)
-+				set(PLATFORM_LINKFLAGS "${PLATFORM_LINKFLAGS} -liconv") # boost_locale needs it !
- 			endif()
- 			if(WITH_CYCLES_NETWORK)
- 				list(APPEND __boost_packages serialization)
