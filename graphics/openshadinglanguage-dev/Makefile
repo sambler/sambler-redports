@@ -12,24 +12,25 @@ COMMENT=	Advanced shading language for production GI renderers
 
 LICENSE=	BSD3CLAUSE
 
-BUILD_DEPENDS=	llvm-config34:devel/llvm34 \
-		clang34>=3.4_1:lang/clang34
+BUILD_DEPENDS=	llvm-config36:devel/llvm36 \
+		clang36:lang/clang36
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		libtinfo.so:devel/ncurses \
 		libImath-2_2.so:graphics/ilmbase \
 		libIlmImf.so:graphics/OpenEXR \
 		libOpenImageIO.so:graphics/openimageio
-RUN_DEPENDS=	llvm-config34:devel/llvm34
+RUN_DEPENDS=	llvm-config36:devel/llvm36
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
 GH_PROJECT=	OpenShadingLanguage
 
-CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34" \
-		-DENABLERTTI:BOOL=ON -DUSE_CPP11:BOOL=OFF -DUSE_CPP14:BOOL=ON \
+CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config36" \
+		-DENABLERTTI:BOOL=ON -DOSL_BUILD_CPP11:BOOL=ON \
+		-DOSL_BUILD_CPP14:BOOL=OFF \
 		-DUSE_LIBCPLUSPLUS:BOOL=ON
 USE_LDCONFIG=	yes
-USES=		bison cmake:outsource compiler:c++14-lang
+USES=		bison cmake:outsource compiler:c++11-lang
 
 .include <bsd.port.options.mk>
 
@@ -40,7 +41,8 @@ USE_GCC=	yes
 .if ${OSVERSION} < 1000033
 BUILD_DEPENDS+=	flex>=2.5.37:textproc/flex
 CMAKE_ARGS+=	-DFLEX_EXECUTABLE:STRING=${LOCALBASE}/bin/flex
-CXXFLAGS+=	-I${LOCALBASE}/include/flex
+CXXFLAGS+=	-I${LOCALBASE}/include/flex -I${LOCALBASE}/include/c++/v1
+LIB_DEPENDS+=	libc++.so.1:devel/libc++
 .endif
 
 post-patch:
