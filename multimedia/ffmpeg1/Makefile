@@ -132,7 +132,7 @@ OPENAL_LIB_DEPENDS=	libopenal.so:audio/openal-soft
 OPENAL_CONFIGURE_ENABLE=	openal
 
 # opencv
-OPENCV_LIB_DEPENDS=	libopencv_imgproc.so:graphics/opencv-core
+OPENCV_LIB_DEPENDS=	libopencv_imgproc.so:graphics/opencv2-core
 OPENCV_CONFIGURE_ENABLE=	libopencv
 
 # openjpeg
