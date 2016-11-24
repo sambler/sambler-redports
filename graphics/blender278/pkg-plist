@@ -208,6 +208,7 @@ share/applications/blender%%VERSTAG%%.desktop
 %%DATADIR%%/scripts/addons/cycles/kernel/bvh/bvh_shadow_all.h
 %%DATADIR%%/scripts/addons/cycles/kernel/bvh/bvh_subsurface.h
 %%DATADIR%%/scripts/addons/cycles/kernel/bvh/bvh_traversal.h
+%%DATADIR%%/scripts/addons/cycles/kernel/bvh/bvh_types.h
 %%DATADIR%%/scripts/addons/cycles/kernel/bvh/bvh_volume.h
 %%DATADIR%%/scripts/addons/cycles/kernel/bvh/bvh_volume_all.h
 %%DATADIR%%/scripts/addons/cycles/kernel/bvh/qbvh_nodes.h

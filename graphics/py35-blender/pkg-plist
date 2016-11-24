@@ -207,6 +207,7 @@
 %%PYTHON_SITELIBDIR%%/2.78/scripts/addons/cycles/kernel/bvh/qbvh_shadow_all.h
 %%PYTHON_SITELIBDIR%%/2.78/scripts/addons/cycles/kernel/bvh/qbvh_subsurface.h
 %%PYTHON_SITELIBDIR%%/2.78/scripts/addons/cycles/kernel/bvh/qbvh_traversal.h
+%%PYTHON_SITELIBDIR%%/2.78/scripts/addons/cycles/kernel/bvh/bvh_types.h
 %%PYTHON_SITELIBDIR%%/2.78/scripts/addons/cycles/kernel/bvh/qbvh_volume.h
 %%PYTHON_SITELIBDIR%%/2.78/scripts/addons/cycles/kernel/bvh/qbvh_volume_all.h
 %%PYTHON_SITELIBDIR%%/2.78/scripts/addons/cycles/kernel/closure/alloc.h

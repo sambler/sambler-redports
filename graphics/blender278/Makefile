@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	blender278
-PORTVERSION=	2.78
+PORTVERSION=	2.78a
 PORTREVISION=	0
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
