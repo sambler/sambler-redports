@@ -1,0 +1,27 @@
+--- src/liboslnoise/CMakeLists.txt.orig	2016-11-01 09:44:09 UTC
++++ src/liboslnoise/CMakeLists.txt
+@@ -4,19 +4,19 @@ SET ( liboslnoise_srcs gabornoise.cpp si
+ INCLUDE_DIRECTORIES ( ../liboslexec )
+ 
+ if (BUILDSTATIC)
+-    ADD_LIBRARY ( oslnoise STATIC ${liboslnoise_srcs} )
++    ADD_LIBRARY ( oslnoise-dev STATIC ${liboslnoise_srcs} )
+ else ()
+-    ADD_LIBRARY ( oslnoise SHARED ${liboslnoise_srcs} )
++    ADD_LIBRARY ( oslnoise-dev SHARED ${liboslnoise_srcs} )
+ endif ()
+ 
+-TARGET_LINK_LIBRARIES ( oslnoise ${OPENIMAGEIO_LIBRARY} ${ILMBASE_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} )
++TARGET_LINK_LIBRARIES ( oslnoise-dev ${OPENIMAGEIO_LIBRARY} ${ILMBASE_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} )
+ 
+-INSTALL ( TARGETS oslnoise RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib )
++INSTALL ( TARGETS oslnoise-dev RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib )
+ 
+ 
+ if (OSL_BUILD_TESTS)
+     add_executable (oslnoise_test oslnoise_test.cpp)
+     set_target_properties (oslnoise_test PROPERTIES FOLDER "Unit Tests")
+-    target_link_libraries (oslnoise_test oslnoise)
++    target_link_libraries (oslnoise_test oslnoise-dev)
+     add_test (unit_oslnoise oslnoise_test)
+ endif()
