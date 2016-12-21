@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	hydrogen
-PORTVERSION=	0.9.6.1
-PORTREVISION=	3
+PORTVERSION=	0.9.7
+PORTREVISION=	0
 CATEGORIES=	audio
 
 MAINTAINER=	FreeBSD@ShaneWare.Biz
@@ -11,16 +11,15 @@ COMMENT=	Advanced drum machine
 
 LICENSE=	GPLv2
 
-LIB_DEPENDS=	libsndfile.so:audio/libsndfile
-
-CONFLICTS=	hydrogen-devel-0.*
+LIB_DEPENDS=	libsndfile.so:audio/libsndfile \
+		liblo.so:audio/liblo
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hydrogen-music
 
 USE_QT4=	qmake_build moc_build rcc_build uic_build corelib \
 		gui network xml xmlpatterns
-USES=		cmake desktop-file-utils pkgconfig
+USES=		cmake desktop-file-utils pkgconfig compiler:c++11-lang
 
 OPTIONS_SINGLE=		EXPORT
 OPTIONS_SINGLE_EXPORT=	LIBARCHIVE LIBTAR
