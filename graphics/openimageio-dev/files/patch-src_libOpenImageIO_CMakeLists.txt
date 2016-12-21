@@ -1,6 +1,6 @@
---- src/libOpenImageIO/CMakeLists.txt.orig	2016-07-02 02:59:18 UTC
+--- src/libOpenImageIO/CMakeLists.txt.orig	2016-11-01 17:34:50 UTC
 +++ src/libOpenImageIO/CMakeLists.txt
-@@ -84,61 +84,64 @@ source_group ("libutil"    REGULAR_EXPRE
+@@ -93,11 +93,11 @@ source_group ("libutil"    REGULAR_EXPRE
  source_group ("libtexture" REGULAR_EXPRESSION ".+/libtexture/.+")
  
  if (BUILDSTATIC)
@@ -15,13 +15,7 @@
                         ${VISIBILITY_COMMAND} ${VISIBILITY_MAP_COMMAND}
                         ${format_plugin_libs} # Add all the target link libraries from the plugins
                         ${Boost_LIBRARIES})
- 
-+if (CMAKE_COMPILER_IS_GNUCXX AND NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 4.8)
-+    target_link_libraries (OpenImageIO_dev atomic)
-+endif ()
- 
- # Include OpenColorIO if using it
- if (USE_OCIO AND OCIO_FOUND)
+@@ -108,47 +108,47 @@ if (USE_OCIO AND OCIO_FOUND)
      if (VERBOSE)
          message (STATUS "Linking OpenColorIO ${OCIO_LIBRARIES}")
      endif ()
@@ -66,8 +60,10 @@
  endif ()
  
 -target_link_libraries (OpenImageIO ${ILMBASE_LIBRARIES})
+-target_link_libraries (OpenImageIO ${OPENEXR_LIBRARIES})
 -target_link_libraries (OpenImageIO ${ZLIB_LIBRARIES})
 +target_link_libraries (OpenImageIO_dev ${ILMBASE_LIBRARIES})
++target_link_libraries (OpenImageIO_dev ${OPENEXR_LIBRARIES})
 +target_link_libraries (OpenImageIO_dev ${ZLIB_LIBRARIES})
  
  if (VERBOSE)
@@ -78,7 +74,7 @@
                           PROPERTIES
                           VERSION ${OIIO_VERSION_MAJOR}.${OIIO_VERSION_MINOR}.${OIIO_VERSION_PATCH}
                           SOVERSION ${SOVERSION}
-@@ -150,13 +153,13 @@ if(DEFINED OVERRIDE_SHARED_LIBRARY_SUFFI
+@@ -160,17 +160,17 @@ if(DEFINED OVERRIDE_SHARED_LIBRARY_SUFFI
    if (VERBOSE)
        message(STATUS "Setting SUFFIX to: ${OVERRIDE_SHARED_LIBRARY_SUFFIX}")
    endif ()
@@ -89,12 +85,17 @@
                         )
  endif(DEFINED OVERRIDE_SHARED_LIBRARY_SUFFIX)
  
+ if (EXTRA_DSO_LINK_ARGS)
+-    set_target_properties (OpenImageIO PROPERTIES LINK_FLAGS ${EXTRA_DSO_LINK_ARGS})
++    set_target_properties (OpenImageIO_dev PROPERTIES LINK_FLAGS ${EXTRA_DSO_LINK_ARGS})
+ endif()
+ 
 -oiio_install_targets (OpenImageIO)
 +oiio_install_targets (OpenImageIO_dev)
  
  
  # Testing
-@@ -165,32 +168,32 @@ if (OIIO_BUILD_TESTS)
+@@ -179,32 +179,32 @@ if (OIIO_BUILD_TESTS)
  
      add_executable (imagebuf_test imagebuf_test.cpp)
      set_target_properties (imagebuf_test PROPERTIES FOLDER "Unit Tests")

@@ -1,6 +1,6 @@
---- src/iv/CMakeLists.txt.orig	2016-04-12 09:53:21 UTC
+--- src/iv/CMakeLists.txt.orig	2016-11-01 17:34:50 UTC
 +++ src/iv/CMakeLists.txt
-@@ -18,13 +18,13 @@ if (QT4_FOUND AND OPENGL_FOUND AND GLEW_
+@@ -18,14 +18,14 @@ if (QT4_FOUND AND OPENGL_FOUND AND GLEW_
      if (FORCE_OPENGL_1)
          add_definitions(-DFORCE_OPENGL_1)
      endif()
@@ -14,6 +14,7 @@
                                 ${GLEW_LIBRARIES})
 -    oiio_install_targets (iv)
 +    oiio_install_targets (iv_dev)
+     set (IV_BUILT 1)
  
  else ()
 -    message (STATUS "\n\n   WARNING: Qt, OpenGL, or GLEW not found -- 'iv' will not be built!\n")

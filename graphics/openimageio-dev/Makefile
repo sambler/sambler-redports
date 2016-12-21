@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio-dev
-PORTVERSION=	1.7.3
+PORTVERSION=	1.8.0
 DISTVERSIONPREFIX=	Release-
 DISTVERSIONSUFFIX=	dev
 PORTREVISION?=	0
@@ -20,13 +20,13 @@ GH_PROJECT=	oiio
 # fbm also installs bin/idiff
 CONFLICTS=	fbm-[0-9]*
 
-USES=		cmake:outsource compiler:c++14-lang
+USES=		cmake:outsource compiler:c++11-lang
 CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DLINKSTATIC:BOOL=OFF \
 		-DNOTHREADS:BOOL=OFF \
 		-DSTOP_ON_WARNING:BOOL=OFF \
 		-DUSE_CPP11:BOOL=OFF \
-		-DUSE_CPP14:BOOL=ON \
+		-DUSE_CPP14:BOOL=OFF \
 		-DUSE_OPENSSL:BOOL=OFF
 
 OPTIONS_DEFINE=		DOCS FFMPEG FREETYPE GIF IMAGEVIEWER OCIO OPENCV \
@@ -65,12 +65,13 @@ OCIO_LIB_DEPENDS=	libOpenColorIO.so:graphics/opencolorio
 
 OPENCV_CMAKE_ON=	-DUSE_OPENCV:BOOL=ON
 OPENCV_CMAKE_OFF=	-DUSE_OPENCV:BOOL=OFF
-OPENCV_LIB_DEPENDS=	libopencv_highgui.so:graphics/opencv \
-			libopencv_core.so:graphics/opencv-core
+OPENCV_LIB_DEPENDS=	libopencv_highgui.so:graphics/opencv2 \
+			libopencv_core.so:graphics/opencv2-core \
+			libopenjpeg.so:graphics/openjpeg15
 
 OPENJPEG_CMAKE_ON=	-DUSE_OPENJPEG:BOOL=ON
 OPENJPEG_CMAKE_OFF=	-DUSE_OPENJPEG:BOOL=OFF
-OPENJPEG_LIB_DEPENDS=	libopenjpeg.so:graphics/openjpeg15
+OPENJPEG_LIB_DEPENDS=	libopenjp2.so:graphics/openjpeg
 
 RAW_CMAKE_ON=		-DUSE_LIBRAW:BOOL=ON
 RAW_CMAKE_OFF=		-DUSE_LIBRAW:BOOL=OFF
