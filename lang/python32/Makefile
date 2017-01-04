@@ -8,7 +8,7 @@ MASTER_SITES=	PYTHON/ftp/python/${PORTVERSION}
 DISTNAME=	Python-${PORTVERSION}
 DIST_SUBDIR=	python
 
-MAINTAINER=	python@FreeBSD.org
+MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	Interpreted object-oriented programming language
 
 LICENSE=	PSFL
