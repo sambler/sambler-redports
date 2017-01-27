@@ -1,4 +1,4 @@
-# Created by: lightside <lightside@gmx.com>
+# Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
 PKGNAMESUFFIX=	-tools

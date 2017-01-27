@@ -2,21 +2,22 @@
 # $FreeBSD$
 
 PORTNAME=	godot
-PORTVERSION=	2.1
+PORTVERSION=	2.1.2
 DISTVERSIONSUFFIX=	-stable
 CATEGORIES=	devel games
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT?=	Game runtime engine
 
-LICENSE=		MIT CCBYv3
+LICENSE=		MIT CC-BY-3.0
 LICENSE_COMB=		multi
-LICENSE_NAME_CCBYv3=	Creative Commons Attribution 3.0 Unported license
-LICENSE_FILE_CCBYv3=	${WRKSRC}/LOGO_LICENSE.md
+LICENSE_FILE_CC-BY-3.0=	${WRKSRC}/LOGO_LICENSE.md
 LICENSE_FILE_MIT=	${WRKSRC}/LICENSE.md
-LICENSE_PERMS_CCBYv3=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
-LIB_DEPENDS=	libfreetype.so:print/freetype2
+LIB_DEPENDS=	libfreetype.so:print/freetype2 \
+		libpng.so:graphics/png \
+		libmpcdec.so:audio/musepack \
+		libspeex.so:audio/speex
 RUN_DEPENDS=	xdg-user-dir:devel/xdg-user-dirs \
 		xdg-open:devel/xdg-utils \
 		xmessage:x11/xmessage
@@ -28,12 +29,17 @@ USES=		compiler:c++11-lib pkgconfig scons ssl
 USE_XORG=	x11 xcursor xinerama xrandr
 USE_GL=		gl
 
-MAKE_ARGS+=	platform=x11
+MAKE_ARGS+=	platform=x11 builtin_speex=no builtin_libmpcdec=no
 MAKE_ARGS+=	${MAKE_ARGS_${CHOSEN_COMPILER_TYPE}}
 MAKE_ARGS_clang=	use_llvm=yes
 CXXFLAGS+=	-DGLEW_NO_GLU -DRTAUDIO_ENABLED
 CXXFLAGS_i386=	${CXXFLAGS_i386_${CHOSEN_COMPILER_TYPE}}
 CXXFLAGS_i386_gcc=	-march=i586
+CXXFLAGS_aarch64=	-DNO_THREADS
+CXXFLAGS_sparc64=	-DNO_THREADS
+CXXFLAGS_mips=		-DNO_THREADS
+CXXFLAGS_mips64=	-DNO_THREADS
+LDFLAGS+=	-lspeex -lmpcdec
 
 OPTIONS_DEFINE=	EXAMPLES TOOLS
 OPTIONS_DEFAULT=	OSS
@@ -78,7 +84,7 @@ post-patch:
 # We just want a simple name matching the portname
 # This gives us bin/godot for runtime and bin/godot-tools for the IDE
 do-install:
-	@cd ${WRKSRC}/bin && ${INSTALL_PROGRAM} godot.x11* \
+	cd ${WRKSRC}/bin && ${INSTALL_PROGRAM} godot.x11* \
 		${STAGEDIR}/${PREFIX}/bin/${GODOTFILE}
 
 do-install-EXAMPLES-on:
