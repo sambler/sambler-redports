@@ -1,0 +1,6 @@
+
+textmodel implements the texel tree algorithm for fast text storage.
+The time of operations grows only slowly with the length of the text.
+Ideally, a logarithmic dependence on text length is expected.
+
+WWW: https://pypi.python.org/pypi/textmodel/
