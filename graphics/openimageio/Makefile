@@ -2,21 +2,15 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio
-PORTVERSION=	1.7.9
+PORTVERSION=	1.7.12
 DISTVERSIONPREFIX=	Release-
+PORTREVISION=	0
 CATEGORIES?=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
 COMMENT?=	OpenImageIO graphics library
 
 LICENSE=	BSD3CLAUSE
-
-USE_GITHUB=	yes
-GH_ACCOUNT=	OpenImageIO
-GH_PROJECT=	oiio
-
-# fbm also installs bin/idiff
-CONFLICTS=	fbm-[0-9]*
 
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		libImath.so:graphics/ilmbase \
@@ -25,13 +19,19 @@ LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		libtiff.so:graphics/tiff \
 		libwebp.so:graphics/webp \
 		libhdf5.so:science/hdf5
-USES=		cmake:outsource compiler:c11 jpeg
+
+# fbm also installs bin/idiff
+CONFLICTS=	fbm-[0-9]*
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	OpenImageIO
+GH_PROJECT=	oiio
+
+USES=		cmake:outsource jpeg compiler:c++11-lib
 CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DLINKSTATIC:BOOL=OFF \
 		-DNOTHREADS:BOOL=OFF \
 		-DSTOP_ON_WARNING:BOOL=OFF \
-		-DUSE_CPP11:BOOL=OFF \
-		-DUSE_CPP14:BOOL=OFF \
 		-DUSE_OPENSSL:BOOL=OFF
 
 OPTIONS_DEFINE=		DOCS FFMPEG FREETYPE GIF IMAGEVIEWER OCIO OPENCV \
@@ -87,10 +87,6 @@ TEST_CMAKE_OFF=		-DOIIO_BUILD_TESTS:BOOL=OFF
 PLIST_SUB+=		LIBVERS=${PORTVERSION}
 
 .include <bsd.port.options.mk>
-
-.if ${ARCH} == powerpc
-USE_GCC=	yes
-.endif
 
 .if ${SLAVE_PORT} == no
 USE_LDCONFIG=	yes
