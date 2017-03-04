@@ -1,6 +1,6 @@
---- src/doc/CMakeLists.txt.orig	2015-03-10 21:57:05 UTC
+--- src/doc/CMakeLists.txt.orig	2017-03-02 12:08:52 UTC
 +++ src/doc/CMakeLists.txt
-@@ -1,11 +1,11 @@
+@@ -1,10 +1,10 @@
  set (public_docs osl-languagespec.pdf)
  # Some day: CLA-INDIVIDUAL CLA-CORPORATE
  
@@ -8,9 +8,8 @@
 +install (FILES ${public_docs} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/openshadinglanguage COMPONENT documentation)
  
  install ( FILES "${PROJECT_SOURCE_DIR}/LICENSE"
-                 "${PROJECT_SOURCE_DIR}/INSTALL"
-                 "${PROJECT_SOURCE_DIR}/CHANGES"
+                 "${PROJECT_SOURCE_DIR}/INSTALL.md"
+                 "${PROJECT_SOURCE_DIR}/CHANGES.md"
                  "${PROJECT_SOURCE_DIR}/README.md"
 -          DESTINATION . )
 +          DESTINATION ${CMAKE_INSTALL_PREFIX}/share/openshadinglanguage )
- 
