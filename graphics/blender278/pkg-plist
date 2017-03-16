@@ -242,6 +242,8 @@ share/applications/blender%%VERSTAG%%.desktop
 %%DATADIR%%/scripts/addons/cycles/kernel/geom/geom_curve.h
 %%DATADIR%%/scripts/addons/cycles/kernel/geom/geom_motion_curve.h
 %%DATADIR%%/scripts/addons/cycles/kernel/geom/geom_motion_triangle.h
+%%DATADIR%%/scripts/addons/cycles/kernel/geom/geom_motion_triangle_intersect.h
+%%DATADIR%%/scripts/addons/cycles/kernel/geom/geom_motion_triangle_shader.h
 %%DATADIR%%/scripts/addons/cycles/kernel/geom/geom_object.h
 %%DATADIR%%/scripts/addons/cycles/kernel/geom/geom_patch.h
 %%DATADIR%%/scripts/addons/cycles/kernel/geom/geom_primitive.h
@@ -260,6 +262,7 @@ share/applications/blender%%VERSTAG%%.desktop
 %%DATADIR%%/scripts/addons/cycles/kernel/kernel_emission.h
 %%DATADIR%%/scripts/addons/cycles/kernel/kernel_film.h
 %%DATADIR%%/scripts/addons/cycles/kernel/kernel_globals.h
+%%DATADIR%%/scripts/addons/cycles/kernel/kernel_image_opencl.h
 %%DATADIR%%/scripts/addons/cycles/kernel/kernel_jitter.h
 %%DATADIR%%/scripts/addons/cycles/kernel/kernel_light.h
 %%DATADIR%%/scripts/addons/cycles/kernel/kernel_math.h
@@ -352,6 +355,7 @@ share/applications/blender%%VERSTAG%%.desktop
 %%DATADIR%%/scripts/addons/cycles/kernel/util_atomic.h
 %%DATADIR%%/scripts/addons/cycles/kernel/util_color.h
 %%DATADIR%%/scripts/addons/cycles/kernel/util_half.h
+%%DATADIR%%/scripts/addons/cycles/kernel/util_hash.h
 %%DATADIR%%/scripts/addons/cycles/kernel/util_math.h
 %%DATADIR%%/scripts/addons/cycles/kernel/util_math_fast.h
 %%DATADIR%%/scripts/addons/cycles/kernel/util_static_assert.h

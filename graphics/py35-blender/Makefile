@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	py35-blender
-PORTVERSION=	2.78a
+PORTVERSION=	2.78c
 PORTREVISION=	0
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
