@@ -1,5 +1,5 @@
---- intern/itasc/kdl/treejnttojacsolver.cpp.orig	2013-12-14 21:34:36.318308532 +1030
-+++ intern/itasc/kdl/treejnttojacsolver.cpp	2013-12-14 21:42:48.003306761 +1030
+--- intern/itasc/kdl/treejnttojacsolver.cpp.orig	2013-12-14 21:34:36 UTC
++++ intern/itasc/kdl/treejnttojacsolver.cpp
 @@ -28,16 +28,16 @@
          return -1;
  

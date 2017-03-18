@@ -1,5 +1,5 @@
---- ./extern/carve/include/carve/polyline_decl.hpp.orig	2013-10-23 01:48:07.547018223 +1030
-+++ ./extern/carve/include/carve/polyline_decl.hpp	2013-10-23 01:48:15.701016541 +1030
+--- ./extern/carve/include/carve/polyline_decl.hpp.orig	2013-10-23 01:48:07 UTC
++++ ./extern/carve/include/carve/polyline_decl.hpp
 @@ -138,6 +138,11 @@
        PolylineSet(const std::vector<carve::geom3d::Vector> &points);
        PolylineSet() {

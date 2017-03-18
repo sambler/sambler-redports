@@ -1,5 +1,5 @@
---- ./extern/solid/src/complex/DT_Complex.cpp.orig	2009-09-02 00:53:23.000000000 +0930
-+++ ./extern/solid/src/complex/DT_Complex.cpp	2013-10-22 23:45:32.289017855 +1030
+--- ./extern/solid/src/complex/DT_Complex.cpp.orig	2009-09-02 00:53:23 UTC
++++ ./extern/solid/src/complex/DT_Complex.cpp
 @@ -118,20 +118,6 @@
      return MT_BBox(center - extent, center + extent);
  }

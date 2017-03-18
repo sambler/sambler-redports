@@ -1,5 +1,5 @@
---- ./extern/carve/include/carve/geom3d.hpp.orig	2013-10-23 01:38:56.602021836 +1030
-+++ ./extern/carve/include/carve/geom3d.hpp	2013-10-23 01:39:27.512017985 +1030
+--- ./extern/carve/include/carve/geom3d.hpp.orig	2013-10-23 01:38:56 UTC
++++ ./extern/carve/include/carve/geom3d.hpp
 @@ -206,9 +206,22 @@
       *         * +1, if a is ordered after b around, rotating about direction.
       */

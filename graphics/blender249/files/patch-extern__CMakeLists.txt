@@ -1,5 +1,5 @@
---- ./extern/CMakeLists.txt.orig	2013-10-22 22:36:42.449016754 +1030
-+++ ./extern/CMakeLists.txt	2013-10-22 22:36:46.348016405 +1030
+--- ./extern/CMakeLists.txt.orig	2013-10-22 22:36:42 UTC
++++ ./extern/CMakeLists.txt
 @@ -45,7 +45,7 @@
    ADD_SUBDIRECTORY(binreloc)
  ENDIF(CMAKE_SYSTEM_NAME MATCHES "Linux")

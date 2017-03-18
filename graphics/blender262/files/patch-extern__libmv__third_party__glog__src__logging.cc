@@ -1,5 +1,5 @@
---- ./extern/libmv/third_party/glog/src/logging.cc.orig	2013-10-23 02:07:07.453021376 +1030
-+++ ./extern/libmv/third_party/glog/src/logging.cc	2013-10-23 02:15:03.107018625 +1030
+--- ./extern/libmv/third_party/glog/src/logging.cc.orig	2013-10-23 02:07:07 UTC
++++ ./extern/libmv/third_party/glog/src/logging.cc
 @@ -1243,12 +1243,10 @@
  #endif
  }

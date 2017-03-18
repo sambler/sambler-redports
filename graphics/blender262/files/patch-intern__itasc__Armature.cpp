@@ -1,5 +1,5 @@
---- intern/itasc/Armature.cpp.orig	2013-12-14 21:34:35.877307020 +1030
-+++ intern/itasc/Armature.cpp	2013-12-14 21:35:15.815307533 +1030
+--- intern/itasc/Armature.cpp.orig	2013-12-14 21:34:35 UTC
++++ intern/itasc/Armature.cpp
 @@ -402,7 +402,7 @@
  	m_armlength = 0.0;
  	for (i=0; i<m_neffector; i++) {

@@ -1,5 +1,5 @@
---- ./source/blender/src/buttons_scene.c.orig	2009-09-02 00:51:46.000000000 +0930
-+++ ./source/blender/src/buttons_scene.c	2012-12-14 20:19:39.033422089 +1030
+--- ./source/blender/src/buttons_scene.c.orig	2009-09-02 00:51:46 UTC
++++ ./source/blender/src/buttons_scene.c
 @@ -2723,12 +2723,12 @@
  	switch (o->type) {
  	case FF_OPT_TYPE_INT:

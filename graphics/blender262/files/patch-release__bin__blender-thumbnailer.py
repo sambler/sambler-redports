@@ -1,5 +1,5 @@
---- ./release/bin/blender-thumbnailer.py.orig	2013-01-01 20:58:39.949174277 +1030
-+++ ./release/bin/blender-thumbnailer.py	2013-01-01 20:59:02.127178116 +1030
+--- ./release/bin/blender-thumbnailer.py.orig	2013-01-01 20:58:39 UTC
++++ ./release/bin/blender-thumbnailer.py
 @@ -24,7 +24,7 @@
  Thumbnailer runs with python 2.6 and 3.x.
  To run automatically with nautilus:

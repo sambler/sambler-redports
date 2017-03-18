@@ -1,5 +1,5 @@
---- ./extern/carve/include/carve/rtree.hpp.orig	2013-10-23 01:49:04.157022753 +1030
-+++ ./extern/carve/include/carve/rtree.hpp	2013-10-23 01:49:11.876015964 +1030
+--- ./extern/carve/include/carve/rtree.hpp.orig	2013-10-23 01:49:04 UTC
++++ ./extern/carve/include/carve/rtree.hpp
 @@ -49,8 +49,6 @@
  
        aabb_t getAABB() const { return bbox; }

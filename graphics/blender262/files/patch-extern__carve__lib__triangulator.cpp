@@ -1,5 +1,5 @@
---- ./extern/carve/lib/triangulator.cpp.orig	2012-02-16 06:09:32.000000000 +1030
-+++ ./extern/carve/lib/triangulator.cpp	2014-01-12 20:12:42.613780470 +1030
+--- ./extern/carve/lib/triangulator.cpp.orig	2012-02-16 06:09:32 UTC
++++ ./extern/carve/lib/triangulator.cpp
 @@ -27,6 +27,18 @@
  
  #include <algorithm>

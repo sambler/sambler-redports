@@ -1,5 +1,5 @@
---- ./intern/memutil/MEM_Allocator.h.orig	2009-09-02 00:50:41.000000000 +0930
-+++ ./intern/memutil/MEM_Allocator.h	2012-12-14 20:19:39.030422536 +1030
+--- ./intern/memutil/MEM_Allocator.h.orig	2009-09-02 00:50:41 UTC
++++ ./intern/memutil/MEM_Allocator.h
 @@ -26,6 +26,7 @@
  
  #include "guardedalloc/MEM_guardedalloc.h"

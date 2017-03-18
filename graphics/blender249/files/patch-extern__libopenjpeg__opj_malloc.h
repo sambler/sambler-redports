@@ -1,5 +1,5 @@
---- extern/libopenjpeg/opj_malloc.h.orig	2009-09-02 00:52:10.000000000 +0930
-+++ extern/libopenjpeg/opj_malloc.h	2013-01-13 18:09:08.150858201 +1030
+--- extern/libopenjpeg/opj_malloc.h.orig	2009-09-02 00:52:10 UTC
++++ extern/libopenjpeg/opj_malloc.h
 @@ -78,7 +78,7 @@
  		#elif defined(__GNUC__)
                          #ifndef __APPLE__

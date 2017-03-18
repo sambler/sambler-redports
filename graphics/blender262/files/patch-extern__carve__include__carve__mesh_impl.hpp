@@ -1,5 +1,5 @@
---- ./extern/carve/include/carve/mesh_impl.hpp.orig	2013-10-23 01:43:52.213019938 +1030
-+++ ./extern/carve/include/carve/mesh_impl.hpp	2013-10-23 01:43:59.951017202 +1030
+--- ./extern/carve/include/carve/mesh_impl.hpp.orig	2013-10-23 01:43:52 UTC
++++ ./extern/carve/include/carve/mesh_impl.hpp
 @@ -624,8 +624,7 @@
            CARVE_ASSERT(e->rev != NULL);
            e = e->rev->next;

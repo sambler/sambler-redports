@@ -1,5 +1,5 @@
---- ./extern/carve/lib/intersect.cpp.orig	2013-10-23 01:52:30.923017760 +1030
-+++ ./extern/carve/lib/intersect.cpp	2013-10-23 01:52:38.917016369 +1030
+--- ./extern/carve/lib/intersect.cpp.orig	2013-10-23 01:52:30 UTC
++++ ./extern/carve/lib/intersect.cpp
 @@ -41,6 +41,7 @@
  #include <carve/timing.hpp>
  #include <carve/colour.hpp>

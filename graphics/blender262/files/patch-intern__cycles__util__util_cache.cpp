@@ -1,5 +1,5 @@
---- ./intern/cycles/util/util_cache.cpp.orig	2013-10-14 16:20:33.342484165 +1030
-+++ ./intern/cycles/util/util_cache.cpp	2013-10-14 16:23:38.741483143 +1030
+--- ./intern/cycles/util/util_cache.cpp.orig	2013-10-14 16:20:33 UTC
++++ ./intern/cycles/util/util_cache.cpp
 @@ -26,7 +26,11 @@
  #include "util_path.h"
  #include "util_types.h"

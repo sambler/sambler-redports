@@ -1,5 +1,5 @@
---- ./extern/carve/lib/mesh.cpp.orig	2013-10-23 01:53:44.228023179 +1030
-+++ ./extern/carve/lib/mesh.cpp	2013-10-23 01:53:51.403016942 +1030
+--- ./extern/carve/lib/mesh.cpp.orig	2013-10-23 01:53:44 UTC
++++ ./extern/carve/lib/mesh.cpp
 @@ -243,15 +243,20 @@
  
        bool FaceStitcher::EdgeOrderData::Cmp::operator()(const EdgeOrderData &a, const EdgeOrderData &b) const {

@@ -1,5 +1,5 @@
---- ./extern/carve/lib/csg_detail.hpp.orig	2013-10-23 01:51:42.367016853 +1030
-+++ ./extern/carve/lib/csg_detail.hpp	2013-10-23 01:51:50.553016914 +1030
+--- ./extern/carve/lib/csg_detail.hpp.orig	2013-10-23 01:51:42 UTC
++++ ./extern/carve/lib/csg_detail.hpp
 @@ -24,30 +24,32 @@
  namespace carve {
    namespace csg {

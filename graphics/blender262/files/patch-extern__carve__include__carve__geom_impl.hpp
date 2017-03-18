@@ -1,5 +1,5 @@
---- ./extern/carve/include/carve/geom_impl.hpp.orig	2013-10-23 01:39:54.866022397 +1030
-+++ ./extern/carve/include/carve/geom_impl.hpp	2013-10-23 01:40:38.365019833 +1030
+--- ./extern/carve/include/carve/geom_impl.hpp.orig	2013-10-23 01:39:54 UTC
++++ ./extern/carve/include/carve/geom_impl.hpp
 @@ -396,7 +396,7 @@
        // Compute a . (b x c)
        return

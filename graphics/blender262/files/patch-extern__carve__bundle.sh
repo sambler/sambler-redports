@@ -1,5 +1,5 @@
---- ./extern/carve/bundle.sh.orig	2013-10-23 01:55:16.349020795 +1030
-+++ ./extern/carve/bundle.sh	2013-10-23 01:55:22.740016042 +1030
+--- ./extern/carve/bundle.sh.orig	2013-10-23 01:55:16 UTC
++++ ./extern/carve/bundle.sh
 @@ -1,7 +1,9 @@
  #!/bin/sh
  

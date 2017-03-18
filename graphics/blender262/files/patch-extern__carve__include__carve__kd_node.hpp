@@ -1,5 +1,5 @@
---- ./extern/carve/include/carve/kd_node.hpp.orig	2013-10-23 01:42:34.300021039 +1030
-+++ ./extern/carve/include/carve/kd_node.hpp	2013-10-23 01:42:42.868016912 +1030
+--- ./extern/carve/include/carve/kd_node.hpp.orig	2013-10-23 01:42:34 UTC
++++ ./extern/carve/include/carve/kd_node.hpp
 @@ -230,7 +230,7 @@
        }
  
