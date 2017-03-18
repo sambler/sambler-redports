@@ -1,6 +1,6 @@
---- src/liboslcomp/CMakeLists.txt.orig	2016-07-02 00:07:46 UTC
+--- src/liboslcomp/CMakeLists.txt.orig	2017-02-08 12:22:04 UTC
 +++ src/liboslcomp/CMakeLists.txt
-@@ -14,14 +14,14 @@ FILE ( GLOB compiler_headers "*.h" )
+@@ -14,16 +14,16 @@ FILE ( GLOB compiler_headers "*.h" )
  FLEX_BISON ( osllex.l oslgram.y osl liboslcomp_srcs compiler_headers )
  
  if (BUILDSTATIC)
@@ -12,9 +12,11 @@
 +    ADD_LIBRARY ( oslcomp-dev SHARED ${liboslcomp_srcs} )
  endif ()
  
--TARGET_LINK_LIBRARIES ( oslcomp ${OPENIMAGEIO_LIBRARY} ${ILMBASE_LIBRARIES}
-+TARGET_LINK_LIBRARIES ( oslcomp-dev ${OPENIMAGEIO_LIBRARY} ${ILMBASE_LIBRARIES}
-                        ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-TARGET_LINK_LIBRARIES ( oslcomp ${OPENIMAGEIO_LIBRARIES} ${ILMBASE_LIBRARIES}
++TARGET_LINK_LIBRARIES ( oslcomp-dev ${OPENIMAGEIO_LIBRARIES} ${ILMBASE_LIBRARIES}
+                        ${Boost_LIBRARIES} ${CMAKE_DL_LIBS}
+                        ${CLANG_LIBRARIES} ${LLVM_LIBRARIES} ${LLVM_LDFLAGS}
+                        ${LLVM_SYSTEM_LIBRARIES})
  
 -INSTALL ( TARGETS oslcomp RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib )
 +INSTALL ( TARGETS oslcomp-dev RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib )

@@ -1,4 +1,4 @@
---- src/liboslnoise/CMakeLists.txt.orig	2016-11-01 09:44:09 UTC
+--- src/liboslnoise/CMakeLists.txt.orig	2017-02-08 12:22:04 UTC
 +++ src/liboslnoise/CMakeLists.txt
 @@ -4,19 +4,19 @@ SET ( liboslnoise_srcs gabornoise.cpp si
  INCLUDE_DIRECTORIES ( ../liboslexec )
@@ -11,17 +11,20 @@
 +    ADD_LIBRARY ( oslnoise-dev SHARED ${liboslnoise_srcs} )
  endif ()
  
--TARGET_LINK_LIBRARIES ( oslnoise ${OPENIMAGEIO_LIBRARY} ${ILMBASE_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} )
-+TARGET_LINK_LIBRARIES ( oslnoise-dev ${OPENIMAGEIO_LIBRARY} ${ILMBASE_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} )
+-TARGET_LINK_LIBRARIES ( oslnoise ${OPENIMAGEIO_LIBRARIES} ${ILMBASE_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} )
++TARGET_LINK_LIBRARIES ( oslnoise-dev ${OPENIMAGEIO_LIBRARIES} ${ILMBASE_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} )
  
 -INSTALL ( TARGETS oslnoise RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib )
 +INSTALL ( TARGETS oslnoise-dev RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib )
  
  
  if (OSL_BUILD_TESTS)
-     add_executable (oslnoise_test oslnoise_test.cpp)
-     set_target_properties (oslnoise_test PROPERTIES FOLDER "Unit Tests")
+-    add_executable (oslnoise_test oslnoise_test.cpp)
+-    set_target_properties (oslnoise_test PROPERTIES FOLDER "Unit Tests")
 -    target_link_libraries (oslnoise_test oslnoise)
-+    target_link_libraries (oslnoise_test oslnoise-dev)
-     add_test (unit_oslnoise oslnoise_test)
+-    add_test (unit_oslnoise oslnoise_test)
++    add_executable (oslnoise_test-dev oslnoise_test.cpp)
++    set_target_properties (oslnoise_test-dev PROPERTIES FOLDER "Unit Tests")
++    target_link_libraries (oslnoise_test-dev oslnoise-dev)
++    add_test (unit_oslnoise oslnoise_test-dev)
  endif()
