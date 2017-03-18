@@ -25,7 +25,7 @@ LIB_DEPENDS+=	libopenjpeg.so:graphics/openjpeg15
 LIB_DEPENDS+=	libpng.so:graphics/png
 LIB_DEPENDS+=	libtiff.so:graphics/tiff
 LIB_DEPENDS+=	libfftw3.so:math/fftw3
-LIB_DEPENDS+=	libavutil.so:multimedia/ffmpeg
+LIB_DEPENDS+=	libavutil1.so:multimedia/ffmpeg1
 LIB_DEPENDS+=	libfreetype.so:print/freetype2
 RUN_DEPENDS=	xdg-mime:devel/xdg-utils
 
@@ -41,6 +41,11 @@ USE_XORG=	x11 xext xmu
 USE_GL=		glew
 
 LDFLAGS+=	-L${LOCALBASE}/lib -lexecinfo
+# adjust for ffmpeg1
+CFLAGS+=	-I${LOCALBASE}/include/ffmpeg1
+CXXFLAGS+=	-I${LOCALBASE}/include/ffmpeg1
+LDFLAGS+=	-L${LOCALBASE}/lib/ffmpeg1
+CMAKE_ARGS+=	-DFFMPEG_LIBRARIES:STRING="avformat1;avcodec1;avutil1;avdevice1;swscale1"
 
 CMAKE_ARGS+=	-DWITH_BUILDINFO:BOOL=ON -DWITH_AUDASPACE:BOOL=ON
 CMAKE_ARGS+=	-DWITH_BLENDER:BOOL=ON -DWITH_BOOL_COMPAT:BOOL=ON

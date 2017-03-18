@@ -52,3 +52,37 @@
  		m_formatCtx = NULL;
  		av_free(m_frame);
  		m_frame = NULL;
+@@ -385,15 +385,7 @@ void *VideoFFmpeg::cacheThread(void *dat
+ 					{
+ 						if (video->m_deinterlace) 
+ 						{
+-							if (avpicture_deinterlace(
+-								(AVPicture*) video->m_frameDeinterlaced,
+-								(const AVPicture*) video->m_frame,
+-								video->m_codecCtx->pix_fmt,
+-								video->m_codecCtx->width,
+-								video->m_codecCtx->height) >= 0)
+-							{
+-								input = video->m_frameDeinterlaced;
+-							}
++							input = video->m_frameDeinterlaced;
+ 						}
+ 						// convert to RGB24
+ 						sws_scale(video->m_imgConvertCtx,
+@@ -1032,15 +1024,7 @@ AVFrame *VideoFFmpeg::grabFrame(long pos
+ 
+ 				if (m_deinterlace) 
+ 				{
+-					if (avpicture_deinterlace(
+-						(AVPicture*) m_frameDeinterlaced,
+-						(const AVPicture*) m_frame,
+-						m_codecCtx->pix_fmt,
+-						m_codecCtx->width,
+-						m_codecCtx->height) >= 0)
+-					{
+-						input = m_frameDeinterlaced;
+-					}
++					input = m_frameDeinterlaced;
+ 				}
+ 				// convert to RGB24
+ 				sws_scale(m_imgConvertCtx,

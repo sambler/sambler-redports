@@ -53,6 +53,28 @@
  		av_free(anim->pFrameRGB);
  		av_free(anim->pFrameDeinterlaced);
  		av_free(anim->pFrame);
+@@ -680,20 +685,7 @@ static void ffmpeg_postprocess(struct an
+ 
+ 
+ 	if (anim->ib_flags & IB_animdeinterlace) {
+-		if (avpicture_deinterlace(
+-		        (AVPicture *)
+-		        anim->pFrameDeinterlaced,
+-		        (const AVPicture *)
+-		        anim->pFrame,
+-		        anim->pCodecCtx->pix_fmt,
+-		        anim->pCodecCtx->width,
+-		        anim->pCodecCtx->height) < 0)
+-		{
+-			filter_y = TRUE;
+-		}
+-		else {
+-			input = anim->pFrameDeinterlaced;
+-		}
++		input = anim->pFrameDeinterlaced;
+ 	}
+ 	
+ 	avpicture_fill((AVPicture *) anim->pFrameRGB,
 @@ -1143,7 +1143,7 @@ static void free_anim_ffmpeg(struct anim
  
  	if (anim->pCodecCtx) {
