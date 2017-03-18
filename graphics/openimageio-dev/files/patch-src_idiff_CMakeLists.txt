@@ -1,4 +1,4 @@
---- src/idiff/CMakeLists.txt.orig	2016-04-12 09:51:59 UTC
+--- src/idiff/CMakeLists.txt.orig	2017-01-01 22:26:17 UTC
 +++ src/idiff/CMakeLists.txt
 @@ -1,5 +1,5 @@
  set (idiff_srcs idiff.cpp)

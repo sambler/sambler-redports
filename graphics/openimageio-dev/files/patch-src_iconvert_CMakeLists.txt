@@ -1,4 +1,4 @@
---- src/iconvert/CMakeLists.txt.orig	2016-04-12 09:51:29 UTC
+--- src/iconvert/CMakeLists.txt.orig	2017-01-01 22:26:17 UTC
 +++ src/iconvert/CMakeLists.txt
 @@ -1,5 +1,5 @@
  set (iconvert_srcs iconvert.cpp)

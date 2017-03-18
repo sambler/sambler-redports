@@ -1,4 +1,4 @@
---- src/libutil/CMakeLists.txt.orig	2016-04-12 09:56:01 UTC
+--- src/libutil/CMakeLists.txt.orig	2017-01-01 22:26:17 UTC
 +++ src/libutil/CMakeLists.txt
 @@ -5,22 +5,22 @@ set (libOpenImageIO_Util_srcs argparse.c
                    typedesc.cpp ustring.cpp xxhash.cpp)
@@ -42,7 +42,7 @@
  
  
  
-@@ -40,67 +40,67 @@ if (OIIO_BUILD_TESTS)
+@@ -40,77 +40,77 @@ if (OIIO_BUILD_TESTS)
  
      add_executable (atomic_test atomic_test.cpp)
      set_target_properties (atomic_test PROPERTIES FOLDER "Unit Tests")
@@ -76,8 +76,8 @@
  
      add_executable (strutil_test strutil_test.cpp)
      set_target_properties (strutil_test PROPERTIES FOLDER "Unit Tests")
--    target_link_libraries (strutil_test OpenImageIO_Util ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
-+    target_link_libraries (strutil_test OpenImageIO_Util_dev ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-    target_link_libraries (strutil_test OpenImageIO ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++    target_link_libraries (strutil_test OpenImageIO_dev ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
      add_test (unit_strutil strutil_test)
  
      add_executable (fmath_test fmath_test.cpp)
@@ -104,11 +104,23 @@
 +    target_link_libraries (hash_test OpenImageIO_Util_dev ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
      add_test (unit_hash hash_test)
  
+     add_executable (parallel_test parallel_test.cpp)
+     set_target_properties (parallel_test PROPERTIES FOLDER "Unit Tests")
+-    target_link_libraries (parallel_test OpenImageIO_Util ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++    target_link_libraries (parallel_test OpenImageIO_Util_dev ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+     add_test (unit_parallel parallel_test)
+ 
      add_executable (timer_test timer_test.cpp)
      set_target_properties (timer_test PROPERTIES FOLDER "Unit Tests")
 -    target_link_libraries (timer_test OpenImageIO_Util ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
 +    target_link_libraries (timer_test OpenImageIO_Util_dev ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
      add_test (unit_timer timer_test)
+ 
+     add_executable (thread_test thread_test.cpp)
+     set_target_properties (thread_test PROPERTIES FOLDER "Unit Tests")
+-    target_link_libraries (thread_test OpenImageIO_Util ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++    target_link_libraries (thread_test OpenImageIO_Util_dev ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+     add_test (unit_thread thread_test)
  
      add_executable (simd_test simd_test.cpp)
      set_target_properties (simd_test PROPERTIES FOLDER "Unit Tests")

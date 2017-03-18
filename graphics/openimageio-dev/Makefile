@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio-dev
-PORTVERSION=	1.8.0
+PORTVERSION=	1.8.3
 DISTVERSIONPREFIX=	Release-
 DISTVERSIONSUFFIX=	dev
 PORTREVISION?=	0
@@ -21,7 +21,14 @@ PORTSCOUT=	ignore:1
 # fbm also installs bin/idiff
 CONFLICTS=	fbm-[0-9]*
 
-USES=		cmake:outsource compiler:c++11-lang
+LIB_DEPENDS+=	libboost_thread.so:devel/boost-libs \
+		libImath.so:graphics/ilmbase \
+		libIlmImf.so:graphics/OpenEXR \
+		libpng16.so:graphics/png \
+		libtiff.so:graphics/tiff \
+		libwebp.so:graphics/webp \
+		libhdf5.so:science/hdf5
+USES=		cmake:outsource jpeg
 CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \
 		-DLINKSTATIC:BOOL=OFF \
 		-DNOTHREADS:BOOL=OFF \
@@ -90,19 +97,11 @@ USE_GCC=	yes
 .endif
 
 .if ${SLAVE_PORT} == no
-LIB_DEPENDS+=	libboost_thread.so:devel/boost-libs \
-		libImath.so:graphics/ilmbase \
-		libIlmImf.so:graphics/OpenEXR \
-		libpng16.so:graphics/png \
-		libtiff.so:graphics/tiff \
-		libwebp.so:graphics/webp \
-		libhdf5.so:science/hdf5
-USES+=		jpeg
 USE_LDCONFIG=	yes
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF -DUSE_PYTHON3:BOOL=OFF \
 		-DOIIO_BUILD_TOOLS:BOOL=ON
 .else
-LIB_DEPENDS=	libOpenImageIO.so:graphics/openimageio \
+LIB_DEPENDS+=	libOpenImageIO.so:graphics/openimageio \
 		libboost_python.so:devel/boost-python-libs
 PLIST=		${PKGDIR}/pkg-plist-pybind
 #while oiio supports py3, ports doesn't have py3 support for boost-python yet

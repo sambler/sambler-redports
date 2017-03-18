@@ -1,4 +1,4 @@
---- src/iinfo/CMakeLists.txt.orig	2016-04-12 09:52:36 UTC
+--- src/iinfo/CMakeLists.txt.orig	2017-01-01 22:26:17 UTC
 +++ src/iinfo/CMakeLists.txt
 @@ -1,8 +1,8 @@
  set (iinfo_srcs iinfo.cpp)

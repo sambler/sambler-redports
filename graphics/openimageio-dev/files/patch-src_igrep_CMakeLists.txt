@@ -1,4 +1,4 @@
---- src/igrep/CMakeLists.txt.orig	2016-04-12 09:52:18 UTC
+--- src/igrep/CMakeLists.txt.orig	2017-01-01 22:26:17 UTC
 +++ src/igrep/CMakeLists.txt
 @@ -1,5 +1,5 @@
  set (igrep_srcs igrep.cpp)
