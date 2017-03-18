@@ -53,6 +53,7 @@ OUTDIR=		${STAGEDIR}/${PREFIX}/${PORTVERSION}
 LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
 VERS_TAG=	sambler
 HASHTAG=	1736184
+PORTSCOUT=	ignore:1
 
 SUB_FILES=	blender blenderplayer
 python_CMD=	${PYTHON_CMD}

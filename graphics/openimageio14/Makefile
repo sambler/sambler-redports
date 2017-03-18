@@ -15,6 +15,7 @@ LICENSE=	BSD3CLAUSE
 USE_GITHUB=	yes
 GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
+PORTSCOUT=	ignore:1
 
 USES=		cmake:outsource compiler:c++11-lib
 CMAKE_ARGS=	-DBUILDSTATIC:BOOL=OFF \

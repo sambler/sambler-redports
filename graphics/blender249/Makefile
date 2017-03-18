@@ -26,6 +26,7 @@ LIB_DEPENDS+=   libftgl.so:graphics/ftgl
 USES=		cmake:outsource dos2unix openal:al,alut python:2.7 jpeg
 WRKSRC=		${WRKDIR}/blender-2.49b
 VERS_TAG=	249
+PORTSCOUT=	ignore:1
 
 WANT_GNOME=	yes
 USE_SDL=	sdl

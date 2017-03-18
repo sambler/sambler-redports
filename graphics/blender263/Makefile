@@ -31,6 +31,7 @@ USES=		cmake:outsource shebangfix desktop-file-utils openal:al,alut
 USES+=		python:3.2 shared-mime-info jpeg
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 VERS_TAG=	263
+PORTSCOUT=	ignore:1
 
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu

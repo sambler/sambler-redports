@@ -23,6 +23,7 @@ RUN_DEPENDS=	llvm-config33:devel/llvm33
 USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
 GH_PROJECT=	OpenShadingLanguage
+PORTSCOUT=	ignore:1
 
 CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config33" \
 		-DENABLERTTI:BOOL=ON

@@ -43,6 +43,7 @@ WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
 VERS_TAG=	${PORTVERSION:C/[.abcd]//g}
 PLIST_SUB+=	VERSTAG=${VERS_TAG}
+PORTSCOUT=	ignore:1
 
 USE_SDL=	sdl2
 

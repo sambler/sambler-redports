@@ -35,6 +35,7 @@ USES+=		imake:noman
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
 VERS_TAG=	${PORTVERSION:C/[.abcd]//g}
+PORTSCOUT=	ignore:1
 
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu

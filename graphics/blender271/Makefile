@@ -34,6 +34,7 @@ USES+=		python:3.4 desktop-file-utils openal:al,alut jpeg
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 OUTDIR=		${INSTALL_WRKSRC}/bin/2.71
 VERS_TAG=	271
+PORTSCOUT=	ignore:1
 
 USE_SDL=	sdl
 USE_XORG=	x11 xext xmu

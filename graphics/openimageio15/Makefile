@@ -15,6 +15,7 @@ LICENSE=	BSD3CLAUSE
 USE_GITHUB=	yes
 GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
+PORTSCOUT=	ignore:1
 
 # fbm also installs bin/idiff
 CONFLICTS=	fbm-[0-9]*
