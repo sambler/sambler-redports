@@ -94,6 +94,7 @@ OPTIONS_DEFAULT=	COLLADA CYCLES JACK NLS OSD OSL PLAYER SECURITY
 
 OPTIONS_SUB=	yes
 HEADLESS_DESC=	Disable user interface
+CYCLES_DESC=	Build cycles rener engine
 JACK_DESC=	Audio support using JackAudio
 NLS_DESC=	Include translations
 OSD_DESC=	Opensubdiv support
