@@ -1,4 +1,3 @@
-# Created by: Sunpoet Po-Chuan Hsieh <sunpoet@FreeBSD.org>
 # $FreeBSD$
 
 PORTNAME=	setuptools
@@ -6,7 +5,6 @@ PORTVERSION=	19.2
 CATEGORIES=	devel python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
-PKGNAMESUFFIX=	${PYTHON_SUFFIX}
 DIST_SUBDIR=	python
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -15,9 +13,8 @@ COMMENT=	Python packages installer
 LICENSE=	PSFL
 
 NO_ARCH=	yes
-USES=		python
+USES=		python:3.2
 USE_PYTHON=	concurrent distutils
-PYTHON_VERSION=	python3.2
 
 PYDISTUTILS_SETUP=	${PYSETUP}
 
