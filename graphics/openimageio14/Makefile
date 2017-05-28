@@ -66,8 +66,8 @@ LIB_DEPENDS+=	libboost_thread.so:devel/boost-libs \
 		libhdf5.so:science/hdf5 \
 		libImath.so:graphics/ilmbase \
 		libIlmImf.so:graphics/OpenEXR \
-		libopencv_highgui.so:graphics/opencv2 \
-		libopencv_core.so:graphics/opencv2-core \
+		libopencv_highgui.so:graphics/opencv \
+		libopencv_core.so:graphics/opencv-core \
 		libopenjpeg.so:graphics/openjpeg15 \
 		libpng16.so:graphics/png \
 		libtiff.so:graphics/tiff \

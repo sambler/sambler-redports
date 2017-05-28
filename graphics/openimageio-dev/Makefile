@@ -73,8 +73,8 @@ OCIO_LIB_DEPENDS=	libOpenColorIO.so:graphics/opencolorio
 
 OPENCV_CMAKE_ON=	-DUSE_OPENCV:BOOL=ON
 OPENCV_CMAKE_OFF=	-DUSE_OPENCV:BOOL=OFF
-OPENCV_LIB_DEPENDS=	libopencv_highgui.so:graphics/opencv2 \
-			libopencv_core.so:graphics/opencv2-core \
+OPENCV_LIB_DEPENDS=	libopencv_highgui.so:graphics/opencv \
+			libopencv_core.so:graphics/opencv-core \
 			libopenjpeg.so:graphics/openjpeg15
 
 OPENJPEG_CMAKE_ON=	-DUSE_OPENJPEG:BOOL=ON
