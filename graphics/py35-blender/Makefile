@@ -88,7 +88,7 @@ OPTIONS_DEFAULT=	COLLADA CYCLES JACK NLS OSD OSL SECURITY
 
 OPTIONS_SUB=	yes
 COLLADA_DESC=	Include collada import
-CYCLES_DESC=	Build cycles rener engine
+CYCLES_DESC=	Build cycles render engine
 JACK_DESC=	Audio support using JackAudio
 NLS_DESC=	Include translations
 OSD_DESC=	Opensubdiv support

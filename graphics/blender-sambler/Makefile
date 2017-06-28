@@ -109,7 +109,7 @@ OPTIONS_DEFAULT=	COLLADA CYCLES NLS OSL SECURITY
 OPTIONS_SUB=		yes
 
 COLLADA_DESC=	Include collada import
-CYCLES_DESC=	Build cycles rener engine
+CYCLES_DESC=	Build cycles render engine
 HEADLESS_DESC=	Disable user interface
 JACK_DESC=	Audio support using JackAudio
 #NDOF_DESC=	NDOF Support
