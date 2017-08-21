@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio
-PORTVERSION=	1.7.12
+PORTVERSION=	1.7.16
 DISTVERSIONPREFIX=	Release-
 PORTREVISION=	0
 CATEGORIES?=	graphics multimedia
@@ -108,9 +108,9 @@ post-patch:
 
 post-install:
 .if ${SLAVE_PORT} == no
-	${LN} -sf libOpenImageIO.so.1.6 \
+	${LN} -sf libOpenImageIO.so.1.7 \
 		${STAGEDIR}${PREFIX}/lib/libOpenImageIO.so.1
-	${LN} -sf libOpenImageIO_Util.so.1.6 \
+	${LN} -sf libOpenImageIO_Util.so.1.7 \
 		${STAGEDIR}${PREFIX}/lib/libOpenImageIO_Util.so.1
 .endif
 
