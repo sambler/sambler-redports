@@ -3,8 +3,8 @@
 
 PORTNAME=	avbin
 PORTVERSION=	10
-CATEGORIES=	multimedia
 DISTVERSIONPREFIX= avbin-
+CATEGORIES=	multimedia
 
 MAINTAINER=	amdmi3@FreeBSD.org
 COMMENT=	FFmpeg wrapper
