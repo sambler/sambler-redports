@@ -12,6 +12,8 @@ COMMENT=	Advanced shading language for production GI renderers (v1.4)
 
 LICENSE=	BSD3CLAUSE
 
+BROKEN=		Doesn't support boost 1.65
+
 BUILD_DEPENDS=	llvm-config33:devel/llvm33 \
 		clang33>=3.3_3:lang/clang33
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
