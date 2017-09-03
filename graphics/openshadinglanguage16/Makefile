@@ -3,7 +3,7 @@
 
 PORTNAME=	openshadinglanguage16
 PORTVERSION=	1.6.9
-PORTREVISION=	1
+PORTREVISION=	2
 DISTVERSIONPREFIX=	Release-
 CATEGORIES=	graphics devel
 
@@ -12,23 +12,24 @@ COMMENT=	Advanced shading language for production GI renderers
 
 LICENSE=	BSD3CLAUSE
 
-BUILD_DEPENDS=	llvm-config34:devel/llvm34 \
-		clang34>=3.4_1:lang/clang34
+BUILD_DEPENDS=	llvm-config35:devel/llvm35 \
+		clang35>=3.5:lang/clang35
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		libImath-2_2.so:graphics/ilmbase \
 		libIlmImf.so:graphics/OpenEXR \
 		libOpenImageIO16.so:graphics/openimageio16
-RUN_DEPENDS=	llvm-config34:devel/llvm34
+RUN_DEPENDS=	llvm-config35:devel/llvm35
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
 GH_PROJECT=	OpenShadingLanguage
 PORTSCOUT=	ignore:1
 
-CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34" \
-		-DENABLERTTI:BOOL=ON
+CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config35" \
+		-DENABLERTTI:BOOL=ON -DOSL_BUILD_CPP11:BOOL=ON \
+		-DOSL_BUILD_LIBCPLUSPLUS:BOOL=ON
 USE_LDCONFIG=	yes
-USES=		bison cmake:outsource compiler:c11
+USES=		bison cmake:outsource compiler:c++11-lang
 
 .include <bsd.port.options.mk>
 
