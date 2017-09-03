@@ -4,7 +4,7 @@
 PORTNAME=	openimageio15
 PORTVERSION=	1.5.24
 DISTVERSIONPREFIX=	Release-
-PORTREVISION?=	1
+PORTREVISION?=	2
 CATEGORIES?=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
