@@ -3,7 +3,7 @@
 
 PORTNAME=	blender273
 PORTVERSION=	2.73a
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -82,7 +82,7 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		doc/manpage/blender.1.py
 
 OPTIONS_DEFINE=	COLLADA HEADLESS MANPAGES SECURITY PLAYER JACK NLS OSL OPENMP
-OPTIONS_DEFAULT=	COLLADA SECURITY PLAYER NLS OSL JACK
+OPTIONS_DEFAULT=	COLLADA SECURITY PLAYER NLS JACK
 
 OPTIONS_SUB=	yes
 HEADLESS_DESC=	Disable user interface

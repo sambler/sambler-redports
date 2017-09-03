@@ -3,7 +3,7 @@
 
 PORTNAME=	blender277
 PORTVERSION=	2.77a
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -40,8 +40,7 @@ USES+=		python:3.5 desktop-file-utils openal:al,alut jpeg
 USES+=		imake:noman
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
-VERS_TAG=	${PORTVERSION:C/[.abcd]//g}
-PLIST_SUB+=	VERSTAG=${VERS_TAG}
+VERS_TAG=	277
 PORTSCOUT=	ignore:1
 
 USE_SDL=	sdl2
@@ -91,7 +90,7 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		doc/manpage/blender.1.py
 
 OPTIONS_DEFINE=	COLLADA HEADLESS JACK MANPAGES NLS OPENMP OSD OSL PLAYER SECURITY
-OPTIONS_DEFAULT=	COLLADA JACK NLS OSD OSL PLAYER SECURITY
+OPTIONS_DEFAULT=	COLLADA JACK NLS OSL PLAYER SECURITY
 
 OPTIONS_SUB=	yes
 HEADLESS_DESC=	Disable user interface

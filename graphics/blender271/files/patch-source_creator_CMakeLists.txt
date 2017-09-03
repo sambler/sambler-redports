@@ -1,38 +1,13 @@
---- ./source/creator/CMakeLists.txt.orig	2015-01-17 20:49:52.261466989 +1030
-+++ ./source/creator/CMakeLists.txt	2015-01-17 20:50:54.062758081 +1030
-@@ -177,6 +177,7 @@ if(WITH_BUILDINFO)
- 
- 	# make an object library so can load with it in tests
- 	add_library(buildinfoobj OBJECT buildinfo.c)
-+	add_dependencies(buildinfoobj buildinfo)
- endif()
- 
- # message(STATUS "Configuring blender")
-@@ -390,15 +390,6 @@
- 
- if(UNIX AND NOT APPLE)
- 
--	install(
--		CODE
--		"
--		execute_process(COMMAND
--		                ${CMAKE_SOURCE_DIR}/doc/manpage/blender.1.py
--		                ${TARGETDIR}/blender
--		                ${TARGETDIR}/blender.1)
--		"
--	)
- 
- 	# there are a few differences between portable and system install
- 	if(WITH_INSTALL_PORTABLE)
-@@ -467,10 +458,7 @@
- 			PROGRAMS ${CMAKE_SOURCE_DIR}/release/bin/blender-thumbnailer.py
+--- source/creator/CMakeLists.txt.orig	2017-09-03 00:12:15 UTC
++++ source/creator/CMakeLists.txt
+@@ -468,10 +468,6 @@ if(UNIX AND NOT APPLE)
  			DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
  		)
--		install(
+ 		install(
 -			FILES ${TARGETDIR}/blender.1
 -			DESTINATION ${CMAKE_INSTALL_PREFIX}/share/man/man1
 -		)
-+		
- 		install(
+-		install(
  			FILES ${BLENDER_TEXT_FILES}
  			DESTINATION ${CMAKE_INSTALL_PREFIX}/share/doc/blender
+ 		)

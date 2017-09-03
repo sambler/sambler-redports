@@ -3,7 +3,7 @@
 
 PORTNAME=	blender278
 PORTVERSION=	2.78c
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -41,7 +41,6 @@ USES+=		imake:noman
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
 VERS_TAG=	${PORTVERSION:C/[.abcd]//g}
-PLIST_SUB+=	VERSTAG=${VERS_TAG}
 PORTSCOUT=	ignore:1
 
 USE_SDL=	sdl2
@@ -91,7 +90,7 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		doc/manpage/blender.1.py
 
 OPTIONS_DEFINE=	COLLADA CYCLES HEADLESS JACK MANPAGES NLS OPENMP OSD OSL PLAYER SECURITY
-OPTIONS_DEFAULT=	COLLADA CYCLES JACK NLS OSD OSL PLAYER SECURITY
+OPTIONS_DEFAULT=	COLLADA CYCLES JACK NLS OSL PLAYER SECURITY
 
 OPTIONS_SUB=	yes
 HEADLESS_DESC=	Disable user interface
@@ -141,8 +140,8 @@ OSL_CMAKE_ON=		-DWITH_CYCLES_OSL:BOOL=ON \
 			-DLLVM_STATIC:BOOL=OFF \
 			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config40"
 OSL_CMAKE_OFF=		-DWITH_CYCLES_OSL:BOOL=OFF
-OSL_LIB_DEPENDS=	liboslcomp.so:graphics/openshadinglanguage
 OSL_BUILD_DEPENDS=	llvm-config40:devel/llvm40
+OSL_LIB_DEPENDS=	liboslcomp.so:graphics/openshadinglanguage
 OSL_RUN_DEPENDS=	llvm-config40:devel/llvm40
 
 PLAYER_CMAKE_ON=	-DWITH_PLAYER:BOOL=ON
