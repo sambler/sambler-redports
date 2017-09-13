@@ -3,7 +3,6 @@
 
 PORTNAME=	blender
 PORTVERSION=	2.79
-PORTREVISION=	0
 CATEGORIES=	graphics games
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -23,10 +22,10 @@ LIB_DEPENDS=	libpng.so:graphics/png \
 # libraries are used, if either of the most common options in blender
 # are set. We will pull boost in just to be on the safe side.
 
-USE_XORG=	x11 xext xmu xrender
-USE_GL=		gl glu glew
 USES=		cmake:outsource desktop-file-utils \
 		jpeg python:3.5 shebangfix
+USE_XORG=	x11 xext xmu xrender
+USE_GL=		gl glu glew
 INSTALLS_ICONS=	yes
 CMAKE_ARGS=	-DWITH_PYTHON_INSTALL:BOOL=OFF \
 		-DWITH_PYTHON_INSTALL_NUMPY:BOOL=OFF \
