@@ -12,17 +12,19 @@ LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
 BUILD_DEPENDS=	glfw>2.7.0:graphics/glfw
 
+USES=		cmake:outsource
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	PixarAnimationStudios
 GH_PROJECT=	OpenSubdiv
 GH_TAGNAME=	v3_3_0
 
-USES=		cmake:outsource
 USE_GL=		gl glu glew
 CMAKE_VERBOSE=	yes
 USE_LDCONFIG=	yes
 CMAKE_ARGS+=	-DNO_CUDA:BOOL=ON \
-		-DNO_DX:BOOL=ON
+		-DNO_DX:BOOL=ON \
+		-DNO_OMP:BOOL=ON
 
 OPTIONS_DEFINE=		DOCS EXAMPLES OPENCL PTEX TBB TEST TUTORIALS
 OPTIONS_DEFAULT=	TBB
@@ -37,15 +39,6 @@ EXAMPLES_CMAKE_ON=	-DNO_EXAMPLES:BOOL=OFF
 EXAMPLES_CMAKE_OFF=	-DNO_EXAMPLES:BOOL=ON
 EXAMPLES_USE=		xorg=ice,sm,x11,xcursor,xext,xi,xinerama,xrandr,xxf86vm
 EXAMPLES_LIB_DEPENDS=	libglfw.so:graphics/glfw
-
-## openmp can have linking issues
-CMAKE_ARGS+=		-DNO_OMP:BOOL=ON
-#OPENMP_CMAKE_ON=	-DNO_OMP:BOOL=OFF
-## configuring with clang fails omp tests without these flags
-#OPENMP_CFLAGS=		-I${LOCALBASE}/include -L${LOCALBASE}/lib -lm
-#OPENMP_CXXFLAGS=	-I${LOCALBASE}/include -L${LOCALBASE}/lib -lm
-#OPENMP_CMAKE_OFF=	-DNO_OMP:BOOL=ON
-#OPENMP_LIB_DEPENDS=	libomp.so:devel/openmp
 
 OPENCL_CMAKE_ON=	-DNO_OPENCL:BOOL=OFF
 OPENCL_CMAKE_OFF=	-DNO_OPENCL:BOOL=ON
