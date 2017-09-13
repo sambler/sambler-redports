@@ -1,78 +1,87 @@
-# Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
 PORTNAME=	opensubdiv
-PORTVERSION=	3.0.2
+PORTVERSION=	3.3.0
 CATEGORIES?=	graphics
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	OpenSubdiv graphics library
 
 LICENSE=	APACHE20
+LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
-BUILD_DEPENDS=	glfw>2.7.0:${PORTSDIR}/graphics/glfw
-LIB_DEPENDS=	libtbb.so:${PORTSDIR}/devel/tbb
+BUILD_DEPENDS=	glfw>2.7.0:graphics/glfw
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	PixarAnimationStudios
 GH_PROJECT=	OpenSubdiv
-GH_TAGNAME=	v3_0_2
+GH_TAGNAME=	v3_3_0
 
-USE_GL=		glew
-USE_XORG=	x11 xext xi xrandr ice xcursor xinerama
-# gcc works while clang needs ldflags added
-LDFLAGS+=	-lX11
-
-USE_LDCONFIG=	yes
 USES=		cmake:outsource
+USE_GL=		gl glu glew
+CMAKE_VERBOSE=	yes
+USE_LDCONFIG=	yes
 CMAKE_ARGS+=	-DNO_CUDA:BOOL=ON \
-		-DNO_OPENCL:BOOL=ON
+		-DNO_DX:BOOL=ON
 
-OPTIONS_DEFINE=		DOCS EXAMPLES OPENMP PTEX TEST
-OPTIONS_DEFAULT=	PTEX
+OPTIONS_DEFINE=		DOCS EXAMPLES OPENCL PTEX TBB TEST TUTORIALS
+OPTIONS_DEFAULT=	TBB
 OPTIONS_SUB=		yes
 
 DOCS_CMAKE_ON=		-DNO_DOC:BOOL=OFF
 DOCS_CMAKE_OFF=		-DNO_DOC:BOOL=ON
-DOCS_BUILD_DEPENDS=	rst2html.py:${PORTSDIR}/textproc/py-docutils \
-			doxygen>=1.8.4:${PORTSDIR}/devel/doxygen
+DOCS_BUILD_DEPENDS=	rst2html.py:textproc/py-docutils \
+			doxygen>=1.8.4:devel/doxygen
 
 EXAMPLES_CMAKE_ON=	-DNO_EXAMPLES:BOOL=OFF
 EXAMPLES_CMAKE_OFF=	-DNO_EXAMPLES:BOOL=ON
+EXAMPLES_USE=		xorg=ice,sm,x11,xcursor,xext,xi,xinerama,xrandr,xxf86vm
+EXAMPLES_LIB_DEPENDS=	libglfw.so:graphics/glfw
 
-OPENMP_CMAKE_ON=	-DNO_OMP:BOOL=OFF
-OPENMP_CMAKE_OFF=	-DNO_OMP:BOOL=ON
-OPENMP_USES=		compiler:openmp
+## openmp can have linking issues
+CMAKE_ARGS+=		-DNO_OMP:BOOL=ON
+#OPENMP_CMAKE_ON=	-DNO_OMP:BOOL=OFF
+## configuring with clang fails omp tests without these flags
+#OPENMP_CFLAGS=		-I${LOCALBASE}/include -L${LOCALBASE}/lib -lm
+#OPENMP_CXXFLAGS=	-I${LOCALBASE}/include -L${LOCALBASE}/lib -lm
+#OPENMP_CMAKE_OFF=	-DNO_OMP:BOOL=ON
+#OPENMP_LIB_DEPENDS=	libomp.so:devel/openmp
+
+OPENCL_CMAKE_ON=	-DNO_OPENCL:BOOL=OFF
+OPENCL_CMAKE_OFF=	-DNO_OPENCL:BOOL=ON
+OPENCL_CFLAGS=		-pthread
+OPENCL_CXXFLAGS=	-pthread
+OPENCL_BUILD_DEPENDS=	${LOCALBASE}/include/CL/cl.h:devel/opencl
+OPENCL_LIB_DEPENDS=	libOpenCL.so:devel/ocl-icd
 
 PTEX_DESC=		ptex support
-PTEX_CMAKE_ON=		-DPTEX_LOCATION:STRING=/usr/local \
-			-DPTEX_INCLUDE_DIR:STRING=/usr/local/include/ptex
-PTEX_LIB_DEPENDS=	libPtex.so:${PORTSDIR}/graphics/ptex
-PTEX_LDFLAGS=		-L${LOCALBASE}/lib -lPtex
+PTEX_CMAKE_ON=		-DNO_PTEX:BOOL=OFF -DPTEX_LOCATION:STRING=${LOCALBASE} \
+			-DPTEX_INCLUDE_DIR:STRING=${LOCALBASE}/include/ptex
+PTEX_CMAKE_OFF=		-DNO_PTEX:BOOL=ON
+PTEX_LIB_DEPENDS=	libPtex.so:graphics/ptex
 
-TEST_CMAKE_ON=		-DNO_REGRESSION:BOOL=OFF
-TEST_CMAKE_OFF=		-DNO_REGRESSION:BOOL=ON
+TBB_DESC=		Intel threading building blocks
+TBB_CMAKE_ON=		-DNO_TBB:BOOL=OFF
+TBB_CMAKE_OFF=		-DNO_TBB:BOOL=ON
+TBB_LIB_DEPENDS=	libtbb.so:devel/tbb
+
+TEST_CMAKE_ON=		-DNO_REGRESSION:BOOL=OFF -DNO_TESTS:BOOL=OFF -DNO_GLTESTS:BOOL=OFF
+TEST_CMAKE_OFF=		-DNO_REGRESSION:BOOL=ON -DNO_TESTS:BOOL=ON -DNO_GLTESTS:BOOL=ON
+TEST_LIB_DEPENDS=	libglfw.so:graphics/glfw
+TEST_USE=		xorg=ice,sm,x11,xcursor,xext,xi,xinerama,xrandr,xxf86vm
+
+TUTORIALS_DESC=		Install tutorial programs
+TUTORIALS_CMAKE_ON=	-DNO_TUTORIALS:BOOL=OFF
+TUTORIALS_CMAKE_OFF=	-DNO_TUTORIALS:BOOL=ON
 
 PLIST_SUB+=		LIBVERS=${PORTVERSION}
 
-.include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MPTEX} && ${PORT_OPTIONS:MOPENMP}
-# ptex and opensubdiv need to both be compiled with the same compiler
-# By default on 10.0+ ptex will be compiled with clang
-# so far gcc is needed to enable openmp
-BROKEN= openmp and ptex fail to link together.
-.endif
-
-post-install:
-.if ${PORT_OPTIONS:MPYTHON}
-	@${MKDIR} ${STAGEDIR}${PYTHON_SITELIBDIR}/osd
-.for SN in ${PYSCRIPTS}
-	${INSTALL_DATA} ${BUILD_WRKSRC}/python/osd/${SN} \
-		${STAGEDIR}${PYTHON_SITELIBDIR}/osd
-.endfor
-	${INSTALL_LIB} ${BUILD_WRKSRC}/python/osd/_shim.so \
-		${STAGEDIR}${PYTHON_SITELIBDIR}/osd
-.endif
+post-patch:
+	${FIND} ${WRKSRC}/tutorials -name CMakeLists.txt | ${XARGS} ${REINPLACE_CMD} \
+	-e 's|{CMAKE_BINDIR_BASE}/tutorials|{CMAKE_INSTALL_PREFIX}/share/${PORTNAME}/tutorials|g'
+	${FIND} ${WRKSRC}/examples -name CMakeLists.txt | ${XARGS} ${REINPLACE_CMD} \
+	-e 's|{CMAKE_BINDIR_BASE}|{CMAKE_INSTALL_PREFIX}/share/${PORTNAME}/examples|g'
+	${FIND} ${WRKSRC}/regression -name CMakeLists.txt | ${XARGS} ${REINPLACE_CMD} \
+	-e 's|{CMAKE_BINDIR_BASE}|{CMAKE_INSTALL_PREFIX}/share/${PORTNAME}/test|g'
 
 .include <bsd.port.mk>
