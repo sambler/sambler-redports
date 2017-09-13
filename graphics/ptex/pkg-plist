@@ -78,8 +78,6 @@ include/ptex/PtexWriter.h
 %%PORTDOCS%%%%DOCSDIR%%/annotated.html
 %%PORTDOCS%%%%DOCSDIR%%/apiintro.html
 %%PORTDOCS%%%%DOCSDIR%%/apiintro_8txt.html
-%%PORTDOCS%%%%DOCSDIR%%/arrowdown.png
-%%PORTDOCS%%%%DOCSDIR%%/arrowright.png
 %%PORTDOCS%%%%DOCSDIR%%/bc_s.png
 %%PORTDOCS%%%%DOCSDIR%%/bdwn.png
 %%PORTDOCS%%%%DOCSDIR%%/classAutoLock-members.html
@@ -114,7 +112,6 @@ include/ptex/PtexWriter.h
 %%PORTDOCS%%%%DOCSDIR%%/classPtexGaussianFilter-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexGaussianFilter.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexGaussianFilter.png
-%%PORTDOCS%%%%DOCSDIR%%/classPtexHalf-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexHashMap-members.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexHashMap.html
 %%PORTDOCS%%%%DOCSDIR%%/classPtexHashMap_1_1Entry-members.html
@@ -312,6 +309,8 @@ include/ptex/PtexWriter.h
 %%PORTDOCS%%%%DOCSDIR%%/jquery.js
 %%PORTDOCS%%%%DOCSDIR%%/license.html
 %%PORTDOCS%%%%DOCSDIR%%/main_8txt.html
+%%PORTDOCS%%%%DOCSDIR%%/menu.js
+%%PORTDOCS%%%%DOCSDIR%%/menudata.js
 %%PORTDOCS%%%%DOCSDIR%%/namespacePTEX__NAMESPACE__BEGIN.html
 %%PORTDOCS%%%%DOCSDIR%%/namespacePtex.html
 %%PORTDOCS%%%%DOCSDIR%%/namespacePtexUtils.html
@@ -351,6 +350,7 @@ include/ptex/PtexWriter.h
 %%PORTDOCS%%%%DOCSDIR%%/structPtexFilter_1_1Options-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexFilter_1_1Options.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexHalf.html
+%%PORTDOCS%%%%DOCSDIR%%/structPtexHalf-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexMainWriter_1_1LevelRec-members.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexMainWriter_1_1LevelRec.html
 %%PORTDOCS%%%%DOCSDIR%%/structPtexReaderCache_1_1MruList-members.html
