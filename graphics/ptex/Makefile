@@ -9,13 +9,13 @@ COMMENT=	Per face texture library
 
 LICENSE=	BSD3CLAUSE
 
+USES=		cmake
+USE_LDCONFIG=	yes
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	wdas
 GH_PROJECT=	ptex
 GH_TAGNAME=	v${PORTVERSION}
-
-USE_LDCONFIG=	yes
-USES=		cmake
 
 OPTIONS_DEFINE=		DOCS
 
