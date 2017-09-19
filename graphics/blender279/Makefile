@@ -3,7 +3,7 @@
 
 PORTNAME=	blender279
 PORTVERSION=	2.79
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -89,18 +89,32 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		release/scripts/modules/blend_render_info.py \
 		doc/manpage/blender.1.py
 
-OPTIONS_DEFINE=	COLLADA CYCLES HEADLESS JACK MANPAGES NLS OPENMP OSD OSL PLAYER SECURITY
-OPTIONS_DEFAULT=	COLLADA CYCLES JACK NLS OSL PLAYER SECURITY
+OPTIONS_DEFINE=		ALEMBIC ALEMBIC_HDF5 COLLADA CYCLES HEADLESS JACK \
+			MANPAGES NLS OPENMP OSD OSL PLAYER SECURITY
+OPTIONS_DEFAULT=	ALEMBIC ALEMBIC_HDF5 COLLADA CYCLES JACK NLS \
+			OSL PLAYER SECURITY
 
 OPTIONS_SUB=	yes
-HEADLESS_DESC=	Disable user interface
-CYCLES_DESC=	Build cycles render engine
-JACK_DESC=	Audio support using JackAudio
-NLS_DESC=	Include translations
-OSD_DESC=	Opensubdiv support
-OSL_DESC=	OSL shading support
-PLAYER_DESC=	Build blender player
-SECURITY_DESC=	Disable scripts auto-run
+ALEMBIC_DESC=		Enable Alembic file support
+ALEMBIC_HDF5_DESC=	Enable Alembic hdf5 file support
+COLLADA_DESC=		Include collada import
+CYCLES_DESC=		Build cycles render engine
+HEADLESS_DESC=		Disable user interface
+JACK_DESC=		Audio support using JackAudio
+NLS_DESC=		Include translations
+OSD_DESC=		Opensubdiv support
+OSL_DESC=		OSL shading support
+PLAYER_DESC=		Build blender player
+SECURITY_DESC=		Disable scripts auto-run
+
+ALEMBIC_CMAKE_ON=	-DWITH_ALEMBIC:BOOL=ON
+ALEMBIC_CMAKE_OFF=	-DWITH_ALEMBIC:BOOL=OFF
+ALEMBIC_LIB_DEPENDS=	libAlembic.so:graphics/alembic
+# note that this needs to be set to match alembics hdf5 option
+ALEMBIC_HDF5_REQUIRES=	ALEMBIC
+ALEMBIC_HDF5_CMAKE_ON=	-DWITH_ALEMBIC_HDF5:BOOL=ON
+ALEMBIC_HDF5_CMAKE_OFF=	-DWITH_ALEMBIC_HDF5:BOOL=OFF
+ALEMBIC_HDF5_LIB_DEPENDS=	libhdf5.so:science/hdf5
 
 COLLADA_CMAKE_ON=	-DWITH_OPENCOLLADA:BOOL=ON
 COLLADA_CMAKE_OFF=	-DWITH_OPENCOLLADA:BOOL=OFF

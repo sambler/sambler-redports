@@ -3,6 +3,7 @@
 
 PORTNAME=	blender
 PORTVERSION=	2.79
+PORTREVISION=	1
 CATEGORIES=	graphics games
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -45,6 +46,14 @@ OPTIONS_SUB=	yes
 
 .include "${.CURDIR}/Makefile.options"
 
+ALEMBIC_CMAKE_ON=		-DWITH_ALEMBIC:BOOL=ON
+ALEMBIC_CMAKE_OFF=		-DWITH_ALEMBIC:BOOL=OFF
+ALEMBIC_LIB_DEPENDS=		libAlembic.so:graphics/alembic
+# note that this needs to be set to match alembics hdf5 option
+ALEMBIC_HDF5_REQUIRES=		ALEMBIC
+ALEMBIC_HDF5_CMAKE_ON=		-DWITH_ALEMBIC_HDF5:BOOL=ON
+ALEMBIC_HDF5_CMAKE_OFF=		-DWITH_ALEMBIC_HDF5:BOOL=OFF
+ALEMBIC_HDF5_LIB_DEPENDS=	libhdf5.so:science/hdf5
 AVI_CMAKE_ON=			-DWITH_CODEC_AVI:BOOL=ON
 AVI_CMAKE_OFF=			-DWITH_CODEC_AVI:BOOL=OFF
 BULLET_CMAKE_ON=		-DWITH_BULLET:BOOL=ON
