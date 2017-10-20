@@ -132,7 +132,7 @@ OPENAL_LIB_DEPENDS=	libopenal.so:audio/openal-soft
 OPENAL_CONFIGURE_ENABLE=	openal
 
 # opencv
-OPENCV_LIB_DEPENDS=	libopencv_imgproc.so:graphics/opencv2-core
+OPENCV_LIB_DEPENDS=	libopencv_imgproc.so:graphics/opencv-core
 OPENCV_CONFIGURE_ENABLE=	libopencv
 
 # openjpeg
@@ -347,7 +347,7 @@ post-patch:
 		s|gsm/gsm.h|gsm.h|g" \
 		${CONFIGURE_WRKSRC}/${CONFIGURE_SCRIPT}
 	@${REINPLACE_CMD} -e 's|-ldl||' \
-		-e 's|opencv opencv/cxcore.h|opencv-core opencv2/core/core_c.h|g' \
+		-e 's|opencv opencv/cxcore.h|opencv-core opencv/core/core_c.h|g' \
 		${CONFIGURE_WRKSRC}/${CONFIGURE_SCRIPT}
 	@${REINPLACE_CMD} -e 's|/usr/bin/perl|${PERL5}|g' \
 		${WRKSRC}/doc/texi2pod.pl
