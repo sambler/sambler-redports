@@ -3,7 +3,7 @@
 
 PORTNAME=	blender270
 PORTVERSION=	2.70a
-PORTREVISION=	4
+PORTREVISION=	5
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -17,7 +17,6 @@ LICENSE=	GPLv2
 LIB_DEPENDS=	libsamplerate.so:audio/libsamplerate
 LIB_DEPENDS+=	libsndfile.so:audio/libsndfile
 LIB_DEPENDS+=	libboost_thread.so:devel/boost-libs
-LIB_DEPENDS+=	libexecinfo.so:devel/libexecinfo
 LIB_DEPENDS+=	libOpenColorIO.so:graphics/opencolorio
 LIB_DEPENDS+=	libIlmImf.so:graphics/OpenEXR
 LIB_DEPENDS+=	libOpenImageIO14.so:graphics/openimageio14

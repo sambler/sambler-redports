@@ -3,7 +3,7 @@
 
 PORTNAME=	blender279
 PORTVERSION=	2.79
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -18,7 +18,6 @@ LIB_DEPENDS=	liblzo2.so:archivers/lzo2 \
 		libsamplerate.so:audio/libsamplerate \
 		libsndfile.so:audio/libsndfile \
 		libboost_thread.so:devel/boost-libs \
-		libexecinfo.so:devel/libexecinfo \
 		libunwind.so:devel/libunwind \
 		libpcre.so:devel/pcre \
 		libyaml-cpp03.so:devel/yaml-cpp03 \

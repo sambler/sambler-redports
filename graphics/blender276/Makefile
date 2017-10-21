@@ -3,7 +3,7 @@
 
 PORTNAME=	blender276
 PORTVERSION=	2.76b
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -17,7 +17,6 @@ LICENSE=	GPLv2
 LIB_DEPENDS=	libsamplerate.so:audio/libsamplerate \
 		libsndfile.so:audio/libsndfile \
 		libboost_thread.so:devel/boost-libs \
-		libexecinfo.so:devel/libexecinfo \
 		libOpenColorIO.so:graphics/opencolorio \
 		libIlmImf.so:graphics/OpenEXR \
 		libOpenImageIO16.so:graphics/openimageio16 \
