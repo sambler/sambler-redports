@@ -30,7 +30,8 @@ LIB_DEPENDS=	liblzo2.so:archivers/lzo2 \
 		libavutil.so:multimedia/ffmpeg \
 		libfreetype.so:print/freetype2 \
 		libtinyxml.so:textproc/tinyxml
-RUN_DEPENDS=	xdg-mime:devel/xdg-utils
+RUN_DEPENDS=	${PYNUMPY} \
+		xdg-mime:devel/xdg-utils
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	sambler \

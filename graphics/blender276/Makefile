@@ -26,7 +26,8 @@ LIB_DEPENDS=	libsamplerate.so:audio/libsamplerate \
 		libfftw3.so:math/fftw3 \
 		libavutil.so:multimedia/ffmpeg \
 		libfreetype.so:print/freetype2
-RUN_DEPENDS=	xdg-mime:devel/xdg-utils
+RUN_DEPENDS=	${PYNUMPY} \
+		xdg-mime:devel/xdg-utils
 
 USES=		cmake:outsource compiler:c++11-lib shebangfix
 USES+=		python:3.4 desktop-file-utils openal:al,alut jpeg
