@@ -66,96 +66,96 @@ share/applications/blender262.desktop
 %%DATADIR%%/scripts/addons/animation_animall.py
 %%DATADIR%%/scripts/addons/animation_rotobezier.py
 %%DATADIR%%/scripts/addons/curve_simplify.py
-%%DATADIR%%/scripts/addons/cycles/__init__.py
-%%DATADIR%%/scripts/addons/cycles/engine.py
-%%DATADIR%%/scripts/addons/cycles/enums.py
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel.cl
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel.cu
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_accumulate.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_bvh.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_camera.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_compat_cpu.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_compat_cuda.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_compat_opencl.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_differential.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_displace.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_emission.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_film.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_globals.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_light.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_math.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_mbvh.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_montecarlo.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_object.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_passes.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_path.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_qbvh.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_random.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_shader.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_textures.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_triangle.h
-%%DATADIR%%/scripts/addons/cycles/kernel/kernel_types.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_ashikhmin_velvet.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_diffuse.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_microfacet.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_oren_nayar.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_reflection.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_refraction.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_transparent.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_ward.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_westin.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/emissive.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_attribute.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_brightness.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_bsdf.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_camera.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_checker.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_closure.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_convert.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_displace.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_fresnel.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_gamma.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_geometry.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_gradient.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_hsv.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_image.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_invert.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_light_path.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_magic.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_mapping.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_math.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_mix.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_musgrave.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_noise.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_noisetex.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_normal.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_sepcomb_rgb.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_sky.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_tex_coord.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_texture.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_types.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_value.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_voronoi.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_wave.h
-%%DATADIR%%/scripts/addons/cycles/kernel/svm/volume.h
-%%DATADIR%%/scripts/addons/cycles/kernel/util_color.h
-%%DATADIR%%/scripts/addons/cycles/kernel/util_math.h
-%%DATADIR%%/scripts/addons/cycles/kernel/util_transform.h
-%%DATADIR%%/scripts/addons/cycles/kernel/util_types.h
-%%DATADIR%%/scripts/addons/cycles/license/Apache_2.0.txt
-%%DATADIR%%/scripts/addons/cycles/license/Blender.txt
-%%DATADIR%%/scripts/addons/cycles/license/GPL.txt
-%%DATADIR%%/scripts/addons/cycles/license/ILM.txt
-%%DATADIR%%/scripts/addons/cycles/license/NVidia.txt
-%%DATADIR%%/scripts/addons/cycles/license/OSL.txt
-%%DATADIR%%/scripts/addons/cycles/license/Sobol.txt
-%%DATADIR%%/scripts/addons/cycles/license/readme.txt
-%%DATADIR%%/scripts/addons/cycles/presets.py
-%%DATADIR%%/scripts/addons/cycles/properties.py
-%%DATADIR%%/scripts/addons/cycles/ui.py
+@comment %%DATADIR%%/scripts/addons/cycles/__init__.py
+@comment %%DATADIR%%/scripts/addons/cycles/engine.py
+@comment %%DATADIR%%/scripts/addons/cycles/enums.py
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel.cl
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel.cu
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_accumulate.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_bvh.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_camera.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_compat_cpu.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_compat_cuda.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_compat_opencl.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_differential.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_displace.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_emission.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_film.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_globals.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_light.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_math.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_mbvh.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_montecarlo.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_object.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_passes.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_path.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_qbvh.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_random.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_shader.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_textures.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_triangle.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/kernel_types.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_ashikhmin_velvet.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_diffuse.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_microfacet.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_oren_nayar.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_reflection.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_refraction.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_transparent.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_ward.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/bsdf_westin.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/emissive.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_attribute.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_brightness.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_bsdf.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_camera.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_checker.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_closure.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_convert.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_displace.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_fresnel.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_gamma.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_geometry.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_gradient.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_hsv.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_image.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_invert.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_light_path.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_magic.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_mapping.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_math.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_mix.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_musgrave.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_noise.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_noisetex.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_normal.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_sepcomb_rgb.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_sky.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_tex_coord.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_texture.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_types.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_value.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_voronoi.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/svm_wave.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/svm/volume.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/util_color.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/util_math.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/util_transform.h
+@comment %%DATADIR%%/scripts/addons/cycles/kernel/util_types.h
+@comment %%DATADIR%%/scripts/addons/cycles/license/Apache_2.0.txt
+@comment %%DATADIR%%/scripts/addons/cycles/license/Blender.txt
+@comment %%DATADIR%%/scripts/addons/cycles/license/GPL.txt
+@comment %%DATADIR%%/scripts/addons/cycles/license/ILM.txt
+@comment %%DATADIR%%/scripts/addons/cycles/license/NVidia.txt
+@comment %%DATADIR%%/scripts/addons/cycles/license/OSL.txt
+@comment %%DATADIR%%/scripts/addons/cycles/license/Sobol.txt
+@comment %%DATADIR%%/scripts/addons/cycles/license/readme.txt
+@comment %%DATADIR%%/scripts/addons/cycles/presets.py
+@comment %%DATADIR%%/scripts/addons/cycles/properties.py
+@comment %%DATADIR%%/scripts/addons/cycles/ui.py
 %%DATADIR%%/scripts/addons/development_api_navigator.py
 %%DATADIR%%/scripts/addons/development_icon_get.py
 %%DATADIR%%/scripts/addons/game_engine_save_as_runtime.py
