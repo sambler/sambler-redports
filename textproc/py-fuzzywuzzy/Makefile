@@ -12,7 +12,7 @@ COMMENT=	Fuzzy string matching in python
 
 LICENSE=	MIT
 
-RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}levenshtein>0:devel/py-levenshtein@${PY_FLAVOR}
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}levenshtein>0:devel/py-levenshtein@${FLAVOR}
 
 USES=		python
 USE_PYTHON=	autoplist distutils
