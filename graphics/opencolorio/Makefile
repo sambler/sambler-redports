@@ -18,6 +18,8 @@ GH_TAGNAME=	67e455b97e
 
 OPTIONS_DEFINE=	DOCS
 
+DOCS_CMAKE_BOOL=	OCIO_BUILD_DOCS
+
 LDFLAGS+=	-L${LOCALBASE}/lib
 USES=		alias cmake:outsource pkgconfig shebangfix
 CMAKE_ARGS=	-DOCIO_BUILD_JNIGLUE:BOOL=OFF \
@@ -67,7 +69,7 @@ CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=OFF \
 		-DPYTHON:STRING=${PYTHON_CMD}
 PLIST=		${PKGDIR}/pkg-plist-pyglue
 .else # master port
-BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}Jinja2>0:devel/py-Jinja2@${FLAVOR}
+BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}Jinja2>0:devel/py-Jinja2@${PY_FLAVOR}
 LIB_DEPENDS=	libtinyxml.so:textproc/tinyxml \
 		libyaml-cpp03.so:devel/yaml-cpp03
 USES+=		python:2,build
@@ -84,12 +86,6 @@ CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=OFF \
 # be used to build a python 3 module
 PLIST=		${PKGDIR}/pkg-plist
 EXTRA_PATCHES=	${FILESDIR}/extra-patch-src_core_CMakeLists.txt
-.endif
-
-.if ${PORT_OPTIONS:MDOCS}
-CMAKE_ARGS+=	-DOCIO_BUILD_DOCS:BOOL=ON
-.else
-CMAKE_ARGS+=	-DOCIO_BUILD_DOCS:BOOL=OFF
 .endif
 
 post-patch:
