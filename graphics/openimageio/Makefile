@@ -4,7 +4,7 @@
 PORTNAME=	openimageio
 PORTVERSION=	1.7.17
 DISTVERSIONPREFIX=	Release-
-PORTREVISION=	0
+PORTREVISION=	7
 CATEGORIES?=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
@@ -15,7 +15,7 @@ LICENSE=	BSD3CLAUSE
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		libImath.so:graphics/ilmbase \
 		libIlmImf.so:graphics/OpenEXR \
-		libpng16.so:graphics/png \
+		libpng.so:graphics/png \
 		libtiff.so:graphics/tiff \
 		libwebp.so:graphics/webp \
 		libhdf5.so:science/hdf5
@@ -92,14 +92,33 @@ PLIST_SUB+=		LIBVERS=${PORTVERSION}
 USE_LDCONFIG=	yes
 CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF -DUSE_PYTHON3:BOOL=OFF \
 		-DOIIO_BUILD_TOOLS:BOOL=ON
-.else
-LIB_DEPENDS+=	libOpenImageIO.so:graphics/openimageio \
-		libboost_python.so:devel/boost-python-libs
+.else # slave port is py-openimageio
+LIB_DEPENDS+=	libOpenImageIO.so:graphics/openimageio
 PLIST=		${PKGDIR}/pkg-plist-pybind
-#while oiio supports py3, ports doesn't have py3 support for boost-python yet
-USES+=		python:2
-CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON -DUSE_PYTHON3:BOOL=OFF \
-		-DOIIO_BUILD_TOOLS:BOOL=OFF -DUSE_FFMPEG:BOOL=OFF
+USES+=		python
+USE_PYTHON=	flavors
+CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON -DOIIO_BUILD_TOOLS:BOOL=OFF \
+		-DUSE_FFMPEG:BOOL=OFF
+.endif
+
+.include <bsd.port.pre.mk>
+
+.if ${SLAVE_PORT} == yes
+# we need to do this here to get PYTHON_MAJOR_VER
+# this is related to adding USES+=python in the first slave test
+.if ${PYTHON_MAJOR_VER} == 2
+LIB_DEPENDS+=	libboost_python.so:devel/boost-python-libs
+CMAKE_ARGS+=	-DUSE_PYTHON3:BOOL=OFF
+do-install:
+	@${MKDIR} ${STAGEDIR}${PYTHON_SITELIBDIR}
+	${INSTALL_LIB} ${BUILD_WRKSRC}/src/python/OpenImageIO.so ${STAGEDIR}${PYTHON_SITELIBDIR}
+.else
+LIB_DEPENDS+=	libboost_python3.so:devel/boost-python3-libs
+CMAKE_ARGS+=	-DUSE_PYTHON3:BOOL=ON
+do-install:
+	@${MKDIR} ${STAGEDIR}${PYTHON_SITELIBDIR}
+	${INSTALL_LIB} ${BUILD_WRKSRC}/src/python3/OpenImageIO.so ${STAGEDIR}${PYTHON_SITELIBDIR}
+.endif
 .endif
 
 post-patch:
@@ -117,4 +136,4 @@ post-install:
 do-test-TEST-on:
 	@cd ${BUILD_WRKSRC} && ${MAKE_CMD} ARGS=-V test
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
