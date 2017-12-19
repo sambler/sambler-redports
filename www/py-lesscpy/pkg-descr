@@ -1,0 +1,6 @@
+Python LESS Compiler.
+
+A compiler written in Python for the LESS language. For those of us
+not willing or able to have node.js installed in our environment.
+
+WWW: https://github.com/lesscpy/lesscpy
