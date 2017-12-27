@@ -1,8 +1,8 @@
---- drivers/unix/os_unix.cpp.orig	2017-04-12 03:15:39 UTC
+--- drivers/unix/os_unix.cpp.orig	2017-08-28 01:55:12 UTC
 +++ drivers/unix/os_unix.cpp
 @@ -51,6 +51,7 @@
  
- #ifdef __FreeBSD__
+ #if defined(__FreeBSD__) || defined(__OpenBSD__)
  #include <sys/param.h>
 +#include <sys/sysctl.h>
  #endif
@@ -26,15 +26,19 @@
  		// still alive? something failed..
  		fprintf(stderr, "**ERROR** OS_Unix::execute - Could not create child process while executing: %s\n", p_path.utf8().get_data());
  		abort();
-@@ -500,11 +491,16 @@ String OS_Unix::get_executable_path() co
+@@ -499,12 +490,24 @@ String OS_Unix::get_executable_path() co
+ 		return OS::get_executable_path();
  	}
  	return b;
- #elif defined(__FreeBSD__)
--	char resolved_path[MAXPATHLEN];
--
--	realpath(OS::get_executable_path().utf8().get_data(), resolved_path);
--
--	return String(resolved_path);
+-#elif defined(__FreeBSD__) || defined(__OpenBSD__)
++#elif defined(__OpenBSD__)
+ 	char resolved_path[MAXPATHLEN];
+ 
+ 	realpath(OS::get_executable_path().utf8().get_data(), resolved_path);
+ 
+ 	return String(resolved_path);
++
++#elif defined(__FreeBSD__)
 +	int mib[4] = { CTL_KERN, KERN_PROC, KERN_PROC_PATHNAME, -1 };
 +	char buf[MAXPATHLEN];
 +	size_t len = sizeof(buf);
