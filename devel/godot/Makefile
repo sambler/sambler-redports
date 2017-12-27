@@ -2,7 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	godot
-PORTVERSION=	2.1.2
+PORTVERSION=	2.1.3
+PORTREVISION=	0
 DISTVERSIONSUFFIX=	-stable
 CATEGORIES=	devel games
 
@@ -52,8 +53,6 @@ AUDIO_DESC=		Audio support
 ALSA_LIB_DEPENDS=	libasound.so:audio/alsa-lib
 ALSA_MAKE_ARGS=		alsa=yes
 EXAMPLES_GH_PROJECT=	godot-demo-projects:DEMOS
-# Branch HEAD for PORTVERSION
-EXAMPLES_GH_TAGNAME=	dfa1274:DEMOS
 EXAMPLES_PORTEXAMPLES=	*
 OSS_MAKE_ARGS=		oss=yes
 PULSEAUDIO_LIB_DEPENDS=	libpulse-simple.so:audio/pulseaudio
