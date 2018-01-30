@@ -3,8 +3,8 @@
 
 PORTNAME=	godot
 PORTVERSION=	2.1.4
-PORTREVISION=	0
 DISTVERSIONSUFFIX=	-stable
+PORTREVISION=	0
 CATEGORIES=	devel games
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -28,7 +28,7 @@ GH_ACCOUNT=	godotengine
 
 USES=		compiler:c++11-lib pkgconfig scons ssl
 USE_XORG=	x11 xcursor xinerama xrandr
-USE_GL=		gl
+USE_GL=		gl glu
 
 MAKE_ARGS+=		platform=x11 builtin_speex=no builtin_libmpcdec=no
 MAKE_ARGS+=		${MAKE_ARGS_${CHOSEN_COMPILER_TYPE}}

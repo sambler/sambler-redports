@@ -14,7 +14,8 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 BROKEN_powerpc64=	fails to link: libicuuc.so. undefined reference to __cxa_throw_bad_array_new_length
 
-LIB_DEPENDS=	libsndfile.so:audio/libsndfile
+LIB_DEPENDS=	libsndfile.so:audio/libsndfile \
+		liblo.so:audio/liblo
 
 CONFLICTS=	hydrogen-0.*
 
@@ -23,7 +24,7 @@ GH_ACCOUNT=	hydrogen-music
 GH_TAGNAME=	f0d0e8cf2498ae
 
 USES=		cmake desktop-file-utils pkgconfig localbase
-USE_QT5=	qmake buildtools core gui network xml xmlpatterns
+USE_QT5=	qmake buildtools core gui network widgets xml xmlpatterns
 
 OPTIONS_SINGLE=		EXPORT
 OPTIONS_SINGLE_EXPORT=	LIBARCHIVE LIBTAR

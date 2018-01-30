@@ -1,5 +1,17 @@
 --- CMakeLists.txt.orig	2017-11-21 17:47:16 UTC
 +++ CMakeLists.txt
+@@ -195,6 +195,11 @@ ENDIF()
+ FIND_HELPER(LIBARCHIVE libarchive archive.h archive)
+ IF( WANT_LIBARCHIVE AND LIBARCHIVE_FOUND)
+     SET(WANT_LIBTAR FALSE)
++    SET(LIBTAR_LIBRARIES "")
++    SET(LIBTAR_INCLUDE_DIRS "")
++ELSE()
++    SET(LIBARCHIVE_LIBRARIES "")
++    SET(LIBARCHIVE_INCLUDE_DIRS "")
+ ENDIF()
+ FIND_HELPER(LIBSNDFILE sndfile sndfile.h sndfile)
+ FIND_HELPER(ALSA alsa alsa/asoundlib.h asound )
 @@ -204,6 +204,8 @@ FIND_HELPER(OSC liblo lo/lo.h lo)
  
  IF("${CMAKE_SYSTEM_NAME}" MATCHES "NetBSD")
