@@ -14,7 +14,7 @@ LICENSE=	PSFL
 
 NO_ARCH=	yes
 USES=		python:3.3 zip
-USE_PYTHON=	autoplist concurrent distutils
+USE_PYTHON=	autoplist concurrent distutils noflavors
 
 PYDISTUTILS_SETUP=	${PYSETUP}
 
@@ -25,7 +25,7 @@ PLIST_FILES=	"@sample %%PYTHON_SITELIBDIR%%/easy-install.pth.dist %%PYTHON_SITEL
 
 .include <bsd.port.pre.mk>
 
-.if ${PYTHON_VERSION} != ${PYTHON_DEFAULT_VERSION}
+.if ${PYTHON_VERSION} != ${PYTHON_DEFAULT}
 SUB_FILES+=	pkg-message
 SUB_LIST+=	PYTHON_VER=${PYTHON_VER}
 .endif

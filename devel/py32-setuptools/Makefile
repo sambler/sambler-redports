@@ -14,7 +14,7 @@ LICENSE=	PSFL
 
 NO_ARCH=	yes
 USES=		python:3.2
-USE_PYTHON=	concurrent distutils
+USE_PYTHON=	concurrent distutils noflavors
 
 PYDISTUTILS_SETUP=	${PYSETUP}
 
@@ -23,7 +23,7 @@ MAKE_ENV+=		SETUPTOOLS_DISABLE_VERSIONED_EASY_INSTALL_SCRIPT=1
 
 .include <bsd.port.pre.mk>
 
-.if ${PYTHON_VERSION} != ${PYTHON_DEFAULT_VERSION}
+.if ${PYTHON_VERSION} != ${PYTHON_DEFAULT}
 SUB_FILES+=	pkg-message
 SUB_LIST+=	PYTHON_VER=${PYTHON_VER}
 .endif
