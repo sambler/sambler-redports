@@ -23,14 +23,14 @@ RUN_DEPENDS=	xdg-user-dir:devel/xdg-user-dirs \
 USE_GITHUB=	yes
 GH_ACCOUNT=	godotengine
 GH_PROJECT=	godot
-# master 3/1
-GH_TAGNAME=	14772d22136a
+# rc3
+GH_TAGNAME=	d50c0efd2c35
 
 USES=		compiler:c++11-lib pkgconfig scons
 USE_XORG=	x11 xcursor xi xinerama xrandr
 USE_GL=		gl glew glu
 
-MAKE_ARGS+=		platform=x11 builtin_libpng=False builtin_openssl=True
+MAKE_ARGS+=		platform=x11 builtin_libpng=False builtin_openssl=False
 MAKE_ARGS+=		${MAKE_ARGS_${CHOSEN_COMPILER_TYPE}}
 MAKE_ARGS_clang=	use_llvm=True
 CXXFLAGS+=		-DRTAUDIO_ENABLED
