@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openshadinglanguage
-PORTVERSION=	1.8.10
-PORTREVISION=	4
+PORTVERSION=	1.9.7
 DISTVERSIONPREFIX=	Release-
 PORTREVISION=	0
 CATEGORIES=	graphics devel
@@ -15,22 +14,32 @@ LICENSE=	BSD3CLAUSE
 
 BUILD_DEPENDS=	llvm-config40:devel/llvm40
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
+		libtinfo.so:devel/ncurses \
+		libImath-2_2.so:graphics/ilmbase \
 		libIlmImf.so:graphics/OpenEXR \
-		libImath.so:graphics/ilmbase \
 		libOpenImageIO.so:graphics/openimageio
 RUN_DEPENDS=	llvm-config40:devel/llvm40
 
-USES=		bison cmake:outsource compiler:c++11-lang ncurses
 USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
 GH_PROJECT=	OpenShadingLanguage
 
+CMAKE_ON=	ENABLERTTI OSL_BUILD_TESTS USE_LLVM_BITCODE USE_LIBCPLUSPLUS
+CMAKE_OFF=	USE_BOOST_WAVE 
 CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config40" \
-		-DENABLERTTI:BOOL=ON -DUSE_BOOST_WAVE:BOOL=OFF
+		-DCMAKE_INSTALL_DOCDIR:STRING=${DOCSDIR} \
+		-DUSE_CPP:STRING=11
+
 USE_LDCONFIG=	yes
+USES=		bison cmake:outsource compiler:c++11-lib ncurses
+
+CXXFLAGS=	-I${STAGEDIR}/include
 
 post-patch:
 	@${REINPLACE_CMD} -e 's,/bin/bash,/bin/sh,' \
 		${WRKSRC}/src/liboslexec/serialize-bc.bash
+	@${REINPLACE_CMD} -e 's,%%DATADIR%%,${DATADIR},' \
+		${WRKSRC}/src/shaders/CMakeLists.txt \
+		${WRKSRC}/src/shaders/MaterialX/CMakeLists.txt
 
 .include <bsd.port.mk>
