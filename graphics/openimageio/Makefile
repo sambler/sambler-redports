@@ -52,7 +52,7 @@ GIF_LIB_DEPENDS=	libgif.so:graphics/giflib
 IMAGEVIEWER_DESC=	Build image viewer (requires Qt)
 IMAGEVIEWER_CMAKE_BOOL=	USE_QT USE_OPENGL
 IMAGEVIEWER_USE=	GL=gl,glu,glew \
-			QT5=gui,opengl,qmake_build
+			QT5=buildtools,core,gui,opengl,qmake_build,widgets
 
 OCIO_DESC=		Color management support
 OCIO_CMAKE_BOOL=	USE_OCIO
@@ -97,24 +97,17 @@ CMAKE_OFF+=	OIIO_BUILD_TOOLS USE_FFMPEG
 .if ${SLAVE_PORT} == yes
 # we need to do this here to get PYTHON_MAJOR_VER
 # this is related to adding USES+=python in the first slave test
+CMAKE_ARGS+=	-DPYTHON_VERSION:STRING=${PYTHON_VER}
 .if ${PYTHON_MAJOR_VER} == 2
 LIB_DEPENDS+=	libboost_python.so:devel/boost-python-libs
-CMAKE_OFF+=	USE_PYTHON3
+.else
+LIB_DEPENDS+=	libboost_python3.so:devel/boost-python3-libs
+.endif
+
 do-install:
 	@${MKDIR} ${STAGEDIR}${PYTHON_SITELIBDIR}
 	${INSTALL_LIB} ${BUILD_WRKSRC}/src/python/OpenImageIO.so ${STAGEDIR}${PYTHON_SITELIBDIR}
-.else
-LIB_DEPENDS+=	libboost_python3.so:devel/boost-python3-libs
-CMAKE_ON+=	USE_PYTHON3
-do-install:
-	@${MKDIR} ${STAGEDIR}${PYTHON_SITELIBDIR}
-	${INSTALL_LIB} ${BUILD_WRKSRC}/src/python3/OpenImageIO.so ${STAGEDIR}${PYTHON_SITELIBDIR}
 .endif
-.endif
-
-post-patch:
-	@${REINPLACE_CMD} -e 's|share/doc/OpenImageIO|${DOCSDIR}|g' \
-		${WRKSRC}/CMakeLists.txt
 
 post-install:
 .if ${SLAVE_PORT} == no
