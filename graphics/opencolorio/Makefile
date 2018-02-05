@@ -53,19 +53,21 @@ LIB_DEPENDS=	liblcms2.so:graphics/lcms2 \
 CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=ON \
 		-DOCIO_BUILD_SHARED:BOOL=OFF \
 		-DOCIO_BUILD_PYGLUE:BOOL=OFF
+LDFLAGS+=	-lOpenColorIO
 USE_GL=		gl glu glut glew
 USE_XORG=	xi xmu
 PLIST=		${PKGDIR}/pkg-plist-tools
-EXTRA_PATCHES=	${FILESDIR}/extra-patch-CMakeLists.txt \
-		${FILESDIR}/extra-tools-patch-src_core_CMakeLists.txt
+EXTRA_PATCHES=	${PATCHDIR}/tools
 .elif defined(OCIO_SLAVE) && ${OCIO_SLAVE} == pymodule
 LIB_DEPENDS=	libOpenImageIO.so:graphics/openimageio \
 		libOpenColorIO.so:graphics/opencolorio
 USES+=		python
 USE_PYTHON=	flavors
+LDFLAGS+=	-lOpenColorIO
 CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=OFF \
 		-DOCIO_BUILD_SHARED:BOOL=OFF \
 		-DOCIO_BUILD_PYGLUE:BOOL=ON \
+		-DOCIO_PYGLUE_LINK:BOOL=ON \
 		-DPYTHON:STRING=${PYTHON_CMD}
 PLIST=		${PKGDIR}/pkg-plist-pyglue
 .else # master port
@@ -85,7 +87,7 @@ CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=OFF \
 # doc building fails using python3 - but the py-opencolorio port can still
 # be used to build a python 3 module
 PLIST=		${PKGDIR}/pkg-plist
-EXTRA_PATCHES=	${FILESDIR}/extra-patch-src_core_CMakeLists.txt
+EXTRA_PATCHES=	${PATCHDIR}/libs
 .endif
 
 post-patch:

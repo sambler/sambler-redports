@@ -1,6 +1,17 @@
 --- CMakeLists.txt.orig	2018-01-05 12:08:27 UTC
 +++ CMakeLists.txt
-@@ -218,8 +218,7 @@ else(USE_EXTERNAL_TINYXML)
+@@ -3,6 +3,10 @@ set(OCIO_VERSION_MAJOR 1)
+ set(OCIO_VERSION_MINOR 1)
+ set(OCIO_VERSION_PATCH 0)
+ 
++set(CMAKE_CXX_STANDARD 11)
++set(CMAKE_CXX_STANDARD_REQUIRED ON)
++set(CMAKE_CXX_EXTENSIONS OFF)
++
+ cmake_minimum_required(VERSION 2.8)
+ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/share/cmake)
+ if(NOT DEFINED CMAKE_FIRST_RUN)
+@@ -218,8 +222,7 @@ else(USE_EXTERNAL_TINYXML)
          ## => great news when build staticaly since we do not want another client project have to link also with tinyxml when he want to use this project
          ## => could be problematic if the client project use another version of tinyxml... In this case build tinyxml as shared lib with all projects could be a solution
          ## => TODO: so maybe provide a simple cmake way to build 3rdParty as shared and auto install with this project ?
@@ -10,7 +21,7 @@
          list(APPEND EXTERNAL_OBJECTS $<TARGET_OBJECTS:TINYXML_LIB>)
      else()
          find_package(Git REQUIRED) ## in order to apply patch (for crossplateform compatibility)
-@@ -384,7 +385,7 @@ else()
+@@ -384,7 +387,7 @@ else()
      set(OCIO_INLINES_HIDDEN OFF)
  endif()
  
@@ -19,18 +30,3 @@
  
  set(EXTERNAL_LINK_FLAGS "")
  set(EXTERNAL_LIBRARY_DIRS ${PROJECT_BINARY_DIR}/ext/dist/lib)
-@@ -596,7 +597,7 @@ if(TARGET OpenColorIO_STATIC)
-         set(OCIO_STATIC_COMPILE_DEFINITIONS )
-     endif()
- endif()
--install(EXPORT OpenColorIO DESTINATION cmake)
-+install(EXPORT OpenColorIO DESTINATION ${CMAKE_INSTALL_PREFIX}/share/cmake/Modules)
- file(WRITE "${CMAKE_BINARY_DIR}/OpenColorIOConfig.cmake"
-     "
-     get_filename_component(OpenColorIO_DIR \"\${CMAKE_CURRENT_LIST_FILE}\" PATH)
-@@ -646,4 +647,4 @@ file(WRITE "${CMAKE_BINARY_DIR}/OpenColo
-     message(STATUS OPENCOLORIO_FOUND=\${OPENCOLORIO_FOUND})
-     "
- )
--install(FILES "${CMAKE_BINARY_DIR}/OpenColorIOConfig.cmake" DESTINATION .)
-+install(FILES "${CMAKE_BINARY_DIR}/OpenColorIOConfig.cmake" DESTINATION ${CMAKE_INSTALL_PREFIX}/share/cmake/Modules)
