@@ -22,19 +22,16 @@ DOCS_CMAKE_BOOL=	OCIO_BUILD_DOCS
 
 LDFLAGS+=	-L${LOCALBASE}/lib
 USES=		alias cmake:outsource pkgconfig shebangfix
-CMAKE_ARGS=	-DOCIO_BUILD_JNIGLUE:BOOL=OFF \
-		-DOCIO_BUILD_NUKE:BOOL=OFF \
-		-DOCIO_BUILD_STATIC:BOOL=OFF \
-		-DUSE_EXTERNAL_TINYXML:BOOL=ON \
-		-DUSE_EXTERNAL_YAML:BOOL=ON
+CMAKE_ON=	USE_EXTERNAL_TINYXML USE_EXTERNAL_YAML
+CMAKE_OFF=	OCIO_BUILD_JNIGLUE OCIO_BUILD_NUKE OCIO_BUILD_STATIC
 SHEBANG_FILES=	share/sphinx/ExtractRstFromSourceCPP.py \
 		share/sphinx/ExtractRstFromSourceSimple.py \
 		src/pyglue/createPyDocH.py
 
 .if ${MACHINE_CPU:Msse2}
-CMAKE_ARGS+=	-DOCIO_USE_SSE:BOOL=ON
+CMAKE_ON+=	OCIO_USE_SSE
 .else
-CMAKE_ARGS+=	-DOCIO_USE_SSE:BOOL=OFF
+CMAKE_OFF+=	OCIO_USE_SSE
 .endif
 
 BROKEN_aarch64=		Does not compile: error: use of undeclared identifier __builtin_ia32_emms
@@ -50,9 +47,8 @@ BROKEN_sparc64=		Does not compile: error: unrecognized command line option -msse
 LIB_DEPENDS=	liblcms2.so:graphics/lcms2 \
 		libOpenImageIO.so:graphics/openimageio \
 		libOpenColorIO.so:graphics/opencolorio
-CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=ON \
-		-DOCIO_BUILD_SHARED:BOOL=OFF \
-		-DOCIO_BUILD_PYGLUE:BOOL=OFF
+CMAKE_ON=	OCIO_BUILD_APPS
+CMAKE_OFF=	OCIO_BUILD_SHARED OCIO_BUILD_PYGLUE
 LDFLAGS+=	-lOpenColorIO
 USE_GL=		gl glu glut glew
 USE_XORG=	xi xmu
@@ -64,11 +60,9 @@ LIB_DEPENDS=	libOpenImageIO.so:graphics/openimageio \
 USES+=		python
 USE_PYTHON=	flavors
 LDFLAGS+=	-lOpenColorIO
-CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=OFF \
-		-DOCIO_BUILD_SHARED:BOOL=OFF \
-		-DOCIO_BUILD_PYGLUE:BOOL=ON \
-		-DOCIO_PYGLUE_LINK:BOOL=ON \
-		-DPYTHON:STRING=${PYTHON_CMD}
+CMAKE_ON=	OCIO_BUILD_PYGLUE OCIO_PYGLUE_LINK
+CMAKE_OFF=	OCIO_BUILD_APPS OCIO_BUILD_SHARED
+CMAKE_ARGS+=	-DPYTHON:FILEPATH=${PYTHON_CMD}
 PLIST=		${PKGDIR}/pkg-plist-pyglue
 .else # master port
 BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}Jinja2>0:devel/py-Jinja2@${PY_FLAVOR}
@@ -76,10 +70,9 @@ LIB_DEPENDS=	libtinyxml.so:textproc/tinyxml \
 		libyaml-cpp03.so:devel/yaml-cpp03
 USES+=		python:2,build
 USE_LDCONFIG=	yes
-CMAKE_ARGS+=	-DOCIO_BUILD_APPS:BOOL=OFF \
-		-DOCIO_BUILD_SHARED:BOOL=ON \
-		-DOCIO_BUILD_PYGLUE:BOOL=ON \
-		-DPYTHON:FILEPATH=${PYTHON_CMD}
+CMAKE_ON=	OCIO_BUILD_SHARED OCIO_BUILD_PYGLUE
+CMAKE_OFF=	OCIO_BUILD_APPS
+CMAKE_ARGS+=	-DPYTHON:FILEPATH=${PYTHON_CMD}
 # we enable pyglue in master port. This makes the python module
 # available when generating docs, we leave the python header in place
 # but only install the python module with the py-opencolorio port
