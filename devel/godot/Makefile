@@ -41,7 +41,7 @@ CXXFLAGS_sparc64=	-DNO_THREADS
 CXXFLAGS_mips=		-DNO_THREADS
 CXXFLAGS_mips64=	-DNO_THREADS
 
-OPTIONS_DEFINE=		EXAMPLES TOOLS
+OPTIONS_DEFINE=		EXAMPLES MONO TOOLS
 OPTIONS_DEFAULT=	OSS
 # Moved to devel/godot-tools
 OPTIONS_EXCLUDE?=	EXAMPLES TOOLS
@@ -55,6 +55,8 @@ EXAMPLES_GH_PROJECT=	godot-demo-projects:DEMOS
 # master at 31/1
 EXAMPLES_GH_TAGNAME=	d69cc10a0b8a:DEMOS
 EXAMPLES_PORTEXAMPLES=	*
+MONO_LIB_DEPENDS=	libmonosgen-2.0.so:lang/mono
+MONO_MAKE_ARGS=		module_mono_enabled=True
 OSS_MAKE_ARGS=		oss=True
 PULSEAUDIO_LIB_DEPENDS=	libpulse-simple.so:audio/pulseaudio
 PULSEAUDIO_MAKE_ARGS=	pulseaudio=True
@@ -79,6 +81,14 @@ post-patch:
 		${WRKSRC}/methods.py
 	@${REINPLACE_CMD} -e 's|/usr/bin|${PREFIX}/bin|' \
 		${WRKSRC}/platform/x11/os_x11.cpp
+
+pre-build-MONO-on:
+	@(cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${MAKE_CMD} ${MAKE_FLAGS} \
+		${_MAKE_JOBS} ${MAKE_ARGS:C,^${DESTDIRNAME}=.*,,g} \
+		target=release_debug tools=True mono_glue=False)
+	@(cd ${WRKSRC} && ${FIND} ${WRKSRC}/bin -name 'godot*' -exec {} \
+		--generate-mono-glue modules/mono/glue \; && \
+		${FIND} ${WRKSRC}/bin -name 'godot*' -delete)
 
 # The official godot binary name reflects options used to compile
 # We just want a simple name matching the portname
