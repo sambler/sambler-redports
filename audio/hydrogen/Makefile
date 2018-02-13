@@ -14,16 +14,13 @@ LICENSE=	GPLv2
 LIB_DEPENDS=	libsndfile.so:audio/libsndfile \
 		liblo.so:audio/liblo
 
-BROKEN_powerpc64=	fails to link: libicuuc.so. undefined reference to __cxa_throw_bad_array_new_length
-
-CONFLICTS=	hydrogen-devel-0.*
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hydrogen-music
 
+USES=		cmake compiler:c++11-lang desktop-file-utils pkgconfig
 USE_QT4=	qmake_build moc_build rcc_build uic_build corelib \
 		gui network xml xmlpatterns
-USES=		cmake desktop-file-utils pkgconfig compiler:c++11-lang
 
 OPTIONS_SINGLE=		EXPORT
 OPTIONS_SINGLE_EXPORT=	LIBARCHIVE LIBTAR
