@@ -25,13 +25,13 @@ GH_ACCOUNT=	imageworks
 GH_PROJECT=	OpenShadingLanguage
 
 CMAKE_ON=	ENABLERTTI OSL_BUILD_TESTS USE_LLVM_BITCODE USE_LIBCPLUSPLUS
-CMAKE_OFF=	USE_BOOST_WAVE 
+CMAKE_OFF=	USE_BOOST_WAVE
 CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config40" \
 		-DCMAKE_INSTALL_DOCDIR:STRING=${DOCSDIR} \
 		-DUSE_CPP:STRING=11
 
 USE_LDCONFIG=	yes
-USES=		bison cmake:outsource compiler:c++11-lib ncurses
+USES=		bison cmake:outsource compiler:c++11-lib ncurses python:build
 
 CXXFLAGS=	-I${STAGEDIR}/include
 
@@ -39,6 +39,7 @@ post-patch:
 	@${REINPLACE_CMD} -e 's,/bin/bash,/bin/sh,' \
 		${WRKSRC}/src/liboslexec/serialize-bc.bash
 	@${REINPLACE_CMD} -e 's,%%DATADIR%%,${DATADIR},' \
+		-e 's,%%PYCMD%%,${PYTHON_CMD},' \
 		${WRKSRC}/src/shaders/CMakeLists.txt \
 		${WRKSRC}/src/shaders/MaterialX/CMakeLists.txt
 

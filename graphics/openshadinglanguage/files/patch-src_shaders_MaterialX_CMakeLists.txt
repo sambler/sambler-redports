@@ -1,5 +1,14 @@
 --- src/shaders/MaterialX/CMakeLists.txt.orig	2018-02-03 14:00:15 UTC
 +++ src/shaders/MaterialX/CMakeLists.txt
+@@ -47,7 +47,7 @@ macro (mx_oslc_compile)
+     string (TOLOWER ${_shader_TYPE} osltype_lower)
+     set (gen_osl_file "${CMAKE_CURRENT_BINARY_DIR}/${_shader_SHADERNAME}_${osltype_lower}.osl")
+     add_custom_command (OUTPUT ${osofile}
+-        COMMAND python "${CMAKE_CURRENT_SOURCE_DIR}/build_materialX_osl.py" -s "${_shader_SHADERNAME}" -t "${osltype_lower}" -mx "${CMAKE_CURRENT_SOURCE_DIR}" -o "${CMAKE_CURRENT_BINARY_DIR}"
++        COMMAND %%PYCMD%% "${CMAKE_CURRENT_SOURCE_DIR}/build_materialX_osl.py" -s "${_shader_SHADERNAME}" -t "${osltype_lower}" -mx "${CMAKE_CURRENT_SOURCE_DIR}" -o "${CMAKE_CURRENT_BINARY_DIR}"
+         COMMAND oslc ${oslc_args} "${gen_osl_file}" -o "${osofile}"
+         MAIN_DEPENDENCY ${oslsrc}
+         DEPENDS ${_shader_DEPENDS} "${stdosl_header}" oslc "${CMAKE_CURRENT_SOURCE_DIR}/build_materialX_osl.py"
 @@ -172,5 +172,5 @@ add_custom_target (mxshaders ALL
                     SOURCES ${shader_source} ${mx_shader_headers})
  
