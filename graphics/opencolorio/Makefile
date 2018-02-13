@@ -47,8 +47,8 @@ BROKEN_sparc64=		Does not compile: error: unrecognized command line option -msse
 LIB_DEPENDS=	liblcms2.so:graphics/lcms2 \
 		libOpenImageIO.so:graphics/openimageio \
 		libOpenColorIO.so:graphics/opencolorio
-CMAKE_ON=	OCIO_BUILD_APPS
-CMAKE_OFF=	OCIO_BUILD_SHARED OCIO_BUILD_PYGLUE
+CMAKE_ON+=	OCIO_BUILD_APPS USE_EXTERNAL_LCMS
+CMAKE_OFF+=	OCIO_BUILD_SHARED OCIO_BUILD_PYGLUE
 LDFLAGS+=	-lOpenColorIO
 USE_GL=		gl glu glut glew
 USE_XORG=	xi xmu
@@ -60,8 +60,8 @@ LIB_DEPENDS=	libOpenImageIO.so:graphics/openimageio \
 USES+=		python
 USE_PYTHON=	flavors
 LDFLAGS+=	-lOpenColorIO
-CMAKE_ON=	OCIO_BUILD_PYGLUE OCIO_PYGLUE_LINK
-CMAKE_OFF=	OCIO_BUILD_APPS OCIO_BUILD_SHARED
+CMAKE_ON+=	OCIO_BUILD_PYGLUE OCIO_PYGLUE_LINK
+CMAKE_OFF+=	OCIO_BUILD_APPS OCIO_BUILD_SHARED
 CMAKE_ARGS+=	-DPYTHON:FILEPATH=${PYTHON_CMD}
 PLIST=		${PKGDIR}/pkg-plist-pyglue
 .else # master port
@@ -70,8 +70,8 @@ LIB_DEPENDS=	libtinyxml.so:textproc/tinyxml \
 		libyaml-cpp03.so:devel/yaml-cpp03
 USES+=		python:2,build
 USE_LDCONFIG=	yes
-CMAKE_ON=	OCIO_BUILD_SHARED OCIO_BUILD_PYGLUE
-CMAKE_OFF=	OCIO_BUILD_APPS
+CMAKE_ON+=	OCIO_BUILD_SHARED OCIO_BUILD_PYGLUE
+CMAKE_OFF+=	OCIO_BUILD_APPS
 CMAKE_ARGS+=	-DPYTHON:FILEPATH=${PYTHON_CMD}
 # we enable pyglue in master port. This makes the python module
 # available when generating docs, we leave the python header in place
