@@ -24,7 +24,9 @@ RUN_DEPENDS=	${PYNUMPY}
 # libraries are used, if either of the most common options in blender
 # are set. We will pull boost in just to be on the safe side.
 
-USES=		cmake:outsource desktop-file-utils \
+# 10.4 fails to build with clang3.4 so we want to use clang50
+# clang50 is already in place for opengl
+USES=		cmake:outsource compiler:c++14-lang desktop-file-utils \
 		jpeg python:3.5 shebangfix
 USE_XORG=	x11 xext xmu xrender
 USE_GL=		gl glu glew
