@@ -55,6 +55,7 @@ EXAMPLES_GH_PROJECT=	godot-demo-projects:DEMOS
 # master at 31/1
 EXAMPLES_GH_TAGNAME=	d69cc10a0b8a:DEMOS
 EXAMPLES_PORTEXAMPLES=	*
+# while mono support can build it isn't stable enough to be used yet
 MONO_LIB_DEPENDS=	libmonosgen-2.0.so:lang/mono
 MONO_MAKE_ARGS=		module_mono_enabled=True
 OSS_MAKE_ARGS=		oss=True
