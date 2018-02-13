@@ -1,14 +1,10 @@
 # $FreeBSD$
 
 PORTNAME=	lesscpy
-DISTVERSION=	0.11.2
+DISTVERSION=	0.13.0
 CATEGORIES=	www python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
-# when port was created v0.12.0 was listed on pypi
-# this appears to have come from the lxrave fork
-# which has now been replaced by the official 0.11.2
-PORTEPOCH=	1
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	Python LESS compiler
@@ -18,12 +14,15 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}six>0:devel/py-six@${FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}ply>0:devel/py-ply@${FLAVOR}
+TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}coverage>0:devel/py-coverage@${FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}flake8>0:devel/py-flake8@${FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}nose>0:devel/py-nose@${FLAVOR}
 
 USES=		python
 USE_PYTHON=	autoplist concurrent distutils
 NO_ARCH=	yes
 
-do-test: build
+do-test:
 	@cd ${WRKSRC} && ${PYTHON_CMD} ${PYSETUP} test
 
 .include <bsd.port.mk>
