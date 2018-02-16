@@ -1,0 +1,8 @@
+bin/map_generation
+%%DATADIR%%/citydata/countrycities.json
+%%DATADIR%%/fontdata/fontdata.json
+%%DATADIR%%/fontdata/fontlist.txt
+%%DATADIR%%/fontdata/updatefonts.py
+%%DATADIR%%/render/__init__.py
+%%DATADIR%%/render/check_cairo_support.py
+%%DATADIR%%/render/rendermap.py

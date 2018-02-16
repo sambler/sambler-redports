@@ -1,0 +1,19 @@
+--- CMakeLists.txt.orig	2018-02-17 05:30:02 UTC
++++ CMakeLists.txt
+@@ -43,11 +43,11 @@ file(COPY "src/fontdata" DESTINATION ${C
+ file(COPY "src/citydata" DESTINATION ${CMAKE_BINARY_DIR})
+ file(COPY "src/render" DESTINATION "${CMAKE_BINARY_DIR}")
+ 
+-set(RESOURCES_EXECUTABLE_DIRECTORY  ${CMAKE_BINARY_DIR})
+-set(RESOURCES_FONT_DATA_DIRECTORY   ${CMAKE_BINARY_DIR}/fontdata)
+-set(RESOURCES_CITY_DATA_DIRECTORY   ${CMAKE_BINARY_DIR}/citydata)
+-set(RESOURCES_FONT_DATA_RESOURCE    ${CMAKE_BINARY_DIR}/fontdata/fontdata.json)
+-set(RESOURCES_CITY_DATA_RESOURCE    ${CMAKE_BINARY_DIR}/citydata/countrycities.json)
++set(RESOURCES_EXECUTABLE_DIRECTORY  %%BINDIR%%)
++set(RESOURCES_FONT_DATA_DIRECTORY   %%FONTDATA%%)
++set(RESOURCES_CITY_DATA_DIRECTORY   %%CITYDATA%%)
++set(RESOURCES_FONT_DATA_RESOURCE    %%FONTDATA%%/fontdata.json)
++set(RESOURCES_CITY_DATA_RESOURCE    %%CITYDATA%%/countrycities.json)
+ configure_file(
+   "${PROJECT_SOURCE_DIR}/src/resources.h.in"
+   "${PROJECT_SOURCE_DIR}/src/resources.h"
