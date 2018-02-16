@@ -30,10 +30,10 @@ CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config40" \
 		-DCMAKE_INSTALL_DOCDIR:STRING=${DOCSDIR} \
 		-DUSE_CPP:STRING=11
 
-USE_LDCONFIG=	yes
 USES=		bison cmake:outsource compiler:c++11-lib ncurses python:build
+USE_LDCONFIG=	yes
 
-CXXFLAGS=	-I${STAGEDIR}/include
+CXXFLAGS+=	-I${STAGEDIR}/include
 
 post-patch:
 	@${REINPLACE_CMD} -e 's,/bin/bash,/bin/sh,' \
