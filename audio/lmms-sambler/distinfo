@@ -1,3 +1,7 @@
-TIMESTAMP = 1509252704
-SHA256 (lmms-lmms-v1.2.0-rc4_GH0.tar.gz) = ce6938b95e0c2af63b68c40180036b08c54127fba21737f2cd904aa67a36a00d
-SIZE (lmms-lmms-v1.2.0-rc4_GH0.tar.gz) = 16596115
+TIMESTAMP = 1519017840
+SHA256 (lmms-lmms-v1.2.0-rc5_GH0.tar.gz) = 2cdf8c50f1e3a6d1c2158e52dac831ceef2984d8f997876fd448b66d4689f9cc
+SIZE (lmms-lmms-v1.2.0-rc5_GH0.tar.gz) = 16613296
+SHA256 (Lukas-W-qt5-x11embed-022b39a1d496_GH0.tar.gz) = cad5fe4c9504a92257e0f58337a700fe9d48771d76d3af626b4fc3a5cab54385
+SIZE (Lukas-W-qt5-x11embed-022b39a1d496_GH0.tar.gz) = 32327
+SHA256 (rampantpixels-rpmalloc-2e0479192b8d_GH0.tar.gz) = 1db6bd7c8f9118314c4f421ca9623546175d9844be38d541dc475ba4447aa8eb
+SIZE (rampantpixels-rpmalloc-2e0479192b8d_GH0.tar.gz) = 52422

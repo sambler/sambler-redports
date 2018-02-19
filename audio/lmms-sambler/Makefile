@@ -4,7 +4,7 @@
 PORTNAME=	lmms-sambler
 PORTVERSION=	1.2.0
 DISTVERSIONPREFIX= v
-DISTVERSIONSUFFIX= -rc4
+DISTVERSIONSUFFIX= -rc5
 CATEGORIES=	audio
 MASTER_SITES=	GH
 
@@ -14,71 +14,63 @@ COMMENT=	LMMS with my patches
 LICENSE=	GPLv2
 
 BUILD_DEPENDS=	${LOCALBASE}/include/ladspa.h:audio/ladspa
-LIB_DEPENDS=	libFLAC.so:audio/flac \
+LIB_DEPENDS=	carla/libcarla_standalone2.so:audio/carla \
+		libFLAC.so:audio/flac \
 		libfluidsynth.so:audio/fluidsynth \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libjack.so:audio/jack \
 		libmp3lame.so:audio/lame \
+		libgig.so:audio/libgig \
 		libogg.so:audio/libogg \
-		libsamplerate.so:audio/libsamplerate \
-		libsndfile.so:audio/libsndfile \
-		libvorbis.so:audio/libvorbis \
 		libportaudio.so:audio/portaudio \
 		libpulse.so:audio/pulseaudio \
+		libsamplerate.so:audio/libsamplerate \
+		libsndfile.so:audio/libsndfile \
 		libstk.so:audio/stk \
+		libvorbis.so:audio/libvorbis \
 		libfftw3.so:math/fftw3 \
 		libfftw3f.so:math/fftw3-float \
 		libfltk.so:x11-toolkits/fltk
-# 		libgig.so:audio/libgig \
 RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/caps.rdf:audio/caps-plugins \
 		${LOCALBASE}/lib/ladspa/cmt.so:audio/cmt \
 		${LOCALBASE}/share/ladspa/rdf/swh-plugins.rdf:audio/swhplugins \
 		${LOCALBASE}/share/ladspa/rdf/tap-plugins.rdf:audio/tap-plugins
 
-CONFLICTS=	lmms-[01].*
+CONFLICTS_INSTALL=	lmms-[01].*
 
 USES=		cmake pkgconfig desktop-file-utils shared-mime-info \
 		compiler:c++0x
 USE_LDCONFIG=	yes
-USE_XORG=	xcursor xext xfixes xft xinerama
+USE_XORG=	xcursor xext xfixes xft xinerama xrender
 USE_SDL=	sdl
-USE_QT5=	buildtools core gui linguisttools xml qmake widgets
+USE_QT5=	buildtools core gui linguisttools xml qmake widgets x11extras
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	lmms
-GH_PROJECT=	lmms
+GH_ACCOUNT=	lmms \
+		Lukas-W:qt5embed \
+		rampantpixels:rpmal
+GH_PROJECT=	lmms \
+		qt5-x11embed:qt5embed \
+		rpmalloc:rpmal
+GH_TAGNAME=	022b39a1d496:qt5embed \
+		2e0479192b8d:rpmal
 
-# calf only compiles under some configurations
-# disable until we can get consistancy
-CMAKE_ARGS=	-DWANT_ALSA:BOOL=OFF \
-		-DWANT_CALF:BOOL=OFF \
-		-DWANT_CAPS:BOOL=ON \
-		-DWANT_CARLA:BOOL=OFF \
-		-DWANT_CMT:BOOL=ON \
-		-DWANT_JACK:BOOL=ON \
-		-DWANT_MP3LAME:BOOL=ON \
-		-DWANT_OGGVORBIS:BOOL=ON \
-		-DWANT_PULSEAUDIO:BOOL=ON \
-		-DWANT_PORTAUDIO:BOOL=ON \
-		-DWANT_SOUNDIO:BOOL=OFF \
-		-DWANT_SDL:BOOL=ON \
-		-DWANT_SF2:BOOL=ON \
-		-DWANT_GIG:BOOL=OFF \
-		-DWANT_STK:BOOL=ON \
-		-DWANT_SWH:BOOL=ON \
-		-DWANT_TAP:BOOL=ON \
-		-DWANT_VST:BOOL=OFF \
-		-DWANT_VST_NOWINE:BOOL=OFF \
-		-DWANT_WINMM:BOOL=OFF \
-		-DWANT_QT5:BOOL=ON
-# https://github.com/falkTX/Carla
+# calf fails to compile on i386
+CMAKE_ON=	WANT_CALF WANT_CAPS WANT_CARLA WANT_CMT WANT_GIG \
+		WANT_JACK WANT_MP3LAME WANT_OGGVORBIS \
+		WANT_PULSEAUDIO WANT_PORTAUDIO WANT_QT5 WANT_SDL \
+		WANT_SF2 WANT_STK WANT_SWH WANT_TAP 
+CMAKE_OFF=	WANT_ALSA WANT_SOUNDIO  WANT_VST WANT_VST_NOWINE WANT_WEAKJACK WANT_WINMM
 
 DATADIR=	${LOCALBASE}/share/lmms
 
+post-extract:
+# qt5-x11embed
+	@${MV} ${WRKSRC_qt5embed}/* ${WRKSRC}/src/3rdparty/qt5-x11embed
+# rpmalloc
+	@${MV} ${WRKSRC_rpmal}/* ${WRKSRC}/src/3rdparty/rpmalloc/rpmalloc
+
 post-patch:
-#	@${REINPLACE_CMD} -e \
-#		'/^Icon/s|=.*$$|=lmms|g ; \
-#		 /^Exec/s|=.*$$|=lmms|g' ${WRKSRC}/cmake/linux/lmms.desktop
 	@${REINPLACE_CMD} -e \
 		's|/usr|${PREFIX}|g' ${WRKSRC}/src/core/ConfigManager.cpp
 	@${REINPLACE_CMD} -e \

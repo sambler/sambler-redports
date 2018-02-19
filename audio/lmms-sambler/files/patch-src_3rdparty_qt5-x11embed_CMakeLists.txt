@@ -1,0 +1,10 @@
+--- src/3rdparty/qt5-x11embed/CMakeLists.txt.orig	2018-02-19 15:38:51 UTC
++++ src/3rdparty/qt5-x11embed/CMakeLists.txt
+@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.8.12 FA
+ project(qt5-x11embed)
+ 
+ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/ECM/find-modules")
++list(APPEND CMAKE_MODULE_PATH "/usr/local/share/ECM/find-modules")
+ 
+ find_package(Qt5Core COMPONENTS Private REQUIRED)
+ find_package(Qt5Widgets COMPONENTS Private REQUIRED)
