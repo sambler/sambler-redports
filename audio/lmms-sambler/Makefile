@@ -13,9 +13,10 @@ COMMENT=	LMMS with my patches
 
 LICENSE=	GPLv2
 
-BUILD_DEPENDS=	${LOCALBASE}/include/ladspa.h:audio/ladspa
-LIB_DEPENDS=	carla/libcarla_standalone2.so:audio/carla \
-		libFLAC.so:audio/flac \
+BUILD_DEPENDS=	${LOCALBASE}/include/ladspa.h:audio/ladspa \
+		${LOCALBASE}/lib/carla/libcarla_standalone2.so:audio/carla \
+		kf5-extra-cmake-modules>0:devel/kf5-extra-cmake-modules
+LIB_DEPENDS=	libFLAC.so:audio/flac \
 		libfluidsynth.so:audio/fluidsynth \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libjack.so:audio/jack \
@@ -32,6 +33,7 @@ LIB_DEPENDS=	carla/libcarla_standalone2.so:audio/carla \
 		libfftw3f.so:math/fftw3-float \
 		libfltk.so:x11-toolkits/fltk
 RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/caps.rdf:audio/caps-plugins \
+		${LOCALBASE}/lib/carla/libcarla_standalone2.so:audio/carla \
 		${LOCALBASE}/lib/ladspa/cmt.so:audio/cmt \
 		${LOCALBASE}/share/ladspa/rdf/swh-plugins.rdf:audio/swhplugins \
 		${LOCALBASE}/share/ladspa/rdf/tap-plugins.rdf:audio/tap-plugins
@@ -41,7 +43,7 @@ CONFLICTS_INSTALL=	lmms-[01].*
 USES=		cmake pkgconfig desktop-file-utils shared-mime-info \
 		compiler:c++0x
 USE_LDCONFIG=	yes
-USE_XORG=	xcursor xext xfixes xft xinerama xrender
+USE_XORG=	xcb xcursor xext xfixes xft xinerama xrender
 USE_SDL=	sdl
 USE_QT5=	buildtools core gui linguisttools xml qmake widgets x11extras
 
@@ -55,7 +57,6 @@ GH_PROJECT=	lmms \
 GH_TAGNAME=	022b39a1d496:qt5embed \
 		2e0479192b8d:rpmal
 
-# calf fails to compile on i386
 CMAKE_ON=	WANT_CALF WANT_CAPS WANT_CARLA WANT_CMT WANT_GIG \
 		WANT_JACK WANT_MP3LAME WANT_OGGVORBIS \
 		WANT_PULSEAUDIO WANT_PORTAUDIO WANT_QT5 WANT_SDL \
