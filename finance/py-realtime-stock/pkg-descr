@@ -1,0 +1,79 @@
+Realtime Stock
+
+
+
+
+
+Documentation Status
+
+Updates
+
+Realtime Stock is a Python package to gather realtime stock quotes from Yahoo
+Finance. The package enables you to handle single stocks or portfolios,
+optimizing the nunber of requests necessary to gather quotes for a large number
+of stocks.
+
+Documentation: https://realtime-stock.readthedocs.io.
+
+Free software: MIT license
+
+Features
+
+Stock class
+
+Method to get stock's latest price.
+
+Method to get all stock's information provided by Yahoo Finance.
+
+Method get stock's daily historical information.
+
+Method download stock's historical data from Yahoo Finance.
+
+Utility functions
+
+Function to request recent quotes about a list of tickers.
+
+Function to get stock's daily historical information.
+
+Function to download historical data about a list of tickers.
+
+Installation
+
+To install Realtime Stock, run this command in your terminal:
+
+$ pip install realtime-stock
+
+Check here  for further information on installation.
+
+Basic Usage
+
+For single stocks:
+
+>>> from rtstock.stock import Stock >>> stock = Stock('AAPL') >>>
+stock.get_latest_price() {     'LastTradePriceOnly': '95.89',
+'LastTradeTime': '4:00pm' }
+
+Credits
+
+This package was created with Cookiecutter and the audreyr/cookiecutter-
+pypackage project template.
+
+
+
+
+
+History
+
+1.0.0 (2016-07-27)
+
+First release on PyPI.
+
+Stock class implemented.
+
+Function to request recent quotes about a list of tickers.
+
+Function to get stock's daily historical information.
+
+Function to download historical data about a list of tickers..
+
+WWW: https://github.com/condereis/realtime-stock
