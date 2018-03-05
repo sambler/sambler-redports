@@ -1,0 +1,5 @@
+Extract data from a wide range of Internet sources into a pandas DataFrame.
+
+This was previously a part of pandas in pandas.io.data
+
+WWW: https://github.com/pydata/pandas-datareader
