@@ -1,4 +1,0 @@
-Fuzzy string matching that uses Levenshtein distance to help 
-calculate differences between string sequences.
-
-WWW: https://github.com/seatgeek/fuzzywuzzy
