@@ -2,8 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	godot
-PORTVERSION=	3.0
+PORTVERSION=	3.0.2
 PORTREVISION=	0
+DISTVERSIONSUFFIX= -stable
 CATEGORIES=	devel games
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -41,6 +42,8 @@ CXXFLAGS_sparc64=	-DNO_THREADS
 CXXFLAGS_mips=		-DNO_THREADS
 CXXFLAGS_mips64=	-DNO_THREADS
 
+# option MONO can be built but is not stable enough to use yet
+# for now leave it out as an option
 OPTIONS_DEFINE=		EXAMPLES MONO TOOLS
 OPTIONS_DEFAULT=	OSS
 # Moved to devel/godot-tools
@@ -64,7 +67,7 @@ PULSEAUDIO_MAKE_ARGS=	pulseaudio=True
 TOOLS_DESC=		Include development tools (IDE)
 TOOLS_MAKE_ARGS=	target=release_debug tools=True
 TOOLS_MAKE_ARGS_OFF=	target=release tools=False
-TOOLS_DESKTOP_ENTRIES=	"Godot-devel" "${COMMENT}" "${GODOTFILE}" \
+TOOLS_DESKTOP_ENTRIES=	"Godot" "${COMMENT}" "${GODOTFILE}" \
 			"${GODOTFILE}" "Development;IDE;" ""
 TOOLS_PLIST_FILES=	share/pixmaps/${GODOTFILE}.png \
 			share/pixmaps/${GODOTFILE}.svg
