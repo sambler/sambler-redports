@@ -1,5 +1,9 @@
-Extract data from a wide range of Internet sources into a pandas DataFrame.
+Extract data from a wide range of Internet sources into a
+pandas DataFrame. This was previously found in pandas.io
 
-This was previously a part of pandas in pandas.io.data
+Where you previously used
+from pandas.io import data, wb
+You now use
+from pandas_datareader import data, wb
 
 WWW: https://github.com/pydata/pandas-datareader
