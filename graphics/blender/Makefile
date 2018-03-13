@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	blender
-PORTVERSION=	2.79
-PORTREVISION=	5
+PORTVERSION=	2.79a
+PORTREVISION=	0
 CATEGORIES=	graphics games
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -28,7 +28,7 @@ RUN_DEPENDS=	${PYNUMPY}
 # clang50 is already in place for opengl
 USES=		cmake:outsource compiler:c++14-lang desktop-file-utils \
 		jpeg python:3.5 shebangfix
-USE_XORG=	x11 xext xmu xrender
+USE_XORG=	x11 xext xfixes xmu xrender
 USE_GL=		gl glu glew
 INSTALLS_ICONS=	yes
 CMAKE_OFF=	WITH_PYTHON_INSTALL WITH_PYTHON_INSTALL_NUMPY \
