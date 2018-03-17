@@ -1,5 +1,5 @@
---- ./release/bin/blender-thumbnailer.py.orig	2014-03-03 20:46:09.180186531 +1030
-+++ ./release/bin/blender-thumbnailer.py	2014-03-03 20:50:50.722187108 +1030
+--- ./release/bin/blender-thumbnailer.py.orig	2014-03-03 20:46:09 UTC
++++ ./release/bin/blender-thumbnailer.py
 @@ -28,8 +28,8 @@
  with the following contents:
  
