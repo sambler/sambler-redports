@@ -20,3 +20,12 @@
  OIIO_NAMESPACE_USING
  
  using std::string;
+@@ -213,7 +213,7 @@ struct ImBuf *imb_load_photoshop(const c
+ 	in = ImageInput::create(filename);
+ 	if (!in) {
+ 		std::cerr << __func__ << ": ImageInput::create() failed:" << std::endl
+-		          << OpenImageIO::geterror() << std::endl;
++		          << OIIO_NAMESPACE::geterror() << std::endl;
+ 		return NULL;
+ 	}
+ 

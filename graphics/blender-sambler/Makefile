@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.78
-PORTREVISION=	7
+PORTREVISION=	6
 CATEGORIES=	graphics multimedia
 DIST_SUBDIR=	${PORTNAME}
 
@@ -193,7 +193,7 @@ BROKEN= devel/openmp only supports amd64
 .endif
 
 post-extract:
-# tanslations
+# translations
 	@${MV} ${WRKSRC_trans}/* ${WRKSRC}/release/datafiles/locale/
 # addons
 	@${MV} ${WRKSRC_addons}/* ${WRKSRC}/release/scripts/addons/
