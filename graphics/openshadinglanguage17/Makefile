@@ -11,15 +11,13 @@ COMMENT=	Advanced shading language for production GI renderers
 
 LICENSE=	BSD3CLAUSE
 
-BROKEN=		Doesn't compile and isn't used
-
 BUILD_DEPENDS=	llvm-config35:devel/llvm35 \
 		clang35>=3.5:lang/clang35
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		libtinfo.so:devel/ncurses \
 		libImath-2_2.so:graphics/ilmbase \
 		libIlmImf.so:graphics/OpenEXR \
-		libOpenImageIO.so:graphics/openimageio
+		libOpenImageIO17.so:graphics/openimageio17
 RUN_DEPENDS=	llvm-config35:devel/llvm35
 
 USE_GITHUB=	yes
@@ -48,6 +46,8 @@ CXXFLAGS+=	-I${LOCALBASE}/include/flex
 post-patch:
 	@${REINPLACE_CMD} -e 's,/bin/bash,/bin/sh,' \
 		${WRKSRC}/src/liboslexec/serialize-bc.bash
+	@${FIND} ${WRKSRC} -name "*.cpp" -or -name "*.h" -or -name "*.l" | \
+		${XARGS} ${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO17/|g'
 
 post-install:
 	@${REINPLACE_CMD} -e 's|OSL/|OSL17/|g' ${STAGEDIR}/${PREFIX}/include/OSL17/oslexec.h
