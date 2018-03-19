@@ -1,0 +1,9 @@
+--- src/include/CMakeLists.txt.orig	2018-03-19 03:42:24 UTC
++++ src/include/CMakeLists.txt
+@@ -19,5 +19,5 @@ set (OIIO_BUILD_CPP14 ${USE_CPP14})
+ configure_file(OpenImageIO/oiioversion.h.in "${CMAKE_BINARY_DIR}/include/OpenImageIO/oiioversion.h" @ONLY)
+ list(APPEND public_headers "${CMAKE_BINARY_DIR}/include/OpenImageIO/oiioversion.h")
+ 
+-install (FILES ${public_headers} DESTINATION ${INCLUDE_INSTALL_DIR}
++install (FILES ${public_headers} DESTINATION ${INCLUDE_INSTALL_DIR}17
+          COMPONENT developer)

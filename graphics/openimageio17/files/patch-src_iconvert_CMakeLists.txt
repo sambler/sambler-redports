@@ -1,0 +1,12 @@
+--- src/iconvert/CMakeLists.txt.orig	2018-03-19 03:40:17 UTC
++++ src/iconvert/CMakeLists.txt
+@@ -1,5 +1,5 @@
+ set (iconvert_srcs iconvert.cpp)
+-add_executable (iconvert ${iconvert_srcs})
+-set_target_properties (iconvert PROPERTIES FOLDER "Tools")
+-target_link_libraries (iconvert OpenImageIO ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-oiio_install_targets (iconvert)
++add_executable (iconvert17 ${iconvert_srcs})
++set_target_properties (iconvert17 PROPERTIES FOLDER "Tools")
++target_link_libraries (iconvert17 OpenImageIO17 ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++oiio_install_targets (iconvert17)

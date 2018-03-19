@@ -1,0 +1,16 @@
+--- src/iinfo/CMakeLists.txt.orig	2018-03-19 03:41:50 UTC
++++ src/iinfo/CMakeLists.txt
+@@ -1,8 +1,8 @@
+ set (iinfo_srcs iinfo.cpp)
+-add_executable (iinfo ${iinfo_srcs})
+-set_target_properties (iinfo PROPERTIES FOLDER "Tools")
++add_executable (iinfo17 ${iinfo_srcs})
++set_target_properties (iinfo17 PROPERTIES FOLDER "Tools")
+ if (MSVC)
+-    set_target_properties (OpenImageIO PROPERTIES LINK_FLAGS psapi.lib)
++    set_target_properties (OpenImageIO17 PROPERTIES LINK_FLAGS psapi.lib)
+ endif (MSVC)
+-target_link_libraries (iinfo OpenImageIO ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-oiio_install_targets (iinfo)
++target_link_libraries (iinfo17 OpenImageIO17 ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++oiio_install_targets (iinfo17)
