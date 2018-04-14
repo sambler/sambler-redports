@@ -12,8 +12,6 @@ COMMENT=	Advanced drum machine
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-BROKEN_powerpc64=	fails to link: libicuuc.so. undefined reference to __cxa_throw_bad_array_new_length
-
 LIB_DEPENDS=	libsndfile.so:audio/libsndfile \
 		liblo.so:audio/liblo
 
@@ -21,7 +19,7 @@ CONFLICTS=	hydrogen-0.*
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hydrogen-music
-GH_TAGNAME=	f0d0e8cf2498ae
+GH_TAGNAME=	f0c59303c86b
 
 USES=		cmake desktop-file-utils pkgconfig localbase
 USE_QT5=	qmake buildtools core gui network widgets xml xmlpatterns
