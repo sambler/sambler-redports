@@ -12,34 +12,36 @@ COMMENT?=	Complete color management solution
 
 LICENSE=	BSD3CLAUSE
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	imageworks
-GH_PROJECT=	OpenColorIO
-
-OPTIONS_DEFINE=	DOCS
-
-DOCS_CMAKE_BOOL=	OCIO_BUILD_DOCS
-
-LDFLAGS+=	-L${LOCALBASE}/lib
-USES=		alias cmake:outsource pkgconfig shebangfix
-CMAKE_ON=	USE_EXTERNAL_TINYXML USE_EXTERNAL_YAML
-CMAKE_OFF=	OCIO_BUILD_JNIGLUE OCIO_BUILD_NUKE OCIO_BUILD_STATIC
-SHEBANG_FILES=	share/sphinx/ExtractRstFromSourceCPP.py \
-		share/sphinx/ExtractRstFromSourceSimple.py \
-		src/pyglue/createPyDocH.py
-
-.if ${MACHINE_CPU:Msse2}
-CMAKE_ON+=	OCIO_USE_SSE
-.else
-CMAKE_OFF+=	OCIO_USE_SSE
-.endif
-
 BROKEN_aarch64=		Does not compile: error: use of undeclared identifier __builtin_ia32_emms
 BROKEN_armv6=		Does not compile: error: use of undeclared identifier __builtin_ia32_emms
 BROKEN_armv7=		Does not compile: error: use of undeclared identifier __builtin_ia32_emms
 BROKEN_mips64=		Does not compile: error: unrecognized command line option -msse2
 BROKEN_powerpc64=	Does not compile: error: unrecognized command line option -msse2
 BROKEN_sparc64=		Does not compile: error: unrecognized command line option -msse2
+
+USES=		alias cmake:outsource pkgconfig shebangfix
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	imageworks
+GH_PROJECT=	OpenColorIO
+
+CMAKE_ON=	USE_EXTERNAL_TINYXML USE_EXTERNAL_YAML
+CMAKE_OFF=	OCIO_BUILD_JNIGLUE OCIO_BUILD_NUKE OCIO_BUILD_STATIC
+LDFLAGS+=	-L${LOCALBASE}/lib
+
+SHEBANG_FILES=	share/sphinx/ExtractRstFromSourceCPP.py \
+		share/sphinx/ExtractRstFromSourceSimple.py \
+		src/pyglue/createPyDocH.py
+
+OPTIONS_DEFINE=	DOCS
+
+DOCS_CMAKE_BOOL=	OCIO_BUILD_DOCS
+
+.if ${MACHINE_CPU:Msse2}
+CMAKE_ON+=	OCIO_USE_SSE
+.else
+CMAKE_OFF+=	OCIO_USE_SSE
+.endif
 
 .include <bsd.port.options.mk>
 
@@ -68,7 +70,7 @@ PLIST=		${PKGDIR}/pkg-plist-pyglue
 BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}Jinja2>0:devel/py-Jinja2@${PY_FLAVOR}
 LIB_DEPENDS=	libtinyxml.so:textproc/tinyxml \
 		libyaml-cpp03.so:devel/yaml-cpp03
-USES+=		python:2,build
+USES+=		python:2.7,build
 USE_LDCONFIG=	yes
 CMAKE_ON+=	OCIO_BUILD_SHARED OCIO_BUILD_PYGLUE
 CMAKE_OFF+=	OCIO_BUILD_APPS
