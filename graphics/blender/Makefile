@@ -12,8 +12,8 @@ MASTER_SITES=	http://download.blender.org/source/ \
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	3D modeling/rendering/animation/gaming package
 
-LICENSE=	GPLv2+
-LICENSE_FILE=	${WRKSRC}/doc/license/GPL-license.txt
+LICENSE=	GPLv3+
+LICENSE_FILE=	${WRKSRC}/doc/license/GPL3-license.txt
 
 LIB_DEPENDS=	libpng.so:graphics/png \
 		libfreetype.so:print/freetype2 \
@@ -31,6 +31,8 @@ USES=		cmake:outsource compiler:c++14-lang desktop-file-utils \
 USE_XORG=	x11 xext xfixes xmu xrender
 USE_GL=		gl glu glew
 INSTALLS_ICONS=	yes
+# always enable c++11, this needs to be enabled for several options
+CMAKE_ON=	WITH_CXX11
 CMAKE_OFF=	WITH_PYTHON_INSTALL WITH_PYTHON_INSTALL_NUMPY \
 		WITH_INSTALL_PORTABLE
 
@@ -65,7 +67,7 @@ COMPOSITOR_CMAKE_BOOL=		WITH_COMPOSITOR
 CYCLES_IMPLIES=			OPENIMAGEIO
 CYCLES_CMAKE_BOOL=		WITH_CYCLES
 CYCLESOSL_IMPLIES=		CYCLES
-CYCLESOSL_CMAKE_BOOL=		WITH_CYCLES_OSL WITH_CXX11 WITH_LLVM
+CYCLESOSL_CMAKE_BOOL=		WITH_CYCLES_OSL WITH_LLVM
 CYCLESOSL_CMAKE_ON=		-DLLVM_STATIC:BOOL=OFF \
 				-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config40"
 CYCLESOSL_BUILD_DEPENDS=	llvm-config40:devel/llvm40
