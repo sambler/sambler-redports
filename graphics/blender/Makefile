@@ -3,7 +3,7 @@
 
 PORTNAME=	blender
 PORTVERSION=	2.79b
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	graphics games
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -24,8 +24,8 @@ RUN_DEPENDS=	${PYNUMPY}
 # libraries are used, if either of the most common options in blender
 # are set. We will pull boost in just to be on the safe side.
 
-# 10.4 fails to build with clang3.4 so we want to use clang50
-# clang50 is already in place for opengl
+# 10.4 fails to build with clang3.4 so we want to use clang60
+# clang60 is already in place for opengl
 USES=		cmake:outsource compiler:c++14-lang desktop-file-utils \
 		jpeg python:3.5 shebangfix
 USE_XORG=	x11 xext xfixes xmu xrender
@@ -34,7 +34,7 @@ INSTALLS_ICONS=	yes
 # always enable c++11, this needs to be enabled for several options
 CMAKE_ON=	WITH_CXX11
 CMAKE_OFF=	WITH_PYTHON_INSTALL WITH_PYTHON_INSTALL_NUMPY \
-		WITH_INSTALL_PORTABLE
+		WITH_INSTALL_PORTABLE WITH_CYCLES_LOGGING
 
 SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		release/scripts/modules/bl_i18n_utils/merge_po.py \
