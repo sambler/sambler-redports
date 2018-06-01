@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openshadinglanguage
-PORTVERSION=	1.9.8
+PORTVERSION=	1.9.9
 DISTVERSIONPREFIX=	Release-
 PORTREVISION=	0
 CATEGORIES=	graphics devel
