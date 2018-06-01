@@ -1,6 +1,6 @@
---- src/liboslexec/llvm_instance.cpp.orig	2016-07-02 00:07:46 UTC
+--- src/liboslexec/llvm_instance.cpp.orig	2018-05-30 23:02:32 UTC
 +++ src/liboslexec/llvm_instance.cpp
-@@ -1040,7 +1040,7 @@ BackendLLVM::run ()
+@@ -1179,7 +1179,7 @@ BackendLLVM::run ()
      // Generate the LLVM IR for each layer.  Skip unused layers.
      m_llvm_local_mem = 0;
      llvm::Function* init_func = build_llvm_init ();

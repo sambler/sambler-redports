@@ -1,0 +1,26 @@
+--- src/shaders/MaterialX/CMakeLists.txt.orig	2018-06-01 07:44:53 UTC
++++ src/shaders/MaterialX/CMakeLists.txt
+@@ -38,7 +38,7 @@ macro (mx_oslc_compile)
+     if (VERBOSE)
+         get_filename_component(oslfile_justname ${oslfile} NAME)
+         get_filename_component(osofile_justname ${osofile} NAME)
+-        message (STATUS "oslc will make ${oslfile_justname} -> ${osofile_justname}")
++        message (STATUS "oslc_dev will make ${oslfile_justname} -> ${osofile_justname}")
+     endif ()
+     set (stdosl_header "${CMAKE_SOURCE_DIR}/src/shaders/stdosl.h")
+     set (oslc_args -q ${_shader_DEFINES} "-I${CMAKE_CURRENT_SOURCE_DIR}")
+@@ -50,11 +50,11 @@ macro (mx_oslc_compile)
+     set (gen_osl_file "${CMAKE_CURRENT_BINARY_DIR}/${_shader_SHADERNAME}_${osltype_lower}.osl")
+     add_custom_command (OUTPUT ${osofile}
+         COMMAND python "${CMAKE_CURRENT_SOURCE_DIR}/build_materialX_osl.py" -s "${_shader_SHADERNAME}" -t "${osltype_lower}" -mx "${CMAKE_CURRENT_SOURCE_DIR}" -o "${CMAKE_CURRENT_BINARY_DIR}"
+-        COMMAND oslc ${oslc_args} "${gen_osl_file}" -o "${osofile}"
++        COMMAND oslc_dev ${oslc_args} "${gen_osl_file}" -o "${osofile}"
+         MAIN_DEPENDENCY ${oslsrc}
+-        DEPENDS ${_shader_DEPENDS} "${stdosl_header}" oslc "${CMAKE_CURRENT_SOURCE_DIR}/build_materialX_osl.py"
++        DEPENDS ${_shader_DEPENDS} "${stdosl_header}" oslc_dev "${CMAKE_CURRENT_SOURCE_DIR}/build_materialX_osl.py"
+         WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+-        COMMENT "oslc ${gen_osl_file}")
++        COMMENT "oslc_dev ${gen_osl_file}")
+     if (_shader_OSO_LIST)
+         list (APPEND ${_shader_OSO_LIST} ${osofile})
+     endif ()

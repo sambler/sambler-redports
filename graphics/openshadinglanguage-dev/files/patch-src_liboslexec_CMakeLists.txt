@@ -1,40 +1,53 @@
---- src/liboslexec/CMakeLists.txt.orig	2017-02-07 10:48:32 UTC
+--- src/liboslexec/CMakeLists.txt.orig	2018-05-30 23:02:32 UTC
 +++ src/liboslexec/CMakeLists.txt
-@@ -140,12 +140,12 @@ else ()
+@@ -202,20 +202,20 @@ else ()
  endif ()
  
  if (BUILDSTATIC)
 -    ADD_LIBRARY ( oslexec STATIC ${liboslexec_srcs} )
-+    ADD_LIBRARY ( oslexec-dev STATIC ${liboslexec_srcs} )
++    ADD_LIBRARY ( oslexec_dev STATIC ${liboslexec_srcs} )
  else ()
 -    ADD_LIBRARY ( oslexec SHARED ${liboslexec_srcs} )
-+    ADD_LIBRARY ( oslexec-dev SHARED ${liboslexec_srcs} )
++    ADD_LIBRARY ( oslexec_dev SHARED ${liboslexec_srcs} )
+ 
+     if (VERBOSE)
+         message(STATUS "Setting SOVERSION to: ${SOVERSION}")
+     endif ()
+-    set_target_properties( oslexec
++    set_target_properties( oslexec_dev
+                           PROPERTIES
+                           VERSION ${OSL_VERSION_MAJOR}.${OSL_VERSION_MINOR}.${OSL_VERSION_PATCH}
+                           SOVERSION ${SOVERSION} )
  endif ()
  
 -TARGET_LINK_LIBRARIES ( oslexec
-+TARGET_LINK_LIBRARIES ( oslexec-dev
++TARGET_LINK_LIBRARIES ( oslexec_dev
                          ${VISIBILITY_COMMAND} ${VISIBILITY_MAP_COMMAND}
-                         ${OPENIMAGEIO_LIBRARY} ${ILMBASE_LIBRARIES}
+                         ${OPENIMAGEIO_LIBRARIES} ${ILMBASE_LIBRARIES}
                          ${PUGIXML_LIBRARIES}
-@@ -154,17 +154,17 @@ TARGET_LINK_LIBRARIES ( oslexec
+@@ -225,14 +225,14 @@ TARGET_LINK_LIBRARIES ( oslexec
                          ${LLVM_LIBRARY} ${LLVM_MCJIT_LIBRARY}
                          ${LLVM_LIBRARIES} ${LLVM_LDFLAGS}
                          ${LLVM_SYSTEM_LIBRARIES})
--ADD_DEPENDENCIES (oslexec "${CMAKE_CURRENT_SOURCE_DIR}/liboslexec.map")
-+ADD_DEPENDENCIES (oslexec-dev "${CMAKE_CURRENT_SOURCE_DIR}/liboslexec.map")
+-ADD_DEPENDENCIES (oslexec "${CMAKE_SOURCE_DIR}/src/build-scripts/hidesymbols.map")
++ADD_DEPENDENCIES (oslexec_dev "${CMAKE_SOURCE_DIR}/src/build-scripts/hidesymbols.map")
  
--INSTALL ( TARGETS oslexec RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib )
-+INSTALL ( TARGETS oslexec-dev RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib )
+-install_targets (oslexec)
++install_targets (oslexec_dev)
  
  # Unit tests
  if (OSL_BUILD_TESTS)
      add_executable (accum_test accum_test.cpp)
--    target_link_libraries ( accum_test oslexec oslcomp ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
-+    target_link_libraries ( accum_test oslexec-dev oslcomp-dev ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-    target_link_libraries ( accum_test oslexec ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++    target_link_libraries ( accum_test oslexec_dev ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
      add_test (unit_accum "${CMAKE_BINARY_DIR}/src/liboslexec/accum_test")
  
+     add_executable (dual_test dual_test.cpp)
+@@ -240,6 +240,6 @@ if (OSL_BUILD_TESTS)
+     add_test (unit_dual "${CMAKE_BINARY_DIR}/src/liboslexec/dual_test")
+ 
      add_executable (llvmutil_test llvmutil_test.cpp)
--    target_link_libraries ( llvmutil_test oslexec oslcomp ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
-+    target_link_libraries ( llvmutil_test oslexec-dev oslcomp-dev ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-    target_link_libraries ( llvmutil_test oslexec ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++    target_link_libraries ( llvmutil_test oslexec_dev ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
      add_test (unit_llvmutil "${CMAKE_BINARY_DIR}/src/liboslexec/llvmutil_test")
  endif ()

@@ -1,30 +1,36 @@
---- src/liboslnoise/CMakeLists.txt.orig	2017-02-08 12:22:04 UTC
+--- src/liboslnoise/CMakeLists.txt.orig	2018-05-30 23:02:32 UTC
 +++ src/liboslnoise/CMakeLists.txt
-@@ -4,19 +4,19 @@ SET ( liboslnoise_srcs gabornoise.cpp si
+@@ -4,27 +4,27 @@ SET ( liboslnoise_srcs gabornoise.cpp si
  INCLUDE_DIRECTORIES ( ../liboslexec )
  
  if (BUILDSTATIC)
 -    ADD_LIBRARY ( oslnoise STATIC ${liboslnoise_srcs} )
-+    ADD_LIBRARY ( oslnoise-dev STATIC ${liboslnoise_srcs} )
++    ADD_LIBRARY ( oslnoise_dev STATIC ${liboslnoise_srcs} )
  else ()
 -    ADD_LIBRARY ( oslnoise SHARED ${liboslnoise_srcs} )
-+    ADD_LIBRARY ( oslnoise-dev SHARED ${liboslnoise_srcs} )
++    ADD_LIBRARY ( oslnoise_dev SHARED ${liboslnoise_srcs} )
+ 
+     if (VERBOSE)
+         message(STATUS "Setting SOVERSION to: ${SOVERSION}")
+     endif ()
+-    set_target_properties( oslnoise
++    set_target_properties( oslnoise_dev
+                           PROPERTIES
+                           VERSION ${OSL_VERSION_MAJOR}.${OSL_VERSION_MINOR}.${OSL_VERSION_PATCH}
+                           SOVERSION ${SOVERSION} )
  endif ()
  
 -TARGET_LINK_LIBRARIES ( oslnoise ${OPENIMAGEIO_LIBRARIES} ${ILMBASE_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} )
-+TARGET_LINK_LIBRARIES ( oslnoise-dev ${OPENIMAGEIO_LIBRARIES} ${ILMBASE_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} )
++TARGET_LINK_LIBRARIES ( oslnoise_dev ${OPENIMAGEIO_LIBRARIES} ${ILMBASE_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} )
  
--INSTALL ( TARGETS oslnoise RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib )
-+INSTALL ( TARGETS oslnoise-dev RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib )
+-install_targets (oslnoise)
++install_targets (oslnoise_dev)
  
  
  if (OSL_BUILD_TESTS)
--    add_executable (oslnoise_test oslnoise_test.cpp)
--    set_target_properties (oslnoise_test PROPERTIES FOLDER "Unit Tests")
+     add_executable (oslnoise_test oslnoise_test.cpp)
+     set_target_properties (oslnoise_test PROPERTIES FOLDER "Unit Tests")
 -    target_link_libraries (oslnoise_test oslnoise)
--    add_test (unit_oslnoise oslnoise_test)
-+    add_executable (oslnoise_test-dev oslnoise_test.cpp)
-+    set_target_properties (oslnoise_test-dev PROPERTIES FOLDER "Unit Tests")
-+    target_link_libraries (oslnoise_test-dev oslnoise-dev)
-+    add_test (unit_oslnoise oslnoise_test-dev)
++    target_link_libraries (oslnoise_test oslnoise_dev)
+     add_test (unit_oslnoise oslnoise_test)
  endif()

@@ -1,25 +1,32 @@
---- src/shaders/CMakeLists.txt.orig	2016-07-02 00:07:46 UTC
+--- src/shaders/CMakeLists.txt.orig	2018-05-30 23:02:32 UTC
 +++ src/shaders/CMakeLists.txt
-@@ -30,12 +30,12 @@ macro (osl_compile oslsrc objlist header
- #    include_directories ( ${CMAKE_CURRENT_BINARY_DIR} )
- #    include_directories ( ${CMAKE_CURRENT_SOURCE_DIR} )
-     if (VERBOSE)
--        message (STATUS "cmd: ${CMAKE_CURRENT_BINARY_DIR}/../oslc/oslc ${oslsrc}")
-+        message (STATUS "cmd: ${CMAKE_CURRENT_BINARY_DIR}/../oslc/oslc-dev ${oslsrc}")
+@@ -30,7 +30,7 @@ macro (oslc_compile)
+         set (osofile "${CMAKE_CURRENT_BINARY_DIR}/${oslsrc_we}.oso")
      endif ()
+     if (VERBOSE)
+-        message (STATUS "oslc will make '${oslfile}'  ->  '${osofile}'")
++        message (STATUS "oslc_dev will make '${oslfile}'  ->  '${osofile}'")
+     endif ()
+     set (stdosl_header "${CMAKE_SOURCE_DIR}/src/shaders/stdosl.h")
+     set (oslc_args -q ${_shader_DEFINES} "-I${CMAKE_CURRENT_SOURCE_DIR}")
+@@ -39,11 +39,11 @@ macro (oslc_compile)
+     endforeach ()
+     list (APPEND oslc_args "-I${CMAKE_SOURCE_DIR}/src/shaders")
      add_custom_command (OUTPUT ${osofile}
--        COMMAND "${CMAKE_CURRENT_BINARY_DIR}/../oslc/oslc" -q ${oslsrc}
-+        COMMAND "${CMAKE_CURRENT_BINARY_DIR}/../oslc/oslc-dev" -q ${oslsrc}
+-        COMMAND oslc ${oslc_args} "${oslfile}" -o "${osofile}"
++        COMMAND oslc_dev ${oslc_args} "${oslfile}" -o "${osofile}"
          MAIN_DEPENDENCY ${oslsrc}
--        DEPENDS ${${headers}} ${oslsrc} "${CMAKE_CURRENT_BINARY_DIR}/stdosl.h" "${CMAKE_CURRENT_BINARY_DIR}/../oslc/oslc"
-+        DEPENDS ${${headers}} ${oslsrc} "${CMAKE_CURRENT_BINARY_DIR}/stdosl.h" "${CMAKE_CURRENT_BINARY_DIR}/../oslc/oslc-dev"
-         WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
- endmacro ()
- 
-@@ -55,5 +55,5 @@ add_custom_target (shaders ALL
+-        DEPENDS ${_shader_DEPENDS} "${stdosl_header}" oslc
++        DEPENDS ${_shader_DEPENDS} "${stdosl_header}" oslc_dev
+         WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+-        COMMENT "oslc ${oslsrc_we}")
++        COMMENT "oslc_dev ${oslsrc_we}")
+     if (_shader_OSO_LIST)
+         list (APPEND ${_shader_OSO_LIST} ${osofile})
+     endif ()
+@@ -63,4 +63,4 @@ add_custom_target (shaders ALL
                     SOURCES ${shader_source} ${shader_headers})
  
  install (FILES ${shader_headers} ${shader_source} ${shader_objs}
--         DESTINATION shaders)
-+         DESTINATION ${CMAKE_INSTALL_PREFIX}/share/openshadinglanguage-dev/shaders)
- 
+-        DESTINATION shaders)
++        DESTINATION ${CMAKE_INSTALL_PREFIX}/share/openshadinglanguage_dev/shaders)
