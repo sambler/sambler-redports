@@ -2,7 +2,7 @@
 
 PORTNAME=	opencollada
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.6.61
+DISTVERSION=	1.6.62
 CATEGORIES=	graphics devel
 
 MAINTAINER=	FreeBSD@ShaneWare.Biz
@@ -25,8 +25,12 @@ USE_LDCONFIG=	${PREFIX}/lib/opencollada
 CMAKE_ON=	USE_SHARED
 CMAKE_OFF=	USE_STATIC
 
+#DOS2UNIX_FILES=	COLLADABaseUtils/include/COLLADABUPcreCompiledPattern.h
+
 post-patch:
 	@${REINPLACE_CMD} -e 's|$${OPENCOLLADA_INST_LIBRARY}/cmake|${PREFIX}/share/cmake/Modules|' \
 		${WRKSRC}/CMakeLists.txt
+#	@${REINPLACE_CMD} -e 's|real_pcre|real_pcre8_or_16|' \
+#		${WRKSRC}/COLLADABaseUtils/include/COLLADABUPcreCompiledPattern.h
 
 .include <bsd.port.mk>
