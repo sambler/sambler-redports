@@ -1,0 +1,13 @@
+--- src/oslc/CMakeLists.txt.orig	2018-06-01 09:17:44 UTC
++++ src/oslc/CMakeLists.txt
+@@ -7,7 +7,7 @@ if (BUILDSTATIC)
+         ../liboslexec/typespec.cpp)
+ endif ()
+ 
+-ADD_EXECUTABLE ( oslc ${oslc_srcs} )
+-TARGET_LINK_LIBRARIES ( oslc oslcomp ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-INSTALL ( TARGETS oslc RUNTIME DESTINATION bin )
++ADD_EXECUTABLE ( oslc18 ${oslc_srcs} )
++TARGET_LINK_LIBRARIES ( oslc18 oslcomp18 ${OPENIMAGEIO_LIBRARY} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++INSTALL ( TARGETS oslc18 RUNTIME DESTINATION bin )
+ 

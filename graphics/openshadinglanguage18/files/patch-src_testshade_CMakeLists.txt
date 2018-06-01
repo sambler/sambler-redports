@@ -1,0 +1,42 @@
+--- src/testshade/CMakeLists.txt.orig	2018-06-01 09:11:58 UTC
++++ src/testshade/CMakeLists.txt
+@@ -1,27 +1,27 @@
+ # The 'testshade' executable
+ SET ( testshade_srcs testshade.cpp simplerend.cpp )
+-ADD_EXECUTABLE ( testshade ${testshade_srcs} testshademain.cpp )
+-TARGET_LINK_LIBRARIES ( testshade oslexec oslquery ${OPENIMAGEIO_LIBRARY} ${OPENEXR_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-INSTALL ( TARGETS testshade RUNTIME DESTINATION bin )
++ADD_EXECUTABLE ( testshade18 ${testshade_srcs} testshademain.cpp )
++TARGET_LINK_LIBRARIES ( testshade18 oslexec18 oslquery18 ${OPENIMAGEIO_LIBRARY} ${OPENEXR_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++INSTALL ( TARGETS testshade18 RUNTIME DESTINATION bin )
+ 
+ # The 'libtestshade' library
+ if (BUILDSTATIC)
+-    ADD_LIBRARY ( "libtestshade" STATIC ${testshade_srcs} )
++    ADD_LIBRARY ( "libtestshade18" STATIC ${testshade_srcs} )
+ else ()
+-    ADD_LIBRARY ( "libtestshade" SHARED ${testshade_srcs} )
+-    set_target_properties( libtestshade
++    ADD_LIBRARY ( "libtestshade18" SHARED ${testshade_srcs} )
++    set_target_properties( libtestshade18
+                           PROPERTIES
+                           VERSION ${OSL_VERSION_MAJOR}.${OSL_VERSION_MINOR}.${OSL_VERSION_PATCH}
+                           SOVERSION ${SOVERSION} )
+ endif ()
+ 
+-TARGET_LINK_LIBRARIES (libtestshade oslexec oslquery ${OPENIMAGEIO_LIBRARY} ${OPENEXR_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} )
+-SET_TARGET_PROPERTIES (libtestshade PROPERTIES PREFIX "")
++TARGET_LINK_LIBRARIES (libtestshade18 oslexec18 oslquery18 ${OPENIMAGEIO_LIBRARY} ${OPENEXR_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} )
++SET_TARGET_PROPERTIES (libtestshade18 PROPERTIES PREFIX "")
+ 
+-INSTALL ( TARGETS libtestshade RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
++INSTALL ( TARGETS libtestshade18 RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
+ 
+ # The 'testshade_dso' executable
+-ADD_EXECUTABLE ( testshade_dso testshade_dso.cpp )
+-TARGET_LINK_LIBRARIES ( testshade_dso ${OPENIMAGEIO_LIBRARY} ${OPENEXR_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} )
+-INSTALL ( TARGETS testshade_dso RUNTIME DESTINATION bin )
++ADD_EXECUTABLE ( testshade_dso18 testshade_dso.cpp )
++TARGET_LINK_LIBRARIES ( testshade_dso18 ${OPENIMAGEIO_LIBRARY} ${OPENEXR_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS} )
++INSTALL ( TARGETS testshade_dso18 RUNTIME DESTINATION bin )
+ 
