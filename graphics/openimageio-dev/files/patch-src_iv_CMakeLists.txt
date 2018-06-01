@@ -1,21 +1,22 @@
---- src/iv/CMakeLists.txt.orig	2017-01-01 22:26:17 UTC
+--- src/iv/CMakeLists.txt.orig	2018-02-02 07:36:17 UTC
 +++ src/iv/CMakeLists.txt
-@@ -18,13 +18,13 @@ if (QT4_FOUND AND OPENGL_FOUND AND GLEW_
+@@ -9,14 +9,14 @@ if (Qt5_FOUND AND OPENGL_FOUND)
      if (FORCE_OPENGL_1)
          add_definitions(-DFORCE_OPENGL_1)
      endif()
 -    add_executable (iv ${iv_srcs})
 -    set_target_properties (iv PROPERTIES FOLDER "Tools")
--    target_link_libraries (iv OpenImageIO ${QT_LIBRARIES} ${OPENGL_LIBRARIES} 
+-    target_link_libraries (iv OpenImageIO
 +    add_executable (iv_dev ${iv_srcs})
 +    set_target_properties (iv_dev PROPERTIES FOLDER "Tools")
-+    target_link_libraries (iv_dev OpenImageIO_dev ${QT_LIBRARIES} ${OPENGL_LIBRARIES} 
-                                ${Boost_LIBRARIES} ${CMAKE_DL_LIBS}
-                                ${GLEW_LIBRARIES})
++    target_link_libraries (iv_dev OpenImageIO_dev
+                                Qt5::Core Qt5::Gui Qt5::Widgets Qt5::OpenGL
+                                ${OPENGL_LIBRARIES}
+                                ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
 -    oiio_install_targets (iv)
 +    oiio_install_targets (iv_dev)
  
  else ()
--    message (STATUS "\n\n   WARNING: Qt, OpenGL, or GLEW not found -- 'iv' will not be built!\n")
-+    message (STATUS "\n\n   WARNING: Qt, OpenGL, or GLEW not found -- 'iv_dev' will not be built!\n")
+-    message (STATUS "\n\n   WARNING: Qt or OpenGL not found -- 'iv' will not be built!\n")
++    message (STATUS "\n\n   WARNING: Qt or OpenGL not found -- 'iv_dev' will not be built!\n")
  endif ()

@@ -1,6 +1,6 @@
---- src/libutil/CMakeLists.txt.orig	2017-01-01 22:26:17 UTC
+--- src/libutil/CMakeLists.txt.orig	2018-02-02 07:36:17 UTC
 +++ src/libutil/CMakeLists.txt
-@@ -5,22 +5,22 @@ set (libOpenImageIO_Util_srcs argparse.c
+@@ -6,28 +6,28 @@ set (libOpenImageIO_Util_srcs argparse.c
                    typedesc.cpp ustring.cpp xxhash.cpp)
  
  if (BUILDSTATIC)
@@ -10,10 +10,10 @@
 -    add_library (OpenImageIO_Util SHARED ${libOpenImageIO_Util_srcs})
 +    add_library (OpenImageIO_Util_dev SHARED ${libOpenImageIO_Util_srcs})
  endif ()
--target_link_libraries (OpenImageIO_Util
-+target_link_libraries (OpenImageIO_Util_dev
-                            ${VISIBILITY_COMMAND} ${VISIBILITY_MAP_COMMAND}
-                            ${Boost_LIBRARIES})
+-target_link_libraries (OpenImageIO_Util ${SANITIZE_LIBRARIES})
+-target_link_libraries (OpenImageIO_Util ${Boost_LIBRARIES})
++target_link_libraries (OpenImageIO_Util_dev ${SANITIZE_LIBRARIES})
++target_link_libraries (OpenImageIO_Util_dev ${Boost_LIBRARIES})
  if (WIN32)
 -    target_link_libraries (OpenImageIO_Util psapi.lib)
 +    target_link_libraries (OpenImageIO_Util_dev psapi.lib)
@@ -29,7 +29,15 @@
                           PROPERTIES
                           VERSION ${OIIO_VERSION_MAJOR}.${OIIO_VERSION_MINOR}.${OIIO_VERSION_PATCH}
                           SOVERSION ${SOVERSION}
-@@ -29,10 +29,10 @@ set_target_properties(OpenImageIO_Util
+                      )
+ 
+ if (VISIBILITY_COMMAND)
+-    set_target_properties (OpenImageIO_Util
++    set_target_properties (OpenImageIO_Util_dev
+                            PROPERTIES
+                            LINK_FLAGS "${VISIBILITY_COMMAND} ${VISIBILITY_MAP_COMMAND}")
+ endif ()
+@@ -35,10 +35,10 @@ endif ()
  # For consistency with the linux SpComp2s, create Mac OS X SpComp2s
  # with a .so suffix instead of a .dylib suffix.
  if (DEFINED OVERRIDE_SHARED_LIBRARY_SUFFIX)
@@ -42,7 +50,7 @@
  
  
  
-@@ -40,77 +40,77 @@ if (OIIO_BUILD_TESTS)
+@@ -46,82 +46,82 @@ if (OIIO_BUILD_TESTS)
  
      add_executable (atomic_test atomic_test.cpp)
      set_target_properties (atomic_test PROPERTIES FOLDER "Unit Tests")
@@ -124,8 +132,8 @@
  
      add_executable (simd_test simd_test.cpp)
      set_target_properties (simd_test PROPERTIES FOLDER "Unit Tests")
--    target_link_libraries (simd_test OpenImageIO_Util ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
-+    target_link_libraries (simd_test OpenImageIO_Util_dev ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-    target_link_libraries (simd_test OpenImageIO ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++    target_link_libraries (simd_test OpenImageIO_dev ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
      add_test (unit_simd simd_test)
  
      add_executable (filter_test filter_test.cpp)
@@ -133,5 +141,11 @@
 -    target_link_libraries (filter_test OpenImageIO ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
 +    target_link_libraries (filter_test OpenImageIO_dev ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
      add_test (unit_filter filter_test)
+ 
+     add_executable (paramlist_test paramlist_test.cpp)
+     set_target_properties (paramlist_test PROPERTIES FOLDER "Unit Tests")
+-    target_link_libraries (paramlist_test OpenImageIO ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++    target_link_libraries (paramlist_test OpenImageIO_dev ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+     add_test (unit_paramlist paramlist_test)
  
  endif ()
