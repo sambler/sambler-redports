@@ -28,6 +28,9 @@ GH_PROJECT=	OpenColorIO
 CMAKE_ON=	USE_EXTERNAL_TINYXML USE_EXTERNAL_YAML
 CMAKE_OFF=	OCIO_BUILD_JNIGLUE OCIO_BUILD_NUKE OCIO_BUILD_STATIC
 LDFLAGS+=	-L${LOCALBASE}/lib
+# pyglue gives an error on use of register
+# this should only be an error using c++17
+CXXFLAGS=	-Wno-deprecated-register
 
 SHEBANG_FILES=	share/sphinx/ExtractRstFromSourceCPP.py \
 		share/sphinx/ExtractRstFromSourceSimple.py \
