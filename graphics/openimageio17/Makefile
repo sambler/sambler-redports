@@ -4,11 +4,11 @@
 PORTNAME=	openimageio17
 PORTVERSION=	1.7.18
 DISTVERSIONPREFIX=	Release-
-PORTREVISION=	0
-CATEGORIES?=	graphics multimedia
+PORTREVISION=	1
+CATEGORIES=	graphics multimedia
 
-MAINTAINER?=	FreeBSD@Shaneware.biz
-COMMENT?=	OpenImageIO graphics library
+MAINTAINER=	FreeBSD@Shaneware.biz
+COMMENT=	OpenImageIO graphics library
 
 LICENSE=	BSD3CLAUSE
 
@@ -29,8 +29,11 @@ GH_PROJECT=	oiio
 PORTSCOUT=	ignore:1
 
 USES=		cmake:outsource jpeg compiler:c++11-lib
+USE_LDCONFIG=	yes
+CAKE_ON=	OIIO_BUILD_TOOLS
 CMAKE_OFF=	BUILDSTATIC LINKSTATIC NOTHREADS STOP_ON_WARNING \
-		USE_OPENSSL OIIO_BUILD_TESTS
+		USE_OPENSSL OIIO_BUILD_TESTS \
+		USE_PYTHON USE_PYTHON3
 
 OPTIONS_DEFINE=		DOCS FFMPEG FREETYPE GIF IMAGEVIEWER OCIO OPENCV \
 			OPENJPEG RAW
@@ -73,47 +76,11 @@ RAW_LIB_DEPENDS=	libraw_r.so:graphics/libraw
 
 PLIST_SUB+=		LIBVERS=${PORTVERSION}
 
-.include <bsd.port.options.mk>
-
-.if ${SLAVE_PORT} == no
-USE_LDCONFIG=	yes
-CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=OFF -DUSE_PYTHON3:BOOL=OFF \
-		-DOIIO_BUILD_TOOLS:BOOL=ON
-.else # slave port is py-openimageio
-LIB_DEPENDS+=	libOpenImageIO.so:graphics/openimageio
-PLIST=		${PKGDIR}/pkg-plist-pybind
-USES+=		python
-USE_PYTHON=	flavors
-CMAKE_ARGS+=	-DUSE_PYTHON:BOOL=ON -DOIIO_BUILD_TOOLS:BOOL=OFF \
-		-DUSE_FFMPEG:BOOL=OFF
-.endif
-
-.include <bsd.port.pre.mk>
-
-.if ${SLAVE_PORT} == yes
-# we need to do this here to get PYTHON_MAJOR_VER
-# this is related to adding USES+=python in the first slave test
-.if ${PYTHON_MAJOR_VER} == 2
-LIB_DEPENDS+=	libboost_python.so:devel/boost-python-libs
-CMAKE_ARGS+=	-DUSE_PYTHON3:BOOL=OFF
-do-install:
-	@${MKDIR} ${STAGEDIR}${PYTHON_SITELIBDIR}
-	${INSTALL_LIB} ${BUILD_WRKSRC}/src/python/OpenImageIO.so ${STAGEDIR}${PYTHON_SITELIBDIR}
-.else
-LIB_DEPENDS+=	libboost_python3.so:devel/boost-python3-libs
-CMAKE_ARGS+=	-DUSE_PYTHON3:BOOL=ON
-do-install:
-	@${MKDIR} ${STAGEDIR}${PYTHON_SITELIBDIR}
-	${INSTALL_LIB} ${BUILD_WRKSRC}/src/python3/OpenImageIO.so ${STAGEDIR}${PYTHON_SITELIBDIR}
-.endif
-.endif
-
 post-patch:
 	@${REINPLACE_CMD} -e 's|share/doc/OpenImageIO|${DOCSDIR}|g' \
 		${WRKSRC}/CMakeLists.txt
 
 post-install:
-.if ${SLAVE_PORT} == no
 	${LN} -sf libOpenImageIO17.so.1.7 \
 		${STAGEDIR}${PREFIX}/lib/libOpenImageIO17.so.1
 	${LN} -sf libOpenImageIO_Util17.so.1.7 \
@@ -121,6 +88,5 @@ post-install:
 	@${FIND} ${STAGEDIR}${PREFIX}/include -type f | \
 		${XARGS} ${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO17/|g'
 	@${FIND} ${STAGEDIR}/${PREFIX}/include/ -name "*.bak" -delete
-.endif
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
