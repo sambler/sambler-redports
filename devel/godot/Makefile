@@ -2,9 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	godot
-PORTVERSION=	3.0.2
+PORTVERSION=	3.0.3
 DISTVERSIONSUFFIX= -stable
-PORTREVISION=	1
+PORTREVISION=	0
 CATEGORIES=	devel games
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -31,7 +31,7 @@ USE_GL=		gl glew glu
 USE_GITHUB=	yes
 GH_ACCOUNT=	godotengine
 
-MAKE_ARGS+=		platform=x11 builtin_libpng=False builtin_openssl=False verbose=True
+MAKE_ARGS+=		platform=x11 builtin_libpng=False builtin_openssl=False
 MAKE_ARGS+=		${MAKE_ARGS_${CHOSEN_COMPILER_TYPE}}
 MAKE_ARGS_clang=	use_llvm=True
 CXXFLAGS+=		-DRTAUDIO_ENABLED
