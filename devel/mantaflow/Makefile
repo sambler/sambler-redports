@@ -12,8 +12,8 @@ COMMENT=	A framework targeted at fluid simulation research
 
 LICENSE=	GPLv3
 
-USES=		cmake:outsource shebangfix dos2unix python:3.4
-USE_QT4=	corelib gui opengl qmake_build moc_build rcc_build uic_build
+USES=		cmake:outsource shebangfix dos2unix python:3.4 qt:4
+USE_QT=	corelib gui opengl qmake_build moc_build rcc_build uic_build
 SHEBANG_FILES=	tools/makeHgVersion.py
 DOS2UNIX_FILES=	CMakeLists.txt
 WRKSRC=		${WRKDIR}/${PORTNAME}

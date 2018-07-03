@@ -57,8 +57,9 @@ GIF_CMAKE_BOOL=		USE_GIF
 GIF_LIB_DEPENDS=	libgif.so:graphics/giflib
 
 IMAGEVIEWER_CMAKE_BOOL=	USE_QT USE_OPENGL
+IMAGEVIEWER_USES=	qt:4
 IMAGEVIEWER_USE=	GL=gl,glu,glew \
-			QT4=corelib,gui,opengl,qmake_build,moc_build,rcc_build,uic_build
+			QT=corelib,gui,opengl,qmake_build,moc_build,rcc_build,uic_build
 
 OCIO_CMAKE_BOOL=	USE_OCIO
 OCIO_LIB_DEPENDS=	libOpenColorIO.so:graphics/opencolorio

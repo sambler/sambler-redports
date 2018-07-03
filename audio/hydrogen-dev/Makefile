@@ -21,8 +21,8 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	hydrogen-music
 GH_TAGNAME=	f0c59303c86b
 
-USES=		cmake desktop-file-utils pkgconfig localbase
-USE_QT5=	qmake buildtools core gui network widgets xml xmlpatterns
+USES=		cmake desktop-file-utils pkgconfig localbase qt:5
+USE_QT=		qmake buildtools core gui network widgets xml xmlpatterns
 
 OPTIONS_SINGLE=		EXPORT
 OPTIONS_SINGLE_EXPORT=	LIBARCHIVE LIBTAR

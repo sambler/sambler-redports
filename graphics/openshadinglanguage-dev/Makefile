@@ -43,7 +43,8 @@ OPTIONS_DEFINE=		OSLTOY
 OPTIONS_SUB=		yes
 OSLTOY_DESC=		Interactive shader edit and visualize tool
 OSLTOY_CMAKE_BOOL=	USE_QT
-OSLTOY_USE=		QT5=buildtools,core,gui,opengl,qmake_build,widgets
+OSLTOY_USES=		qt:5
+OSLTOY_USE=		QT=buildtools,core,gui,opengl,qmake_build,widgets
 
 PLIST_SUB+=		LIBVERS=${PORTVERSION}
 

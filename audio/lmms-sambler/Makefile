@@ -41,11 +41,11 @@ RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/caps.rdf:audio/caps-plugins \
 CONFLICTS_INSTALL=	lmms-[01].*
 
 USES=		cmake pkgconfig desktop-file-utils shared-mime-info \
-		compiler:c++0x
+		compiler:c++0x qt:5
 USE_LDCONFIG=	yes
 USE_XORG=	xcb xcursor xext xfixes xft xinerama xrender
 USE_SDL=	sdl
-USE_QT5=	buildtools core gui linguisttools xml qmake widgets x11extras
+USE_QT=		buildtools core gui linguisttools xml qmake widgets x11extras
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	lmms \

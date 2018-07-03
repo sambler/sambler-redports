@@ -46,30 +46,21 @@ BLENDER_ADDON_DISTFILES= Blender_2.62:blenaddon
 BLENDER_ADDON_RUN_DEPENDS= blender>=2.62:graphics/blender
 BLENADDONDIR=	${WRKDIR}/YafaRay-Blender-2.5-Exporter-e8f3502
 
-PYTHON_CMAKE_ON=	-DWITH_YAF_PY_BINDINGS:BOOL=ON
-PYTHON_CMAKE_OFF=	-DWITH_YAF_PY_BINDINGS:BOOL=OFF
+PYTHON_CMAKE_BOOL=	WITH_YAF_PY_BINDINGS
 PYTHON_USES=		python:3.4
 
-QT_GUI_CMAKE_ON=	-DWITH_QT:BOOL=ON
-QT_GUI_CMAKE_OFF=	-DWITH_QT:BOOL=OFF
-
+QT_GUI_CMAKE_BOOL=	WITH_QT
+QT_GUI_USES=		qt:4
+QT_GUI_USE=		QT=gui,moc_build,qmake_build,rcc_build,uic_build
 RUBY_CMAKE_ON=		-DWITH_YAF_RUBY_BINDINGS:BOOL=ON
 RUBY_CMAKE_OFF=		-DWITH_YAF_RUBY_BINDINGS:BOOL=OFF
 RUBY_USE=		USE_RUBY=yes
 
-.include <bsd.port.options.mk>
-USE_QT4=gui moc_build qmake_build rcc_build uic_build
-.if ${PORT_OPTIONS:MQT_GUI}
-
-.endif
-
-.if ${PORT_OPTIONS:MBLENDER_ADDON}
-post-install:
+post-install-BLENDER_ADDON-on:
 	@cd ${BLENADDONDIR} && ${COPYTREE_SHARE} . \
 		${STAGEDIR}${LOCALBASE}/share/blender/scripts/addons/yafaray/
 	@${MKDIR} ${STAGEDIR}${LOCALBASE}/share/blender/scripts/addons/yafaray/bin/
 	@cd ${STAGEDIR}${LOCALBASE}/lib && ${LN} -s libyafarayplugin.so \
 		../share/blender/scripts/addons/yafaray/bin/
-.endif
 
 .include <bsd.port.mk>

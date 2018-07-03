@@ -52,8 +52,9 @@ GIF_LIB_DEPENDS=	libgif.so:graphics/giflib
 
 IMAGEVIEWER_DESC=	Build image viewer (requires Qt)
 IMAGEVIEWER_CMAKE_BOOL=	USE_QT USE_OPENGL
+IMAGEVIEWER_USES=	qt:5
 IMAGEVIEWER_USE=	GL=gl,glu,glew \
-			QT5=buildtools,core,gui,opengl,qmake_build,widgets
+			QT=buildtools,core,gui,opengl,qmake_build,widgets
 
 OCIO_DESC=		Color management support
 OCIO_CMAKE_BOOL=	USE_OCIO

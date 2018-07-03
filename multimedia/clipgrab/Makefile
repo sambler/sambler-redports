@@ -11,8 +11,8 @@ COMMENT=	Program to download videos from YouTube and etc
 
 LICENSE=	GPLv3
 
-USES=		qmake
-USE_QT4=	gui xml uic_build moc_build \
+USES=		qmake qt:4
+USE_QT=		gui xml uic_build moc_build \
 		rcc_build network dbus webkit
 
 PLIST_FILES=	bin/${PORTNAME} \

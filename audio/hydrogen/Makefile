@@ -14,12 +14,14 @@ LICENSE=	GPLv2
 LIB_DEPENDS=	libsndfile.so:audio/libsndfile \
 		liblo.so:audio/liblo
 
+# is this still valid?? was removed from port commit
+#BROKEN_powerpc64=	fails to link: libicuuc.so. undefined reference to __cxa_throw_bad_array_new_length
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hydrogen-music
 
-USES=		cmake compiler:c++11-lang desktop-file-utils pkgconfig
-USE_QT4=	qmake_build moc_build rcc_build uic_build corelib \
+USES=		cmake compiler:c++11-lang desktop-file-utils pkgconfig qt:4
+USE_QT=		qmake_build moc_build rcc_build uic_build corelib \
 		gui network xml xmlpatterns
 
 OPTIONS_SINGLE=		EXPORT
