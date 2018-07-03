@@ -2,8 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	lmms
-PORTVERSION=	1.1.90
-DISTVERSIONPREFIX= v
+PORTVERSION=	1.1.3
+DISTVERSIONPREFIX=	v
+PORTREVISION=	2
+PORTEPOCH=	2
 CATEGORIES=	audio
 
 MAINTAINER=	rodrigo@FreeBSD.org
@@ -16,124 +18,81 @@ LIB_DEPENDS=	libFLAC.so:audio/flac \
 		libfluidsynth.so:audio/fluidsynth \
 		libsamplerate.so:audio/libsamplerate \
 		libsndfile.so:audio/libsndfile \
+		libvorbis.so:audio/libvorbis \
+		libogg.so:audio/libogg \
 		libfftw3.so:math/fftw3 \
 		libfftw3f.so:math/fftw3-float \
+		libsamplerate.so:audio/libsamplerate \
 		libfltk.so:x11-toolkits/fltk
+RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/caps.rdf:audio/caps-plugins \
+		${LOCALBASE}/lib/ladspa/cmt.so:audio/cmt \
+		${LOCALBASE}/share/ladspa/rdf/swh-plugins.rdf:audio/swhplugins \
+		${LOCALBASE}/share/ladspa/rdf/tap-plugins.rdf:audio/tap-plugins
 
-USE_GITHUB=	yes
+OPTIONS_DEFINE=	OSS JACK PULSEAUDIO PORTAUDIO SDL
+OPTIONS_DEFAULT=OSS
 
 USE_LDCONFIG=	yes
-USE_XORG=	ice sm x11 xext xft
-USE_QT4=	corelib gui xml moc_build uic_build rcc_build \
-		qmake_build linguisttools
-USES=		cmake pkgconfig desktop-file-utils shared-mime-info \
-		compiler:c++0x
+USE_XORG=	x11 xext xft ice sm
+USE_QT=		corelib gui xml moc_build uic_build rcc_build \
+		qmake_build
+USE_GITHUB=	yes
+GH_ACCOUNT=	LMMS
+USES=		cmake desktop-file-utils dos2unix pkgconfig qt:4 shared-mime-info
+CMAKE_ARGS=	-DWANT_ALSA:BOOL=OFF \
+		-DWANT_CALF:BOOL=OFF \
+		-DWANT_CAPS:BOOL=OFF \
+		-DWANT_CMT:BOOL=OFF \
+		-DWANT_SWH:BOOL=OFF \
+		-DWANT_STK:BOOL=OFF \
+		-DWANT_TAP:BOOL=OFF \
+		-DWANT_VST:BOOL=OFF \
+		-DHAVE_STRTOLL=ON
 
-CMAKE_ARGS=	-DWANT_VST:BOOL=OFF
+DOS2UNIX_FILES=	CMakeLists.txt
 
-OPTIONS_DEFINE=	ALSA CALF CAPS CMT JACK JACKMIDI OGG PORTAUDIO \
-		PULSEAUDIO SDL SF2 STK SWH TAP
-OPTIONS_DEFAULT= CAPS CMT JACK JACKMIDI OGG PORTAUDIO PULSEAUDIO \
-		SDL SF2 STK SWH TAP
-OPTIONS_SUB=	yes
-
-ALSA_CMAKE_ON=		-DWANT_ALSA:BOOL=ON
-ALSA_CMAKE_OFF=		-DWANT_ALSA:BOOL=OFF
-ALSA_LIB_DEPENDS=	libasound.so:audio/alsa-lib
-
-# calf fails on i386
-CALF_DESC=		CALF LADSPA plugins
-CALF_CMAKE_ON=		-DWANT_CALF:BOOL=ON
-CALF_CMAKE_OFF=		-DWANT_CALF:BOOL=OFF
-
-CAPS_DESC=		C* Audio Plugin suite
-CAPS_CMAKE_ON=		-DWANT_CAPS:BOOL=ON
-CAPS_CMAKE_OFF=		-DWANT_CAPS:BOOL=OFF
-CAPS_RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/caps.rdf:audio/caps-plugins
-
-CMT_DESC=		Computer Music Toolbox LADSPA plugins
-CMT_CMAKE_ON=		-DWANT_CMT:BOOL=ON
-CMT_CMAKE_OFF=		-DWANT_CMT:BOOL=OFF
-CMT_RUN_DEPENDS=	${LOCALBASE}/lib/ladspa/cmt.so:audio/cmt
-
-JACK_CMAKE_ON=		-DWANT_JACK:BOOL=ON
-JACK_CMAKE_OFF=		-DWANT_JACK:BOOL=OFF
 JACK_LIB_DEPENDS=	libjack.so:audio/jack
+JACK_CMAKE_OFF=		-DWANT_JACK:BOOL=OFF
 
-JACKMIDI_DESC=		Enable Jack midi input
-JACKMIDI_EXTRA_PATCHES=	${FILESDIR}/extra-patch-include_AudioJack.h \
-			${FILESDIR}/extra-patch-include_MidiJack.h \
-			${FILESDIR}/extra-patch-src_core_CMakeLists.txt \
-			${FILESDIR}/extra-patch-src_core_Mixer.cpp \
-			${FILESDIR}/extra-patch-src_core_audio_AudioJack.cpp \
-			${FILESDIR}/extra-patch-src_core_midi_MidiJack.cpp \
-			${FILESDIR}/extra-patch-src_gui_SetupDialog.cpp
-JACKMIDI_IMPLIES=	JACK
-
-OGG_CMAKE_ON=		-DWANT_OGGVORBIS:BOOL=ON
-OGG_CMAKE_OFF=		-DWANT_OGGVORBIS:BOOL=OFF
-OGG_LIB_DEPENDS=	libvorbis.so:audio/libvorbis \
-			libogg.so:audio/libogg
-
-PORTAUDIO_CMAKE_ON=	-DWANT_PORTAUDIO:BOOL=ON
-PORTAUDIO_CMAKE_OFF=	-DWANT_PORTAUDIO:BOOL=OFF
-PORTAUDIO_LIB_DEPENDS=	libportaudio.so:audio/portaudio
-
-PULSEAUDIO_CMAKE_ON=	-DWANT_PULSEAUDIO:BOOL=ON
-PULSEAUDIO_CMAKE_OFF=	-DWANT_PULSEAUDIO:BOOL=OFF
 PULSEAUDIO_LIB_DEPENDS=	libpulse.so:audio/pulseaudio
+PULSEAUDIO_CMAKE_OFF=	-DWANT_PULSEAUDIO:BOOL=OFF
+
+PORTAUDIO_LIB_DEPENDS=	libportaudio.so:audio/portaudio
+PORTAUDIO_CMAKE_OFF=	-DWANT_PORTAUDIO:BOOL=OFF
 
 SDL_USE=		SDL=sdl
-SDL_CMAKE_ON=		-DWANT_SDL:BOOL=ON
 SDL_CMAKE_OFF=		-DWANT_SDL:BOOL=OFF
 
-SF2_DESC=		Soundfont2 player plugin
-SF2_CMAKE_ON=		-DWANT_SF2:BOOL=ON
-SF2_CMAKE_OFF=		-DWANT_SF2:BOOL=OFF
-
-STK_DESC=		Synthesis Toolkit support
-STK_CMAKE_ON=		-DWANT_STK:BOOL=ON
-STK_CMAKE_OFF=		-DWANT_STK:BOOL=OFF
-STK_LIB_DEPENDS=	libstk.so:audio/stk
-
-SWH_DESC=		Steve Harris's LADSPA plugins
-SWH_CMAKE_ON=		-DWANT_SWH:BOOL=ON
-SWH_CMAKE_OFF=		-DWANT_SWH:BOOL=OFF
-SWH_RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/swh-plugins.rdf:audio/swhplugins
-
-TAP_DESC=		Tom's Audio Processing LADSPA plugins
-TAP_CMAKE_ON=		-DWANT_TAP:BOOL=ON
-TAP_CMAKE_OFF=		-DWANT_TAP:BOOL=OFF
-TAP_RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/tap-plugins.rdf:audio/tap-plugins
-
-.include <bsd.port.options.mk>
-
-.if ${ARCH} == i386 && ${PORT_OPTIONS:MCALF}
-BROKEN= Calf plugins fail to build on i386
-.endif
-
 post-patch:
-.for file in cmake/linux/lmms.desktop
+.for file in data/lmms.desktop
 	@${REINPLACE_CMD} -e \
 		'/^Icon/s|=.*$$|=lmms|g ; \
 		 /^Exec/s|=.*$$|=lmms|g ; \
 		 /^Categories/s|$$|;|g ; \
 		 /^MimeType/s|$$|;|g' ${WRKSRC}/${file}
 .endfor
-.for filename in src/core/ConfigManager.cpp
+.for filename in data/lmms src/core/config_mgr.cpp
 	@${REINPLACE_CMD} -e \
 		's|/usr|${PREFIX}|g' ${WRKSRC}/${filename}
 .endfor
-.for filename in src/core/LadspaManager.cpp
+.for filename in src/core/ladspa_manager.cpp
 	@${REINPLACE_CMD} -e \
 		'/\/usr\/lib/d ; \
 		 s|/usr/local|${PREFIX}|g' ${WRKSRC}/${filename}
 .endfor
+	@${REINPLACE_CMD} -e 's/lib64/lib/' \
+		${WRKSRC}/cmake/modules/DetectMachine.cmake
+
+post-patch-OSS-off:
+	@${REINPLACE_CMD} \
+		-e 's|SET(LMMS_HAVE_OSS TRUE)|SET(LMMS_HAVE_OSS FALSE)|; \
+		    s|SET(STATUS_OSS "OK")|SET(STATUS_OSS "<disabled>")|' \
+		${WRKSRC}/CMakeLists.txt
 
 post-install:
-	@(cd ${STAGEDIR}${PREFIX}/share/pixmaps/ \
-		&& ${LN} -sf ../lmms/themes/default/icon.png ./lmms.png)
+	@${LN} -sf ${DATADIR}/themes/default/icon.png \
+		${STAGEDIR}${PREFIX}/share/pixmaps/lmms.png
 	# make it setuid-root to be able to set realtime priority
-	#${CHMOD} u+s ${STAGEDIR}${PREFIX}/bin/lmms
+	# (root privileges are dropped in the main routine)
 
 .include <bsd.port.mk>
