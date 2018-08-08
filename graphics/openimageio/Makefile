@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio
-PORTVERSION=	1.8.11
+PORTVERSION=	1.8.12
 DISTVERSIONPREFIX=	Release-
 PORTREVISION?=	0
 CATEGORIES?=	graphics multimedia
@@ -22,7 +22,7 @@ LIB_DEPENDS+=	libboost_thread.so:devel/boost-libs \
 		libtiff.so:graphics/tiff \
 		libwebp.so:graphics/webp \
 		libhdf5.so:science/hdf5
-# on 10.4 clang3.4 fails so we want to use clang50
+# on 10.4 clang3.4 fails so we want to use clang60
 USES=		cmake:outsource compiler:c++14-lang jpeg
 CMAKE_ARGS=	USE_CPP:STRING=11
 CMAKE_OFF=	BUILDSTATIC LINKSTATIC NOTHREADS STOP_ON_WARNING USE_OPENSSL

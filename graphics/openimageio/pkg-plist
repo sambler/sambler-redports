@@ -40,6 +40,7 @@ include/OpenImageIO/pugixml.hpp
 include/OpenImageIO/refcnt.h
 include/OpenImageIO/SHA1.h
 include/OpenImageIO/simd.h
+include/OpenImageIO/span.h
 include/OpenImageIO/strided_ptr.h
 include/OpenImageIO/string_view.h
 include/OpenImageIO/strutil.h
