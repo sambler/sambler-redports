@@ -3,7 +3,7 @@
 
 PORTNAME=	blender-sambler
 PORTVERSION=	2.79
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	graphics multimedia
 DIST_SUBDIR=	${PORTNAME}
 
@@ -21,7 +21,7 @@ LIB_DEPENDS=	liblzo2.so:archivers/lzo2 \
 		libyaml-cpp03.so:devel/yaml-cpp03 \
 		libOpenColorIO.so:graphics/opencolorio \
 		libOpenImageIO.so:graphics/openimageio \
-		libIlmImf.so:graphics/OpenEXR \
+		libIlmImf.so:graphics/openexr \
 		libHalf.so:graphics/ilmbase \
 		libopenjpeg.so:graphics/openjpeg15 \
 		libpng.so:graphics/png \

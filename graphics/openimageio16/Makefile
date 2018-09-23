@@ -4,7 +4,7 @@
 PORTNAME=	openimageio16
 PORTVERSION=	1.6.18
 DISTVERSIONPREFIX=	Release-
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	graphics multimedia
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -22,7 +22,7 @@ CONFLICTS=	fbm-[0-9]*
 
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		libImath.so:graphics/ilmbase \
-		libIlmImf.so:graphics/OpenEXR \
+		libIlmImf.so:graphics/openexr \
 		libpng16.so:graphics/png \
 		libtiff.so:graphics/tiff \
 		libwebp.so:graphics/webp \
@@ -49,7 +49,7 @@ FFMPEG_CMAKE_BOOL=	USE_FFMPEG
 FFMPEG_LIB_DEPENDS=	libavutil.so:multimedia/ffmpeg
 
 FREETYPE_CMAKE_BOOL=	USE_FREETYPE
-FREETYPE_CMAKE_ARGS=	-DFONTS_INSTALL_DIR:STRING=share/fonts/oiio16
+FREETYPE_CMAKE_ON=		-DFONTS_INSTALL_DIR:STRING=share/fonts/oiio16
 FREETYPE_LIB_DEPENDS=	libfreetype.so:print/freetype2
 
 GIF_CMAKE_BOOL=		USE_GIF
@@ -68,7 +68,7 @@ OPENCV_LIB_DEPENDS=	libopencv_highgui.so:graphics/opencv \
 			libopencv_core.so:graphics/opencv-core
 
 OPENJPEG_CMAKE_BOOL=	USE_OPENJPEG
-OPENJPEG_LIB_DEPENDS=	libopenjp2.so:graphics/openjpeg
+OPENJPEG_LIB_DEPENDS=	libopenjpeg.so:graphics/openjpeg15
 
 RAW_CMAKE_BOOL=		USE_LIBRAW
 RAW_LIB_DEPENDS=	libraw_r.so:graphics/libraw

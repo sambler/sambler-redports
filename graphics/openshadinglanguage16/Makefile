@@ -15,8 +15,8 @@ LICENSE=	BSD3CLAUSE
 BUILD_DEPENDS=	llvm-config35:devel/llvm35 \
 		clang35>=3.5:lang/clang35
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
-		libImath-2_2.so:graphics/ilmbase \
-		libIlmImf.so:graphics/OpenEXR \
+		libImath.so:graphics/ilmbase \
+		libIlmImf.so:graphics/openexr \
 		libOpenImageIO16.so:graphics/openimageio16
 RUN_DEPENDS=	llvm-config35:devel/llvm35
 

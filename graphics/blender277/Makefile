@@ -3,7 +3,7 @@
 
 PORTNAME=	blender277
 PORTVERSION=	2.77a
-PORTREVISION=	5
+PORTREVISION=	6
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -23,7 +23,7 @@ LIB_DEPENDS=	liblzo2.so:archivers/lzo2 \
 		libyaml-cpp03.so:devel/yaml-cpp03 \
 		libOpenColorIO.so:graphics/opencolorio \
 		libOpenImageIO17.so:graphics/openimageio17 \
-		libIlmImf.so:graphics/OpenEXR \
+		libIlmImf.so:graphics/openexr \
 		libHalf.so:graphics/ilmbase \
 		libopenjpeg.so:graphics/openjpeg15 \
 		libpng.so:graphics/png \
@@ -62,7 +62,8 @@ CMAKE_ON=	WITH_BUILDINFO WITH_AUDASPACE WITH_BLENDER WITH_BULLET \
 		WITH_PYTHON WITH_RAYOPTIMIZATION WITH_SDL WITH_SYSTEM_GLEW \
 		WITH_SYSTEM_OPENJPEG WITH_X11_XF86VMODE WITH_X11_XINPUT
 
-CMAKE_OFF=	WITH_BOOST_ICU WITH_CYCLES_CUDA_BINARIES DCYCLES_OPENCL_DEBUG \
+CMAKE_OFF=	WITH_BOOST_ICU WITH_CYCLES_CUDA_BINARIES \
+		CYCLES_OPENCL_DEBUG WITH_CYCLES_LOGGING \
 		WITH_CYCLES_STANDALONE WITH_CYCLES_STANDALONE_GUI \
 		WITH_INSTALL_PORTABLE WITH_MEM_JEMALLOC WITH_GCC_MUDFLAP \
 		WITH_PYTHON_INSTALL WITH_PYTHON_MODULE WITH_PYTHON_SAFETY \

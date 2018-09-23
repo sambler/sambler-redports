@@ -2,9 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	line_profiler
-PORTVERSION=	1.0
+PORTVERSION=	2.1.2
 CATEGORIES=	devel python
-MASTER_SITES=	CHEESESHOP
+#MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -16,7 +16,11 @@ LICENSE_COMB=	multi
 #file and falls under the PSF license - the rest is under the bsd 3-clause
 
 USES=		python shebangfix
-USE_PYTHON=	autoplist concurrent distutils
+USE_PYTHON=	autoplist concurrent distutils cython
+# pypi tarball fails for py37 use repo and cython for now
+USE_GITHUB=	yes
+GH_ACCOUNT=	rkern
+GH_TAGNAME=	df8dfc88049e
 
 python_OLD_CMD=	"/usr/bin/env\ python"
 SHEBANG_FILES=	${WRKSRC}/line_profiler.py ${WRKSRC}/kernprof.py

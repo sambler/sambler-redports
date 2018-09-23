@@ -318,89 +318,89 @@ share/applications/blender275.desktop
 %%DATADIR%%/scripts/addons/cycles/osl.py
 %%DATADIR%%/scripts/addons/cycles/presets.py
 %%DATADIR%%/scripts/addons/cycles/properties.py
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_absorption_volume.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_add_closure.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_ambient_occlusion.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_anisotropic_bsdf.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_attribute.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_background.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_blackbody.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_brick_texture.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_brightness.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_bump.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_camera.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_checker_texture.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_color.h
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_combine_hsv.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_combine_rgb.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_combine_xyz.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_convert_from_color.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_convert_from_float.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_convert_from_int.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_convert_from_normal.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_convert_from_point.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_convert_from_vector.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_diffuse_bsdf.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_emission.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_environment_texture.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_fresnel.h
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_fresnel.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_gamma.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_geometry.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_glass_bsdf.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_glossy_bsdf.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_gradient_texture.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_hair_bsdf.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_hair_info.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_holdout.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_hsv.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_image_texture.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_invert.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_layer_weight.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_light_falloff.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_light_path.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_magic_texture.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_mapping.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_math.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_mix.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_mix_closure.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_musgrave_texture.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_noise_texture.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_normal.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_normal_map.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_object_info.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_output_displacement.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_output_surface.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_output_volume.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_particle_info.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_refraction_bsdf.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_rgb_curves.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_rgb_ramp.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_scatter_volume.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_separate_hsv.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_separate_rgb.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_separate_xyz.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_set_normal.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_sky_texture.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_subsurface_scattering.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_tangent.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_texture.h
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_texture_coordinate.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_toon_bsdf.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_translucent_bsdf.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_transparent_bsdf.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_uv_map.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_value.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_vector_curves.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_vector_math.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_vector_transform.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_velvet_bsdf.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_voronoi_texture.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_wave_texture.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_wavelength.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_wireframe.oso
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/oslutil.h
-%%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/stdosl.h
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_absorption_volume.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_add_closure.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_ambient_occlusion.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_anisotropic_bsdf.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_attribute.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_background.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_blackbody.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_brick_texture.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_brightness.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_bump.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_camera.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_checker_texture.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_color.h
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_combine_hsv.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_combine_rgb.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_combine_xyz.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_convert_from_color.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_convert_from_float.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_convert_from_int.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_convert_from_normal.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_convert_from_point.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_convert_from_vector.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_diffuse_bsdf.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_emission.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_environment_texture.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_fresnel.h
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_fresnel.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_gamma.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_geometry.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_glass_bsdf.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_glossy_bsdf.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_gradient_texture.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_hair_bsdf.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_hair_info.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_holdout.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_hsv.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_image_texture.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_invert.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_layer_weight.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_light_falloff.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_light_path.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_magic_texture.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_mapping.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_math.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_mix.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_mix_closure.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_musgrave_texture.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_noise_texture.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_normal.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_normal_map.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_object_info.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_output_displacement.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_output_surface.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_output_volume.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_particle_info.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_refraction_bsdf.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_rgb_curves.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_rgb_ramp.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_scatter_volume.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_separate_hsv.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_separate_rgb.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_separate_xyz.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_set_normal.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_sky_texture.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_subsurface_scattering.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_tangent.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_texture.h
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_texture_coordinate.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_toon_bsdf.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_translucent_bsdf.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_transparent_bsdf.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_uv_map.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_value.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_vector_curves.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_vector_math.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_vector_transform.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_velvet_bsdf.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_voronoi_texture.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_wave_texture.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_wavelength.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/node_wireframe.oso
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/oslutil.h
+@comment %%OSL%%%%DATADIR%%/scripts/addons/cycles/shader/stdosl.h
 %%DATADIR%%/scripts/addons/cycles/ui.py
 %%DATADIR%%/scripts/addons/cycles/version_update.py
 %%DATADIR%%/scripts/addons/development_api_navigator.py

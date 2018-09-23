@@ -3,7 +3,7 @@
 
 PORTNAME=	hydrogen
 PORTVERSION=	0.9.7
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	audio
 
 MAINTAINER=	FreeBSD@ShaneWare.Biz
@@ -13,9 +13,6 @@ LICENSE=	GPLv2
 
 LIB_DEPENDS=	libsndfile.so:audio/libsndfile \
 		liblo.so:audio/liblo
-
-# is this still valid?? was removed from port commit
-#BROKEN_powerpc64=	fails to link: libicuuc.so. undefined reference to __cxa_throw_bad_array_new_length
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hydrogen-music

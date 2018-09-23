@@ -12,13 +12,6 @@ COMMENT?=	Complete color management solution
 
 LICENSE=	BSD3CLAUSE
 
-BROKEN_aarch64=		Does not compile: error: use of undeclared identifier __builtin_ia32_emms
-BROKEN_armv6=		Does not compile: error: use of undeclared identifier __builtin_ia32_emms
-BROKEN_armv7=		Does not compile: error: use of undeclared identifier __builtin_ia32_emms
-BROKEN_mips64=		Does not compile: error: unrecognized command line option -msse2
-BROKEN_powerpc64=	Does not compile: error: unrecognized command line option -msse2
-BROKEN_sparc64=		Does not compile: error: unrecognized command line option -msse2
-
 USES=		alias cmake:outsource pkgconfig shebangfix
 
 USE_GITHUB=	yes
@@ -30,7 +23,7 @@ CMAKE_OFF=	OCIO_BUILD_JNIGLUE OCIO_BUILD_NUKE OCIO_BUILD_STATIC
 LDFLAGS+=	-L${LOCALBASE}/lib
 # pyglue gives an error on use of register
 # this should only be an error using c++17
-CXXFLAGS=	-Wno-deprecated-register
+CXXFLAGS+=	-Wno-deprecated-register
 
 SHEBANG_FILES=	share/sphinx/ExtractRstFromSourceCPP.py \
 		share/sphinx/ExtractRstFromSourceSimple.py \

@@ -2,9 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	openimageio17
-PORTVERSION=	1.7.18
+PORTVERSION=	1.7.19
 DISTVERSIONPREFIX=	Release-
-PORTREVISION=	1
+PORTREVISION=	0
 CATEGORIES=	graphics multimedia
 
 MAINTAINER=	FreeBSD@Shaneware.biz
@@ -14,7 +14,7 @@ LICENSE=	BSD3CLAUSE
 
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		libImath.so:graphics/ilmbase \
-		libIlmImf.so:graphics/OpenEXR \
+		libIlmImf.so:graphics/openexr \
 		libpng.so:graphics/png \
 		libtiff.so:graphics/tiff \
 		libwebp.so:graphics/webp \

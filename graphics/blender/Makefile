@@ -3,7 +3,7 @@
 
 PORTNAME=	blender
 PORTVERSION=	2.79b
-PORTREVISION=	1
+PORTREVISION=	6
 CATEGORIES=	graphics games
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -69,10 +69,10 @@ CYCLES_CMAKE_BOOL=		WITH_CYCLES
 CYCLESOSL_IMPLIES=		CYCLES
 CYCLESOSL_CMAKE_BOOL=		WITH_CYCLES_OSL WITH_LLVM
 CYCLESOSL_CMAKE_ON=		-DLLVM_STATIC:BOOL=OFF \
-				-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config40"
-CYCLESOSL_BUILD_DEPENDS=	llvm-config40:devel/llvm40
+				-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config60"
+CYCLESOSL_BUILD_DEPENDS=	llvm-config60:devel/llvm60
 CYCLESOSL_LIB_DEPENDS=		liboslcomp.so:graphics/openshadinglanguage
-CYCLESOSL_RUN_DEPENDS=		llvm-config40:devel/llvm40
+CYCLESOSL_RUN_DEPENDS=		llvm-config60:devel/llvm60
 DDS_CMAKE_BOOL=			WITH_IMAGE_DDS
 FFMPEG_CMAKE_BOOL=		WITH_CODEC_FFMPEG
 FFMPEG_LIB_DEPENDS=		libavutil.so:multimedia/ffmpeg
@@ -109,7 +109,7 @@ OPENCOLORIO_LIB_DEPENDS=	libOpenColorIO.so:graphics/opencolorio \
 				libyaml-cpp03.so:devel/yaml-cpp03 \
 				libtinyxml.so:textproc/tinyxml
 OPENEXR_CMAKE_BOOL=		WITH_IMAGE_OPENEXR
-OPENEXR_LIB_DEPENDS=		libIlmImf.so:graphics/OpenEXR \
+OPENEXR_LIB_DEPENDS=		libIlmImf.so:graphics/openexr \
 				libHalf.so:graphics/ilmbase
 OPENIMAGEIO_IMPLIES=		OPENEXR TIFF
 OPENIMAGEIO_CMAKE_BOOL=		WITH_OPENIMAGEIO

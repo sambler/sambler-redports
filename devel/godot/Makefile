@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	godot
-PORTVERSION=	3.0.3
+PORTVERSION=	3.0.6
 DISTVERSIONSUFFIX= -stable
 PORTREVISION=	0
 CATEGORIES=	devel games
@@ -15,9 +15,10 @@ LICENSE_COMB=		multi
 LICENSE_FILE_CC-BY-3.0=	${WRKSRC}/LOGO_LICENSE.md
 LICENSE_FILE_MIT=	${WRKSRC}/LICENSE.txt
 
-BROKEN_aarch64=	fails to build: KeyError: 'android_arch'
-BROKEN_armv6=	fails to build: KeyError: 'android_arch'
-BROKEN_armv7=	fails to build: KeyError: 'android_arch'
+BROKEN_aarch64=		fails to build: KeyError: 'android_arch'
+BROKEN_armv6=		fails to build: KeyError: 'android_arch'
+BROKEN_armv7=		fails to build: KeyError: 'android_arch'
+BROKEN_powerpc64=	fails to compile: inv_txfm_sse2.h:14:32: emmintrin.h: No such file or directory
 
 BUILD_DEPENDS=	yasm:devel/yasm
 LIB_DEPENDS=	libfreetype.so:print/freetype2 \

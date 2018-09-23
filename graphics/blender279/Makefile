@@ -23,7 +23,7 @@ LIB_DEPENDS=	liblzo2.so:archivers/lzo2 \
 		libyaml-cpp03.so:devel/yaml-cpp03 \
 		libOpenColorIO.so:graphics/opencolorio \
 		libOpenImageIO.so:graphics/openimageio \
-		libIlmImf.so:graphics/OpenEXR \
+		libIlmImf.so:graphics/openexr \
 		libHalf.so:graphics/ilmbase \
 		libopenjpeg.so:graphics/openjpeg15 \
 		libpng.so:graphics/png \
@@ -43,7 +43,7 @@ VERS_TAG=	${PORTVERSION:C/[.abcd]//g}
 PORTSCOUT=	ignore:1
 
 USE_SDL=	sdl2
-USE_XORG=	x11 xext xmu xi xxf86vm xrender
+USE_XORG=	x11 xext xfixes xmu xi xxf86vm xrender
 USE_GL=		gl glu glew
 USE_GNOME=	libxml2
 

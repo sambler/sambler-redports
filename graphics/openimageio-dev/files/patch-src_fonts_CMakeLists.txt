@@ -5,7 +5,7 @@
  if (INSTALL_FONTS AND USE_FREETYPE)
      install (FILES ${public_fonts}
 -             DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/fonts/OpenImageIO
-+             DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/fonts/OpenImageIO_dev
++             DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/fonts/OpenImageIO-dev
               COMPONENT fonts)
  endif ()
  

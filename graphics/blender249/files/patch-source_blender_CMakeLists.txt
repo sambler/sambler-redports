@@ -1,0 +1,10 @@
+--- source/blender/CMakeLists.txt.orig	2018-09-11 18:46:13 UTC
++++ source/blender/CMakeLists.txt
+@@ -39,7 +39,6 @@ ADD_SUBDIRECTORY(radiosity)
+ ADD_SUBDIRECTORY(readblenfile)
+ ADD_SUBDIRECTORY(render)
+ ADD_SUBDIRECTORY(src)
+-ADD_SUBDIRECTORY(yafray)
+ 
+ IF(WITH_INTERNATIONAL)
+   ADD_SUBDIRECTORY(ftfont)

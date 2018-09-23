@@ -1,0 +1,10 @@
+--- source/creator/CMakeLists.txt.orig	2018-09-11 18:46:42 UTC
++++ source/creator/CMakeLists.txt
+@@ -230,7 +230,6 @@ IF(UNIX)
+     bf_kernel 
+     bf_decimation 
+     bf_elbeem 
+-    bf_yafray 
+     bf_IK 
+     bf_memutil 
+     bf_guardedalloc 

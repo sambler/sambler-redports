@@ -1,18 +1,20 @@
 # $FreeBSD$
 
 PORTNAME=	pandas-datareader
-PORTVERSION=	0.6.0
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.7.0
 CATEGORIES=	math finance python
-MASTER_SITES=	CHEESESHOP
+#MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
 MAINTAINER=	FreeBSD@Shaneware.biz
-COMMENT=	Data readers previously in pandas
+COMMENT=	Data readers previously found in Pandas
 
 LICENSE=	BSD3CLAUSE
+LICENSE_FILE=	${WRKSRC}/LICENSE.md
 
-RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pandas>0.19.2:math/py-pandas@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}lxml>0:devel/py-lxml@${PY_FLAVOR} \
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}lxml>0:devel/py-lxml@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}pandas>0.19.2:math/py-pandas@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}requests>=2.3.0:www/py-requests@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}requests-file>0:www/py-requests-file@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}requests-ftp>0:ftp/py-requests-ftp@${PY_FLAVOR} \
@@ -20,10 +22,12 @@ RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pandas>0.19.2:math/py-pandas@${PY_FLAVOR} \
 TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pytest>0:devel/py-pytest@${PY_FLAVOR}
 
 USES=		python
-USE_PYTHON=	autoplist distutils
+USE_GITHUB=	yes # github only for the dev version
+GH_ACCOUNT=	pydata
+USE_PYTHON=	distutils autoplist
 NO_ARCH=	yes
 
-do-test:
+do-test: # some testcases are known to fail: https://github.com/pydata/pandas-datareader/issues/500
 	@cd ${WRKSRC} && ${PYTHON_CMD} -m pytest pandas_datareader/tests
 
 .include <bsd.port.mk>

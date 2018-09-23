@@ -1,5 +1,5 @@
---- ./release/freedesktop/blender.desktop.orig	2013-01-01 21:00:15.888175742 +1030
-+++ ./release/freedesktop/blender.desktop	2013-01-01 21:00:20.163174939 +1030
+--- release/freedesktop/blender.desktop.orig	2013-01-01 21:00:15 UTC
++++ release/freedesktop/blender.desktop
 @@ -1,5 +1,5 @@
  [Desktop Entry]
 -Name=Blender

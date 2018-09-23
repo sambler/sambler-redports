@@ -14,7 +14,7 @@ COMMENT=	Python File Format Interface
 LICENSE=	BSD
 
 USES=		python:3.3+ zip
-USE_PYTHON=	autoplist distutils
+USE_PYTHON=	autoplist distutils concurrent
 NO_ARCH=	yes
 WRKSRC=		${WRKDIR}/PyFFI-${PORTVERSION}
 

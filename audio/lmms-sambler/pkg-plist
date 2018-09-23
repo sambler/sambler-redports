@@ -2848,6 +2848,7 @@ share/applications/lmms.desktop
 %%DATADIR%%/themes/default/chord.png
 %%DATADIR%%/themes/default/clock.png
 %%DATADIR%%/themes/default/close.png
+%%DATADIR%%/themes/default/closed_branch.png
 %%DATADIR%%/themes/default/colorize.png
 %%DATADIR%%/themes/default/combobox_arrow.png
 %%DATADIR%%/themes/default/combobox_arrow_selected.png
@@ -2955,6 +2956,7 @@ share/applications/lmms.desktop
 %%DATADIR%%/themes/default/note_tripletsixteenth.png
 %%DATADIR%%/themes/default/note_tripletthirtysecond.png
 %%DATADIR%%/themes/default/note_whole.png
+%%DATADIR%%/themes/default/open_branch.png
 %%DATADIR%%/themes/default/output_graph.png
 %%DATADIR%%/themes/default/pat_rec.png
 %%DATADIR%%/themes/default/pause.png

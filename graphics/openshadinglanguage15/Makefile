@@ -17,8 +17,8 @@ BROKEN=		Doesn't support boost 1.65
 BUILD_DEPENDS=	llvm-config34:devel/llvm34 \
 		clang34>=3.4_1:lang/clang34
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
-		libImath-2_2.so:graphics/ilmbase \
-		libIlmImf.so:graphics/OpenEXR \
+		libImath.so:graphics/ilmbase \
+		libIlmImf.so:graphics/openexr \
 		libOpenImageIO14.so:graphics/openimageio14
 RUN_DEPENDS=	llvm-config34:devel/llvm34
 

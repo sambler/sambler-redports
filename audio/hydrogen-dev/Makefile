@@ -4,7 +4,7 @@
 PORTNAME=	hydrogen
 PORTVERSION=	1.0.0
 CATEGORIES=	audio
-PKGNAMESUFFIX=	-devel
+PKGNAMESUFFIX=	-dev
 
 MAINTAINER=	FreeBSD@ShaneWare.Biz
 COMMENT=	Advanced drum machine
@@ -19,10 +19,10 @@ CONFLICTS=	hydrogen-0.*
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hydrogen-music
-GH_TAGNAME=	f0c59303c86b
+GH_TAGNAME=	969c42d7faad # 3/8
 
 USES=		cmake desktop-file-utils pkgconfig localbase qt:5
-USE_QT=		qmake buildtools core gui network widgets xml xmlpatterns
+USE_QT=		qmake buildtools core gui linguisttools network widgets xml xmlpatterns
 
 OPTIONS_SINGLE=		EXPORT
 OPTIONS_SINGLE_EXPORT=	LIBARCHIVE LIBTAR

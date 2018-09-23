@@ -15,8 +15,8 @@ LICENSE=	BSD3CLAUSE
 BUILD_DEPENDS=	llvm-config60:devel/llvm60
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		libtinfo.so:devel/ncurses \
-		libImath-2_2.so:graphics/ilmbase \
-		libIlmImf.so:graphics/OpenEXR \
+		libImath.so:graphics/ilmbase \
+		libIlmImf.so:graphics/openexr \
 		libOpenImageIO.so:graphics/openimageio \
 		libpugixml.so:textproc/pugixml
 RUN_DEPENDS=	llvm-config60:devel/llvm60

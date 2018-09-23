@@ -17,7 +17,8 @@ LICENSE=	GPLv2
 BUILD_DEPENDS=  ${LOCALBASE}/lib/libode.a:devel/ode
 LIB_DEPENDS=	libpng.so:graphics/png
 LIB_DEPENDS+=	libtiff.so:graphics/tiff
-LIB_DEPENDS+=	libIlmImf.so:graphics/OpenEXR
+LIB_DEPENDS+=	libHalf.so:graphics/ilmbase
+LIB_DEPENDS+=	libIlmImf.so:graphics/openexr
 LIB_DEPENDS+=	libavutil0.so:multimedia/ffmpeg0
 LIB_DEPENDS+=	libopenjpeg.so:graphics/openjpeg15
 LIB_DEPENDS+=	libfreetype.so:print/freetype2
@@ -38,14 +39,15 @@ LDFLAGS+=	-L${LOCALBASE}/lib -lX11 -lopenjpeg -lGLEW
 #CXXFLAGS+=	-I${LOCALBASE}/include/ffmpeg0
 #LDFLAGS+=	-L${LOCALBASE}/lib/ffmpeg0
 
-CMAKE_ARGS+=	-DWITH_BULLET:BOOL=ON -DWITH_DDS:BOOL=ON
+CMAKE_ARGS+=	-DWITH_BULLET:BOOL=OFF -DWITH_DDS:BOOL=ON
 CMAKE_ARGS+=	-DWITH_ELBEEM:BOOL=ON -DWITH_FFMPEG:BOOL=OFF
 CMAKE_ARGS+=	-DFREETYPE_INC:STRING=${LOCALBASE}/include/freetype2
-CMAKE_ARGS+=	-DWITH_GAMEENGINE:BOOL=ON
+CMAKE_ARGS+=	-DWITH_GAMEENGINE:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_KETSJI:BOOL=ON -DWITH_OPENAL:BOOL=ON
 CMAKE_ARGS+=	-DWITH_OPENEXR:BOOL=ON -DWITH_OPENJPEG:BOOL=ON
 CMAKE_ARGS+=	-DWITH_QUICKTIME:BOOL=OFF
 CMAKE_ARGS+=	-DWITH_VERSE:BOOL=OFF -DWITH_WEBPLUGIN:BOOL=OFF
+CFLAGS+=		-DDISABLE_YAFRAY=1
 
 SUB_FILES=	blender blenderplayer
 DOS2UNIX_FILES=	extern/bullet2/src/BulletSoftBody/btSoftBodyInternals.h \

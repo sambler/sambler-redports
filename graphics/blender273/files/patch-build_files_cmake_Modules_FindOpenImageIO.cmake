@@ -1,5 +1,5 @@
---- ./build_files/cmake/Modules/FindOpenImageIO.cmake.orig	2015-01-17 18:28:24.262351007 +1030
-+++ ./build_files/cmake/Modules/FindOpenImageIO.cmake	2015-01-17 18:28:46.060346994 +1030
+--- build_files/cmake/Modules/FindOpenImageIO.cmake.orig	2015-01-17 18:28:24 UTC
++++ build_files/cmake/Modules/FindOpenImageIO.cmake
 @@ -38,7 +38,7 @@
  
  FIND_PATH(OPENIMAGEIO_INCLUDE_DIR

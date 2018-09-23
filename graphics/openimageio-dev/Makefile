@@ -1,11 +1,11 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
 # $FreeBSD$
 
-PORTNAME=	openimageio_dev
-PORTVERSION=	1.9.3
+PORTNAME=	openimageio-dev
+PORTVERSION=	1.9.4
 DISTVERSIONPREFIX=	Release-
 DISTVERSIONSUFFIX=	dev
-PORTREVISION?=	0
+PORTREVISION=	0
 CATEGORIES?=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
@@ -16,6 +16,8 @@ LICENSE=	BSD3CLAUSE
 USE_GITHUB=	yes
 GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
+GH_TAGNAME=	a9a731c2298e # 2/9
+
 PORTSCOUT=	ignore:1
 
 # fbm also installs bin/idiff
@@ -23,7 +25,7 @@ CONFLICTS=	fbm-[0-9]*
 
 LIB_DEPENDS+=	libboost_thread.so:devel/boost-libs \
 		libImath.so:graphics/ilmbase \
-		libIlmImf.so:graphics/OpenEXR \
+		libIlmImf.so:graphics/openexr \
 		libpng16.so:graphics/png \
 		libtiff.so:graphics/tiff \
 		libwebp.so:graphics/webp \
@@ -105,13 +107,11 @@ CMAKE_ARGS+=	PYTHON_VERSION:STRING=${PYTHON_VER}
 .if ${SLAVE_PORT} == yes
 # we need to do this here to get PYTHON_MAJOR_VER
 # this is related to adding USES+=python in the first slave test
-.if ${PYTHON_MAJOR_VER} == 2
 do-install:
 	@${MKDIR} ${STAGEDIR}${PYTHON_SITELIBDIR}
+.if ${PYTHON_MAJOR_VER} == 2
 	${INSTALL_LIB} ${BUILD_WRKSRC}/src/python/OpenImageIO.so ${STAGEDIR}${PYTHON_SITELIBDIR}
 .else
-do-install:
-	@${MKDIR} ${STAGEDIR}${PYTHON_SITELIBDIR}
 	${INSTALL_LIB} ${BUILD_WRKSRC}/src/python3/OpenImageIO.so ${STAGEDIR}${PYTHON_SITELIBDIR}
 .endif
 .endif
@@ -122,10 +122,10 @@ post-patch:
 
 post-install:
 .if ${SLAVE_PORT} == no
-	${LN} -sf libOpenImageIO_dev.so.1.9 \
-		${STAGEDIR}${PREFIX}/lib/libOpenImageIO_dev.so.1
-	${LN} -sf libOpenImageIO_Util_dev.so.1.9 \
-		${STAGEDIR}${PREFIX}/lib/libOpenImageIO_Util_dev.so.1
+	${LN} -sf libOpenImageIO-dev.so.1.9 \
+		${STAGEDIR}${PREFIX}/lib/libOpenImageIO-dev.so.1
+	${LN} -sf libOpenImageIO_Util-dev.so.1.9 \
+		${STAGEDIR}${PREFIX}/lib/libOpenImageIO_Util-dev.so.1
 .endif
 
 do-test-TEST-on:
