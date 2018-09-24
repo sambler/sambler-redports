@@ -1,8 +1,0 @@
---- src/include/CMakeLists.txt.orig	2014-03-11 18:07:38 UTC
-+++ src/include/CMakeLists.txt
-@@ -5,4 +5,4 @@ message (STATUS "Create oslversion.h fro
- configure_file (oslversion.h.in "${CMAKE_BINARY_DIR}/include/oslversion.h" @ONLY)
- list (APPEND public_headers "${CMAKE_BINARY_DIR}/include/oslversion.h")
- 
--INSTALL ( FILES ${public_headers} DESTINATION include/OSL )
-+INSTALL ( FILES ${public_headers} DESTINATION include/OSL14 )
