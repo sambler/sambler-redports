@@ -1240,6 +1240,7 @@ share/applications/blender279.desktop
 %%DATADIR%%/scripts/addons/rigify/rot_mode.py
 %%DATADIR%%/scripts/addons/rigify/ui.py
 %%DATADIR%%/scripts/addons/rigify/utils.py
+%%DATADIR%%/scripts/addons/runscript_pyconsole.py
 %%DATADIR%%/scripts/addons/sequencer_kinoraw_tools/__init__.py
 %%DATADIR%%/scripts/addons/sequencer_kinoraw_tools/audio_tools.py
 %%DATADIR%%/scripts/addons/sequencer_kinoraw_tools/datamosh.py

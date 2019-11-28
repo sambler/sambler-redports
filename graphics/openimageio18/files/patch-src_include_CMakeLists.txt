@@ -1,0 +1,9 @@
+--- src/include/CMakeLists.txt.orig	2018-12-01 16:42:08 UTC
++++ src/include/CMakeLists.txt
+@@ -25,5 +25,5 @@ configure_file(OpenImageIO/oiioversion.h.in "${CMAKE_B
+ list(APPEND public_headers "${CMAKE_BINARY_DIR}/include/OpenImageIO/oiioversion.h")
+ 
+ install (FILES ${public_headers}
+-         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/OpenImageIO
++         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/OpenImageIO18
+          COMPONENT developer)

@@ -2,12 +2,12 @@
 # $FreeBSD$
 
 PORTNAME=	blender279
-PORTVERSION=	2.79b
-PORTREVISION=	4
+DISTVERSION=	2.79b
+PORTREVISION=	7
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
-DISTNAME=	blender-${PORTVERSION}
+DISTNAME=	blender-${DISTVERSION}
 
 MAINTAINER=	FreeBSD@Shaneware.biz
 COMMENT=	3D modeling/rendering/animation/gaming package
@@ -22,11 +22,13 @@ LIB_DEPENDS=	liblzo2.so:archivers/lzo2 \
 		libpcre.so:devel/pcre \
 		libyaml-cpp03.so:devel/yaml-cpp03 \
 		libOpenColorIO.so:graphics/opencolorio \
-		libOpenImageIO.so:graphics/openimageio \
+		libOpenImageIO18.so:graphics/openimageio18 \
 		libIlmImf.so:graphics/openexr \
 		libHalf.so:graphics/ilmbase \
 		libopenjpeg.so:graphics/openjpeg15 \
+		libopenvdb.so:misc/openvdb \
 		libpng.so:graphics/png \
+		libtbb.so:devel/tbb \
 		libtiff.so:graphics/tiff \
 		libfftw3.so:math/fftw3 \
 		libavutil.so:multimedia/ffmpeg \
@@ -35,11 +37,12 @@ LIB_DEPENDS=	liblzo2.so:archivers/lzo2 \
 RUN_DEPENDS=	${PYNUMPY} \
 		xdg-mime:devel/xdg-utils
 
-USES=		cmake:outsource compiler:c++11-lib shebangfix
-USES+=		python:3.5 desktop-file-utils openal:al,alut jpeg
+USES=		cmake compiler:c++11-lib gl shebangfix \
+		python:3.5 desktop-file-utils openal:al,alut jpeg
 USES+=		imake:noman
 LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
-VERS_TAG=	${PORTVERSION:C/[.abcd]//g}
+VERS_TAG=	${DISTVERSION:C/[.abcd]//g}
+LLVM_VER=	80
 PORTSCOUT=	ignore:1
 
 USE_SDL=	sdl2
@@ -47,6 +50,10 @@ USE_XORG=	x11 xext xfixes xmu xi xxf86vm xrender
 USE_GL=		gl glu glew
 USE_GNOME=	libxml2
 
+# Use LLVM linker where available
+.if exists(/usr/bin/ld.lld) && (${/usr/bin/ld:L:tA} != /usr/bin/ld.lld)
+LDFLAGS+=	-fuse-ld=lld
+.endif
 LDFLAGS+=	-L${LOCALBASE}/lib -lexecinfo
 
 CMAKE_ON=	WITH_BUILDINFO WITH_AUDASPACE WITH_BLENDER WITH_BULLET \
@@ -58,13 +65,14 @@ CMAKE_ON=	WITH_BUILDINFO WITH_AUDASPACE WITH_BLENDER WITH_BULLET \
 		WITH_LIBMV WITH_LZMA WITH_LZO WITH_MOD_BOOLEAN WITH_MOD_FLUID \
 		WITH_MOD_OCEANSIM WITH_MOD_REMESH WITH_MOD_SMOKE WITH_OPENAL \
 		WITH_OPENCOLORIO WITH_PYTHON WITH_RAYOPTIMIZATION WITH_SDL \
-		WITH_SYSTEM_GLEW WITH_SYSTEM_OPENJPEG WITH_X11_XF86VMODE \
-		WITH_X11_XINPUT
+		WITH_SYSTEM_GLEW WITH_OPENIMAGEIO WITH_SYSTEM_OPENJPEG \
+		WITH_OPENVDB WITH_OPENVDB_BLOSC WITH_X11_XF86VMODE WITH_X11_XINPUT
 CMAKE_OFF=	WITH_BOOST_ICU WITH_CYCLES_CUDA_BINARIES CYCLES_OPENCL_DEBUG \
 		WITH_CYCLES_LOGGING WITH_CYCLES_STANDALONE \
 		WITH_CYCLES_STANDALONE_GUI WITH_DOC_MANPAGE \
 		WITH_INSTALL_PORTABLE WITH_MEM_JEMALLOC WITH_GCC_MUDFLAP \
-		WITH_PYTHON_INSTALL WITH_PYTHON_MODULE WITH_PYTHON_SAFETY \
+		WITH_OPENVDB_3_ABI_COMPATIBLE WITH_PYTHON_INSTALL \
+		WITH_PYTHON_MODULE WITH_PYTHON_SAFETY \
 		WITH_PYTHON_INSTALL_REQUESTS WITH_PYTHON_INSTALL_NUMPY \
 		WITH_STATIC_LIBS WITH_SYSTEM_BULLET
 CMAKE_ARGS+=	-DFFMPEG:STRING="${LOCALBASE}"
@@ -79,7 +87,7 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 OPTIONS_DEFINE=		ALEMBIC ALEMBIC_HDF5 COLLADA CYCLES HEADLESS JACK \
 			MANPAGES NLS OPENMP OSD OSL PLAYER SECURITY
 OPTIONS_DEFAULT=	ALEMBIC ALEMBIC_HDF5 COLLADA CYCLES JACK NLS \
-			OSL PLAYER SECURITY
+			OPENMP OSD PLAYER SECURITY
 
 OPTIONS_SUB=	yes
 ALEMBIC_DESC=		Enable Alembic file support
@@ -127,10 +135,10 @@ OSD_LIB_DEPENDS=	libosdCPU.so:graphics/opensubdiv
 OSL_IMPLIES=		CYCLES
 OSL_CMAKE_BOOL=		WITH_CYCLES_OSL WITH_CXX11 WITH_LLVM
 OSL_CMAKE_ON=		-DLLVM_STATIC:BOOL=OFF \
-			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config40"
-OSL_BUILD_DEPENDS=	llvm-config40:devel/llvm40
+			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config${LLVM_VER}"
+OSL_BUILD_DEPENDS=	llvm-config${LLVM_VER}:devel/llvm${LLVM_VER}
 OSL_LIB_DEPENDS=	liboslcomp.so:graphics/openshadinglanguage
-OSL_RUN_DEPENDS=	llvm-config40:devel/llvm40
+OSL_RUN_DEPENDS=	llvm-config${LLVM_VER}:devel/llvm${LLVM_VER}
 
 PLAYER_CMAKE_BOOL=	WITH_PLAYER
 
@@ -141,6 +149,12 @@ post-patch:
 		${WRKSRC}/release/bin/blender-thumbnailer.py
 	${REINPLACE_CMD} -e 's|%%VERS_TAG%%|${VERS_TAG}|g' \
 		${WRKSRC}/release/freedesktop/blender.desktop
+	@${FIND} ${WRKSRC}/intern/cycles -name "*.cpp" -or -name "*.h" | \
+		${XARGS} ${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO18/|g'
+	@${REINPLACE_CMD} -e 's|pugixml.hpp|OpenImageIO18/pugixml.hpp|g' \
+		${WRKSRC}/intern/cycles/util/util_xml.h
+	@${REINPLACE_CMD} -e 's|OpenImageIO/|OpenImageIO18/|g' \
+		${WRKSRC}/source/blender/imbuf/intern/oiio/openimageio_api.cpp
 	${REINPLACE_CMD} -e 's|yaml-cpp|&03|' \
 		${PATCH_WRKSRC}/build_files/cmake/Modules/FindOpenColorIO.cmake
 
@@ -151,7 +165,7 @@ post-install:
 	${MV} ${STAGEDIR}/${PREFIX}/bin/blender-thumbnailer.py \
 		${STAGEDIR}/${PREFIX}/bin/blender-thumbnailer-${VERS_TAG}.py
 	${MKDIR} ${STAGEDIR}${DATADIR}
-	${MV} ${STAGEDIR}/${PREFIX}/share/blender/${PORTVERSION:C/[abcd]//g}/* ${STAGEDIR}${DATADIR}
+	${MV} ${STAGEDIR}/${PREFIX}/share/blender/${DISTVERSION:C/[abcd]//g}/* ${STAGEDIR}${DATADIR}
 	${RM} -R ${STAGEDIR}/${PREFIX}/share/blender
 	${INSTALL_DATA} ${WRKSRC}/release/freedesktop/icons/scalable/apps/blender.svg \
 		${STAGEDIR}/${PREFIX}/share/pixmaps/blender-${VERS_TAG}.svg

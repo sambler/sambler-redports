@@ -1,0 +1,11 @@
+--- src/fonts/CMakeLists.txt.orig	2019-08-01 23:59:10 UTC
++++ src/fonts/CMakeLists.txt
+@@ -2,7 +2,7 @@ file (GLOB public_fonts "*/*.ttf")
+ 
+ if (INSTALL_FONTS AND USE_FREETYPE)
+     install (FILES ${public_fonts}
+-             DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/fonts/OpenImageIO
++             DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/fonts/OpenImageIO18
+              COMPONENT fonts)
+ endif ()
+ 

@@ -1,0 +1,12 @@
+--- src/maketx/CMakeLists.txt.orig	2019-08-01 21:47:51 UTC
++++ src/maketx/CMakeLists.txt
+@@ -1,5 +1,5 @@
+ set (maketx_srcs maketx.cpp)
+-add_executable (maketx ${maketx_srcs})
+-set_target_properties (maketx PROPERTIES FOLDER "Tools")
+-target_link_libraries (maketx OpenImageIO ${SANITIZE_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-oiio_install_targets (maketx)
++add_executable (maketx18 ${maketx_srcs})
++set_target_properties (maketx18 PROPERTIES FOLDER "Tools")
++target_link_libraries (maketx18 OpenImageIO18 ${SANITIZE_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++oiio_install_targets (maketx18)

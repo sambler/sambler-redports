@@ -1,0 +1,40 @@
+--- src/python/CMakeLists.txt.orig	2018-12-01 16:42:08 UTC
++++ src/python/CMakeLists.txt
+@@ -43,7 +43,7 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+     add_definitions ("-Wno-array-bounds")
+ endif ()
+ 
+-set (target_name PyOpenImageIO)
++set (target_name PyOpenImageIO18)
+ 
+ # Test if automatically found or manually set with BOOST_CUSTOM
+ if (DEFINED Boost_PYTHON_LIBRARIES)
+@@ -69,22 +69,22 @@ if (DEFINED Boost_PYTHON_LIBRARIES)
+     include_directories (${PYTHON_INCLUDE_PATH} ${Boost_INCLUDE_DIRS})
+     add_library (${target_name} MODULE ${python_srcs})
+     if (APPLE)
+-        target_link_libraries (${target_name} OpenImageIO ${Boost_LIBRARIES} ${Boost_PYTHON_LIBRARIES} ${CMAKE_DL_LIBS})
++        target_link_libraries (${target_name} OpenImageIO18 ${Boost_LIBRARIES} ${Boost_PYTHON_LIBRARIES} ${CMAKE_DL_LIBS})
+         set_target_properties (${target_name} PROPERTIES LINK_FLAGS "-undefined dynamic_lookup")
+     else ()
+-        target_link_libraries (${target_name} OpenImageIO ${SANITIZE_LIBRARIES} ${Boost_LIBRARIES} ${Boost_PYTHON_LIBRARIES} ${PYTHON_LIBRARIES} ${CMAKE_DL_LIBS})
++        target_link_libraries (${target_name} OpenImageIO18 ${SANITIZE_LIBRARIES} ${Boost_LIBRARIES} ${Boost_PYTHON_LIBRARIES} ${PYTHON_LIBRARIES} ${CMAKE_DL_LIBS})
+     endif ()
+ 
+     # Exclude the 'lib' prefix from the name
+     if(NOT PYLIB_LIB_PREFIX)
+-        add_definitions("-DOIIO_PYMODULE_NAME=OpenImageIO")
++        add_definitions("-DOIIO_PYMODULE_NAME=OpenImageIO18")
+         set_target_properties (${target_name} PROPERTIES
+-                                 OUTPUT_NAME OpenImageIO
++                                 OUTPUT_NAME OpenImageIO18
+                                  PREFIX "")
+     else()
+-        add_definitions("-DOIIO_PYMODULE_NAME=PyOpenImageIO")
++        add_definitions("-DOIIO_PYMODULE_NAME=PyOpenImageIO18")
+         set_target_properties (${target_name} PROPERTIES
+-                                 OUTPUT_NAME PyOpenImageIO
++                                 OUTPUT_NAME PyOpenImageIO18
+                                  PREFIX lib)
+     endif ()
+ 

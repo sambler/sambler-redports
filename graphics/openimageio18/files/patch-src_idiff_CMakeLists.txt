@@ -1,0 +1,12 @@
+--- src/idiff/CMakeLists.txt.orig	2018-12-01 16:42:08 UTC
++++ src/idiff/CMakeLists.txt
+@@ -1,5 +1,5 @@
+ set (idiff_srcs idiff.cpp)
+-add_executable (idiff ${idiff_srcs})
+-set_target_properties (idiff PROPERTIES FOLDER "Tools")
+-target_link_libraries (idiff OpenImageIO ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
+-oiio_install_targets (idiff)
++add_executable (idiff18 ${idiff_srcs})
++set_target_properties (idiff18 PROPERTIES FOLDER "Tools")
++target_link_libraries (idiff18 OpenImageIO18 ${Boost_LIBRARIES} ${CMAKE_DL_LIBS})
++oiio_install_targets (idiff18)
