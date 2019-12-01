@@ -1,0 +1,11 @@
+--- source/blenderplayer/CMakeLists.txt.orig	2019-11-30 16:46:48 UTC
++++ source/blenderplayer/CMakeLists.txt
+@@ -294,7 +294,7 @@ set(BLENDER_SORTED_LIBS
+   bf_intern_libmv
+ )
+ 
+-if(UNIX AND NOT WIN32)
++if(WITH_BINRELOC)
+   list(APPEND BLENDER_SORTED_LIBS extern_binreloc)
+ endif()
+ 

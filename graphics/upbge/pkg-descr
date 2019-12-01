@@ -1,0 +1,9 @@
+upbge is a fork of blender that includes a game engine.
+
+This port is based on the upbge0.3 branch which follows blender master.
+
+Note that the DRACO option conflicts with blender, only one port
+can have it enabled, although enabling one allows both to use
+draco compression.
+
+WWW: https://github.com/UPBGE/upbge
