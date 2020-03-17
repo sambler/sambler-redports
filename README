@@ -1,6 +1,3 @@
-This is my redports repository. 
-https://svn.redports.org/sambler
+This is my redports repository. The name comes from an old FreeBSD project to help port maintainers test their port changes.
 
 It includes official FreeBSD ports that I maintain as well as some extras that aren't official but may be of interest to some.
-
-
