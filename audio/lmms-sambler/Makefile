@@ -2,9 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	lmms-sambler
-PORTVERSION=	1.2.0
-DISTVERSIONPREFIX= v
-DISTVERSIONSUFFIX= -rc6
+PORTVERSION=	1.2.1
+DISTVERSIONPREFIX=	v
 CATEGORIES=	audio
 MASTER_SITES=	GH
 
@@ -15,7 +14,8 @@ LICENSE=	GPLv2
 
 BUILD_DEPENDS=	${LOCALBASE}/include/ladspa.h:audio/ladspa \
 		${LOCALBASE}/lib/carla/libcarla_standalone2.so:audio/carla \
-		kf5-extra-cmake-modules>0:devel/kf5-extra-cmake-modules
+		kf5-extra-cmake-modules>0:devel/kf5-extra-cmake-modules \
+		bash:shells/bash
 LIB_DEPENDS=	libFLAC.so:audio/flac \
 		libfluidsynth.so:audio/fluidsynth \
 		libfontconfig.so:x11-fonts/fontconfig \
@@ -27,13 +27,14 @@ LIB_DEPENDS=	libFLAC.so:audio/flac \
 		libpulse.so:audio/pulseaudio \
 		libsamplerate.so:audio/libsamplerate \
 		libsndfile.so:audio/libsndfile \
+		libsndio.so:audio/sndio \
 		libstk.so:audio/stk \
 		libvorbis.so:audio/libvorbis \
 		libfftw3.so:math/fftw3 \
 		libfftw3f.so:math/fftw3-float \
 		libfltk.so:x11-toolkits/fltk
 RUN_DEPENDS=	${LOCALBASE}/share/ladspa/rdf/caps.rdf:audio/caps-plugins \
-		${LOCALBASE}/lib/carla/libcarla_standalone2.so:audio/carla \
+		${LOCALBASE}/lib/carla/libcarla_native-plugin.so:audio/carla \
 		${LOCALBASE}/lib/ladspa/cmt.so:audio/cmt \
 		${LOCALBASE}/share/ladspa/rdf/swh-plugins.rdf:audio/swhplugins \
 		${LOCALBASE}/share/ladspa/rdf/tap-plugins.rdf:audio/tap-plugins
@@ -48,35 +49,24 @@ USE_SDL=	sdl
 USE_QT=		buildtools core gui linguisttools xml qmake widgets x11extras
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	lmms \
-		Lukas-W:qt5embed \
-		rampantpixels:rpmal
-GH_PROJECT=	lmms \
-		qt5-x11embed:qt5embed \
-		rpmalloc:rpmal
-GH_TAGNAME=	022b39a1d496:qt5embed \
-		2e0479192b8d:rpmal
+GH_ACCOUNT=	LMMS
+GH_PROJECT=	lmms
+GH_TUPLE=	mjansson:rpmalloc:1.4.0:rpmalloc/src/3rdparty/rpmalloc/rpmalloc \
+		lukas-w:qt5-x11embed:ec77d4ba40be:qt5x11embed/src/3rdparty/qt5-x11embed
 
 CMAKE_ON=	WANT_CALF WANT_CAPS WANT_CARLA WANT_CMT WANT_GIG \
 		WANT_JACK WANT_MP3LAME WANT_OGGVORBIS \
 		WANT_PULSEAUDIO WANT_PORTAUDIO WANT_QT5 WANT_SDL \
-		WANT_SF2 WANT_STK WANT_SWH WANT_TAP 
+		WANT_SF2 WANT_STK WANT_SWH WANT_TAP
 CMAKE_OFF=	WANT_ALSA WANT_SOUNDIO  WANT_VST WANT_VST_NOWINE WANT_WEAKJACK WANT_WINMM
 
 DATADIR=	${LOCALBASE}/share/lmms
 
-post-extract:
-# qt5-x11embed
-	@${MV} ${WRKSRC_qt5embed}/* ${WRKSRC}/src/3rdparty/qt5-x11embed
-# rpmalloc
-	@${MV} ${WRKSRC_rpmal}/* ${WRKSRC}/src/3rdparty/rpmalloc/rpmalloc
-
 post-patch:
-	@${REINPLACE_CMD} -e \
-		's|/usr|${PREFIX}|g' ${WRKSRC}/src/core/ConfigManager.cpp
-	@${REINPLACE_CMD} -e \
-		'/\/usr\/lib/d ; \
-		 s|/usr/local|${PREFIX}|g' ${WRKSRC}/src/core/LadspaManager.cpp
+	@${REINPLACE_CMD} -e 's|/usr|${PREFIX}|g' \
+		${WRKSRC}/src/core/ConfigManager.cpp
+	@${REINPLACE_CMD} -e '/\/usr\/lib/d ; s|/usr/local|${PREFIX}|g'  \
+		${WRKSRC}/src/core/LadspaManager.cpp
 
 post-install:
 	@${LN} -sf ${DATADIR}/themes/default/icon.png \

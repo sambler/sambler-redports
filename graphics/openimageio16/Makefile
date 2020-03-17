@@ -27,20 +27,21 @@ LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		libtiff.so:graphics/tiff \
 		libwebp.so:graphics/webp \
 		libhdf5.so:science/hdf5
-USES=		cmake:outsource compiler:c11 jpeg
+USES=		cmake compiler:c11 jpeg
 USE_LDCONFIG=	yes
 CMAKE_ON=	OIIO_BUILD_TOOLS
 CMAKE_OFF=	BUILDSTATIC LINKSTATIC NOTHREADS STOP_ON_WARNING \
 		OIIO_BUILD_CPP11 OIIO_BUILD_CPP14 USE_OPENSSL \
 		USE_PYTHON USE_PYTHON3
 
-OPTIONS_DEFINE=		DOCS FFMPEG FREETYPE GIF IMAGEVIEWER OCIO OPENCV \
+OPTIONS_DEFINE=		DOCS FFMPEG FREETYPE GIF OCIO OPENCV \
 			OPENJPEG RAW TEST
+#IMAGEVIEWER
 OPTIONS_DEFAULT=	FREETYPE GIF OCIO OPENJPEG
 OPTIONS_SUB=		yes
 
 FFMPEG_DESC=		Use FFmpeg to support extra file types
-IMAGEVIEWER_DESC=	Build image viewer (requires Qt)
+#IMAGEVIEWER_DESC=	Build image viewer (requires Qt)
 OCIO_DESC=		Color management support
 
 DOCS_CMAKE_BOOL=	INSTALL_DOCS
@@ -55,10 +56,10 @@ FREETYPE_LIB_DEPENDS=	libfreetype.so:print/freetype2
 GIF_CMAKE_BOOL=		USE_GIF
 GIF_LIB_DEPENDS=	libgif.so:graphics/giflib
 
-IMAGEVIEWER_CMAKE_BOOL=	USE_QT USE_OPENGL
-IMAGEVIEWER_USES=	qt:4
-IMAGEVIEWER_USE=	GL=gl,glu,glew \
-			QT=corelib,gui,opengl,qmake_build,moc_build,rcc_build,uic_build
+#IMAGEVIEWER_CMAKE_BOOL=	USE_QT USE_OPENGL
+#IMAGEVIEWER_USES=	qt:4
+#IMAGEVIEWER_USE=	GL=gl,glu,glew \
+#			QT=corelib,gui,opengl,qmake_build,moc_build,rcc_build,uic_build
 
 OCIO_CMAKE_BOOL=	USE_OCIO
 OCIO_LIB_DEPENDS=	libOpenColorIO.so:graphics/opencolorio

@@ -1,0 +1,20 @@
+--- internal/gumbo/CMakeLists.txt.orig	2019-09-28 02:58:32 UTC
++++ internal/gumbo/CMakeLists.txt
+@@ -9,7 +9,7 @@
+ 
+ cmake_minimum_required( VERSION 3.0 ) 
+ 
+-project( sigilgumbo C )
++project( sigilgumbo-sambler C )
+ 
+ set( GUMBO_LIBRARIES ${PROJECT_NAME} CACHE INTERNAL "" )
+ set( GUMBO_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR} CACHE INTERNAL "" )
+@@ -25,7 +25,7 @@ if ( MSVC )
+      set( SOURCES ${SOURCES} include/gumbo_windll.def)
+ endif()
+ 
+-add_library( sigilgumbo SHARED ${SOURCES} ) 
++add_library( sigilgumbo-sambler SHARED ${SOURCES} ) 
+ 
+ # Special compiler and linker flags for MSVC
+ if( MSVC )

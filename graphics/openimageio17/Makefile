@@ -28,7 +28,7 @@ GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
 PORTSCOUT=	ignore:1
 
-USES=		cmake:outsource jpeg compiler:c++11-lib
+USES=		cmake jpeg compiler:c++11-lib
 USE_LDCONFIG=	yes
 CAKE_ON=	OIIO_BUILD_TOOLS
 CMAKE_OFF=	BUILDSTATIC LINKSTATIC NOTHREADS STOP_ON_WARNING \

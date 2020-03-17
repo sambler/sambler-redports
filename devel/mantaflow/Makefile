@@ -2,60 +2,62 @@
 # $FreeBSD$
 
 PORTNAME=	mantaflow
-PORTVERSION=	0.6
+PORTVERSION=	0.12
 CATEGORIES=	devel math
 MASTER_SITES=	http://mantaflow.com/download/
-DISTFILES=	manta-src-0.6.tar
+DISTNAME=	manta-src-0.12
 
 MAINTAINER=	FreeBSD@Shaneware.biz
-COMMENT=	A framework targeted at fluid simulation research
+COMMENT=	Framework targeted at fluid simulation research
 
 LICENSE=	GPLv3
 
-USES=		cmake:outsource shebangfix dos2unix python:3.4 qt:4
-USE_QT=	corelib gui opengl qmake_build moc_build rcc_build uic_build
-SHEBANG_FILES=	tools/makeHgVersion.py
-DOS2UNIX_FILES=	CMakeLists.txt
-WRKSRC=		${WRKDIR}/${PORTNAME}
-CMAKE_ARGS=	-DCUDA:BOOL=OFF -DDOUBLEPRECISION:BOOL=OFF -DGUI:BOOL=ON
-CMAKE_ARGS+=	-DPYTHON_INCLUDE_DIR:STRING=${PYTHON_INCLUDEDIR}
-CMAKE_ARGS+=	-DPYTHON_LIBRARY:STRING=${PYTHONBASE}/lib/libpython3.4m.so
-CXXFLAGS+=	-I${LOCALBASE}/include
+USES=		cmake gl python:3.6
+USE_GL=		gl glu
 
-OPTIONS_DEFINE=	DOCS
+WRKSRC=		${WRKDIR}/manta_0_12
+
+CMAKE_OFF=	OPENVDB
+
+OPTIONS_DEFINE=	DBLPRES GUI NUMPY
 OPTIONS_RADIO=	PARALLEL
 OPTIONS_RADIO_PARALLEL=	OPENMP TBB
-OPTIONS_DEFAULT= DOCS TBB
+OPTIONS_DEFAULT= GUI NUMPY TBB
 
 OPTIONS_SUB=	yes
+DBLPRES_DESC=	Enable double precision (experimental)
+GUI_DESC=	Build Qt GUI
 PARALLEL_DESC=	Parallel Processing
-TBB_DESC=		Parallel processing support via Intels TBB
+TBB_DESC=	Parallel processing support via Intels TBB
 
-DOCS_BUILD_DEPENDS=	doxygen:devel/doxygen
+DBLPRES_CMAKE_BOOL=	DOUBLEPRECISION
 
-OPENMP_CMAKE_ON=	-DOPENMP:BOOL=ON
-OPENMP_CMAKE_OFF=	-DOPENMP:BOOL=OFF
+GUI_CMAKE_BOOL=		GUI
+GUI_USES=		qt:5
+GUI_USE=		QT=buildtools,core,gui,opengl,qmake_build,widgets
+
+OPENMP_CMAKE_BOOL=	OPENMP
 OPENMP_USES=		compiler:openmp
 
-TBB_CMAKE_ON=		-DTBB:BOOL=ON
-TBB_CMAKE_OFF=		-DTBB:BOOL=OFF
+NUMPY_CMAKE_BOOL=	NUMPY
+NUMPY_BUILD_DEPENDS=	${PYNUMPY}
+NUMPY_RUN_DEPENDS=	${PYNUMPY}
+
+TBB_CMAKE_BOOL=		TBB
 TBB_LIB_DEPENDS=	libtbb.so:devel/tbb
-TBB_LDFLAGS=		-L${LOCALBASE}/lib
+TBB_USES=		localbase:ldflags
 
 PLIST_FILES=		bin/manta
 
 .include <bsd.port.pre.mk>
 
-.if ${ARCH} != amd64
-# should this test include other 64bit arches?
-CMAKE_ARGS+= -DUSE64:BOOL=OFF
-.endif
+CMAKE_ARGS+=	-DPYTHON_VERSION=${PYTHON_VER}
 
 post-patch:
 	${FIND} ${WRKSRC} -name "\._*" -delete
 
 do-install:
-	@${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/manta \
+	${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/manta \
 		${STAGEDIR}/${PREFIX}/bin/
 
 .include <bsd.port.post.mk>

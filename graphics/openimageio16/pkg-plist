@@ -2,7 +2,7 @@ bin/iconvert16
 bin/idiff16
 bin/igrep16
 bin/iinfo16
-%%IMAGEVIEWER%%bin/iv16
+@comment %%IMAGEVIEWER%%bin/iv16
 bin/maketx16
 bin/oiiotool16
 include/OpenImageIO16/argparse.h

@@ -1,7 +1,7 @@
-TIMESTAMP = 1575095786
-SHA256 (upbge/UPBGE-upbge-0.3-8fecba4e7005_GH0.tar.gz) = d30d1b132947c22316389f145a5748a7589f4f56eda3ad11b741474b93bf3783
-SIZE (upbge/UPBGE-upbge-0.3-8fecba4e7005_GH0.tar.gz) = 42201360
-SHA256 (upbge/UPBGE-blender-addons-067f2678fdc3_GH0.tar.gz) = c3aeb70bd8466cc494aaa866f21a897b5b49af75c2430fe146124b49662d2d01
-SIZE (upbge/UPBGE-blender-addons-067f2678fdc3_GH0.tar.gz) = 4394818
+TIMESTAMP = 1583035950
+SHA256 (upbge/UPBGE-upbge-0.3.p2-3b3c8b573a71_GH0.tar.gz) = 24b55d391103dea59d17ed533896f1c5b0664eb04d2da7bba88f0a554aed4ef5
+SIZE (upbge/UPBGE-upbge-0.3.p2-3b3c8b573a71_GH0.tar.gz) = 42434459
+SHA256 (upbge/UPBGE-blender-addons-d504a09ab5ea_GH0.tar.gz) = 67c9195b8c7be2bda0f68abf2dd3444c307d66e3374ce0d798c81a6af4b3bca8
+SIZE (upbge/UPBGE-blender-addons-d504a09ab5ea_GH0.tar.gz) = 4514231
 SHA256 (upbge/sambler-myblendertranslations-43b41e74d8d7_GH0.tar.gz) = 6b0a39383b51284a3f192cd2e5f2f1e462aca09f945b0fb71fce65a40e44f334
 SIZE (upbge/sambler-myblendertranslations-43b41e74d8d7_GH0.tar.gz) = 16662802

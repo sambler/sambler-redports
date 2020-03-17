@@ -31,18 +31,19 @@ GH_ACCOUNT=	OpenImageIO
 GH_PROJECT=	oiio
 PORTSCOUT=	ignore:1
 
-USES=		cmake:outsource compiler:c++11-lib jpeg
+USES=		cmake compiler:c++11-lib jpeg
 CMAKE_ON=	OIIO_BUILD_TOOLS
 CMAKE_OFF=	BUILDSTATIC LINKSTATIC NOTHREADS STOP_ON_WARNING \
 		USE_OPENCV USE_OPENSSL USE_PYTHON
 USE_LDCONFIG=	yes
 
-OPTIONS_DEFINE=		DOCS GIF IMAGEVIEWER OCIO RAW TEST
+OPTIONS_DEFINE=		DOCS GIF OCIO RAW TEST
+#IMAGEVIEWER
 OPTIONS_DEFAULT=	OCIO GIF
 OPTIONS_SUB=		yes
 
 GIF_DESC=		Use libgif
-IMAGEVIEWER_DESC=	Build image viewer
+#IMAGEVIEWER_DESC=	Build image viewer
 OCIO_DESC=		Colour management support
 RAW_DESC=		Use libraw
 
@@ -51,10 +52,10 @@ DOCS_CMAKE_BOOL=	INSTALL_DOCS
 GIF_CMAKE_BOOL=		USE_GIF
 GIF_LIB_DEPENDS=	libgif.so:graphics/giflib
 
-IMAGEVIEWER_CMAKE_BOOL=	USE_QT USE_OPENGL
-IMAGEVIEWER_USES=	qt:4
-IMAGEVIEWER_USE=	GL=gl,glu,glew \
-			QT=corelib,gui,opengl,qmake_build,moc_build,rcc_build,uic_build
+#IMAGEVIEWER_CMAKE_BOOL=	USE_QT USE_OPENGL
+#IMAGEVIEWER_USES=	qt:4
+#IMAGEVIEWER_USE=	GL=gl,glu,glew \
+#			QT=corelib,gui,opengl,qmake_build,moc_build,rcc_build,uic_build
 
 OCIO_CMAKE_BOOL=	USE_OCIO
 OCIO_LIB_DEPENDS=	libOpenColorIO.so:graphics/opencolorio

@@ -32,8 +32,8 @@ LIB_DEPENDS=	libsamplerate.so:audio/libsamplerate \
 		libpcre.so:devel/pcre
 RUN_DEPENDS=	xdg-mime:devel/xdg-utils
 
-USES=		cmake:outsource compiler:c++11-lib shebangfix
-USES+=		python:3.4 desktop-file-utils openal:al,alut jpeg
+USES=		cmake:outsource compiler:c++11-lib shebangfix \
+			python:3.4 desktop-file-utils openal:al,alut jpeg
 WRKSRC=		${WRKDIR}/blender-${PORTVERSION}
 LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
 VERS_TAG=	272
@@ -85,7 +85,6 @@ SECURITY_DESC=	Disable scripts auto-run
 PLAYER_DESC=	Build blender player
 JACK_DESC=	Audio support using JackAudio
 NLS_DESC=	Include translations
-#OSL_DESC=	OSL shading support
 
 COLLADA_CMAKE_BOOL=	WITH_OPENCOLLADA
 COLLADA_LIB_DEPENDS=	libOpenCOLLADABaseUtils.so:graphics/opencollada
@@ -103,12 +102,6 @@ NLS_USES=		gettext iconv:lib,wchar_t
 NLS_LDFLAGS=		-L${LOCALBASE}/lib -lintl
 
 OPENMP_CMAKE_BOOL=	WITH_OPENMP
-
-#OSL_CMAKE_BOOL=		WITH_CYCLES_OSL WITH_LLVM
-#OSL_CMAKE_ON=		-DLLVM_STATIC:BOOL=OFF \
-#			-DLLVM_VERSION:STRING="3.4" \
-#			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config34"
-#OSL_LIB_DEPENDS=	liboslcomp15.so:graphics/openshadinglanguage15
 
 PLAYER_CMAKE_BOOL=	WITH_PLAYER
 

@@ -1,0 +1,18 @@
+--- src/Resource_Files/bash/sigil-sh_install.orig	2019-09-29 04:15:55 UTC
++++ src/Resource_Files/bash/sigil-sh_install
+@@ -4,7 +4,7 @@
+ # Adds linked Qt's lib directory to the LD_LIBRARY_PATH
+ 
+ QTLIB_DIR="${QT_LIBRARY_DIR}"
+-SIGIL_BIN_DIR="${CMAKE_INSTALL_FULL_LIBDIR}/sigil"
++SIGIL_BIN_DIR="${CMAKE_INSTALL_FULL_LIBDIR}/sigil-sambler"
+ 
+ if [ -z "$LD_LIBRARY_PATH" ]; then
+   LD_LIBRARY_PATH="$SIGIL_BIN_DIR:$QTLIB_DIR"
+@@ -26,5 +26,5 @@ fi
+ 
+ export LD_LIBRARY_PATH
+ 
+-exec ${CMAKE_INSTALL_FULL_LIBDIR}/sigil/sigil "$@"
++exec ${CMAKE_INSTALL_FULL_LIBDIR}/sigil-sambler/sigil-sambler "$@"
+ 

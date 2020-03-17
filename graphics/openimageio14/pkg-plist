@@ -2,7 +2,7 @@ bin/iconvert14
 bin/idiff14
 bin/igrep14
 bin/iinfo14
-%%IMAGEVIEWER%%bin/iv14
+@comment %%IMAGEVIEWER%%bin/iv14
 bin/maketx14
 bin/oiiotool14
 include/OpenImageIO14/argparse.h

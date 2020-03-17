@@ -1,7 +1,7 @@
-TIMESTAMP = 1533491101
-SHA256 (lmms-lmms-v1.2.0-rc6_GH0.tar.gz) = 2476371cff5f77412dbb4bb3e741ffe7c62b3ebab52d83379bf7d18860de0a9f
-SIZE (lmms-lmms-v1.2.0-rc6_GH0.tar.gz) = 16622123
-SHA256 (Lukas-W-qt5-x11embed-022b39a1d496_GH0.tar.gz) = cad5fe4c9504a92257e0f58337a700fe9d48771d76d3af626b4fc3a5cab54385
-SIZE (Lukas-W-qt5-x11embed-022b39a1d496_GH0.tar.gz) = 32327
-SHA256 (rampantpixels-rpmalloc-2e0479192b8d_GH0.tar.gz) = 1db6bd7c8f9118314c4f421ca9623546175d9844be38d541dc475ba4447aa8eb
-SIZE (rampantpixels-rpmalloc-2e0479192b8d_GH0.tar.gz) = 52422
+TIMESTAMP = 1571728045
+SHA256 (LMMS-lmms-v1.2.1_GH0.tar.gz) = e95e87dbc22b796376c240e0762e5a27346af22170b4690c7ee44da2436e6055
+SIZE (LMMS-lmms-v1.2.1_GH0.tar.gz) = 16497672
+SHA256 (mjansson-rpmalloc-1.4.0_GH0.tar.gz) = c5b63c40253d7f048d4489a6fa78e7a0c77d90037018c712df3bf68c033888a8
+SIZE (mjansson-rpmalloc-1.4.0_GH0.tar.gz) = 71692
+SHA256 (lukas-w-qt5-x11embed-ec77d4ba40be_GH0.tar.gz) = ac83b22f8583631171b9ffcc5c901ee7e49041252432cdadbf1e624e417e9dc8
+SIZE (lukas-w-qt5-x11embed-ec77d4ba40be_GH0.tar.gz) = 32087

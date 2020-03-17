@@ -12,24 +12,25 @@ COMMENT=	Advanced shading language for production GI renderers
 
 LICENSE=	BSD3CLAUSE
 
-BUILD_DEPENDS=	llvm-config35:devel/llvm35 \
-		clang35>=3.5:lang/clang35
+LLVM_VER=	35
+BUILD_DEPENDS=	llvm-config${LLVM_VER}:devel/llvm${LLVM_VER} \
+		clang${LLVM_VER}>=3.5:lang/clang${LLVM_VER}
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		libImath.so:graphics/ilmbase \
 		libIlmImf.so:graphics/openexr \
 		libOpenImageIO16.so:graphics/openimageio16
-RUN_DEPENDS=	llvm-config35:devel/llvm35
+RUN_DEPENDS=	llvm-config${LLVM_VER}:devel/llvm${LLVM_VER}
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	imageworks
 GH_PROJECT=	OpenShadingLanguage
 PORTSCOUT=	ignore:1
 
-CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config35" \
+CMAKE_ARGS=	-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config${LLVM_VER}" \
 		-DENABLERTTI:BOOL=ON -DOSL_BUILD_CPP11:BOOL=ON \
 		-DOSL_BUILD_LIBCPLUSPLUS:BOOL=ON
 USE_LDCONFIG=	yes
-USES=		bison cmake:outsource compiler:c++11-lang
+USES=		bison cmake compiler:c++11-lang
 
 .include <bsd.port.options.mk>
 

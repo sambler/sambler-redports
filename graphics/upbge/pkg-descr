@@ -6,4 +6,4 @@ Note that the DRACO option conflicts with blender, only one port
 can have it enabled, although enabling one allows both to use
 draco compression.
 
-WWW: https://github.com/UPBGE/upbge
+WWW: https://upbge.org

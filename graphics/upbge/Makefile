@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	upbge
-DISTVERSION=	0.3
+DISTVERSION=	0.3.p2
 PORTREVISION=	0
 CATEGORIES=	graphics multimedia games
 DIST_SUBDIR=	${PORTNAME}
@@ -26,15 +26,10 @@ USE_XORG=	x11 xext xfixes xmu xinerama xrender
 USE_GL=		gl glu glew
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	UPBGE \
-		UPBGE:addons \
-		sambler:trans
-GH_PROJECT=	upbge \
-		blender-addons:addons \
-		myblendertranslations:trans
-GH_TAGNAME=	8fecba4e7005 \
-		067f2678fdc3:addons \
-		43b41e74d8d7:trans
+GH_ACCOUNT=	UPBGE
+GH_TAGNAME=	3b3c8b573a71
+GH_TUPLE=	UPBGE:blender-addons:d504a09ab5ea:addons/release/scripts/addons \
+		sambler:myblendertranslations:43b41e74d8d7:trans/release/datafiles/locale
 
 INSTALLS_ICONS=	yes
 CMAKE_OFF=	WITH_BINRELOC WITH_CYCLES_LOGGING WITH_CYCLES_DEVICE_CUDA \
@@ -56,7 +51,7 @@ LDFLAGS+=	-fuse-ld=lld
 # version without trailing update letters
 VERDIR=		${DISTVERSION:C/[abcdef]//g}
 PLIST_SUB+=	VER=${VERDIR}
-LLVM_VER=	80
+LLVM_VER=	90
 OPTIONS_SUB=	yes
 
 .include "${.CURDIR}/Makefile.options"
@@ -96,12 +91,14 @@ CYCLESOSL_LIB_DEPENDS=		liboslcomp.so:graphics/openshadinglanguage
 CYCLESOSL_RUN_DEPENDS=		llvm-config${LLVM_VER}:devel/llvm${LLVM_VER}
 DDS_CMAKE_BOOL=			WITH_IMAGE_DDS
 DRACO_CMAKE_BOOL=		WITH_DRACO
+DRACO_USE=			LDCONFIG=${PYTHON_SITELIBDIR}
 FFMPEG_CMAKE_BOOL=		WITH_CODEC_FFMPEG
 FFMPEG_LIB_DEPENDS=		libavutil.so:multimedia/ffmpeg
 FFTW3_CMAKE_BOOL=		WITH_FFTW3
 FFTW3_LIB_DEPENDS=		libfftw3.so:math/fftw3
 FRAMESERVER_CMAKE_BOOL=		WITH_IMAGE_FRAMESERVER
 FREESTYLE_CMAKE_BOOL=		WITH_FREESTYLE
+GAMEENGINE_CMAKE_BOOL=		WITH_GAMEENGINE
 HDR_CMAKE_BOOL=			WITH_IMAGE_HDR
 HEADLESS_PREVENTS=		MENU XINPUT XF86VMODE
 HEADLESS_PREVENTS_MSG=		X11 options can't be used in headless mode
@@ -150,6 +147,7 @@ OPENVDB_LIB_DEPENDS=		libblosc.so:archivers/c-blosc \
 PLAYER_REQUIRES=		GAMEENGINE
 PLAYER_CMAKE_BOOL=		WITH_PLAYER
 PLAYER_SUB_FILES=		upbgeplayer
+PYSECURITY_CMAKE_BOOL=		WITH_PYTHON_SECURITY
 RAYOPTIMIZATION_CMAKE_BOOL=	WITH_RAYOPTIMIZATION
 SDL_CMAKE_BOOL=			WITH_SDL
 SDL_USE=			SDL=sdl2
@@ -168,12 +166,6 @@ XF86VMODE_USE=			XORG=xi,xxf86vm
 .if defined(WITH_DEBUG)
 CMAKE_ARGS+=		-DWITH_GHOST_DEBUG:BOOL=ON
 .endif
-
-post-extract:
-# translations
-	@${MV} ${WRKSRC_trans}/* ${WRKSRC}/release/datafiles/locale/
-# addons
-	@${MV} ${WRKSRC_addons}/* ${WRKSRC}/release/scripts/addons/
 
 post-patch-OPENCOLORIO-on:
 	@${REINPLACE_CMD} -e 's|yaml-cpp|&03|' \
@@ -215,7 +207,8 @@ post-install-MENU-off:
 
 post-install-PLAYER-on:
 	${INSTALL_SCRIPT} ${WRKDIR}/upbgeplayer ${STAGEDIR}/${PREFIX}/bin/upbgeplayer
-	${MV} ${STAGEDIR}/${PREFIX}/bin/blenderplayer \
+	${MV} ${WRKDIR}/.build/bin/blenderplayer \
 		${STAGEDIR}/${PREFIX}/bin/upbgeplayer-bin
+	${STRIP_CMD} ${STAGEDIR}/${PREFIX}/bin/upbgeplayer-bin
 
 .include <bsd.port.mk>

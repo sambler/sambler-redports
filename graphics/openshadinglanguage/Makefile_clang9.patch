@@ -1,0 +1,15 @@
+
+
+#CHOSEN_COMPILER_TYPE=	clang
+#MYCLANGVER=	90
+#BUILD_DEPENDS+=	${LOCALBASE}/bin/clang${MYCLANGVER}:devel/llvm${MYCLANGVER}
+#CPP=	${LOCALBASE}/bin/clang-cpp${MYCLANGVER}
+#CC=	${LOCALBASE}/bin/clang${MYCLANGVER}
+#CXX=	${LOCALBASE}/bin/clang++${MYCLANGVER}
+#LD=	${LOCALBASE}/bin/ld.lld${MYCLANGVER}
+
+## Use LLVM linker where available
+#.if exists(/usr/bin/ld.lld) && (${/usr/bin/ld:L:tA} != /usr/bin/ld.lld)
+#LDFLAGS+=	-fuse-ld=lld90
+#.endif
+

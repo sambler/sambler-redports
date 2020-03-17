@@ -1,66 +1,53 @@
-# Created by: Shane Ambler <FreeBSD@Shaneware.biz>
+# Created by: David Yeske <dyeske@gmail.com>
 # $FreeBSD$
 
 PORTNAME=	yafaray
-PORTVERSION=	0.1.5
-PORTREVISION=	0
+DISTVERSIONPREFIX=	v
+DISTVERSION=	3.3.0-15
+DISTVERSIONSUFFIX=	-g67f6586
+PORTREVISION=	4
 CATEGORIES=	graphics
-MASTER_SITES=	https://github.com/YafaRay/Core/tarball/:core \
-		https://github.com/YafaRay/Blender-2.5-Exporter/tarball/:blenaddon
-DISTFILES=	${PORTVERSION}:core
-DIST_SUBDIR=	${PORTNAME}
 
-MAINTAINER=	FreeBSD@Shaneware.biz
-COMMENT=	A fast XML based raytracer
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	Montecarlo raytracing engine
 
-LICENSE=	LGPL21
+LICENSE=	GPLv2 LGPL21
+LICENSE_COMB=	dual
+LICENSE_FILE_GPLv2=	${WRKSRC}/LICENSES
+LICENSE_FILE_LGPL21=	${WRKSRC}/LICENSES
 
-BUILD_DEPENDS=	swig:devel/swig13
-LIB_DEPENDS=	libfreetype.so:print/freetype2 \
-		libIlmImf.so:graphics/OpenEXR \
+ONLY_FOR_ARCHS=	amd64
+ONLY_FOR_ARCHS_REASON=	assembly is only for amd64 and i386, but it breaks on i386: https://github.com/YafaRay/Core/issues/111
+
+LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
+		libfreetype.so:print/freetype2 \
+		libHalf.so:graphics/ilmbase \
+		libIlmImf.so:graphics/openexr \
+		libopencv_photo.so:graphics/opencv \
+		libopencv_core.so:graphics/opencv-core \
 		libpng.so:graphics/png \
-		libtiff.so:graphics/tiff \
-		libxml2.so:textproc/libxml2
+		libtiff.so:graphics/tiff
 
-FETCH_ARGS=	-pRr
-USES=		cmake:outsource jpeg
-CMAKE_VERBOSE=	yes
-CMAKE_ARGS=	-DWITH_Freetype:BOOL=ON -DWITH_OpenEXR:BOOL=ON -DWITH_JPEG:BOOL=ON \
-		-DWITH_PNG:BOOL=ON -DWITH_TIFF:BOOL=ON -DWITH_XML_LOADER:BOOL=ON \
-		-DBUILDRELEASE:BOOL=ON
-
-# uses asm that clang fails on
-USE_GCC=	yes
+USES=		cmake gnome jpeg
+USE_GITHUB=	yes
+GH_ACCOUNT=	YafaRay
+GH_PROJECT=	Core
+USE_GNOME=	libxml2
 USE_LDCONFIG=	yes
-WRKSRC=		${WRKDIR}/YafaRay-Core-ec1c0b9
 
-OPTIONS_DEFINE=	PYTHON QT_GUI BLENDER_ADDON
-OPTIONS_DEFAULT=	PYTHON QT_GUI BLENDER_ADDON
-## TODO: RUBY
+LDFLAGS=	-pthread # because build on 13 (head) was failing: ld: error: src/yafraycore/libyafaray_v3_core.so: undefined reference to pthread_create
 
-OPTIONS_SUB=		yes
-QT_GUI_DESC=		QT interface
-BLENDER_ADDON_DESC=	Install Blender Addon
+CMAKE_OFF=	WITH_YAF_PY_BINDINGS
 
-BLENDER_ADDON_DISTFILES= Blender_2.62:blenaddon
-BLENDER_ADDON_RUN_DEPENDS= blender>=2.62:graphics/blender
-BLENADDONDIR=	${WRKDIR}/YafaRay-Blender-2.5-Exporter-e8f3502
+OPTIONS_DEFINE=	DOCS QT
+OPTIONS_SUB=	yes
 
-PYTHON_CMAKE_BOOL=	WITH_YAF_PY_BINDINGS
-PYTHON_USES=		python:3.4
+QT_DESC=	Enable Qt Gui build
+QT_USES=	qt:5
+QT_CMAKE_BOOL=	WITH_QT
+QT_USE=		QT=core,gui,widgets,qmake_build,buildtools_build,qmake_build
 
-QT_GUI_CMAKE_BOOL=	WITH_QT
-QT_GUI_USES=		qt:4
-QT_GUI_USE=		QT=gui,moc_build,qmake_build,rcc_build,uic_build
-RUBY_CMAKE_ON=		-DWITH_YAF_RUBY_BINDINGS:BOOL=ON
-RUBY_CMAKE_OFF=		-DWITH_YAF_RUBY_BINDINGS:BOOL=OFF
-RUBY_USE=		USE_RUBY=yes
-
-post-install-BLENDER_ADDON-on:
-	@cd ${BLENADDONDIR} && ${COPYTREE_SHARE} . \
-		${STAGEDIR}${LOCALBASE}/share/blender/scripts/addons/yafaray/
-	@${MKDIR} ${STAGEDIR}${LOCALBASE}/share/blender/scripts/addons/yafaray/bin/
-	@cd ${STAGEDIR}${LOCALBASE}/lib && ${LN} -s libyafarayplugin.so \
-		../share/blender/scripts/addons/yafaray/bin/
+post-install:
+	@${RM} ${STAGEDIR}${DOCSDIR}/LICENSES
 
 .include <bsd.port.mk>

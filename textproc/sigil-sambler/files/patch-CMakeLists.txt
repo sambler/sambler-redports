@@ -1,0 +1,20 @@
+--- CMakeLists.txt.orig	2019-09-28 02:56:56 UTC
++++ CMakeLists.txt
+@@ -9,7 +9,7 @@
+ 
+ cmake_minimum_required( VERSION 3.0 ) 
+ 
+-project( Sigil ) 
++project( Sigil-sambler ) 
+ 
+ set( CMAKE_DEBUG_POSTFIX "d" )
+ # Avoid the whole Release/Debug folder creation with Visual Studio
+@@ -47,7 +47,7 @@ if( UNIX AND NOT APPLE )
+    # (but later on when installing)
+    SET(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
+ 
+-   SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_FULL_LIBDIR}/sigil")
++   SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_FULL_LIBDIR}/sigil-sambler")
+ 
+    # add the automatically determined parts of the RPATH
+    # which point to directories outside the build tree to the install RPATH.

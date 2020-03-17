@@ -1,0 +1,60 @@
+--- src/CMakeLists.txt.orig	2019-06-10 13:54:36 UTC
++++ src/CMakeLists.txt
+@@ -29,7 +29,7 @@ endif()
+ if ( WIN32 OR APPLE )
+     project( Sigil )
+ else()
+-    project( sigil )
++    project( sigil-sambler )
+ endif()
+ 
+ #############################################################################
+@@ -943,7 +943,7 @@ endif()
+ #
+ # You can also control the share installation location
+ #
+-#   cmake -DSHARE_INSTALL_PREFIX=/new/share/install/prefix
++#   cmake -D SHARE_INSTALL_PREFIX=/new/share/install/prefix
+ #
+ # By default, the prefix is the same as CMAKE_INSTALL_PREFIX
+ #
+@@ -959,7 +959,7 @@ if( UNIX AND NOT APPLE )
+         set ( SHARE_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX} )
+     endif()
+ 
+-    set ( SIGIL_SHARE_ROOT "${SHARE_INSTALL_PREFIX}/share/sigil" )
++    set ( SIGIL_SHARE_ROOT "${SHARE_INSTALL_PREFIX}" )
+ 
+     # Set some defines that sigil_constants.cpp can then access
+     set_property (
+@@ -997,22 +997,22 @@ if( UNIX AND NOT APPLE )
+         set( GUMBO_NAME ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libsigilgumbod.so )
+     else()
+         set( HUNSPELL_NAME ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libhunspell.so )
+-        set( GUMBO_NAME ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libsigilgumbo.so )
++        set( GUMBO_NAME ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libsigilgumbo-sambler.so )
+     endif()
+ 
+     # Standard Linux 'make install'
+-    install( TARGETS sigil DESTINATION ${CMAKE_INSTALL_LIBDIR}/sigil )
++    install( TARGETS sigil-sambler DESTINATION ${CMAKE_INSTALL_LIBDIR}/sigil-sambler )
+     install( PROGRAMS ${LINUX_LAUNCH_INSTALL_SCRIPT_CONFIGURED} DESTINATION ${CMAKE_INSTALL_BINDIR} RENAME ${PROJECT_NAME} )
+     if( NOT USE_SYSTEM_LIBS OR NOT HUNSPELL_FOUND )
+-        install( PROGRAMS ${HUNSPELL_NAME} DESTINATION ${CMAKE_INSTALL_LIBDIR}/sigil )
++        install( PROGRAMS ${HUNSPELL_NAME} DESTINATION ${CMAKE_INSTALL_LIBDIR}/sigil-sambler )
+     endif()
+-    install( PROGRAMS ${GUMBO_NAME} DESTINATION ${CMAKE_INSTALL_LIBDIR}/sigil )
++    install( PROGRAMS ${GUMBO_NAME} DESTINATION ${CMAKE_INSTALL_LIBDIR}/sigil-sambler )
+     if( BUILD_PATCHED_LIBXML2 )
+-        install( PROGRAMS ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libsigilxml2.so.2.9.4 DESTINATION ${CMAKE_INSTALL_LIBDIR}/sigil )
+-        install( FILES ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libxml2.so.2 DESTINATION ${CMAKE_INSTALL_LIBDIR}/sigil )
++        install( PROGRAMS ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libsigilxml2.so.2.9.4 DESTINATION ${CMAKE_INSTALL_LIBDIR}/sigil-sambler )
++        install( FILES ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libxml2.so.2 DESTINATION ${CMAKE_INSTALL_LIBDIR}/sigil-sambler )
+     endif()
+-    install( FILES ${LINUX_DESKTOP_FILE} DESTINATION ${SHARE_INSTALL_PREFIX}/share/applications/ )
+-    install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${SHARE_INSTALL_PREFIX}/share/pixmaps RENAME sigil.png )
++    install( FILES ${LINUX_DESKTOP_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications/ RENAME sigil-sambler.desktop)
++    install( FILES ${LINUX_DESKTOP_ICON_FILE} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/pixmaps RENAME sigil-sambler.png )
+     install( FILES ${QM_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/translations/ )
+     if ( INSTALL_BUNDLED_DICTS )
+         install( FILES ${DIC_FILES} DESTINATION ${SIGIL_SHARE_ROOT}/hunspell_dictionaries/ )

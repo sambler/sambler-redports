@@ -1,27 +1,30 @@
-# Created by: Shane Ambler <FreeBSD@Shaneware.biz>
+# Created by: Yuri Victorovich <yuri@rawbw.com>
 # $FreeBSD$
 
 PORTNAME=	stk
-PORTVERSION=	4.5.0
+PORTVERSION=	4.6.1
+PORTREVISION=	1
 CATEGORIES=	audio
 MASTER_SITES=	http://ccrma.stanford.edu/software/stk/release/
 
-MAINTAINER=	FreeBSD@Shaneware.biz
-COMMENT=	Synthesis ToolKit for audio signal processing & algorithmic synthesis
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	Synthesis ToolKit in C++
 
 LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		gmake
+LIB_DEPENDS=	libjack.so:audio/jack
+
+USES=		autoreconf compiler:c++11-lang dos2unix gmake localbase pkgconfig
+USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
-CONFIGURE_ARGS= --disable-realtime
+CONFIGURE_ARGS=	--with-jack --with-oss
+DOS2UNIX_GLOB=	*.cpp *.h
+MAKE_ARGS=	RAWWAVES=${DATADIR}/rawwaves/
 
-OPTIONS_DEFINE=		JACK ALSA
-OPTIONS_DEFAULT=	JACK ALSA
-
-JACK_CONFIGURE_WITH=	jack
-JACK_LIB_DEPENDS=	libjack.so:audio/jack
-
-ALSA_CONFIGURE_WITH=	alsa
-ALSA_LIB_DEPENDS=	libasound.so:audio/alsa-lib
+post-install:
+	@cd ${WRKSRC} && ${COPYTREE_SHARE} rawwaves ${STAGEDIR}${DATADIR}
+	@${RM} ${STAGEDIR}${DATADIR}/rawwaves/._* ${STAGEDIR}${DATADIR}/rawwaves/*.c
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libstk-${PORTVERSION}.so
 
 .include <bsd.port.mk>

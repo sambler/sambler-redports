@@ -2,29 +2,37 @@
 # $FreeBSD$
 
 PORTNAME=	hydrogen
-PORTVERSION=	0.9.7
-PORTREVISION=	1
+DISTVERSION=	1.0.0-beta1-325
+DISTVERSIONSUFFIX=	-g538eaeb9
+PORTREVISION=	2
 CATEGORIES=	audio
 
 MAINTAINER=	FreeBSD@ShaneWare.Biz
 COMMENT=	Advanced drum machine
 
-LICENSE=	GPLv2
+LICENSE=	GPLv2+
+LICENSE_FILE=	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	libsndfile.so:audio/libsndfile \
 		liblo.so:audio/liblo
 
+USES=		cmake compiler:c++11-lang desktop-file-utils pkgconfig \
+		localbase qt:5
+USE_QT=		core gui network widgets xml xmlpatterns buildtools_build \
+		linguisttools_build qmake_build
+# why doesn't this work?
+# patch CMakeLists.txt instead
+#CMAKE_ARGS+=	H2_UNIX_ICON_PATH:STRING="${LOCALBASE}/share/icons/hicolor/scalable/apps"
+USE_LDCONFIG=	yes
+INSTALLS_ICONS=	yes
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	hydrogen-music
-
-USES=		cmake compiler:c++11-lang desktop-file-utils pkgconfig qt:4
-USE_QT=		qmake_build moc_build rcc_build uic_build corelib \
-		gui network xml xmlpatterns
 
 OPTIONS_SINGLE=		EXPORT
 OPTIONS_SINGLE_EXPORT=	LIBARCHIVE LIBTAR
 OPTIONS_DEFINE=		ALSA DEBUG JACK LADSPA LASH OSS PORTAUDIO \
-			PULSEAUDIO RDF TEST
+			PULSEAUDIO RDF RUBBERBAND TEST
 OPTIONS_DEFAULT=	JACK LADSPA LIBARCHIVE OSS RDF
 
 EXPORT_DESC=		Export support for drumkit
@@ -67,6 +75,13 @@ RDF_DESC=		RDF File support
 RDF_CMAKE_BOOL=		WANT_LRDF
 RDF_CMAKE_ON=		-DLRDF_INCLUDE_DIR:STRING=${LOCALBASE}/include/raptor2
 RDF_LIB_DEPENDS=	liblrdf.so:textproc/liblrdf
+
+# using librubberband is experimental and current versions have bad timing
+# installing the rubberband cli tool still works as before
+RUBBERBAND_DESC=	librubberband for time stretching
+RUBBERBAND_CMAKE_BOOL=	WANT_RUBBERBAND
+RUBBERBAND_CMAKE_ON=	-DRUBBERBAND_INCLUDE_DIR:STRING=${LOCALBASE}/include/rubberband
+RUBBERBAND_LIB_DEPENDS=	librubberband.so:audio/rubberband
 
 TEST_CMAKE_BOOL=	WANT_CPPUNIT
 TEST_BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/cppunit.pc:devel/cppunit
