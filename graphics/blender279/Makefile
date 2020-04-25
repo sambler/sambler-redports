@@ -127,7 +127,6 @@ NLS_USES=		gettext iconv:lib,wchar_t
 NLS_LDFLAGS=		-L${LOCALBASE}/lib -lintl
 
 OPENMP_CMAKE_BOOL=	WITH_OPENMP
-OPENMP_LIB_DEPENDS=	libomp.so:devel/openmp
 
 OSD_CMAKE_BOOL=		WITH_OPENSUBDIV
 OSD_LIB_DEPENDS=	libosdCPU.so:graphics/opensubdiv
