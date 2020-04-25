@@ -85,7 +85,7 @@ SHEBANG_FILES=	release/bin/blender-thumbnailer.py \
 		doc/manpage/blender.1.py
 
 OPTIONS_DEFINE=		ALEMBIC ALEMBIC_HDF5 COLLADA CYCLES HEADLESS JACK \
-			MANPAGES NLS OPENMP OSD OSL PLAYER SECURITY
+			MANPAGES NLS OPENMP OSD PLAYER SECURITY
 OPTIONS_DEFAULT=	ALEMBIC ALEMBIC_HDF5 COLLADA CYCLES JACK NLS \
 			OPENMP OSD PLAYER SECURITY
 
@@ -98,7 +98,7 @@ HEADLESS_DESC=		Disable user interface
 JACK_DESC=		Audio support using JackAudio
 NLS_DESC=		Include translations
 OSD_DESC=		Opensubdiv support
-OSL_DESC=		OSL shading support
+#OSL_DESC=		OSL shading support
 PLAYER_DESC=		Build blender player
 SECURITY_DESC=		Disable scripts auto-run
 
@@ -132,13 +132,15 @@ OPENMP_LIB_DEPENDS=	libomp.so:devel/openmp
 OSD_CMAKE_BOOL=		WITH_OPENSUBDIV
 OSD_LIB_DEPENDS=	libosdCPU.so:graphics/opensubdiv
 
-OSL_IMPLIES=		CYCLES
-OSL_CMAKE_BOOL=		WITH_CYCLES_OSL WITH_CXX11 WITH_LLVM
-OSL_CMAKE_ON=		-DLLVM_STATIC:BOOL=OFF \
-			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config${LLVM_VER}"
-OSL_BUILD_DEPENDS=	llvm-config${LLVM_VER}:devel/llvm${LLVM_VER}
-OSL_LIB_DEPENDS=	liboslcomp.so:graphics/openshadinglanguage
-OSL_RUN_DEPENDS=	llvm-config${LLVM_VER}:devel/llvm${LLVM_VER}
+# OSL needs to be built using the same version of oiio
+#OSL_IMPLIES=		CYCLES
+#OSL_CMAKE_BOOL=		WITH_CYCLES_OSL WITH_CXX11 WITH_LLVM
+#OSL_CMAKE_ON=		-DLLVM_STATIC:BOOL=OFF \
+#			-DLLVM_CONFIG:STRING="${LOCALBASE}/bin/llvm-config${LLVM_VER}"
+#OSL_BUILD_DEPENDS=	llvm-config${LLVM_VER}:devel/llvm${LLVM_VER}
+#OSL_LIB_DEPENDS=	liboslcomp.so:graphics/openshadinglanguage
+#OSL_RUN_DEPENDS=	llvm-config${LLVM_VER}:devel/llvm${LLVM_VER}
+PLIST_SUB+=		OSL="@comment "
 
 PLAYER_CMAKE_BOOL=	WITH_PLAYER
 
