@@ -3,7 +3,7 @@
 
 PORTNAME=	blender279
 DISTVERSION=	2.79b
-PORTREVISION=	7
+PORTREVISION=	9
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
@@ -38,7 +38,7 @@ RUN_DEPENDS=	${PYNUMPY} \
 		xdg-mime:devel/xdg-utils
 
 USES=		cmake compiler:c++11-lib gl shebangfix \
-		python:3.5 desktop-file-utils openal:al,alut jpeg
+		python:3.6 desktop-file-utils openal:al,alut jpeg
 USES+=		imake:noman
 LICDIR=		${PREFIX}/share/licenses/${PKGNAME}
 VERS_TAG=	${DISTVERSION:C/[.abcd]//g}
